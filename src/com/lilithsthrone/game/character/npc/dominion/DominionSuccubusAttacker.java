@@ -127,7 +127,7 @@ public class DominionSuccubusAttacker extends NPC {
 	
 	@Override
 	public int getAppearsAsAge() {
-		return Math.max(18, this.getAge()/2);
+		return Math.max(7, this.getAge()/2);
 	}
 
 	@Override
