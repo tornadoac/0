@@ -84,37 +84,74 @@ public enum VaginaType implements BodyPartTypeInterface {
 		if(this==NONE) {
 			return "";
 		}
-		if(gc.isVaginaVirgin()) {
-			return UtilText.returnStringAtRandom(
-					"cherry",
-					"cherry",
-					"cunt",
-					"cunt",
-					"kitty",
-					"pussy",
-					"pussy",
-					"pussy",
-					"pussy",
-					"sex",
-					"slit",
-					"twat",
-					"twat",
-					(this==HORSE_MORPH?"horse-pussy":""));
-			
+		if (gc.getAge()<=12) {
+			if(gc.isVaginaVirgin()) {
+				return UtilText.returnStringAtRandom(
+						"cherry",
+						"cherry",
+						"cunny",
+						"cunny",
+						"cunny",
+						"pussy",
+						"pussy",
+						"pussy",
+						"pussy",
+						"coochie",
+						"cleft",
+						"slit",
+						(this==HORSE_MORPH?"horse-pussy":""));
+				
+			} else {
+				return UtilText.returnStringAtRandom(
+						"cunny",
+						"cunny",
+						"cunny",
+						"pussy",
+						"pussy",
+						"pussy",
+						"pussy",
+						"coochie",
+						"cleft",
+						"slit",
+						(this==HORSE_MORPH?"horse-pussy":""));
+			}
 		} else {
-			return UtilText.returnStringAtRandom(
-					"cunt",
-					"cunt",
-					"kitty",
-					"pussy",
-					"pussy",
-					"pussy",
-					"pussy",
-					"sex",
-					"slit",
-					"twat",
-					"twat",
-					(this==HORSE_MORPH?"horse-pussy":""));
+			if(gc.isVaginaVirgin()) {
+				return UtilText.returnStringAtRandom(
+						"vagina",
+						"vagina",
+						"cherry",
+						"cherry",
+						"cunt",
+						"cunt",
+						"kitty",
+						"pussy",
+						"pussy",
+						"pussy",
+						"pussy",
+						"sex",
+						"slit",
+						"twat",
+						"twat",
+						(this==HORSE_MORPH?"horse-pussy":""));
+				
+			} else {
+				return UtilText.returnStringAtRandom(
+						"vagina",
+						"vagina",
+						"cunt",
+						"cunt",
+						"kitty",
+						"pussy",
+						"pussy",
+						"pussy",
+						"pussy",
+						"sex",
+						"slit",
+						"twat",
+						"twat",
+						(this==HORSE_MORPH?"horse-pussy":""));
+			}
 		}
 	}
 	
@@ -123,44 +160,77 @@ public enum VaginaType implements BodyPartTypeInterface {
 		if(this==NONE) {
 			return "";
 		}
-		if(gc.isVaginaVirgin()) {
-			return UtilText.returnStringAtRandom(
-					"cherries",
-					"cherries",
-					"cunts",
-					"cunts",
-					"kitties",
-					"pussies",
-					"pussies",
-					"pussies",
-					"pussies",
-					"sexes",
-					"slits",
-					"twats",
-					"twats",
-					(this==HORSE_MORPH?"horse-pussies":""));
-			
+		if (gc.getAge()<=12) {
+			if(gc.isVaginaVirgin()) {
+				return UtilText.returnStringAtRandom(
+						"cherries",
+						"cherries",
+						"cunnies",
+						"cunnies",
+						"cunnies",
+						"pussies",
+						"pussies",
+						"pussies",
+						"pussies",
+						"coochies",
+						"clefts",
+						"slits",
+						(this==HORSE_MORPH?"horse-pussies":""));
+				
+			} else {
+				return UtilText.returnStringAtRandom(
+						"cunnies",
+						"cunnies",
+						"cunnies",
+						"pussies",
+						"pussies",
+						"pussies",
+						"pussies",
+						"coochies",
+						"clefts",
+						"slits",
+						(this==HORSE_MORPH?"horse-pussies":""));
+			}
 		} else {
-			return UtilText.returnStringAtRandom(
-					"cunts",
-					"cunts",
-					"kitties",
-					"pussies",
-					"pussies",
-					"pussies",
-					"pussies",
-					"sexes",
-					"slits",
-					"twats",
-					"twats",
-					(this==HORSE_MORPH?"horse-pussies":""));
+			if(gc.isVaginaVirgin()) {
+				return UtilText.returnStringAtRandom(
+						"cherries",
+						"cherries",
+						"cunts",
+						"cunts",
+						"kitties",
+						"pussies",
+						"pussies",
+						"pussies",
+						"pussies",
+						"sexes",
+						"slits",
+						"twats",
+						"twats",
+						(this==HORSE_MORPH?"horse-pussies":""));
+				
+			} else {
+				return UtilText.returnStringAtRandom(
+						"cunts",
+						"cunts",
+						"kitties",
+						"pussies",
+						"pussies",
+						"pussies",
+						"pussies",
+						"sexes",
+						"slits",
+						"twats",
+						"twats",
+						(this==HORSE_MORPH?"horse-pussies":""));
+			}
 		}
 	}
 
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		// Randomly give a type-specific, wetness, or capacity descriptor:
-		switch(Util.random.nextInt(3)){
+		switch(Util.random.nextInt(4)){
 			case 0:
 				switch(this){
 					case ANGEL:
@@ -209,8 +279,23 @@ public enum VaginaType implements BodyPartTypeInterface {
 				} else {
 					return gc.getVaginaWetness().getDescriptor();
 				}
+			case 2:
+			//come up with better method for this, I want to differentiate by experience, maybe make a new parameter "quality"
+				if (gc.getAge()<=12) {
+					return UtilText.returnStringAtRandom("childish", "immature", "undeveloped", "tiny", "little", "petite", "delicate", "tender", "small", "cute", "loli", "budding");
+				} else if(gc.getAge()<=16) {
+					return UtilText.returnStringAtRandom("girlish", "youthful", "tender");
+				} else if(gc.getAge()>30) {
+					return UtilText.returnStringAtRandom("womanly", "mature", "seasoned", "developed");
+				} else {
+					return UtilText.returnStringAtRandom("girlish", "ripe");
+				}
 			default:
-				return gc.getVaginaCapacity().getDescriptor();
+				if(gc.isVaginaVirgin()) {
+					return UtilText.returnStringAtRandom("virgin", "virginal", "untapped");
+				} else {
+					return gc.getVaginaCapacity().getDescriptor();
+				}
 		}
 		
 	}

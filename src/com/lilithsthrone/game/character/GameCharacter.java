@@ -2768,8 +2768,8 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		this.birthday = birthday;
 		
 		if(this.isPlayer()) {
-			if(this.getAge()<18) {
-				this.birthday = (this.getBirthday().minusYears(18-this.getAge()));
+			if(this.getAge()<=0) {
+				this.birthday = (this.getBirthday().minusYears(0-this.getAge()));
 				
 			} else if(this.getAge()>50) {
 				this.birthday = (this.getBirthday().plusYears(this.getAge()-50));
@@ -2782,7 +2782,7 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 	}
 	
 	public int getAge() {
-		return Math.max(18, (int) ChronoUnit.YEARS.between(birthday, Main.game.getDateNow()));
+		return Math.max(4, (int) ChronoUnit.YEARS.between(birthday, Main.game.getDateNow())); //changed Math.max, probably not a good idea; with this setup the minimum age is 1
 	}
 	
 	public Month getBirthMonth() {

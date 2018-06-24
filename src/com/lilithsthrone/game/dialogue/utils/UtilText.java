@@ -1944,6 +1944,19 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
+						"CharAge"),
+				false,
+				false,
+				"",//TODO
+				"Description of method"){//TODO
+			@Override
+			public String parse(String command, String arguments, String target) {
+				return String.valueOf(character.getAppearsAsAge());
+			}
+		});
+		
+		commandsList.add(new ParserCommand(
+				Util.newArrayListOfValues(
 						"speech",
 						"dialogue",
 						"talk",
