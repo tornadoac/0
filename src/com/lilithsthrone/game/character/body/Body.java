@@ -4716,6 +4716,8 @@ public class Body implements Serializable, XMLSaving {
 		descriptionSB.append(UtilText.generateSingularDeterminer(viewedPenis.getSize().getDescriptor())+" "+viewedPenis.getSize().getDescriptor()
 				+", "+(viewedPenis.getGirth()==PenisGirth.TWO_AVERAGE?"":viewedPenis.getGirth().getName()+", ")+(viewedPenis.getRawSizeValue()>=1?viewedPenis.getRawSizeValue()+"-inch":"sub-1-inch"));
 		
+		descriptionSB.append(" ([npc.penisCm]cm)"); //fuck imperials
+		
 		switch (viewedPenis.getType()) {
 			case HUMAN:
 				descriptionSB.append(" human cock");
@@ -5524,21 +5526,23 @@ public class Body implements Serializable, XMLSaving {
 		if (isPlayer) {
 			if(owner.getVaginaRawClitorisSizeValue()==0) {
 				descriptionSB.append(" You have [pc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures less than one inch in length.");
+						+" clit, which measures less than one inch in length");
 			} else {
 				descriptionSB.append(" You have [pc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures [pc.clitSizeInches] inch"+(owner.getVaginaRawClitorisSizeValue()==1?"":"es")+" long.");
+						+" clit, which measures [pc.clitSizeInches] inch"+(owner.getVaginaRawClitorisSizeValue()==1?"":"es")+" long");
 			}
 			
 		} else {
 			if(owner.getVaginaRawClitorisSizeValue()==0) {
 				descriptionSB.append(" [npc.She] has [npc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures less than one inch in length.");
+						+" clit, which measures less than one inch in length");
 			} else {
 				descriptionSB.append(" [npc.She] has [npc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures [npc.clitSizeInches] inch"+(owner.getVaginaRawClitorisSizeValue()==1?"":"es")+" long.");
+						+" clit, which measures [npc.clitSizeInches] inch"+(owner.getVaginaRawClitorisSizeValue()==1?"":"es")+" long");
 			}
 		}
+		
+		descriptionSB.append(" ([npc.clitSizeCm]cm)."); //fuck imperials
 		
 		for(PenetrationModifier pm : PenetrationModifier.values()) {
 			if(owner.hasClitorisModifier(pm)) {

@@ -4444,6 +4444,21 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
+						"clitSizeCm",
+						"clitorisSizeCm"),
+				true,
+				true,
+				"",
+				"Description of method",
+				BodyPartType.VAGINA){//TODO
+			@Override
+			public String parse(String command, String arguments, String target) {
+				return String.valueOf(Util.conversionInchesToCentimetres(character.getVaginaRawClitorisSizeValue()));
+			}
+		});
+
+		commandsList.add(new ParserCommand(
+				Util.newArrayListOfValues(
 						"clitGirth",
 						"clitorisGirth"),
 				true,
