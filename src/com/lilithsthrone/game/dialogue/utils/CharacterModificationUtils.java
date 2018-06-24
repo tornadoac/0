@@ -317,9 +317,53 @@ public class CharacterModificationUtils {
 							+ "You were born on the "
 								+Util.intToDate(Main.game.getPlayer().getBirthday().getDayOfMonth())
 								+" "+Main.game.getPlayer().getBirthday().getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH)
-								+", "+(Main.game.getPlayer().getBirthday().getYear())+", making you "+Util.intToString(Main.game.getPlayer().getAge())+" years old."
-						+ "</p>");
+								+", "+(Main.game.getPlayer().getBirthday().getYear())+", making you "+Util.intToString(Main.game.getPlayer().getAge())+" year"+(Main.game.getPlayer().getAppearsAsAge()<10?"":"s")+" old." + "<br>");
 
+			//copypasting this entire shit from body.java, surely there's a better method
+			if(Main.game.getPlayer().getAppearsAsAge()<=4) {
+				contentSB.append(" You appear like a <span style='color:"+Colour.AGE_LOLI.toWebHexString()+";'>toddler</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=9) {
+				contentSB.append(" You appear like a <span style='color:"+Colour.AGE_LOLI.toWebHexString()+";'>little [pc.girl]</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=14) {
+				contentSB.append(" You appear like a <span style='color:"+Colour.AGE_LOLI.toWebHexString()+";'>preteen</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<18) {
+				contentSB.append(" You appear like a <span style='color:"+Colour.AGE_TEENS.toWebHexString()+";'>teenager</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=20) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_TEENS.toWebHexString()+";'>late teens</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=23) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_TWENTIES.toWebHexString()+";'>early twenties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=27) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_TWENTIES.toWebHexString()+";'>mid-twenties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<30) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_TWENTIES.toWebHexString()+";'>late twenties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=33) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_THIRTIES.toWebHexString()+";'>early thirties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=37) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_THIRTIES.toWebHexString()+";'>mid-thirties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<40) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_THIRTIES.toWebHexString()+";'>late thirties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=43) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_FORTIES.toWebHexString()+";'>early forties</span>");
+				
+			} else if(Main.game.getPlayer().getAppearsAsAge()<=47) {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_FORTIES.toWebHexString()+";'>mid-forties</span>");
+				
+			} else {
+				contentSB.append(" You appear to be in your <span style='color:"+Colour.AGE_FORTIES.toWebHexString()+";'>late forties</span>");
+			}
+			contentSB.append(".</p>");
+								
 			contentSB.append("<div class='container-full-width' style='margin:0;padding;0;width:100%;'>");
 			
 				contentSB.append(applyDateWrapper("Day", "BIRTH_DAY", "", "", String.valueOf(Main.game.getPlayer().getBirthday().getDayOfMonth()), false, false));
@@ -328,7 +372,7 @@ public class CharacterModificationUtils {
 				
 				contentSB.append(applyDateWrapper("Age", "AGE", "", "",
 						String.valueOf(Main.game.getPlayer().getAge()),
-						Main.game.getPlayer().getAge()<=0,
+						Main.game.getPlayer().getAge()<=1,
 						Main.game.getPlayer().getAge()>=50));
 			contentSB.append("</div>");
 		

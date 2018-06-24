@@ -2769,7 +2769,7 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		
 		if(this.isPlayer()) {
 			if(this.getAge()<=0) {
-				this.birthday = (this.getBirthday().minusYears(0-this.getAge()));
+				this.birthday = (this.getBirthday().minusYears(2-this.getAge())); //still not ideal, button can glitch out when clicking -
 				
 			} else if(this.getAge()>50) {
 				this.birthday = (this.getBirthday().plusYears(this.getAge()-50));
