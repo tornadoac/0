@@ -2618,6 +2618,37 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 			case WOLF_MORPH:
 				subspeciesMap.remove(Subspecies.SLIME_WOLF);
 				break;
+			case FOX_MORPH:
+				subspeciesMap.remove(Subspecies.SLIME_FOX);
+				break;
+			case FOX_MORPH_FENNEC:
+				subspeciesMap.remove(Subspecies.SLIME_FOX_FENNEC);
+				break;
+			case FOX_ASCENDANT:
+				break;
+			case FOX_ASCENDANT_FENNEC:
+				break;
+			case CAT_MORPH_CARACAL:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_CARACAL);
+				break;
+			case CAT_MORPH_CHEETAH:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_CHEETAH);
+				break;
+			case CAT_MORPH_LEOPARD:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_LEOPARD);
+				break;
+			case CAT_MORPH_LEOPARD_SNOW:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_LEOPARD_SNOW);
+				break;
+			case CAT_MORPH_LION:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_LION);
+				break;
+			case CAT_MORPH_LYNX:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_LYNX);
+				break;
+			case CAT_MORPH_TIGER:
+				subspeciesMap.remove(Subspecies.SLIME_CAT_TIGER);
+				break;
 				
 			case SLIME:
 				break;
@@ -2639,6 +2670,15 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 			case SLIME_REINDEER:
 			case SLIME_SQUIRREL:
 			case SLIME_WOLF:
+			case SLIME_FOX:
+			case SLIME_FOX_FENNEC:
+			case SLIME_CAT_CARACAL:
+			case SLIME_CAT_CHEETAH:
+			case SLIME_CAT_LEOPARD:
+			case SLIME_CAT_LEOPARD_SNOW:
+			case SLIME_CAT_LION:
+			case SLIME_CAT_LYNX:
+			case SLIME_CAT_TIGER:
 				break;
 		}
 	}
@@ -3005,7 +3045,7 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 			case ALLIGATOR_MORPH:
 				value = 10000;
 				break;
-			case WOLF_MORPH:
+			case WOLF_MORPH: case FOX_MORPH:
 				value = 10000;
 				break;
 			case SLIME:
@@ -3558,6 +3598,7 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 			case JUNGLE:
 			case LILAYAS_HOUSE_FIRST_FLOOR:
 			case LILAYAS_HOUSE_GROUND_FLOOR:
+			case NIGHTLIFE_CLUB:
 				break;
 				
 			case ENFORCER_HQ:

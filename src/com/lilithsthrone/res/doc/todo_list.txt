@@ -34,76 +34,97 @@
 	
 	
 	
+	
 	Patch notes:
 	
-	Gameplay:
-		Finch now has a chance to stock (already-identified) enchanted items, and Roxy stocks 10 unidentified pieces of clothing. You will need to wait until they re-stock (at midnight) to see their new items for sale.
-		Added penis and foot fetishes to clothing and mystery kink enchantments.
-		Added 'appears as age' stat to characters, which is displayed in their description, along with age selection in character creation. (If you want to edit the age of your already-existing character, first save the game in this new version, then open the save file and search for/edit the 'yearOfBirth' field. The game converts any ages lower than 18 to 18.)
-		Added content option to disable ages being displayed.
-		Added tattoo selection to character creation.
-		Increased impregnation chance (formula's /4 modifier was reduced to /3).
-	
-	Contributors:
-		Fixed typos in some sex positions. (Nnxx)
-	
-	Other:
-		Moved some modded clothing/tattoo files over into new 'clothing' and 'tattoos' directories, to help distinguish between default LT files and mods that you've downloaded.
-		Slime subspecies (such as slime-cat-morphs, slime-horse-morphs, etc.) now respect your furry settings of the derived race. i.e. If you have horse-morphs disabled, no slime-horse-morphs will spawn.
-		Added description of foot structure to leg types.
-	
-	Sex AI:
-		Fixed NPCs choosing 'Doggystyle (oral)' position when they wanted to have penetrative sex.
-		Fixed some sex actions not having correctly-associated fetishes, which was causing the AI to use actions they disliked/hated.
-		Fixed issue where NPCs would continuously start penetrating then stop over and over.
-	
-	Bugs:
-		Fixed parsing error when viewing NPC with demon wings.
-		Fixed bug where ellipsis wouldn't display correctly.
-		Fixed NullPointerException issue which was sometimes occurring in sex scenes. 
-		Fixed Lilaya and Kate constantly switching positions in sex.
-		Fixed no actions being available in the chair sex scenes.
-		Fixed panty masturbation scene not working.
-		Fixed incorrect arousal gains in masturbation. (They were far too small before.)
-		Fixed error in conditional parser that was causing some sections of text to sometimes not be rendered.
-		Fixed another error in conditional parsing that was causing some dialogue to return 'Error in conditional parsing!'.
-		Fixed pregnancy roulette being broken for 'On back' positions, and for playing as one of the breeders not working.
-		Fixed bug in sex where your partner would use the 'Stop position switch' action every turn.
-		Fixed characters without a penis spawning in with the cock stud fetish.
-		Added paizuri to sixty-nine position.
-		Fixed some sex actions being incorrectly blocked (such as masturbating while giving someone a blowjob).
-		Made 'groin + mouth' actions blocked while there is any ongoing groin + area action (to stop impossible actions like receiving cunnilingus while performing paizuri in non-69 positions).
-		Fixed foot and penis fetish teases working effectively against the wrong fetish type.
-		Slave-on-slave sex events should now fire if the slaves are idle (in the same room, or with 'house freedom' permission set). Slaves will not initiate penetrative sex if their vagina is virginal.
-		Fixed cum regeneration being labelled as 'milk regeneration'.
-		For cowgirl: Added anal actions, fixed paizuri being available for the wrong person, and removed performing thigh sex on the one lying down.
-		Removed giving blowjob from doggy-style oral position.
-		Fixed slaves being able to be sent to Kate even if you hadn't encountered her.
-		Fixed bug where most characters were spawning with their penile virginity. (It's now a 15% chance for them to spawn as penile virgins.)
-		Fixed clothing type encyclopedia unlock events using custom names.
-		Naming enchanted tattoos now works correctly.
-		Fixed chair sex scenes swapping subs and doms
+Contributors:
+	Added: Fox-morphs (with Fennec, Youko, and Fennec-Youko subspecies), along with related essence, book, and TF food and drink. (Tukaima)
+	Added: Lynx, leopard, snow leopard, lion, tiger, cheetah, and caracal subspecies for cat-morphs. (Irbynx)
+
+Other:
+	Eye transformations now affect iris and pupil shape.
+	The 'Deny' action in sex is now always available (so long as you're the dom or have equal control as the sub).
+	Event log is now sorted with the most recent events at the top of the list.
+	Converted kissing actions to NPC-on-NPC format.
+
+Bugs:
+	Fixed Ralph not starting anal when you asked for big discount.
+	Fixed not being able to swap or change positions with Lilaya & Kate in their sex scenes.
+	Fixed slaves in the stocks and milking stalls using their hands, and added anal options for the 'standing behind' position.
+	Typo and parsing fixes.
+	Fixed 'Deny' sex action not working.
+	Fixed tattoos without any writing loading in as having blank 'normal grey text'.
+	Fixed the 'Age' content toggle not working.
+	Fixed blowjob not being available sometimes in sixty-nine position.
+	Fixed buttplugs not actually blocking anus.
+	Fixed NPCs choosing oral sex actions even if they hated or disliked it.
+	Fixed Lilaya and Kate sometimes continuously switching positions in their sex scenes.
+	Fixed tattoos sometimes being applied with the last letter in their writing being cut off.
+	You can now end sex when starting submissive sex with a companion.
+	Fixed case where dominant NPC would refuse to take any action in sex.
 	
 	
 	
 	
+	NullPointer somehow when managing inventory in sex (something related to Game.restoreSavedContent(Game.java:2341))
+		The problem goes away if I remove his clothes through Management: Inventory. Only doing it from clicking him then clicking his inventory directly causes the issue
 	
 	
-	 I also noticed that Amber is always the dominant partner even though you didn't chose submit and her lines are submissive but she talks like dominant one after the scene is done as well as her ending the scene in the first place after she climaxed one time
+	Add place descriptions
+	Add location actions
+	Add pickup mechanics
+	
+	Do misc. actions until approached/approach, then with that person (or 2 people) until you get rid of them or until sex
+	Club - The Watering Hole (Male lion runs it, with lionesses and zebra-girls/boys as staff)
+		Internal map: Entrance, dancefloor, bar, seating area, VIP area, toilets
+		Can: Dance, drink/loiter/flirt, use toilet (gloryhole)
+		-> Go home with him/her
+			If rough/rapist, they try to sex in alley
+			Else go home and have sex
+		-> Go into toilets (sex)
+	
+	
+	
+	Convert groping actions so threesome can interact
+	
+	Convert oral actions
+	
+	Lumi
+	
+	
+	
+	
+	
+	I think it's counting the slaves being in the stocks as having sex with me because a lot of my slaves say I've had sex with them over a hundred times, which is definately not true.
+	
+	Fix spells not doing damage from max lust
+	
+	Add crowd indication
+	
+	Exhibitionist slaves lose affection if you ask them to show themselves off for you and are pissy about it
+	
+	add in child spawns in the bat caverns 
+		
+	taunts and dirty talk similar to that in pregnancy roulette based on fetishes,
+	 for example once the npc switches what they want to fucking your pussy they could say "Im going to take that tight kitty of yours" or "Im going to breed your pussy" if they have a pregnancy fetish.
+	  in addition they could have comments on orgasm based on where they cum, if they cum inside you they could say "Going to have my pups for sure" or if they cum on your clothing or body they could taunt at you being covered in their cum
+	
+	wearing the rental t-shirts attracting NPCs in the alleys
+	
+	write in sex intros for the generic encounters
+
+	I think the 'Request X' actions in sex are bugged at the moment
+	
+	rfpnj jewellery
+	
+	I also noticed that Amber is always the dominant partner even though you didn't chose submit and her lines are submissive but she talks like dominant one after the scene is done
+	 as well as her ending the scene in the first place after she climaxed one time
 	
 	broken condom content
-	
-	Oh, I also noticed that the event log in the lower right hand corner defaults to the top of the list (oldest entry) rather than the bottom (newest entry). I dunno if this is on purpose.
-
-	
-	
-	
-	spawning with clothing revealing ass
 	
 	Add to character creation:
 		Scars
 	
-	Exhibitionist slaves lose affection if you ask them to show themselves off for you and are pissy about it
 	
 	
 	
@@ -120,13 +141,6 @@
 		children fathered
 		virility
 		body type
-		
-		
-	add in child spawns in the bat caverns 
-		
-	Fix spells not doing damage from max lust
-	
-	Add crowd indication
 	
 	
 	Sort sex actions
@@ -166,6 +180,7 @@
 	
 	
 	
+	NPCs spawning with clothing revealing ass
 	
 	Add cum stuff to TF menu
 	
@@ -239,19 +254,13 @@
 	
 	
 	
-	Need to add way to get scars. Add tattoos and scars to character creation.
+	Need to add way to get scars
 	
 	when in tattoo menu, if you then click "trade with kate", and then go back to tattoos, screen content doesn't parse
-	
-	Lilaya shouldn't scream to pull out when she's pregnant, that doesn't make sense
-	
-	Tattoos don't get renamed when you enchant them
 	
 	make DOMINION_ALLEYWAY_SPAWN, SUBMISSION_TUNNEL_SPAWN work for clothing
 	
 	Conceal tattoo slots
-	
-	Add character creation tattoos and scars
 	
 	Right panel resets when switching tattoos in slave management
 	
@@ -263,8 +272,6 @@
 	
 	We legitimately do need an option to purge non-unique npc's who aren't loaded into the game world from the save file.
 		Besides your kids, a lot of alley attackers stay in even if you give them the boot, stockades slave, brothel customers, and others.
-	
-	So, I think i found a bug. When as a slime and transforming myself the options between "eye color" and "slime color" seem to conflict with each other... For instance, when I go to change my eye color it changes the description of my skin to be "made out of (selected color here) irises!", creepy lol.
 	
 	non-fishnet thigh-high stockings
 	

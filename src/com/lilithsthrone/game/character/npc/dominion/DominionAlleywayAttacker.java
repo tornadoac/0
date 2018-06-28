@@ -93,6 +93,8 @@ public class DominionAlleywayAttacker extends NPC {
 					case HUMAN:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case ELEMENTAL_AIR:
 					case ELEMENTAL_ARCANE:
 					case ELEMENTAL_EARTH:
@@ -108,11 +110,20 @@ public class DominionAlleywayAttacker extends NPC {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CHEETAH:
+					case SLIME_CAT_CARACAL:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:
@@ -140,6 +151,27 @@ public class DominionAlleywayAttacker extends NPC {
 					case CAT_MORPH:
 						addToSubspeciesMap(canalSpecies?5:20, gender, s, availableRaces);
 						break;
+					case CAT_MORPH_LYNX:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_LEOPARD_SNOW:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_LEOPARD:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_LION:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_TIGER:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_CHEETAH:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_CARACAL:
+						addToSubspeciesMap(canalSpecies?2:5, gender, s, availableRaces);
+						break;
 					case COW_MORPH:
 						addToSubspeciesMap(canalSpecies?1:10, gender, s, availableRaces);
 						break;
@@ -151,6 +183,12 @@ public class DominionAlleywayAttacker extends NPC {
 						break;
 					case DOG_MORPH_BORDER_COLLIE:
 						addToSubspeciesMap(canalSpecies?1:4, gender, s, availableRaces);
+						break;
+					case FOX_MORPH:
+						addToSubspeciesMap(canalSpecies?1:10, gender, s, availableRaces);
+						break;
+					case FOX_MORPH_FENNEC:
+						addToSubspeciesMap(5, gender, s, availableRaces);
 						break;
 					case HORSE_MORPH:
 						addToSubspeciesMap(canalSpecies?4:16, gender, s, availableRaces);

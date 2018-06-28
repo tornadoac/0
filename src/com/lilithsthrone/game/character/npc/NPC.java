@@ -491,6 +491,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_BUBBLE_MILK));
 				case DOG_MORPH:
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.FIT_INGREDIENT_CANINE_CRUSH));
+				case FOX_MORPH:
+					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.INT_INGREDIENT_GRAPE_JUICE));
 				case HORSE_MORPH:
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.STR_INGREDIENT_EQUINE_CIDER));
 				case REINDEER_MORPH:
@@ -541,6 +543,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.BOOK_COW_MORPH));
 				case DOG_MORPH:
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.BOOK_DOG_MORPH));
+				case FOX_MORPH:
+					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.BOOK_FOX_MORPH));
 				case HORSE_MORPH:
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.BOOK_HORSE_MORPH));
 				case REINDEER_MORPH:
@@ -591,6 +595,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_COW_MORPH));
 				case DOG_MORPH:
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_DOG_MORPH));
+				case FOX_MORPH:
+					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_FOX_MORPH));
 				case HORSE_MORPH:
 					return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_HORSE_MORPH));
 				case REINDEER_MORPH:
@@ -920,6 +926,10 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				case DOG_MORPH:
 					itemType = ItemType.RACE_INGREDIENT_DOG_MORPH;
 					reaction = "Time to turn you into an excitable little "+raceName+"!";
+					break;
+				case FOX_MORPH:
+					itemType = ItemType.RACE_INGREDIENT_FOX_MORPH;
+					reaction = "Time to turn you into a cute little "+raceName+"!";
 					break;
 				case HARPY:
 					itemType = ItemType.RACE_INGREDIENT_HARPY;
@@ -2489,12 +2499,14 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		
 		// Penis:
 		if(!target.hasPenis()
-				|| !target.isAbleToAccessCoverableArea(CoverableArea.PENIS, true)) {
+				|| !target.isAbleToAccessCoverableArea(CoverableArea.PENIS, true)
+				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_PENIS_RECEIVING)) {
 			foreplaySexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaPenetration.PENIS);
 			mainSexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaPenetration.PENIS);
 		}
 		if(!this.hasPenis()
-				|| !this.isAbleToAccessCoverableArea(CoverableArea.PENIS, true)) {
+				|| !this.isAbleToAccessCoverableArea(CoverableArea.PENIS, true)
+				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_PENIS_GIVING)) {
 			foreplaySexTypes.removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaPenetration.PENIS);
 			mainSexTypes.removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaPenetration.PENIS);
 		}
@@ -2505,7 +2517,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			foreplaySexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaOrifice.VAGINA);
 			mainSexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaOrifice.VAGINA);
 		}
-		if(isKeenToPerformFetishAction(target, Fetish.FETISH_PURE_VIRGIN)
+		if(isKeenToAvoidFetishAction(target, Fetish.FETISH_PURE_VIRGIN)
 				|| !this.hasVagina()
 				|| !this.isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)
 				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_VAGINAL_RECEIVING)) {
@@ -2523,14 +2535,14 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		}
 		// Oral:
 		if(!target.isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)
-				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_ORAL_GIVING)) {
+				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_ORAL_RECEIVING)) {
 			foreplaySexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaOrifice.MOUTH);
 			mainSexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaOrifice.MOUTH);
 			foreplaySexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaPenetration.TONGUE);
 			mainSexTypes.removeIf(sexType -> sexType.getTargetedSexArea()==SexAreaPenetration.TONGUE);
 		}
 		if(!this.isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)
-				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_ORAL_RECEIVING)) {
+				|| isKeenToAvoidFetishAction(target, Fetish.FETISH_ORAL_GIVING)) {
 			foreplaySexTypes.removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaOrifice.MOUTH);
 			mainSexTypes.removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaOrifice.MOUTH);
 			foreplaySexTypes.removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaPenetration.TONGUE);

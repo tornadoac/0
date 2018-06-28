@@ -2419,6 +2419,27 @@ public class UtilText {
 			@Override
 			public String parse(String command, String arguments, String target) {
 				if(character.isFeminine()) {
+					return returnStringAtRandom("scent", "scent", "perfume");
+				} else {
+					return returnStringAtRandom("musk", "musk", "aroma");
+				}
+			}
+		});
+		
+		commandsList.add(new ParserCommand(
+				Util.newArrayListOfValues(
+						"scent+",
+						"scentD",
+						"smell+",
+						"smellD"),
+				true,
+				true,
+				"",
+				"Description of method",
+				BodyPartType.GENERIC){//TODO
+			@Override
+			public String parse(String command, String arguments, String target) {
+				if(character.isFeminine()) {
 					return returnStringAtRandom("feminine scent", "feminine perfume", "delicate scent");
 				} else {
 					return returnStringAtRandom("masculine musk", "masculine aroma");
@@ -2578,18 +2599,36 @@ public class UtilText {
 				"Description of method"){//TODO
 			@Override
 			public String parse(String command, String arguments, String target) {
-				if(character.isFeminine()) {
-					if(character.isPlayer()) {
+				if(target.startsWith("npc") && arguments==null && character.isPlayer()) {
+					return "yours";
+				} else {
+					if(character.isFeminine()) {
 						return Gender.F_V_B_FEMALE.getPossessiveAlone();
 					} else {
-						return GenderPronoun.POSSESSIVE_ALONE.getFeminine();
-					}
-				} else {
-					if(character.isPlayer()) {
 						return Gender.M_P_MALE.getPossessiveAlone();
-					} else {
-						return GenderPronoun.POSSESSIVE_ALONE.getMasculine();
 					}
+				}
+			}
+		});
+		
+		commandsList.add(new ParserCommand(
+				Util.newArrayListOfValues(
+						"nameHers",
+						"nameHersHis",
+						"nameHisHers"),
+				true,
+				true,
+				"",
+				"Description of method"){//TODO
+			@Override
+			public String parse(String command, String arguments, String target) {
+				if(target.startsWith("npc") && arguments==null && character.isPlayer()) {
+					return "yours";
+				} else {
+					if(character.isPlayerKnowsName()) {
+						return character.getName() + "'s";
+					}
+					return character.getName("the") + "'s";
 				}
 			}
 		});

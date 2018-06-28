@@ -73,6 +73,8 @@ public class GenericSexualPartner extends NPC {
 					case DEMON:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case ELEMENTAL_AIR:
 					case ELEMENTAL_ARCANE:
 					case ELEMENTAL_EARTH:
@@ -88,11 +90,20 @@ public class GenericSexualPartner extends NPC {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CARACAL:
+					case SLIME_CAT_CHEETAH:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:
@@ -133,6 +144,27 @@ public class GenericSexualPartner extends NPC {
 					case CAT_MORPH:
 						addToSubspeciesMap(25, gender, s, availableRaces);
 						break;
+					case CAT_MORPH_LEOPARD:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_LEOPARD_SNOW:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_LION:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_TIGER:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_LYNX:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_CHEETAH:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case CAT_MORPH_CARACAL:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
 					case COW_MORPH:
 						addToSubspeciesMap(15, gender, s, availableRaces);
 						break;
@@ -143,6 +175,12 @@ public class GenericSexualPartner extends NPC {
 						addToSubspeciesMap(5, gender, s, availableRaces);
 						break;
 					case DOG_MORPH_BORDER_COLLIE:
+						addToSubspeciesMap(5, gender, s, availableRaces);
+						break;
+					case FOX_MORPH:
+						addToSubspeciesMap(10, gender, s, availableRaces);
+						break;
+					case FOX_MORPH_FENNEC:
 						addToSubspeciesMap(5, gender, s, availableRaces);
 						break;
 					case HORSE_MORPH:

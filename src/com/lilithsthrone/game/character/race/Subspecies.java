@@ -14,19 +14,24 @@ import com.lilithsthrone.game.character.body.Covering;
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
 import com.lilithsthrone.game.character.body.types.EarType;
 import com.lilithsthrone.game.character.body.types.LegType;
+import com.lilithsthrone.game.character.body.types.FaceType;
+import com.lilithsthrone.game.character.body.types.HairType;
 import com.lilithsthrone.game.character.body.types.PenisType;
 import com.lilithsthrone.game.character.body.types.TailType;
 import com.lilithsthrone.game.character.body.valueEnums.BodyMaterial;
+import com.lilithsthrone.game.character.body.valueEnums.BodySize;
 import com.lilithsthrone.game.character.body.valueEnums.CoveringModifier;
 import com.lilithsthrone.game.character.body.valueEnums.CoveringPattern;
+import com.lilithsthrone.game.character.body.valueEnums.CupSize;
 import com.lilithsthrone.game.character.body.valueEnums.Height;
+import com.lilithsthrone.game.character.body.valueEnums.Muscle;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
 
 /**
  * @since 0.1.91
- * @version 0.2.6
+ * @version 0.2.7
  * @author tukaima, Innoxia
  */
 public enum Subspecies {
@@ -164,7 +169,7 @@ public enum Subspecies {
 			"A typical bipedal cow-morph.",
 			Util.newArrayListOfValues(WorldType.DOMINION)),
 	
-	// CANINES:
+	// CANIDS:
 	DOG_MORPH("statusEffects/raceDogMorph",
 			"dog-morph",
 			"dog-morphs",
@@ -272,14 +277,141 @@ public enum Subspecies {
 		}
 	},
 	
-	//FOX_MORPH(Race.FOX_MORPH.getName(), Race.FOX_MORPH, RacialBody.FOX_MORPH, SubspeciesPreference.FIVE_ABUNDANT,
-	//		"A typical bipedal "+Race.FOX_MORPH.getName()),
-	// Kitsune have a separate racialbody than normal foxes but for subspecies preference purposes they should probably be considered the same as FOX_MORPH.
-	// Just refer to the preferences for FOX_MORPH when building RacialSelectors instead of the preferences for KITSUNE.
-	//FOX_TAILED("Pipefox", Race.FOX_MORPH, RacialBody.FOX_MORPH, SubspeciesPreference.TWO_LOW,
-	//		"A "+Race.FOX_MORPH.getName()+" with a serpentine lower body, devoid of legs"),
-	//FOX_TAUR("Yegan", Race.FOX_MORPH, RacialBody.FOX_MORPH, SubspeciesPreference.TWO_LOW,
-	//		"A "+Race.FOX_MORPH.getName()+" with a bestial lower body that walks on four legs"),
+	FOX_MORPH("statusEffects/raceFoxMorph",
+			"fox-morph",
+			"fox-morphs",
+			"fox-boy",
+			"fox-girl",
+			"fox-boys",
+			"fox-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_FOX_MORPH,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A typical bipedal fox-morph.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Subspecies.applyFoxColoring(body);
+		}
+	},
+	
+	FOX_MORPH_FENNEC("statusEffects/raceFoxMorph",
+			"fennec-morph",
+			"fennec-morphs",
+			"fennec-boy",
+			"fennec-girl",
+			"fennec-boys",
+			"fennec-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_FOX_MORPH,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A bipedal fox-morph with tan or bleach blonde fur and distinctive large ears.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour fennecColour = Colour.COVERING_BLEACH_BLONDE;
+			double rand = Math.random();
+			if(rand<0.5f) {
+				fennecColour = Colour.COVERING_DIRTY_BLONDE;
+			}
+			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HUMAN, new Covering(BodyCoveringType.HUMAN, CoveringPattern.NONE, Colour.SKIN_OLIVE, false, Colour.SKIN_OLIVE, false));
+			body.updateCoverings(true, true, true, true);
+			if(body.getEar().getType()==EarType.FOX_MORPH) {
+				body.getEar().setType(null, EarType.FOX_MORPH_BIG);
+			}
+		}
+	},
+	
+	FOX_ASCENDANT("statusEffects/raceFoxMorph",
+			"youko",
+			"youkos",
+			"youko-boy",
+			"youko-girl",
+			"youko-boys",
+			"youko-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_FOX_MORPH,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A fox-morph, empowered by the gifts of a Lilin.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Subspecies.applyFoxColoring(body);
+			if(body.getTail().getType()==TailType.FOX_MORPH) {
+				body.getTail().setType(null, TailType.FOX_MORPH_MAGIC);
+			}
+		}
+	},
+	
+	FOX_ASCENDANT_FENNEC("statusEffects/raceFoxMorph",
+			"fennec-youko-morph",
+			"fennec-youko-morphs",
+			"fennec-youko-boy",
+			"fennec-youko-girl",
+			"fennec-youko-boys",
+			"fennec-youko-girls",
+			Race.FOX_MORPH,
+			Colour.RACE_FOX_MORPH,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A fennec-morph, empowered by the gifts of a Lilin.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour fennecColour = Colour.COVERING_BLEACH_BLONDE;
+			double rand = Math.random();
+			if(rand<0.5f) {
+				fennecColour = Colour.COVERING_DIRTY_BLONDE;
+			}
+			body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, CoveringPattern.NONE, fennecColour, false, fennecColour, false));
+			body.getCoverings().put(BodyCoveringType.HUMAN, new Covering(BodyCoveringType.HUMAN, CoveringPattern.NONE, Colour.SKIN_OLIVE, false, Colour.SKIN_OLIVE, false));
+			body.updateCoverings(true, true, true, true);
+			if(body.getEar().getType()==EarType.FOX_MORPH) {
+				body.getEar().setType(null, EarType.FOX_MORPH_BIG);
+			}
+			if(body.getTail().getType()==TailType.FOX_MORPH) {
+				body.getTail().setType(null, TailType.FOX_MORPH_MAGIC);
+			}
+		}
+	},
+	
+//	FOX_TAILED("statusEffects/raceFoxMorph",
+//			"pipefox",
+//			"pipefoxes",
+//			"pipefox-boy",
+//			"pipefox-girl",
+//			"pipefox-boys",
+//			"pipefox-girls",
+//			Race.FOX_MORPH,
+//			Colour.RACE_FOX_MORPH,
+//			SubspeciesPreference.FOUR_ABUNDANT,
+//			"A fox-morph with a serpentine lower body, devoid of legs.",
+//			Util.newArrayListOfValues(WorldType.DOMINION)) {
+//		@Override
+//		public void applySpeciesChanges(Body body) {
+//			//apply fox coloring
+//		}
+//	},
+	
+//	FOX_TAUR("statusEffects/raceFoxMorph",
+//			"yegan",
+//			"yegans",
+//			"yegan-boy",
+//			"yegan-girl",
+//			"yegan-boys",
+//			"yegan-girls",
+//			Race.FOX_MORPH,
+//			Colour.RACE_FOX_MORPH,
+//			SubspeciesPreference.FOUR_ABUNDANT,
+//			"A fox-morph a bestial lower body that walks on four legs.",
+//			Util.newArrayListOfValues(WorldType.DOMINION)) {
+//		@Override
+//		public void applySpeciesChanges(Body body) {
+//			//apply fox coloring
+//		}
+//	},
 
 	// FELINES:
 	CAT_MORPH("statusEffects/raceCatMorph",
@@ -293,7 +425,240 @@ public enum Subspecies {
 			Colour.RACE_CAT_MORPH,
 			SubspeciesPreference.FOUR_ABUNDANT,
 			"A typical bipedal cat-morph.",
-			Util.newArrayListOfValues(WorldType.DOMINION)),
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			// TODO Auto-generated method stub
+			
+		}
+	},
+	
+	//TODO
+	CAT_MORPH_LYNX("statusEffects/raceCatMorphLynx",
+			"lynx-morph",
+			"lynx-morphs",
+			"lynx",
+			"lynx",
+			"lynxes",
+			"lynxes",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_LYNX,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised lynx. To be identified as a Lynx-morph, a character must be a cat-morph that has fluffy fur, tufted ears, short tail and side-fluff hair type.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour primaryColor = Colour.COVERING_BROWN;
+			double rand = Math.random();
+			if(rand<0.3f) {
+				primaryColor = Colour.COVERING_TAN;
+			} else if(rand<0.6f) {
+				primaryColor = Colour.COVERING_BROWN_DARK;
+			}
+			body.getCoverings().put(BodyCoveringType.FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.SPOTTED, CoveringModifier.FLUFFY, primaryColor, false, Colour.COVERING_BLACK, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, primaryColor, false, Colour.COVERING_BLACK, false));
+			body.updateCoverings(true, true, true, true);
+			body.getEar().setType(null, EarType.CAT_MORPH_TUFTED);
+			body.getTail().setType(null, TailType.CAT_MORPH_SHORT);
+			body.getHair().setType(null, HairType.CAT_MORPH_SIDEFLUFF);
+		}
+	},
+	
+	CAT_MORPH_LEOPARD_SNOW("statusEffects/raceCatMorphLeopardSnow",
+			"snow leopard-morph",
+			"snow leopard-morphs",
+			"snow leopard",
+			"snow leopard",
+			"snow leopards",
+			"snow leopards",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_LEOPARD_SNOW,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised snow leopard. To be identified as a snow leopard-morph, a character must be a cat-morph that has fluffy spotted fur, normal tail and panther face.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour primaryColor = Colour.COVERING_WHITE;
+			Colour secondaryColor = Colour.COVERING_BLACK;
+			double rand = Math.random();
+			if(rand<0.3f) {
+				primaryColor = Colour.COVERING_WHITE;
+			} else if(rand<0.6f) {
+				primaryColor = Colour.COVERING_GREY;
+			} else if(rand<0.65f) {
+				primaryColor = Colour.COVERING_BLACK;
+			}
+			body.getCoverings().put(BodyCoveringType.FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.SPOTTED, CoveringModifier.FLUFFY, primaryColor, false, secondaryColor, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, primaryColor, false, secondaryColor, false));
+			body.updateCoverings(true, true, true, true);
+			body.getFace().setType(null, FaceType.CAT_MORPH_PANTHER);
+			body.getTail().setType(null, TailType.CAT_MORPH);
+			
+			body.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
+			body.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
+		}
+	},
+	
+	CAT_MORPH_LEOPARD("statusEffects/raceCatMorphLeopard",
+			"leopard-morph",
+			"leopard-morphs",
+			"leopard",
+			"leopard",
+			"leopard",
+			"leopard",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_LEOPARD,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised leopard. To be identified as a leopard-morph, a character must be a cat-morph that has short spotted fur, normal tail and panther face.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour primaryColor = Colour.COVERING_ORANGE;
+			Colour secondaryColor = Colour.COVERING_BLACK;
+			double rand = Math.random();
+			if(rand<0.05f) {
+				primaryColor = Colour.COVERING_BLACK;
+			}
+			body.getCoverings().put(BodyCoveringType.FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.SPOTTED, CoveringModifier.SHORT, primaryColor, false, secondaryColor, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, primaryColor, false, secondaryColor, false));
+			body.updateCoverings(true, true, true, true);
+			body.getFace().setType(null, FaceType.CAT_MORPH_PANTHER);
+			body.getTail().setType(null, TailType.CAT_MORPH);
+			
+			body.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
+			body.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
+		}
+	},
+	
+	CAT_MORPH_LION("statusEffects/raceCatMorphLion",
+			"lion-morph",
+			"lion-morphs",
+			"lion",
+			"lion",
+			"lions",
+			"lions",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_LION,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised lion. To be identified as a lion-morph, a character must be a cat-morph that has short fur, tufted tail and panther face.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour primaryColor = Colour.COVERING_TAN;
+			Colour secondaryColor = Colour.COVERING_BLACK;
+			double rand = Math.random();
+			if(rand<0.05f) {
+				primaryColor = Colour.COVERING_BLACK;
+			}
+			else if(rand<0.1f) {
+				primaryColor = Colour.COVERING_WHITE;
+			}
+			body.getCoverings().put(BodyCoveringType.FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, CoveringModifier.SHORT, primaryColor, false, secondaryColor, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, primaryColor, false, secondaryColor, false));
+			body.updateCoverings(true, true, true, true);
+			body.getFace().setType(null, FaceType.CAT_MORPH_PANTHER);
+			body.getTail().setType(null, TailType.CAT_MORPH_TUFTED);
+			
+			body.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
+			body.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
+		}
+	},
+	
+	CAT_MORPH_TIGER("statusEffects/raceCatMorphTiger",
+			"tiger-morph",
+			"tiger-morphs",
+			"tiger",
+			"tiger",
+			"tigers",
+			"tigers",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_TIGER,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised tuger. To be identified as a tiger-morph, a character must be a cat-morph that has striped fur, normal tail and panther face.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour primaryColor = Colour.COVERING_ORANGE;
+			Colour secondaryColor = Colour.COVERING_BLACK;
+			double rand = Math.random();
+			if(rand<0.05f) {
+				primaryColor = Colour.COVERING_BLACK;
+			}
+			else if(rand<0.10f) {
+				primaryColor = Colour.COVERING_WHITE;
+			}
+			body.getCoverings().put(BodyCoveringType.FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.STRIPED, CoveringModifier.SHORT, primaryColor, false, secondaryColor, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, primaryColor, false, secondaryColor, false));
+			body.updateCoverings(true, true, true, true);
+			body.getFace().setType(null, FaceType.CAT_MORPH_PANTHER);
+			body.getTail().setType(null, TailType.CAT_MORPH);
+			
+			body.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
+			body.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
+		}
+	},
+	
+	CAT_MORPH_CHEETAH("statusEffects/raceCatMorphCheetah",
+			"cheetah-morph",
+			"cheetah-morphs",
+			"cheetah",
+			"cheetah",
+			"cheetahs",
+			"cheetahs",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_CHEETAH,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised cheetah. To be identified as a cheetah-morph, a character must be a cat-morph that has short, spotted fur and not identified as other feline morphs.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			Colour primaryColor = Colour.COVERING_ORANGE;
+			double rand = Math.random();
+			if(rand<0.35f) {
+				primaryColor = Colour.COVERING_TAN;
+			}
+			Colour secondaryColor = Colour.COVERING_BLACK;
+			body.getCoverings().put(BodyCoveringType.FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.SPOTTED, CoveringModifier.SHORT, primaryColor, false, secondaryColor, false));
+			body.getCoverings().put(BodyCoveringType.HAIR_FELINE_FUR, new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, primaryColor, false, secondaryColor, false));
+			body.updateCoverings(true, true, true, true);
+			body.getTail().setType(null, TailType.CAT_MORPH);
+			
+			// Body size adjustment
+			rand = Math.random();
+			if(rand<0.35f) {
+				body.getBreast().setSize(null, CupSize.B.getMeasurement());
+			}
+			else if(rand<0.70f)
+			{
+				body.getBreast().setSize(null, CupSize.A.getMeasurement());
+			}
+			else
+			{
+				body.getBreast().setSize(null, CupSize.AA.getMeasurement());
+			}
+			
+			body.setBodySize(BodySize.ZERO_SKINNY.getMedianValue());
+			body.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
+		}
+	},
+	
+	CAT_MORPH_CARACAL("statusEffects/raceCatMorphCaracal",
+			"caracal-morph",
+			"caracal-morphs",
+			"caracal",
+			"caracal",
+			"caracals",
+			"caracals",
+			Race.CAT_MORPH,
+			Colour.RACE_CAT_MORPH_CARACAL,
+			SubspeciesPreference.TWO_AVERAGE,
+			"A cat-morph which resembles an anthropomorphised caracal. To be identified as a caracal-morph, a character must be a cat-morph with tufted ears.",
+			Util.newArrayListOfValues(WorldType.DOMINION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.getEar().setType(null, EarType.CAT_MORPH_TUFTED);
+		}
+	},
 
 	// EQUINES:
 	HORSE_MORPH("statusEffects/raceHorseMorph",
@@ -562,6 +927,46 @@ public enum Subspecies {
 			body.setBodyMaterial(BodyMaterial.SLIME);
 		}
 	},
+	SLIME_FOX("statusEffects/raceSlime",
+			"fox-slime",
+			"fox-slimes",
+			"fox-slime-boy",
+			"fox-slime-girl",
+			"fox-slime-boys",
+			"fox-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a fox-morph.",
+			Util.newArrayListOfValues(
+					WorldType.SUBMISSION,
+					WorldType.BAT_CAVERNS)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+//			body = CharacterUtils.generateBody(body.getGender(), Subspecies.DOG_MORPH, RaceStage.PARTIAL);
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	SLIME_FOX_FENNEC("statusEffects/raceSlime",
+			"fennec-slime",
+			"fennec-slimes",
+			"fennec-slime-boy",
+			"fennec-slime-girl",
+			"fennec-slime-boys",
+			"fennec-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a fennec-morph.",
+			Util.newArrayListOfValues(
+					WorldType.SUBMISSION,
+					WorldType.BAT_CAVERNS)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+//			body = CharacterUtils.generateBody(body.getGender(), Subspecies.DOG_MORPH, RaceStage.PARTIAL);
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
 	SLIME_WOLF("statusEffects/raceSlime",
 			"wolf-slime",
 			"wolf-slimes",
@@ -779,6 +1184,132 @@ public enum Subspecies {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			CharacterUtils.reassignBody(body, body.getGender(), RacialBody.HARPY, Subspecies.HARPY_RAVEN, RaceStage.GREATER);
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_LYNX("statusEffects/raceSlime",
+			"lynx-slime",
+			"lynx-slimes",
+			"lynx-slime-boy",
+			"lynx-slime-girl",
+			"lynx-slime-boys",
+			"lynx-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a lynx-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_LEOPARD_SNOW("statusEffects/raceSlime",
+			"snow leopard-slime",
+			"snow leopard-slimes",
+			"snow leopard-slime-boy",
+			"snow leopard-slime-girl",
+			"snow leopard-slime-boys",
+			"snow leopard-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a snow leopard-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_LEOPARD("statusEffects/raceSlime",
+			"leopard-slime",
+			"leopard-slimes",
+			"leopard-slime-boy",
+			"leopard-slime-girl",
+			"leopard-slime-boys",
+			"leopard-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a leopard-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_LION("statusEffects/raceSlime",
+			"lion-slime",
+			"lion-slimes",
+			"lion-slime-boy",
+			"lion-slime-girl",
+			"lion-slime-boys",
+			"lion-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a lion-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_TIGER("statusEffects/raceSlime",
+			"tiger-slime",
+			"tiger-slimes",
+			"tiger-slime-boy",
+			"tiger-slime-girl",
+			"tiger-slime-boys",
+			"tiger-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a lion-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_CHEETAH("statusEffects/raceSlime",
+			"cheetah-slime",
+			"cheetah-slimes",
+			"cheetah-slime-boy",
+			"cheetah-slime-girl",
+			"cheetah-slime-boys",
+			"cheetah-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a cheetah-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
+			body.setBodyMaterial(BodyMaterial.SLIME);
+		}
+	},
+	
+	SLIME_CAT_CARACAL("statusEffects/raceSlime",
+			"caracal-slime",
+			"caracal-slimes",
+			"caracal-slime-boy",
+			"caracal-slime-girl",
+			"caracal-slime-boys",
+			"caracal-slime-girls",
+			Race.SLIME,
+			Colour.RACE_SLIME,
+			SubspeciesPreference.FOUR_ABUNDANT,
+			"A slime that's taken on the form of a caracal-morph.",
+			Util.newArrayListOfValues(WorldType.SUBMISSION)) {
+		@Override
+		public void applySpeciesChanges(Body body) {
 			body.setBodyMaterial(BodyMaterial.SLIME);
 		}
 	},
@@ -1136,6 +1667,8 @@ public enum Subspecies {
 				return Subspecies.DEMON;
 			case DOG_MORPH:
 				return Subspecies.DOG_MORPH;
+			case FOX_MORPH:
+				return Subspecies.FOX_MORPH;
 			case HARPY:
 				return Subspecies.HARPY;
 			case HORSE_MORPH:
@@ -1201,6 +1734,47 @@ public enum Subspecies {
 				break;
 			case CAT_MORPH:
 				subspecies = Subspecies.CAT_MORPH;
+				if(body.getHair().getType() == HairType.CAT_MORPH_SIDEFLUFF
+						&& body.getEar().getType()==EarType.CAT_MORPH_TUFTED
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getModifier() == CoveringModifier.FLUFFY
+						&& body.getTail().getType()==TailType.CAT_MORPH_SHORT
+						) {
+						subspecies = Subspecies.CAT_MORPH_LYNX;
+					}
+				else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getPattern() == CoveringPattern.SPOTTED
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getModifier() == CoveringModifier.FLUFFY
+						&& body.getTail().getType()==TailType.CAT_MORPH
+						) {
+						subspecies = Subspecies.CAT_MORPH_LEOPARD_SNOW;
+					}
+				else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getPattern() == CoveringPattern.SPOTTED
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getModifier() == CoveringModifier.SHORT
+						&& body.getTail().getType()==TailType.CAT_MORPH
+						) {
+						subspecies = Subspecies.CAT_MORPH_LEOPARD;
+					}
+				else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getModifier() == CoveringModifier.SHORT
+						&& body.getTail().getType()==TailType.CAT_MORPH_TUFTED
+						) {
+						subspecies = Subspecies.CAT_MORPH_LION;
+					}
+				else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getPattern() == CoveringPattern.STRIPED
+						&& body.getTail().getType()==TailType.CAT_MORPH
+						) {
+						subspecies = Subspecies.CAT_MORPH_TIGER;
+					}
+				else if(body.getCoverings().get(BodyCoveringType.FELINE_FUR).getPattern() == CoveringPattern.SPOTTED
+						&& body.getCoverings().get(BodyCoveringType.FELINE_FUR).getModifier() == CoveringModifier.SHORT
+						) {
+						subspecies = Subspecies.CAT_MORPH_CHEETAH;
+					}
+				else if(body.getEar().getType()==EarType.CAT_MORPH_TUFTED) {
+						subspecies = Subspecies.CAT_MORPH_CARACAL;
+					}
 				break;
 			case COW_MORPH:
 				subspecies = Subspecies.COW_MORPH;
@@ -1221,7 +1795,7 @@ public enum Subspecies {
 				break;
 			case DOG_MORPH:
 				subspecies = Subspecies.DOG_MORPH;
-				
+			
 				if(body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPrimaryColour()==Colour.COVERING_BLACK
 					&& (body.getCoverings().get(BodyCoveringType.CANINE_FUR).getSecondaryColour()==Colour.COVERING_BROWN
 							|| body.getCoverings().get(BodyCoveringType.CANINE_FUR).getSecondaryColour()==Colour.COVERING_BROWN_DARK
@@ -1231,7 +1805,7 @@ public enum Subspecies {
 					) {
 					subspecies = Subspecies.DOG_MORPH_DOBERMANN;
 				}
-				
+			
 				if(body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPrimaryColour()==Colour.COVERING_BLACK
 						&& body.getCoverings().get(BodyCoveringType.CANINE_FUR).getSecondaryColour()==Colour.COVERING_WHITE
 						&& body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPattern() == CoveringPattern.MARKED
@@ -1245,6 +1819,22 @@ public enum Subspecies {
 				subspecies = Subspecies.HARPY;
 				if(body.getCoverings().get(BodyCoveringType.FEATHERS).getPrimaryColour()==Colour.FEATHERS_BLACK) {
 					subspecies = Subspecies.HARPY_RAVEN;
+				}
+				break;
+			case FOX_MORPH:
+				subspecies = Subspecies.FOX_MORPH;
+				Covering fox_fur = body.getCoverings().get(BodyCoveringType.FOX_FUR);
+				List<Colour> fennecColours = Util.newArrayListOfValues(Colour.COVERING_BLEACH_BLONDE, Colour.COVERING_TAN);
+				
+				if (fennecColours.contains(fox_fur.getPrimaryColour())
+						&& (fennecColours.contains(fox_fur.getSecondaryColour()) || fox_fur.getPattern()==CoveringPattern.NONE)
+						&& (body.getEar().getType()==EarType.FOX_MORPH_BIG)) {
+					subspecies = body.getTail().getType() == TailType.FOX_MORPH_MAGIC
+							?Subspecies.FOX_ASCENDANT_FENNEC
+							: Subspecies.FOX_MORPH_FENNEC;
+					
+				} else if (body.getTail().getType() == TailType.FOX_MORPH_MAGIC) {
+					subspecies = Subspecies.FOX_ASCENDANT;
 				}
 				break;
 			case HORSE_MORPH:
@@ -1289,6 +1879,36 @@ public enum Subspecies {
 						break;
 					case CAT_MORPH:
 						subspecies = Subspecies.SLIME_CAT;
+						if(body.getHair().getType() == HairType.CAT_MORPH_SIDEFLUFF
+								&& body.getCoverings().get(BodyCoveringType.SLIME).getPattern() == CoveringPattern.SPOTTED
+								&& body.getEar().getType()==EarType.CAT_MORPH_TUFTED
+								&& body.getTail().getType()==TailType.CAT_MORPH_SHORT
+								) {
+								subspecies = Subspecies.SLIME_CAT_LYNX;
+							}
+						else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+								&& body.getCoverings().get(BodyCoveringType.SLIME).getPattern() == CoveringPattern.SPOTTED
+								&& body.getTail().getType()==TailType.CAT_MORPH
+								) {
+								subspecies = Subspecies.SLIME_CAT_LEOPARD;
+							}
+						else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+								&& body.getTail().getType()==TailType.CAT_MORPH_TUFTED
+								) {
+								subspecies = Subspecies.SLIME_CAT_LION;
+							}
+						else if(body.getFace().getType() == FaceType.CAT_MORPH_PANTHER
+								&& body.getCoverings().get(BodyCoveringType.SLIME).getPattern() == CoveringPattern.STRIPED
+								&& body.getTail().getType()==TailType.CAT_MORPH
+								) {
+								subspecies = Subspecies.SLIME_CAT_TIGER;
+							}
+						else if(body.getCoverings().get(BodyCoveringType.SLIME).getPattern() == CoveringPattern.SPOTTED	) {
+								subspecies = Subspecies.SLIME_CAT_CHEETAH;
+							}
+						else if(body.getEar().getType()==EarType.CAT_MORPH_TUFTED) {
+								subspecies = Subspecies.SLIME_CAT_CARACAL;
+							}
 						break;
 					case COW_MORPH:
 						subspecies = Subspecies.SLIME_COW;
@@ -1308,7 +1928,7 @@ public enum Subspecies {
 										|| body.getCoverings().get(BodyCoveringType.SLIME).getSecondaryColour()==Colour.SLIME_TAN)
 								&& body.getCoverings().get(BodyCoveringType.SLIME).getPattern() == CoveringPattern.MARKED) {
 							subspecies = Subspecies.SLIME_DOG_DOBERMANN;
-							
+						
 						} else if(body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPrimaryColour()==Colour.SLIME_BLACK
 								&& (body.getCoverings().get(BodyCoveringType.CANINE_FUR).getSecondaryColour()==Colour.SLIME_WHITE)
 								&& body.getCoverings().get(BodyCoveringType.CANINE_FUR).getPattern() == CoveringPattern.MARKED
@@ -1356,6 +1976,9 @@ public enum Subspecies {
 					case WOLF_MORPH:
 						subspecies = Subspecies.SLIME_WOLF;
 						break;
+					case FOX_MORPH:
+						subspecies = Subspecies.SLIME_FOX;
+						break;
 				}
 				break;
 			case RABBIT_MORPH:
@@ -1367,6 +1990,66 @@ public enum Subspecies {
 		}
 		
 		return subspecies;
+	}
+	
+	private static void applyFoxColoring(Body body) {
+		Colour c1 = body.getCoverings().get(BodyCoveringType.FOX_FUR).getPrimaryColour();
+		Colour c2 = Colour.COVERING_WHITE;
+		CoveringPattern pat = CoveringPattern.MARKED;
+		double rand = Math.random();
+		
+		switch (c1) {
+			case COVERING_BROWN:
+				if(rand<0.5f) {
+					c2 = Colour.COVERING_BROWN;
+					pat = CoveringPattern.NONE;
+				} else {
+					c2 = Colour.COVERING_TAN;
+				}
+				break;
+			case COVERING_BROWN_DARK:
+				if(rand<0.5f) {
+					c2 = Colour.COVERING_BROWN_DARK;
+					pat = CoveringPattern.NONE;
+				} else {
+					c2 = Colour.COVERING_BROWN;
+				}
+				break;
+			case COVERING_BLONDE:
+			case COVERING_GINGER:
+			default:
+				// Set primary color to GINGER if we have a color that otherwise wouldn't be in this switch statement.
+				if(c1 != Colour.COVERING_BLONDE) {c1 = Colour.COVERING_GINGER;}
+				if(rand<0.025f) {
+					c2 = Colour.COVERING_BLACK;
+				} else if(rand<0.05f) {
+					c2 = Colour.COVERING_BROWN;
+				} else if(rand<0.5f) {
+					c2 = Colour.COVERING_GREY;
+				}
+				break;
+			case COVERING_SILVER:
+			case COVERING_GREY:
+				if(rand<0.5f) {
+					c2 = c1;
+					pat = CoveringPattern.NONE;
+				}
+				break;
+			case COVERING_BLACK:
+				if(rand<0.5f) {
+					c2 = Colour.COVERING_BLACK;
+					pat = CoveringPattern.NONE;
+				} else {
+					c2 = Colour.COVERING_GREY;
+				}
+				break;
+			case COVERING_TAN:
+			case COVERING_WHITE:
+				c2 = c1;
+				pat = CoveringPattern.NONE;
+				break;
+		}
+		body.getCoverings().put(BodyCoveringType.FOX_FUR, new Covering(BodyCoveringType.FOX_FUR, pat, c1, false, c2, false));
 	}
 	
 	public Subspecies getOffspringSubspecies() {

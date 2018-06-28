@@ -1,6 +1,7 @@
 package com.lilithsthrone.game.sex.sexActions.universal;
 
 import com.lilithsthrone.game.character.attributes.CorruptionLevel;
+import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.sex.ArousalIncrease;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexFlags;
@@ -32,7 +33,8 @@ public class ChairSex {
 		public boolean isBaseRequirementsMet() {
 			return Sex.isPositionChangingAllowed(Sex.getCharacterPerformingAction())
 					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()) != SexPositionSlot.CHAIR_KNEELING
-					&& Sex.isDom(Sex.getCharacterPerformingAction());
+					&& (Sex.getCharacterPerformingAction().isPlayer()
+							|| (((NPC) Sex.getCharacterPerformingAction()).getSexPositionPreferences().contains(SexPositionSlot.CHAIR_KNEELING) || Sex.getActivePartner().getSexPositionPreferences().isEmpty()));
 		}
 		
 		@Override
@@ -80,7 +82,8 @@ public class ChairSex {
 		public boolean isBaseRequirementsMet() {
 			return Sex.isPositionChangingAllowed(Sex.getCharacterPerformingAction())
 					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()) != SexPositionSlot.CHAIR_ORAL_SITTING
-					&& Sex.isDom(Sex.getCharacterPerformingAction());
+					&& (Sex.getCharacterPerformingAction().isPlayer()
+							|| (((NPC) Sex.getCharacterPerformingAction()).getSexPositionPreferences().contains(SexPositionSlot.CHAIR_ORAL_SITTING) || Sex.getActivePartner().getSexPositionPreferences().isEmpty()));
 		}
 		
 		@Override
@@ -129,7 +132,8 @@ public class ChairSex {
 		public boolean isBaseRequirementsMet() {
 			return Sex.isPositionChangingAllowed(Sex.getCharacterPerformingAction())
 					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()) != SexPositionSlot.CHAIR_BOTTOM
-					&& Sex.isDom(Sex.getCharacterPerformingAction());
+					&& (Sex.getCharacterPerformingAction().isPlayer()
+							|| (((NPC) Sex.getCharacterPerformingAction()).getSexPositionPreferences().contains(SexPositionSlot.CHAIR_BOTTOM) || Sex.getActivePartner().getSexPositionPreferences().isEmpty()));
 		}
 		
 		@Override
@@ -178,7 +182,8 @@ public class ChairSex {
 		public boolean isBaseRequirementsMet() {
 			return Sex.isPositionChangingAllowed(Sex.getCharacterPerformingAction())
 					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()) != SexPositionSlot.CHAIR_TOP
-					&& Sex.isDom(Sex.getCharacterPerformingAction());
+					&& (Sex.getCharacterPerformingAction().isPlayer()
+							|| (((NPC) Sex.getCharacterPerformingAction()).getSexPositionPreferences().contains(SexPositionSlot.CHAIR_TOP) || Sex.getActivePartner().getSexPositionPreferences().isEmpty()));
 		}
 		
 		@Override

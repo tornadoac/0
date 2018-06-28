@@ -1280,7 +1280,7 @@ public enum Sex {
 							if(sexActionPartner.getLimitation()==null
 									&& sexActionPartner!=SexActionUtility.CLOTHING_REMOVAL
 									&& sexActionPartner!=SexActionUtility.CLOTHING_DYE) {
-								s = UtilText.parse(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(sexActionPlayer), sexSB.toString());
+								s = UtilText.parse(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(sexActionPartner), sexSB.toString());
 							} else {
 								s = UtilText.parse(character, sexSB.toString());
 							}
@@ -1355,10 +1355,10 @@ public enum Sex {
 			availableSexActionsPlayer.add(SexActionUtility.PLAYER_NONE);
 			availableSexActionsPlayer.add(SexActionUtility.PLAYER_CALM_DOWN);
 
-			if(Main.game.getPlayer().hasFetish(Fetish.FETISH_DENIAL)) {
-				if(isConsensual() || isDom(Main.game.getPlayer()))
-					availableSexActionsPlayer.add(SexActionUtility.DENIAL_FETISH_DENY);
-			}
+//			if(Main.game.getPlayer().hasFetish(Fetish.FETISH_DENIAL)) {
+//				if(isConsensual() || isDom(Main.game.getPlayer()))
+//					availableSexActionsPlayer.add(SexActionUtility.DENIAL_FETISH_DENY);
+//			}
 
 			// Add actions:
 			for (SexActionInterface sexAction : Sex.getActionsAvailablePlayer()) {
@@ -1500,7 +1500,9 @@ public enum Sex {
 						boolean dislikedAction = false;
 						if(sexAction.getFetishes(activePartner)!=null) {
 							for(Fetish f : sexAction.getFetishes(activePartner)) {
-								if(activePartner.getFetishDesire(f)==FetishDesire.ONE_DISLIKE || activePartner.getFetishDesire(f)==FetishDesire.ZERO_HATE) {
+								if(f!=Fetish.FETISH_EXHIBITIONIST // Do not include exhibitionist, as otherwise NPC will never do anything in public sex.
+										&& (activePartner.getFetishDesire(f)==FetishDesire.ONE_DISLIKE
+											|| activePartner.getFetishDesire(f)==FetishDesire.ZERO_HATE)) {
 									lowPriority.add(sexAction);
 									dislikedAction = true;
 									break;
@@ -1557,7 +1559,9 @@ public enum Sex {
 						boolean dislikedAction = false;
 						if(sexAction.getFetishes(activePartner)!=null) {
 							for(Fetish f : sexAction.getFetishes(activePartner)) {
-								if(activePartner.getFetishDesire(f)==FetishDesire.ONE_DISLIKE || activePartner.getFetishDesire(f)==FetishDesire.ZERO_HATE) {
+								if(f!=Fetish.FETISH_EXHIBITIONIST // Do not include exhibitionist, as otherwise NPC will never do anything in public sex.
+										&& (activePartner.getFetishDesire(f)==FetishDesire.ONE_DISLIKE
+											|| activePartner.getFetishDesire(f)==FetishDesire.ZERO_HATE)) {
 									lowPriority.add(sexAction);
 									dislikedAction = true;
 									break;
@@ -1612,9 +1616,9 @@ public enum Sex {
 					if(// Do not add action if the partner is resisting and this action is SUB_EAGER or SUB_NORMAL or is a self action
 						(Main.game.isNonConEnabled()
 							&& getSexPace(activePartner)==SexPace.SUB_RESISTING
-							&& ((sexAction.getSexPace(Sex.getActivePartner())!=null && sexAction.getSexPace(Sex.getActivePartner())!=SexPace.SUB_RESISTING) || sexAction.getParticipantType()==SexParticipantType.SELF))
+							&& ((sexAction.getSexPace()!=null && sexAction.getSexPace()!=SexPace.SUB_RESISTING) || sexAction.getParticipantType()==SexParticipantType.SELF))
 						// Do not add action if action does not correspond to the partner's preferred action pace
-						|| (sexAction.getSexPace(Sex.getActivePartner())!=null && getSexPace(activePartner)!=sexAction.getSexPace(Sex.getActivePartner()))) {
+						|| (sexAction.getSexPace()!=null && getSexPace(activePartner)!=sexAction.getSexPace())) {
 						
 						
 					} else {
@@ -1622,11 +1626,12 @@ public enum Sex {
 						boolean dislikedAction = false;
 						if(sexAction.getFetishes(activePartner)!=null) {
 							for(Fetish f : sexAction.getFetishes(activePartner)) {
-								if(f!=Fetish.FETISH_NON_CON_SUB) {
-									if(activePartner.getFetishDesire(f)==FetishDesire.ONE_DISLIKE || activePartner.getFetishDesire(f)==FetishDesire.ZERO_HATE) {
-										dislikedAction = true;
-										break;
-									}
+								if(f!=Fetish.FETISH_NON_CON_SUB
+										&& f!=Fetish.FETISH_EXHIBITIONIST // Do not include exhibitionist, as otherwise NPC will never do anything in public sex.
+										&& (activePartner.getFetishDesire(f)==FetishDesire.ONE_DISLIKE
+											|| activePartner.getFetishDesire(f)==FetishDesire.ZERO_HATE)) {
+									dislikedAction = true;
+									break;
 								}
 							}
 						}
@@ -1695,12 +1700,14 @@ public enum Sex {
 		if(!Sex.isMasturbation()) {
 			arousalIncrements.put(targetCharacter, sexAction.getArousalGainTarget().getArousalIncreaseValue());
 		}
+		
 		// Base lust gains are based on arousal gains:
 		if(Sex.getSexPace(activeCharacter)==SexPace.SUB_RESISTING) {
 			lustIncrements.put(activeCharacter, -2.5f);
 		} else {
 			lustIncrements.put(activeCharacter, Math.min(2.5f, Math.max(-2.5f, sexAction.getArousalGainSelf().getArousalIncreaseValue())));
 		}
+		
 		if(Sex.getSexPace(targetCharacter)==SexPace.SUB_RESISTING) {
 			lustIncrements.put(targetCharacter, -2.5f);
 		} else {
@@ -1722,7 +1729,7 @@ public enum Sex {
 		}
 
 		// Arousal increments for related fetishes:
-		if(sexAction.getFetishes(activeCharacter)!=null && sexAction.getSexPace(activeCharacter)!=SexPace.SUB_RESISTING) {
+		if(sexAction.getFetishes(activeCharacter)!=null && sexAction.getSexPace()!=SexPace.SUB_RESISTING) {
 			for(Fetish f : sexAction.getFetishes(activeCharacter)) {
 				if(activeCharacter.hasFetish(f)) {
 					arousalIncrements.put(activeCharacter, arousalIncrements.get(activeCharacter) + activeCharacter.getFetishLevel(f).getBonusArousalIncrease());
@@ -1736,7 +1743,7 @@ public enum Sex {
 		}
 
 		// Arousal increments for this target's related fetishes:
-		if(sexAction.getFetishesForTargetedPartner(activeCharacter)!=null && sexAction.getSexPace(targetCharacter)!=SexPace.SUB_RESISTING) {
+		if(sexAction.getFetishesForTargetedPartner(activeCharacter)!=null && Sex.getSexPace(targetCharacter)!=SexPace.SUB_RESISTING) {
 			for(Fetish f : sexAction.getFetishesForTargetedPartner(activeCharacter)) {
 				if(targetCharacter.hasFetish(f)) {
 					arousalIncrements.put(targetCharacter, arousalIncrements.get(targetCharacter) + targetCharacter.getFetishLevel(f).getBonusArousalIncrease());
@@ -1761,6 +1768,13 @@ public enum Sex {
 			} else {
 				entry.getKey().incrementLust(entry.getValue());
 			}
+		}
+		
+		if(sexAction.getArousalGainSelf().getArousalIncreaseValue()<0) {
+			arousalIncrements.put(activeCharacter, sexAction.getArousalGainSelf().getArousalIncreaseValue());
+		}
+		if(!Sex.isMasturbation() && sexAction.getArousalGainTarget().getArousalIncreaseValue()<0) {
+			arousalIncrements.put(targetCharacter, sexAction.getArousalGainTarget().getArousalIncreaseValue());
 		}
 		
 		// Modify arousal value based on lust:

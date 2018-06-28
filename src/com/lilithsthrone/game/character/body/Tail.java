@@ -124,29 +124,41 @@ public class Tail implements BodyPartInterface, Serializable {
 							+ "[npc.Name] now has [style.boldTfGeneric(no tail)]");
 				}
 				break;
-			case CAT_MORPH:
+			case CAT_MORPH: case CAT_MORPH_SHORT: case CAT_MORPH_TUFTED:
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
-								?" A furry, cat-like tail sprouts from just above your ass, rapidly growing in size until it's almost as long as one of your legs."
-									+ " You quickly realise that you have a decent amount of control over it, and you can twist it almost anywhere you please."
-									+ "<br/>"
+								?" A furry, cat-like tail sprouts from just above your ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until it's almost as long as one of your legs.")
+									+(type==TailType.CAT_MORPH_SHORT
+										?""
+										: " You quickly realise that you have a decent amount of control over it, and you can twist it almost anywhere you please.")
+									+(type==TailType.CAT_MORPH_TUFTED
+										?" At the end of the tail there is a bunch of fur giving it a tuft."
+										:"")
+									+ "</br>"
 									+ "You now have a [style.boldCatMorph(cat-like tail)]"
-								:" [pc.TailCount] furry, cat-like tails sprout from just above your ass, rapidly growing in size until they're each almost as long as one of your legs."
-									+ " You quickly realise that you have a decent amount of control over them, and you can twist them almost anywhere you please."
-									+ "<br/>"
+								:" [pc.TailCount] furry, cat-like tails sprout from just above your ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until they're each almost as long as one of your legs.")
+									+(type==TailType.CAT_MORPH_SHORT
+										?""
+										: " You quickly realise that you have a decent amount of control over them, and you can twist them almost anywhere you please.")
+									+(type==TailType.CAT_MORPH_TUFTED
+										?" At the end of the tails there is a bunch of fur giving it a tuft."
+										:"")
+									+ "</br>"
 									+ "You now have [pc.tailCount] [style.boldCatMorph(cat-like tails)]")
 							);
 				} else {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
-								?" A furry, cat-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's almost as long as one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over it, and can twist it almost anywhere [npc.she] pleases."
-									+ "<br/>"
+								?" A furry, cat-like tail sprouts from just above [npc.her] ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until it's almost as long as one of [npc.her] legs.")
+									+(type==TailType.CAT_MORPH_SHORT?"": " [npc.She] quickly realises that [npc.she] has a decent amount of control over it, and can twist it almost anywhere [npc.she] pleases.")
+									+(type==TailType.CAT_MORPH_TUFTED?" At the end of the tail there is a bunch of fur giving it a tuft.":"")
+									+ "</br>"
 									+ "[npc.Name] now has a [style.boldCatMorph(cat-like tail)]"
-								:" [npc.TailCount] furry, cat-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each almost as long as one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over them, and can twist them almost anywhere [npc.she] pleases."
-									+ "<br/>"
+								:" [npc.TailCount] furry, cat-like tails sprout from just above [npc.her] ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until they're each almost as long as one of [npc.her] legs.")
+									+(type==TailType.CAT_MORPH_SHORT?"":  " [npc.She] quickly realises that [npc.she] has a decent amount of control over them, and can twist them almost anywhere [npc.she] pleases.")
+									+(type==TailType.CAT_MORPH_TUFTED?" At the end of the tails there is a bunch of fur giving it a tuft.":"")
+									+ "</br>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldCatMorph(cat-like tails)]")
 							);
 				}
@@ -261,6 +273,66 @@ public class Tail implements BodyPartInterface, Serializable {
 									+ " [npc.She] quickly realises that [npc.she] has little control over them, and they wag with a mind of their own whenever [npc.she] gets excited."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldDogMorph("+(type==TailType.DOG_MORPH_STUBBY?"stubby, ":"")+"dog-like tails)]")
+							);
+				}
+				break;
+			case FOX_MORPH:
+				if (owner.isPlayer()) {
+					UtilText.transformationContentSB.append(
+							(owner.getTailCount()==1
+								?" A bushy, fox-like tail sprouts from just above your ass, rapidly growing in size until it's about half the length of one of your legs."
+									+ " You quickly realise that you have a decent amount of control over it, and it retains heat more easily than other kinds of tails."
+									+ "</br>"
+									+ "You now have a [style.boldFoxMorph(fox-like tail)]"
+								:" [pc.TailCount] bushy, fox-like tails sprout from just above your ass, rapidly growing in size until they're each about half the length of one of your legs."
+									+ " You quickly realise that you have a decent amount of control over them, and they retain heat more easily than other kinds of tails."
+									+ "</br>"
+									+ "You now have [pc.tailCount] [style.boldFoxMorph(fox-like tails)]")
+							);
+				} else {
+					UtilText.transformationContentSB.append(
+							(owner.getTailCount()==1
+								?" A bushy, fox-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's about half the length of one of [npc.her] legs."
+									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over it, and it retains heat more easily than other kinds of tails."
+									+ "</br>"
+									+ "[npc.Name] now has a [style.boldFoxMorph(fox-like tail)]"
+								:" [npc.TailCount] bushy, fox-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about half the length of one of [npc.her] legs."
+									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over them, and they retain heat more easily than other kinds of tails."
+									+ "</br>"
+									+ "[npc.Name] now has [npc.tailCount] [style.boldFoxMorph(fox-like tails)]")
+							);
+				}
+				break;
+			case FOX_MORPH_MAGIC:
+				if (owner.isPlayer()) {
+					UtilText.transformationContentSB.append(
+							(owner.getTailCount()==1
+								?" A bushy, fox-like tail sprouts from just above your ass, rapidly growing in size until it's about half the length of one of your legs."
+									+ " Your tail quickly becomes wreathed in an arcane fire, almost as if to display your unusual magic ability."
+									+ "</br>"
+									+ "You now have a [style.boldFoxMorph(fox-like tail)]"
+									+ "</br>"
+									+ "<i>Magic fox tails (and the ability to increase their number) will eventually be removed from transformation potions.</i>"
+								:" [pc.TailCount] bushy, fox-like tails sprout from just above your ass, rapidly growing in size until they're each about half the length of one of your legs."
+									+ " Your tails quickly become wreathed in an arcane fire, almost as if to display your unusual magic ability."
+									+ "</br>"
+									+ "<i>Magic fox tails (and the ability to increase their number) will eventually be removed from transformation potions.</i>")
+							);
+				} else {
+					UtilText.transformationContentSB.append(
+							(owner.getTailCount()==1
+								?" A bushy, fox-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's about half the length of one of [npc.her] legs."
+									+ " [npc.She] tail quickly becomes wreathed in an arcane fire, almost as if to display the owner's unusual magic ability."
+									+ "</br>"
+									+ "[npc.Name] now has a [style.boldFoxMorph(arcane fox-like tail)]\n"
+									+ "</br>" 
+									+ "<i>Magic fox tails (and the ability to increase their number) will eventually be removed from transformation potions.</i>"
+								:" [npc.TailCount] bushy, fox-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about half the length of one of [npc.her] legs."
+									+ " [npc.HerHis] tails quickly becomes wreathed in an arcane fire, almost as if to display the owner's unusual magic ability."
+									+ "</br>"
+									+ "[npc.Name] now has [npc.tailCount] [style.boldFoxMorph(arcane fox-like tails)]"
+									+ "</br>"
+									+ "<i>Magic fox tails (and the ability to increase their number) will eventually be removed from transformation potions.</i>")
 							);
 				}
 				break;

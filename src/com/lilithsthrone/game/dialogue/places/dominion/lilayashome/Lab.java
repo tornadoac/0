@@ -28,7 +28,7 @@ import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.sex.SexPositionSlot;
-import com.lilithsthrone.game.sex.managers.dominion.lilaya.SMChairLilaya;
+import com.lilithsthrone.game.sex.managers.universal.SMChair;
 import com.lilithsthrone.game.sex.managers.universal.SMStanding;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
@@ -39,7 +39,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.75
- * @version 0.2.5
+ * @version 0.2.8
  * @author Innoxia
  */
 public class Lab {
@@ -401,7 +401,7 @@ public class Lab {
 								"Let Lilaya run her \"tests\" on you.",
 								Util.newArrayListOfValues(Fetish.FETISH_INCEST), null, CorruptionLevel.FOUR_LUSTFUL, null, null, null,
 								true, true,
-								new SMChairLilaya(
+								new SMChair(
 										Util.newHashMapOfValues(new Value<>(Main.game.getLilaya(), SexPositionSlot.CHAIR_TOP)),
 										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_BOTTOM))),
 								Lilaya.AUNT_END_SEX,
@@ -429,7 +429,7 @@ public class Lab {
 								null,
 								CorruptionLevel.FOUR_LUSTFUL, null, null, null,
 								true, true,
-								new SMChairLilaya(
+								new SMChair(
 										Util.newHashMapOfValues(new Value<>(Main.game.getLilaya(), SexPositionSlot.CHAIR_TOP)),
 										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_BOTTOM))),
 								Lilaya.AUNT_END_SEX,
@@ -1849,7 +1849,7 @@ public class Lab {
 						null,
 						CorruptionLevel.FOUR_LUSTFUL, null, null, null,
 						true, true,
-						new SMChairLilaya(
+						new SMChair(
 								Util.newHashMapOfValues(new Value<>(Main.game.getLilaya(), SexPositionSlot.CHAIR_TOP)),
 								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_BOTTOM))),
 						Lilaya.AUNT_END_SEX,
@@ -2094,7 +2094,7 @@ public class Lab {
 						"You know that this can only end one way. Although Lilaya reminds you of your aunt Lily, you always did have a crush on her...", Util.newArrayListOfValues(Fetish.FETISH_INCEST),
 						null, CorruptionLevel.FOUR_LUSTFUL, null, null, null,
 						true, true,
-						new SMChairLilaya(
+						new SMChair(
 								Util.newHashMapOfValues(new Value<>(Main.game.getLilaya(), SexPositionSlot.CHAIR_TOP)),
 								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_BOTTOM))),
 						Lilaya.AUNT_END_SEX,
@@ -3191,7 +3191,16 @@ public class Lab {
 						litterSB.append(" radiant");
 						break;
 					case CAT_MORPH:
+					case CAT_MORPH_LYNX:
+					case CAT_MORPH_CARACAL:
+					case CAT_MORPH_CHEETAH:
 						litterSB.append(" good-looking");
+						break;
+					case CAT_MORPH_LEOPARD_SNOW:
+					case CAT_MORPH_LEOPARD:
+					case CAT_MORPH_TIGER:
+					case CAT_MORPH_LION:
+						litterSB.append(" strong");
 						break;
 					case COW_MORPH:
 						litterSB.append(" strong");
@@ -3204,6 +3213,10 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 						litterSB.append(" mischievous");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3229,11 +3242,20 @@ public class Lab {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CHEETAH:
+					case SLIME_CAT_CARACAL:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:
@@ -3278,7 +3300,16 @@ public class Lab {
 						litterSB.append(" radiant");
 						break;
 					case CAT_MORPH:
+					case CAT_MORPH_LYNX:
+					case CAT_MORPH_CARACAL:
+					case CAT_MORPH_CHEETAH:
 						litterSB.append(" good-looking");
+						break;
+					case CAT_MORPH_LEOPARD_SNOW:
+					case CAT_MORPH_LEOPARD:
+					case CAT_MORPH_TIGER:
+					case CAT_MORPH_LION:
+						litterSB.append(" strong");
 						break;
 					case COW_MORPH:
 						litterSB.append(" strong");
@@ -3291,6 +3322,10 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 						litterSB.append(" mischievous");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3316,11 +3351,20 @@ public class Lab {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CHEETAH:
+					case SLIME_CAT_CARACAL:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:
@@ -3365,7 +3409,16 @@ public class Lab {
 						litterSB.append(" radiant");
 						break;
 					case CAT_MORPH:
+					case CAT_MORPH_LYNX:
+					case CAT_MORPH_CARACAL:
+					case CAT_MORPH_CHEETAH:
 						litterSB.append(" pretty");
+						break;
+					case CAT_MORPH_LEOPARD_SNOW:
+					case CAT_MORPH_LEOPARD:
+					case CAT_MORPH_TIGER:
+					case CAT_MORPH_LION:
+						litterSB.append(" strong");
 						break;
 					case COW_MORPH:
 						litterSB.append(" docile");
@@ -3378,6 +3431,10 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 						litterSB.append(" cheeky");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3403,11 +3460,20 @@ public class Lab {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CHEETAH:
+					case SLIME_CAT_CARACAL:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:
@@ -3452,7 +3518,16 @@ public class Lab {
 						litterSB.append(" radiant");
 						break;
 					case CAT_MORPH:
+					case CAT_MORPH_LYNX:
+					case CAT_MORPH_CARACAL:
+					case CAT_MORPH_CHEETAH:
 						litterSB.append(" pretty");
+						break;
+					case CAT_MORPH_LEOPARD_SNOW:
+					case CAT_MORPH_LEOPARD:
+					case CAT_MORPH_TIGER:
+					case CAT_MORPH_LION:
+						litterSB.append(" strong");
 						break;
 					case COW_MORPH:
 						litterSB.append(" docile");
@@ -3465,6 +3540,10 @@ public class Lab {
 					case ELEMENTAL_WATER:
 					case IMP:
 					case IMP_ALPHA:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 						litterSB.append(" cheeky");
 						break;
 					case DOG_MORPH: case DOG_MORPH_DOBERMANN: case DOG_MORPH_BORDER_COLLIE:
@@ -3490,11 +3569,20 @@ public class Lab {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CHEETAH:
+					case SLIME_CAT_CARACAL:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:

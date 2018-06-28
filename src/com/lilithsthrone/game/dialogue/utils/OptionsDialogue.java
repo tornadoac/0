@@ -1327,11 +1327,20 @@ public class OptionsDialogue {
 					case SLIME_ALLIGATOR:
 					case SLIME_ANGEL:
 					case SLIME_CAT:
+					case SLIME_CAT_LYNX:
+					case SLIME_CAT_LEOPARD_SNOW:
+					case SLIME_CAT_LEOPARD:
+					case SLIME_CAT_LION:
+					case SLIME_CAT_TIGER:
+					case SLIME_CAT_CHEETAH:
+					case SLIME_CAT_CARACAL:
 					case SLIME_COW:
 					case SLIME_DEMON:
 					case SLIME_DOG:
 					case SLIME_DOG_DOBERMANN:
 					case SLIME_DOG_BORDER_COLLIE:
+					case SLIME_FOX:
+					case SLIME_FOX_FENNEC:
 					case SLIME_HARPY:
 					case SLIME_HARPY_RAVEN:
 					case SLIME_HORSE:
@@ -1345,12 +1354,23 @@ public class OptionsDialogue {
 						break;
 					case ALLIGATOR_MORPH:
 					case CAT_MORPH:
+					case CAT_MORPH_LYNX:
+					case CAT_MORPH_LEOPARD_SNOW:
+					case CAT_MORPH_LEOPARD:
+					case CAT_MORPH_LION:
+					case CAT_MORPH_TIGER:
+					case CAT_MORPH_CHEETAH:
+					case CAT_MORPH_CARACAL:
 					case COW_MORPH:
 					case HORSE_MORPH:
 					case HORSE_MORPH_ZEBRA:
 					case REINDEER_MORPH:
 					case SQUIRREL_MORPH:
 					case WOLF_MORPH:
+					case FOX_MORPH:
+					case FOX_MORPH_FENNEC:
+					case FOX_ASCENDANT:
+					case FOX_ASCENDANT_FENNEC:
 					case DOG_MORPH:
 					case DOG_MORPH_DOBERMANN:
 					case DOG_MORPH_BORDER_COLLIE:
@@ -1860,8 +1880,10 @@ public class OptionsDialogue {
 					+ "<b style='color:#21bfc5;'>Irbynx</b></br>"
 					+ "<b style='color:#21bfc5;'>Nnxx</b></br>"
 					+ "<b style='color:#21bfc5;'>Norin</b></br>"
+					+ "<b style='color:#21bfc5;'>Phlarx</b></br>"
 					+ "<b style='color:#21bfc5;'>Pimgd</b></br>"
-					+ "<b style='color:#21bfc5;'>Rfpnj</b></br>");
+					+ "<b style='color:#21bfc5;'>Rfpnj</b></br>"
+					+ "<b style='color:#21bfc5;'>Tukaima</b></br>");
 			
 			UtilText.nodeContentSB.append("<br/>"
 						+ "Special thanks to:<br/>"

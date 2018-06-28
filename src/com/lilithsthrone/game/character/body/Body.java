@@ -345,6 +345,8 @@ public class Body implements Serializable, XMLSaving {
 			case ELEMENTAL_FIRE:
 			case ELEMENTAL_WATER:
 				break; // Doesn't matter what is passed in here, as getCovering will catch whatever BodyCoveringType the body is made up of.
+			case FOX_MORPH:
+				return BodyCoveringType.BODY_HAIR_FOX_FUR;
 		}
 		return BodyCoveringType.BODY_HAIR_HUMAN;
 	}
@@ -1659,11 +1661,17 @@ public class Body implements Serializable, XMLSaving {
 			case DOG_MORPH:
 				sb.append(", anthropomorphic dog-like face, complete with a canine muzzle.");
 				break;
+			case FOX_MORPH:
+				sb.append(", anthropomorphic fox-like face, complete with a vulpine muzzle.");
+				break;
 			case LYCAN:
 				sb.append(", anthropomorphic wolf-like face, complete with a lupine muzzle.");
 				break;
 			case CAT_MORPH:
 				sb.append(", anthropomorphic cat-like face, with a cute little feline muzzle.");
+				break;
+			case CAT_MORPH_PANTHER:
+				sb.append(", anthropomorphic cat-like face, with a strong toothy feline muzzle, big nose and a strong jawline.");
 				break;
 			case ALLIGATOR_MORPH:
 				sb.append(", anthropomorphic alligator-like face, with a long flat muzzle.");
@@ -1692,6 +1700,16 @@ public class Body implements Serializable, XMLSaving {
 			case HARPY:
 				sb.append(", anthropomorphic bird-like face, complete with beak.");
 				break;
+		}
+		
+		// Lynx side fluff
+		if(hair.getType() == HairType.CAT_MORPH_SIDEFLUFF)
+		{
+			if (owner.isPlayer()) {
+				sb.append(" On the sides of your face you have some soft, fuzzy fur.");
+			} else {
+				sb.append(" On the sides of [npc.her] face [npc.she] has some soft, fuzzy fur.");
+			}
 		}
 
 		if(owner.getBlusher().getPrimaryColour()!=Colour.COVERING_NONE) {
@@ -1734,10 +1752,16 @@ public class Body implements Serializable, XMLSaving {
 				case DOG_MORPH:
 					sb.append(", fur-like hair");
 					break;
+				case FOX_MORPH:
+					sb.append(", fur-like hair");
+					break;
 				case LYCAN:
 					sb.append(", fur-like hair");
 					break;
 				case CAT_MORPH:
+					sb.append(", fur-like hair");
+					break;
+				case CAT_MORPH_SIDEFLUFF:
 					sb.append(", fur-like hair");
 					break;
 				case COW_MORPH:
@@ -1950,6 +1974,9 @@ public class Body implements Serializable, XMLSaving {
 			case DOG_MORPH:
 				sb.append(" dog-like eyes");
 				break;
+			case FOX_MORPH:
+				sb.append(" fox-like eyes");
+				break;
 			case ALLIGATOR_MORPH:
 				sb.append(" reptilian eyes");
 				break;
@@ -2080,6 +2107,18 @@ public class Body implements Serializable, XMLSaving {
 				else
 					sb.append(" [npc.She] has a pair of folded, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
+			case FOX_MORPH:
+				if (owner.isPlayer())
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are positioned high up on your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+				else
+					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
+				break;
+			case FOX_MORPH_BIG:
+				if (owner.isPlayer())
+					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are nearly as large as the rest of your head and are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+				else
+					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears, which are nearly as large as the rest of [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
+				break;	
 			case LYCAN:
 				if (owner.isPlayer())
 					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, wolf-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
@@ -2091,6 +2130,12 @@ public class Body implements Serializable, XMLSaving {
 					sb.append(" You have a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
 				else
 					sb.append(" [npc.She] has a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
+				break;
+			case CAT_MORPH_TUFTED:
+				if (owner.isPlayer())
+					sb.append(" You have a pair of tufted "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on your head and are are "+getCoveredInDescriptor(owner)+" [pc.earFullDescription(true)].");
+				else
+					sb.append(" [npc.She] has a pair of tufted "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears, which are positioned high up on [npc.her] head and are "+getCoveredInDescriptor(owner)+" [npc.earFullDescription(true)].");
 				break;
 			case COW_MORPH:
 				if (owner.isPlayer())
@@ -2849,6 +2894,14 @@ public class Body implements Serializable, XMLSaving {
 					sb.append("[npc.She] has "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [npc.armFullDescription(true)]."
 								+ " [npc.Her] hands are formed into anthropomorphic, dog-like hands, complete with little blunt claws and leathery pads.");
 				break;
+			case FOX_MORPH:
+				if (owner.isPlayer())
+					sb.append("You have "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [pc.armFullDescription(true)]."
+								+ " Your hands are formed into anthropomorphic, wolf-like hands, complete with sharp claws and tough leathery pads.");
+				else
+					sb.append("[npc.She] has "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [npc.armFullDescription(true)]."
+							+ " [npc.Her] hands are formed into anthropomorphic, wolf-like hands, complete with sharp claws and tough leathery pads.");
+				break;
 			case ALLIGATOR_MORPH:
 				if (owner.isPlayer())
 					sb.append("You have "+armDeterminer+" arms, which are "+getCoveredInDescriptor(owner)+" [pc.armFullDescription(true)]."
@@ -3126,6 +3179,14 @@ public class Body implements Serializable, XMLSaving {
 					sb.append("[npc.Her] legs are "+getCoveredInDescriptor(owner)+" [npc.legFullDescription(true)],"
 							+ " and [npc.her] feet are formed into anthropomorphic dog-like paws, complete with little blunt claws and leathery pads.");
 				break;
+			case FOX_MORPH:
+				if (owner.isPlayer())
+					sb.append("Your legs are "+getCoveredInDescriptor(owner)+" [pc.legFullDescription(true)],"
+							+ " and your feet are formed into anthropomorphic wolf-like paws, complete with sharp claws and tough leathery pads.");
+				else
+					sb.append("[npc.Her] legs are "+getCoveredInDescriptor(owner)+" [npc.legFullDescription(true)],"
+							+ " and [npc.her] feet are formed into anthropomorphic wolf-like paws, complete with sharp claws and tough leathery pads.");
+				break;
 			case LYCAN:
 				if (owner.isPlayer())
 					sb.append("Your legs are "+getCoveredInDescriptor(owner)+" [pc.legFullDescription(true)],"
@@ -3356,6 +3417,20 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("a furry, [npc.tailColour(true)] cat-like tail, which [npc.she] can control well enough to grant [npc.herHim] significantly improved balance.");
 						}
 						break;
+					case CAT_MORPH_SHORT:
+						if (owner.isPlayer()) {
+							sb.append("a furry, short [pc.tailColour(true)] cat-like tail.");
+						} else {
+							sb.append("a furry, short [npc.tailColour(true)] cat-like tail.");
+						}
+						break;
+					case CAT_MORPH_TUFTED:
+						if (owner.isPlayer()) {
+							sb.append("a furry, [pc.tailColour(true)] cat-like tail with a fuzzy tuft, which you can control well enough to grant you significantly improved balance.");
+						} else {
+							sb.append("a furry, [npc.tailColour(true)] cat-like tail with a fuzzy tuft, which [npc.she] can control well enough to grant [npc.herHim] significantly improved balance.");
+						}
+						break;
 					case DEMON_COMMON:
 						if (owner.isPlayer()) {
 							sb.append("a spaded, [pc.tailColour(true)] demonic tail, over which you have complete control, and you can easily use it to grip and hold objects.");
@@ -3391,6 +3466,20 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("a stubby, [pc.tailColour(true)] dog-like tail, which wags uncontrollably when you get excited.");
 						} else {
 							sb.append("a stubby, [npc.tailColour(true)] dog-like tail, which wags uncontrollably when [npc.she] gets excited.");
+						}
+						break;
+					case FOX_MORPH:
+						if (owner.isPlayer()) {
+							sb.append("a furry, [pc.tailColour(true)] fox-like tail.");
+						} else {
+							sb.append("a furry, [npc.tailColour(true)] fox-like tail.");
+						}
+						break;
+					case FOX_MORPH_MAGIC:
+						if (owner.isPlayer()) {
+							sb.append("a furry, [pc.tailColour(true)] fox-like tail, surrounded by a halo of arcane fire.");
+						} else {
+							sb.append("a furry, [npc.tailColour(true)] fox-like tail, surrounded by a halo of arcane fire.");
 						}
 						break;
 					case ALLIGATOR_MORPH:
@@ -3472,6 +3561,20 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("furry, [npc.tailColour(true)] cat-like tails, which [npc.she] can control well enough to grant [npc.herHim] significantly improved balance.");
 						}
 						break;
+					case CAT_MORPH_SHORT:
+						if (owner.isPlayer()) {
+							sb.append("furry, short [pc.tailColour(true)] cat-like tails.");
+						} else {
+							sb.append("a furry, short [npc.tailColour(true)] cat-like tails.");
+						}
+						break;
+					case CAT_MORPH_TUFTED:
+						if (owner.isPlayer()) {
+							sb.append("furry, [pc.tailColour(true)] cat-like tails with a fuzzy tuft on each, which you can control well enough to grant you significantly improved balance.");
+						} else {
+							sb.append("furry, [npc.tailColour(true)] cat-like tails with a fuzzy tuft on each, which [npc.she] can control well enough to grant [npc.herHim] significantly improved balance.");
+						}
+						break;
 					case DEMON_COMMON:
 						if (owner.isPlayer()) {
 							sb.append("spaded, [pc.tailColour(true)] demonic tails, over which you have complete control, and you can easily use them to grip and hold objects.");
@@ -3507,6 +3610,20 @@ public class Body implements Serializable, XMLSaving {
 							sb.append("stubby, [pc.tailColour(true)] dog-like tails, which wag uncontrollably when you get excited.");
 						} else {
 							sb.append("stubby, [npc.tailColour(true)] dog-like tails, which wag uncontrollably when [npc.she] gets excited.");
+						}
+						break;
+					case FOX_MORPH:
+						if (owner.isPlayer()) {
+							sb.append("furry, [pc.tailColour(true)] fox-like tails.");
+						} else {
+							sb.append("furry, [npc.tailColour(true)] fox-like tails.");
+						}
+						break;
+					case FOX_MORPH_MAGIC:
+						if (owner.isPlayer()) {
+							sb.append("furry, [pc.tailColour(true)] fox-like tails, surrounded by a halo of arcane fire.");
+						} else {
+							sb.append("furry, [npc.tailColour(true)] fox-like tails, surrounded by a halo of arcane fire.");
 						}
 						break;
 					case ALLIGATOR_MORPH:
@@ -3930,6 +4047,14 @@ public class Body implements Serializable, XMLSaving {
 					descriptionSB.append("You have a canine, [pc.anusFullDescription(true)]");
 				} else {
 					descriptionSB.append("[npc.She] has a canine, [npc.anusFullDescription(true)]");
+				}
+				break;
+				
+			case FOX_MORPH:
+				if (isPlayer) {
+					descriptionSB.append("You have a vulpine, [pc.anusFullDescription(true)]");
+				} else {
+					descriptionSB.append("[npc.She] has a vulpine, [npc.anusFullDescription(true)]");
 				}
 				break;
 				
@@ -4734,6 +4859,9 @@ public class Body implements Serializable, XMLSaving {
 			case CANINE:
 				descriptionSB.append(" canine cock");
 				break;
+			case VULPINE:
+				descriptionSB.append(" vulpine cock");
+				break;
 			case LUPINE:
 				descriptionSB.append(" lupine cock");
 				break;
@@ -5371,6 +5499,13 @@ public class Body implements Serializable, XMLSaving {
 					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" canine pussy, with [pc.labiaSize], [pc.pussyPrimaryColour(true)] labia and [pc.pussySecondaryColour(true)] inner-walls.");
 				} else {
 					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" canine pussy, with [npc.labiaSize], [npc.pussyPrimaryColour(true)] labia and [npc.pussySecondaryColour(true)] inner-walls.");
+				}
+				break;
+			case FOX_MORPH:
+				if (isPlayer) {
+					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" vulpine pussy, with [pc.labiaSize], [pc.pussyPrimaryColour(true)] labia and [pc.pussySecondaryColour(true)] inner-walls.");
+				} else {
+					descriptionSB.append((viewedVagina.isPierced()?" a pierced,":" a")+" vulpine pussy, with [npc.labiaSize], [npc.pussyPrimaryColour(true)] labia and [npc.pussySecondaryColour(true)] inner-walls.");
 				}
 				break;
 			case WOLF_MORPH:
@@ -6392,6 +6527,9 @@ public class Body implements Serializable, XMLSaving {
 				case DOG_MORPH:
 					coverings.put(BodyCoveringType.BODY_HAIR_CANINE_FUR, new Covering(BodyCoveringType.BODY_HAIR_CANINE_FUR, coverings.get(BodyCoveringType.HAIR_CANINE_FUR).getPrimaryColour()));
 					break;
+				case FOX_MORPH:
+					coverings.put(BodyCoveringType.BODY_HAIR_FOX_FUR, new Covering(BodyCoveringType.BODY_HAIR_FOX_FUR, coverings.get(BodyCoveringType.HAIR_FOX_FUR).getPrimaryColour()));
+					break;
 				case ALLIGATOR_MORPH:
 					coverings.put(BodyCoveringType.ALLIGATOR_SCALES, new Covering(BodyCoveringType.ALLIGATOR_SCALES, coverings.get(BodyCoveringType.ALLIGATOR_SCALES).getPrimaryColour()));
 					break;
@@ -6490,6 +6628,9 @@ public class Body implements Serializable, XMLSaving {
 						break;
 					case DOG_MORPH:
 						coverings.put(BodyCoveringType.BODY_HAIR_CANINE_FUR, new Covering(BodyCoveringType.BODY_HAIR_CANINE_FUR, coverings.get(BodyCoveringType.HAIR_CANINE_FUR).getPrimaryColour()));
+						break;
+					case FOX_MORPH:
+						coverings.put(BodyCoveringType.BODY_HAIR_FOX_FUR, new Covering(BodyCoveringType.BODY_HAIR_FOX_FUR, coverings.get(BodyCoveringType.HAIR_FOX_FUR).getPrimaryColour()));
 						break;
 					case ALLIGATOR_MORPH:
 						coverings.put(BodyCoveringType.ALLIGATOR_SCALES, new Covering(BodyCoveringType.ALLIGATOR_SCALES, coverings.get(BodyCoveringType.ALLIGATOR_SCALES).getPrimaryColour()));
