@@ -65,7 +65,8 @@ public class Main extends Application {
 	public static String author = "Innoxia";
 
 	public static final String VERSION_NUMBER = "0.2.8",
-			VERSION_DESCRIPTION = "Alpha";
+			//VERSION_DESCRIPTION = "Alpha";
+			VERSION_DESCRIPTION = ": Come Back In 6 Years Edition";
 	
 	private final static boolean DEBUG = false;
 
@@ -572,7 +573,8 @@ public class Main extends Application {
 
 		Main.primaryStage.getIcons().add(WINDOW_IMAGE);
 
-		Main.primaryStage.setTitle("Lilith's Throne " + VERSION_NUMBER + " " + VERSION_DESCRIPTION);
+		//Main.primaryStage.setTitle("Lilith's Throne " + VERSION_NUMBER + " " + VERSION_DESCRIPTION);
+		Main.primaryStage.setTitle("Delay Simulator " + VERSION_NUMBER + " " + VERSION_DESCRIPTION);
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/lilithsthrone/res/fxml/main.fxml"));
 
