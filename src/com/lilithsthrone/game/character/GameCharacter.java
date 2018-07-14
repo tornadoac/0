@@ -2193,67 +2193,69 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 					+ this.getDescription()
 				+ "</p>");
 		
-		if(!this.isPlayer()) {
-			infoScreenSB.append("<br/>"
-					+ "<h4>Relationships</h4>"
-					+ "<p>"
-						+ (Main.game.getPlayer().hasCompanion(this)
-								?UtilText.parse(this, "[style.boldCompanion(Companion:)]<br/>[npc.Name] is currently following you around as your companion.<br/><br/>")
-								:"")
-						+ "[style.boldAffection(Affection:)]<br/>"
-						+ AffectionLevel.getDescription(this, Main.game.getPlayer(),
-								AffectionLevel.getAffectionLevelFromValue(this.getAffection(Main.game.getPlayer())), true));
-			
-			for(Entry<String, Float> entry : this.getAffectionMap().entrySet()) {
-				GameCharacter target = Main.game.getNPCById(entry.getKey());
-				if(target!=null && !target.isPlayer()) {
-					infoScreenSB.append("<br/>" + AffectionLevel.getDescription(this, target, AffectionLevel.getAffectionLevelFromValue(this.getAffection(target)), true));
+		if(!this.isRaceConcealed()) {
+			if(!this.isPlayer()) {
+				infoScreenSB.append("<br/>"
+						+ "<h4>Relationships</h4>"
+						+ "<p>"
+							+ (Main.game.getPlayer().hasCompanion(this)
+									?UtilText.parse(this, "[style.boldCompanion(Companion:)]<br/>[npc.Name] is currently following you around as your companion.<br/><br/>")
+									:"")
+							+ "[style.boldAffection(Affection:)]<br/>"
+							+ AffectionLevel.getDescription(this, Main.game.getPlayer(),
+									AffectionLevel.getAffectionLevelFromValue(this.getAffection(Main.game.getPlayer())), true));
+				
+				for(Entry<String, Float> entry : this.getAffectionMap().entrySet()) {
+					GameCharacter target = Main.game.getNPCById(entry.getKey());
+					if(target!=null && !target.isPlayer()) {
+						infoScreenSB.append("<br/>" + AffectionLevel.getDescription(this, target, AffectionLevel.getAffectionLevelFromValue(this.getAffection(target)), true));
+					}
 				}
-			}
-		
-			infoScreenSB.append("<br/><br/>"
+			
+				infoScreenSB.append("<br/><br/>"
+							+ "[style.boldObedience(Obedience:)]<br/>"
+							+ UtilText.parse(this,
+									(this.isSlave()
+										?"[npc.Name] [style.boldArcane(is a slave)], owned by "+(this.getOwner().isPlayer()?"you!":this.getOwner().getName("a")+".")
+										:"[npc.Name] [style.boldGood(is not a slave)]."))
+							+ "<br/>"+ObedienceLevel.getDescription(this, ObedienceLevel.getObedienceLevelFromValue(this.getObedienceValue()), true, true));
+				
+				if(!this.getSlavesOwned().isEmpty()) {
+					infoScreenSB.append("<br/><br/>"
+							+ "[style.boldArcane(Slaves owned:)]");
+					for(String id : this.getSlavesOwned()) {
+						infoScreenSB.append(UtilText.parse(Main.game.getNPCById(id), "<br/>[npc.Name]"));
+					}
+				}
+				
+			} else {
+				infoScreenSB.append("<p>"
 						+ "[style.boldObedience(Obedience:)]<br/>"
 						+ UtilText.parse(this,
 								(this.isSlave()
-									?"[npc.Name] [style.boldArcane(is a slave)], owned by "+(this.getOwner().isPlayer()?"you!":this.getOwner().getName("a")+".")
-									:"[npc.Name] [style.boldGood(is not a slave)]."))
+									?"You [style.boldArcane(are a slave)], owned by "+(this.getOwner().isPlayer()?"you! (How did this happen?!)":this.getOwner().getName("a")+".")
+									:"You [style.boldGood(are not a slave)]."))
 						+ "<br/>"+ObedienceLevel.getDescription(this, ObedienceLevel.getObedienceLevelFromValue(this.getObedienceValue()), true, true));
 			
-			if(!this.getSlavesOwned().isEmpty()) {
-				infoScreenSB.append("<br/><br/>"
-						+ "[style.boldArcane(Slaves owned:)]");
-				for(String id : this.getSlavesOwned()) {
-					infoScreenSB.append(UtilText.parse(Main.game.getNPCById(id), "<br/>[npc.Name]"));
-				}
 			}
 			
-		} else {
-			infoScreenSB.append("<p>"
-					+ "[style.boldObedience(Obedience:)]<br/>"
-					+ UtilText.parse(this,
-							(this.isSlave()
-								?"You [style.boldArcane(are a slave)], owned by "+(this.getOwner().isPlayer()?"you! (How did this happen?!)":this.getOwner().getName("a")+".")
-								:"You [style.boldGood(are not a slave)]."))
-					+ "<br/>"+ObedienceLevel.getDescription(this, ObedienceLevel.getObedienceLevelFromValue(this.getObedienceValue()), true, true));
-		
+			infoScreenSB.append("<br/>"
+					+ "<h4>Personality</h4>"
+					+ "<p>");
+			for(PersonalityTrait trait : PersonalityTrait.values()) {
+				infoScreenSB.append("<b>"+trait.getName()+":</b> <i style='color:"+trait.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(trait.getNameFromWeight(this, this.getPersonality().get(trait)))+"</i><br/>"
+						+trait.getDescriptionFromWeight(this, this.getPersonality().get(trait))+"<br/>");
+			}
+			infoScreenSB.append("</p>");
+			
+			infoScreenSB.append("</p>"
+					+ "<br/>"
+						+ "<h4>Appearance</h4>"
+					+ "<p>"
+						+ this.getBodyDescription()
+					+ "</p>"
+					+ PhoneDialogue.getBodyStatsPanel(this));
 		}
-		
-		infoScreenSB.append("<br/>"
-				+ "<h4>Personality</h4>"
-				+ "<p>");
-		for(PersonalityTrait trait : PersonalityTrait.values()) {
-			infoScreenSB.append("<b>"+trait.getName()+":</b> <i style='color:"+trait.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(trait.getNameFromWeight(this, this.getPersonality().get(trait)))+"</i><br/>"
-					+trait.getDescriptionFromWeight(this, this.getPersonality().get(trait))+"<br/>");
-		}
-		infoScreenSB.append("</p>");
-		
-		infoScreenSB.append("</p>"
-				+ "<br/>"
-					+ "<h4>Appearance</h4>"
-				+ "<p>"
-					+ this.getBodyDescription()
-				+ "</p>"
-				+ PhoneDialogue.getBodyStatsPanel(this));
 		
 		return infoScreenSB.toString();
 	}
@@ -9906,7 +9908,8 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 					+ "</p>"
 					+ "<p>"
 						+ "You can't quite believe what you're doing to yourself."
-						+ " As your "+(Sex.getFirstContactingSexAreaPenetration(Main.game.getPlayer(), SexAreaOrifice.VAGINA).getName(characterPenetrating))+" takes your own virginity in a single thrust, you find yourself letting out a desperate gasp."
+						+ " As your "+(Sex.getFirstContactingSexAreaPenetration(Main.game.getPlayer(), SexAreaOrifice.VAGINA).getName(characterPenetrating))
+							+" takes your own virginity in a single thrust, you find yourself letting out a desperate gasp."
 					+ "</p>"
 					+ "<p style='text-align:center;'>"
 						+ "[pc.thought(W-What am I doing?!<br/>"
@@ -10081,7 +10084,7 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		
 		StringBuilderSB.append(formatVirginityLoss("You'll always remember this moment as the time that you lost your anal virginity!"));
 		
-		return StringBuilderSB.toString();
+		return UtilText.parse(characterPenetrating, StringBuilderSB.toString());
 	}
 	
 	
@@ -10221,21 +10224,9 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN)) {
 			StringBuilderSB.append(losingPureVirginity(characterPenetrating, penetration));
 		}
-		
-		return StringBuilderSB.toString();
+
+		return UtilText.parse(characterPenetrating, StringBuilderSB.toString());
 	}
-	
-//		public String getPlayerVaginaVirginityLossDescription(boolean isPlayerDom){
-//			VelocityContext context = new VelocityContext();
-//	        context.put("player", Main.game.getPlayer());
-//	        context.put("game", Main.game);
-//	        context.put("partner", Sex.getPartner());
-//	        context.put("dominant", isPlayerDom);
-//	        context.put("penetratedBy", Sex.playerPenetratedBy("VAGINA"));
-//	        context.put("playerVaginaWet", Sex.isPlayerWet("VAGINA"));
-//	        context.put("txt", UtilText.class);
-//	        return UtilText.parse("/res/txt/dialogue/sex/Generic/PlayerVaginaVirginityLossDescription.txt", context);
-//		}
 	
 	private String getPlayerPenileVirginityLossDescription(GameCharacter characterPenetrated, GameCharacter characterPenetrating, SexAreaOrifice orifice){
 		return formatVirginityLoss("You'll always remember this moment as the time that you lost your penile virginity!");
@@ -10273,10 +10264,10 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		return UtilText.parse(characterPenetrated, characterPenetrating,
 				(characterPenetrated.equals(characterPenetrating)
 						?formatVirginityLoss("[npc2.Name] [npc2.has] taken [npc2.her] own penile virginity!")
-						:formatVirginityLoss("[npc2.Name] [npc2.has] taken [npc.namePos] penile virginity!"))
+						:formatVirginityLoss("[npc.Name] [npc.has] taken [npc2.namePos] penile virginity!"))
 				+(characterPenetrated.hasFetish(Fetish.FETISH_DEFLOWERING)
 						?"<p style='text-align:center;>"
-							+ "[style.italicsArcane(Due to [npc2.namePos] deflowering fetish, [npc2.she] [npc2.verb(gain)])]"
+							+ "[style.italicsArcane(Due to [npc.namePos] deflowering fetish, [npc.she] [npc.verb(gain)])]"
 								+ " [style.italicsExperience("+Fetish.getExperienceGainFromTakingOtherVirginity(characterPenetrated)+")] [style.italicsArcane(experience!)]"
 						+ "</p>"
 						:""));
@@ -15162,16 +15153,16 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		}
 		return body.getBreast().getStoredMilk();
 	}
-	public int getBreastRawStoredMilkValue() {
+	public float getBreastRawStoredMilkValue() {
 		if(!Main.getProperties().hasValue(PropertyValue.lactationContent)) {
 			return 0;
 		}
 		return body.getBreast().getRawStoredMilkValue();
 	}
-	public String setBreastStoredMilk(int lactation) {
+	public String setBreastStoredMilk(float lactation) {
 		return body.getBreast().setStoredMilk(this, lactation);
 	}
-	public String incrementBreastStoredMilk(int increment) {
+	public String incrementBreastStoredMilk(float increment) {
 		return setBreastStoredMilk(getBreastRawStoredMilkValue() + increment);
 	}
 	// Regen:
@@ -16417,17 +16408,17 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 		
 		return body.getPenis().getTesticle().getStoredCum();
 	}
-	public int getPenisRawStoredCumValue() {
+	public float getPenisRawStoredCumValue() {
 		if(!Main.getProperties().hasValue(PropertyValue.cumRegenerationContent)) {
 			return getPenisRawCumStorageValue();
 		}
 		
 		return body.getPenis().getTesticle().getRawStoredCumValue();
 	}
-	public String setPenisStoredCum(int cum) {
+	public String setPenisStoredCum(float cum) {
 		return body.getPenis().getTesticle().setStoredCum(this, cum);
 	}
-	public String incrementPenisStoredCum(int increment) {
+	public String incrementPenisStoredCum(float increment) {
 		return setPenisStoredCum(getPenisRawStoredCumValue() + increment);
 	}
 	// Orgasm cum amount:
@@ -16455,7 +16446,7 @@ public abstract class GameCharacter implements Serializable, XMLSaving {
 			return body.getPenis().getTesticle().getRawCumStorageValue();
 		}
 		if(body.getPenis().getTesticle().getRawStoredCumValue() <= Testicle.MINIMUM_VALUE_FOR_ALL_CUM_TO_BE_EXPELLED) {
-			return body.getPenis().getTesticle().getRawStoredCumValue();
+			return (int) body.getPenis().getTesticle().getRawStoredCumValue();
 		}
 		return (int) (body.getPenis().getTesticle().getRawStoredCumValue() * (getPenisRawCumExpulsionValue()/100f));
 	}

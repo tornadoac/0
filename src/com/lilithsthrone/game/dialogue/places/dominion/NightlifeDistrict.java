@@ -107,7 +107,7 @@ public class NightlifeDistrict {
 					break;
 				case POSITIVE_FOUR_LOVE:
 				case POSITIVE_FIVE_WORSHIP:
-					sb.append("[npc.NameIs] <i style='color:"+al.getColour().toWebHexString()+";'>desperate to have sex with you</i>.");
+					sb.append("[npc.NameIsFull] <i style='color:"+al.getColour().toWebHexString()+";'>desperate to have sex with you</i>.");
 					break;
 			}
 			
@@ -181,7 +181,7 @@ public class NightlifeDistrict {
 		
 		} else if(isPartnerPassingOut()) {
 			sb.append(UtilText.parse(getClubbersPresent(), "[style.boldTerrible([npc.Name] collapses!)]</br>"
-					+ "Having had far too much to drink, [npc.name] slumps down to teh ground!"));
+					+ "Having had far too much to drink, [npc.name] slumps down to the ground!"));
 			
 		} else if(!isClubOpen(minutesPassedForNextScene)) {
 			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.WATERING_HOLE_VIP_AREA) {
@@ -521,11 +521,6 @@ public class NightlifeDistrict {
 	public static final DialogueNodeOld AFTER_JULES_BLOWJOB = new DialogueNodeOld("Finished", "", false) {
 		private static final long serialVersionUID = 1L;
 		
-		@Override
-		public int getMinutesPassed(){
-			return 30;
-		}
-
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "AFTER_JULES_BLOWJOB");
@@ -1345,11 +1340,6 @@ public class NightlifeDistrict {
 	
 	public static final DialogueNodeOld WATERING_HOLE_SEATING_AFTER_SEX = new DialogueNodeOld("The Watering Hole", "", true) {
 		private static final long serialVersionUID = 1L;
-		
-		@Override
-		public int getMinutesPassed(){
-			return 15;
-		}
 		
 		@Override
 		public String getContent() {
@@ -2637,11 +2627,6 @@ public class NightlifeDistrict {
 		private static final long serialVersionUID = 1L;
 		
 		@Override
-		public int getMinutesPassed(){
-			return 30;
-		}
-		
-		@Override
 		public String getContent() {
 			if(Sex.getNumberOfOrgasms(Main.game.getKalahari())>0) {
 				return UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_BAR_KALAHARI_BREAK_AFTER_SEX");
@@ -2944,11 +2929,6 @@ public class NightlifeDistrict {
 			false) {
 		private static final long serialVersionUID = 1L;
 		
-		@Override
-		public int getMinutesPassed(){
-			return 20;
-		}
-
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_VIP_KRUGER_AFTER_SEX");
@@ -3256,12 +3236,19 @@ public class NightlifeDistrict {
 					return new Response("Toilet", "Use the toilet.", WATERING_HOLE_TOILETS_USE);
 					
 				}
-				//TODO needs new sex manager and descriptions
-//				else if(index==2) {
-//					return new Response("Gloryhole (dom)", "A couple of the toilet's stalls have gloryholes in them. Step up to one and have the person on the other side service you.", null);
+//				else if(index==2) {//TODO needs new sex manager and descriptions
+//					return new Response("Glory hole (dom)", "A couple of the toilet's stalls have glory holes in them. Step up to one and have the person on the other side service you.", null);
 //					
 //				} else if(index==3) {
-//					return new Response("Gloryhole (sub)", "A couple of the toilet's stalls have gloryholes in them. Kneel down and get ready to service whatever comes through the hole.", null);
+//					return new ResponseSex("Glory hole (sub)", "A couple of the toilet's stalls have glory holes in them. Kneel down and get ready to service whatever comes through the holes.",
+//							true, false,
+//							new SMGloryHole(
+//									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.GLORY_HOLE_KNEELING)),
+//									Util.newHashMapOfValues(
+//											new Value<>(getGloryHoleDom(), SexPositionSlot.GLORY_HOLE_RECEIVING_ORAL_ONE),
+//											new Value<>(getGloryHoleDom(), SexPositionSlot.GLORY_HOLE_RECEIVING_ORAL_TWO))),
+//							WATERING_HOLE_BAR_KALAHARI_BREAK_AFTER_SEX,
+//							UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_BAR_KALAHARI_BREAK_SEX_AS_DOM"));
 //					
 //				}
 				else {
@@ -3271,13 +3258,37 @@ public class NightlifeDistrict {
 		}
 	};
 	
+//	private static GameCharacter getGloryHoleDom() {
+//		NPC npc = new GenericSexualPartner(GenderPreference.getGenderFromUserPreferences(), Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), false);
+//		if(Math.random()<0.4f) {
+//			npc.setSexualOrientation(SexualOrientation.AMBIPHILIC);
+//		} else {
+//			if(Main.game.getPlayer().isFeminine()) {
+//				npc.setSexualOrientation(SexualOrientation.GYNEPHILIC);
+//			} else {
+//				npc.setSexualOrientation(SexualOrientation.ANDROPHILIC);
+//			}
+//		}
+//		npc.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.THREE_LIKE);
+//		npc.setFetishDesire(Fetish.FETISH_SUBMISSIVE, FetishDesire.THREE_LIKE);
+//		npc.setFetishDesire(Fetish.FETISH_ORAL_RECEIVING, FetishDesire.THREE_LIKE);
+//		if(npc.hasVagina()) {
+//			npc.setFetishDesire(Fetish.FETISH_VAGINAL_RECEIVING, FetishDesire.THREE_LIKE);
+//		}
+//		if(npc.hasPenis()) {
+//			npc.setFetishDesire(Fetish.FETISH_PENIS_GIVING, FetishDesire.THREE_LIKE);
+//		}
+//		try {
+//			Main.game.addNPC(npc, false);
+//			Main.game.setActiveNPC(npc);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return npc;
+//	}
+	
 	public static final DialogueNodeOld WATERING_HOLE_TOILETS_AFTER_SEX = new DialogueNodeOld("Toilets", "", true) {
 		private static final long serialVersionUID = 1L;
-		
-		@Override
-		public int getMinutesPassed(){
-			return 20;
-		}
 		
 		@Override
 		public boolean isTravelDisabled() {
