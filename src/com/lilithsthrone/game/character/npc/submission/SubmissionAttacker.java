@@ -61,9 +61,9 @@ public class SubmissionAttacker extends NPC {
 	
 	public SubmissionAttacker(Gender gender, boolean isImported) {
 		super(null, "",
-				Util.random.nextInt(21)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(21)+8, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, RacialBody.ALLIGATOR_MORPH, RaceStage.GREATER,
-				new CharacterInventory(10), WorldType.SUBMISSION, PlaceType.SUBMISSION_TUNNELS, false);
+				new CharacterInventory(10), WorldType.SUBMISSION, PlaceType.SUBMISSION_TUNNELS, false); //+18
 
 		if(!isImported) {
 			this.setWorldLocation(Main.game.getPlayer().getWorldLocation());

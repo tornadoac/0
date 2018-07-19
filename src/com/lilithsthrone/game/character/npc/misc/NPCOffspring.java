@@ -51,10 +51,10 @@ public class NPCOffspring extends NPC {
 	
 	public NPCOffspring(GameCharacter mother, GameCharacter father) {
 		super(null, "",
-				18, Main.game.getDateNow().minusMonths(1).getMonth(), 1+Util.random.nextInt(25),
+				8, Main.game.getDateNow().minusMonths(1).getMonth(), 1+Util.random.nextInt(25),
 				3, Gender.F_V_B_FEMALE, RacialBody.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
-		
+				//+18/8
 		this.setMother(mother);
 		this.setFather(father);
 		
