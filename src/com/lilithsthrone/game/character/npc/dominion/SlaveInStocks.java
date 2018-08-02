@@ -43,8 +43,6 @@ import com.lilithsthrone.world.places.PlaceType;
  */
 public class SlaveInStocks extends NPC {
 
-	private static final long serialVersionUID = 1L;
-
 	public SlaveInStocks() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
@@ -59,9 +57,9 @@ public class SlaveInStocks extends NPC {
 	
 	public SlaveInStocks(Gender gender, boolean isImported) {
 		super(null, "",
-				Util.random.nextInt(21)+8, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, RacialBody.DOG_MORPH, RaceStage.GREATER,
-				new CharacterInventory(10), WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_PUBLIC_STOCKS, false); //+18
+				new CharacterInventory(10), WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_PUBLIC_STOCKS, false); //8chan
 
 		if(!isImported) {
 			

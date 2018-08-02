@@ -43,8 +43,6 @@ import com.lilithsthrone.world.places.PlaceType;
  */
 public class DominionAlleywayAttacker extends NPC {
 
-	private static final long serialVersionUID = 1L;
-
 	public DominionAlleywayAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
@@ -59,9 +57,9 @@ public class DominionAlleywayAttacker extends NPC {
 	
 	public DominionAlleywayAttacker(Gender gender, boolean isImported) {
 		super(null, "",
-				Util.random.nextInt(21)+8, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, RacialBody.DOG_MORPH, RaceStage.GREATER,
-				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_BACK_ALLEYS, false); //+18 / +8
+				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_BACK_ALLEYS, false); //8chan
 
 		if(!isImported) {
 	

@@ -34,8 +34,6 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class NPCOffspring extends NPC {
-
-	private static final long serialVersionUID = 1L;
 	
 	public NPCOffspring() {
 		this(false);
@@ -51,10 +49,10 @@ public class NPCOffspring extends NPC {
 	
 	public NPCOffspring(GameCharacter mother, GameCharacter father) {
 		super(null, "",
-				8, Main.game.getDateNow().minusMonths(1).getMonth(), 1+Util.random.nextInt(25),
+				Main.getProperties().ageLimitLower, Main.game.getDateNow().minusMonths(1).getMonth(), 1+Util.random.nextInt(25),
 				3, Gender.F_V_B_FEMALE, RacialBody.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
-				//+18/8
+				//8Chan
 		this.setMother(mother);
 		this.setFather(father);
 		
@@ -66,7 +64,7 @@ public class NPCOffspring extends NPC {
 		
 		// BODY GENERATION:
 		
-		Gender gender = GenderPreference.getGenderFromUserPreferences();
+		Gender gender = GenderPreference.getGenderFromUserPreferences(false, false);
 		
 		setBody(gender, mother, father);
 		

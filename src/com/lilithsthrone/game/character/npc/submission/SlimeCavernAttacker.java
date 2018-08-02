@@ -44,8 +44,6 @@ import com.lilithsthrone.world.places.PlaceType;
  */
 public class SlimeCavernAttacker extends NPC {
 
-	private static final long serialVersionUID = 1L;
-
 	public SlimeCavernAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
@@ -60,9 +58,9 @@ public class SlimeCavernAttacker extends NPC {
 	
 	public SlimeCavernAttacker(Gender gender, boolean isImported) {
 		super(null, "",
-				Util.random.nextInt(21)+8, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, RacialBody.HUMAN, RaceStage.HUMAN,
-				new CharacterInventory(10), WorldType.BAT_CAVERNS, PlaceType.BAT_CAVERN_DARK, false); //+18
+				new CharacterInventory(10), WorldType.BAT_CAVERNS, PlaceType.BAT_CAVERN_DARK, false); //8chan
 
 		if(!isImported) {
 			this.setWorldLocation(Main.game.getPlayer().getWorldLocation());

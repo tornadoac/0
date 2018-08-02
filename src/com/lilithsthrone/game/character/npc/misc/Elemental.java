@@ -36,8 +36,6 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class Elemental extends NPC {
-
-	private static final long serialVersionUID = 1L;
 	private String summonerID;
 
 	public Elemental(boolean isImported) {
@@ -45,9 +43,9 @@ public class Elemental extends NPC {
 	}
 	
 	public Elemental(Gender gender, GameCharacter summoner, boolean isImported) {
-		super(null, "", summoner==null?8:summoner.getAge(), summoner==null?Month.JANUARY:summoner.getBirthMonth(), summoner==null?1:summoner.getDayOfBirth(), 20, gender, RacialBody.DEMON, RaceStage.GREATER,
+		super(null, "", summoner==null?Main.getProperties().ageLimitLower:summoner.getAge(), summoner==null?Month.JANUARY:summoner.getBirthMonth(), summoner==null?1:summoner.getDayOfBirth(), 20, gender, RacialBody.DEMON, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, false);
-		//8/18+
+		//8Chan
 		if(!isImported) {
 			this.setWorldLocation(summoner.getWorldLocation());
 			this.setLocation(summoner.getLocation());
