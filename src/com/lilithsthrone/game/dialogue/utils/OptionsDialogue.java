@@ -1472,21 +1472,29 @@ public class OptionsDialogue {
 								"ARTWORK",
 								Colour.BASE_BLUE_LIGHT,
 								"Artwork",
-								"Enables artwork to be displayed in unique characters' information screens.",
+								"Enables artwork to be displayed in characters' information screens.",
 								Main.getProperties().hasValue(PropertyValue.artwork)));
+
+			UtilText.nodeContentSB.append(getContentPreferenceDiv("THUMBNAIL",
+								Colour.BASE_BLUE_STEEL,
+								"Thumbnails",
+								"Enables tooltips containing thumbnail images of the character.",
+								Main.getProperties().hasValue(PropertyValue.thumbnail)));
 			
 			UtilText.nodeContentSB.append(getCustomContentPreferenceDivStart("ARTIST_", Colour.BASE_AQUA, "Preferred Artist", "Which artist's work is used by default."));
 			List<Artist> artists = new ArrayList<>(Artwork.allArtists);
 			Collections.reverse(artists);// So that they're in alphabetical order
 			for(Artist artist : artists) {
-				UtilText.nodeContentSB.append(
-						(Main.getProperties().preferredArtist.equals(artist.getFolderName())
-								?"<div id='ARTIST_"+artist.getFolderName()+"' class='normal-button selected' style='width:46%; margin-right:4%; text-align:center; float:right;'>"
-									+ "<span style='color:"+artist.getColour().toWebHexString()+";'>"+artist.getName()+"</span>"
-								+ "</div>"
-								:"<div id='ARTIST_"+artist.getFolderName()+"' class='normal-button' style='width:46%; margin-right:4%; text-align:center; float:right;'>"
-									+ "[style.colourDisabled("+artist.getName()+")]"
-								+ "</div>"));
+				if (!artist.getName().equals("Custom")) {
+					UtilText.nodeContentSB.append(
+							(Main.getProperties().preferredArtist.equals(artist.getFolderName())
+									?"<div id='ARTIST_"+artist.getFolderName()+"' class='normal-button selected' style='width:25%; margin-right:4%; text-align:center; float:right;'>"
+									+ "<b style='color:"+artist.getColour().toWebHexString()+";'>"+artist.getName()+"</b>"
+									+ "</div>"
+									:"<div id='ARTIST_"+artist.getFolderName()+"' class='normal-button' style='width:25%; margin-right:4%; text-align:center; float:right;'>"
+									+ "[style.boldDisabled("+artist.getName()+")]"
+									+ "</div>"));
+				}
 			}
 			UtilText.nodeContentSB.append("</div></div>");
 
@@ -1496,6 +1504,26 @@ public class OptionsDialogue {
 							"Age",
 							"This enables descriptions of the age that characters appear to be.",
 							Main.getProperties().hasValue(PropertyValue.ageContent)));
+							
+			UtilText.nodeContentSB.append(getContentPreferenceVariableDiv(
+							"AGE_LOWER_LIMIT",
+							Colour.AGE_LOLI,
+							"Age Lower Limit",
+							"Set the minimum age that random non-player characters will spawn with.",
+							Main.getProperties().ageLimitLower+" year"+(Main.getProperties().ageLimitLower!=1?"s":""),
+							Main.getProperties().ageLimitLower,
+							1,
+							50));
+			
+			UtilText.nodeContentSB.append(getContentPreferenceVariableDiv(
+							"AGE_GAP",
+							Colour.AGE_FORTIES,
+							"Age Range",
+							"Set the range of older ages that random non-player characters will spawn with. "+Main.getProperties().ageLimitLower+" year"+(Main.getProperties().ageLimitLower!=1?"s":"")+" old up to "+(Main.getProperties().ageLimitLower+Main.getProperties().ageGap)+" years old.",
+							Main.getProperties().ageGap+" year"+(Main.getProperties().ageGap!=1?"s":""),
+							Main.getProperties().ageGap,
+							1,
+							50));
 			
 			UtilText.nodeContentSB.append(getContentPreferenceDiv(
 							"NON_CON",
@@ -1503,7 +1531,21 @@ public class OptionsDialogue {
 							"Non-consent",
 							"This enables the 'resist' pace in sex scenes, which contains some more extreme non-consensual descriptions.",
 							Main.getProperties().hasValue(PropertyValue.nonConContent)));
-			
+
+			UtilText.nodeContentSB.append(getContentPreferenceDiv(
+							"VOLUNTARY_NTR",
+							Colour.GENERIC_MINOR_BAD,
+							"Voluntary NTR",
+							"When enabled, you will get the option to offer certain enemies sex with your companions as a way to avoid combat.",
+							Main.getProperties().hasValue(PropertyValue.voluntaryNTR)));
+
+			UtilText.nodeContentSB.append(getContentPreferenceDiv(
+							"INVOLUNTARY_NTR",
+							Colour.GENERIC_BAD,
+							"Involuntary NTR",
+							"When enabled, enemies might choose to only have sex with your companion after beating your party in combat."
+									+ " When disabled, all post-combat-loss sex scenes will involve you.",
+							Main.getProperties().hasValue(PropertyValue.involuntaryNTR)));
 			
 			UtilText.nodeContentSB.append(getContentPreferenceDiv(
 							"INCEST",

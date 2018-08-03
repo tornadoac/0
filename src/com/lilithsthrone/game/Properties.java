@@ -71,6 +71,8 @@ public class Properties implements Serializable {
 	public int multiBreasts = 1;
 	public int forcedTFPercentage = 40;
 	public int forcedFetishPercentage = 0;
+	public int ageLimitLower = 18;
+	public int ageGap = 32;
 
 	public int pregnancyBreastGrowthVariance = 2;
 	public int pregnancyBreastGrowth = 1;

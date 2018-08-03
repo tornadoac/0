@@ -45,8 +45,6 @@ import com.lilithsthrone.world.places.PlaceType;
  */
 public class SubmissionAttacker extends NPC {
 
-	private static final long serialVersionUID = 1L;
-
 	public SubmissionAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
@@ -61,9 +59,9 @@ public class SubmissionAttacker extends NPC {
 	
 	public SubmissionAttacker(Gender gender, boolean isImported) {
 		super(null, "",
-				Util.random.nextInt(21)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, RacialBody.ALLIGATOR_MORPH, RaceStage.GREATER,
-				new CharacterInventory(10), WorldType.SUBMISSION, PlaceType.SUBMISSION_TUNNELS, false);
+				new CharacterInventory(10), WorldType.SUBMISSION, PlaceType.SUBMISSION_TUNNELS, false); //8chan
 
 		if(!isImported) {
 			this.setWorldLocation(Main.game.getPlayer().getWorldLocation());
