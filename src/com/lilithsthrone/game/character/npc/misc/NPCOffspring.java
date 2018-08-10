@@ -53,7 +53,6 @@ public class NPCOffspring extends NPC {
 				Main.getProperties().ageLimitLower, Main.game.getDateNow().minusMonths(1).getMonth(), 1+Util.random.nextInt(25),
 				3, Gender.F_V_B_FEMALE, RacialBody.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
-				//8Chan
 		this.setMother(mother);
 		this.setFather(father);
 		
