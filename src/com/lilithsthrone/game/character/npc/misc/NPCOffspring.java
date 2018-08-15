@@ -23,7 +23,6 @@ import com.lilithsthrone.game.dialogue.npcDialogue.dominion.HarpyNestOffspringDi
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.CharacterInventory;
-import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
@@ -53,7 +52,6 @@ public class NPCOffspring extends NPC {
 				Main.getProperties().ageLimitLower, Main.game.getDateNow().minusMonths(1).getMonth(), 1+Util.random.nextInt(25),
 				3, Gender.F_V_B_FEMALE, RacialBody.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
-				//8Chan
 		this.setMother(mother);
 		this.setFather(father);
 		
@@ -203,11 +201,4 @@ public class NPCOffspring extends NPC {
 			}
 		}
 	}
-
-	@Override
-	public String getItemUseEffects(AbstractItem item, GameCharacter user, GameCharacter target){
-		return getItemUseEffectsAllowingUse(item, user, target);
-	}
-	
-	
 }

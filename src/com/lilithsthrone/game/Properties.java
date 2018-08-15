@@ -227,6 +227,9 @@ public class Properties implements Serializable {
 
 			createXMLElementWithValue(doc, settings, "difficultyLevel", difficultyLevel.toString());
 			
+			createXMLElementWithValue(doc, settings, "ageLimitLower", String.valueOf(ageLimitLower));
+			createXMLElementWithValue(doc, settings, "ageGap", String.valueOf(ageGap));
+			
 			
 			
 			// Game key binds:
@@ -435,7 +438,7 @@ public class Properties implements Serializable {
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("data/properties.xml"));
+			StreamResult result = new StreamResult("data/properties.xml");
 		
 			transformer.transform(source, result);
 		
@@ -602,6 +605,8 @@ public class Properties implements Serializable {
 					pregnancyLactationIncreaseVariance = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyLactationIncreaseVariance").item(0)).getAttribute("value"));
 					pregnancyLactationIncrease = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyLactationIncrease").item(0)).getAttribute("value"));
 					pregnancyLactationLimit = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyLactationLimit").item(0)).getAttribute("value"));
+					ageLimitLower = Integer.valueOf(((Element)element.getElementsByTagName("ageLimitLower").item(0)).getAttribute("value"));
+					ageGap = Integer.valueOf(((Element)element.getElementsByTagName("ageGap").item(0)).getAttribute("value"));
 				}catch(Exception ex) {
 				}
 				
