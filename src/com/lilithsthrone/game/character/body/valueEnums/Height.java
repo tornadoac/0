@@ -48,6 +48,7 @@ public enum Height {
 	private Height(String descriptor, int minimumValue, int maximumValue, Colour colour) {
 		this.descriptor = descriptor;
 		this.minimumValue = minimumValue;
+		this.minimumValue = 61;
 		this.maximumValue = maximumValue;
 		this.colour = colour;
 	}

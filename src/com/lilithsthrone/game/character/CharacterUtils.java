@@ -1224,6 +1224,11 @@ public class CharacterUtils {
 		
 		// Body:
 		character.setHeight(character.getHeightValue()-15 + Util.random.nextInt(30) +1);
+		if (character.getAge() < 15) {
+			character.setHeight(character.getHeightValue()/2);
+			character.setPubicHair(BodyHair.ZERO_NONE);
+			character.setFacialHair(BodyHair.ZERO_NONE);
+		}
 		
 		//Breasts:
 		if(Main.getProperties().multiBreasts==0) {

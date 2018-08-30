@@ -41,7 +41,7 @@ public class DominionClubNPC extends NPC {
 	
 	public DominionClubNPC(Gender gender, Subspecies subspecies, boolean isImported) {
 		super(isImported, null, "",
-				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(28)+8, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, Subspecies.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_STREET, false);
 

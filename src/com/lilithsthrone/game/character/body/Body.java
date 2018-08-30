@@ -1519,7 +1519,13 @@ public class Body implements Serializable, XMLSaving {
 			}
 		}
 		if(Main.getProperties().hasValue(PropertyValue.ageContent)) {
-			if(owner.getAppearsAsAge()<20) {
+			if(owner.getAppearsAsAge()<10) {
+				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_PRETEENS.toWebHexString()+";'>pre teens</span>.");
+				
+			} else if(owner.getAppearsAsAge()<16) {
+				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_EARLYTEENS.toWebHexString()+";'>early teens</span>.");
+				
+			} else if(owner.getAppearsAsAge()<20) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_TEENS.toWebHexString()+";'>late teens</span>.");
 				
 			} else if(owner.getAppearsAsAge()<=23) {

@@ -58,7 +58,7 @@ public class DominionSuccubusAttacker extends NPC {
 	
 	public DominionSuccubusAttacker(boolean isImported) {
 		super(isImported, null, "",
-				Util.random.nextInt(50)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(50)+8, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				5, Gender.F_V_B_FEMALE, Subspecies.DEMON, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_BACK_ALLEYS, false);
 
@@ -137,7 +137,7 @@ public class DominionSuccubusAttacker extends NPC {
 	
 	@Override
 	public int getAppearsAsAge() {
-		return Math.max(18, this.getAge()/2);
+		return Math.max(8, this.getAge()/2);
 	}
 
 	@Override
