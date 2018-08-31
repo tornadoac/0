@@ -233,6 +233,8 @@ public enum Colour {
 	MUSCLE_FOUR(false, Util.newColour(0x24FFC5), Util.newColour(0x008566), "teal", Util.newArrayListOfValues("muscleFour")),
 
 	AGE_LOLI(false, Util.newColour(0xAFE9B3), Util.newColour(0xc44670), "green", Util.newArrayListOfValues("ageLoli")), //I wanted to use my own color here originally, but it doesn't work Util.newColour(0xE6EFED), Util.newColour(0x009E27)
+	AGE_PRETEENS(false, Util.newColour(0xE1F0C1), Util.newColour(0x73A112), "green", Util.newArrayListOfValues("agePreTeens")), //Change me later?
+	AGE_EARLYTEENS(false, Util.newColour(0xE1F0C1), Util.newColour(0x73A112), "green", Util.newArrayListOfValues("ageEarlyTeens")), //Change me later?
 	AGE_TEENS(false, Util.newColour(0xE1F0C1), Util.newColour(0x73A112), "green", Util.newArrayListOfValues("ageTeens")),
 	AGE_TWENTIES(false, Util.newColour(0xCCE698), Util.newColour(0x638A0F), "green", Util.newArrayListOfValues("ageTwenties")),
 	AGE_THIRTIES(false, Util.newColour(0xB8DC6F), Util.newColour(0x52730D), "green", Util.newArrayListOfValues("ageThirties")),
@@ -518,6 +520,7 @@ public enum Colour {
 	COVERING_GINGER(false, BaseColour.GINGER, "ginger"),
 	COVERING_ORANGE(false, BaseColour.ORANGE, "orange"),
 	COVERING_AMBER(false, BaseColour.AMBER, "amber"),
+	COVERING_RED_LIGHT(false, BaseColour.RED_LIGHT, "red"),
 	COVERING_RED(false, BaseColour.RED, "red"),
 	COVERING_RED_DARK(false, BaseColour.RED_DARK, "dark red"),
 	COVERING_AUBURN(false, BaseColour.AUBURN, "auburn"),
@@ -688,6 +691,7 @@ public enum Colour {
 			Colour.COVERING_WHITE,
 			Colour.COVERING_GREY,
 			Colour.COVERING_BLACK,
+			Colour.COVERING_RED_LIGHT,
 			Colour.COVERING_RED,
 			Colour.COVERING_RED_DARK,
 			Colour.COVERING_BROWN_DARK,
@@ -744,6 +748,7 @@ public enum Colour {
 			Colour.COVERING_WHITE,
 			Colour.COVERING_GREY,
 			Colour.COVERING_BLACK,
+			Colour.COVERING_RED_LIGHT,
 			Colour.COVERING_RED,
 			Colour.COVERING_RED_DARK,
 			Colour.COVERING_BROWN_DARK,
