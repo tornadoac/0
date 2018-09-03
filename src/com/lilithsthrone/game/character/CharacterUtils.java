@@ -1228,6 +1228,8 @@ public class CharacterUtils {
 			character.setHeight(character.getHeightValue()/2);
 			character.setPubicHair(BodyHair.ZERO_NONE);
 			character.setFacialHair(BodyHair.ZERO_NONE);
+			character.setUnderarmHair(BodyHair.ZERO_NONE);
+			character.setAssHair(BodyHair.ZERO_NONE);
 		}
 		
 		//Breasts:
@@ -1241,7 +1243,13 @@ public class CharacterUtils {
 		}
 		
 		if(character.hasBreasts()) {
-			character.setBreastSize(Math.max(CupSize.AA.getMeasurement(), character.getBreastSize().getMeasurement() -2 +(Util.random.nextInt(5)))); // Random size between -2 and +2 of base value.
+			if (character.getAge() < 15){
+				character.setBreastSize(CupSize.AA.getMeasurement());
+			//} else if (character.getAge() <= 15){
+			//	character.setBreastSize(Math.max(CupSize.AA.getMeasurement(), character.getBreastSize().getMeasurement() -2 +(Util.random.nextInt(3))));
+			} else {
+				character.setBreastSize(Math.max(CupSize.AA.getMeasurement(), character.getBreastSize().getMeasurement() -2 +(Util.random.nextInt(5)))); // Random size between -2 and +2 of base value.
+			}
 			if(Math.random()<=0.015f || character.hasFetish(Fetish.FETISH_LACTATION_SELF)) {
 				character.setBreastMilkStorage((int)((character.getBreastSize().getMeasurement() * 5)*(1+(Math.random()*2))));
 				if(Math.random()<=0.025f) {
@@ -1297,6 +1305,7 @@ public class CharacterUtils {
 					|| character.hasFetish(Fetish.FETISH_ANAL_GIVING)) {
 				character.setPenisVirgin(false);
 			}
+			
 			if((character.getGender()==Gender.F_P_TRAP || character.getGender()==Gender.N_P_TRAP) && Math.random()>=0.1f) { // Most traps have a small cock:
 				character.setPenisSize(PenisSize.ONE_TINY.getMinimumValue() + Util.random.nextInt(character.getPenisSize().getMaximumValue() - character.getPenisSize().getMinimumValue()) +1);
 				character.setTesticleSize(TesticleSize.ONE_TINY.getValue());
@@ -1317,6 +1326,17 @@ public class CharacterUtils {
 				character.fillCumToMaxStorage();
 			}
 			
+			if (character.getAge() < 15) {
+				character.setPenisSize(PenisSize.ONE_TINY.getMinimumValue() + Util.random.nextInt(character.getPenisSize().getMaximumValue() - character.getPenisSize().getMinimumValue()) +1);
+				if(character.getRace()==Race.HARPY){
+					character.setTesticleSize(TesticleSize.ZERO_VESTIGIAL.getValue());
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMedianValue());
+				}else{
+					character.setTesticleSize(TesticleSize.ONE_TINY.getValue());
+					character.setPenisCumStorage(CumProduction.TWO_SMALL_AMOUNT.getMedianValue());
+				}
+			}
+
 			if(Math.random()<=0.02f) {
 				character.addCumModifier(FluidModifier.ADDICTIVE);
 			}
