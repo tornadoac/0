@@ -54,7 +54,7 @@ public class GamblingDenPatron extends NPC {
 	
 	public GamblingDenPatron(Gender gender, DicePokerTable table, boolean isImported) {
 		super(isImported, null, "",
-				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, Subspecies.ALLIGATOR_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.GAMBLING_DEN, PlaceType.GAMBLING_DEN_GAMBLING, false);
 		
@@ -152,7 +152,7 @@ public class GamblingDenPatron extends NPC {
 			
 			// BODY RANDOMISATION:
 			
-			CharacterUtils.randomiseBody(this);
+			CharacterUtils.randomiseBody(this, true);
 			
 			// INVENTORY:
 			

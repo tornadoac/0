@@ -56,7 +56,7 @@ public class SlimeCavernAttacker extends NPC {
 	
 	public SlimeCavernAttacker(Gender gender, boolean isImported) {
 		super(isImported, null, "",
-				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, Subspecies.HUMAN, RaceStage.HUMAN,
 				new CharacterInventory(10), WorldType.BAT_CAVERNS, PlaceType.BAT_CAVERN_DARK, false);
 
@@ -137,7 +137,7 @@ public class SlimeCavernAttacker extends NPC {
 			
 			// BODY RANDOMISATION:
 			
-			CharacterUtils.randomiseBody(this);
+			CharacterUtils.randomiseBody(this, true);
 			
 			this.setBodyMaterial(BodyMaterial.SLIME);
 			

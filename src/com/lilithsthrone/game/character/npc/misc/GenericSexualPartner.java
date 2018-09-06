@@ -56,7 +56,7 @@ public class GenericSexualPartner extends NPC {
 	
 	public GenericSexualPartner(Gender gender, WorldType worldLocation, Vector2i location, boolean isImported) {
 		super(isImported, null, "",
-				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, Subspecies.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_BACK_ALLEYS, false);
 
@@ -202,7 +202,7 @@ public class GenericSexualPartner extends NPC {
 			
 			// BODY RANDOMISATION:
 			
-			CharacterUtils.randomiseBody(this);
+			CharacterUtils.randomiseBody(this, true);
 			
 			// INVENTORY:
 			

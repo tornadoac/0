@@ -94,7 +94,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 		if(this==NONE) {
 			return "";
 		}
-		if (gc.getAge()<=12) {
+		if (gc.getAppearsAsAgeValue()<=12) {
 			if(gc.isVaginaVirgin()) {
 				return UtilText.returnStringAtRandom(
 						"cherry",
@@ -170,7 +170,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 		if(this==NONE) {
 			return "";
 		}
-		if (gc.getAge()<=12) {
+		if (gc.getAppearsAsAgeValue()<=12) {
 			if(gc.isVaginaVirgin()) {
 				return UtilText.returnStringAtRandom(
 						"cherries",
@@ -291,11 +291,11 @@ public enum VaginaType implements BodyPartTypeInterface {
 				}
 			case 2:
 			//come up with better method for this, I want to differentiate by experience, maybe make a new parameter "quality"
-				if (gc.getAge()<=12) {
+				if (gc.getAppearsAsAgeValue()<=12) {
 					return UtilText.returnStringAtRandom("childish", "immature", "undeveloped", "tiny", "little", "petite", "delicate", "tender", "small", "cute", "loli", "budding");
-				} else if(gc.getAge()<=16) {
+				} else if(gc.getAppearsAsAgeValue()<=16) {
 					return UtilText.returnStringAtRandom("girlish", "youthful", "tender");
-				} else if(gc.getAge()>30) {
+				} else if(gc.getAppearsAsAgeValue()>30) {
 					return UtilText.returnStringAtRandom("womanly", "mature", "seasoned", "developed");
 				} else {
 					return UtilText.returnStringAtRandom("girlish", "ripe");

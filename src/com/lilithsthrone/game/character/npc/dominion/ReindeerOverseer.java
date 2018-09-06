@@ -51,7 +51,7 @@ public class ReindeerOverseer extends NPC {
 	
 	public ReindeerOverseer(Gender gender, boolean isImported) {
 		super(isImported, null, "",
-				Util.random.nextInt(Main.getProperties().ageGap)+Main.getProperties().ageLimitLower, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
+				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				10, gender, Subspecies.REINDEER_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_STREET, false);
 
@@ -87,7 +87,7 @@ public class ReindeerOverseer extends NPC {
 			
 			// BODY RANDOMISATION:
 			
-			CharacterUtils.randomiseBody(this);
+			CharacterUtils.randomiseBody(this, true);
 			
 			// INVENTORY:
 			
@@ -138,7 +138,7 @@ public class ReindeerOverseer extends NPC {
 			this.addItem(AbstractItemType.generateItem(ItemType.PRESENT), false);
 		}
 		
-		for (AbstractItemType item : ItemType.allItems) {
+		for (AbstractItemType item : ItemType.getAllItems()) {
 			if(item!=null && item.getItemTags().contains(ItemTag.REINDEER_GIFT)) {
 				for (int i = 0; i < 3 + (Util.random.nextInt(6)); i++) {
 					this.addItem(AbstractItemType.generateItem(item), false);

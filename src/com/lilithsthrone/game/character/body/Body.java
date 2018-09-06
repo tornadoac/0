@@ -835,7 +835,7 @@ public class Body implements Serializable, XMLSaving {
 				Boolean.valueOf(nipples.getAttribute("virgin")));
 
 		try {
-			importedBreast.milkStored = Integer.valueOf(breasts.getAttribute("storedMilk"));
+			importedBreast.milkStored = Float.valueOf(breasts.getAttribute("storedMilk"));
 			importedBreast.milkRegeneration = Integer.valueOf(breasts.getAttribute("milkRegeneration"));
 		} catch(Exception ex) {
 		}
@@ -1518,53 +1518,55 @@ public class Body implements Serializable, XMLSaving {
 				}
 			}
 		}
+		
 		if(Main.getProperties().hasValue(PropertyValue.ageContent)) {
-			if(owner.getAppearsAsAge()<=4) {
+			/*if(owner.getAppearsAsAgeValue()<=4) {
 				sb.append(" [npc.She] [npc.verb(appear)] like a <span style='color:"+Colour.AGE_LOLI.toWebHexString()+";'>toddler</span>");
 				
-			} else if(owner.getAppearsAsAge()<=9) {
+			} else if(owner.getAppearsAsAgeValue()<=9) {
 				sb.append(" [npc.She] [npc.verb(appear)] like a <span style='color:"+Colour.AGE_LOLI.toWebHexString()+";'>little [npc.girl]</span>");
 				
-			} else if(owner.getAppearsAsAge()<=13) {
+			} else if(owner.getAppearsAsAgeValue()<=13) {
 				sb.append(" [npc.She] [npc.verb(appear)] like a <span style='color:"+Colour.AGE_PRETEENS.toWebHexString()+";'>preteen</span>");
 				
-			} else if(owner.getAppearsAsAge()<=16) {
+			} else if(owner.getAppearsAsAgeValue()<=16) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_EARLYTEENS.toWebHexString()+";'>early teens</span>");				
 				
-			} else if(owner.getAppearsAsAge()<=18) {
+			} else if(owner.getAppearsAsAgeValue()<=18) {
 				sb.append(" [npc.She] [npc.verb(appear)] like a <span style='color:"+Colour.AGE_TEENS.toWebHexString()+";'>teenager</span>");
 				
-			} else if(owner.getAppearsAsAge()<=20) {
+			} else if(owner.getAppearsAsAgeValue()<20) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_TEENS.toWebHexString()+";'>late teens</span>");
 				
-			} else if(owner.getAppearsAsAge()<=23) {
+			} else if(owner.getAppearsAsAgeValue()<=23) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_TWENTIES.toWebHexString()+";'>early twenties</span>");
 				
-			} else if(owner.getAppearsAsAge()<=27) {
+			} else if(owner.getAppearsAsAgeValue()<=27) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_TWENTIES.toWebHexString()+";'>mid-twenties</span>");
 				
-			} else if(owner.getAppearsAsAge()<30) {
+			} else if(owner.getAppearsAsAgeValue()<30) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_TWENTIES.toWebHexString()+";'>late twenties</span>");
 				
-			}  else if(owner.getAppearsAsAge()<=33) {
+			}  else if(owner.getAppearsAsAgeValue()<=33) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_THIRTIES.toWebHexString()+";'>early thirties</span>");
 				
-			} else if(owner.getAppearsAsAge()<=37) {
+			} else if(owner.getAppearsAsAgeValue()<=37) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_THIRTIES.toWebHexString()+";'>mid-thirties</span>");
 				
-			} else if(owner.getAppearsAsAge()<40) {
+			} else if(owner.getAppearsAsAgeValue()<40) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_THIRTIES.toWebHexString()+";'>late thirties</span>");
 				
-			} else if(owner.getAppearsAsAge()<=43) {
+			} else if(owner.getAppearsAsAgeValue()<=43) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_FORTIES.toWebHexString()+";'>early forties</span>");
 				
-			} else if(owner.getAppearsAsAge()<=47) {
+			} else if(owner.getAppearsAsAgeValue()<=47) {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_FORTIES.toWebHexString()+";'>mid-forties</span>");
 				
 			} else {
 				sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+Colour.AGE_FORTIES.toWebHexString()+";'>late forties</span>");
-			}
-			sb.append(" ([npc.CharAge] year"+(owner.getAppearsAsAge()<10?"":"s")+" old)."); //todo: proper plural method
+			}*/
+			sb.append(" [npc.She] [npc.verb(appear)] to be in [npc.her] <span style='color:"+owner.getAppearsAsAge().getColour().toWebHexString()+";'>"+owner.getAppearsAsAge().getName()+"</span>."); //clean up
+			sb.append(" ([npc.She] [npc.verb(appear)] to be "+(owner.getAppearsAsAgeValue()<10?"a ":"")+owner.getAppearsAsAgeValue()+" year"+(owner.getAppearsAsAgeValue()<10?"":"s")+" old.)"); //todo: proper plural method
 		}
 		sb.append("</p>");
 		
