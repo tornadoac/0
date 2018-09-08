@@ -980,21 +980,24 @@ public class Sex {
 					participant.addStatusEffect(StatusEffect.RECOVERING_AURA, 240);
 
 				}
-				
-				if(Sex.getAllParticipants().contains(Main.game.getPlayer())) {
-					if((Sex.getSexPace(participant)!=SexPace.SUB_RESISTING || participant.hasFetish(Fetish.FETISH_NON_CON_SUB))) {
-						if(Sex.getNumberOfOrgasms(participant)>0
-								|| participant.hasFetish(Fetish.FETISH_DENIAL_SELF)
-								|| (Sex.isDom(participant) && !Sex.isSubHasEqualControl())) {
-//							sexSB.append(participant.incrementAffection(Main.game.getPlayer(), 5));
-						} else {
+
+				if(Sex.getSexPositionSlot(participant)!=SexPositionSlot.MISC_WATCHING) {
+					if(Sex.getAllParticipants().contains(Main.game.getPlayer())) {
+						if((Sex.getSexPace(participant)==SexPace.SUB_RESISTING && !participant.hasFetish(Fetish.FETISH_NON_CON_SUB))) {
 							for(GameCharacter domParticipant : Sex.getDominantParticipants().keySet()) {
-								sexSB.append(participant.incrementAffection(domParticipant, -2));
+								if(Sex.getSexPositionSlot(domParticipant)!=SexPositionSlot.MISC_WATCHING) {
+									sexSB.append(participant.incrementAffection(domParticipant, -50));
+								}
 							}
-						}
-					} else {
-						for(GameCharacter domParticipant : Sex.getDominantParticipants().keySet()) {
-							sexSB.append(participant.incrementAffection(domParticipant, -50));
+							
+						} else {
+							if(Sex.getNumberOfOrgasms(participant)==0 && !participant.hasFetish(Fetish.FETISH_DENIAL_SELF) && !Sex.isDom(participant)) {
+								for(GameCharacter domParticipant : Sex.getDominantParticipants().keySet()) {
+									if(Sex.getSexPositionSlot(domParticipant)!=SexPositionSlot.MISC_WATCHING) {
+										sexSB.append(participant.incrementAffection(domParticipant, -2));
+									}
+								}
+							}
 						}
 					}
 				}
@@ -1801,7 +1804,16 @@ public class Sex {
 			if(Sex.isMasturbation()) {
 				arousal*=2;
 			}
-			entry.getKey().incrementArousal(Math.min(15f/Sex.getTotalParticipantCount(false), arousal * entry.getKey().getLustLevel().getArousalModifier()));
+			if(entry.getKey().equals(activeCharacter) && sexAction.getArousalGainSelf().getArousalIncreaseValue()<0) {
+				entry.getKey().incrementArousal(sexAction.getArousalGainSelf().getArousalIncreaseValue());
+				
+			} else if(entry.getKey().equals(targetCharacter) && sexAction.getArousalGainTarget().getArousalIncreaseValue()<0) {
+				entry.getKey().incrementArousal(sexAction.getArousalGainTarget().getArousalIncreaseValue());
+				System.out.println(targetCharacter.getName()+" "+sexAction.getArousalGainTarget().getArousalIncreaseValue());
+				
+			} else {
+				entry.getKey().incrementArousal(Math.min(15f/Sex.getTotalParticipantCount(false), arousal * entry.getKey().getLustLevel().getArousalModifier()));
+			}
 		}
 		
 		// Cummed in areas:
@@ -2327,7 +2339,9 @@ public class Sex {
 		
 		for(GameCharacter lubricantProvidor : Sex.getAllParticipants()) {
 			for(LubricationType lt : wetAreas.get(character).get(characterArea).get(lubricantProvidor)) {
-				if(!wetAreas.get(targetCharacter).get(targetArea).get(lubricantProvidor).contains(lt)) {
+				if(!wetAreas.get(targetCharacter).get(targetArea).get(lubricantProvidor).contains(lt)
+						// Cannot lubricate with self cum or precum via penis through a condom:
+						&& ((lt!=LubricationType.PRECUM && lt!=LubricationType.CUM) || characterArea!=SexAreaPenetration.PENIS || !character.isWearingCondom() || !lubricantProvidor.equals(character))) {
 					wetAreas.get(targetCharacter).get(targetArea).get(lubricantProvidor).add(lt);
 					lubricationTransferred.add((lubricantProvidor==null?"":UtilText.parse(lubricantProvidor, "[npc.namePos] "))+lt.getName(lubricantProvidor));
 					lastLubricationPlural = lt.isPlural();
@@ -2345,7 +2359,9 @@ public class Sex {
 		
 		for(GameCharacter lubricantProvidor : Sex.getAllParticipants()) {
 			for(LubricationType lt : wetAreas.get(targetCharacter).get(targetArea).get(lubricantProvidor)) {
-				if(!wetAreas.get(character).get(characterArea).get(lubricantProvidor).contains(lt)) {
+				if(!wetAreas.get(character).get(characterArea).get(lubricantProvidor).contains(lt)
+						// Cannot lubricate with self cum or precum via penis through a condom:
+						&& ((lt!=LubricationType.PRECUM && lt!=LubricationType.CUM) || targetArea!=SexAreaPenetration.PENIS || !targetCharacter.isWearingCondom() || !lubricantProvidor.equals(targetCharacter))) {
 					wetAreas.get(character).get(characterArea).get(lubricantProvidor).add(lt);
 					lubricationTransferred.add((lubricantProvidor==null?"":UtilText.parse(lubricantProvidor, "[npc.namePos] "))+lt.getName(lubricantProvidor));
 					lastLubricationPlural = lt.isPlural();
@@ -2358,6 +2374,7 @@ public class Sex {
 					Util.capitaliseSentence(Util.stringsToStringList(lubricationTransferred, false))+" quickly lubricate"+(lubricationTransferred.size()>1 || !lastLubricationPlural?"s ":" ")
 						+(character.isPlayer()?"your ":character.getName("the")+"'s ")+characterArea.getName(character)+"."));
 		}
+		
 	}
 	
 	private static String getLubricationDescription(GameCharacter character, SexAreaInterface area) {
@@ -2538,7 +2555,7 @@ public class Sex {
 						characterPenetrated.incrementExperience(Fetish.getExperienceGainFromTakingOtherVirginity(characterPenetrated), true);
 						characterPenetrated.incrementFetishExperience(Fetish.FETISH_DEFLOWERING, Fetish.FETISH_DEFLOWERING.getExperienceGainFromSexAction());
 					}
-					characterPenetrating.setVirginityLoss(relatedSexTypeForCharacterPenetrating, characterPenetrating, characterPenetrated.getLostVirginityDescriptor());
+					characterPenetrating.setVirginityLoss(relatedSexTypeForCharacterPenetrating, characterPenetrated, characterPenetrated.getLostVirginityDescriptor());
 					characterPenetrating.setPenisVirgin(false);
 				}
 				

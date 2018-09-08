@@ -19,7 +19,7 @@ import com.lilithsthrone.utils.XMLSaving;
 
 /**
  * @since 0.1.62
- * @version 0.2.10
+ * @version 0.2.11
  * @author Innoxia
  */
 public class Litter implements Serializable, XMLSaving {
@@ -222,7 +222,12 @@ public class Litter implements Serializable, XMLSaving {
 	}
 
 	public GameCharacter getMother() {
-		return Main.game.getNPCById(motherId);
+		try {
+			return Main.game.getNPCById(motherId);
+		} catch (Exception e) {
+			System.err.println("Main.game.getNPCById("+motherId+") returning null in method: Litter.getMother()");
+			return Main.game.getGenericFemaleNPC();
+		}
 	}
 
 	public boolean isMotherId(String motherId) {
@@ -230,7 +235,12 @@ public class Litter implements Serializable, XMLSaving {
 	}
 
 	public GameCharacter getFather() {
-		return Main.game.getNPCById(fatherId);
+		try {
+			return Main.game.getNPCById(fatherId);
+		} catch (Exception e) {
+			System.err.println("Main.game.getNPCById("+fatherId+") returning null in method: Litter.getFather()");
+			return Main.game.getGenericMaleNPC();
+		}
 	}
 
 	public boolean isFatherId(String fatherId) {
@@ -279,8 +289,8 @@ public class Litter implements Serializable, XMLSaving {
 				descriptionSB.append(
 						"<b>"+Util.intToString(getSonsFromMother())+ " </b><b style='color:"+ Colour.MASCULINE.toWebHexString()+ ";'>"
 							+ (getSonsFromMother() > 1
-								? getMotherRace().getOffspringMaleName()
-								: getMotherRace().getOffspringMaleNameSingular())
+								? getMotherRace().getOffspringSubspecies().getPluralMaleName(getMother())
+								: getMotherRace().getOffspringSubspecies().getSingularMaleName(getMother()))
 						+ "</b>");
 				foundChildren = true;
 			}
@@ -296,8 +306,8 @@ public class Litter implements Serializable, XMLSaving {
 				descriptionSB.append(
 						"<b>"+Util.intToString(getSonsFromFather())+ " </b><b style='color:"+ Colour.MASCULINE.toWebHexString()+ ";'>"
 							+ (getSonsFromFather() > 1
-								? getFatherRace().getOffspringMaleName()
-								: getFatherRace().getOffspringMaleNameSingular())
+									? getFatherRace().getOffspringSubspecies().getPluralMaleName(getFather())
+									: getFatherRace().getOffspringSubspecies().getSingularMaleName(getFather()))
 						+ "</b>");
 				foundChildren = true;
 			}
@@ -307,8 +317,8 @@ public class Litter implements Serializable, XMLSaving {
 				descriptionSB.append(
 						"<b>"+Util.intToString(getSonsFromMother()+getSonsFromFather())+ " </b><b style='color:"+ Colour.MASCULINE.toWebHexString()+ ";'>"
 							+ (getSonsFromMother()+getSonsFromFather() > 1
-								? getMotherRace().getOffspringMaleName()
-								: getMotherRace().getOffspringMaleNameSingular())
+									? getMotherRace().getOffspringSubspecies().getPluralMaleName(getMother())
+									: getMotherRace().getOffspringSubspecies().getSingularMaleName(getMother()))
 						+ "</b>");
 				foundChildren = true;
 			}
@@ -326,8 +336,8 @@ public class Litter implements Serializable, XMLSaving {
 				descriptionSB.append(
 						"<b>"+Util.intToString(getDaughtersFromMother())+ " </b><b style='color:"+ Colour.FEMININE.toWebHexString()+ ";'>"
 							+ (getDaughtersFromMother() > 1
-								? getMotherRace().getOffspringFemaleName()
-								: getMotherRace().getOffspringFemaleNameSingular())
+									? getMotherRace().getOffspringSubspecies().getPluralFemaleName(getMother())
+									: getMotherRace().getOffspringSubspecies().getSingularFemaleName(getMother()))
 						+ "</b>");
 				foundChildren = true;
 			}
@@ -339,8 +349,8 @@ public class Litter implements Serializable, XMLSaving {
 				descriptionSB.append(
 						"<b>"+Util.intToString(getDaughtersFromFather())+ " </b><b style='color:"+ Colour.FEMININE.toWebHexString()+ ";'>"
 							+ (getDaughtersFromFather() > 1
-								? getFatherRace().getOffspringFemaleName()
-								: getFatherRace().getOffspringFemaleNameSingular())
+									? getFatherRace().getOffspringSubspecies().getPluralFemaleName(getFather())
+									: getFatherRace().getOffspringSubspecies().getSingularFemaleName(getFather()))
 						+ "</b>");
 			}
 		} else {
@@ -351,8 +361,8 @@ public class Litter implements Serializable, XMLSaving {
 				descriptionSB.append(
 						"<b>"+Util.intToString(getDaughtersFromMother()+getDaughtersFromFather())+ " </b><b style='color:"+ Colour.FEMININE.toWebHexString()+ ";'>"
 							+ (getDaughtersFromMother()+getDaughtersFromFather() > 1
-								? getMotherRace().getOffspringFemaleName()
-								: getMotherRace().getOffspringFemaleNameSingular())
+									? getMotherRace().getOffspringSubspecies().getPluralFemaleName(getMother())
+									: getMotherRace().getOffspringSubspecies().getSingularFemaleName(getMother()))
 						+ "</b>");
 			}
 		}

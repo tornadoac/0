@@ -18,7 +18,7 @@ import com.lilithsthrone.game.character.persona.Name;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.RaceStage;
-import com.lilithsthrone.game.character.race.RacialBody;
+import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.Spell;
 import com.lilithsthrone.game.combat.SpellSchool;
 import com.lilithsthrone.game.combat.SpellUpgrade;
@@ -32,7 +32,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.2.4
- * @version 0.2.4
+ * @version 0.2.11
  * @author Innoxia
  */
 public class Elemental extends NPC {
@@ -43,9 +43,9 @@ public class Elemental extends NPC {
 	}
 	
 	public Elemental(Gender gender, GameCharacter summoner, boolean isImported) {
-		super(null, "", summoner==null?Main.getProperties().ageLimitLower:summoner.getAge(), summoner==null?Month.JANUARY:summoner.getBirthMonth(), summoner==null?1:summoner.getDayOfBirth(), 20, gender, RacialBody.DEMON, RaceStage.GREATER,
+		super(isImported, null, "", summoner==null?18:summoner.getAgeValue(), summoner==null?Month.JANUARY:summoner.getBirthMonth(), summoner==null?1:summoner.getDayOfBirth(), 20, gender, Subspecies.DEMON, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, false);
-		//8Chan
+
 		if(!isImported) {
 			this.setWorldLocation(summoner.getWorldLocation());
 			this.setLocation(summoner.getLocation());
@@ -65,10 +65,9 @@ public class Elemental extends NPC {
 			
 			// INVENTORY:
 			
-			resetInventory();
+			resetInventory(true);
 			
 			this.addFetish(Fetish.FETISH_EXHIBITIONIST);
-			this.unequipAllClothingIntoVoid();
 			
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
@@ -93,6 +92,16 @@ public class Elemental extends NPC {
 
 		Element npcSpecificElement = (Element) parentElement.getElementsByTagName("elementalSpecial").item(0);
 		this.setSummoner(((Element)npcSpecificElement.getElementsByTagName("summoner").item(0)).getAttribute("value"));
+	}
+
+	@Override
+	public void setStartingBody(boolean setPersona) {
+		// Not needed
+	}
+
+	@Override
+	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos) {
+		// Not needed
 	}
 	
 	@Override
@@ -127,7 +136,7 @@ public class Elemental extends NPC {
 	}
 	
 	@Override
-	protected String rollForPregnancy(GameCharacter partner, int cum) {
+	public String rollForPregnancy(GameCharacter partner, int cum) {
 		return PregnancyDescriptor.NO_CHANCE.getDescriptor(this, partner)
 				+"<p style='text-align:center;'>[style.italicsMinorBad(Elementals cannot get pregnant!)]<br/>[style.italicsDisabled(I will add support for impregnating/being impregnated by elementals soon!)]</p>";
 	}
@@ -245,7 +254,12 @@ public class Elemental extends NPC {
 	}
 	
 	public GameCharacter getSummoner() {
-		return Main.game.getNPCById(summonerID);
+		try {
+			return Main.game.getNPCById(summonerID);
+		} catch (Exception e) {
+			System.err.println("Main.game.getNPCById("+id+") returning null in method: getSummoner()");
+			return null;
+		}
 	}
 
 	public void setSummoner(String summonerID) {

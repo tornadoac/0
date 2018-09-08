@@ -166,7 +166,7 @@ public class OccupantDialogue {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_STILL_PREGNANT", occupant()));
 				}
 			}
-
+			
 			if(Main.game.getPlayer().isVisiblyPregnant()) {
 				if(!Main.game.getPlayer().isCharacterReactedToPregnancy(occupant())) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_PLAYER_PREGNANCY", occupant()));
@@ -186,7 +186,7 @@ public class OccupantDialogue {
 			
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
-
+		
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(index == 0) {
@@ -518,6 +518,26 @@ public class OccupantDialogue {
 							}
 						};
 						
+					case 7:
+						if(!occupant().isAbleToSelfTransform()) {
+							return new Response("Transformations", "Only demons and slimes can transform themselves on command...", null);
+							
+						} else {
+							return new Response("Transformations",
+									"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
+									BodyChanging.BODY_CHANGING_CORE){
+								@Override
+								public void effects() {
+									applyReactionReset();
+									Main.game.saveDialogueNode();
+									BodyChanging.setTarget(occupant());
+								}
+							};
+						}
+						
+					case 8:
+						return new Response("Pet name", "Ask [npc.name] to call you by a different name.", OCCUPANT_CHOOSE_NAME);
+						
 					case 0:
 						return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 							@Override
@@ -667,11 +687,12 @@ public class OccupantDialogue {
 			UtilText.nodeContentSB.setLength(0);
 			
 			String id = Util.randomItemFrom(Main.game.getPlayer().getSlavesOwned());
-			NPC slave = (NPC) Main.game.getNPCById(id);
-			
-			if(slave!=null) {
+			try {
+				NPC slave = (NPC) Main.game.getNPCById(id);
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_SLAVES", occupant(), slave));
-			} else {
+
+			} catch (Exception e) {
+				System.err.println("Main.game.getNPCById("+id+") returning null in method: OCCUPANT_TALK_SLAVES.getContent()");
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_SLAVES_NULL_SLAVE", occupant()));
 			}
 			
@@ -863,13 +884,12 @@ public class OccupantDialogue {
 
 		@Override
 		public String getResponseTabTitle(int index) {
-			if(occupant().isAtHome()) {
-				if(index == 0) {
-					return "Talk";
-					
-				} else if(index == 1) {
-					return UtilText.parse("[style.colourSex(Sex)]");
-				}
+			if(index == 0) {
+				return "Talk";
+			} else if(index == 1) {
+				return UtilText.parse("[style.colourSex(Sex)]");
+			} else if(index == 2) {
+				return UtilText.parse("[style.colourCompanion(Manage)]");
 			}
 			
 			return null;
@@ -1126,6 +1146,89 @@ public class OccupantDialogue {
 				}
 				
 				
+			} else if(responseTab == 2) {
+				switch(index) {
+					case 1:
+						return new Response("Inspect",
+								"Inspect [npc.name].",
+								OccupantManagementDialogue.getSlaveryManagementInspectSlaveDialogue(occupant())) {
+							@Override
+							public void effects() {
+								applyReactionReset();
+								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(occupant());
+							}
+						};
+					case 2:
+						return new Response("Job", "You cannot manage the job of a free-willed occupant. This option is only available for slaves.", null);
+						
+					case 3:
+						return new Response("Permissions", "You cannot manage the permissions of a free-willed occupant. This option is only available for slaves.", null);
+						
+					case 4:
+						return new ResponseEffectsOnly("Inventory",
+								UtilText.parse(occupant(), "As [npc.name] is indebted to you for having saved [npc.herHim] from a life of crime, [npc.she] will happily let you choose what [npc.she] wears.")) {
+									@Override
+									public void effects() {
+										applyReactionReset();
+										Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(occupant());
+										Main.mainController.openInventory(occupant(), InventoryInteraction.FULL_MANAGEMENT);
+									}
+								};
+					case 5:
+						if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.kateIntroduced)) {
+							return new Response("Send to Kate",
+									"[npc.Name] trusts you enough to have you decide upon any appearance changes at Kate's beauty salon, 'Succubi's secrets'.",
+									OccupantManagementDialogue.SLAVE_MANAGEMENT_COSMETICS_HAIR) {
+										@Override
+										public void effects() {
+											applyReactionReset();
+											Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(occupant());
+											BodyChanging.setTarget(occupant());
+										}
+									};
+						} else {
+							return new Response("Send to Kate", "You haven't met Kate yet!", null);
+						}
+						
+					case 6:
+						return new Response("Perks", "Assign [npc.namePos] perk points.", OccupantManagementDialogue.SLAVE_MANAGEMENT_PERKS){
+							@Override
+							public void effects() {
+								applyReactionReset();
+								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(occupant());
+							}
+						};
+						
+					case 7:
+						if(!occupant().isAbleToSelfTransform()) {
+							return new Response("Transformations", "Only demons and slimes can transform themselves on command...", null);
+							
+						} else {
+							return new Response("Transformations",
+									"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
+									BodyChanging.BODY_CHANGING_CORE){
+								@Override
+								public void effects() {
+									applyReactionReset();
+									Main.game.saveDialogueNode();
+									BodyChanging.setTarget(occupant());
+								}
+							};
+						}
+						
+					case 0:
+						return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
+							@Override
+							public void effects() {
+								applyReactionReset();
+								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
+							}
+						};
+								
+					default:
+						return null;
+				}
+			
 			} else {
 				return null;
 			}
@@ -1328,6 +1431,67 @@ public class OccupantDialogue {
 				
 			} else {
 				return null;
+			}
+		}
+	};
+	
+	
+	// MANAGEMENT DIALOGUES:
+	
+	
+	public static final DialogueNodeOld OCCUPANT_CHOOSE_NAME = new DialogueNodeOld("", "", true) {
+		private static final long serialVersionUID = 1L;
+		
+		@Override
+		public String getContent() {
+			UtilText.nodeContentSB.setLength(0);
+			
+			UtilText.nodeContentSB.append(
+					"<p>"
+						+ "You decide to ask [npc.name] to call you by a different name."
+						+ " At the moment, [npc.sheIs] calling you '[npc.pcName]'."
+					+ "</p>"
+					
+					// TODO align this properly
+					
+					+ "<div class='container-full-width' style='text-align:center;'>"
+						+ "<div style='position:relative; display: inline-block; padding:0 auto; margin:0 auto;vertical-align:middle;width:100%;'>"
+							+ "<p style='float:left; padding:0; margin:0; height:32px; line-height:32px;'>[npc.Name] will call you: </p>"
+							+ "<form style='float:left; padding:auto 0 auto 0;'><input type='text' id='offspringPetNameInput' value='"+ UtilText.parseForHTMLDisplay(occupant().getPlayerPetName())+ "'></form>"
+							+ " <div class='SM-button' id='"+occupant().getId()+"_PET_NAME' style='float:left; width:auto; height:28px;'>"
+								+ "Rename"
+							+ "</div>"
+						+ "</div>"
+						+ "<p>"
+						+ "<i>The names 'Mom'/'Dad' and 'Mommy'/'Daddy' are special, and will automatically switch to the appropriate femininity of your character.</i>"
+						+ "</p>"
+					+ "</div>"
+					
+					+ "<p id='hiddenFieldName' style='display:none;'></p>");
+			
+			return UtilText.nodeContentSB.toString();
+		}
+		
+		@Override
+		public String getResponseTabTitle(int index) {
+			if(occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_GROUND_FLOOR || occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_FIRST_FLOOR) {
+				return OCCUPANT_START.getResponseTabTitle(index);
+			} else {
+				return OCCUPANT_APARTMENT.getResponseTabTitle(index);
+			}
+		}
+
+		@Override
+		public Response getResponse(int responseTab, int index) {
+			if (responseTab==2 && index == 8) {
+				return new Response("Pet name", "You're already asking [npc.name] to call you by a different name.", null);
+				
+			} else {
+				if(occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_GROUND_FLOOR || occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_FIRST_FLOOR) {
+					return OCCUPANT_START.getResponse(responseTab, index);
+				} else {
+					return OCCUPANT_APARTMENT.getResponse(responseTab, index);
+				}
 			}
 		}
 	};

@@ -645,9 +645,9 @@ public enum SpecialAttack {
 						(UtilText.returnStringAtRandom(
 						"[npc.Name] [npc.verb(slide)] [npc.a_hand] down between [npc.her] [npc.legs], before grabbing [npc.her] crotch and [npc.moaning] at [npc2.name], [npc.speech(I can't wait to stuff my cock inside you!)]",
 
-						"[npc.Name] [npc.verb(thrust)] [npc.her] [npc.hips+] forward and [npc.moanVerb] at [npc2.name], [npc.speech(Come get a taste of my [npc.penisSize] cock!)]",
+						"[npc.Name] [npc.verb(thrust)] [npc.her] [npc.hips+] forward and [npc.moanVerb] at [npc2.name], [npc.speech(Come get a taste of my cock!)]",
 
-						"[npc.Name] [npc.verb(grin)] at [npc2.name] as [npc.she] [npc.moanVerb], [npc.speech(You're going to love the feeling of my [npc.penisSize] cock!)]")));
+						"[npc.Name] [npc.verb(grin)] at [npc2.name] as [npc.she] [npc.moanVerb], [npc.speech(You're going to love the feeling of my cock!)]")));
 				
 			
 			return applySpecialSeduction(caster, target, Fetish.FETISH_PENIS_RECEIVING, attackText);
@@ -1830,7 +1830,7 @@ public enum SpecialAttack {
 						+ "With a burst of energy, [npc.name] [npc.verb(leap)] forwards, trying to bite [npc2.name]."
 						+ (isHit
 								? " [npc.Her] dog-like muzzle clamps down on [npc2.namePos] [npc2.arm],"
-										+ " and [npc.she] [npc.verb(manage)] to cause some serious damage with [npc.her] sharp canines before [npc2.name] [npc.verb(pull)] free."
+										+ " and [npc.she] [npc.verb(manage)] to cause some serious damage with [npc.her] sharp canines before [npc2.name] [npc2.verb(pull)] free."
 								: " [npc2.Name] [npc2.verb(manage)] to jump to one side, and there's an audible snap as [npc.namePos] teeth clamp down on thin air.")
 					+ "</p>")
 					+ getDamageAndCostDescription(caster, target, this.getCooldown(), damage, isHit, isCritical));
@@ -1880,7 +1880,7 @@ public enum SpecialAttack {
 						+ "With a burst of energy, [npc.name] [npc.verb(leap)] forwards, trying to butt [npc.her] head into [npc2.name]."
 						+ (isHit
 								? " [npc.She] [npc.verb(manage)] to make contact; ramming [npc.her] forehead into [npc2.namePos] body and whacking [npc2.herHim] with the sides of [npc.her] horns."
-											+ " [npc2.Name] [npc.verb(stagger)] back from the impact, having had the wind knocked out of [npc.herHim]."
+											+ " [npc2.Name] [npc2.verb(stagger)] back from the impact, having had the wind knocked out of [npc.herHim]."
 								: " [npc2.Name] [npc2.verb(manage)] to jump to one side, and there's an audible whoosh as [npc.namePos] horns swipe through the air.")
 					+ "</p>")
 					+ getDamageAndCostDescription(caster, target, this.getCooldown(), damage, isHit, isCritical));
@@ -1931,7 +1931,7 @@ public enum SpecialAttack {
 						+ "With a burst of energy, [npc.name] [npc.verb(leap)] forwards, trying to butt [npc.her] head into [npc2.name]."
 						+ (isHit
 								? " [npc.She] [npc.verb(manage)] to make contact; ramming [npc.her] forehead into [npc2.namePos] body and whacking [npc2.herHim] with the sides of [npc.her] antlers."
-											+ " [npc2.Name] [npc.verb(stagger)] back from the impact, having had the wind knocked out of [npc.herHim]."
+											+ " [npc2.Name] [npc2.verb(stagger)] back from the impact, having had the wind knocked out of [npc.herHim]."
 								: " [npc2.Name] [npc2.verb(manage)] to jump to one side, and there's an audible whoosh as [npc.namePos] antlers swipe through the air.")
 					+ "</p>")
 					+ getDamageAndCostDescription(caster, target, this.getCooldown(), damage, isHit, isCritical));

@@ -186,7 +186,7 @@ public enum RenderingEngine {
 		if (charactersInventoryToRender.getMainWeapon() != null) {
 			equippedPanelSB.append(
 					"<div class='inventory-item-slot weapon" + getClassRarityIdentifier(charactersInventoryToRender.getMainWeapon().getRarity()) + "'>"
-						+ "<div class='inventory-icon-content'>"+charactersInventoryToRender.getMainWeapon().getSVGString()+"</div>"
+						+ "<div class='inventory-icon-content'>"+charactersInventoryToRender.getMainWeapon().getSVGEquippedString(charactersInventoryToRender)+"</div>"
 						+ "<div class='overlay-inventory' id='" + InventorySlot.WEAPON_MAIN.toString() + "Slot'></div>"
 					+ "</div>");
 		} else {
@@ -196,9 +196,12 @@ public enum RenderingEngine {
 		// Offhand weapon:
 		if (charactersInventoryToRender.getOffhandWeapon() != null) {
 			equippedPanelSB.append("<div class='inventory-item-slot weapon" + getClassRarityIdentifier(charactersInventoryToRender.getOffhandWeapon().getRarity()) + "'>"
-						+ "<div class='inventory-icon-content'>"+charactersInventoryToRender.getOffhandWeapon().getSVGString()+"</div>"
+						+ "<div class='inventory-icon-content'>"+charactersInventoryToRender.getOffhandWeapon().getSVGEquippedString(charactersInventoryToRender)+"</div>"
 						+ "<div class='overlay-inventory' id='" + InventorySlot.WEAPON_OFFHAND.toString() + "Slot'></div>"
 					+ "</div>");
+		} else if (charactersInventoryToRender.getMainWeapon() != null && charactersInventoryToRender.getMainWeapon().getWeaponType().isTwoHanded()) {
+			equippedPanelSB.append("<div class='inventory-item-slot weapon disabled' id='" + InventorySlot.WEAPON_OFFHAND.toString() + "Slot'></div>");
+			
 		} else {
 			equippedPanelSB.append("<div class='inventory-item-slot weapon' id='" + InventorySlot.WEAPON_OFFHAND.toString() + "Slot'></div>");
 		}
@@ -1097,8 +1100,10 @@ public enum RenderingEngine {
 			uiAttributeSB.append(
 					"<div class='full-width-container' style='background-color:#19191a; border-radius:5px; margin-bottom:1px; padding:4px;'>"
 							+ "<div class='full-width-container' style='text-align:center;'>"
-									+ "<p>"
-										+ (getCharacterToRender()==null?"No Character":UtilText.parse(getCharacterToRender(), "[npc.NamePos] Inventory"))
+									+ "<p style='white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;'>"
+										+ (getCharacterToRender()==null
+											?"No Character"
+											:UtilText.parse(getCharacterToRender(), "[npc.NamePos] Inventory"))
 									+ "</p>"
 							+ "</div>"
 						+ "</div>");
@@ -1310,10 +1315,10 @@ public enum RenderingEngine {
 		}
 	}
 
-	public String getFullMap(WorldType world, boolean withFastTravel) {
+	public String getFullMap(WorldType world, boolean withFastTravelAndIcons) {
 		mapSB.setLength(0);
 		
-		if(withFastTravel) {
+		if(withFastTravelAndIcons) {
 			boolean isAbleToTeleport = Main.game.getPlayer().isAbleToTeleport()
 					&& Main.game.getSavedDialogueNode().equals(Main.game.getPlayer().getLocationPlace().getDialogue(false))
 					&& Main.game.getPlayer().getMana()>=Spell.TELEPORT.getModifiedCost(Main.game.getPlayer());
@@ -1346,7 +1351,7 @@ public enum RenderingEngine {
 			for(int j=0; j<grid.length; j++) {
 				Cell c = grid[j][i];
 				
-				boolean discovered = c.isDiscovered() || Main.game.isDebugMode();
+				boolean discovered = c.isDiscovered() || Main.game.isMapReveal();
 				
 				String background = c.getPlace().getPlaceType()==PlaceType.GENERIC_IMPASSABLE
 									?"background:transparent;"
@@ -1356,7 +1361,7 @@ public enum RenderingEngine {
 											?"background-color:"+c.getPlace().getPlaceType().getBackgroundColour().toWebHexString()+";"
 											:"background-color:"+Colour.MAP_BACKGROUND_UNEXPLORED.toWebHexString()+";";
 				
-				if(!discovered) {
+				if(!discovered || c.getPlace().getPlaceType()==PlaceType.GENERIC_IMPASSABLE) {
 					mapSB.append("<div class='map-icon' style='width:"+(width-0.5)+"%; margin:0.25%; "+background+"'></div>");
 					
 				} else {
@@ -1382,7 +1387,9 @@ public enum RenderingEngine {
 									: "")
 								+(playerOnTile?"<div class='overlay map-player'></div>":""));
 
-					appendNPCIcon(Main.game.getWorlds().get(world), j, i);
+					if(withFastTravelAndIcons) {
+						appendNPCIcon(Main.game.getWorlds().get(world), j, i);
+					}
 					
 					mapSB.append("</div>");
 				}
@@ -1436,7 +1443,7 @@ public enum RenderingEngine {
 				if (x < Main.game.getActiveWorld().WORLD_WIDTH && x >= 0 && y < Main.game.getActiveWorld().WORLD_HEIGHT && y >= 0) {// If within  bounds of map:
 					PlaceType placeType = Main.game.getActiveWorld().getCell(x, y).getPlace().getPlaceType();
 
-					if (Main.game.getActiveWorld().getCell(x, y).isDiscovered() || Main.game.isDebugMode()) { // If the tile is discovered:
+					if (Main.game.getActiveWorld().getCell(x, y).isDiscovered() || Main.game.isMapReveal()) { // If the tile is discovered:
 
 						if (placeType == PlaceType.GENERIC_IMPASSABLE) {
 							mapSB.append("<div class='map-tile blank' style='"+tileWidthStyle+"'></div>");
@@ -1637,7 +1644,7 @@ public enum RenderingEngine {
 			mapIcons.add(gc.getMapIcon());
 		}
 		
-		for(NPC gc : Main.game.getCharactersTreatingCellAsHome(Main.game.getActiveWorld().getCell(x, y))) {
+		for(NPC gc : Main.game.getCharactersTreatingCellAsHome(world.getCell(x, y))) {
 			if(!charactersPresent.contains(gc) && ((gc.isSlave() && gc.getOwner().isPlayer()) || Main.game.getPlayer().getFriendlyOccupants().contains(gc.getId()))) {
 				mapIcons.add(gc.getHomeMapIcon());
 			}
@@ -1795,7 +1802,7 @@ public enum RenderingEngine {
 							+ "<div class='full-width-container' style='text-align:center;padding:0;margin:0;'>"
 								+ "<b style='color:"+ Femininity.valueOf(character.getFemininityValue()).getColour().toWebHexString() + ";'>"
 									+ (character.getName().length() == 0
-											? Util.capitaliseSentence(character.isFeminine()?character.getSubspecies().getSingularFemaleName():character.getSubspecies().getSingularMaleName())
+											? Util.capitaliseSentence(character.isFeminine()?character.getSubspecies().getSingularFemaleName(character):character.getSubspecies().getSingularMaleName(character))
 											: Util.capitaliseSentence(character.getName()))
 								+"</b>"
 								+ " - Level "+ character.getLevel()
@@ -2042,7 +2049,7 @@ public enum RenderingEngine {
 							+ "<div class='full-width-container' style='text-align:center;padding:0;margin:0;'>"
 								+ "<b style='color:"+ Femininity.valueOf(character.getFemininityValue()).getColour().toWebHexString() + ";'>"
 									+ (character.getName().length() == 0
-											? Util.capitaliseSentence(character.isFeminine()?character.getSubspecies().getSingularFemaleName():character.getSubspecies().getSingularMaleName())
+											? Util.capitaliseSentence(character.isFeminine()?character.getSubspecies().getSingularFemaleName(character):character.getSubspecies().getSingularMaleName(character))
 											: Util.capitaliseSentence(character.getName()))
 								+"</b>"
 									+ " - <span style='color:"+Sex.getSexPace(character).getColour().toWebHexString()+";'>"+ Util.capitaliseSentence(Sex.getSexPace(character).getName())+"</span>"

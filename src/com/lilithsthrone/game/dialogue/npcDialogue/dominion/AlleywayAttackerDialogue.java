@@ -16,6 +16,7 @@ import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseCombat;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
+import com.lilithsthrone.game.dialogue.utils.BodyChanging;
 import com.lilithsthrone.game.dialogue.utils.InventoryInteraction;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.item.AbstractItem;
@@ -53,10 +54,6 @@ public class AlleywayAttackerDialogue {
 	
 	private static boolean isWantsToFight() {
 		return getMugger().getAffection(Main.game.getPlayer())<AffectionLevel.POSITIVE_ONE_FRIENDLY.getMinimumValue();
-	}
-	
-	private static boolean isAffectionHighEnoughToInviteHome() {
-		return getMugger().getAffection(Main.game.getPlayer())>=AffectionLevel.POSITIVE_THREE_CARING.getMinimumValue();
 	}
 	
 	private static void applyPregnancyReactions() {
@@ -284,7 +281,7 @@ public class AlleywayAttackerDialogue {
 							applyPregnancyReactions();
 							Main.game.getTextEndStringBuilder().append(getMugger().incrementAffection(Main.game.getPlayer(), 10));
 							
-							if(isAffectionHighEnoughToInviteHome() && !Main.game.getPlayer().hasQuest(QuestLine.SIDE_ACCOMMODATION)) {
+							if(getMugger().isAffectionHighEnoughToInviteHome() && !Main.game.getPlayer().hasQuest(QuestLine.SIDE_ACCOMMODATION)) {
 								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.SIDE_ACCOMMODATION));
 							}
 						}
@@ -303,7 +300,7 @@ public class AlleywayAttackerDialogue {
 								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().incrementMoney(-250));
 								Main.game.getTextEndStringBuilder().append(getMugger().incrementAffection(Main.game.getPlayer(), 15));
 
-								if(isAffectionHighEnoughToInviteHome() && !Main.game.getPlayer().hasQuest(QuestLine.SIDE_ACCOMMODATION)) {
+								if(getMugger().isAffectionHighEnoughToInviteHome() && !Main.game.getPlayer().hasQuest(QuestLine.SIDE_ACCOMMODATION)) {
 									Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.SIDE_ACCOMMODATION));
 								}
 							}
@@ -355,7 +352,7 @@ public class AlleywayAttackerDialogue {
 					}
 					
 				} if (index == 5) {
-					if(!Main.game.getPlayer().hasQuest(QuestLine.SIDE_ACCOMMODATION) || !isAffectionHighEnoughToInviteHome()) {
+					if(!Main.game.getPlayer().hasQuest(QuestLine.SIDE_ACCOMMODATION) || !getMugger().isAffectionHighEnoughToInviteHome()) {
 						return new Response("Offer room",
 								"You feel as though it would be best to spend some more time getting to know [npc.name] before inviting [npc.herHim] back to Lilaya's mansion...<br/>"
 								+ "[style.italics(Requires [npc.name] to have at least "+AffectionLevel.POSITIVE_THREE_CARING.getMinimumValue()+" affection towards you.)]",
@@ -371,7 +368,7 @@ public class AlleywayAttackerDialogue {
 								"You don't have a suitable room prepared for [npc.name] to move in to. Upgrade one of the empty rooms in Lilaya's house to a 'Guest Room' first.",
 								null);
 						
-					}else {
+					} else {
 						return new Response("Offer room", "Ask [npc.name] if [npc.she] would like a room in Lilaya's mansion.", ALLEY_PEACEFUL_OFFER_ROOM) {
 							@Override
 							public void effects() {
@@ -422,7 +419,7 @@ public class AlleywayAttackerDialogue {
 
 			UtilText.nodeContentSB.append(getStatus());
 			
-			if(isAffectionHighEnoughToInviteHome()) {
+			if(getMugger().isAffectionHighEnoughToInviteHome()) {
 				if(Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION)) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/alleywayAttack", "ALLEY_PEACEFUL_CAN_INVITE_HOME", getMugger()));
 				} else {
@@ -455,7 +452,7 @@ public class AlleywayAttackerDialogue {
 
 			UtilText.nodeContentSB.append(getStatus());
 			
-			if(isAffectionHighEnoughToInviteHome()) {
+			if(getMugger().isAffectionHighEnoughToInviteHome()) {
 				if(Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION)) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/alleywayAttack", "ALLEY_PEACEFUL_CAN_INVITE_HOME", getMugger()));
 				} else {
@@ -732,6 +729,17 @@ public class AlleywayAttackerDialogue {
 						};
 					}
 					
+				} else if (index == 8 && getMugger().isAbleToSelfTransform()) {
+					return new Response("Transform [npc.herHim]",
+							"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
+							BodyChanging.BODY_CHANGING_CORE){
+						@Override
+						public void effects() {
+							Main.game.saveDialogueNode();
+							BodyChanging.setTarget(getMugger());
+						}
+					};
+					
 				} else if (index == 10 && !getMugger().hasFlag(NPCFlagValue.genericNPCBetrayedByPlayer)) {
 					return new Response(
 							"Remove character",
@@ -844,6 +852,17 @@ public class AlleywayAttackerDialogue {
 						};
 					}
 					
+				} else if (index == 8 && getMugger().isAbleToSelfTransform()) {
+					return new Response("Transform [npc.herHim]",
+							"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
+							BodyChanging.BODY_CHANGING_CORE){
+						@Override
+						public void effects() {
+							Main.game.saveDialogueNode();
+							BodyChanging.setTarget(getMugger());
+						}
+					};
+					
 				} else if (index == 10 && !getMugger().hasFlag(NPCFlagValue.genericNPCBetrayedByPlayer)) {
 					return new Response(
 							"Remove character",
@@ -902,7 +921,7 @@ public class AlleywayAttackerDialogue {
 			}
 			
 			if(getMugger().hasTransformationFetish() && getMugger().isWillingToRape(Main.game.getPlayer()) ) {
-				potion = getMugger().getTransfomativePotion(true);
+				potion = getMugger().getTransfomativePotion(Main.game.getPlayer(), true);
 				
 //				System.out.println("Potion Check 1"); 
 //				System.out.println(potion); 
@@ -968,7 +987,7 @@ public class AlleywayAttackerDialogue {
 							null){
 						@Override
 						public void effects(){
-							Util.Value<String, AbstractItem> potion = getMugger().getTransfomativePotion();
+							Util.Value<String, AbstractItem> potion = getMugger().getTransfomativePotion(Main.game.getPlayer());
 							
 //							System.out.println("Potion Check 3"); 
 //							System.out.println(potion.getValue().getName()); 
@@ -1227,7 +1246,6 @@ public class AlleywayAttackerDialogue {
 
 		@Override
 		public String getContent() {
-
 			if((getMugger().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled())
 					&& !getMugger().hasFlag(NPCFlagValue.genericNPCBetrayedByPlayer)) {
 				if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {

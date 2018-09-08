@@ -120,7 +120,7 @@ public enum Colour {
 	RACE_WOLF_MORPH(false, BaseColour.BLACK, "black", Util.newArrayListOfValues("wolfMorph", "wolf")),
 	RACE_FOX_MORPH(false, BaseColour.GINGER, "ginger", Util.newArrayListOfValues("foxMorph", "fox")),
 	RACE_HARPY(false, BaseColour.PINK_LIGHT, "light pink", Util.newArrayListOfValues("harpy")),
-	RACE_SLIME(false, BaseColour.PINK, "pink", Util.newArrayListOfValues("slime")),
+	RACE_SLIME(false, BaseColour.GREEN_LIGHT, "light green", Util.newArrayListOfValues("slime")),
 	RACE_SQUIRREL_MORPH(false, BaseColour.GINGER, "ginger", Util.newArrayListOfValues("squirrelMorph", "squirrel")),
 	RACE_RAT_MORPH(false, BaseColour.BROWN_DARK, "dark brown", Util.newArrayListOfValues("ratMorph", "rat")),
 	RACE_RABBIT_MORPH(false, BaseColour.BROWN_DARK, "dark brown", Util.newArrayListOfValues("rabbitMorph", "rabbit")),
@@ -233,13 +233,16 @@ public enum Colour {
 	MUSCLE_FOUR(false, Util.newColour(0x24FFC5), Util.newColour(0x008566), "teal", Util.newArrayListOfValues("muscleFour")),
 
 	AGE_LOLI(false, Util.newColour(0xAFE9B3), Util.newColour(0xc44670), "green", Util.newArrayListOfValues("ageLoli")), //I wanted to use my own color here originally, but it doesn't work Util.newColour(0xE6EFED), Util.newColour(0x009E27)
+	AGE_PRETEENS(false, Util.newColour(0xE1F0C1), Util.newColour(0x73A112), "green", Util.newArrayListOfValues("agePreTeens")), //Change me later?
+	AGE_EARLYTEENS(false, Util.newColour(0xE1F0C1), Util.newColour(0x73A112), "green", Util.newArrayListOfValues("ageEarlyTeens")), //Change me later?
 	AGE_TEENS(false, Util.newColour(0xE1F0C1), Util.newColour(0x73A112), "green", Util.newArrayListOfValues("ageTeens")),
 	AGE_TWENTIES(false, Util.newColour(0xCCE698), Util.newColour(0x638A0F), "green", Util.newArrayListOfValues("ageTwenties")),
 	AGE_THIRTIES(false, Util.newColour(0xB8DC6F), Util.newColour(0x52730D), "green", Util.newArrayListOfValues("ageThirties")),
 	AGE_FORTIES(false, Util.newColour(0xA4D246), Util.newColour(0x41590D), "green", Util.newArrayListOfValues("ageForties")),
+	AGE_FIFTIES(false, Util.newColour(0x8AB92D), Util.newColour(0x334408), "green", Util.newArrayListOfValues("ageFifties")),
+	AGE_SIXTIES(false, Util.newColour(0x6B9023), Util.newColour(0x232E05), "green", Util.newArrayListOfValues("ageSixties")),
 	
 	ALCOHOL(false, BaseColour.YELLOW_LIGHT, "light yellow", Util.newArrayListOfValues("alcohol")),
-
 	ALCOHOL_LEVEL_ZERO(false, Util.newColour(0xF2E8C0), Util.newColour(0x967F22), "light yellow"),
 	ALCOHOL_LEVEL_ONE(false,  Util.newColour(0xEDDFAB), Util.newColour(0x967F22), "light yellow"),
 	ALCOHOL_LEVEL_TWO(false,  Util.newColour(0xE8D696), Util.newColour(0x967F22), "yellow"),
@@ -367,12 +370,12 @@ public enum Colour {
 	// Skin (Human and Demon):
 	SKIN_PORCELAIN(false, Util.newColour(0xDBCDB9), Util.newColour(0xDBCDB9), "porcelain"),
 	SKIN_PALE(false, Util.newColour(0xFBF4E9), Util.newColour(0x534946), "pale"),
-	SKIN_LIGHT(false, BaseColour.YELLOW_LIGHT, "light"),
+	SKIN_LIGHT(false, Util.newColour(0xEFDBD7), Util.newColour(0x534946), "light"),
 	SKIN_ROSY(false, Util.newColour(0xDDAA93), Util.newColour(0xDDAA93), "rosy"),
-	SKIN_TANNED(false, Util.newColour(0xC39D6B), Util.newColour(0xC39D6B), "tanned"),
 	SKIN_OLIVE(false, BaseColour.TAN, "olive"),
-	SKIN_CHOCOLATE(false, Util.newColour(0x59372D), Util.newColour(0x59372D), "chocolate"),
+	SKIN_TANNED(false, Util.newColour(0xC39D6B), Util.newColour(0xC39D6B), "tanned"),
 	SKIN_DARK(false, BaseColour.BROWN_DARK, "dark"),
+	SKIN_CHOCOLATE(false, Util.newColour(0x59372D), Util.newColour(0x59372D), "chocolate"),
 	SKIN_EBONY(false, BaseColour.BLACK, "ebony"),
 	
 	SKIN_RED(false, BaseColour.CRIMSON, "scarlet"),
@@ -518,6 +521,7 @@ public enum Colour {
 	COVERING_GINGER(false, BaseColour.GINGER, "ginger"),
 	COVERING_ORANGE(false, BaseColour.ORANGE, "orange"),
 	COVERING_AMBER(false, BaseColour.AMBER, "amber"),
+	COVERING_RED_LIGHT(false, BaseColour.RED_LIGHT, "red"),
 	COVERING_RED(false, BaseColour.RED, "red"),
 	COVERING_RED_DARK(false, BaseColour.RED_DARK, "dark red"),
 	COVERING_AUBURN(false, BaseColour.AUBURN, "auburn"),
@@ -688,6 +692,7 @@ public enum Colour {
 			Colour.COVERING_WHITE,
 			Colour.COVERING_GREY,
 			Colour.COVERING_BLACK,
+			Colour.COVERING_RED_LIGHT,
 			Colour.COVERING_RED,
 			Colour.COVERING_RED_DARK,
 			Colour.COVERING_BROWN_DARK,
@@ -744,6 +749,7 @@ public enum Colour {
 			Colour.COVERING_WHITE,
 			Colour.COVERING_GREY,
 			Colour.COVERING_BLACK,
+			Colour.COVERING_RED_LIGHT,
 			Colour.COVERING_RED,
 			Colour.COVERING_RED_DARK,
 			Colour.COVERING_BROWN_DARK,

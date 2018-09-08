@@ -13,7 +13,6 @@ import com.lilithsthrone.game.character.body.valueEnums.OrificeElasticity;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.gender.Gender;
-import com.lilithsthrone.game.character.gender.GenderPreference;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.dominion.DominionAlleywayAttacker;
 import com.lilithsthrone.game.character.persona.PersonalityTrait;
@@ -76,7 +75,7 @@ public class SlaverAlleyDialogue {
 			}
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_FEMALES, true);
-			slave.resetInventory();
+			slave.resetInventory(true);
 			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_GOLD, false), true, Main.game.getFinch());
 			Main.game.getFinch().addSlave(slave);
 			slave.setPlayerKnowsName(true);
@@ -99,7 +98,7 @@ public class SlaverAlleyDialogue {
 			}
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_MALES, true);
-			slave.resetInventory();
+			slave.resetInventory(true);
 			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getFinch());
 			Main.game.getFinch().addSlave(slave);
 			slave.setPlayerKnowsName(true);
@@ -112,7 +111,7 @@ public class SlaverAlleyDialogue {
 
 		// Anal stall:
 		for(int i=0; i<3; i++) {
-			NPC slave = new DominionAlleywayAttacker(GenderPreference.getGenderFromUserPreferences(false, false));
+			NPC slave = new DominionAlleywayAttacker(Gender.getGenderFromUserPreferences(false, false));
 			try {
 				Main.game.addNPC(slave, false);
 			} catch (Exception e) {
@@ -120,7 +119,7 @@ public class SlaverAlleyDialogue {
 			}
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_ANAL, true);
-			slave.resetInventory();
+			slave.resetInventory(true);
 			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getFinch());
 			if(i==0) {
 				slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_buttPlugs_butt_plug"), false), true, Main.game.getFinch());
@@ -145,7 +144,7 @@ public class SlaverAlleyDialogue {
 
 		// Vaginal stall:
 		for(int i=0; i<3; i++) {
-			NPC slave = new DominionAlleywayAttacker(GenderPreference.getGenderFromUserPreferences(true, false));
+			NPC slave = new DominionAlleywayAttacker(Gender.getGenderFromUserPreferences(true, false));
 			try {
 				Main.game.addNPC(slave, false);
 			} catch (Exception e) {
@@ -153,7 +152,7 @@ public class SlaverAlleyDialogue {
 			}
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_VAGINAL, true);
-			slave.resetInventory();
+			slave.resetInventory(true);
 			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getFinch());
 			Main.game.getFinch().addSlave(slave);
 			slave.setPlayerKnowsName(true);
@@ -169,7 +168,7 @@ public class SlaverAlleyDialogue {
 
 		// Oral stall:
 		for(int i=0; i<3; i++) {
-			NPC slave = new DominionAlleywayAttacker(GenderPreference.getGenderFromUserPreferences(false, false));
+			NPC slave = new DominionAlleywayAttacker(Gender.getGenderFromUserPreferences(false, false));
 			try {
 				Main.game.addNPC(slave, false);
 			} catch (Exception e) {
@@ -177,7 +176,7 @@ public class SlaverAlleyDialogue {
 			}
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_ORAL, true);
-			slave.resetInventory();
+			slave.resetInventory(true);
 			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getFinch());
 			if(Math.random()<0.5f) {
 				slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_RINGGAG, false), true, Main.game.getFinch());
@@ -692,7 +691,9 @@ public class SlaverAlleyDialogue {
 								+ "<div style='width:40%; float:left; margin:0; padding:0; text-align:center;'>"
 									+ "<b style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>"+slave.getName()+"</b> - "
 									+ "<span style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(slave.getGender().getName())+"</span> "
-									+ "<span style='color:"+slave.getRace().getColour().toWebHexString()+";'>"+Util.capitaliseSentence((slave.isFeminine()?slave.getSubspecies().getSingularFemaleName():slave.getSubspecies().getSingularMaleName()))+"</span>"
+									+ "<span style='color:"+slave.getRace().getColour().toWebHexString()+";'>"
+										+Util.capitaliseSentence((slave.isFeminine()?slave.getSubspecies().getSingularFemaleName(slave):slave.getSubspecies().getSingularMaleName(slave)))
+									+"</span>"
 								+ "</div>"
 								+ "<div style='float:left; width:17%; margin:0; padding:0; text-align:center;'>"
 									+ "<b style='color:"+slave.getObedience().getColour().toWebHexString()+";'>"+slave.getObedienceValue()+ "</b>"

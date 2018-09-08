@@ -630,8 +630,8 @@ public class TooltipInformationEventListener implements EventListener {
 					tooltipSB.setLength(0);
 					tooltipSB.append("<div class='title' style='color:" + owner.getRace().getColour().toWebHexString() + ";'>"
 							+(owner.getRaceStage().getName()!=""?"<b style='color:"+owner.getRaceStage().getColour().toWebHexString()+";'>" + Util.capitaliseSentence(owner.getRaceStage().getName())+"</b> ":"")
-							+ "<b style='color:"+owner.getSubspecies().getColour().toWebHexString()+";'>"
-							+ (owner.isFeminine()?Util.capitaliseSentence(owner.getSubspecies().getSingularFemaleName()):Util.capitaliseSentence(owner.getSubspecies().getSingularMaleName()))
+							+ "<b style='color:"+owner.getSubspecies().getColour(owner).toWebHexString()+";'>"
+							+ (owner.isFeminine()?Util.capitaliseSentence(owner.getSubspecies().getSingularFemaleName(owner)):Util.capitaliseSentence(owner.getSubspecies().getSingularMaleName(owner)))
 							+ "</b>"
 							+ "</div>");
 
@@ -853,18 +853,19 @@ public class TooltipInformationEventListener implements EventListener {
 
 			Map<InventorySlot, List<AbstractClothing>> concealedSlots = RenderingEngine.getCharacterToRender().getInventorySlotsConcealed();
 			
+			List<AbstractClothing> clothingVisible = concealedSlots.get(concealedSlot).stream().filter(clothing -> !concealedSlots.containsKey(clothing.getClothingType().getSlot())).collect(Collectors.toList());
+			
 			Main.mainController.setTooltipSize(360, 175);
 
 			Main.mainController.setTooltipContent(UtilText.parse(
 					"<div class='title'>"+Util.capitaliseSentence(concealedSlot.getName())+" - [style.boldBad(Concealed!)]</div>"
 					+ "<div class='description'>"
-						+ (concealedSlots.get(concealedSlot).isEmpty()
-							?UtilText.parse(RenderingEngine.getCharacterToRender(),
-									"Due to [npc.namePos] position, this slot is currently hidden from view!")
-							:UtilText.parse(RenderingEngine.getCharacterToRender(),
-									"This slot is currently hidden from view by [npc.namePos] <b>")
-										+Util.clothesToStringList(concealedSlots.get(concealedSlot).stream().filter(clothing -> !concealedSlots.containsKey(clothing.getClothingType().getSlot())).collect(Collectors.toList()), false)
-									+"</b>.")
+						+ UtilText.parse(RenderingEngine.getCharacterToRender(),
+							(concealedSlots.get(concealedSlot).isEmpty()
+								?"Due to [npc.namePos] position, this slot is currently hidden from view!"
+								:(clothingVisible.isEmpty()
+										?"This slot is currently hidden from view by items of [npc.namePos] clothing that you cannot see!"
+										:"This slot is currently hidden from view by [npc.namePos] <b>"+Util.clothesToStringList(clothingVisible, false)+"</b>.")))
 					+ "</div>"));
 			
 		} else if(loadedEnchantment!=null) {

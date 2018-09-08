@@ -666,8 +666,8 @@ public class ClothingType {
 			null,
 			ColourListPresets.ALL.getPresetColourList(),
 			null,
-			null,
-			null,
+			ColourListPresets.JUST_GREY.getPresetColourList(),
+			ColourListPresets.ALL.getPresetColourList(),
 			null,
 			null, 
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_NYAN)){
@@ -712,10 +712,10 @@ public class ClothingType {
 			null,
 			ColourListPresets.ALL.getPresetColourList(),
 			null,
+			ColourListPresets.JUST_GREY.getPresetColourList(),
+			ColourListPresets.ALL.getPresetColourList(),
+			ColourListPresets.ALL.getPresetColourList(),
 			null,
-			null,
-			null, 
-			null, 
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_NYAN)){
 
 		@Override
@@ -2116,7 +2116,6 @@ public class ClothingType {
 									CoverableArea.VAGINA,
 									CoverableArea.STOMACH),
 							Util.newArrayListOfValues(
-									
 									ClothingAccess.GROIN,
 									ClothingAccess.ANUS,
 									ClothingAccess.CHEST,
@@ -2134,17 +2133,17 @@ public class ClothingType {
 									InventorySlot.HIPS,
 									InventorySlot.HORNS,
 									InventorySlot.LEG,
-									InventorySlot.MOUTH,
+//									InventorySlot.MOUTH,
 									InventorySlot.NECK,
 									InventorySlot.NIPPLE,
 									InventorySlot.PENIS,
 									InventorySlot.PIERCING_EAR,
-									InventorySlot.PIERCING_LIP,
+//									InventorySlot.PIERCING_LIP,
 									InventorySlot.PIERCING_NIPPLE,
-									InventorySlot.PIERCING_NOSE,
+//									InventorySlot.PIERCING_NOSE,
 									InventorySlot.PIERCING_PENIS,
 									InventorySlot.PIERCING_STOMACH,
-									InventorySlot.PIERCING_TONGUE,
+//									InventorySlot.PIERCING_TONGUE,
 									InventorySlot.PIERCING_VAGINA,
 									InventorySlot.SOCK,
 									InventorySlot.STOMACH,
@@ -6344,8 +6343,7 @@ public class ClothingType {
 							null, null),
 					new BlockedParts(DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6408,8 +6406,7 @@ public class ClothingType {
 							null, null),
 					new BlockedParts(DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6473,8 +6470,7 @@ public class ClothingType {
 							null),
 					new BlockedParts(DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6538,8 +6534,7 @@ public class ClothingType {
 					new BlockedParts(
 							DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6606,8 +6601,7 @@ public class ClothingType {
 					new BlockedParts(
 							DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6673,8 +6667,7 @@ public class ClothingType {
 					new BlockedParts(
 							DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6740,8 +6733,7 @@ public class ClothingType {
 					new BlockedParts(
 							DisplacementType.SHIFTS_ASIDE,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6806,8 +6798,7 @@ public class ClothingType {
 							null),
 					new BlockedParts(DisplacementType.PULLS_DOWN,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -6879,8 +6870,7 @@ public class ClothingType {
 									InventorySlot.PIERCING_PENIS)),
 					new BlockedParts(DisplacementType.PULLS_DOWN,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(
 									CoverableArea.ANUS,
 									CoverableArea.PENIS,
@@ -7204,8 +7194,7 @@ public class ClothingType {
 					new BlockedParts(
 							DisplacementType.PULLS_DOWN,
 							Util.newArrayListOfValues(
-									ClothingAccess.GROIN,
-									ClothingAccess.ANUS),
+									ClothingAccess.GROIN),
 							Util.newArrayListOfValues(CoverableArea.ANUS),
 							null,
 							Util.newArrayListOfValues(InventorySlot.ANUS))),
@@ -11834,7 +11823,7 @@ public class ClothingType {
 											clothingToIdMap.put(ct, id);
 											idToClothingMap.put(id, ct);
 										} catch(Exception ex) {
-											System.err.println("Loading modded clothing failed at 'ClothingType' Line 11685. File path: "+innerChild.getAbsolutePath());
+											System.err.println("Loading modded clothing failed at 'ClothingType' Code 1. File path: "+innerChild.getAbsolutePath());
 										}
 									}
 								}
@@ -11870,7 +11859,7 @@ public class ClothingType {
 											clothingToIdMap.put(ct, id);
 											idToClothingMap.put(id, ct);
 										} catch(Exception ex) {
-											System.err.println("Loading modded clothing failed at 'ClothingType' Line 11728. File path: "+innerChild.getAbsolutePath());
+											System.err.println("Loading modded clothing failed at 'ClothingType' Code 2. File path: "+innerChild.getAbsolutePath());
 										}
 									}
 								}

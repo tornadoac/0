@@ -8,8 +8,9 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum Height {
-
-
+	
+	// Need to standardise to 1.5 each category
+	
 	/**2' to 3'6"*/
 	NEGATIVE_TWO_MIMIMUM("tiny", 61, 106, Colour.GENERIC_SIZE_ONE),
 	
@@ -47,6 +48,7 @@ public enum Height {
 	private Height(String descriptor, int minimumValue, int maximumValue, Colour colour) {
 		this.descriptor = descriptor;
 		this.minimumValue = minimumValue;
+		this.minimumValue = 61;
 		this.maximumValue = maximumValue;
 		this.colour = colour;
 	}
@@ -61,6 +63,13 @@ public enum Height {
 
 	public int getMedianValue() {
 		return minimumValue + (maximumValue - minimumValue) / 2;
+	}
+	
+	/**
+	 * If height is less than this value, then that height is short stature.
+	 */
+	public static int getShortStatureCutOff() {
+		return ZERO_TINY.getMinimumValue();
 	}
 
 	public static Height getHeightFromInt(int centimeters) {
