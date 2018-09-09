@@ -14,17 +14,13 @@ import com.lilithsthrone.utils.Util;
 public enum AgeCategory {
 	
 	// Was Always at least 18, as returned by valueOf()
-	TODDLERHOOD("toddler years", 1, 4, Colour.AGE_LOLI, ContentPreferenceValue.ZERO_NONE),
+	YOUNG_CHILD("childhood", 1, 6, Colour.AGE_CHILD, ContentPreferenceValue.ZERO_NONE),
 	
-	CHILDHOOD("childhood years", 4, 9, Colour.AGE_LOLI, ContentPreferenceValue.ZERO_NONE),
+	TEENS_PRE("pre teens", 6, 10, Colour.AGE_PRETEENS, ContentPreferenceValue.ZERO_NONE),
 	
-	PRETEENS("preteens", 9, 13, Colour.AGE_PRETEENS, ContentPreferenceValue.ZERO_NONE),
+	TEENS_EARLY("early teens", 10, 16, Colour.AGE_EARLYTEENS, ContentPreferenceValue.ZERO_NONE),
 	
-	TEENS_EARLY("early teens", 13, 16, Colour.AGE_EARLYTEENS, ContentPreferenceValue.ZERO_NONE),
-	
-	TEENS_MIDDLE("teens", 16, 18, Colour.AGE_TEENS, ContentPreferenceValue.ZERO_NONE),
-	
-	TEENS_LATE("late teens", 18, 20, Colour.AGE_TEENS, ContentPreferenceValue.FOUR_HIGH),
+	TEENS_LATE("late teens", 16, 20, Colour.AGE_TEENS, ContentPreferenceValue.FOUR_HIGH),
 	
 	TWENTIES_EARLY("early twenties", 20, 23, Colour.AGE_TWENTIES, ContentPreferenceValue.FIVE_ABUNDANT),
 	
@@ -85,8 +81,8 @@ public enum AgeCategory {
 	}
 
 	public static AgeCategory valueOf(int age) {
-		if(age<TODDLERHOOD.getMinimumValue()) {
-			return TODDLERHOOD;
+		if(age<YOUNG_CHILD.getMinimumValue()) {
+			return YOUNG_CHILD;
 		}
 		for(AgeCategory f : AgeCategory.values()) {
 			if(age>=f.getMinimumValue() && age<f.getMaximumValue()) {
