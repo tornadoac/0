@@ -3056,8 +3056,8 @@ public abstract class GameCharacter implements XMLSaving {
 		this.birthday = birthday;
 		
 		if(this.isPlayer()) {
-			if(this.getAgeValue()<18) {
-				this.birthday = (this.getBirthday().minusYears(18-this.getAgeValue()));
+			if(this.getAgeValue()<5) {
+				this.birthday = (this.getBirthday().minusYears(5-this.getAgeValue()));
 				
 			} else if(this.getAgeValue()>50) {
 				this.birthday = (this.getBirthday().plusYears(this.getAgeValue()-50));
@@ -3070,7 +3070,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	
 	public int getAppearsAsAgeValue() {
-		return Math.max(18, getAgeValue() + ageAppearanceDifference);
+		return Math.max(5, getAgeValue() + ageAppearanceDifference);
 	}
 
 	public AgeCategory getAge() {
@@ -3081,10 +3081,10 @@ public abstract class GameCharacter implements XMLSaving {
 		int age = (int) ChronoUnit.YEARS.between(birthday, Main.game.getDateNow());
 		
 		if(birthday.getYear()>=Main.game.getStartingDate().getYear()) {
-			return 18 + age;
+			return 5 + age;
 		}
 		
-		return Math.max(18, age);
+		return Math.max(5, age);
 	}
 	
 	public int getAgeAppearanceDifference() {
@@ -14670,7 +14670,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	
 	public int getMinimumHeight() {
-		return this.getSubspecies().isShortStature()?Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue():Height.ZERO_TINY.getMinimumValue();
+		return Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue();
 	}
 	
 	public int getMaximumHeight() {
@@ -14681,7 +14681,7 @@ public abstract class GameCharacter implements XMLSaving {
 	 * @return Formatted description of height change.
 	 */
 	public String setHeight(int height) {
-		height = Math.min(Height.SEVEN_COLOSSAL.getMaximumValue(), Math.max(this.getSubspecies().isShortStature()?Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue():Height.ZERO_TINY.getMinimumValue(), height));
+		height = Math.min(Height.SEVEN_COLOSSAL.getMaximumValue(), Math.max(Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue(), height));
 		
 		if (body.getHeightValue() < height) {
 			if (body.setHeight(height)) {

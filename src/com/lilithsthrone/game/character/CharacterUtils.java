@@ -70,6 +70,7 @@ import com.lilithsthrone.game.character.body.valueEnums.CupSize;
 import com.lilithsthrone.game.character.body.valueEnums.Femininity;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.character.body.valueEnums.HairStyle;
+import com.lilithsthrone.game.character.body.valueEnums.Height;
 import com.lilithsthrone.game.character.body.valueEnums.LabiaSize;
 import com.lilithsthrone.game.character.body.valueEnums.OrificeModifier;
 import com.lilithsthrone.game.character.body.valueEnums.PenetrationModifier;
@@ -1259,6 +1260,33 @@ public class CharacterUtils {
 					character.addMilkModifier(FluidModifier.HALLUCINOGENIC);
 				}
 			}
+		}
+		
+		//Uses age appearance to remove body hair, and modify breast and height values
+		int tempAge = character.getAppearsAsAgeValue();
+		if (tempAge > 12 && tempAge < 16) {
+			character.setBreastSize(CupSize.AA.getMeasurement() + Util.random.nextInt(3));
+			character.setHeight(Math.max((int) (character.getHeightValue() * .8),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge > 10 && tempAge < 12) {
+			character.setBreastSize(CupSize.TRAINING_A.getMeasurement() + Util.random.nextInt(3));
+			character.setHeight(Math.max((int) (character.getHeightValue() * .6),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge < 10) {
+			character.setBreastSize(CupSize.FLAT.getMeasurement() + Util.random.nextInt(3));
+			character.setHeight(Math.max((int) (character.getHeightValue() * .4),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		}
+		
+		//Just in case it's a male character, removes breast changes
+		if (character.getGender().getType() != PronounType.FEMININE)
+			character.setBreastSize(CupSize.FLAT.getMeasurement());
+		
+		if (tempAge < 15) {
+			character.setPubicHair(BodyHair.ZERO_NONE);
+			character.setUnderarmHair(BodyHair.ZERO_NONE);
+			character.setAssHair(BodyHair.ZERO_NONE);
+			character.setFacialHair(BodyHair.ZERO_NONE);
 		}
 		
 		// Face:

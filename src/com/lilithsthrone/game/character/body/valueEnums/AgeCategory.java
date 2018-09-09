@@ -14,7 +14,13 @@ import com.lilithsthrone.utils.Util;
 public enum AgeCategory {
 	
 	// Always at least 18, as returned by valueOf()
-	TEENS_LATE("late teens", 18, 20, Colour.AGE_TEENS, ContentPreferenceValue.FOUR_HIGH),
+	YOUNG_CHILD("childhood", 1, 6, Colour.AGE_CHILD, ContentPreferenceValue.FOUR_HIGH),
+	
+	TEENS_PRE("pre teens", 6, 10, Colour.AGE_PRETEENS, ContentPreferenceValue.FOUR_HIGH),
+	
+	TEENS_EARLY("early teens", 10, 16, Colour.AGE_EARLYTEENS, ContentPreferenceValue.FOUR_HIGH),
+	
+	TEENS_LATE("late teens", 16, 20, Colour.AGE_TEENS, ContentPreferenceValue.FOUR_HIGH),
 	
 	TWENTIES_EARLY("early twenties", 20, 23, Colour.AGE_TWENTIES, ContentPreferenceValue.FIVE_ABUNDANT),
 	
@@ -75,8 +81,8 @@ public enum AgeCategory {
 	}
 
 	public static AgeCategory valueOf(int age) {
-		if(age<TEENS_LATE.getMinimumValue()) {
-			return TEENS_LATE;
+		if(age<YOUNG_CHILD.getMinimumValue()) {
+			return YOUNG_CHILD;
 		}
 		for(AgeCategory f : AgeCategory.values()) {
 			if(age>=f.getMinimumValue() && age<f.getMaximumValue()) {
