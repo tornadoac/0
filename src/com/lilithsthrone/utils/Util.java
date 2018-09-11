@@ -907,7 +907,12 @@ public class Util {
 		}
 		return utilitiesStringBuilder.toString();
 	}
-
+	
+	
+	public static String SplitR(String choices, String splitter) {
+	    return choices.split(splitter)[random.nextInt(choices.length() - choices.replace(splitter, "").length() + 1)];
+	};
+	
 	public static String clothesToStringList(Collection<AbstractClothing> clothingSet, boolean capitalise) {
 		return Util.toStringList(clothingSet, (AbstractClothing o) -> (capitalise?Util.capitaliseSentence(o.getClothingType().getName()):o.getClothingType().getName()), "and");
 	}

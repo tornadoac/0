@@ -415,8 +415,8 @@ public class PlayerTalk {
 			
 			UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
 							+UtilText.returnStringAtRandom(
-									"[npc.speech(Please, use my pussy!)]",
-									"[npc.speech(Use my little pussy, please!)]")
+									"[npc.speech(Please, use my [pc.vagina]!)]",
+									"[npc.speech(Use my [pc.vagina], please!)]")
 							+"<br/><br/>");
 			
 			UtilText.nodeContentSB.append(getOfferResponse(
@@ -470,11 +470,21 @@ public class PlayerTalk {
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
 			
+			if(Main.game.getPlayer().isPenisVirgin() && Main.game.getPlayer().hasPenis()){
+				UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
+				+UtilText.returnStringAtRandom(
+						"[npc.speech(Please, I want to " + Util.SplitR("lose :give ", ":") + "my " + Util.SplitR("V-card:virginity:first time", ":") + " to your [npc2.vagina]!)]",
+						"[npc.speech(Let me lose my virginity to your [npc2.vagina], please!)]",
+						"[npc.speech(Please pop my cherry with your [npc2.vagina]!)]",
+						"[npc.speech(I want to have my first with your [npc2.vagina]!)]")
+				+"<br/><br/>");
+			} else {
 			UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
-							+UtilText.returnStringAtRandom(
-									"[npc.speech(Please, I want to use your pussy!)]",
-									"[npc.speech(I want to use your pussy, please!)]")
-							+"<br/><br/>");
+					+UtilText.returnStringAtRandom(
+							"[npc.speech(Please, I want to use your [npc2.vagina]!)]",
+							"[npc.speech(I want to use your [npc2.vagina], please!)]")
+					+"<br/><br/>");
+			}
 			
 			UtilText.nodeContentSB.append(getRequestResponse(
 					((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, null)),
@@ -594,11 +604,21 @@ public class PlayerTalk {
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
 			
+			if(Main.game.getPlayer().isPenisVirgin() && Main.game.getPlayer().hasPenis()){
+				UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
+				+UtilText.returnStringAtRandom(
+						"[npc.speech(Please, I want to " + Util.SplitR("lose :give ", ":") + "my " + Util.SplitR("V-card:virginity:first time", ":") + " to your [npc2.ass]!)]",
+						"[npc.speech(Let me lose my virginity to your [npc2.ass], please!)]",
+						"[npc.speech(Please pop my cherry with your [npc2.ass]!)]",
+						"[npc.speech(I want to have my first with your [npc2.ass]!)]")
+				+"<br/><br/>");
+			} else {
 			UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
 							+UtilText.returnStringAtRandom(
-									"[npc.speech(Please, I want to use your ass!)]",
-									"[npc.speech(I want to use your asshole, please!)]")
+									"[npc.speech(Please, I want to use your [npc2.ass]!)]",
+									"[npc.speech(I want to use your [npc2.ass], please!)]")
 							+"<br/><br/>");
+			}
 			
 			UtilText.nodeContentSB.append(getRequestResponse(
 					((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, null)),
@@ -723,11 +743,21 @@ public class PlayerTalk {
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
 			
+			if(Main.game.getPlayer().isPenisVirgin() && Main.game.getPlayer().hasPenis()){
+				UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
+				+UtilText.returnStringAtRandom(
+						"[npc.speech(Please, I want to " + Util.SplitR("lose :give ", ":") + "my " + Util.SplitR("V-card:virginity:first time", ":") + " to your [npc2.mouth]!)]",
+						"[npc.speech(Let me lose my virginity to your [npc2.mouth], please!)]",
+						"[npc.speech(Please pop my cherry with your [npc2.mouth]!)]",
+						"[npc.speech(I want to have my first with your [npc2.mouth]!)]")
+				+"<br/><br/>");
+			} else {
 			UtilText.nodeContentSB.append("Putting on the most pleading expression you can muster, you cry out to [npc2.name], "
 							+UtilText.returnStringAtRandom(
-									"[npc.speech(Please, I want you to use your mouth!)]",
-									"[npc.speech(Use your mouth, please!)]")
+									"[npc.speech(Please, I want you to use your [npc2.mouth]!)]",
+									"[npc.speech(Use your [npc2.mouth], please!)]")
 							+"<br/><br/>");
+			}
 			
 			UtilText.nodeContentSB.append(getRequestResponse(
 					((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, null)),

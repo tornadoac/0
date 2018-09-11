@@ -5488,7 +5488,12 @@ public abstract class GameCharacter implements XMLSaving {
 							"Come on, fuck me already! Take my virginity!",
 							"I'm still a virgin! Please, break me in already!",
 							"What are you waiting for?! Fuck my virgin pussy already!",
-							"I'm so horny! Please, fuck my pussy! Take my virginity!");
+							"I want you be my first! Pop my cherry!",
+							"Have my virginity! I beg you!",
+							"I'm so horny! Please, fuck my pussy! Take my virginity!",
+							Util.SplitR("I'm so horny! :Finally! :This is it! :I've been waiting for this for so long! ::", ":") + Util.SplitR("Come on, fuck me already!:What are you waiting for?!:Please, fuck my [this.vagina]!", ":") + " " + Util.SplitR("I'm still a virgin!:I want you be my first!:Have my virginity!:Break me in already!:Pop my cherry!", ":") );
+				} else if(this.isPenisVirgin() && this.hasPenis()) {
+					returnedLine = Util.SplitR("I'm so horny! :Finally! :This is it! :I've been waiting for this for so long! ::", ":") + Util.SplitR("Come on, fuck me already!:What are you waiting for?!:Please, fuck my [this.penis]!", ":") + " " + Util.SplitR("I'm still a virgin!:I want you be my first!:Have my virginity!:Take my v-card!:Pop my cherry!", ":");
 				} else {
 					returnedLine = UtilText.returnStringAtRandom(
 							"Come on, fuck me already! Please!",
@@ -5498,12 +5503,12 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 				break;
 			case SUB_NORMAL:
-				if(this.isVaginaVirgin() && this.hasVagina()) {
+				if(this.isVaginaVirgin() && this.hasVagina() || this.isPenisVirgin() && this.hasPenis()) {
 					returnedLine = UtilText.returnStringAtRandom(
-							"I'll be a good [npc1.girl]! Just... I'm still a virgin, ok?",
+							"I'll be a good [npc1.girl]! Just... I'm still a virgin, okay?",
 							"I'll do whatever you want! I'm still a virgin though...",
 							"Let's get started! But... I'm still a virgin...",
-							"Let's have some fun! But... I'm still a virgin, ok?");
+							"Let's have some fun! But... I'm still a virgin, okay?");
 				} else {
 					returnedLine = UtilText.returnStringAtRandom(
 							"I'll be a good [npc.girl]!",
@@ -5513,7 +5518,7 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 				break;
 			case SUB_RESISTING:
-				if(this.isVaginaVirgin() && this.hasVagina()) {
+				if(this.isVaginaVirgin() && this.hasVagina() || this.isPenisVirgin() && this.hasPenis()) {
 					returnedLine = UtilText.returnStringAtRandom(
 							"Go away! I-I'm still a virgin! Leave me alone!",
 							"Stop it! Just go away! I-I'm still a virgin!",
