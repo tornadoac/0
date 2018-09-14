@@ -3069,7 +3069,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	
 	public int getAppearsAsAgeValue() {
-		return Math.max(1, getAgeValue() + ageAppearanceDifference);
+		return Math.max(5, getAgeValue() + ageAppearanceDifference);
 	}
 
 	public AgeCategory getAge() {
@@ -3080,10 +3080,10 @@ public abstract class GameCharacter implements XMLSaving {
 		int age = (int) ChronoUnit.YEARS.between(birthday, Main.game.getDateNow());
 		
 		if(birthday.getYear()>=Main.game.getStartingDate().getYear()) {
-			return 18 + age; //watch me
+			return 5 + age; //watch me 18
 		}
 		
-		return Math.max(1, age); //watch me
+		return Math.max(5, age); //watch me 1
 	}
 	
 	public int getAgeAppearanceDifference() {
@@ -14674,7 +14674,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	
 	public int getMinimumHeight() {
-		return this.getSubspecies().isShortStature()?Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue():Height.ZERO_TINY.getMinimumValue();
+		return Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue();
 	}
 	
 	public int getMaximumHeight() {
@@ -14685,7 +14685,7 @@ public abstract class GameCharacter implements XMLSaving {
 	 * @return Formatted description of height change.
 	 */
 	public String setHeight(int height) {
-		height = Math.min(Height.SEVEN_COLOSSAL.getMaximumValue(), Math.max(this.getSubspecies().isShortStature()?Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue():Height.ZERO_TINY.getMinimumValue(), height));
+		height = Math.min(Height.SEVEN_COLOSSAL.getMaximumValue(), Math.max(Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue(), height));
 		
 		if (body.getHeightValue() < height) {
 			if (body.setHeight(height)) {

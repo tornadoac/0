@@ -70,6 +70,7 @@ import com.lilithsthrone.game.character.body.valueEnums.CupSize;
 import com.lilithsthrone.game.character.body.valueEnums.Femininity;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.character.body.valueEnums.HairStyle;
+import com.lilithsthrone.game.character.body.valueEnums.Height;
 import com.lilithsthrone.game.character.body.valueEnums.LabiaSize;
 import com.lilithsthrone.game.character.body.valueEnums.OrificeModifier;
 import com.lilithsthrone.game.character.body.valueEnums.PenetrationModifier;
@@ -1237,14 +1238,7 @@ public class CharacterUtils {
 		
 		// Body:
 		character.setHeight(character.getHeightValue()-15 + Util.random.nextInt(30) +1);
-		if (character.getAppearsAsAgeValue() < 15) {
-			character.setHeight(character.getHeightValue()/2);
-			character.setPubicHair(BodyHair.ZERO_NONE);
-			character.setFacialHair(BodyHair.ZERO_NONE);
-			character.setUnderarmHair(BodyHair.ZERO_NONE);
-			character.setAssHair(BodyHair.ZERO_NONE);
-		}
-		
+				
 		//Breasts:
 		if(Main.getProperties().multiBreasts==0) {
 			character.setBreastRows(1);
@@ -1256,13 +1250,6 @@ public class CharacterUtils {
 		}
 		
 		if(character.hasBreasts()) {
-			if (character.getAppearsAsAgeValue() < 15){
-				character.setBreastSize(CupSize.AA.getMeasurement());
-			//} else if (character.getAge() <= 15){
-			//	character.setBreastSize(Math.max(CupSize.AA.getMeasurement(), character.getBreastSize().getMeasurement() -2 +(Util.random.nextInt(3))));
-			} else {
-				character.setBreastSize(Math.max(CupSize.AA.getMeasurement(), character.getBreastSize().getMeasurement() -2 +(Util.random.nextInt(5)))); // Random size between -2 and +2 of base value.
-			}
 			if(Math.random()<=0.015f || character.hasFetish(Fetish.FETISH_LACTATION_SELF)) {
 				character.setBreastMilkStorage((int)((character.getBreastSize().getMeasurement() * 5)*(1+(Math.random()*2))));
 				if(Math.random()<=0.025f) {
@@ -1339,17 +1326,6 @@ public class CharacterUtils {
 				character.fillCumToMaxStorage();
 			}
 			
-			if (character.getAppearsAsAgeValue() < 15) {
-				character.setPenisSize(PenisSize.ONE_TINY.getMinimumValue() + Util.random.nextInt(character.getPenisSize().getMaximumValue() - character.getPenisSize().getMinimumValue()) +1);
-				if(character.getRace()==Race.HARPY){
-					character.setTesticleSize(TesticleSize.ZERO_VESTIGIAL.getValue());
-					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMedianValue());
-				}else{
-					character.setTesticleSize(TesticleSize.ONE_TINY.getValue());
-					character.setPenisCumStorage(CumProduction.TWO_SMALL_AMOUNT.getMedianValue());
-				}
-			}
-
 			if(Math.random()<=0.02f) {
 				character.addCumModifier(FluidModifier.ADDICTIVE);
 			}
@@ -1381,6 +1357,72 @@ public class CharacterUtils {
 			if(Math.random()<=0.02f) {
 				character.addGirlcumModifier(FluidModifier.HALLUCINOGENIC);
 			}
+		}
+		
+		//Uses age appearance to remove body hair, and modify breast and height values
+		int tempAge = character.getAppearsAsAgeValue();
+		//Height
+		if (tempAge > 12 && tempAge < 16) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .8),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge > 10 && tempAge < 12) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .6),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge < 10) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .4),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		}
+		
+		//Breast ReModification
+		if (character.hasBreasts() && tempAge < 16){ //There are male and androgenous types with breasts
+			if (tempAge > 12 && tempAge < 16) {
+				character.setBreastSize(CupSize.AA.getMeasurement() + Util.random.nextInt(3)); //int3 allows C, would 2 be better?
+			} else if (tempAge > 10 && tempAge < 12) {
+				character.setBreastSize(CupSize.TRAINING_A.getMeasurement() + Util.random.nextInt(3));
+			} else if (tempAge < 10) {
+				character.setBreastSize(CupSize.FLAT.getMeasurement() + Util.random.nextInt(3));
+			}
+		}
+		
+		//Penis ReModification
+		if(character.hasPenis() || character.getRace()==Race.DEMON) {
+			if (tempAge < 16 ){
+				if(character.getRace()==Race.HARPY){
+					character.setTesticleSize(TesticleSize.ZERO_VESTIGIAL.getValue());
+				}else{
+					character.setTesticleSize(TesticleSize.ONE_TINY.getValue());
+				}
+			}
+			if (tempAge > 12 && tempAge < 16) {
+				character.setPenisSize(PenisSize.TWO_AVERAGE.getMinimumValue()+ Util.random.nextInt(2));
+				if(character.getRace()==Race.HARPY){
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMedianValue());
+				}else{
+					character.setPenisCumStorage(CumProduction.TWO_SMALL_AMOUNT.getMedianValue());
+				}
+			} else if (tempAge > 10 && tempAge < 12) {
+				character.setPenisSize(PenisSize.ONE_TINY.getMinimumValue() + Util.random.nextInt(PenisSize.ONE_TINY.getMaximumValue() - PenisSize.ONE_TINY.getMinimumValue())+1);
+				if(character.getRace()==Race.HARPY){
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMinimumValue());
+				}else{
+					character.setPenisCumStorage(CumProduction.TWO_SMALL_AMOUNT.getMinimumValue());
+				}
+			} else if (tempAge < 10) {
+				character.setPenisSize(PenisSize.ZERO_MICROSCOPIC.getMinimumValue() + Util.random.nextInt(PenisSize.ZERO_MICROSCOPIC.getMaximumValue() - PenisSize.ZERO_MICROSCOPIC.getMinimumValue())+1);
+				if(character.getRace()==Race.HARPY){
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMinimumValue());
+				}else{
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMinimumValue());
+				}
+			}
+		}
+		
+		//Remove accessory hair
+		if (tempAge < 15) {
+			character.setPubicHair(BodyHair.ZERO_NONE);
+			character.setUnderarmHair(BodyHair.ZERO_NONE);
+			character.setAssHair(BodyHair.ZERO_NONE);
+			character.setFacialHair(BodyHair.ZERO_NONE);
 		}
 		
 		character.setAssStretchedCapacity(character.getAssRawCapacityValue());
