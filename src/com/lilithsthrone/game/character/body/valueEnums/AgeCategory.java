@@ -14,9 +14,9 @@ import com.lilithsthrone.utils.Util;
 public enum AgeCategory {
 	
 	// Was Always at least 18, as returned by valueOf()
-	YOUNG_CHILD("childhood", 1, 6, Colour.AGE_CHILD, ContentPreferenceValue.ZERO_NONE),
+	YOUNG_CHILD("early childhood", 1, 6, Colour.AGE_CHILD, ContentPreferenceValue.ZERO_NONE),
 	
-	TEENS_PRE("pre teens", 6, 10, Colour.AGE_PRETEENS, ContentPreferenceValue.ZERO_NONE),
+	LATE_CHILD("childhood", 6, 10, Colour.AGE_PRETEENS, ContentPreferenceValue.ZERO_NONE),
 	
 	TEENS_EARLY("early teens", 10, 16, Colour.AGE_EARLYTEENS, ContentPreferenceValue.ZERO_NONE),
 	
