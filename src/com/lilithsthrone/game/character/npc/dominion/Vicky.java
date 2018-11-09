@@ -281,7 +281,7 @@ public class Vicky extends NPC {
 	}
 	
 	@Override
-	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos) {
+	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		
 		this.unequipAllClothingIntoVoid(true);
 
@@ -314,6 +314,20 @@ public class Vicky extends NPC {
 				for(int i=0; i<1+Util.random.nextInt(3); i++){
 					this.addWeapon(AbstractWeaponType.generateWeapon(wt), false);
 				}
+			}
+		}
+		for(AbstractItemType item : ItemType.getAllItems()) {
+			if(item.getItemTags().contains(ItemTag.SOLD_BY_VICKY)) {
+				this.addItem(AbstractItemType.generateItem(item), false);
+			}
+		}
+		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
+			try {
+				if(clothing!=null && clothing.getItemTags().contains(ItemTag.SOLD_BY_VICKY)) {
+					this.addClothing(AbstractClothingType.generateClothing(clothing, false), false);
+				} 
+			} catch(Exception ex) {
+				ex.printStackTrace();
 			}
 		}
 		

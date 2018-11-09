@@ -144,6 +144,9 @@ public class Util {
 	public static String colourReplacement(String gradientReplacementID, Colour colour, Colour colourSecondary, Colour colourTertiary, String inputString) {
 		String s = inputString;
 		
+		// Fixes issue of SVG icons overflowing:
+		s = s.replaceFirst("width=\"100%\"\\R   height=\"100%\"", "");
+		
 		for (int i = 0; i <= 14; i++) {
 			s = s.replaceAll("linearGradient" + i, gradientReplacementID + colour.toString() + (colourSecondary!=null?colourSecondary.toString():"") + (colourTertiary!=null?colourTertiary.toString():"") + "linearGradient" + i);
 			s = s.replaceAll("innoGrad" + i, gradientReplacementID + colour.toString() + (colourSecondary!=null?colourSecondary.toString():"") + (colourTertiary!=null?colourTertiary.toString():"") + "innoGrad" + i);
@@ -314,6 +317,10 @@ public class Util {
 	}
 	
 	@SafeVarargs
+	/**
+	 * @param lists The lists to merge.
+	 * @return A new ArrayList which contains all the elements from both lists.
+	 */
 	public static <U> ArrayList<U> mergeLists(List<U>... lists) {
 		ArrayList<U> mergedList = new ArrayList<>();
 		
@@ -956,7 +963,7 @@ public class Util {
 	public static <Any> Any randomItemFrom(Any[] array) {
 		return array[Util.random.nextInt(array.length)];
 	}
-	
+
 	public static int randomItemFrom(int[] array) {
 		return array[Util.random.nextInt(array.length)];
 	}

@@ -108,149 +108,218 @@
 		Else, question, can lead into search
 		Fights end with locked in stocks
 	
-	- Main Quest content (with Lyssieth's palace).
 	
-	Go over all "Main.game.getNPCById("+milkProvidor+") returning null" and change to throws
-	
-	
+		
 	
 	Patch notes:
 	
 	Gameplay:
-		You can now invite offspring home in the same way that you can with random NPCs. (They use the same dialogue for now, but that's just temporary.)
-		Started rework of Submission to add imp gang attacks and imp fortress content, but it's very half-finished right now...
+		Added framework for imp fortresses, with (very rough) placeholder dialogue. (Central imp citadel is still closed - it will be ready for the next update!)
+		Added next stage of main quest to the guards at Lyssieth's palace gate.
+	
+	Items:
+		Added 'gothic dress', 'gothic sleeveless dress', and 'gothic heels' into the base game. (The items that were released as a mod on Halloween.)
+		Added several new weapons and items of clothing that I had planned for the imp fortress bosses. These are as follows:
+		Added weapon 'knuckle dusters'. (Sold by Vicky.)
+		Added weapon 'katana'. (Sold by Vicky. Daisho set.)
+		Added weapon 'wakizashi'. (Sold by Vicky. Daisho set.)
+		Added clothing 'striped gloves'. (Hand slot. Sold by Nyan.)
+		Added clothing 'men's hakama'. (Leg slot. Ronin set. Reindeer gift item, and worn by one of the imp fortress bosses.)
+		Added three new clothing items (for eyes, over-torso, and neck), and a new melee weapon, all of which are only found being worn/equipped by the central imp citadel's boss. (Not specified to avoid spoilers.)
 	
 	Other:
-		Added age preference settings in the options menu.
-		Slaves now require the exhibitionist fetish to use you in Dominion's streets, and can now use you in the alleyways & canal areas as well (not requiring the exhibitionist fetish).
-		Changed cat subspecies icons to fit in with the same style as all the others in the game.
-		Changed racial status effects to be specific to subspecies, and changed their bonuses. Cheetah-morphs can now always escape from non-cheetah-morph enemies.
-		Changed demons to have normal-shaped nipples by default.
-		Added dye options for headband and headband with bow.
-		Added 'SOLD_BY_RALPH' tag for clothing & weapon mods.
-		Using the 'Grow cock' action in sex to get a demon to grow a cock will now set their girth to thick.
-		Increased chance of rat-morphs, alligator-morphs, and slimes spawning in canal tiles.
-		Changed slime icon to be based on what race they appear as, and changed racial colour from pink to light green, to help differentiate it from harpy/demon/imp/cat-morph icons.
-		Improved debug menu and changed the body part TF system to use the same one you get from demon & slime TFs.
-		Changed 'minor' category to include race's breasts and ass.
-		Separated debug menu's 'Debug Mode' into three separate values (Debug Mode, Reveal Map, and Reveal Bodies), which are now saved in the properties.xml file.
-		Hooded cloak no longer conceals the mouth slot.
-		Modifying cum storage amount through potions now fills cum to maximum storage.
-		You can now set a pet name for friendly occupants to call you by (under their 'Management' tab).
-	
-	Contributors:
-		Changed Short Bow to be two-handed. (Rfpnj)
-	
-	Artwork:
-		Added Jam's futa artwork variation for Kelly & Katherine.
+		Added new 'quest' rarity, and a new tab in your inventory for quest-related items. (Only Arthur's package and the new imp keys use this at the moment.)
+		You can no longer sell or drop quest items.
+		Rarity is now displayed in item/clothing/weapon tooltips.
+		Improved 'Potion effects' status effect icon.
+		Item tooltips now have the same format as weapons and clothing.
+		Added options to change number of arm pairs, eye pairs, horn rows, and tails in the slime, demon, and debug transform menus.
+		Arcane storm vulnerability is no longer bound to a character's race, but is instead applied when their 'arcane' attribute is less than 20. (The player is always immune.)
+		Added colouring options for all body part coverings in the slime/demon self-transform menu, and included ass, underarm, pubic, and facial hair colourings and lengths (if the relevant content option is turned on).
+		Added a simplified version of clothing mod's displacementText/replacementText fields. Look at the bottom of the new 'arcane_amulet.xml' file to see how it works.
+		Added new 'Major Attribute' primary enchantment modifier for clothing & weapons, with secondary enchantments for energy, aura, physique, arcane, and corruption.
+		Increased potency costs for 'major drain/drain/minor drain/minor boost/boost/major boost' from 4/2/1/1/2/4 to 8/4/1/1/4/8.
+		Increased enchantment modifier costs for 'rare/epic/legendary' from '3/5/8' to '4/8/12'.
+		Added & improved icons for enchantment modifiers.
+		Added 'chuuni' perk, which gives a large boost to spell power, but also makes your character say embarrassing things when you cast spells.
+		Added 'brass' and 'midnight green' as colours for clothing/weapons, and 'light purple' as a skin/hair covering colour.
+		Added support for weapons to count towards sets. (Like the Enforcer set, Maid set, etc.) Look at the katana and wakazashi files to see how they're defined in mods.
+		Reduced dagger's base value from 5000 to 1500.
+		You can now only teleport to tiles you've previously visited. (The teleport spell is still only available via the debug menu.)
+		Tiles you have discovered (by travelling next to them), but haven't visited, are now shaded. (When loading in from a version prior to 0.2.11.5, all discovered tiles will be set as having been visited before.)
 	
 	Bugs:
-		Penis-Nipple tease sex action is now correctly disabled if you have nipple penetrations turned off.
-		Nyan now correctly spawns into the game as a virgin. (If you haven't had sex with her, she will reset to a virgin when you load in.)
-		Fixed body-part setting actions in the debug menu having identical names.
-		Typo/parsing/grammar fixes.
-		Slaves can no longer use you if you have someone in your party.
-		Character creation no longer starts incorrectly displaying your character's age as '-3'.
-		Friendly NPCs that move in with you will no longer find a job as a slave or unemployed...
-		Fixed 'Request cum' action sometimes being incorrectly associated with the pregnancy fetish.
-		Fixed bug where if you unequipped your main weapon first, then you wouldn't be able to unequip your offhand weapon.
-		Fixed city map in the library not displaying.
-		Fixed tooltip for the bottom-left cell in Dominion incorrectly showing a list of names of people who weren't there.
-		Fixed weapon mods not being able to have more than one spell.
-		Modded weapons attack actions in combat are now always capitalised.
-		Transforming a slave and then returning to the Slavery Management screen will now correctly show the updated slave.
-		Fixed footjob counter for tattoos not persisting across saves.
-		NPCs will no longer magically be able to clean their clothes & dirty slots while having sex with you.
-		Fixed issue where when navigating between pages with a different number of response tabs, sometimes you'd end up on a page with no options.
-		Fixed being able to click past the 'Pregnancy Breast Growth Limit' maximum limit in the Content Options screen.
-		Fixed offspring's body being randomised after being set by genetics.
-		Fixed enslavement dialogue always saying you couldn't enslave the target due to them already being a slave.
-		Fixed enslavement clothing not being able to be equipped on Scarlett.
-		Fixed NPCs' speech sometimes being muffled or interspersed with moans even if they weren't involved in penetrative actions.
-		Vicky now correctly says that she's denying your requests in sex, instead of accepting then ignoring your request.
-		Tidied up throwing of errors in the engine when a character's id can no longer be found in the game.
-		Fixed stored milk and milk regeneration values not being saved/loaded correctly.
-		Fixed bugs where NPCs would incorrectly lose affection towards other NPCs in a sex scene.
-		Fixed penile virginity being always described as being taken by yourself.
+		Fixed issue with group oral not working correctly.
+		Fixed imp attack dialogue not working if you had a companion with you.
+		Vicky should now correctly stock modded weapons and items with the 'SOLD_BY_VICKY' tag.
+		Added correct covering detection for all sock and leg clothing, so that cumming onto feet or thighs should now correctly dirty the clothing that's covering those related areas.
+		Fixed issue where NPCs would start/stop actions in sex. (For what must be the tenth time...)
+		Fixed bug with the 'Take all' action being used on an NPC's inventory throwing a background error.
+		Fixed issues with being able to pick up items/weapons/clothing from the floor, even if your inventory was full.
+		Typo fixes.
+		Fixed issue with companion's elementals being treated as slaves when in Lilaya's house.
+		Fixed issue where clothing or weapon tooltip images could sometimes be displayed incorrectly.
+		Fixed issue with NPC encounter dialogue where the NPC's impregnation fetish check was firing incorrectly.
+		Fixed initial footjob start text not being shown in sex, as well as the extra tooltip description not working.
+		Fixed bug where Lilaya's panty scenes involving Rose would all softlock.
+		Fixed bug in missionary sex where actions to stop penetrations would not be given.
+		Fixed issue where enchanted clothing without a unique name would sometimes not display the enchantment postfix.
+		Fixed bug with Arcanist's Hat xml file.
+		Fixed imp encounters in the central imp tunnels (the dark purple ones) not working correctly.
+		Fixed background error when starting a group missionary sex scene (which might have been causing the action to start sex to not work).
+		Weapons that should be pluralised by default are now actually pluralised.
+		Fixed missionary 'spread legs' action not working.
+		Fixed issue with modded clothing marked as 'RARE' being given the rarity 'EPIC' in-game.
+		Fixed issue with wrong character's tail being described in a lot of tail-pegging actions.
+		Fixed issue with weapons having incorrect determiners.
+		Fixed bug at end of imp female encounter, where an extra 'endif' would be displayed. 
+	
+	
+	
+	
+	---
+	
+	DS fight:
+		Imps first, or duel if Chuuni
+		After imps, or Chuuni duel request, can use ring option
+		(Fighting reward is stealing her stuff)
+	
+	Add citadel framework
+		Loss vs boss:
+			Masturbates while watching imps fuck you - foot/dom stuff
+			Keeps you in cells
+				Over time (each morning meal is laced with TFs):
+					TF preference:
+						Feminine: TF you into bimbo nympho breeder
+						Masculine: TF you into imp breeder
+						Neutral:
+							If feminine: TF into breeder
+							If masculine: TF into trap with tiny cock
+				Events:
+					Use as trophy foot-rest
+					If female breeder, get bred
+					Milked/cum milked
+					Watches imps fuck you as amusement
+					If male breeder, gets you to breed trespasser
+	
+	
+	Check other fortresses
+	
+	Other fortresses need to reveal Dark Siren is Lyssieth's daughter upon defeat
+		Once DS is defeated, say that they're waiting for her to return
+		Alpha - sadistic punk
+		Females - slut
+		Male - dominant
 		
-	
-	
-	
-	
-	
-	
-	Add offspring-unique dialogue for moving in
-	
-	Need fortress dialogue.
-	
-	Need fortress imp guards.
-	
-	Need fortress bosses
-	
-	
-	[ ] Imp Offspring
-	
-	Management (put in main game loop):
-		Reset a few days after you beat the fortress's boss (with the same boss returning if not enslaved).
-		If imp control, persistent NPCs go into hiding (move to holding cell)
-	
-	Imp gangs linked to fortresses
-		Alphas - leader is largest alpha - 4 alpha futas - TFs you into futa and impregnate/ride cock
-			Encounters are 2 imp alphas + 2 imps
-		Seducers - leader is imp with biggest breasts - 6 imp females - TF to give you huge cock and balls, with huge cum amount, then leader rides cock
-			Encounters are 2-4 female imps
-		Brawlers - leader is imp with biggest cock - 6 imp males - TF you into female and impregnate
-			Encounters are 2-4 male imps
-		Demon Fortress - leader is demon - demon + 2 alphas + 2 imps - masturbates while watching imps fuck you
-			Encounters are 1-3 imps with an arcane imp leader
 		
 		
-		Need size difference sex
-		Group - 3 on you, 3 on partner
-		Missionary SD
-			Player on back
-			Imp on cock/breasts + Imp at ass/groin OR Imp humping pussy (lying on stomach with breast oral) & Imp anal (standing behind)
-			Two Imps at face
-			Two Imps on feet
-		Doggy SD
-			Player on all fours
-			Imp lying under fucking pussy with Imp anal/DP pussy OR Imp under oral with Imp anal OR Imp fucking/oral pussy with humping Imp anal (on back)
-			Two Imps at face
-			Two Imps on feet
+	bug here with a group of imps from before the 'clear imp gangs' thing was implemented on the fortress:
+	 you can't access them when the fortress is active and they get replaced by others, and when the fortress is inactive the menu freezes up here and none of the options do anything
+	[Remove all ImpAttackers from Submission on load]
+	[Keep 2 groups of imp attackers for each area]
+	[add basic re-encounter dialogue variations]
 	
-	Imps:
-		Rag loincloth & rag top
-		Sticks & pipes
-		Imp wizard hat
-		Crude wand
+	when i apply a condom to someone  game thinks i am the one wearing it
+	
+	my slaves both gave birth... one while wearing a chasty belt.. the other with a dildo sealed inside her
+	
+	I've noticed an issue when I'm being spit-roasted.  If I start fingering the vagina of the person in front of me, I lose the option to give them a blowjob
+	
+	Forced transformation on loss of a fight, transformation to female only ever does the initial creation of a vagina, setting capacity to 0 and never increasing it if there are further losses resulting in more female transformation.
+		(don't forget to set non-consent to on to allow forced TF after losing)
+	
+	Update TFGS and fen
+	
+	Add weapon parameters, "maximum targets" and "percentage splash"
+	
+	If you remove scarlets slave collar when she is in slave room she attacks you and game bugs out
+	
+	Add set bonus for gothic - add set modding support
+	
+	Render map icons offset based on number
+	
+	Improve non-con toggles
+	
+	Sex is softlocking at orgasm in several scenes?
+	
+	Add missionary/doggy/oral switch actions for player when dom
+	
+	progress/plan post
+	art vote
+	
+	Finish 3 chuuni variations for each spell
+		
+	Add short/normal height TF modifier - needs to be a unique item like the watch
+	From Lyssieth
+	
+	Is the dirty talk issue by chance in the works? Kind of an offputting selection when all everyone says on it is variations of "Oh yeah!" once the sex gets going. 
 	
 	
+	1) Tattoos on the lower abdomen cannot be seen in the inventory screen even when the person is naked.
+
+	2) Will imps have unique dialogues as lovers or slaves? Currently have one imp living with me and its a bit weird that she is exactly like any other NPC. (in the talk option she also says  she is from dominion despite coming from submission.)
+	
+	scars!
+		have a chance to be inflicted upon characters who are critically hit by spells or arcane weapons (with a toggle to turn off this behaviour in the options)
+		an arcane dagger that scars without wounding, one-time use thing
+	
+	Need tribbing & frotting otherwise positions end up being awkward
+	
+	Need encouragements for NPC-NPC orgasms, like "Encourage creampie" (Telling NPC1 to creampie NPC2)
+	
+	Add leg-lock and swallow as forced sub orgasms (overrides whatever dom chose)
+	
+	Add a way to buy Brax from Candi.
+	
+	Add slave silence permission dialogue
+	
+	buttslut oral fetishists who are in the dominant position will not let my sub char change the position to dom sittting on subs face
+	
+	Need to stop scroll of right & left panes on each new sex and combat action
+	
+	Sort out NPC management flow, especially in slave rooms/management and character viewing
+	
+	---
+		
 	Check:
+	[ ] Imp Offspring
 	[ ] Tunnel Offspring
 	[ ] Bat Offspring
 	[ ] Slime offspring
+	[ ] Offspring moving-in dialogue
 	
+	Slime queen SD - missionary
+	Need positioning for size difference
+	Sex action improvements
 	
+	Add Enforcer encounter in alleyways.
 	
-	 Add a way to buy Brax from Candi.
-	
-	 Add Enforcer encounter in alleyways.
-	
+	Add offspring-unique dialogue for moving in
 	
 	Kumiko writing
 	
+	PRs dev
 	
+	Improve sex & combat UI for lots of AI
 	
+	Add leg lock
 	
-	scratch special attack targets in desc. bugged
+	you can have children with alpha imps and they can be of your species (although with imp-like geinitalia) despite the fact that the imp text says that all imp offspring become imps.
 	
-	UH so a storm happened and i got attacked by a npc on a normal tile, I knew her name, then when i beat her it said i knew who she was and saved her from a life of crime, then i left and came back and talked to her and there were like 5 NEW npcs like random ones, then i talked to her again and like 3 more popped up and none of them are despawning.
+	footjob -> cum on feet - does not stain socks
+	
+	I'm still getting instances of slaves being impregnated by other slaves but the player character being tagged as the father. =(
+	
+	UH so a storm happened and i got attacked by a npc on a normal tile, I knew her name, then when i beat her it said i knew who she was and saved her from a life of crime,
+	 then i left and came back and talked to her and there were like 5 NEW npcs like random ones, then i talked to her again and like 3 more popped up and none of them are despawning.
 	
 	add enchants related to damage versus a special race
 	add boolean for appending damage type to start of weapon
 	customizable text for use of arcane could be nice (weapons)
 	are lust weapons supposed to deal damage to energy
 	critical descriptions
+	
+	Lilaya doesn't seem to want to change out of her Kimono
 	
 	NPC slimes will attempt to turn you into a slime and the game will tell you its working but you remain human
 	
@@ -260,31 +329,31 @@
 	
 	Appears as age modifier -> potions of age appearance
 	
-	flashing you and NOT_FOUND a delighted smile
-	
 	So apparently if they're virgins and I'm a sub I can't take initiative on my own (anal) - they have to be the ones to stick it in them. That sort of sucks...
 	It seems as if dominant partners will never do butt stuff unless it's penetrative sex, even if it's what they 'want' to do.
 	Even if they have those fetishes and it says they 'want to' do one of those things, they will never do it under any circumstances.
 	
-	A lot of bugs with missionary. 
-	If your partner has a cock, and you're on top, you can 
-	1. Recieve anal
-	2. Penetrate them, but they rub their dick over your ass
-	
 	Turn the sex scene with Karl and Wolfgang into a 4 way if you have a companion
 	
-	when losing your anal virginity to rose in lilaya's room, your description tells you that you lost it in the lab
+	I can't seem to get alleyway attackers to try forcibly transforming me.
+	 I've set the forced tf option to 100%, tried losing and submitting and offering sex, to no avail. Normal attackers just rob me, and demons initiate sex but without transforming me.
+	  I have no idea what could be causing this and to my knowledge it's not happening to other people. I've tried versions 0.2.10.1, 0.2.10.2, and 0.2.10.8 with the same results
+	Oh, and similarly attackers with the kink advocate fetish never actually try to give my character new fetishes
 	
+	Nyan and Finch's specials tabs not updating is a bug caused by the game handling alot of updates (over time TFs from clothing for example) eventually something fills up and it causes a few weird bugs to occur
 	
+	Have also options for the type of genatalia.
+	 Eg if someone has a knotted penis, that actually gets stuck for x amount of rounds, changing which options are available and preventing the scene from ending, increasing impregnation chances,
+	  instead of just a description that says it happened and 5 minutes later it popped out. Prehensile penises and orrifices with tentacles could grip,
+	   feline could get stuck or cause damage, equine could have difficulty with initial penetration etc.
 	
-	PRs dev
+	Also to go with that I'm assuming the description for climaxing in clothing or just leakage will eventually get some flavor text eventually?
 	
-	Irbynx PR
+	Add double-creampie action (if knot, knot second one)
 	
+	People in normal streets during an arcane storm use the "I'm doing it for money" thing of regular alleyway encounters if you tell them to leave
 	
-	
-	
-	Bug reports
+	add a method at some point which would append related dialogue to each action that an NPC performs during sex
 	
 	Submission dialogue sorted
 	
@@ -304,6 +373,9 @@
 		- Need to add it for: Bat Cavern attackers, and offspring.
 	
 	Mod support Items & Sex actions
+		
+		
+		
 		
 		
 	
@@ -326,10 +398,9 @@
 	
 	Also it seems like prostitute encounters from earlier saves revert to the standard hostile encounter.
 	
-	Orgasm cum targets make no sense in threesomes
-	>A lot of sex text still referes to the wrong participants(you companion cums in a third party but the text refers you, etc.)
-	
 	reading the book from his inventory during a victory displays incorrect text
+	
+	NPCs should have the TF potion in their inventory
 	
 	Need to add display buttons for fetishes
 		Fetishes
