@@ -635,7 +635,7 @@ public class Game implements Serializable, XMLSaving {
 									&& !worldType.equals("IMP_FORTRESS_MALES"))
 									|| !Main.isVersionOlderThan(loadingVersion, "0.2.11"))
 							&& (!worldType.equals("IMP_FORTRESS_DEMON")
-									|| !Main.isVersionOlderThan(loadingVersion, "0.2.11.5"))
+									|| !Main.isVersionOlderThan(loadingVersion, "0.2.12"))
 							&& (!worldType.equals("DOMINION") || !Main.isVersionOlderThan(loadingVersion, "0.2.2"))
 							&& (!worldType.equals("SLAVER_ALLEY") || !Main.isVersionOlderThan(loadingVersion, "0.2.2"))
 							&& (!worldType.equals("HARPY_NEST") || !Main.isVersionOlderThan(loadingVersion, "0.2.1.5"))
@@ -664,7 +664,7 @@ public class Game implements Serializable, XMLSaving {
 						gen.worldGeneration(WorldType.IMP_FORTRESS_FEMALES);
 						gen.worldGeneration(WorldType.IMP_FORTRESS_MALES);
 					}
-					if(Main.isVersionOlderThan(loadingVersion, "0.2.11.5")) {
+					if(Main.isVersionOlderThan(loadingVersion, "0.2.12")) {
 						gen.worldGeneration(WorldType.IMP_FORTRESS_DEMON);
 					}
 					if(Main.isVersionOlderThan(loadingVersion, "0.2.2")) {
@@ -950,7 +950,33 @@ public class Game implements Serializable, XMLSaving {
 					}
 				}
 				
+				if(Main.isVersionOlderThan(loadingVersion, "0.2.11.9")) { //Reset imp fortresses
+					ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_ALPHA);
+					ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_FEMALES);
+					ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_MALES);
+
+					Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impFortressAlphaBossEncountered, false);
+					Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impFortressFemalesBossEncountered, false);
+					Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impFortressMalesBossEncountered, false);
+					
+					if(Main.game.getPlayer().getWorldLocation()==WorldType.IMP_FORTRESS_ALPHA) {
+						Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_ALPHA);
+						
+					} else if(Main.game.getPlayer().getWorldLocation()==WorldType.IMP_FORTRESS_FEMALES) {
+						Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_FEMALES);
+						
+					} else if(Main.game.getPlayer().getWorldLocation()==WorldType.IMP_FORTRESS_MALES) {
+						Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_MALES);
+					}
+					
+					while(Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY)) {
+						Main.game.getPlayer().removeItem(AbstractItemType.generateItem(ItemType.IMP_FORTRESS_ARCANE_KEY));
+					}
+				}
+				
+				
 				Main.game.pendingSlaveInStocksReset = false;
+				
 				
 				if(debug) {
 					System.out.println("New NPCs finished");
@@ -1235,25 +1261,26 @@ public class Game implements Serializable, XMLSaving {
 			}
 		}
 		
-		// Reset imp tunnels after 5 days:
-		boolean alphaReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressAlphaDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressAlphaDefeatedTime) > 60*24*5);
-		boolean demonReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressDemonDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressDemonDefeatedTime) > 60*24*5);
-		boolean femalesReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressFemalesDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressFemalesDefeatedTime) > 60*24*5);
-		boolean malesReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressMalesDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressMalesDefeatedTime) > 60*24*5);
-		
-		if(alphaReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_ALPHA) {
-			ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_ALPHA);
+		// Reset imp tunnels after 5 days if DS is defeated:
+		if(Main.game.getPlayer().hasQuest(QuestLine.MAIN) && Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_B_SIRENS_CALL)) {
+			boolean alphaReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressAlphaDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressAlphaDefeatedTime) > 60*24*5);
+			boolean demonReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressDemonDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressDemonDefeatedTime) > 60*24*5);
+			boolean femalesReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressFemalesDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressFemalesDefeatedTime) > 60*24*5);
+			boolean malesReset = this.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressMalesDefeated) && ((this.getMinutesPassed() - this.getDialogueFlags().impFortressMalesDefeatedTime) > 60*24*5);
+			
+			if(alphaReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_ALPHA) {
+				ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_ALPHA);
+			}
+			if(femalesReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_FEMALES) {
+				ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_FEMALES);
+			}
+			if(malesReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_MALES) {
+				ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_MALES);
+			}
+			if(demonReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_DEMON) {
+				ImpCitadelDialogue.resetFortress();
+			}
 		}
-		if(femalesReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_FEMALES) {
-			ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_FEMALES);
-		}
-		if(malesReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_MALES) {
-			ImpFortressDialogue.resetFortress(WorldType.IMP_FORTRESS_MALES);
-		}
-		if(demonReset && Main.game.getPlayer().getWorldLocation()!=WorldType.IMP_FORTRESS_DEMON) {
-			ImpCitadelDialogue.resetFortress();
-		}
-		
 		
 		// Do the player's companion check before anything else, as if a companion leaves, then the follow-up check to send to work needs to be performed.
 		List<GameCharacter> companions = new ArrayList<>(Main.game.getPlayer().getCompanions());
@@ -1413,7 +1440,7 @@ public class Game implements Serializable, XMLSaving {
 				boolean faceVirgin = npc.isFaceVirgin();
 				boolean nippleVirgin = npc.isNippleVirgin();
 				boolean penisVirgin = npc.isPenisVirgin();
-				boolean ureathreVirgin = npc.isUrethraVirgin();
+				boolean urethraVirgin = npc.isUrethraVirgin();
 				boolean vaginaVirgin = npc.isVaginaVirgin();
 				boolean vaginaUrethraVirgin = npc.isVaginaUrethraVirgin();
 				
@@ -1425,7 +1452,7 @@ public class Game implements Serializable, XMLSaving {
 				npc.setFaceVirgin(faceVirgin);
 				npc.setNippleVirgin(nippleVirgin);
 				npc.setPenisVirgin(penisVirgin);
-				npc.setUrethraVirgin(ureathreVirgin);
+				npc.setUrethraVirgin(urethraVirgin);
 				npc.setVaginaVirgin(vaginaVirgin);
 				npc.setVaginaUrethraVirgin(vaginaUrethraVirgin);
 			}
@@ -1559,8 +1586,6 @@ public class Game implements Serializable, XMLSaving {
 		if(Main.game.getCurrentDialogueNode().getDialogueNodeType()==DialogueNodeType.NORMAL) { // Catch slavery management NPC not correctly being assigned to null:
 			Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
 		}
-		
-		
 		
 //		System.out.println((System.nanoTime()-tStart)/1000000000d+"s");
 	}
@@ -1719,7 +1744,15 @@ public class Game implements Serializable, XMLSaving {
 				}
 				
 				String headerContent = node.getHeaderContent();
-				String content = node.getContent();
+				String content;
+				try {
+					content = node.getContent();
+				} catch(Exception ex) {
+					content = "<p style='text-align:center;'>"
+								+ "[style.italicsBad(Error: getContent() method is throwing an exception in the node: '"+node.getLabel()+"')]"
+							+ "</p>";
+					ex.printStackTrace();
+				}
 
 				if (currentDialogueNode != null) {
 					if (node.isContinuesDialogue()) {
@@ -1884,7 +1917,15 @@ public class Game implements Serializable, XMLSaving {
 		}
 		
 		String headerContent = node.getHeaderContent();
-		String content = node.getContent();
+		String content;
+		try {
+			content = node.getContent();
+		} catch(Exception ex) {
+			content = "<p style='text-align:center;'>"
+						+ "[style.italicsBad(Error: getContent() method is throwing an exception in the node: '"+node.getLabel()+"')]"
+					+ "</p>";
+			ex.printStackTrace();
+		}
 		boolean resetPointer = false;
 		
 		if (getMapDisplay() == DialogueNodeType.NORMAL) {
@@ -2328,6 +2369,16 @@ public class Game implements Serializable, XMLSaving {
 	}
 	
 	public String getContentForClipboard(){
+		String content;
+		try {
+			content = currentDialogueNode.getContent();
+		} catch(Exception ex) {
+			content = "<p style='text-align:center;'>"
+						+ "[style.italicsBad(Error: getContent() method is throwing an exception in the node: '"+currentDialogueNode.getLabel()+"')]"
+					+ "</p>";
+			ex.printStackTrace();
+		}
+		
 		return "<body style='background:#1e1e20; color:#DDD; font-family:Calibri;'>"
 				+ "<style>"
 				+ ".speech:before { content: '\"'; }"
@@ -2336,7 +2387,7 @@ public class Game implements Serializable, XMLSaving {
 					+ "<h4 style='text-align:center; font-size:1.4em;'>" + dialogueTitle + "</h4>"
 					+ "<div style='max-width:800px; margin:0 auto;'>"
 						+ (currentDialogueNode.getHeaderContent() != null ? "<div id='header-content'>" + currentDialogueNode.getHeaderContent() + "</div>" : "")
-						+ (currentDialogueNode.getContent() != null
+						+ (content != null
 								? "<div id='text-content'"
 									+ " style='font-size:" + Main.getProperties().fontSize + "px; line-height:" + (Main.getProperties().fontSize + 6) + "px;"
 										+ (requiresYScroll(currentDialogueNode)?" overflow-y:scroll; overflow-x:hidden;":"")+ "'>"
@@ -2391,7 +2442,7 @@ public class Game implements Serializable, XMLSaving {
 		
 		
 		float fontSize = 1;
-		String strippedTitle = UtilText.parse(response.getTitle()).replaceAll("<.*?>", "");
+		String strippedTitle = UtilText.parse(response.getTitle()).replaceAll("<.*?>", "").replaceAll(UtilText.getCurrencySymbol(), "1");
 		if(strippedTitle.length()>14) {
 			fontSize-=(strippedTitle.length()-14)*0.03f;
 		}
@@ -2557,7 +2608,15 @@ public class Game implements Serializable, XMLSaving {
 //			System.out.println("restored with regenerated text");
 			
 			String headerContent = currentDialogueNode.getHeaderContent();
-			String content = currentDialogueNode.getContent();
+			String content;
+			try {
+				content = currentDialogueNode.getContent();
+			} catch(Exception ex) {
+				content = "<p style='text-align:center;'>"
+							+ "[style.italicsBad(Error: getContent() method is throwing an exception in the node: '"+currentDialogueNode.getLabel()+"')]"
+						+ "</p>";
+				ex.printStackTrace();
+			}
 			
 			currentDialogue = 
 					"<div id='main-content'>"
@@ -3472,6 +3531,7 @@ public class Game implements Serializable, XMLSaving {
 	 * @return true if NPC was deleted, false if they were moved to the empty world.
 	 */
 	public boolean banishNPC(NPC npc) {
+		// check fluids in rooms and condoms
 		if(Main.game.getPlayer().getSexPartners().containsKey(npc.getId())
 				|| npc.getPregnantLitter()!=null
 				|| npc.getLastLitterBirthed()!=null
