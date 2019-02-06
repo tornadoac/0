@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.body.CoverableArea;
@@ -14,9 +15,11 @@ import com.lilithsthrone.game.character.body.types.LegType;
 import com.lilithsthrone.game.character.body.types.TailType;
 import com.lilithsthrone.game.character.effects.StatusEffect;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.character.persona.Relationship;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -367,31 +370,27 @@ public enum SpecialAttack {
 			
 			String dialogue = "";
 			
-			switch(caster.getRelationship(target)) {
-				case OFFSPRING:
-					dialogue = UtilText.returnStringAtRandom(
-							"Let me take care of you [npc.mommy]!",
-							"Come on [npc2.mommy]! I just want to take <i>real</i> good care of you!",
-							"[npc2.Mommy]! I just want to show you how much I love you!");
-					break;
-				case PARENT:
-					dialogue = UtilText.returnStringAtRandom(
-							"Let [npc.mommy] take care of you!",
-							"Don't worry sweetie, [npc.mommy]'s going to take good care of you!",
-							"[npc.Mommy] just wants to show you how much [npc.she] loves you!");
-					break;
-				case SIBLING:
-					dialogue = UtilText.returnStringAtRandom(
-							"Let your [npc.sis] take care of you!",
-							"Don't worry [npc2.sis], I'm going to take good care of you!",
-							"Come on [npc2.sis]! I just want to show you how much I love you!");
-					break;
-				default:
-					dialogue = UtilText.returnStringAtRandom(
-							"Let [npc.mommy] take care of you!",
-							"Don't worry sweetie, [npc.mommy]'s going to take good care of you!",
-							"[npc.Mommy] just wants to show you how much [npc.she] loves you!");
-					break;
+			Set<Relationship> rel = caster.getRelationshipsTo(target);
+			if(rel.contains(Relationship.Child)) {
+				dialogue = UtilText.returnStringAtRandom(
+						"Let me take care of you [npc.mommy]!",
+						"Come on [npc2.mommy]! I just want to take <i>real</i> good care of you!",
+						"[npc2.Mommy]! I just want to show you how much I love you!");
+			} else if(rel.contains(Relationship.Parent)) {
+				dialogue = UtilText.returnStringAtRandom(
+						"Let [npc.mommy] take care of you!",
+						"Don't worry sweetie, [npc.mommy]'s going to take good care of you!",
+						"[npc.Mommy] just wants to show you how much [npc.she] loves you!");
+			} else if(rel.contains(Relationship.Sibling)) {
+				dialogue = UtilText.returnStringAtRandom(
+						"Let your [npc.sis] take care of you!",
+						"Don't worry [npc2.sis], I'm going to take good care of you!",
+						"Come on [npc2.sis]! I just want to show you how much I love you!");
+			} else {
+				dialogue = UtilText.returnStringAtRandom(
+						"Let [npc.mommy] take care of you!",
+						"Don't worry sweetie, [npc.mommy]'s going to take good care of you!",
+						"[npc.Mommy] just wants to show you how much [npc.she] loves you!");
 			}
 			
 			if(caster.isPlayer()) {
@@ -1908,7 +1907,7 @@ public enum SpecialAttack {
 
 		@Override
 		public boolean isConditionsMet(GameCharacter owner) {
-			return owner.getArmType() == ArmType.LYCAN && owner.getFaceType() == FaceType.LYCAN;
+			return owner.getArmType() == ArmType.WOLF_MORPH && owner.getFaceType() == FaceType.LYCAN;
 		}
 	},
 
@@ -2153,12 +2152,8 @@ public enum SpecialAttack {
 				System.err.println("Error! SpecialAttack icon file does not exist (Trying to read from '"+pathName+"')!");
 			}
 			SVGString = Util.inputStreamToString(is);
-
-			SVGString = SVGString.replaceAll("#ff2a2a", colourShade.getShades()[0]);
-			SVGString = SVGString.replaceAll("#ff5555", colourShade.getShades()[1]);
-			SVGString = SVGString.replaceAll("#ff8080", colourShade.getShades()[2]);
-			SVGString = SVGString.replaceAll("#ffaaaa", colourShade.getShades()[3]);
-			SVGString = SVGString.replaceAll("#ffd5d5", colourShade.getShades()[4]);
+			
+			SVGString = SvgUtil.colourReplacement(this.toString(), colourShade, SVGString);
 
 			is.close();
 
@@ -2176,14 +2171,14 @@ public enum SpecialAttack {
 			descriptionSB.append("<p>"
 					+ (isHit 
 							? "<b>[npc.Name] <b style='color: " + Colour.CLOTHING_GOLD.toWebHexString() + ";'>critically</b> [npc.verb(hit)] for " + damage
-								+ " <b style='color: " + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + damageType.getName() + "</b>" + "!</b>"
+								+ " <b style='color: " + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + damageType.getName() + " damage</b>" + "!</b>"
 							: "<b>[npc.Name] missed!</b>")
 					+ "</p>");
 		} else {
 			descriptionSB.append(
 					"<p>"
 						+ (isHit
-								? "<b>[npc.Name] [npc.verb(hit)] for " + damage + " <b style='color: " + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + damageType.getName() + "</b>" + "!</b>"
+								? "<b>[npc.Name] [npc.verb(hit)] for " + damage + " <b style='color: " + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + damageType.getName() + " damage</b>" + "!</b>"
 								: "<b>[npc.Name] missed!</b>")
 					+ "</p>");
 		}

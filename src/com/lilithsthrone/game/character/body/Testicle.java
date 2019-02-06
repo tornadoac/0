@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.character.body;
 
-import java.io.Serializable;
 
+import com.lilithsthrone.game.PropertyValue;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.body.types.TesticleType;
 import com.lilithsthrone.game.character.body.valueEnums.CumProduction;
@@ -9,17 +9,17 @@ import com.lilithsthrone.game.character.body.valueEnums.FluidExpulsion;
 import com.lilithsthrone.game.character.body.valueEnums.FluidRegeneration;
 import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
+import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.83
- * @version 0.2.7
+ * @version 0.3.1
  * @author Innoxia
  */
-public class Testicle implements BodyPartInterface, Serializable {
+public class Testicle implements BodyPartInterface {
 
-	private static final long serialVersionUID = 1L;
 	
 	public static final int MIN_TESTICLE_COUNT = 2;
 	public static final int MAX_TESTICLE_COUNT = 8;
@@ -103,13 +103,17 @@ public class Testicle implements BodyPartInterface, Serializable {
 	}
 
 	public String setTesticleSize(GameCharacter owner, int testicleSize) {
-		if(!owner.hasPenisIgnoreDildo()) {
+		if(owner!=null && !owner.hasPenisIgnoreDildo()) {
 			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
 		}
 		
 		int oldSize = this.testicleSize;
 		this.testicleSize = Math.max(0, Math.min(testicleSize, TesticleSize.SEVEN_ABSURD.getValue()));
 		int sizeChange = this.testicleSize - oldSize;
+
+		if(owner==null) {
+			return "";
+		}
 		
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
@@ -186,6 +190,9 @@ public class Testicle implements BodyPartInterface, Serializable {
 	}
 
 	public boolean isInternal() {
+		if(!Main.getProperties().hasValue(PropertyValue.futanariTesticles)) {
+			return true;
+		}
 		return internal;
 	}
 
@@ -418,5 +425,13 @@ public class Testicle implements BodyPartInterface, Serializable {
 						+ "[npc.She] will now expel [style.boldSex(" + UtilText.generateSingularDeterminer(expulsionDescriptor) + " "+expulsionDescriptor+")] amount of stored cum at each orgasm!"
 					+ "</p>");
 		}
+	}
+
+	@Override
+	public boolean isBestial(GameCharacter owner) {
+		if(owner==null) {
+			return false;
+		}
+		return owner.getLegConfiguration().getBestialParts().contains(Testicle.class);
 	}
 }

@@ -5,10 +5,11 @@ import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.attributes.CorruptionLevel;
 import com.lilithsthrone.game.character.body.CoverableArea;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.character.npc.dominion.Vicky;
 import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
 import com.lilithsthrone.game.dialogue.responses.ResponseTrade;
@@ -16,8 +17,8 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.sex.SexPace;
-import com.lilithsthrone.game.sex.SexPositionSlot;
 import com.lilithsthrone.game.sex.managers.dominion.SMVickyOverDesk;
+import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -26,13 +27,12 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.82
- * @version 0.2.4
+ * @version 0.3
  * @author Innoxia
  */
 public class ArcaneArts {
 	
-	public static final DialogueNodeOld EXTERIOR = new DialogueNodeOld("Arcane Arts (Exterior)", "-", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode EXTERIOR = new DialogueNode("Arcane Arts (Exterior)", "-", false) {
 
 		@Override
 		public String getContent() {
@@ -62,8 +62,7 @@ public class ArcaneArts {
 		}
 	};
 	
-	public static final DialogueNodeOld SHOP_WEAPONS = new DialogueNodeOld("Arcane Arts", "-", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SHOP_WEAPONS = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
 		public String getContent() {
@@ -108,7 +107,7 @@ public class ArcaneArts {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new ResponseTrade("Trade with Vicky", "Walk over to the counter and see what crystals and feathers Vicky has in stock.", Main.game.getVicky()) {
+				return new ResponseTrade("Trade with Vicky", "Walk over to the counter and see what crystals and feathers Vicky has in stock.", Main.game.getNpc(Vicky.class)) {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.vickyIntroduced, true);
@@ -139,10 +138,12 @@ public class ArcaneArts {
 								Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, CorruptionLevel.TWO_HORNY, null, null, null,
 								true, false,
 								new SMVickyOverDesk(
-										Util.newHashMapOfValues(new Value<>(Main.game.getVicky(), SexPositionSlot.MISSIONARY_DESK_DOM_VICKY)),
-										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.MISSIONARY_DESK_SUB_VICKY))),
+										Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Vicky.class), SexSlotBipeds.MISSIONARY_DESK_DOM)),
+										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_DESK_SUB))),
 								null,
-									null, VICKY_POST_SEX, "<p>"
+								null,
+								VICKY_POST_SEX,
+								"<p>"
 										+ "[pc.speech(I was wondering... If you'd like to use me...)]"
 										+ " you say, looking sheepishly up at Vicky."
 									+ "</p>"
@@ -170,8 +171,8 @@ public class ArcaneArts {
 									Fetish.FETISH_NON_CON_SUB), null, CorruptionLevel.FOUR_LUSTFUL, null, null, null,
 							false, false,
 							new SMVickyOverDesk(
-									Util.newHashMapOfValues(new Value<>(Main.game.getVicky(), SexPositionSlot.MISSIONARY_DESK_DOM_VICKY)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.MISSIONARY_DESK_SUB_VICKY))) {
+									Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Vicky.class), SexSlotBipeds.MISSIONARY_DESK_DOM)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_DESK_SUB))) {
 								@Override
 								public SexPace getStartingSexPaceModifier(GameCharacter character) {
 									if(character.isPlayer()) {
@@ -222,8 +223,7 @@ public class ArcaneArts {
 		}
 	};
 	
-	public static final DialogueNodeOld ARTHURS_PACKAGE = new DialogueNodeOld("Arcane Arts", "-", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ARTHURS_PACKAGE = new DialogueNode("Arcane Arts", "-", true, true) {
 
 		@Override
 		public String getContent() {
@@ -286,8 +286,8 @@ public class ArcaneArts {
 							Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, CorruptionLevel.TWO_HORNY, null, null, null,
 							true, false,
 							new SMVickyOverDesk(
-									Util.newHashMapOfValues(new Value<>(Main.game.getVicky(), SexPositionSlot.MISSIONARY_DESK_DOM_VICKY)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.MISSIONARY_DESK_SUB_VICKY))),
+									Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Vicky.class), SexSlotBipeds.MISSIONARY_DESK_DOM)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_DESK_SUB))),
 							null,
 								null, VICKY_POST_SEX_PACKAGE, "<p>"
 									+ "[pc.speech(That second option doesn't sound so bad...)]"
@@ -316,8 +316,8 @@ public class ArcaneArts {
 									Fetish.FETISH_NON_CON_SUB), null, CorruptionLevel.FOUR_LUSTFUL, null, null, null,
 							false, false,
 							new SMVickyOverDesk(
-									Util.newHashMapOfValues(new Value<>(Main.game.getVicky(), SexPositionSlot.MISSIONARY_DESK_DOM_VICKY)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.MISSIONARY_DESK_SUB_VICKY))) {
+									Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Vicky.class), SexSlotBipeds.MISSIONARY_DESK_DOM)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_DESK_SUB))) {
 								@Override
 								public SexPace getStartingSexPaceModifier(GameCharacter character) {
 									if(character.isPlayer()) {
@@ -375,8 +375,7 @@ public class ArcaneArts {
 		}
 	};
 	
-	public static final DialogueNodeOld ARTHURS_PACKAGE_BOUGHT = new DialogueNodeOld("Arcane Arts", "-", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ARTHURS_PACKAGE_BOUGHT = new DialogueNode("Arcane Arts", "-", true, true) {
 
 		@Override
 		public String getContent() {
@@ -401,8 +400,7 @@ public class ArcaneArts {
 	};
 	
 	
-	public static final DialogueNodeOld VICKY_POST_SEX_PACKAGE = new DialogueNodeOld("Arcane Arts", "-", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode VICKY_POST_SEX_PACKAGE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
 		public String getContent() {
@@ -425,8 +423,7 @@ public class ArcaneArts {
 		}
 	};
 	
-	public static final DialogueNodeOld VICKY_POST_SEX_RAPE_PACKAGE = new DialogueNodeOld("Arcane Arts", "-", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode VICKY_POST_SEX_RAPE_PACKAGE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
 		public String getContent() {
@@ -450,8 +447,7 @@ public class ArcaneArts {
 	};
 	
 	
-	public static final DialogueNodeOld VICKY_POST_SEX = new DialogueNodeOld("Arcane Arts", "-", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode VICKY_POST_SEX = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
 		public String getContent() {
@@ -473,8 +469,7 @@ public class ArcaneArts {
 		}
 	};
 	
-	public static final DialogueNodeOld VICKY_POST_SEX_RAPE = new DialogueNodeOld("Arcane Arts", "-", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode VICKY_POST_SEX_RAPE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
 		public String getContent() {

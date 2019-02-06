@@ -4,17 +4,15 @@ import com.lilithsthrone.game.PropertyValue;
 import com.lilithsthrone.game.character.body.CoverableArea;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.game.sex.SexPositionSlot;
-import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.SexAreaOrifice;
+import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
-import com.lilithsthrone.utils.Util.Value;
 
 /**
  * @since 0.2.5
@@ -23,8 +21,7 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class RentalMommyDialogue {
 	
-	public static final DialogueNodeOld ENCOUNTER = new DialogueNodeOld("Rental Mommy", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ENCOUNTER = new DialogueNode("Rental Mommy", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -52,7 +49,7 @@ public class RentalMommyDialogue {
 			} else if(index==2) {
 				return new Response("Decline", "", ENCOUNTER) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -67,8 +64,7 @@ public class RentalMommyDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld MOMMYS_EXTRAS = new DialogueNodeOld("Rental Mommy", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode MOMMYS_EXTRAS = new DialogueNode("Rental Mommy", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -91,11 +87,18 @@ public class RentalMommyDialogue {
 				}
 				return new ResponseSex("Submissive Sex "+UtilText.formatAsMoney(1000, "span"), "Follow Mommy into her house, before letting her take the dominant role in having sex with you.",
 						true, true,
-						new SMStanding(
-								Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getActiveNPC()),
+								Util.newArrayListOfValues(Main.game.getPlayer()),
 						null,
-						null, AFTER_SEX_MOMMY_AS_DOM, UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY_SEX_SUB")
+						null) {
+							@Override
+							public boolean isPublicSex() {
+								return false;
+							}
+						},
+						AFTER_SEX_MOMMY_AS_DOM,
+						UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY_SEX_SUB")
 							+ UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY")
 							+ UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_SEX_SUB")) {
 					@Override
@@ -110,11 +113,18 @@ public class RentalMommyDialogue {
 				}
 				return new ResponseSex("Dominant Sex "+UtilText.formatAsMoney(2000, "span"), "Follow Mommy into her house, before taking the dominant role and having sex with her.",
 						true, true,
-						new SMStanding(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getPlayer()),
+								Util.newArrayListOfValues(Main.game.getActiveNPC()),
 						null,
-						null, AFTER_SEX_MOMMY_AS_SUB, UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY_SEX_DOM")
+						null) {
+							@Override
+							public boolean isPublicSex() {
+								return false;
+							}
+						},
+						AFTER_SEX_MOMMY_AS_SUB,
+						UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY_SEX_DOM")
 							+ UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY")
 							+ UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_SEX_DOM")) {
 					@Override
@@ -162,7 +172,7 @@ public class RentalMommyDialogue {
 			} else if(index==5) {
 				return new Response("Decline", "Decline Mommy's extra offers, and take your leave.", ENCOUNTER) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -176,8 +186,7 @@ public class RentalMommyDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld MOMMYS_EXTRAS_BREASTFEEDING = new DialogueNodeOld("Rental Mommy", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode MOMMYS_EXTRAS_BREASTFEEDING = new DialogueNode("Rental Mommy", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -197,7 +206,7 @@ public class RentalMommyDialogue {
 			 if(index==1) {
 				return new Response("Leave", "Thank Mommy and take your leave.", MOMMYS_EXTRAS_BREASTFEEDING) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -207,8 +216,7 @@ public class RentalMommyDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld MOMMYS_EXTRAS_BREASTFEEDING_PUBLIC = new DialogueNodeOld("Rental Mommy", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode MOMMYS_EXTRAS_BREASTFEEDING_PUBLIC = new DialogueNode("Rental Mommy", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -224,7 +232,7 @@ public class RentalMommyDialogue {
 			 if(index==1) {
 				return new Response("Leave", "Thank Mommy and take your leave.", MOMMYS_EXTRAS_BREASTFEEDING_PUBLIC) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -234,8 +242,7 @@ public class RentalMommyDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SEX_MOMMY_AS_DOM = new DialogueNodeOld("Rental Mommy", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX_MOMMY_AS_DOM = new DialogueNode("Rental Mommy", "", true) {
 
 		@Override
 		public String getContent() {
@@ -258,7 +265,7 @@ public class RentalMommyDialogue {
 			 if(index==1) {
 				return new Response("Leave", "Thank Mommy and take your leave.", AFTER_SEX_MOMMY_AS_DOM) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -268,8 +275,7 @@ public class RentalMommyDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SEX_MOMMY_AS_SUB = new DialogueNodeOld("Rental Mommy", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX_MOMMY_AS_SUB = new DialogueNode("Rental Mommy", "", true) {
 
 		@Override
 		public String getContent() {
@@ -292,7 +298,7 @@ public class RentalMommyDialogue {
 			 if(index==1) {
 				return new Response("Leave", "Thank Mommy and take your leave.", AFTER_SEX_MOMMY_AS_SUB) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};

@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.inventory.item;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,9 +25,8 @@ import com.lilithsthrone.utils.XMLSaving;
  * @version 0.1.97
  * @author Innoxia
  */
-public abstract class AbstractItem extends AbstractCoreItem implements Serializable, XMLSaving {
+public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving {
 
-	private static final long serialVersionUID = 1L;
 	
 	protected AbstractItemType itemType;
 	protected List<ItemEffect> itemEffects;
@@ -41,7 +39,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements Serializa
 	}
 	
 	@Override
-	public boolean equals (Object o) {
+	public boolean equals(Object o) {
 		if(super.equals(o)) {
 			return (o instanceof AbstractItem)
 					&& ((AbstractItem)o).getItemType().equals(itemType)

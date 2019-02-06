@@ -5,6 +5,10 @@ import java.util.List;
 
 import com.lilithsthrone.controller.MainController;
 import com.lilithsthrone.game.Weather;
+import com.lilithsthrone.game.character.npc.dominion.Lilaya;
+import com.lilithsthrone.game.character.npc.dominion.Rose;
+import com.lilithsthrone.game.character.npc.misc.PrologueFemale;
+import com.lilithsthrone.game.character.npc.misc.PrologueMale;
 import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.character.race.FurryPreference;
@@ -12,7 +16,7 @@ import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.DamageType;
 import com.lilithsthrone.game.combat.Spell;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.places.dominion.lilayashome.RoomPlayer;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
@@ -26,18 +30,16 @@ import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.game.sex.SexPositionSlot;
-import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
-import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.0
- * @version 0.2.11
+ * @version 0.3.1
  * @author Innoxia
  */
 public class PrologueDialogue {
@@ -46,8 +48,7 @@ public class PrologueDialogue {
 		return CharacterCreation.femalePrologueNPC();
 	}
 	
-	public static final DialogueNodeOld INTRO = new DialogueNodeOld("In the Museum", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO = new DialogueNode("In the Museum", "", true) {
 
 		@Override
 		public String getContent() {
@@ -62,17 +63,33 @@ public class PrologueDialogue {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new Response("Agree", "Overwhelmed with arousal, you decide to agree to go and have some fun.", INTRO_EMPTY_ROOM);
+				return new Response("Agree", "Overwhelmed with arousal, you decide to agree to go and have some fun.", INTRO_EMPTY_ROOM) {
+					@Override
+					public void effects() {
+						Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_OFFICE);
+						if(femalePrologueNPC()) {
+							Main.game.getNpc(PrologueFemale.class).setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_OFFICE);
+						} else {
+							Main.game.getNpc(PrologueMale.class).setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_OFFICE);
+						}
+					}
+				};
+				
 			} else if (index == 2) {
-				return new Response("Say No", "You don't think it's a good idea to sneak off and have sex when you're supposed to be here to see your aunt Lily. Say no.", INTRO_NO);
+				return new Response("Say No", "You don't think it's a good idea to sneak off and have sex when you're supposed to be here to see your aunt Lily. Say no.", INTRO_NO) {
+					@Override
+					public void effects() {
+						Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_CROWDS);
+					}
+				};
+				
 			} else {
 				return null;
 			}
 		}
 	};
 	
-	public static final DialogueNodeOld INTRO_EMPTY_ROOM = new DialogueNodeOld("In the Museum", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_EMPTY_ROOM = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -92,11 +109,11 @@ public class PrologueDialogue {
 							null, null, null,
 							null, null, null,
 							true, true,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPrologueFemale(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(Main.game.getNpc(PrologueFemale.class)),
 							null,
-							null,
+							null),
 							AFTER_SEX,
 							(Main.game.getPlayer().hasPenis()
 								?UtilText.parseFromXMLFile("misc/prologue", "INTRO_EMPTY_ROOM_SEX_FEMALE_AS_MALE_START")
@@ -105,7 +122,7 @@ public class PrologueDialogue {
 						@Override
 						public void effects() {
 							if(Main.game.getPlayer().hasPenis()) {
-								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.PENIS_CONDOM, Colour.CLOTHING_WHITE, false), false);
+								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Colour.CLOTHING_WHITE, false), false);
 							}
 						}
 					};
@@ -115,25 +132,30 @@ public class PrologueDialogue {
 							null, null, null,
 							null, null, null,
 							true, true,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPrologueMale(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getNpc(PrologueMale.class)),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
 							null,
-							null,
+							null),
 							AFTER_SEX,
 							UtilText.parseFromXMLFile("misc/prologue", "INTRO_EMPTY_ROOM_SEX_MALE_START") + UtilText.parseFromXMLFile("misc/prologue", "SEX_CLOTHING_MANAGEMENT_TIP")) {
 						@Override
 						public void effects() {
 							if(Main.game.getPlayer().hasPenis()) {
-								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.PENIS_CONDOM, Colour.CLOTHING_WHITE, false), false);
+								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Colour.CLOTHING_WHITE, false), false);
 							}
-							Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.PENIS_CONDOM, Colour.CLOTHING_WHITE, false), false);
+							Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Colour.CLOTHING_WHITE, false), false);
 						}
 					};
 				}
 				
 			} else if (index == 2) {
-				return new Response("Second Thoughts", "Decide that this is a bad idea after all, and put an end to this.", INTRO_SECOND_THOUGHTS);
+				return new Response("Second Thoughts", "Decide that this is a bad idea after all, and put an end to this.", INTRO_SECOND_THOUGHTS) {
+					@Override
+					public void effects() {
+						Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_CROWDS);
+					}
+				};
 				
 			} else {
 				return null;
@@ -142,15 +164,14 @@ public class PrologueDialogue {
 	};
 	
 
-	public static final DialogueNodeOld AFTER_SEX = new DialogueNodeOld("In the Museum", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX = new DialogueNode("In the Museum", "", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(femalePrologueNPC()) {
-				if(Sex.getNumberOfOrgasms(Main.game.getPrologueFemale())>0) {
+				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueFemale.class))>0) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_FEMALE_SATISFIED"));
 					
 				} else {
@@ -158,7 +179,7 @@ public class PrologueDialogue {
 				}
 				
 			} else {
-				if(Sex.getNumberOfOrgasms(Main.game.getPrologueMale())>0) {
+				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueMale.class))>0) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_MALE_SATISFIED"));
 					
 				} else {
@@ -178,7 +199,7 @@ public class PrologueDialogue {
 				return new Response("Search", "Go and search the museum for Arthur.", INTRO_2) {
 					@Override
 					public void effects() {
-						CharacterCreation.moveNPCOutOfPlayerTile();
+						Main.game.getPlayer().setLocation(WorldType.MUSEUM_LOST, PlaceType.MUSEUM_MIRROR);
 					}
 				};
 			} else {
@@ -188,8 +209,7 @@ public class PrologueDialogue {
 	};
 	
 	
-	public static final DialogueNodeOld INTRO_SECOND_THOUGHTS = new DialogueNodeOld("In the Museum", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_SECOND_THOUGHTS = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -213,7 +233,7 @@ public class PrologueDialogue {
 				return new Response("Search", "Go and search the museum for Arthur.", INTRO_2) {
 					@Override
 					public void effects() {
-						CharacterCreation.moveNPCOutOfPlayerTile();
+						Main.game.getPlayer().setLocation(WorldType.MUSEUM_LOST, PlaceType.MUSEUM_MIRROR);
 					}
 				};
 			} else {
@@ -222,8 +242,7 @@ public class PrologueDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld INTRO_NO = new DialogueNodeOld("In the Museum", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NO = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -244,15 +263,19 @@ public class PrologueDialogue {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new Response("Search", "Go and search the museum for Arthur.", INTRO_2);
+				return new Response("Search", "Go and search the museum for Arthur.", INTRO_2){
+					@Override
+					public void effects() {
+						Main.game.getPlayer().setLocation(WorldType.MUSEUM_LOST, PlaceType.MUSEUM_MIRROR);
+					}
+				};
 			} else {
 				return null;
 			}
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_2 = new DialogueNodeOld("In the Museum", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_2 = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -271,8 +294,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_3A = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_3A = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -289,8 +311,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_3B = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_3B = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -307,8 +328,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_4 = new DialogueNodeOld("The horror!", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_4 = new DialogueNode("The horror!", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -325,8 +345,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_5 = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_5 = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -346,10 +365,7 @@ public class PrologueDialogue {
 						
 						MainController.updateUI();
 						
-						Main.game.setActiveWorld(
-								Main.game.getWorlds().get(WorldType.DOMINION),
-								PlaceType.DOMINION_AUNTS_HOME,
-								false);
+						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME);
 					}
 				};
 			} else {
@@ -358,8 +374,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_1 = new DialogueNodeOld("A new world", "", true, false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_1 = new DialogueNode("A new world", "", true, false) {
 
 		@Override
 		public String getContent() {
@@ -408,8 +423,7 @@ public class PrologueDialogue {
 			}
 		}
 	};
-	public static final DialogueNodeOld INTRO_NEW_WORLD_1_STRUGGLE = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_1_STRUGGLE = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -425,7 +439,7 @@ public class PrologueDialogue {
 				return new Response("Continue", "Someone's come to save you!", INTRO_NEW_WORLD_2){
 					@Override
 					public void effects() {
-						Main.game.getLilaya().setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
+						Main.game.getNpc(Lilaya.class).setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
 					}
 				};
 				
@@ -435,8 +449,7 @@ public class PrologueDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld INTRO_NEW_WORLD_1_BY_THE_POWER_OF_HATING_FURRIES = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_1_BY_THE_POWER_OF_HATING_FURRIES = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -453,7 +466,7 @@ public class PrologueDialogue {
 				return new Response("Continue", "Someone's come to save you!", INTRO_NEW_WORLD_2){
 					@Override
 					public void effects() {
-						Main.game.getLilaya().setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
+						Main.game.getNpc(Lilaya.class).setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
 					}
 				};
 				
@@ -463,8 +476,7 @@ public class PrologueDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld INTRO_NEW_WORLD_1_BY_THE_POWER_OF_LOVING_FURRIES = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_1_BY_THE_POWER_OF_LOVING_FURRIES = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -481,7 +493,7 @@ public class PrologueDialogue {
 				return new Response("Continue", "Someone's come to save you!", INTRO_NEW_WORLD_2){
 					@Override
 					public void effects() {
-						Main.game.getLilaya().setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
+						Main.game.getNpc(Lilaya.class).setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
 					}
 				};
 				
@@ -491,8 +503,7 @@ public class PrologueDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld INTRO_NEW_WORLD_2 = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_2 = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -510,8 +521,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_2_A = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_2_A = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -524,8 +534,8 @@ public class PrologueDialogue {
 				return new Response("Follow", "Follow Lily as she leads you back to her house.", INTRO_NEW_WORLD_3){
 					@Override
 					public void effects() {
-						Main.game.getRose().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_ENTRANCE_HALL, false);
-						Main.game.getLilaya().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_ENTRANCE_HALL, false);
+						Main.game.getNpc(Rose.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_ENTRANCE_HALL, false);
+						Main.game.getNpc(Lilaya.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_ENTRANCE_HALL, false);
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_ENTRANCE_HALL);
 					}
 				};
@@ -536,8 +546,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_3 = new DialogueNodeOld("Lilaya's Home", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_3 = new DialogueNode("Lilaya's Home", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -550,8 +559,8 @@ public class PrologueDialogue {
 				return new Response("To the lab", "Follow Lilaya to her lab.", INTRO_NEW_WORLD_4){
 					@Override
 					public void effects() {
-						Main.game.getRose().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
-						Main.game.getLilaya().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
+						Main.game.getNpc(Rose.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
+						Main.game.getNpc(Lilaya.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB);
 					}
 				};
@@ -562,8 +571,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_4 = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_4 = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -592,8 +600,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_5 = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_5 = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -629,8 +636,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_6 = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_6 = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -656,8 +662,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_7 = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_7 = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -670,7 +675,7 @@ public class PrologueDialogue {
 				return new Response("Your room", "You follow Rose as she leads you up to your new room.", INTRO_NEW_WORLD_8){
 					@Override
 					public void effects() {
-						Main.game.getRose().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER, false);
+						Main.game.getNpc(Rose.class).setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER, false);
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER);
 					}
 				};
@@ -681,8 +686,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_8 = new DialogueNodeOld("Your room", "You follow Rose as she leads you up to your new room.", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_8 = new DialogueNode("Your room", "You follow Rose as she leads you up to your new room.", true, true) {
 
 		@Override
 		public String getContent() {
@@ -709,8 +713,7 @@ public class PrologueDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld INTRO_NEW_WORLD_9 = new DialogueNodeOld("Knocking", "Rose said she'd be back in about half an hour, so that must be her knocking at your door.", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode INTRO_NEW_WORLD_9 = new DialogueNode("Knocking", "Rose said she'd be back in about half an hour, so that must be her knocking at your door.", true, true) {
 
 		@Override
 		public String getContent() {
@@ -724,7 +727,7 @@ public class PrologueDialogue {
 					@Override
 					public void effects() {
 						Main.game.setPrologueFinished(true);
-						Main.game.getRose().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
+						Main.game.getNpc(Rose.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
 						Main.saveGame("AutoSave_"+Main.game.getPlayer().getName(), true);
 					}
 				};

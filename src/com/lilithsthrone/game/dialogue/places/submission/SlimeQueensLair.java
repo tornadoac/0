@@ -5,11 +5,15 @@ import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.character.body.valueEnums.BodyMaterial;
 import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.character.npc.submission.SlimeGuardFire;
+import com.lilithsthrone.game.character.npc.submission.SlimeGuardIce;
+import com.lilithsthrone.game.character.npc.submission.SlimeQueen;
+import com.lilithsthrone.game.character.npc.submission.SlimeRoyalGuard;
 import com.lilithsthrone.game.character.persona.Occupation;
 import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseCombat;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
@@ -20,10 +24,10 @@ import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.game.sex.SexPositionSlot;
 import com.lilithsthrone.game.sex.managers.universal.SMDoggy;
+import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.managers.universal.SMMissionary;
-import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
@@ -43,8 +47,7 @@ public class SlimeQueensLair {
 		Main.game.getDialogueFlags().setFlag(DialogueFlagValue.slimeRoyalGuardDefeated, false);
 	}
 	
-	public static final DialogueNodeOld ENTRANCE = new DialogueNodeOld("Entrance Hall", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ENTRANCE = new DialogueNode("Entrance Hall", "", false) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -85,8 +88,7 @@ public class SlimeQueensLair {
 		}
 	};
 
-	public static final DialogueNodeOld GUARD_POST = new DialogueNodeOld("Guard Post", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode GUARD_POST = new DialogueNode("Guard Post", "", true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -131,16 +133,17 @@ public class SlimeQueensLair {
 			if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_FIVE_CONVINCE)
 					|| Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.slimeGuardsBluffed)) {
 				if(index==1) {
-					return new Response("Talk", UtilText.parse(Main.game.getSlimeGuardFire(), Main.game.getSlimeGuardIce(), "Ask [npc1.name] and [npc2.name] about how they came to be guarding the Slime Queen."), GUARD_POST_TALK);
+					return new Response("Talk", UtilText.parse(Main.game.getNpc(SlimeGuardFire.class), Main.game.getNpc(SlimeGuardIce.class), "Ask [npc1.name] and [npc2.name] about how they came to be guarding the Slime Queen."), GUARD_POST_TALK);
 						
 				} else if(!Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_FIVE_CONVINCE) && index==2){
 					return new ResponseCombat("Fight",
 							"Decide to drop the act and attack [slimeFire.name] and [slimeIce.name]!",
-							Util.newArrayListOfValues(Main.game.getSlimeGuardFire(), Main.game.getSlimeGuardIce()),
+							Main.game.getNpc(SlimeGuardFire.class),
+							Util.newArrayListOfValues(Main.game.getNpc(SlimeGuardFire.class), Main.game.getNpc(SlimeGuardIce.class)),
 							Util.newHashMapOfValues(
 									new Value<>(Main.game.getPlayer(), "[pc.speech(I can't believe you fell for my tale!)] You laugh, getting ready to fight the slime siblings. [pc.speech(I'll teach you not to be so gullible!)]"),
-									new Value<>(Main.game.getSlimeGuardFire(), "[slimeFire.speech(Sis' and I are gonna have so much fun with you!)] [slimeFire.name] sneers, gripping his fire-enchanted sword in one hand."),
-									new Value<>(Main.game.getSlimeGuardIce(), "[slimeIce.speech(You'll be sorry for tricking us!)] [slimeIce.name] calls out, stepping up beside her brother as she prepares to fight.")));
+									new Value<>(Main.game.getNpc(SlimeGuardFire.class), "[slimeFire.speech(Sis' and I are gonna have so much fun with you!)] [slimeFire.name] sneers, gripping his fire-enchanted sword in one hand."),
+									new Value<>(Main.game.getNpc(SlimeGuardIce.class), "[slimeIce.speech(You'll be sorry for tricking us!)] [slimeIce.name] calls out, stepping up beside her brother as she prepares to fight.")));
 					
 					
 				} else if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_FIVE_CONVINCE)?index==2:index==3) {
@@ -149,10 +152,10 @@ public class SlimeQueensLair {
 							null, null, null, null, null, null,
 							true, false,
 							new SMDoggy(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_BEHIND)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_BEHIND)),
 									Util.newHashMapOfValues(
-											new Value<>(Main.game.getSlimeGuardIce(), SexPositionSlot.DOGGY_ON_ALL_FOURS),
-											new Value<>(Main.game.getSlimeGuardFire(), SexPositionSlot.DOGGY_ON_ALL_FOURS_SECOND))) {
+											new Value<>(Main.game.getNpc(SlimeGuardIce.class), SexSlotBipeds.DOGGY_ON_ALL_FOURS),
+											new Value<>(Main.game.getNpc(SlimeGuardFire.class), SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND))) {
 								@Override
 								public boolean isPositionChangingAllowed(GameCharacter character) {
 									return false;
@@ -168,9 +171,9 @@ public class SlimeQueensLair {
 							true, true,
 							new SMDoggy(
 									Util.newHashMapOfValues(
-											new Value<>(Main.game.getSlimeGuardIce(), SexPositionSlot.DOGGY_INFRONT),
-											new Value<>(Main.game.getSlimeGuardFire(), SexPositionSlot.DOGGY_BEHIND)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_ON_ALL_FOURS))) {
+											new Value<>(Main.game.getNpc(SlimeGuardIce.class), SexSlotBipeds.DOGGY_INFRONT),
+											new Value<>(Main.game.getNpc(SlimeGuardFire.class), SexSlotBipeds.DOGGY_BEHIND)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS))) {
 								@Override
 								public boolean isPositionChangingAllowed(GameCharacter character) {
 									return false;
@@ -189,10 +192,10 @@ public class SlimeQueensLair {
 							null, null, null, null, null, null,
 							true, false,
 							new SMDoggy(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_BEHIND)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_BEHIND)),
 									Util.newHashMapOfValues(
-											new Value<>(Main.game.getSlimeGuardIce(), SexPositionSlot.DOGGY_ON_ALL_FOURS),
-											new Value<>(Main.game.getSlimeGuardFire(), SexPositionSlot.DOGGY_ON_ALL_FOURS_SECOND))) {
+											new Value<>(Main.game.getNpc(SlimeGuardIce.class), SexSlotBipeds.DOGGY_ON_ALL_FOURS),
+											new Value<>(Main.game.getNpc(SlimeGuardFire.class), SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND))) {
 								@Override
 								public boolean isPositionChangingAllowed(GameCharacter character) {
 									return false;
@@ -208,9 +211,9 @@ public class SlimeQueensLair {
 							true, true,
 							new SMDoggy(
 									Util.newHashMapOfValues(
-											new Value<>(Main.game.getSlimeGuardIce(), SexPositionSlot.DOGGY_INFRONT),
-											new Value<>(Main.game.getSlimeGuardFire(), SexPositionSlot.DOGGY_BEHIND)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_ON_ALL_FOURS))) {
+											new Value<>(Main.game.getNpc(SlimeGuardIce.class), SexSlotBipeds.DOGGY_INFRONT),
+											new Value<>(Main.game.getNpc(SlimeGuardFire.class), SexSlotBipeds.DOGGY_BEHIND)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS))) {
 								@Override
 								public boolean isPositionChangingAllowed(GameCharacter character) {
 									return false;
@@ -226,11 +229,12 @@ public class SlimeQueensLair {
 				if(index==1) {
 					return new ResponseCombat("Fight",
 							"Fight your way past these slimes!",
-							Util.newArrayListOfValues(Main.game.getSlimeGuardFire(), Main.game.getSlimeGuardIce()),
+							Main.game.getNpc(SlimeGuardFire.class),
+							Util.newArrayListOfValues(Main.game.getNpc(SlimeGuardFire.class), Main.game.getNpc(SlimeGuardIce.class)),
 							Util.newHashMapOfValues(
 									new Value<>(Main.game.getPlayer(), "[pc.speech(If it's a fight you want, it's a fight you're going to get!)] you cry out, ready to fight the slime siblings."),
-									new Value<>(Main.game.getSlimeGuardFire(), "[slimeFire.speech(Sis' and I are gonna have so much fun with you!)] [slimeFire.name] sneers, gripping his fire-enchanted sword in one hand."),
-									new Value<>(Main.game.getSlimeGuardIce(), "[slimeIce.speech(You'll be sorry!)] [slimeIce.name] calls out, stepping up beside her brother as she prepares to fight."))){
+									new Value<>(Main.game.getNpc(SlimeGuardFire.class), "[slimeFire.speech(Sis' and I are gonna have so much fun with you!)] [slimeFire.name] sneers, gripping his fire-enchanted sword in one hand."),
+									new Value<>(Main.game.getNpc(SlimeGuardIce.class), "[slimeIce.speech(You'll be sorry!)] [slimeIce.name] calls out, stepping up beside her brother as she prepares to fight."))){
 						@Override
 						public void effects() {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.slimeGuardsIntroduced, true);
@@ -238,7 +242,7 @@ public class SlimeQueensLair {
 					};
 					
 				} else if(index==2) {
-					if(Main.game.getSlimeGuardFire().getFoughtPlayerCount()>0) {
+					if(Main.game.getNpc(SlimeGuardFire.class).getFoughtPlayerCount()>0) {
 						return new Response("Slime Bluff", "It's a little too late to be trying to bluff your way past these two, what with having already fought them...", null);
 						
 					} else if(Main.game.getPlayer().getBodyMaterial()==BodyMaterial.SLIME) {
@@ -255,7 +259,7 @@ public class SlimeQueensLair {
 					}
 					
 				} else if(index==3) {
-					if(Main.game.getSlimeGuardFire().getFoughtPlayerCount()>0) {
+					if(Main.game.getNpc(SlimeGuardFire.class).getFoughtPlayerCount()>0) {
 						return new Response("Servant Bluff", "It's a little too late to be trying to bluff your way past these two, what with having already fought them...", null);
 						
 					} else if(Main.game.getPlayer().getHistory()==Occupation.BUTLER) {
@@ -286,8 +290,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld GUARD_POST_SLIME_BLUFF = new DialogueNodeOld("Guard Post", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode GUARD_POST_SLIME_BLUFF = new DialogueNode("Guard Post", "", false, true) {
 		
 		@Override
 		public String getContent() {
@@ -301,8 +304,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld GUARD_POST_BUTLER_BLUFF = new DialogueNodeOld("Guard Post", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode GUARD_POST_BUTLER_BLUFF = new DialogueNode("Guard Post", "", false, true) {
 		
 		@Override
 		public String getContent() {
@@ -316,8 +318,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld GUARD_POST_MAID_BLUFF = new DialogueNodeOld("Guard Post", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode GUARD_POST_MAID_BLUFF = new DialogueNode("Guard Post", "", false, true) {
 		
 		@Override
 		public String getContent() {
@@ -331,8 +332,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld GUARD_POST_TALK = new DialogueNodeOld("Guard Post", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode GUARD_POST_TALK = new DialogueNode("Guard Post", "", false, true) {
 		
 		@Override
 		public String getContent() {
@@ -345,8 +345,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_GUARD_SEX_AS_DOM = new DialogueNodeOld("Finished", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_GUARD_SEX_AS_DOM = new DialogueNode("Finished", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -359,8 +358,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_GUARD_SEX_AS_SUB = new DialogueNodeOld("Finished", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_GUARD_SEX_AS_SUB = new DialogueNode("Finished", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -373,8 +371,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_GUARDS_COMBAT_PLAYER_VICTORY = new DialogueNodeOld("Victory", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_GUARDS_COMBAT_PLAYER_VICTORY = new DialogueNode("Victory", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -387,8 +384,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_GUARDS_COMBAT_PLAYER_DEFEAT = new DialogueNodeOld("Defeat", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_GUARDS_COMBAT_PLAYER_DEFEAT = new DialogueNode("Defeat", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -404,9 +400,9 @@ public class SlimeQueensLair {
 						false, false,
 						new SMDoggy(
 								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeGuardIce(), SexPositionSlot.DOGGY_INFRONT),
-										new Value<>(Main.game.getSlimeGuardFire(), SexPositionSlot.DOGGY_BEHIND)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_ON_ALL_FOURS))) {
+										new Value<>(Main.game.getNpc(SlimeGuardIce.class), SexSlotBipeds.DOGGY_INFRONT),
+										new Value<>(Main.game.getNpc(SlimeGuardFire.class), SexSlotBipeds.DOGGY_BEHIND)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS))) {
 							@Override
 							public boolean isPositionChangingAllowed(GameCharacter character) {
 								return false;
@@ -420,8 +416,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_GUARD_SEX_DEFEATED = new DialogueNodeOld("Finished", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_GUARD_SEX_DEFEATED = new DialogueNode("Finished", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -449,8 +444,7 @@ public class SlimeQueensLair {
 	
 	
 	
-	public static final DialogueNodeOld STAIRCASE_UP = new DialogueNodeOld("Spiral Staircase", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode STAIRCASE_UP = new DialogueNode("Spiral Staircase", "", false) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -479,8 +473,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld STAIRCASE_DOWN = new DialogueNodeOld("Spiral Staircase", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode STAIRCASE_DOWN = new DialogueNode("Spiral Staircase", "", false) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -509,8 +502,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld CORRIDOR = new DialogueNodeOld("Corridor", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode CORRIDOR = new DialogueNode("Corridor", "", false) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -528,8 +520,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld ROOM = new DialogueNodeOld("Bedroom", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROOM = new DialogueNode("Bedroom", "", false) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -547,8 +538,7 @@ public class SlimeQueensLair {
 		}
 	};
 
-	public static final DialogueNodeOld STORAGE_VATS = new DialogueNodeOld("Distillery", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode STORAGE_VATS = new DialogueNode("Distillery", "", false) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -566,8 +556,7 @@ public class SlimeQueensLair {
 		}
 	};
 
-	public static final DialogueNodeOld ROYAL_GUARD_POST = new DialogueNodeOld("Royal Guard Post", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROYAL_GUARD_POST = new DialogueNode("Royal Guard Post", "", true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -601,27 +590,25 @@ public class SlimeQueensLair {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.slimeRoyalGuardDefeated)) {
 				if(index==1) {
 					return new ResponseSex("Sex",
-							UtilText.parse(Main.game.getSlimeRoyalGuard(), "Pull [slimeRoyalGuard.name] to [slimeRoyalGuard.his] feet and get ready to fuck [slimeRoyalGuard.him]."),
+							UtilText.parse(Main.game.getNpc(SlimeRoyalGuard.class), "Pull [slimeRoyalGuard.name] to [slimeRoyalGuard.his] feet and get ready to fuck [slimeRoyalGuard.him]."),
 							null, null, null, null, null, null,
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(
-											new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
 							null,
-							null, AFTER_SLIME_ROYAL_GUARD_SEX_AS_DOM, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_DOM"));
+							null), AFTER_SLIME_ROYAL_GUARD_SEX_AS_DOM, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_DOM"));
 				
 				} else if(index==2) {
 					return new ResponseSex("Submit",
-							UtilText.parse(Main.game.getSlimeRoyalGuard(), "Let [slimeRoyalGuard.name] fuck you."),
+							UtilText.parse(Main.game.getNpc(SlimeRoyalGuard.class), "Let [slimeRoyalGuard.name] fuck you."),
 							Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(
-											new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
 							null,
-							null, AFTER_SLIME_ROYAL_GUARD_SEX_AS_SUB, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_SUB"));
+							null), AFTER_SLIME_ROYAL_GUARD_SEX_AS_SUB, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_SUB"));
 				} else {
 					return null;
 				}
@@ -633,10 +620,10 @@ public class SlimeQueensLair {
 				} else if(index==2) {
 					return new ResponseCombat("Spar",
 							"Accept [slimeRoyalGuard.namePos] offer of a sparring match, with the agreement that the winner can do whatever they like with the loser's body.",
-							Util.newArrayListOfValues(Main.game.getSlimeRoyalGuard()),
+							Main.game.getNpc(SlimeRoyalGuard.class),
 							Util.newHashMapOfValues(
 									new Value<>(Main.game.getPlayer(), "[pc.speech(Fine, I'll spar with you,)] you say, readying yourself for a fight, [pc.speech(but remember what you said about your body being mine when you lose!)]"),
-									new Value<>(Main.game.getSlimeRoyalGuard(), "[slimeRoyalGuard.speech(Hah!)] [slimeRoyalGuard.name] booms. [slimeRoyalGuard.speech(I'm looking forwards to claiming my prize!)]")));
+									new Value<>(Main.game.getNpc(SlimeRoyalGuard.class), "[slimeRoyalGuard.speech(Hah!)] [slimeRoyalGuard.name] booms. [slimeRoyalGuard.speech(I'm looking forwards to claiming my prize!)]")));
 				} else {
 					return null;
 				}
@@ -645,20 +632,20 @@ public class SlimeQueensLair {
 				if(index==1) {
 					return new ResponseCombat("Fight",
 							"Defend yourself against [slimeRoyalGuard.name].",
-							Util.newArrayListOfValues(Main.game.getSlimeRoyalGuard()),
+							Main.game.getNpc(SlimeRoyalGuard.class),
 							Util.newHashMapOfValues(
 									new Value<>(Main.game.getPlayer(), "[pc.speech(I've fought and defeated mightier foes than you!)] you cry out, readying yourself for a fight."),
-									new Value<>(Main.game.getSlimeRoyalGuard(), "[slimeRoyalGuard.speech(No-one is mightier than I!)] [slimeRoyalGuard.name] bellows in response. [slimeRoyalGuard.speech(Prepare to be defeated!)]")));
+									new Value<>(Main.game.getNpc(SlimeRoyalGuard.class), "[slimeRoyalGuard.speech(No-one is mightier than I!)] [slimeRoyalGuard.name] bellows in response. [slimeRoyalGuard.speech(Prepare to be defeated!)]")));
 					
 				} else if(index==2) {
-					if(Main.game.getSlimeRoyalGuard().getFoughtPlayerCount()>0) {
+					if(Main.game.getNpc(SlimeRoyalGuard.class).getFoughtPlayerCount()>0) {
 						return new Response("Compliment", "Having already fought [slimeRoyalGuard.name] once before, he's now far too alert to fall for any of your tricks...", null);
 						
 					} else {
 						return new Response("Compliment", "Compliment [slimeRoyalGuard.namePos] fancy footwork in an attempt to trick [slimeRoyalGuard.him] into making a mistake.", ROYAL_GUARD_POST_ADMIRE) {
 							@Override
 							public void effects() {
-								Main.game.getSlimeRoyalGuard().setHealthPercentage(0.8f);
+								Main.game.getNpc(SlimeRoyalGuard.class).setHealthPercentage(0.8f);
 							}
 						};
 					}
@@ -670,8 +657,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld ROYAL_GUARD_POST_TALK = new DialogueNodeOld("Royal Guard Post", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROYAL_GUARD_POST_TALK = new DialogueNode("Royal Guard Post", "", false, true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -689,8 +675,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld ROYAL_GUARD_POST_ADMIRE = new DialogueNodeOld("Royal Guard Post", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROYAL_GUARD_POST_ADMIRE = new DialogueNode("Royal Guard Post", "", true, true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -707,17 +692,17 @@ public class SlimeQueensLair {
 			if(index==1) {
 				return new ResponseCombat("Fight",
 						"Defend yourself against [slimeRoyalGuard.name].",
-						Util.newArrayListOfValues(Main.game.getSlimeRoyalGuard()),
+						Main.game.getNpc(SlimeRoyalGuard.class),
 						Util.newHashMapOfValues(
 								new Value<>(Main.game.getPlayer(), "[pc.speech(Very well, I'll fight you,)] you say, stepping back and preparing for combat."),
-								new Value<>(Main.game.getSlimeRoyalGuard(), "[slimeRoyalGuard.speech(Excellent! Now, defend yourself!)] [slimeRoyalGuard.name] booms, before moving forwards to attack.")));
+								new Value<>(Main.game.getNpc(SlimeRoyalGuard.class), "[slimeRoyalGuard.speech(Excellent! Now, defend yourself!)] [slimeRoyalGuard.name] booms, before moving forwards to attack.")));
 				
 			} else if(index==2) {
 				if(Main.game.getPlayer().hasTraitActivated(Perk.BRAWLER) || Main.game.getPlayer().getHistory()==Occupation.SOLDIER) {
 					return new Response("Instruct", "Tell [slimeRoyalGuard.name] what [slimeRoyalGuard.he]'s doing wrong in an attempt to fluster [slimeRoyalGuard.him] into wearing [slimeRoyalGuard.himself] out.", ROYAL_GUARD_POST_ADMIRE_INSTRUCT) {
 						@Override
 						public void effects() {
-							Main.game.getSlimeRoyalGuard().setHealthPercentage(0.4f);
+							Main.game.getNpc(SlimeRoyalGuard.class).setHealthPercentage(0.4f);
 						}
 					};
 					
@@ -730,7 +715,7 @@ public class SlimeQueensLair {
 					return new Response("Seduce", "Seduce [slimeRoyalGuard.name] and encourage [slimeRoyalGuard.him] to show off to you in an attempt to get [slimeRoyalGuard.him] to wear [slimeRoyalGuard.himself] out.", ROYAL_GUARD_POST_ADMIRE_SEDUCE) {
 						@Override
 						public void effects() {
-							Main.game.getSlimeRoyalGuard().setLust(80);
+							Main.game.getNpc(SlimeRoyalGuard.class).setLust(80);
 						}
 					};
 					
@@ -744,8 +729,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld ROYAL_GUARD_POST_ADMIRE_INSTRUCT = new DialogueNodeOld("Royal Guard Post", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROYAL_GUARD_POST_ADMIRE_INSTRUCT = new DialogueNode("Royal Guard Post", "", true, true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -762,13 +746,13 @@ public class SlimeQueensLair {
 			if(index==1) {
 				return new ResponseCombat("Fight",
 						"Now that you've worn [slimeRoyalGuard.name] out, [slimeRoyalGuard.he] should be easier to beat!",
-						Util.newArrayListOfValues(Main.game.getSlimeRoyalGuard()),
+						Main.game.getNpc(SlimeRoyalGuard.class),
 						Util.newHashMapOfValues(
 								new Value<>(Main.game.getPlayer(), "[pc.speech(Sure, I'll take you on,)] you reply, reading yourself for a fight."),
-								new Value<>(Main.game.getSlimeRoyalGuard(), "[slimeRoyalGuard.speech(Prepare... Prepare to... defend yourself!)] [slimeRoyalGuard.name] pants, struggling to catch his breath.")));
+								new Value<>(Main.game.getNpc(SlimeRoyalGuard.class), "[slimeRoyalGuard.speech(Prepare... Prepare to... defend yourself!)] [slimeRoyalGuard.name] pants, struggling to catch his breath.")));
 				
 			} else if(index==2) {
-				if(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_PHYSIQUE) > Main.game.getSlimeRoyalGuard().getAttributeValue(Attribute.MAJOR_PHYSIQUE)) {
+				if(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_PHYSIQUE) > Main.game.getNpc(SlimeRoyalGuard.class).getAttributeValue(Attribute.MAJOR_PHYSIQUE)) {
 					return new Response("Overpower", "Now that you've worn [slimeRoyalGuard.name] out, it would be a simple matter to overpower [slimeRoyalGuard.him].", ROYAL_GUARD_POST_ADMIRE_INSTRUCT_OVERPOWER) {
 						@Override
 						public void effects() {
@@ -786,8 +770,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld ROYAL_GUARD_POST_ADMIRE_INSTRUCT_OVERPOWER = new DialogueNodeOld("Royal Guard Post", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROYAL_GUARD_POST_ADMIRE_INSTRUCT_OVERPOWER = new DialogueNode("Royal Guard Post", "", false, true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -806,8 +789,7 @@ public class SlimeQueensLair {
 	};
 	
 
-	public static final DialogueNodeOld ROYAL_GUARD_POST_ADMIRE_SEDUCE = new DialogueNodeOld("Royal Guard Post", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ROYAL_GUARD_POST_ADMIRE_SEDUCE = new DialogueNode("Royal Guard Post", "", true, true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -824,27 +806,29 @@ public class SlimeQueensLair {
 			if(index==1) {
 				return new ResponseCombat("Fight",
 						"Now that you've worn [slimeRoyalGuard.name] out, [slimeRoyalGuard.he] should be easier to beat!",
-						Util.newArrayListOfValues(Main.game.getSlimeRoyalGuard()),
+						Main.game.getNpc(SlimeRoyalGuard.class),
 						Util.newHashMapOfValues(
 								new Value<>(Main.game.getPlayer(), "[pc.speech(Ok, I'll fight you...)] you sigh, preparing for combat."),
-								new Value<>(Main.game.getSlimeRoyalGuard(), "[slimeRoyalGuard.speech(E-Excellent!)] [slimeRoyalGuard.name] replies, already flustered and turned on from your teasing.")));
+								new Value<>(Main.game.getNpc(SlimeRoyalGuard.class), "[slimeRoyalGuard.speech(E-Excellent!)] [slimeRoyalGuard.name] replies, already flustered and turned on from your teasing.")));
 				
 			} else if(index==2) {
 				return new ResponseSex("Submissive sex",
-						UtilText.parse(Main.game.getSlimeRoyalGuard(), "Push [slimeRoyalGuard.name] over the edge and tire him out through sex."),
+						UtilText.parse(Main.game.getNpc(SlimeRoyalGuard.class), "Push [slimeRoyalGuard.name] over the edge and tire him out through sex."),
 						Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 						true, true,
-						new SMStanding(
-								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))) {
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
+								Util.newArrayListOfValues(Main.game.getPlayer()),
+						null,
+						null) {
 							@Override
 							public boolean isPlayerAbleToStopSex() {
 								return false;
 							}
 						},
-						null,
-						null, AFTER_SLIME_ROYAL_GUARD_SEX_SEDUCTION, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "ROYAL_GUARD_SEX_SEDUCTION")) {
+						AFTER_SLIME_ROYAL_GUARD_SEX_SEDUCTION,
+						UtilText.parseFromXMLFile("places/submission/slimeQueensLair",
+						"ROYAL_GUARD_SEX_SEDUCTION")) {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.slimeRoyalGuardDefeated, true);
@@ -858,8 +842,7 @@ public class SlimeQueensLair {
 		}
 	};
 
-	public static final DialogueNodeOld AFTER_SLIME_ROYAL_GUARD_SEX_AS_DOM = new DialogueNodeOld("Finished", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_ROYAL_GUARD_SEX_AS_DOM = new DialogueNode("Finished", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -872,8 +855,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_ROYAL_GUARD_SEX_AS_SUB = new DialogueNodeOld("Finished", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_ROYAL_GUARD_SEX_AS_SUB = new DialogueNode("Finished", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -886,8 +868,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_ROYAL_GUARD_SEX_SEDUCTION = new DialogueNodeOld("Finished", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_ROYAL_GUARD_SEX_SEDUCTION = new DialogueNode("Finished", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -900,8 +881,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_ROYAL_GUARD_COMBAT_PLAYER_VICTORY = new DialogueNodeOld("Victory", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_ROYAL_GUARD_COMBAT_PLAYER_VICTORY = new DialogueNode("Victory", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -914,8 +894,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT = new DialogueNodeOld("Defeat", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT = new DialogueNode("Defeat", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -929,12 +908,11 @@ public class SlimeQueensLair {
 						"[slimeRoyalGuard.Name] moves to have some fun with you...",
 						Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 						false, false,
-						new SMStanding(
-								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
+								Util.newArrayListOfValues(Main.game.getPlayer()),
 						null,
-						null, AFTER_SLIME_ROYAL_GUARD_SEX_DEFEATED, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT_SEX"));
+						null), AFTER_SLIME_ROYAL_GUARD_SEX_DEFEATED, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT_SEX"));
 				
 			} else {
 				return null;
@@ -942,8 +920,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_ROYAL_GUARD_SPARRING_PLAYER_VICTORY = new DialogueNodeOld("Victory", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_ROYAL_GUARD_SPARRING_PLAYER_VICTORY = new DialogueNode("Victory", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -954,35 +931,32 @@ public class SlimeQueensLair {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				return new ResponseSex("Sex",
-						UtilText.parse(Main.game.getSlimeRoyalGuard(), "Pull [slimeRoyalGuard.name] to [slimeRoyalGuard.his] feet and get ready to fuck [slimeRoyalGuard.him]."),
+						UtilText.parse(Main.game.getNpc(SlimeRoyalGuard.class), "Pull [slimeRoyalGuard.name] to [slimeRoyalGuard.his] feet and get ready to fuck [slimeRoyalGuard.him]."),
 						null, null, null, null, null, null,
 						true, false,
-						new SMStanding(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getPlayer()),
+								Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
 						null,
-						null, AFTER_SLIME_ROYAL_GUARD_SEX_AS_DOM, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_DOM"));
+						null), AFTER_SLIME_ROYAL_GUARD_SEX_AS_DOM, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_DOM"));
 			
 			} else if(index==2) {
 				return new ResponseSex("Submit",
-						UtilText.parse(Main.game.getSlimeRoyalGuard(), "Let [slimeRoyalGuard.name] fuck you."),
+						UtilText.parse(Main.game.getNpc(SlimeRoyalGuard.class), "Let [slimeRoyalGuard.name] fuck you."),
 						Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 						false, false,
-						new SMStanding(
-								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
+								Util.newArrayListOfValues(Main.game.getPlayer()),
 						null,
-						null, AFTER_SLIME_ROYAL_GUARD_SEX_AS_SUB, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_SUB"));
+						null), AFTER_SLIME_ROYAL_GUARD_SEX_AS_SUB, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_BEGIN_SEX_AS_SUB"));
 			} else {
 				return null;
 			}
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_ROYAL_GUARD_SPARRING_PLAYER_DEFEAT = new DialogueNodeOld("Defeat", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_ROYAL_GUARD_SPARRING_PLAYER_DEFEAT = new DialogueNode("Defeat", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -996,12 +970,13 @@ public class SlimeQueensLair {
 						"[slimeRoyalGuard.Name] moves to have some fun with you...",
 						Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 						true, false,
-						new SMStanding(
-								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeRoyalGuard(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getNpc(SlimeRoyalGuard.class)),
+								Util.newArrayListOfValues(Main.game.getPlayer()),
 						null,
-						null, AFTER_SLIME_ROYAL_GUARD_SEX_SPARRING_DEFEATED, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT_SEX"));
+						null),
+						AFTER_SLIME_ROYAL_GUARD_SEX_SPARRING_DEFEATED,
+						UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT_SEX"));
 				
 			} else {
 				return null;
@@ -1009,8 +984,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_ROYAL_GUARD_SEX_DEFEATED = new DialogueNodeOld("Finished", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_ROYAL_GUARD_SEX_DEFEATED = new DialogueNode("Finished", "", true) {
 		
 		@Override
 		public String getContent() {
@@ -1034,8 +1008,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_ROYAL_GUARD_SEX_SPARRING_DEFEATED = new DialogueNodeOld("Finished", "", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_ROYAL_GUARD_SEX_SPARRING_DEFEATED = new DialogueNode("Finished", "", false) {
 		
 		@Override
 		public String getContent() {
@@ -1048,8 +1021,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld BED_CHAMBER = new DialogueNodeOld("Bed Chamber", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode BED_CHAMBER = new DialogueNode("Bed Chamber", "", true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -1083,9 +1055,9 @@ public class SlimeQueensLair {
 						public void effects() {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.slimeQueenConvinced, true);
 							
-							AbstractClothing crown = Main.game.getSlimeQueen().getClothingInSlot(InventorySlot.HEAD);
+							AbstractClothing crown = Main.game.getNpc(SlimeQueen.class).getClothingInSlot(InventorySlot.HEAD);
 							if(crown!=null) {
-								Main.game.getSlimeQueen().unequipClothingIntoVoid(crown, true, Main.game.getSlimeQueen());
+								Main.game.getNpc(SlimeQueen.class).unequipClothingIntoVoid(crown, true, Main.game.getNpc(SlimeQueen.class));
 							}
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.HEAD_SLIME_QUEENS_TIARA, false), true));
 							
@@ -1101,9 +1073,9 @@ public class SlimeQueensLair {
 						public void effects() {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.slimeQueenForced, true);
 
-							AbstractClothing crown = Main.game.getSlimeQueen().getClothingInSlot(InventorySlot.HEAD);
+							AbstractClothing crown = Main.game.getNpc(SlimeQueen.class).getClothingInSlot(InventorySlot.HEAD);
 							if(crown!=null) {
-								Main.game.getSlimeQueen().unequipClothingIntoVoid(crown, true, Main.game.getSlimeQueen());
+								Main.game.getNpc(SlimeQueen.class).unequipClothingIntoVoid(crown, true, Main.game.getNpc(SlimeQueen.class));
 							}
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.HEAD_SLIME_QUEENS_TIARA, false), true));
 							
@@ -1119,9 +1091,9 @@ public class SlimeQueensLair {
 						public void effects() {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.slimeQueenHelped, true);
 
-							AbstractClothing crown = Main.game.getSlimeQueen().getClothingInSlot(InventorySlot.HEAD);
+							AbstractClothing crown = Main.game.getNpc(SlimeQueen.class).getClothingInSlot(InventorySlot.HEAD);
 							if(crown!=null) {
-								Main.game.getSlimeQueen().unequipClothingIntoVoid(crown, true, Main.game.getSlimeQueen());
+								Main.game.getNpc(SlimeQueen.class).unequipClothingIntoVoid(crown, true, Main.game.getNpc(SlimeQueen.class));
 							}
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.HEAD_SLIME_QUEENS_TIARA, false), true));
 							
@@ -1137,8 +1109,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_QUEEN_CONVINCE = new DialogueNodeOld("Bed Chamber", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_CONVINCE = new DialogueNode("Bed Chamber", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1152,13 +1123,13 @@ public class SlimeQueensLair {
 				
 			} else if(index==2) {
 				return new ResponseSex("'Rape'",
-						UtilText.parse(Main.game.getSlimeQueen(), "Play along with [slimeQueen.namePos] fantasies and force yourself on her."),
+						UtilText.parse(Main.game.getNpc(SlimeQueen.class), "Play along with [slimeQueen.namePos] fantasies and force yourself on her."),
 						null, null, null, null, null, null,
 						true, false,
 						new SMMissionary(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.MISSIONARY_KNEELING_BETWEEN_LEGS)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS)),
 								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeQueen(), SexPositionSlot.MISSIONARY_ON_BACK))),
+										new Value<>(Main.game.getNpc(SlimeQueen.class), SexSlotBipeds.MISSIONARY_ON_BACK))),
 						null,
 						null,
 						AFTER_SLIME_QUEEN_SEX, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_QUEEN_SEX_START"));
@@ -1187,8 +1158,7 @@ public class SlimeQueensLair {
 		}
 	};
 
-	public static final DialogueNodeOld SLIME_QUEEN_FORCE = new DialogueNodeOld("Bed Chamber", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_FORCE = new DialogueNode("Bed Chamber", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1201,8 +1171,7 @@ public class SlimeQueensLair {
 		}
 	};
 
-	public static final DialogueNodeOld SLIME_QUEEN_SUBMIT = new DialogueNodeOld("Bed Chamber", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_SUBMIT = new DialogueNode("Bed Chamber", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1215,8 +1184,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_QUEEN_BATH = new DialogueNodeOld("Bed Chamber", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_BATH = new DialogueNode("Bed Chamber", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1230,13 +1198,13 @@ public class SlimeQueensLair {
 				
 			} else if(index==2) {
 				return new ResponseSex("'Rape'",
-						UtilText.parse(Main.game.getSlimeQueen(), "Play along with [slimeQueen.namePos] fantasies and force yourself on her."),
+						UtilText.parse(Main.game.getNpc(SlimeQueen.class), "Play along with [slimeQueen.namePos] fantasies and force yourself on her."),
 						null, null, null, null, null, null,
 						true, false,
 						new SMDoggy(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_BEHIND)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_BEHIND)),
 								Util.newHashMapOfValues(
-										new Value<>(Main.game.getSlimeQueen(), SexPositionSlot.DOGGY_ON_ALL_FOURS))),
+										new Value<>(Main.game.getNpc(SlimeQueen.class), SexSlotBipeds.DOGGY_ON_ALL_FOURS))),
 						null,
 						null, AFTER_SLIME_QUEEN_SEX, UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "SLIME_QUEEN_BATH_SEX_START"));
 				
@@ -1246,8 +1214,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_QUEEN_BATH_TRANSFORM = new DialogueNodeOld("Bed Chamber", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_BATH_TRANSFORM = new DialogueNode("Bed Chamber", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1260,8 +1227,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_QUEEN_LEAVE = new DialogueNodeOld("Bed Chamber", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_LEAVE = new DialogueNode("Bed Chamber", "", false, true) {
 		
 		@Override
 		public String getContent() {
@@ -1274,8 +1240,7 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld SLIME_QUEEN_TALK = new DialogueNodeOld("Bed Chamber", "", false, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode SLIME_QUEEN_TALK = new DialogueNode("Bed Chamber", "", false, true) {
 		
 		@Override
 		public String getContent() {
@@ -1288,12 +1253,11 @@ public class SlimeQueensLair {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SLIME_QUEEN_SEX = new DialogueNodeOld("Bed Chamber", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SLIME_QUEEN_SEX = new DialogueNode("Bed Chamber", "", true) {
 		
 		@Override
 		public String getContent() {
-			if(Sex.getNumberOfOrgasms(Main.game.getSlimeQueen())>0) {
+			if(Sex.getNumberOfOrgasms(Main.game.getNpc(SlimeQueen.class))>0) {
 				return UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "AFTER_SLIME_QUEEN_SEX");
 			} else {
 				return UtilText.parseFromXMLFile("places/submission/slimeQueensLair", "AFTER_SLIME_QUEEN_SEX_NO_ORGASM");

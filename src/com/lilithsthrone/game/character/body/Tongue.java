@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.character.body;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,11 +16,11 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.0
- * @version 0.1.83
+ * @version 0.3.1
  * @author Innoxia
  */
-public class Tongue implements BodyPartInterface, Serializable {
-	private static final long serialVersionUID = 1L;
+public class Tongue implements BodyPartInterface {
+
 	
 	protected TongueType type;
 	protected Set<TongueModifier> tongueModifiers;
@@ -266,5 +265,13 @@ public class Tongue implements BodyPartInterface, Serializable {
 		
 		// Catch:
 		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+	}
+
+	@Override
+	public boolean isBestial(GameCharacter owner) {
+		if(owner==null) {
+			return false;
+		}
+		return owner.getLegConfiguration().getBestialParts().contains(Tongue.class);
 	}
 }

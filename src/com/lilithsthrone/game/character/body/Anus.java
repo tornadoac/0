@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.character.body;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,18 +8,18 @@ import com.lilithsthrone.game.character.body.types.AnusType;
 import com.lilithsthrone.game.character.body.valueEnums.BodyHair;
 import com.lilithsthrone.game.character.body.valueEnums.OrificeModifier;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.Sex;
+import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.main.Main;
+import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.83
- * @version 0.1.83
+ * @version 0.3.1
  * @author Innoxia
  */
-public class Anus implements BodyPartInterface, Serializable {
+public class Anus implements BodyPartInterface {
 
-	private static final long serialVersionUID = 1L;
 	
 	// Asshole variables:
 	protected AnusType type;
@@ -72,10 +71,20 @@ public class Anus implements BodyPartInterface, Serializable {
 			}
 		}
 		descriptorList.add(wetnessDescriptor);
-		if((owner.getAssHair()==BodyHair.SIX_BUSHY || owner.getAssHair()==BodyHair.THREE_TRIMMED) && Main.game.isAssHairEnabled()) {
+		if(owner.getPubicHair().getValue()>=BodyHair.FOUR_NATURAL.getValue() && Main.game.isAssHairEnabled()) {
 			descriptorList.add("hairy");
 		}
-		descriptorList.add(type.getDescriptor(owner));
+		
+		if(owner.isAnusBestial()) {
+			descriptorList.add(Util.randomItemFrom(Util.newArrayListOfValues(
+					"feral",
+					owner.getAssRace().getName(true)+"-",
+					"bestial",
+					"animalistic")));
+		} else {
+			descriptorList.add(type.getDescriptor(owner));
+		}
+		
 		descriptorList.add(orificeAnus.getCapacity().getDescriptor());
 		
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
@@ -203,6 +212,14 @@ public class Anus implements BodyPartInterface, Serializable {
 		this.assHair = assHair;
 		
 		return transformation;
+	}
+
+	@Override
+	public boolean isBestial(GameCharacter owner) {
+		if(owner==null) {
+			return false;
+		}
+		return owner.getLegConfiguration().getBestialParts().contains(Anus.class);
 	}
 
 }

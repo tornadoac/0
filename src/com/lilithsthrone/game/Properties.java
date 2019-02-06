@@ -1,7 +1,6 @@
 package com.lilithsthrone.game;
 
 import java.io.File;
-import java.io.Serializable;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,6 +30,7 @@ import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.gender.GenderNames;
 import com.lilithsthrone.game.character.gender.GenderPronoun;
 import com.lilithsthrone.game.character.gender.PronounType;
+import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.FurryPreference;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.character.race.SubspeciesPreference;
@@ -50,11 +50,10 @@ import com.lilithsthrone.main.Main;
 
 /**
  * @since 0.1.0
- * @version 0.2.11
+ * @version 0.3.1
  * @author Innoxia
  */
-public class Properties implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Properties {
 
 	public String lastSaveLocation = "";
 	public String lastQuickSaveName = "";
@@ -70,7 +69,21 @@ public class Properties implements Serializable {
 	public int money = 0;
 	public int arcaneEssences = 0;
 	public int humanEncountersLevel = 1;
+	
 	public int multiBreasts = 1;
+	public static String[] multiBreastsLabels = new String[] {"Off", "Furry-only", "On"};
+	public static String[] multiBreastsDescriptions = new String[] {
+			"Randomly-generated NPCs will never spawn in with multiple rows of breasts.",
+			"Randomly-generated NPCs will only spawn in with multiple rows of breasts if they have furry skin. (Default setting.)",
+			"Randomly-generated NPCs will spawn in with multiple rows of breasts if their breast type is furry (starts at 'Minor morph' level)."};
+	
+	public int udders = 1;
+	public static String[] uddersLabels = new String[] {"Off", "Taur-only", "On"};
+	public static String[] uddersDescriptions = new String[] {
+			"Randomly-generated taurs nor anthro-morphs will ever spawn in with udders or crotch-boobs.",
+			"Randomly-generated NPCs will only ever spawn in with udders or crotch-boobs if they have a non-bipedal body. (Default setting.)",
+			"Randomly-generated greater-anthro-morphs, as well as taurs, will spawn in with udders and crotch boobs."};
+	
 	public int forcedTFPercentage = 40;
 	public int forcedFetishPercentage = 0;
 
@@ -98,6 +111,8 @@ public class Properties implements Serializable {
 	public Map<GenderPronoun, String> genderPronounMale;
 	
 	public Map<Gender, Integer> genderPreferencesMap;
+	
+	public Map<SexualOrientation, Integer> orientationPreferencesMap;
 
 	public Map<PronounType, Map<AgeCategory, Integer>> agePreferencesMap;
 	
@@ -149,6 +164,11 @@ public class Properties implements Serializable {
 		genderPreferencesMap = new EnumMap<>(Gender.class);
 		for(Gender g : Gender.values()) {
 			genderPreferencesMap.put(g, g.getGenderPreferenceDefault().getValue());
+		}
+
+		orientationPreferencesMap = new EnumMap<>(SexualOrientation.class);
+		for(SexualOrientation o : SexualOrientation.values()) {
+			orientationPreferencesMap.put(o, o.getOrientationPreferenceDefault().getValue());
 		}
 		
 		resetAgePreferences();
@@ -228,6 +248,7 @@ public class Properties implements Serializable {
 			createXMLElementWithValue(doc, settings, "androgynousIdentification", String.valueOf(androgynousIdentification));
 			createXMLElementWithValue(doc, settings, "humanEncountersLevel", String.valueOf(humanEncountersLevel));
 			createXMLElementWithValue(doc, settings, "multiBreasts", String.valueOf(multiBreasts));
+			createXMLElementWithValue(doc, settings, "udders", String.valueOf(udders));
 			createXMLElementWithValue(doc, settings, "forcedTFPercentage", String.valueOf(forcedTFPercentage));
 
 			createXMLElementWithValue(doc, settings, "pregnancyBreastGrowthVariance", String.valueOf(pregnancyBreastGrowthVariance));
@@ -347,6 +368,22 @@ public class Properties implements Serializable {
 				value.setValue(String.valueOf(genderPreferencesMap.get(g).intValue()));
 				element.setAttributeNode(value);
 			}
+
+			// Sexual orientation preferences:
+			Element orientationPreferences = doc.createElement("orientationPreferences");
+			properties.appendChild(orientationPreferences);
+			for (SexualOrientation o : SexualOrientation.values()) {
+				Element element = doc.createElement("preference");
+				orientationPreferences.appendChild(element);
+				
+				Attr orientation = doc.createAttribute("orientation");
+				orientation.setValue(o.toString());
+				element.setAttributeNode(orientation);
+				
+				Attr value = doc.createAttribute("value");
+				value.setValue(String.valueOf(orientationPreferencesMap.get(o).intValue()));
+				element.setAttributeNode(value);
+			}
 			
 			// Age preferences:
 			Element agePreferences = doc.createElement("agePreferences");
@@ -410,35 +447,52 @@ public class Properties implements Serializable {
 			Element itemsDiscovered = doc.createElement("itemsDiscovered");
 			properties.appendChild(itemsDiscovered);
 			for (AbstractItemType itemType : this.itemsDiscovered) {
-				Element element = doc.createElement("itemType");
-				itemsDiscovered.appendChild(element);
-				
-				Attr hash = doc.createAttribute("id");
-				hash.setValue(itemType.getId());
-				element.setAttributeNode(hash);
+				try {
+					if(itemType!=null) {
+						Element element = doc.createElement("itemType");
+						itemsDiscovered.appendChild(element);
+						
+						Attr hash = doc.createAttribute("id");
+						hash.setValue(itemType.getId());
+						element.setAttributeNode(hash);
+					}
+				} catch(Exception ex) {
+					// Catch errors from modded items being removed
+				}
 			}
 			
 			Element weaponsDiscovered = doc.createElement("weaponsDiscovered");
 			properties.appendChild(weaponsDiscovered);
 			for (AbstractWeaponType weaponType : this.weaponsDiscovered) {
-				Element element = doc.createElement("weaponType");
-				weaponsDiscovered.appendChild(element);
-				
-				Attr hash = doc.createAttribute("id");
-				hash.setValue(weaponType.getId());
-				element.setAttributeNode(hash);
+				try {
+					if(weaponType!=null) {
+						Element element = doc.createElement("weaponType");
+						weaponsDiscovered.appendChild(element);
+						
+						Attr hash = doc.createAttribute("id");
+						hash.setValue(weaponType.getId());
+						element.setAttributeNode(hash);
+					}
+				} catch(Exception ex) {
+					// Catch errors from modded weapons being removed
+				}
 			}
 			
 			Element clothingDiscovered = doc.createElement("clothingDiscovered");
 			properties.appendChild(clothingDiscovered);
 			for (AbstractClothingType clothingType : this.clothingDiscovered) {
-				Element element = doc.createElement("clothingType");
-				clothingDiscovered.appendChild(element);
-				
-				Attr hash = doc.createAttribute("id");
-				if(clothingType != null)
-					hash.setValue(clothingType.getId());
-				element.setAttributeNode(hash);
+				try {
+					if(clothingType!=null) {
+						Element element = doc.createElement("clothingType");
+						clothingDiscovered.appendChild(element);
+						
+						Attr hash = doc.createAttribute("id");
+						hash.setValue(clothingType.getId());
+						element.setAttributeNode(hash);
+					}
+				} catch(Exception ex) {
+					// Catch errors from modded items being removed
+				}
 			}
 			
 			Element racesDiscovered = doc.createElement("racesDiscovered");
@@ -529,6 +583,9 @@ public class Properties implements Serializable {
 					if(Main.isVersionOlderThan(versionNumber, "0.2.12")) {
 						values.add(PropertyValue.autoSexClothingManagement);
 					}
+					if(Main.isVersionOlderThan(versionNumber, "0.3.0.5")) {
+						values.add(PropertyValue.bipedalCloaca);
+					}
 					for(int i=0; i < element.getElementsByTagName("propertyValue").getLength(); i++){
 						Element e = (Element) element.getElementsByTagName("propertyValue").item(i);
 						
@@ -610,6 +667,12 @@ public class Properties implements Serializable {
 					multiBreasts = Integer.valueOf(((Element)element.getElementsByTagName("multiBreasts").item(0)).getAttribute("value"));
 				} else {
 					multiBreasts = 1;
+				}
+				
+				if(element.getElementsByTagName("udders").item(0)!=null) {
+					udders = Integer.valueOf(((Element)element.getElementsByTagName("udders").item(0)).getAttribute("value"));
+				} else {
+					udders = 1;
 				}
 				
 				if(element.getElementsByTagName("forcedTFPercentage").item(0)!=null) {
@@ -705,6 +768,7 @@ public class Properties implements Serializable {
 								genderPronounMale.put(GenderPronoun.valueOf(e.getAttribute("pronounName")), GenderPronoun.valueOf(e.getAttribute("pronounName")).getMasculine());
 							}
 						} catch(IllegalArgumentException ex){
+							System.err.println("loadPropertiesFromXML() error: genderPronouns pronoun");
 						}
 					}
 				}
@@ -721,6 +785,7 @@ public class Properties implements Serializable {
 								genderPreferencesMap.put(Gender.valueOf(e.getAttribute("gender")), Integer.valueOf(e.getAttribute("value")));
 							}
 						} catch(IllegalArgumentException ex){
+							System.err.println("loadPropertiesFromXML() error: genderPreferences preference");
 						}
 					}
 				}
@@ -737,6 +802,25 @@ public class Properties implements Serializable {
 								agePreferencesMap.get(pronoun).put(AgeCategory.valueOf(e.getAttribute("age")), Integer.valueOf(e.getAttribute(pronoun.toString())));
 							}
 						} catch(IllegalArgumentException ex){
+							System.err.println("loadPropertiesFromXML() error: agePreferences preference");
+						}
+					}
+				}
+				
+
+				// Sexual orientation preferences:
+				nodes = doc.getElementsByTagName("orientationPreferences");
+				element = (Element) nodes.item(0);
+				if(element!=null && element.getElementsByTagName("preference")!=null) {
+					for(int i=0; i<element.getElementsByTagName("preference").getLength(); i++){
+						Element e = ((Element)element.getElementsByTagName("preference").item(i));
+						
+						try {
+							if(!e.getAttribute("orientation").isEmpty()) {
+								orientationPreferencesMap.put(SexualOrientation.valueOf(e.getAttribute("orientation")), Integer.valueOf(e.getAttribute("value")));
+							}
+						} catch(IllegalArgumentException ex){
+							System.err.println("loadPropertiesFromXML() error: orientationPreferences preference");
 						}
 					}
 				}
@@ -914,7 +998,16 @@ public class Properties implements Serializable {
 	}
 	
 	public boolean isAdvancedRaceKnowledgeDiscovered(Subspecies subspecies) {
-		return subspeciesAdvancedKnowledge.contains(subspecies);
+		if(subspeciesAdvancedKnowledge.contains(subspecies)) {
+			return true;
+		}
+		// If this subspecies shares a lore book with the parent subspecies, and that parent subspecies is unlocked, then return true:
+		Subspecies coreSubspecies = Subspecies.getMainSubspeciesOfRace(subspecies.getRace());
+		if(ItemType.getLoreBook(subspecies).equals(ItemType.getLoreBook(coreSubspecies))) {
+			return subspeciesAdvancedKnowledge.contains(coreSubspecies);
+		}
+		
+		return false;
 	}
 	
 	public void setFeminineFurryPreference(Subspecies subspecies, FurryPreference furryPreference) {

@@ -4,23 +4,23 @@ import com.lilithsthrone.game.Weather;
 import com.lilithsthrone.game.character.body.valueEnums.Femininity;
 import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.character.npc.dominion.HarpyNympho;
+import com.lilithsthrone.game.character.npc.dominion.HarpyNymphoCompanion;
 import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseCombat;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
-import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.game.sex.SexPositionSlot;
-import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.SexAreaOrifice;
+import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
-import com.lilithsthrone.utils.Util.Value;
 
 /**
  * @since 0.1.8
@@ -29,8 +29,7 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class HarpyNestNympho {
 
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO = new DialogueNodeOld("Harpy nest", ".", false) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO = new DialogueNode("Harpy nest", ".", false) {
 
 		@Override
 		public int getMinutesPassed() {
@@ -123,14 +122,14 @@ public class HarpyNestNympho {
 						return new Response("Approach [harpyNympho.name]", "Walk to the centre of the nest and talk to [harpyNympho.name].", HARPY_NEST_NYMPHO_APPROACH) {
 							@Override
 							public void effects() {
-								Main.game.getHarpyNympho().ingestFluid(Main.game.getHarpyNymphoCompanion(), Main.game.getHarpyNymphoCompanion().getCum(), SexAreaOrifice.VAGINA, 250);
+								Main.game.getNpc(HarpyNympho.class).ingestFluid(Main.game.getNpc(HarpyNymphoCompanion.class), Main.game.getNpc(HarpyNymphoCompanion.class).getCum(), SexAreaOrifice.VAGINA, 250);
 							}
 						};
 					} else {
 						return new Response("Approach matriarch", "Walk to the centre of the nest and talk to the matriarch.", HARPY_NEST_NYMPHO_APPROACH) {
 							@Override
 							public void effects() {
-								Main.game.getHarpyNympho().ingestFluid(Main.game.getHarpyNymphoCompanion(), Main.game.getHarpyNymphoCompanion().getCum(), SexAreaOrifice.VAGINA, 250);
+								Main.game.getNpc(HarpyNympho.class).ingestFluid(Main.game.getNpc(HarpyNymphoCompanion.class), Main.game.getNpc(HarpyNymphoCompanion.class).getCum(), SexAreaOrifice.VAGINA, 250);
 							}
 						};
 					}
@@ -142,8 +141,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_APPROACH = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_APPROACH = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -267,11 +265,11 @@ public class HarpyNestNympho {
 				if (index == 1) {
 					return new ResponseSex("Sex", "Have dominant sex with [harpyNympho.name].",
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getHarpyNympho(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(Main.game.getNpc(HarpyNympho.class)),
 							null,
-							null, HARPY_NEST_NYMPHO_AFTER_SEX, "<p>"
+							null), HARPY_NEST_NYMPHO_AFTER_SEX, "<p>"
 								+ "Eager to help satisfy [harpyNympho.namePos] craving for sex, you reach down and grab her wings."
 								+ " Pulling her to her feet, you step forwards, before planting a deep kiss on her [harpyNympho.lips+]."
 							+ "</p>"
@@ -357,8 +355,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_TALK = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_TALK = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -433,8 +430,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_UGLY = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_UGLY = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -460,7 +456,7 @@ public class HarpyNestNympho {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new ResponseCombat("Fight", "[harpyNymphoCompanion.Name] rushes to do her matriarch's bidding!", Main.game.getHarpyNymphoCompanion());
+				return new ResponseCombat("Fight", "[harpyNymphoCompanion.Name] rushes to do her matriarch's bidding!", Main.game.getNpc(HarpyNymphoCompanion.class));
 					
 			} else {
 				return null;
@@ -468,8 +464,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_QUEEN = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_QUEEN = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -553,11 +548,11 @@ public class HarpyNestNympho {
 			 if (index == 1) {
 				return new ResponseSex("Sex", "Have dominant sex with [harpyNympho.name].",
 						true, false,
-						new SMStanding(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getHarpyNympho(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getPlayer()),
+								Util.newArrayListOfValues(Main.game.getNpc(HarpyNympho.class)),
 						null,
-						null, HARPY_NEST_NYMPHO_AFTER_SEX, "<p>"
+						null), HARPY_NEST_NYMPHO_AFTER_SEX, "<p>"
 							+ "Eager to help satisfy [harpyNympho.namePos] craving for sex, you reach down and grab her wings."
 							+ " Pulling her to her feet, you step forwards, before planting a deep kiss on her [harpyNympho.lips+]."
 						+ "</p>"
@@ -587,8 +582,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -613,7 +607,7 @@ public class HarpyNestNympho {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new ResponseCombat("Fight", "[harpyNymphoCompanion.Name] rushes to do her matriarch's bidding!", Main.game.getHarpyNymphoCompanion());
+				return new ResponseCombat("Fight", "[harpyNymphoCompanion.Name] rushes to do her matriarch's bidding!", Main.game.getNpc(HarpyNymphoCompanion.class));
 					
 			} else {
 				return null;
@@ -621,8 +615,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT_LOSE = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT_LOSE = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -692,7 +685,7 @@ public class HarpyNestNympho {
 								+ " An intense, sweet flavour hits your tongue, and you find that it's quite unlike anything you've ever tasted before."
 								+ " Before you know what you're doing, you're eagerly sucking and licking on the delicious candy, letting out little whining noises as you find yourself unable to stop..."
 							+ "</p>"
-							+ItemEffectType.NYMPHO_LOLLIPOP.applyEffect(null, null, null, 0, Main.game.getHarpyNympho(), Main.game.getPlayer(), null));
+							+ItemEffectType.NYMPHO_LOLLIPOP.applyEffect(null, null, null, 0, Main.game.getNpc(HarpyNympho.class), Main.game.getPlayer(), null));
 					}
 				};
 					
@@ -702,8 +695,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT_BEAT_BF = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT_BEAT_BF = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -726,7 +718,7 @@ public class HarpyNestNympho {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new ResponseCombat("Fight", "[harpyNympho.Name] looks furious as she launches her attack on you!", Main.game.getHarpyNympho());
+				return new ResponseCombat("Fight", "[harpyNympho.Name] looks furious as she launches her attack on you!", Main.game.getNpc(HarpyNympho.class));
 					
 			} else {
 				return null;
@@ -734,8 +726,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT_LOSE_TO_MATRIARCH = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT_LOSE_TO_MATRIARCH = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -804,7 +795,7 @@ public class HarpyNestNympho {
 								+ " An intense, sweet flavour hits your tongue, and you find that it's quite unlike anything you've ever tasted before."
 								+ " Before you know what you're doing, you're eagerly sucking and licking on the delicious candy, letting out little whining noises as you find yourself unable to stop..."
 							+ "</p>"
-							+ItemEffectType.NYMPHO_LOLLIPOP.applyEffect(null, null, null, 0, Main.game.getHarpyNympho(), Main.game.getPlayer(), null));
+							+ItemEffectType.NYMPHO_LOLLIPOP.applyEffect(null, null, null, 0, Main.game.getNpc(HarpyNympho.class), Main.game.getPlayer(), null));
 					}
 				};
 					
@@ -814,8 +805,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT_BEAT_NYMPHO = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT_BEAT_NYMPHO = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -864,11 +854,11 @@ public class HarpyNestNympho {
 			 if (index == 1) {
 				return new ResponseSex("Sex", "Have dominant sex with [harpyNympho.name].",
 						true, false,
-						new SMStanding(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getHarpyNympho(), SexPositionSlot.STANDING_SUBMISSIVE))),
+						new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getPlayer()),
+								Util.newArrayListOfValues(Main.game.getNpc(HarpyNympho.class)),
 						null,
-						null, HARPY_NEST_NYMPHO_AFTER_SEX, "<p>"
+						null), HARPY_NEST_NYMPHO_AFTER_SEX, "<p>"
 							+ "Eager to show this nest who's in charge, you reach down and grab [harpyNympho.namePos] wings."
 							+ " Pulling her to her feet, you step forwards, before planting a deep kiss on her [harpyNympho.lips+]."
 						+ "</p>"
@@ -898,8 +888,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT_LOSE_PUNISHMENT_NO_TF = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT_LOSE_PUNISHMENT_NO_TF = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -958,8 +947,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_FIGHT_LOSE_PUNISHMENT = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_FIGHT_LOSE_PUNISHMENT = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {
@@ -1023,8 +1011,7 @@ public class HarpyNestNympho {
 		}
 	};
 	
-	public static final DialogueNodeOld HARPY_NEST_NYMPHO_AFTER_SEX = new DialogueNodeOld("Harpy nest", ".", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode HARPY_NEST_NYMPHO_AFTER_SEX = new DialogueNode("Harpy nest", ".", true) {
 
 		@Override
 		public String getLabel() {

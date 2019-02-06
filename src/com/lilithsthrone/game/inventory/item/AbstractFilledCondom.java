@@ -2,7 +2,6 @@ package com.lilithsthrone.game.inventory.item;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serializable;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,6 +17,7 @@ import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.XMLSaving;
 
@@ -26,9 +26,8 @@ import com.lilithsthrone.utils.XMLSaving;
  * @version 0.1.88
  * @author Innoxia
  */
-public class AbstractFilledCondom extends AbstractItem implements Serializable, XMLSaving {
+public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 	
-	private static final long serialVersionUID = 1L;
 	
 	private String cumProvidor;
 	private FluidCum cum;
@@ -63,7 +62,7 @@ public class AbstractFilledCondom extends AbstractItem implements Serializable, 
 	}
 	
 	@Override
-	public boolean equals (Object o) {
+	public boolean equals(Object o) {
 		if(super.equals(o)) {
 			return (o instanceof AbstractFilledCondom)
 					&& ((AbstractFilledCondom)o).getCumProvidorId().equals(this.getCumProvidorId())
@@ -122,13 +121,7 @@ public class AbstractFilledCondom extends AbstractItem implements Serializable, 
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/" + pathName + ".svg");
 			String s = Util.inputStreamToString(is);
 
-			for (int i = 0; i <= 14; i++)
-				s = s.replaceAll("linearGradient" + i, this.hashCode() + colour.toString() + "linearGradient" + i);
-			s = s.replaceAll("#ff2a2a", colour.getShades()[0]);
-			s = s.replaceAll("#ff5555", colour.getShades()[1]);
-			s = s.replaceAll("#ff8080", colour.getShades()[2]);
-			s = s.replaceAll("#ffaaaa", colour.getShades()[3]);
-			s = s.replaceAll("#ffd5d5", colour.getShades()[4]);
+			s = SvgUtil.colourReplacement(String.valueOf(this.hashCode()), colour, s);
 			
 			is.close();
 			
@@ -151,11 +144,12 @@ public class AbstractFilledCondom extends AbstractItem implements Serializable, 
 					+ "</p>"
 					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitresStored));
 		} else {
-			return "<p>"
+			return UtilText.parse(user, target,
+					"<p>"
 						+ "[npc.Name] scrunches [npc.her] [npc.eyes] shut as [npc.she] [npc.verb(gulp)] down the slimy fluid,"
 						+ " trying [npc.her] best not to think about what [npc.sheHas] just done as "+(user.equals(target)?"[npc.she] [npc.verb(throw)]":"[npc2.name] [npc2.verb(throw)]")+" the now-empty condom to the floor..."
 					+ "</p>"
-					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitresStored);
+					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitresStored));
 		}
 		
 	}
@@ -168,7 +162,7 @@ public class AbstractFilledCondom extends AbstractItem implements Serializable, 
 		try {
 			return Main.game.getNPCById(cumProvidor);
 		} catch (Exception e) {
-			System.err.println("Main.game.getNPCById("+cumProvidor+") returning null in method: getCumProvidor()");
+			Util.logGetNpcByIdError("getCumProvidor()", cumProvidor);
 			return null;
 		}
 	}
@@ -183,10 +177,6 @@ public class AbstractFilledCondom extends AbstractItem implements Serializable, 
 
 	public void setMillilitresStored(int millilitresStored) {
 		this.millilitresStored = millilitresStored;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 	
 }

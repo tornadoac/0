@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.character.body;
 
-import java.io.Serializable;
 
 import com.lilithsthrone.game.PropertyValue;
 import com.lilithsthrone.game.character.GameCharacter;
@@ -18,11 +17,11 @@ import com.lilithsthrone.main.Main;
 
 /**
  * @since 0.1.0
- * @version 0.2.2
+ * @version 0.3.1
  * @author Innoxia
  */
-public class Face implements BodyPartInterface, Serializable {
-	private static final long serialVersionUID = 1L;
+public class Face implements BodyPartInterface {
+
 	
 	protected FaceType type;
 	protected boolean piercedNose;
@@ -100,8 +99,13 @@ public class Face implements BodyPartInterface, Serializable {
 	}
 	
 	public String setType(GameCharacter owner, FaceType type) {
-		if(owner==null) {
+		if(!Main.game.isStarted() || owner==null) {
 			this.type = type;
+			mouth.setType(type.getMouthType());
+			tongue.setType(type.getTongueType());
+			if(owner!=null) {
+				owner.postTransformationCalculation();
+			}
 			return "";
 		}
 		
@@ -528,5 +532,13 @@ public class Face implements BodyPartInterface, Serializable {
 		this.facialHair = facialHair;
 
 		return UtilText.transformationContentSB.toString();
+	}
+
+	@Override
+	public boolean isBestial(GameCharacter owner) {
+		if(owner==null) {
+			return false;
+		}
+		return owner.getLegConfiguration().getBestialParts().contains(Face.class);
 	}
 }
