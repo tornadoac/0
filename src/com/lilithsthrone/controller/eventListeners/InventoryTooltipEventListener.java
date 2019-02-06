@@ -32,6 +32,7 @@ import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.ShopTransaction;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
+import com.lilithsthrone.game.inventory.clothing.BodyPartClothingBlock;
 import com.lilithsthrone.game.inventory.enchanting.EnchantingUtils;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
@@ -42,8 +43,8 @@ import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.rendering.RenderingEngine;
 import com.lilithsthrone.rendering.Pattern;
+import com.lilithsthrone.rendering.RenderingEngine;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
 
@@ -83,93 +84,21 @@ public class InventoryTooltipEventListener implements EventListener {
 	@Override
 	public void handleEvent(Event event) {
 		if (item != null || (coreItem instanceof AbstractItem)) {
-			
 			if(coreItem != null) {
 				item = (AbstractItem) coreItem;
 			}
-			
 			itemTooltip(item);
 			
-//			int yIncrease = 0;
-//			if (InventoryDialogue.getInventoryNPC() != null && InventoryDialogue.getNPCInventoryInteraction() == InventoryInteraction.TRADING) {
-//				yIncrease += 2;
-//			}
-//			
-//			if(!item.getEffects().isEmpty()) {
-//				yIncrease+=1;
-//				for(ItemEffect ie : item.getEffects()) {
-//					yIncrease += ie.getEffectsDescription(Main.game.getPlayer(), Main.game.getPlayer()).size();
-//				}
-//			}
-//			
-//			Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 256 + (LINE_HEIGHT * yIncrease)); // TODO check shop for all
-//
-//			tooltipSB.setLength(0);
-//			tooltipSB.append("<div class='title'>" + Util.capitaliseSentence(item.getDisplayName(true)) + "</div>");
-//
-//			if(!item.getEffects().isEmpty()) {
-//				tooltipSB.append("<div class='subTitle'>");
-//				int ieCount=0;
-//				for(ItemEffect ie : item.getEffects()) {
-//					if(ieCount>0)
-//						tooltipSB.append("<br/>");
-//					ieCount++;
-//					for(int i=0; i<ie.getEffectsDescription(Main.game.getPlayer(), Main.game.getPlayer()).size(); i++) {
-//						if(i!=0)
-//							tooltipSB.append("<br/>");
-//						tooltipSB.append(ie.getEffectsDescription(Main.game.getPlayer(), Main.game.getPlayer()).get(i));
-//					}
-//				}
-//				tooltipSB.append("</div>");
-//			}
-//
-//			tooltipSB.append("<div class='subTitle-half'>"
-//					+ (item.isConsumedOnUse() ? "<span style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>Consumed on use</span>" : "<span style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Infinite uses</span>") + "</div>"
-//					+ "<div class='subTitle-half'>"
-//					+ "<span style='color:" + item.getRarity().getColour().toWebHexString() + ";'>"+Util.capitaliseSentence(item.getDisplayRarity())+"</span>"
-////					+ (item.isAbleToBeUsedInCombat()
-////							? (item.isAbleToBeUsedInSex()
-////									?"<span style='color:" + Colour.GENERIC_COMBAT.toWebHexString() + ";'>Combat</span> & <span style='color:" + Colour.GENERIC_SEX.toWebHexString() + ";'>Sex</span> use"
-////									:"<span style='color:" + Colour.GENERIC_COMBAT.toWebHexString() + ";'>Combat</span> use")
-////							: (item.isAbleToBeUsedInSex()
-////									?"<span style='color:" + Colour.GENERIC_SEX.toWebHexString() + ";'>Sex</span> use"
-////									:"Standard use"))
-//					+ "</div>"
-//
-//					+ "<div class='description' style='height:104px'>" + UtilText.parse(item.getDescription()) + "</div>"
-//					
-//					
-//					+ "<div class='subTitle'>" + UtilText.formatAsMoney(item.getValue()) + "</div>");
-//
-//			if (InventoryDialogue.getInventoryNPC() != null && InventoryDialogue.getNPCInventoryInteraction() == InventoryInteraction.TRADING) {
-//				if (owner.isPlayer()) {
-//					if (InventoryDialogue.getInventoryNPC().willBuy(item))
-//						tooltipSB.append("<div class='subTitle'>" + InventoryDialogue.getInventoryNPC().getName("The") + " offers " + UtilText.formatAsMoney(item.getPrice(InventoryDialogue.getInventoryNPC().getBuyModifier())) + "</div>");
-//					else
-//						tooltipSB.append(
-//								"<div class='subTitle'>" + "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>" + InventoryDialogue.getInventoryNPC().getName("The") + " will not buy this</span>" + "</div>");
-//				} else {
-//					if (InventoryDialogue.isBuyback()) {
-//						tooltipSB.append("<div class='subTitle'>" + InventoryDialogue.getInventoryNPC().getName("The") + " wants " + UtilText.formatAsMoney(getBuybackPriceFor(item)) + "</div>");
-//					} else {
-//						tooltipSB.append("<div class='subTitle'>" + InventoryDialogue.getInventoryNPC().getName("The") + " wants " + UtilText.formatAsMoney(item.getPrice(InventoryDialogue.getInventoryNPC().getSellModifier())) + "</div>");
-//					}
-//					
-//				}
-//			}
-//
-//			Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
-
 		} else if (weapon != null || (coreItem instanceof AbstractWeapon)) {
-			if(coreItem != null)
+			if(coreItem != null) {
 				weapon = (AbstractWeapon) coreItem;
-
+			}
 			weaponTooltip(weapon);
 
 		} else if (clothing != null || (coreItem instanceof AbstractClothing)) {
-			if(coreItem != null)
+			if(coreItem != null) {
 				clothing = (AbstractClothing) coreItem;
-			
+			}
 			clothingTooltip(clothing);
 
 		} else if(tattoo!=null) {
@@ -179,9 +108,11 @@ public class InventoryTooltipEventListener implements EventListener {
 
 			Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 446);
 
+			Colour subtitleColour = dyeClothing.isEnchantmentKnown()?dyeClothing.getRarity().getColour():Colour.RARITY_UNKNOWN;
+			
 			tooltipSB.setLength(0);
 			if(colour!=null) {
-				tooltipSB.append("<div class='title' style='color:" + dyeClothing.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
+				tooltipSB.append("<div class='title' style='color:" + subtitleColour.toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
 						+ "<div class='subTitle'>" + Util.capitaliseSentence(colour.getName()) + "</div>"
 						+ "<div class='picture full' style='position:relative;'>"
 						+ dyeClothing.getClothingType().getSVGImage(
@@ -191,7 +122,7 @@ public class InventoryTooltipEventListener implements EventListener {
 						+ "</div>");
 			
 			} else if(secondaryColour!=null) {
-				tooltipSB.append("<div class='title' style='color:" + dyeClothing.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
+				tooltipSB.append("<div class='title' style='color:" + subtitleColour.toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
 						+ "<div class='subTitle'>" + Util.capitaliseSentence(secondaryColour.getName()) + "</div>"
 						+ "<div class='picture full' style='position:relative;'>"
 						+ dyeClothing.getClothingType().getSVGImage(
@@ -201,7 +132,7 @@ public class InventoryTooltipEventListener implements EventListener {
 						+ "</div>");
 				
 			} else if(tertiaryColour!=null) {
-				tooltipSB.append("<div class='title' style='color:" + dyeClothing.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
+				tooltipSB.append("<div class='title' style='color:" + subtitleColour.toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
 						+ "<div class='subTitle'>" + Util.capitaliseSentence(tertiaryColour.getName()) + "</div>"
 						+ "<div class='picture full' style='position:relative;'>"
 						+ dyeClothing.getClothingType().getSVGImage(
@@ -211,7 +142,7 @@ public class InventoryTooltipEventListener implements EventListener {
 						+ "</div>");
 				
 			} else if(pattern!=null) {
-				tooltipSB.append("<div class='title' style='color:" + dyeClothing.getRarity().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
+				tooltipSB.append("<div class='title' style='color:" + subtitleColour.toWebHexString() + ";'>" + Util.capitaliseSentence(dyeClothing.getName()) + "</div>"
 						
 						+ "<div class='subTitle'>" + Util.capitaliseSentence(pattern.getNiceName()) + "</div>"
 	
@@ -329,17 +260,19 @@ public class InventoryTooltipEventListener implements EventListener {
 						
 						List<String> clothingBlockingThisSlot = new ArrayList<>();
 						for (AbstractClothing c : equippedToCharacter.getClothingCurrentlyEquipped()) {
-							if (c.getClothingType().getIncompatibleSlots().contains(invSlot)) {
+							if (c.getClothingType().getIncompatibleSlots(equippedToCharacter).contains(invSlot)) {
 								clothingBlockingThisSlot.add(c.getName());
 							}
 						}
+						
+						BodyPartClothingBlock block = invSlot.getBodyPartClothingBlock(equippedToCharacter);
 						
 						if (!renderingTattoos && !clothingBlockingThisSlot.isEmpty()) {
 							setBlockedTooltipContent(UtilText.parse(equippedToCharacter, "This slot is currently <b style='color:" + Colour.SEALED.toWebHexString() + ";'>blocked</b> by [npc.namePos] ")
 									+ Util.stringsToStringList(clothingBlockingThisSlot, false) + ".");
 							
-						} else if (!renderingTattoos && invSlot.slotBlockedByRace(equippedToCharacter) != null) {
-							setBlockedTooltipContent(invSlot.getCannotBeWornDescription(equippedToCharacter));
+						} else if (!renderingTattoos && block != null) {
+							setBlockedTooltipContent("<span style='color:" + Colour.GENERIC_MINOR_BAD.toWebHexString() + ";'>Restricted!</span>", UtilText.parse(equippedToCharacter, block.getDescription()));
 							
 						} else {
 							
@@ -507,8 +440,7 @@ public class InventoryTooltipEventListener implements EventListener {
 									scarTooltip(equippedToCharacter.getScarInSlot(invSlot));
 									
 								} else {
-									Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 60);
-									Main.mainController.setTooltipContent(UtilText.parse("<div class='title'>" + Util.capitaliseSentence(invSlot.getName()) + "</div>"));
+									setEmptyInventorySlotTooltipContent();
 								}
 							}
 						}
@@ -522,8 +454,7 @@ public class InventoryTooltipEventListener implements EventListener {
 					}
 					
 				} else {
-					Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 60);
-					Main.mainController.setTooltipContent(UtilText.parse("<div class='title'>" + Util.capitaliseSentence(invSlot.getName()) + "</div>"));
+					setEmptyInventorySlotTooltipContent();
 				}
 			}
 			
@@ -558,11 +489,41 @@ public class InventoryTooltipEventListener implements EventListener {
 		// Main.mainController.getTooltip().show(Main.primaryStage);
 	}
 
+
 	private void setBlockedTooltipContent(String description){
-		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 164);
-		Main.mainController.setTooltipContent(UtilText.parse(
-				"<div class='title'>" + Util.capitaliseSentence(invSlot.getName()) + ": <span style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>Blocked!</span></div>"
-				+ "<div class='description'>" + UtilText.parse(description) + "</div>"));
+		setBlockedTooltipContent("<span style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>Blocked!</span>", description);
+	}
+	private void setBlockedTooltipContent(String title, String description){
+		boolean dirty = equippedToCharacter.isDirtySlot(invSlot);
+		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 144);
+		Main.mainController.setTooltipContent(UtilText.parse(equippedToCharacter,
+				"<div class='title'>"
+						+ Util.capitaliseSentence(invSlot.getName())+ ": "+title
+				+ "</div>"
+				+"<div class='description' style='height:72px; text-align:center;'>"
+					+ (dirty
+						?"[npc.NamePos] "+invSlot.getName()+" "+(invSlot.isPlural()?"are":"is")
+								+ " <span style='color:"+Colour.CUM.toWebHexString()+";'>dirty</span>!<br/>"
+						:"")
+					 + UtilText.parse(description)
+				 +"</div>"));
+	}
+	
+
+
+	private void setEmptyInventorySlotTooltipContent(){
+		boolean dirty = equippedToCharacter.isDirtySlot(invSlot);
+		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 60+(dirty?56:0));
+		Main.mainController.setTooltipContent(UtilText.parse(equippedToCharacter,
+				"<div class='title'>"
+						+ Util.capitaliseSentence(invSlot.getName())
+				+ "</div>"
+				+ (dirty
+					?"<div class='description' style='height:48px; text-align:center;'>"
+							+ "[npc.NamePos] "+invSlot.getName()+" "+(invSlot.isPlural()?"have":"has")
+							+ " been <span style='color:"+Colour.CUM.toWebHexString()+";'>dirtied</span> by sexual fluids!"
+						+ "</div>"
+					:"")));
 	}
 	
 	
@@ -661,11 +622,13 @@ public class InventoryTooltipEventListener implements EventListener {
 		return this;
 	}
 
-	public InventoryTooltipEventListener setWeapon(AbstractWeapon weapon, GameCharacter equippedToCharacter) {
+	public InventoryTooltipEventListener setWeapon(AbstractWeapon weapon, GameCharacter owner, boolean isEquipped) {
 		resetVariables();
 		this.weapon = weapon;
-		this.equippedToCharacter = equippedToCharacter;
-		this.owner = equippedToCharacter;
+		if(isEquipped) {
+			this.equippedToCharacter = owner;
+		}
+		this.owner = owner;
 		return this;
 	}
 
@@ -824,7 +787,6 @@ public class InventoryTooltipEventListener implements EventListener {
 		int yIncrease = 0;
 		int listIncrease = 2 + absWep.getAttributeModifiers().size();
 		listIncrease += absWep.getSpells().size();
-		yIncrease += Math.max(0, listIncrease-3);
 		
 		
 		// Title:
@@ -847,18 +809,30 @@ public class InventoryTooltipEventListener implements EventListener {
 				+ "<span style='color:" + absWep.getRarity().getColour().toWebHexString() + ";'>"+Util.capitaliseSentence(absWep.getDisplayRarity())+"</span></br>"
 				+ (absWep.getWeaponType().isTwoHanded()? "Two-handed" : "One-handed")+"</br>"
 				);
+		
+		int cost = absWep.getWeaponType().getArcaneCost();
+		if(cost>0) {
+			listIncrease++;
+			tooltipSB.append("Costs [style.boldArcane("+cost+" Arcane essence"+(cost>1?"s":"")+")] "+(absWep.getWeaponType().isMelee()?"per attack":"to fire")+"<br/>");
+		}
+		
 		if (equippedToCharacter != null) {
 			tooltipSB.append("<b>"
-								+ Attack.getMinimumDamage(owner, null, Attack.MAIN, absWep)
-								+ " - "
-								+ Attack.getMaximumDamage(owner, null, Attack.MAIN, absWep)
+								+ Attack.getMinimumDamage(equippedToCharacter, null, Attack.MAIN, absWep) + " - " + Attack.getMaximumDamage(equippedToCharacter, null, Attack.MAIN, absWep)
 							+ "</b>"
 							+ " <b style='color:" + absWep.getDamageType().getMultiplierAttribute().getColour().toWebHexString() + ";'>Damage</b>");
 		} else {
+			if(owner!=null && !owner.isPlayer()) {
+				listIncrease++;
+				tooltipSB.append(UtilText.parse(owner, "[npc.Name]: ")
+					+"<b>"
+						+ Attack.getMinimumDamage(owner, null, Attack.MAIN, absWep) + " - " + Attack.getMaximumDamage(owner, null, Attack.MAIN, absWep)
+					+ "</b>"
+					+ " <b style='color:" + absWep.getDamageType().getMultiplierAttribute().getColour().toWebHexString() + ";'>Damage</b><br/>"
+					+ "You: ");
+			}
 			tooltipSB.append("<b>"
-								+ Attack.getMinimumDamage(Main.game.getPlayer(), null, Attack.MAIN, absWep)
-								+ " - "
-								+ Attack.getMaximumDamage(Main.game.getPlayer(), null, Attack.MAIN, absWep)
+								+ Attack.getMinimumDamage(Main.game.getPlayer(), null, Attack.MAIN, absWep) + " - " + Attack.getMaximumDamage(Main.game.getPlayer(), null, Attack.MAIN, absWep)
 							+ "</b>"
 							+ " <b style='color:" + absWep.getDamageType().getMultiplierAttribute().getColour().toWebHexString() + ";'>Damage</b>");
 		}
@@ -938,6 +912,7 @@ public class InventoryTooltipEventListener implements EventListener {
 		
 		tooltipSB.append("</body>");
 
+		yIncrease += Math.max(0, listIncrease-3);
 		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 364 + (yIncrease * LINE_HEIGHT));
 		Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
 		
@@ -1202,7 +1177,7 @@ public class InventoryTooltipEventListener implements EventListener {
 			}
 			
 			if (tattoo.getCounter()!=null && tattoo.getCounter().getType()!=TattooCounterType.NONE) {
-				tooltipSB.append("<div class='container-full-width' style='padding:8px; height:54px; text-align:center;'>"
+				tooltipSB.append("<div class='container-full-width' style='padding:8px; height:68px; text-align:center;'>"
 									+ "An enchanted, "+tattoo.getCounter().getColour().getName()+" "+tattoo.getCounter().getType().getName()+" counter reads:<br/>"
 										+ "<span style='color:"+tattoo.getCounter().getColour().toWebHexString()+";'>"
 												+tattoo.getFormattedCounterOutput(equippedToCharacter)
@@ -1223,7 +1198,7 @@ public class InventoryTooltipEventListener implements EventListener {
 		if(tattoo.getDisplayName(false).length()>40) {
 			specialIncrease = 26;
 		}
-		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 396 + ((lSize+yIncrease) * LINE_HEIGHT) + yIncrease*8 + specialIncrease);
+		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 410 + ((lSize+yIncrease) * LINE_HEIGHT) + yIncrease*8 + specialIncrease);
 		Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
 	}
 	

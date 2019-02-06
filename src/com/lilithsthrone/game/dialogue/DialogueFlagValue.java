@@ -2,7 +2,7 @@ package com.lilithsthrone.game.dialogue;
 
 /**
  * @since 0.1.89
- * @version 0.2.11
+ * @version 0.3.1
  * @author Innoxia
  */
 public enum DialogueFlagValue {
@@ -44,6 +44,7 @@ public enum DialogueFlagValue {
 	roxyIntroduced,
 	axelIntroduced,
 	eponaIntroduced,
+	elizabethIntroduced,
 	
 	
 	// Red-light district:
@@ -73,10 +74,13 @@ public enum DialogueFlagValue {
 	lilayaDateTalk,
 	auntHomeJustEntered,
 	hadSexWithLilaya,
+	lilayaCondomBroke,
 	reactedToPregnancyLilaya,
 	waitingOnLilayaPregnancyResults,
+	waitingOnLilayaBirthNews,
 	essenceExtractionKnown,
 	roseToldOnYou,
+	lilayaReactedToPlayerAsDemon,
 	
 	readBook1,
 	readBook2,
@@ -111,6 +115,7 @@ public enum DialogueFlagValue {
 	
 	// Slaver Alley:
 	finchIntroduced,
+	statueTruthRevealed,
 	
 	// Zaranix:
 	zaranixDiscoveredHome,
@@ -157,25 +162,45 @@ public enum DialogueFlagValue {
 	krugerIntroduced,
 	
 	// Submission:
+	impCitadelEncountered,
+	impCitadelArcanistEncountered,
+	impCitadelArcanistAcceptedTF,
+	impCitadelTreasurySearched,
+	impCitadelLaboratorySearched,
+
+	impCitadelPrisonerMale,
+	impCitadelPrisonerFemale,
+	impCitadelPrisonerAlpha,
+	
 	impFortressAlphaGuardsPacified,
 	impFortressAlphaBossEncountered,
 	impFortressAlphaPacified,
 	impFortressAlphaDefeated,
-
+	
 	impFortressFemalesGuardsPacified,
 	impFortressFemalesBossEncountered,
 	impFortressFemalesPacified,
 	impFortressFemalesDefeated,
-
+	
 	impFortressMalesGuardsPacified,
 	impFortressMalesBossEncountered,
 	impFortressMalesPacified,
 	impFortressMalesDefeated,
-
-
-	impFortressDemonGuardsPacified,
+	
 	impFortressDemonBossEncountered,
 	impFortressDemonDefeated,
-	impFortressTransformedByGuards,
+	impFortressDemonImpsDefeated,
+	
+	elizabethAskedAboutUniforms,
+	elizabethAskedAboutSurname,
+	
+	lyssiethQuestionAsked1,
+	lyssiethQuestionAsked2,
+	lyssiethQuestionAsked3,
+	lyssiethQuestionAsked4,
+	lyssiethQuestionAsked5,
+
+	meraxisRepeatDemonTF,
+	
 	;
 }

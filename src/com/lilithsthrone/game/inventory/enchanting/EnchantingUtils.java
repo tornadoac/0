@@ -24,6 +24,7 @@ import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -55,12 +56,11 @@ public class EnchantingUtils {
 	public static AbstractClothing craftClothing(AbstractCoreItem ingredient, List<ItemEffect> effects) {
 		AbstractClothing craftedClothing = null;
 
-		List<ItemEffect> effectsToBeAdded = new ArrayList<>();
-		effectsToBeAdded.addAll(effects);
+		List<ItemEffect> effectsToBeAdded = new ArrayList<>(effects);
 		
 		craftedClothing = AbstractClothingType.generateClothing(
 				(AbstractClothingType) ingredient.getEnchantmentItemType(effects),
-				ingredient.getColour(),
+				((AbstractClothing)ingredient).getColour(),
 				((AbstractClothing)ingredient).getSecondaryColour(),
 				((AbstractClothing)ingredient).getTertiaryColour(),
 				effectsToBeAdded);
@@ -77,10 +77,11 @@ public class EnchantingUtils {
 		return craftedClothing;
 	}
 	
-	public static void craftTattoo(AbstractCoreItem ingredient, List<ItemEffect> effects) {
+	public static Tattoo craftTattoo(AbstractCoreItem ingredient, List<ItemEffect> effects) {
 		List<ItemEffect> effectsToBeAdded = new ArrayList<>(effects);
 		((Tattoo)ingredient).setEffects(effectsToBeAdded);
 		((Tattoo)ingredient).setName(EnchantmentDialogue.getOutputName());
+		return (Tattoo) ingredient;
 	}
 	
 	public static AbstractWeapon craftWeapon(AbstractCoreItem ingredient, List<ItemEffect> effects) {
@@ -92,7 +93,7 @@ public class EnchantingUtils {
 		craftedWeapon = AbstractWeaponType.generateWeapon(
 				(AbstractWeaponType) ingredient.getEnchantmentItemType(effects),
 				((AbstractWeapon) ingredient).getDamageType(),
-				ingredient.getColour(),
+				((AbstractWeapon)ingredient).getPrimaryColour(),
 				((AbstractWeapon)ingredient).getSecondaryColour());
 		
 		craftedWeapon.setEffects(effectsToBeAdded);
@@ -168,7 +169,7 @@ public class EnchantingUtils {
 	
 	
 	
-	private static Set<TFModifier> freePrimaryModifiers = Util.newHashSetOfValues(TFModifier.TF_MOD_WETNESS, TFModifier.TF_MILK, TFModifier.TF_CUM, TFModifier.TF_GIRLCUM);
+	private static Set<TFModifier> freePrimaryModifiers = Util.newHashSetOfValues(TFModifier.TF_MOD_WETNESS, TFModifier.TF_MILK, TFModifier.TF_MILK_CROTCH, TFModifier.TF_CUM, TFModifier.TF_GIRLCUM);
 	private static Set<TFModifier> freeSecondaryModifiers = Util.newHashSetOfValues(TFModifier.TF_MOD_WETNESS, TFModifier.TF_MOD_REGENERATION, TFModifier.TF_MOD_CUM_EXPULSION);
 	
 	private static boolean isEffectFreeForWaterSchool(ItemEffect effect) {
@@ -215,7 +216,22 @@ public class EnchantingUtils {
 		
 		int cost = 0;
 		for(Entry<ItemEffect, Integer> entry : effectCount.entrySet()) {
-			cost += entry.getKey().getCost() * Math.abs(entry.getValue());
+			int costIncrement = entry.getKey().getCost() * Math.abs(entry.getValue());
+			
+			if(entry.getKey().getPrimaryModifier()==TFModifier.CLOTHING_SEALING) {
+				switch(entry.getKey().getPotency()) {
+					case MAJOR_BOOST:
+						costIncrement*=4;
+						break;
+					case BOOST:
+						costIncrement*=2;
+						break;
+					default:
+						break;
+				}
+			}
+			
+			cost += costIncrement;
 		}
 		
 		return applyDiscountsForPerksAndFetishes(ingredient, cost);
@@ -261,13 +277,8 @@ public class EnchantingUtils {
 			}
 		}
 
-		s = Util.colourReplacement(((AbstractItem)ingredient).getItemType().getId(), colour, null, null, s);
+		s = SvgUtil.colourReplacement(((AbstractItem)ingredient).getItemType().getId(), colour, null, null, s);
 		
-//		s = s.replaceAll("#ff2a2a", colour.getShades()[0]);
-//		s = s.replaceAll("#ff5555", colour.getShades()[1]);
-//		s = s.replaceAll("#ff8080", colour.getShades()[2]);
-//		s = s.replaceAll("#ffaaaa", colour.getShades()[3]);
-//		s = s.replaceAll("#ffd5d5", colour.getShades()[4]);
 		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+s+"</div>");
 		
 		for(ItemEffect ie : effects) {
@@ -321,9 +332,9 @@ public class EnchantingUtils {
 		}
 		
 		s = s.replaceAll("#ff2a2a", colour.getShades()[0]);
-		s = s.replaceAll("#ff5555", colour.getShades()[1]);
+		s = s.replaceAll("#ff5555|#f55", colour.getShades()[1]);
 		s = s.replaceAll("#ff8080", colour.getShades()[2]);
-		s = s.replaceAll("#ffaaaa", colour.getShades()[3]);
+		s = s.replaceAll("#ffaaaa|#faa", colour.getShades()[3]);
 		s = s.replaceAll("#ffd5d5", colour.getShades()[4]);
 		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+s+"</div>");
 		

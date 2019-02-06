@@ -185,7 +185,7 @@ public abstract class SexAction implements SexActionInterface {
 	/**
 	 * To be overridden to add extra fetishes on top of the automatically-generated ones in getFetishes() and getFetishesForTargetedPartner().
 	 */
-	public List<Fetish> getExtraFetishes(GameCharacter characterPerformingAction) {
+	public List<Fetish> getExtraFetishes(GameCharacter character) {
 		return null;
 	}
 	
@@ -202,6 +202,11 @@ public abstract class SexAction implements SexActionInterface {
 			if(getExtraFetishes(characterPerformingAction)!=null) {
 				for(Fetish f : getExtraFetishes(characterPerformingAction)) {
 					characterFetishes.get(characterPerformingAction).add(f);
+				}
+			}
+			if(getExtraFetishes(characterTarget)!=null) {
+				for(Fetish f : getExtraFetishes(characterTarget)) {
+					characterFetishesForPartner.get(characterPerformingAction).add(f);
 				}
 			}
 			
@@ -274,6 +279,14 @@ public abstract class SexAction implements SexActionInterface {
 							characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_OTHERS);
 							characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_SELF);
 							break;
+						case BREASTS_CROTCH: case NIPPLES_CROTCH:
+							if(characterTarget.getBreastCrotchRawMilkStorageValue()>0) {
+								characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_OTHERS);
+								characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_SELF);
+							}
+							characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_OTHERS);
+							characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_SELF);
+							break;
 						case HAIR:
 							break;
 						case HANDS:
@@ -327,6 +340,14 @@ public abstract class SexAction implements SexActionInterface {
 							characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_SELF);
 							characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_OTHERS);
 							break;
+						case BREASTS_CROTCH: case NIPPLES_CROTCH:
+							if(characterPerformingAction.getBreastCrotchRawMilkStorageValue()>0) {
+								characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_SELF);
+								characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_OTHERS);
+							}
+							characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_SELF);
+							characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_OTHERS);
+							break;
 						case HAIR:
 							break;
 						case HANDS:
@@ -372,6 +393,14 @@ public abstract class SexAction implements SexActionInterface {
 								break;
 							case BREAST: case NIPPLE:
 								if(characterTarget.getBreastRawMilkStorageValue()>0) {
+									characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_OTHERS);
+									characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_SELF);
+								}
+								characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_OTHERS);
+								characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_SELF);
+								break;
+							case BREAST_CROTCH: case NIPPLE_CROTCH:
+								if(characterTarget.getBreastCrotchRawMilkStorageValue()>0) {
 									characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_OTHERS);
 									characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_SELF);
 								}
@@ -447,6 +476,14 @@ public abstract class SexAction implements SexActionInterface {
 								break;
 							case BREAST: case NIPPLE:
 								if(characterPerformingAction.getBreastRawMilkStorageValue()>0) {
+									characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_SELF);
+									characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_OTHERS);
+								}
+								characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_SELF);
+								characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_BREASTS_OTHERS);
+								break;
+							case BREAST_CROTCH: case NIPPLE_CROTCH:
+								if(characterPerformingAction.getBreastCrotchRawMilkStorageValue()>0) {
 									characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_SELF);
 									characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_LACTATION_OTHERS);
 								}

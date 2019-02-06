@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.inventory.weapon;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +37,8 @@ import com.lilithsthrone.utils.XMLSaving;
  * @version 0.2.11
  * @author Innoxia
  */
-public abstract class AbstractWeapon extends AbstractCoreItem implements Serializable, XMLSaving {
+public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSaving {
 
-	private static final long serialVersionUID = 1L;
 
 	private AbstractWeaponType weaponType;
 	protected List<ItemEffect> effects;
@@ -131,7 +129,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements Seriali
 	}
 	
 	@Override
-	public boolean equals (Object o) {
+	public boolean equals(Object o) {
 		if(super.equals(o)){
 			if(o instanceof AbstractWeapon){
 				if(((AbstractWeapon)o).getWeaponType().equals(getWeaponType())
@@ -194,11 +192,24 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements Seriali
 	}
 	
 	public static AbstractWeapon loadFromXML(Element parentElement, Document doc) {
-		AbstractWeapon weapon = AbstractWeaponType.generateWeapon(WeaponType.idToWeaponMap.get(parentElement.getAttribute("id")), DamageType.valueOf(parentElement.getAttribute("damageType")));
+		AbstractWeapon weapon = null;
+		
+		try {
+			weapon = AbstractWeaponType.generateWeapon(WeaponType.idToWeaponMap.get(parentElement.getAttribute("id")), DamageType.valueOf(parentElement.getAttribute("damageType")));
+		} catch(Exception ex) {
+			System.err.println("Warning: An instance of AbstractWeapon was unable to be imported. ("+parentElement.getAttribute("id")+")");
+			return null;
+		}
+		
+		if(weapon==null) {
+			System.err.println("Warning: An instance of AbstractWeapon was unable to be imported. ("+parentElement.getAttribute("id")+")");
+			return null;
+		}
+		
 		
 		if(!parentElement.getAttribute("coreEnchantment").equals("null")) {
 			try {
-				weapon.coreEnchantment = Attribute.valueOf(parentElement.getAttribute("coreEnchantment"));
+				weapon.coreEnchantment = Attribute.getAttributeFromId(parentElement.getAttribute("coreEnchantment"));
 			} catch(Exception ex) {
 			}
 		}
@@ -233,7 +244,11 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements Seriali
 		for(int i=0; i<spellElements.getLength(); i++){
 			Element e = ((Element)spellElements.item(i));
 			try {
-				weapon.spells.add(Spell.valueOf(e.getAttribute("value")));
+				String weaponId = e.getAttribute("value");
+				if(weaponId.equals("DARK_SIREN_BANEFUL_FISSURE")) {
+					weaponId = "DARK_SIREN_SIRENS_CALL";
+				}
+				weapon.spells.add(Spell.valueOf(weaponId));
 			} catch(Exception ex) {
 			}
 		}
@@ -423,8 +438,8 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements Seriali
 		return this.getWeaponType().getUnableToBeUsedDescription();
 	}
 	
-	public String applyExtraEfects(GameCharacter user, GameCharacter target, boolean isHit) {
-		return this.getWeaponType().applyExtraEfects(user, target, isHit);
+	public String applyExtraEffects(GameCharacter user, GameCharacter target, boolean isHit) {
+		return this.getWeaponType().applyExtraEffects(user, target, isHit);
 	}
 	
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 
 <clothing>
-  <coreAtributes>
+  <coreAttributes>
     <value>800</value>
     <determiner><![CDATA[a]]></determiner>
     <name><![CDATA[strapless strap-on]]></name>
@@ -52,9 +52,11 @@
       <tag>PLUGS_VAGINA</tag>
       <tag>REQUIRES_NO_PENIS</tag>
       <tag>DILDO_LARGE</tag>
+      <tag>ENABLE_SEX_EQUIP</tag>
+      <tag>TRANSPARENT</tag>
     </itemTags>
 
-  </coreAtributes>
+  </coreAttributes>
 
   <displacementText type="REMOVE_OR_EQUIP">
     <playerSelf>
@@ -103,7 +105,7 @@
       <![CDATA[[npc.Name] holds you still as [npc.sheHe] roughly forces the strapless dildo into your [pc.vagina+]]]>
     </NPCPlayerRough>
     <NPCOtherNPC>
-      <![CDATA[[npc1.Name] pushs the strapless dildo into [npc2.Name]'s [npc2.vagina+].]]>
+      <![CDATA[[npc1.Name] pushes the strapless dildo into [npc2.Name]'s [npc2.vagina+].]]>
     </NPCOtherNPC>
     <NPCOtherNPCRough>
       <![CDATA[[npc1.Name] holds [npc2.name] still as [npc1.sheHe] roughly forces the strapless dildo into [npc2.herHis] [npc2.vagina+].]]>

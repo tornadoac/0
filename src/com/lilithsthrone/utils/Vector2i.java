@@ -1,14 +1,11 @@
 package com.lilithsthrone.utils;
 
-import java.io.Serializable;
-
 /**
  * @since 0.1.0
- * @version 0.2.2
+ * @version 0.3
  * @author Innoxia
  */
-public class Vector2i implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Vector2i {
 	int x, y;
 
 	public Vector2i(int x, int y) {
@@ -37,7 +34,7 @@ public class Vector2i implements Serializable {
 	}
 	
 	@Override
-	public boolean equals (Object o) {
+	public boolean equals(Object o) {
 		if(o instanceof Vector2i){
 			if(((Vector2i)o).getX() == x
 				&& ((Vector2i)o).getY() == y){

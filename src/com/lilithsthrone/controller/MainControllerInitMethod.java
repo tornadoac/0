@@ -1,15 +1,91 @@
 package com.lilithsthrone.controller;
 
+import java.io.File;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.events.EventTarget;
+
 import com.lilithsthrone.controller.eventListeners.EnchantmentEventListener;
 import com.lilithsthrone.controller.eventListeners.InventorySelectedItemEventListener;
 import com.lilithsthrone.controller.eventListeners.InventoryTooltipEventListener;
 import com.lilithsthrone.controller.eventListeners.TooltipInformationEventListener;
 import com.lilithsthrone.game.Game;
+import com.lilithsthrone.game.Properties;
 import com.lilithsthrone.game.PropertyValue;
+import com.lilithsthrone.game.character.FluidStored;
 import com.lilithsthrone.game.character.GameCharacter;
-import com.lilithsthrone.game.character.body.*;
-import com.lilithsthrone.game.character.body.types.*;
-import com.lilithsthrone.game.character.body.valueEnums.*;
+import com.lilithsthrone.game.character.body.Arm;
+import com.lilithsthrone.game.character.body.Breast;
+import com.lilithsthrone.game.character.body.BreastCrotch;
+import com.lilithsthrone.game.character.body.CoverableArea;
+import com.lilithsthrone.game.character.body.Covering;
+import com.lilithsthrone.game.character.body.Eye;
+import com.lilithsthrone.game.character.body.Horn;
+import com.lilithsthrone.game.character.body.Tail;
+import com.lilithsthrone.game.character.body.Testicle;
+import com.lilithsthrone.game.character.body.types.AbstractArmType;
+import com.lilithsthrone.game.character.body.types.AbstractAssType;
+import com.lilithsthrone.game.character.body.types.AbstractBreastType;
+import com.lilithsthrone.game.character.body.types.AbstractHornType;
+import com.lilithsthrone.game.character.body.types.AbstractLegType;
+import com.lilithsthrone.game.character.body.types.AntennaType;
+import com.lilithsthrone.game.character.body.types.ArmType;
+import com.lilithsthrone.game.character.body.types.AssType;
+import com.lilithsthrone.game.character.body.types.BodyCoveringType;
+import com.lilithsthrone.game.character.body.types.BreastType;
+import com.lilithsthrone.game.character.body.types.EarType;
+import com.lilithsthrone.game.character.body.types.EyeType;
+import com.lilithsthrone.game.character.body.types.FaceType;
+import com.lilithsthrone.game.character.body.types.FootStructure;
+import com.lilithsthrone.game.character.body.types.HairType;
+import com.lilithsthrone.game.character.body.types.HornType;
+import com.lilithsthrone.game.character.body.types.LegType;
+import com.lilithsthrone.game.character.body.types.PenisType;
+import com.lilithsthrone.game.character.body.types.SkinType;
+import com.lilithsthrone.game.character.body.types.TailType;
+import com.lilithsthrone.game.character.body.types.VaginaType;
+import com.lilithsthrone.game.character.body.types.WingType;
+import com.lilithsthrone.game.character.body.valueEnums.AgeCategory;
+import com.lilithsthrone.game.character.body.valueEnums.AreolaeSize;
+import com.lilithsthrone.game.character.body.valueEnums.AssSize;
+import com.lilithsthrone.game.character.body.valueEnums.BodyHair;
+import com.lilithsthrone.game.character.body.valueEnums.BodySize;
+import com.lilithsthrone.game.character.body.valueEnums.BreastShape;
+import com.lilithsthrone.game.character.body.valueEnums.Capacity;
+import com.lilithsthrone.game.character.body.valueEnums.ClitorisSize;
+import com.lilithsthrone.game.character.body.valueEnums.CoveringModifier;
+import com.lilithsthrone.game.character.body.valueEnums.CoveringPattern;
+import com.lilithsthrone.game.character.body.valueEnums.CumProduction;
+import com.lilithsthrone.game.character.body.valueEnums.CupSize;
+import com.lilithsthrone.game.character.body.valueEnums.EyeShape;
+import com.lilithsthrone.game.character.body.valueEnums.Femininity;
+import com.lilithsthrone.game.character.body.valueEnums.GenitalArrangement;
+import com.lilithsthrone.game.character.body.valueEnums.HairLength;
+import com.lilithsthrone.game.character.body.valueEnums.HairStyle;
+import com.lilithsthrone.game.character.body.valueEnums.HipSize;
+import com.lilithsthrone.game.character.body.valueEnums.HornLength;
+import com.lilithsthrone.game.character.body.valueEnums.LabiaSize;
+import com.lilithsthrone.game.character.body.valueEnums.Lactation;
+import com.lilithsthrone.game.character.body.valueEnums.LegConfiguration;
+import com.lilithsthrone.game.character.body.valueEnums.LipSize;
+import com.lilithsthrone.game.character.body.valueEnums.Muscle;
+import com.lilithsthrone.game.character.body.valueEnums.NippleSize;
+import com.lilithsthrone.game.character.body.valueEnums.OrificeElasticity;
+import com.lilithsthrone.game.character.body.valueEnums.OrificeModifier;
+import com.lilithsthrone.game.character.body.valueEnums.OrificePlasticity;
+import com.lilithsthrone.game.character.body.valueEnums.PenetrationModifier;
+import com.lilithsthrone.game.character.body.valueEnums.PenisGirth;
+import com.lilithsthrone.game.character.body.valueEnums.PiercingType;
+import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
+import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
+import com.lilithsthrone.game.character.body.valueEnums.TongueModifier;
+import com.lilithsthrone.game.character.body.valueEnums.Wetness;
+import com.lilithsthrone.game.character.body.valueEnums.WingSize;
 import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.effects.PerkCategory;
 import com.lilithsthrone.game.character.effects.PerkManager;
@@ -18,16 +94,34 @@ import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.fetishes.FetishDesire;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.gender.PronounType;
-import com.lilithsthrone.game.character.markings.*;
+import com.lilithsthrone.game.character.markings.AbstractTattooType;
+import com.lilithsthrone.game.character.markings.Tattoo;
+import com.lilithsthrone.game.character.markings.TattooCountType;
+import com.lilithsthrone.game.character.markings.TattooCounter;
+import com.lilithsthrone.game.character.markings.TattooCounterType;
+import com.lilithsthrone.game.character.markings.TattooType;
+import com.lilithsthrone.game.character.markings.TattooWriting;
+import com.lilithsthrone.game.character.markings.TattooWritingStyle;
 import com.lilithsthrone.game.character.npc.NPC;
-import com.lilithsthrone.game.character.persona.*;
+import com.lilithsthrone.game.character.npc.dominion.Arthur;
+import com.lilithsthrone.game.character.persona.NameTriplet;
+import com.lilithsthrone.game.character.persona.Occupation;
+import com.lilithsthrone.game.character.persona.PersonalityTrait;
+import com.lilithsthrone.game.character.persona.PersonalityWeight;
+import com.lilithsthrone.game.character.persona.SexualOrientation;
+import com.lilithsthrone.game.character.persona.SexualOrientationPreference;
 import com.lilithsthrone.game.character.race.FurryPreference;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.DamageType;
 import com.lilithsthrone.game.combat.Spell;
 import com.lilithsthrone.game.combat.SpellSchool;
 import com.lilithsthrone.game.combat.SpellUpgrade;
-import com.lilithsthrone.game.dialogue.*;
+import com.lilithsthrone.game.dialogue.DebugDialogue;
+import com.lilithsthrone.game.dialogue.DialogueFlagValue;
+import com.lilithsthrone.game.dialogue.DialogueNode;
+import com.lilithsthrone.game.dialogue.DialogueNodeType;
+import com.lilithsthrone.game.dialogue.OccupantManagementDialogue;
+import com.lilithsthrone.game.dialogue.places.dominion.CityPlaces;
 import com.lilithsthrone.game.dialogue.places.dominion.lilayashome.Library;
 import com.lilithsthrone.game.dialogue.places.dominion.lilayashome.LilayaHomeGeneric;
 import com.lilithsthrone.game.dialogue.places.dominion.shoppingArcade.SuccubisSecrets;
@@ -36,13 +130,26 @@ import com.lilithsthrone.game.dialogue.places.submission.dicePoker.DicePoker;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.story.CharacterCreation;
-import com.lilithsthrone.game.dialogue.utils.*;
+import com.lilithsthrone.game.dialogue.utils.BodyChanging;
+import com.lilithsthrone.game.dialogue.utils.CharacterModificationUtils;
+import com.lilithsthrone.game.dialogue.utils.CharactersPresentDialogue;
+import com.lilithsthrone.game.dialogue.utils.EnchantmentDialogue;
+import com.lilithsthrone.game.dialogue.utils.GiftDialogue;
+import com.lilithsthrone.game.dialogue.utils.InventoryDialogue;
+import com.lilithsthrone.game.dialogue.utils.InventoryInteraction;
+import com.lilithsthrone.game.dialogue.utils.OptionsDialogue;
+import com.lilithsthrone.game.dialogue.utils.PhoneDialogue;
+import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.ItemTag;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
-import com.lilithsthrone.game.inventory.enchanting.*;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
+import com.lilithsthrone.game.inventory.enchanting.LoadedEnchantment;
+import com.lilithsthrone.game.inventory.enchanting.TFEssence;
+import com.lilithsthrone.game.inventory.enchanting.TFModifier;
+import com.lilithsthrone.game.inventory.enchanting.TFPotency;
 import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
@@ -76,29 +183,20 @@ import com.lilithsthrone.world.Cell;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
 import com.lilithsthrone.world.places.PlaceUpgrade;
-import javafx.stage.FileChooser;
-import org.w3c.dom.Document;
-import org.w3c.dom.events.EventTarget;
 
-import java.io.File;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
+import javafx.stage.FileChooser;
 
 /**
  * This method was causing MainController to lag out Eclipse, so I moved it to a separate file.
  * 
  * @since 0.2.5
- * @version 0.2.6
+ * @version 0.2.11
  * @author Innoxia
  */
 public class MainControllerInitMethod {
 
 	private static File lastOpened = null;
 
-	@SuppressWarnings("deprecation")
 	public static void initMainControllerListeners() {
 		MainController.document = (Document) MainController.webEngine.executeScript("document");
 		MainController.EventListenerDataMap.put(MainController.document, new ArrayList<>());
@@ -386,7 +484,7 @@ public class MainControllerInitMethod {
 						
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), Main.game.getPlayer());
+						InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), Main.game.getPlayer(), false);
 						MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 					}
 				}
@@ -449,7 +547,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "click", el, false);
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-					InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), Main.game.getPlayer());
+					InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), Main.game.getPlayer(), false);
 					MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 				}
 			}
@@ -486,7 +584,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "click", el, false);
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), InventoryDialogue.getInventoryNPC());
+						InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), InventoryDialogue.getInventoryNPC(), false);
 						MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 					}
 				}
@@ -525,7 +623,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "click", el, false);
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), null);
+						InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon(entry.getKey(), null, false);
 						MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 					}
 				}
@@ -567,7 +665,7 @@ public class MainControllerInitMethod {
 							((EventTarget) MainController.document.getElementById("WEAPON_" + i)).addEventListener("click",el, false);
 							MainController.addEventListener(MainController.document, "WEAPON_" + i, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, "WEAPON_" + i, "mouseleave", MainController.hideTooltipListener, false);
-							InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon((AbstractWeapon) Main.game.getPlayer().getBuybackStack().get(i).getAbstractItemSold(), InventoryDialogue.getInventoryNPC());
+							InventoryTooltipEventListener el2 = new InventoryTooltipEventListener().setWeapon((AbstractWeapon) Main.game.getPlayer().getBuybackStack().get(i).getAbstractItemSold(), InventoryDialogue.getInventoryNPC(), false);
 							((EventTarget) MainController.document.getElementById("WEAPON_" + i)).addEventListener("mouseenter",el2, false);
 						}
 						
@@ -682,8 +780,8 @@ public class MainControllerInitMethod {
 			id = "LIMIT_DECREASE_LARGE";
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
 				if(EnchantmentDialogue.getLimit()>0) {
-					EnchantmentEventListener el = new EnchantmentEventListener().setLimit(
-							Math.max(0, EnchantmentDialogue.getLimit()-(EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod())/10)));
+					int decrement = Math.min(-1, (EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod())/10));
+					EnchantmentEventListener el = new EnchantmentEventListener().setLimit(Math.max(0, EnchantmentDialogue.getLimit()-decrement));
 					MainController.addEventListener(MainController.document, id, "click", el, false);
 				}
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
@@ -725,8 +823,9 @@ public class MainControllerInitMethod {
 			id = "LIMIT_INCREASE_LARGE";
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
 				int currentLimit = EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod());
+				int increment = Math.max(1, (currentLimit/10));
 				if(EnchantmentDialogue.getLimit() < currentLimit) {
-					EnchantmentEventListener el = new EnchantmentEventListener().setLimit(Math.min(currentLimit, EnchantmentDialogue.getLimit()+(currentLimit/10)));
+					EnchantmentEventListener el = new EnchantmentEventListener().setLimit(Math.min(currentLimit, EnchantmentDialogue.getLimit()+increment));
 					MainController.addEventListener(MainController.document, id, "click", el, false);
 				}
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
@@ -807,7 +906,7 @@ public class MainControllerInitMethod {
 					el2 = new InventoryTooltipEventListener().setClothing((AbstractClothing) EnchantmentDialogue.getIngredient(), Main.game.getPlayer(), null);
 					
 				} else if(EnchantmentDialogue.getIngredient() instanceof AbstractWeapon) {
-					el2 = new InventoryTooltipEventListener().setWeapon((AbstractWeapon) EnchantmentDialogue.getIngredient(), Main.game.getPlayer());
+					el2 = new InventoryTooltipEventListener().setWeapon((AbstractWeapon) EnchantmentDialogue.getIngredient(), Main.game.getPlayer(), false);
 					
 				}  else if(EnchantmentDialogue.getIngredient() instanceof Tattoo) {
 					el2 = new InventoryTooltipEventListener().setTattoo(EnchantmentDialogue.getTattooSlot(), (Tattoo) EnchantmentDialogue.getIngredient(), EnchantmentDialogue.getTattooBearer(), EnchantmentDialogue.getTattooBearer());
@@ -933,7 +1032,7 @@ public class MainControllerInitMethod {
 									OccupantManagementDialogue.cellToInspect = c;
 								}
 								@Override
-								public DialogueNodeOld getNextDialogue() {
+								public DialogueNode getNextDialogue() {
 									return OccupantManagementDialogue.ROOM_UPGRADES_MANAGEMENT;
 								}
 							});
@@ -963,7 +1062,7 @@ public class MainControllerInitMethod {
 									OccupantManagementDialogue.cellToInspect = c;
 								}
 								@Override
-								public DialogueNodeOld getNextDialogue() {
+								public DialogueNode getNextDialogue() {
 									return OccupantManagementDialogue.ROOM_UPGRADES_MANAGEMENT;
 								}
 							});
@@ -1016,7 +1115,7 @@ public class MainControllerInitMethod {
 								Main.game.setContent(new Response("", "", LilayaHomeGeneric.ROOM_ARTHUR_INSTALLATION){
 									@Override
 									public void effects() {
-										Main.game.getArthur().setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), true);
+										Main.game.getNpc(Arthur.class).setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), true);
 										OccupantManagementDialogue.cellToInspect.addPlaceUpgrade(placeUpgrade);
 										Main.game.getDialogueFlags().setFlag(DialogueFlagValue.arthursRoomInstalled, true);
 									}
@@ -1108,191 +1207,10 @@ public class MainControllerInitMethod {
 			if(Main.game.getPlayer().getLocationPlace().getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_MILKING_ROOM)) {
 				MilkingRoom room = Main.game.getOccupancyUtil().getMilkingRoom(Main.game.getPlayerCell().getType(), Main.game.getPlayerCell().getLocation());
 
-				for(Entry<FluidMilk, Float> entry : room.getMilkStorage().entrySet()) {
-					id ="MILK_DRINK_SMALL_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						int milkAmount = (int) (Math.min(room.getMilkStorage().get(entry.getKey()), 100));
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							if(milkAmount>0) {
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().ingestFluid(entry.getKey().getType(), SexAreaOrifice.MOUTH, milkAmount, entry.getKey().getFluidModifiers()));
-								room.incrementMilkStorage(entry.getKey(), -milkAmount);
-								Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-							}
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						if(milkAmount>0) {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink ("+milkAmount+"ml)", "Drink "+milkAmount+"ml of the "+entry.getKey().getName(null)+".");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (0ml)", "There needs to be at least 1ml of "+entry.getKey().getName(null)+" stored here before you can drink it!");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						}
-					}
-					
-					id ="MILK_DRINK_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							if(room.getMilkStorage().get(entry.getKey())>=500) {
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().ingestFluid(entry.getKey().getType(), SexAreaOrifice.MOUTH, 500, entry.getKey().getFluidModifiers()));
-								room.incrementMilkStorage(entry.getKey(), -500);
-								Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-							}
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						if(room.getMilkStorage().get(entry.getKey())>=500) {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (500ml)", "Drink 500ml of the "+entry.getKey().getName(null)+".");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (500ml)", "There needs to be at least 500ml of "+entry.getKey().getName(null)+" stored here before you can drink it!");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						}
-					}
-					
-					id ="MILK_SELL_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							int income = Math.max(1, (int)(entry.getKey().getValuePerMl()*entry.getValue()));
-							Main.game.getPlayer().incrementMoney(income);
-							room.getMilkStorage().remove(entry.getKey());
-							Main.game.getTextEndStringBuilder().append("<p style='text-align:center;'>You sold the milk for "+(UtilText.formatAsMoney(income, "span"))+"!</p>");
-							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell",
-								"Sell all of the "+entry.getKey().getName(null)+" for "+(Math.max(1, (int)(entry.getKey().getValuePerMl()*entry.getValue())))+" flames.");
-						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-					}
+				for(FluidStored fluid : room.getFluidsStored()) {
+					fluidHandler(room, fluid);
 				}
 				
-				for(Entry<FluidCum, Float> entry : room.getCumStorage().entrySet()) {
-					id ="CUM_DRINK_SMALL_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						int cumAmount = (int) (Math.min(room.getCumStorage().get(entry.getKey()), 100));
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							if(room.getCumStorage().get(entry.getKey())>0) {
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().ingestFluid(entry.getKey().getType(), SexAreaOrifice.MOUTH, cumAmount, entry.getKey().getFluidModifiers()));
-								room.incrementCumStorage(entry.getKey(), -cumAmount);
-								Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-							}
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						if(room.getCumStorage().get(entry.getKey())>0) {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink ("+cumAmount+"ml)", "Drink "+cumAmount+"ml of the "+entry.getKey().getName(null)+".");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (0ml)", "There needs to be at least 1ml of "+entry.getKey().getName(null)+" stored here before you can drink it!");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						}
-					}
-					
-					id ="CUM_DRINK_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							if(room.getCumStorage().get(entry.getKey())>=500) {
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().ingestFluid(entry.getKey().getType(), SexAreaOrifice.MOUTH, 500, entry.getKey().getFluidModifiers()));
-								room.incrementCumStorage(entry.getKey(), -500);
-								Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-							}
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						if(room.getCumStorage().get(entry.getKey())>=500) {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (500ml)", "Drink 500ml of the "+entry.getKey().getName(null)+".");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (500ml)", "There needs to be at least 500ml of "+entry.getKey().getName(null)+" stored here before you can drink it!");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						}
-					}
-					
-					id ="CUM_SELL_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							int income = Math.max(1, (int)(entry.getKey().getValuePerMl()*entry.getValue()));
-							Main.game.getPlayer().incrementMoney(income);
-							room.getCumStorage().remove(entry.getKey());
-							Main.game.getTextEndStringBuilder().append("<p style='text-align:center;'>You sold the cum for "+(UtilText.formatAsMoney(income, "span"))+"!</p>");
-							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell",
-								"Sell all of the "+entry.getKey().getName(null)+" for "+(Math.max(1, (int)(entry.getKey().getValuePerMl()*entry.getValue())))+" flames.");
-						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-					}
-				}
-				
-				for(Entry<FluidGirlCum, Float> entry : room.getGirlcumStorage().entrySet()) {
-					id ="GIRLCUM_DRINK_SMALL_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						int girlcumAmount = (int) (Math.min(room.getGirlcumStorage().get(entry.getKey()), 100));
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							if(room.getGirlcumStorage().get(entry.getKey())>0) {
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().ingestFluid(entry.getKey().getType(), SexAreaOrifice.MOUTH, girlcumAmount, entry.getKey().getFluidModifiers()));
-								room.incrementGirlcumStorage(entry.getKey(), -girlcumAmount);
-								Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-							}
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						if(room.getGirlcumStorage().get(entry.getKey())>0) {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink ("+girlcumAmount+"ml)", "Drink "+girlcumAmount+"ml of the "+entry.getKey().getName(null)+".");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (0ml)", "There needs to be at least 1ml of "+entry.getKey().getName(null)+" stored here before you can drink it!");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						}
-					}
-					
-					id ="GIRLCUM_DRINK_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							if(room.getGirlcumStorage().get(entry.getKey())>=500) {
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().ingestFluid(entry.getKey().getType(), SexAreaOrifice.MOUTH, 500, entry.getKey().getFluidModifiers()));
-								room.incrementGirlcumStorage(entry.getKey(), -500);
-								Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-							}
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						if(room.getGirlcumStorage().get(entry.getKey())>=500) {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (500ml)", "Drink 500ml of the "+entry.getKey().getName(null)+".");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Drink (500ml)", "There needs to be at least 500ml of "+entry.getKey().getName(null)+" stored here before you can drink it!");
-							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-						}
-					}
-					
-					id ="GIRLCUM_SELL_"+entry.hashCode();
-					if (((EventTarget) MainController.document.getElementById(id)) != null) {
-						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							int income = Math.max(1, (int)(entry.getKey().getValuePerMl()*entry.getValue()));
-							Main.game.getPlayer().incrementMoney(income);
-							room.getGirlcumStorage().remove(entry.getKey());
-							Main.game.getTextEndStringBuilder().append("<p style='text-align:center;'>You sold the girlcum for "+(UtilText.formatAsMoney(income, "span"))+"!</p>");
-							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-						}, false);
-						
-						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
-						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell",
-								"Sell all of the "+entry.getKey().getName(null)+" for "+(Math.max(1, (int)(entry.getKey().getValuePerMl()*entry.getValue())))+" flames.");
-						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
-					}
-				}
 			}
 			
 			
@@ -1340,6 +1258,39 @@ public class MainControllerInitMethod {
 										NPC slave = Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected();
 										slave.setName(new NameTriplet(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent()));
 										slave.loadImages();
+									}
+								});
+							}
+							
+						}
+							
+					}, false);
+				}
+
+				id = Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected().getId()+"_RENAME_SURNAME";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+	
+						boolean unsuitableName = false;
+					 	if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveSurnameInput')")!=null) {
+						 
+							Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('slaveSurnameInput').value;");
+							if(Main.mainController.getWebEngine().getDocument()!=null) {
+								if (Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().length() == 0
+										|| Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().length() > 32)
+									unsuitableName = true;
+								else {
+									unsuitableName = false;
+								}
+							}
+							
+							if (!unsuitableName) {
+								Main.game.setContent(new Response("Rename", "", Main.game.getCurrentDialogueNode()){
+									@Override
+									public void effects() {
+										NPC slave = Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected();
+										slave.setSurname(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent());
+//										slave.loadImages();
 									}
 								});
 							}
@@ -1397,7 +1348,7 @@ public class MainControllerInitMethod {
 											try {
 												Main.game.getNPCById(id).setPetName(Main.game.getPlayer(), Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent());
 											} catch (Exception e) {
-												System.err.println("Main.game.getNPCById("+id+") returning null in method: initMainControllerListeners(), instance 1.");
+												Util.logGetNpcByIdError("initMainControllerListeners(), instance 1.", id);
 											}
 										}
 									}
@@ -1595,7 +1546,7 @@ public class MainControllerInitMethod {
 				try {
 					slave = (NPC) Main.game.getNPCById(slaveId);
 				} catch (Exception e) {
-					System.err.println("Main.game.getNPCById("+slaveId+") returning null in method: initMainControllerListeners(), instance 2.");
+					Util.logGetNpcByIdError("initMainControllerListeners(), instance 2.", slaveId);
 					continue;
 				}
 				
@@ -1750,7 +1701,7 @@ public class MainControllerInitMethod {
 				try {
 					occupant = (NPC) Main.game.getNPCById(occupantId);
 				} catch (Exception e) {
-					System.err.println("Main.game.getNPCById("+occupantId+") returning null in method: initMainControllerListeners(), instance 3.");
+					Util.logGetNpcByIdError("initMainControllerListeners(), instance 3.", occupantId);
 					continue;
 				}
 				
@@ -1866,7 +1817,7 @@ public class MainControllerInitMethod {
 					try {
 						slave = (NPC) Main.game.getNPCById(slaveId);
 					} catch (Exception e) {
-						System.err.println("Main.game.getNPCById("+slaveId+") returning null in method: initMainControllerListeners(), instance 4.");
+						Util.logGetNpcByIdError("initMainControllerListeners(), instance 4.", slaveId);
 						continue;
 					}
 					
@@ -2249,7 +2200,8 @@ public class MainControllerInitMethod {
 					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_ASS)
 					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_BREASTS)
 					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_VAGINA)
-					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_PENIS)) {
+					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_PENIS)
+					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_BREASTS_CROTCH)) {
 				
 				
 				// Gender:
@@ -2322,6 +2274,38 @@ public class MainControllerInitMethod {
 				}
 				
 				
+				// Variable femininity:
+				
+				
+				id = "FEMININITY_INCREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementFemininity(1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "FEMININITY_INCREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementFemininity(5);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "FEMININITY_DECREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementFemininity(-1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "FEMININITY_DECREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementFemininity(-5);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				
 				// Personality:
 				for(PersonalityTrait trait : PersonalityTrait.values()) {
 					id = "PERSONALITY_INFO_"+trait;
@@ -2359,28 +2343,28 @@ public class MainControllerInitMethod {
 				id = "HEIGHT_INCREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-						BodyChanging.getTarget().incrementHeight(1);
+						BodyChanging.getTarget().incrementHeight(1, BodyChanging.isDebugMenu());
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
 				id = "HEIGHT_INCREASE_LARGE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-						BodyChanging.getTarget().incrementHeight(5);
+						BodyChanging.getTarget().incrementHeight(5, BodyChanging.isDebugMenu());
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
 				id = "HEIGHT_DECREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-						BodyChanging.getTarget().incrementHeight(-1);
+						BodyChanging.getTarget().incrementHeight(-1, BodyChanging.isDebugMenu());
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
 				id = "HEIGHT_DECREASE_LARGE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-						BodyChanging.getTarget().incrementHeight(-5);
+						BodyChanging.getTarget().incrementHeight(-5, BodyChanging.isDebugMenu());
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
@@ -2488,6 +2472,18 @@ public class MainControllerInitMethod {
 						}, false);
 					}
 				}
+
+				// Crotch-boob Shape:
+				for(BreastShape bs : BreastShape.values()) {
+					id = "CROTCH_BOOB_SHAPE_"+bs;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setBreastCrotchShape(bs);
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+				}
+				
 				
 				// Nipple size:
 				for(NippleSize ns : NippleSize.values()) {
@@ -2495,6 +2491,13 @@ public class MainControllerInitMethod {
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setNippleSize(ns.getValue());
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+					id = "NIPPLE_CROTCH_SIZE_"+ns;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setNippleCrotchSize(ns.getValue());
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
@@ -2506,6 +2509,13 @@ public class MainControllerInitMethod {
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setAreolaeSize(as.getValue());
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+					id = "AREOLAE_CROTCH_SIZE_"+as;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setAreolaeCrotchSize(as.getValue());
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
@@ -2646,7 +2656,7 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				// Vagina elastcity:
+				// Vagina elasticity:
 				for(OrificeElasticity elasticity: OrificeElasticity.values()) {
 					id = "VAGINA_ELASTICITY_"+elasticity;
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -2693,8 +2703,8 @@ public class MainControllerInitMethod {
 
 				// ------------ Demonic/Slime transformations -------------- //
 				
-				for(ArmType armType: ArmType.values()) {
-					id = "CHANGE_ARM_"+armType;
+				for(AbstractArmType armType: ArmType.getAllArmTypes()) {
+					id = "CHANGE_ARM_"+ArmType.getIdFromArmType(armType);
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setArmType(armType);
@@ -2723,8 +2733,8 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				for(HornType hornType: HornType.values()) {
-					id = "CHANGE_HORN_"+hornType;
+				for(AbstractHornType hornType: HornType.getAllHornTypes()) {
+					id = "CHANGE_HORN_"+HornType.getIdFromHornType(hornType);
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setHornType(hornType);
@@ -2754,8 +2764,8 @@ public class MainControllerInitMethod {
 				}
 				
 				
-				for(LegType legType: LegType.values()) {
-					id = "CHANGE_LEG_"+legType;
+				for(AbstractLegType legType: LegType.getAllLegTypes()) {
+					id = "CHANGE_LEG_"+LegType.getIdFromLegType(legType);
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setLegType(legType);
@@ -2784,6 +2794,26 @@ public class MainControllerInitMethod {
 					}
 				}
 				
+				for(GenitalArrangement genitalArrangement: GenitalArrangement.values()) {
+					id = "CHANGE_GENITAL_ARRANGEMENT_"+genitalArrangement;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setGenitalArrangement(genitalArrangement);
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+				}
+				
+				for(LegConfiguration legConfig: LegConfiguration.values()) {
+					id = "CHANGE_LEG_CONFIGURATION_"+legConfig;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().getLegType().applyLegConfigurationTransformation(BodyChanging.getTarget(), legConfig, true);
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+				}
+				
 				for(TailType tailType: TailType.values()) {
 					id = "CHANGE_TAIL_"+tailType;
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -2804,8 +2834,8 @@ public class MainControllerInitMethod {
 					}
 				}
 
-				for(AssType assType: AssType.values()) {
-					id = "CHANGE_ASS_"+assType;
+				for(AbstractAssType assType: AssType.getAllAssTypes()) {
+					id = "CHANGE_ASS_"+AssType.getIdFromAssType(assType);
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setAssType(assType);
@@ -2814,15 +2844,24 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				for(BreastType breastType: BreastType.values()) {
-					id = "CHANGE_BREAST_"+breastType;
+				for(AbstractBreastType breastType: BreastType.getAllBreastTypes()) {
+					id = "CHANGE_BREAST_"+BreastType.getIdFromBreastType(breastType);
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setBreastType(breastType);
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
+					id = "CHANGE_BREAST_CROTCH_"+BreastType.getIdFromBreastType(breastType);
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setBreastCrotchType(breastType);
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
 				}
+				
+				
 				
 				// Face:
 				
@@ -2887,6 +2926,18 @@ public class MainControllerInitMethod {
 					MainController.setArmCountListener(i);
 				}
 				
+				// Legs:
+
+				for(FootStructure footStructure : FootStructure.values()) {
+					id = "CHANGE_FOOT_STRUCTURE_"+footStructure;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setFootStructure(footStructure);
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+				}
+				
 				// Eyes:
 
 				for(int i=1; i <= Eye.MAXIMUM_PAIRS; i++) {
@@ -2898,6 +2949,11 @@ public class MainControllerInitMethod {
 				for(int i=1; i <= Horn.MAXIMUM_ROWS; i++) {
 					MainController.setHornCountListener(i);
 				}
+
+				for(int i=1; i <= Horn.MAXIMUM_HORNS_PER_ROW; i++) {
+					MainController.setHornsPerRowCountListener(i);
+				}
+				
 
 				// Tails:
 
@@ -3015,12 +3071,49 @@ public class MainControllerInitMethod {
 					}, false);
 				}
 				
+
+				id = "CROTCH_BOOB_SIZE_INCREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchSize(1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "CROTCH_BOOB_SIZE_INCREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchSize(5);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "CROTCH_BOOB_SIZE_DECREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchSize(-1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "CROTCH_BOOB_SIZE_DECREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchSize(-5);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				
+				
 				for(int i=1; i <= Breast.MAXIMUM_BREAST_ROWS; i++) {
 					MainController.setBreastCountListener(i);
+				}
+				for(int i=1; i <= BreastCrotch.MAXIMUM_BREAST_ROWS; i++) {
+					MainController.setBreastCrotchCountListener(i);
 				}
 				
 				for(int i=1; i <= Breast.MAXIMUM_NIPPLES_PER_BREAST; i++) {
 					MainController.setNippleCountListener(i);
+				}
+				for(int i=1; i <= BreastCrotch.MAXIMUM_NIPPLES_PER_BREAST; i++) {
+					MainController.setNippleCrotchCountListener(i);
 				}
 				
 				// Nipple capacity:
@@ -3032,14 +3125,28 @@ public class MainControllerInitMethod {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
+					id = "NIPPLE_CROTCH_CAPACITY_"+capacity;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setNippleCrotchCapacity(capacity.getMedianValue(), true);
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
 				}
 				
-				// Nipple elastcity:
+				// Nipple elasticity:
 				for(OrificeElasticity elasticity: OrificeElasticity.values()) {
 					id = "NIPPLE_ELASTICITY_"+elasticity;
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							BodyChanging.getTarget().setNippleElasticity(elasticity.getValue());
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+					id = "NIPPLE_CROTCH_ELASTICITY_"+elasticity;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							BodyChanging.getTarget().setNippleCrotchElasticity(elasticity.getValue());
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
@@ -3054,17 +3161,24 @@ public class MainControllerInitMethod {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
-				}
-				
-				for(int i : CharacterModificationUtils.demonLactationValues) {
-					id = "LACTATION_"+i;
+					id = "NIPPLE_CROTCH_PLASTICITY_"+plasticity;
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
-							BodyChanging.getTarget().setBreastMilkStorage(i);
+							BodyChanging.getTarget().setNippleCrotchPlasticity(plasticity.getValue());
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
 					}
 				}
+				
+//				for(int i : CharacterModificationUtils.demonLactationValues) {
+//					id = "LACTATION_"+i;
+//					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+//						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+//							BodyChanging.getTarget().setBreastMilkStorage(i);
+//							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+//						}, false);
+//					}
+//				}
 				
 				for(OrificeModifier orificeMod : OrificeModifier.values()) {
 					id = "CHANGE_NIPPLE_MOD_"+orificeMod;
@@ -3074,6 +3188,17 @@ public class MainControllerInitMethod {
 								BodyChanging.getTarget().removeNippleOrificeModifier(orificeMod);
 							} else {
 								BodyChanging.getTarget().addNippleOrificeModifier(orificeMod);
+							}
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+					id = "CHANGE_NIPPLE_CROTCH_MOD_"+orificeMod;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+							if(BodyChanging.getTarget().hasNippleCrotchOrificeModifier(orificeMod)) {
+								BodyChanging.getTarget().removeNippleCrotchOrificeModifier(orificeMod);
+							} else {
+								BodyChanging.getTarget().addNippleCrotchOrificeModifier(orificeMod);
 							}
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
@@ -3148,9 +3273,6 @@ public class MainControllerInitMethod {
 						}, false);
 					}
 				}
-				
-				
-				
 				
 				
 				// Penis:
@@ -3275,6 +3397,95 @@ public class MainControllerInitMethod {
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
+
+				
+				id = "MILK_PRODUCTION_INCREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastMilkStorage(1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_PRODUCTION_INCREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastMilkStorage(25);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_PRODUCTION_INCREASE_HUGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastMilkStorage(500);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_PRODUCTION_DECREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastMilkStorage(-1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_PRODUCTION_DECREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastMilkStorage(-25);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_PRODUCTION_DECREASE_HUGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastMilkStorage(-500);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+
+				
+				id = "MILK_CROTCH_PRODUCTION_INCREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchMilkStorage(1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_CROTCH_PRODUCTION_INCREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchMilkStorage(25);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_CROTCH_PRODUCTION_INCREASE_HUGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchMilkStorage(500);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_CROTCH_PRODUCTION_DECREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchMilkStorage(-1);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_CROTCH_PRODUCTION_DECREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchMilkStorage(-25);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "MILK_CROTCH_PRODUCTION_DECREASE_HUGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().incrementBreastCrotchMilkStorage(-500);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				
 				
 				
 				for(OrificeElasticity elasticity: OrificeElasticity.values()) {
@@ -3496,7 +3707,6 @@ public class MainControllerInitMethod {
 				id = "HAIR_LENGTH_"+hairLength;
 				
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
-					
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 						if(Main.game.getPlayer().getMoney() >= SuccubisSecrets.BASE_HAIR_LENGTH_COST || noCost) {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()){
@@ -3803,7 +4013,7 @@ public class MainControllerInitMethod {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							Main.game.setContent(new Response("", "", EnchantmentDialogue.ENCHANTMENT_MENU){
 								@Override
-								public DialogueNodeOld getNextDialogue() {
+								public DialogueNode getNextDialogue() {
 									return EnchantmentDialogue.getEnchantmentMenu(BodyChanging.getTarget().getTattooInSlot(invSlot), BodyChanging.getTarget(), invSlot);
 								}
 							});
@@ -4206,7 +4416,7 @@ public class MainControllerInitMethod {
 				}
 			}
 			
-			for (AbstractWeaponType weapon : WeaponType.allweapons) {
+			for (AbstractWeaponType weapon : WeaponType.getAllweapons()) {
 				for (DamageType dt : weapon.getAvailableDamageTypes()) {
 					if ((EventTarget) MainController.document.getElementById(weapon.hashCode() + "_" + dt.toString()) != null) {
 						MainController.addEventListener(MainController.document, weapon.hashCode() + "_" + dt.toString(), "mousemove", MainController.moveTooltipListener, false);
@@ -4253,7 +4463,6 @@ public class MainControllerInitMethod {
 
 			
 			for(Perk perk : Perk.values()) {
-
 				GameCharacter character = Main.game.getCurrentDialogueNode() == PhoneDialogue.CHARACTER_LEVEL_UP
 						?Main.game.getPlayer()
 						:(Main.game.getCurrentDialogueNode() == OccupantManagementDialogue.SLAVE_MANAGEMENT_PERKS
@@ -4279,6 +4488,20 @@ public class MainControllerInitMethod {
 							character.removeTrait(perk);
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 						}, false);
+					}
+				}
+				if(perk.isHiddenPerk()) {
+					id = "HIDDEN_PERK_"+perk;
+					if (((EventTarget) MainController.document.getElementById(id)) != null) {
+						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
+						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
+						if(character.hasPerkAnywhereInTree(perk)) {
+							MainController.addEventListener(MainController.document, id, "mouseenter", new TooltipInformationEventListener().setLevelUpPerk(0, perk, character), false);
+						} else {
+							MainController.addEventListener(MainController.document, id, "mouseenter",
+									new TooltipInformationEventListener().setInformation("Unknown!",
+											"This is an undiscovered hidden perk, and as such, you have no idea what it could be!<br/><i>Hidden perks are discovered through the main quest.</i>"), false);
+						}
 					}
 				}
 			}
@@ -4314,7 +4537,6 @@ public class MainControllerInitMethod {
 										
 									} else if(character.getPerkPoints()>=1 && PerkManager.MANAGER.isPerkAvailable(character, e)) {
 										if(character.addPerk(e.getRow(), e.getEntry())) {
-											character.incrementPerkPoints(-1);
 											if(e.getEntry().isEquippableTrait() && character.getTraits().size()<GameCharacter.MAX_TRAITS) {
 												character.addTrait(e.getEntry());
 											}
@@ -4333,7 +4555,8 @@ public class MainControllerInitMethod {
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							if(Main.game.getPlayer().getEssenceCount(TFEssence.ARCANE)>=f.getCost()) {
-								if(Main.game.getPlayer().addFetish(f)) {
+								if(!Main.game.getPlayer().hasFetish(f)) {
+									Main.game.getPlayer().addFetish(f);
 									Main.game.getPlayer().incrementEssenceCount(TFEssence.ARCANE, -f.getCost(), false);
 									Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 								}
@@ -4357,8 +4580,9 @@ public class MainControllerInitMethod {
 						if (((EventTarget) MainController.document.getElementById(id)) != null) {
 							((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 								if(Main.game.getPlayer().getEssenceCount(TFEssence.ARCANE)>=FetishDesire.getCostToChange()) {
-									if(Main.game.getPlayer().setFetishDesire(f, desire)) {
+									if(Main.game.getPlayer().getFetishDesire(f)!=desire) {
 										Main.game.getPlayer().incrementEssenceCount(TFEssence.ARCANE, -FetishDesire.getCostToChange(), false);
+										Main.game.getPlayer().setFetishDesire(f, desire);
 										Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 									}
 								}
@@ -4371,9 +4595,8 @@ public class MainControllerInitMethod {
 					}
 				}
 			}
-			if (Main.game.getCurrentDialogueNode() == PhoneDialogue.MENU
-					|| Main.game.getCurrentDialogueNode() == Library.DOMINION_MAP) {
-				
+			
+			if (Main.game.getCurrentDialogueNode() == PhoneDialogue.MENU || Main.game.getCurrentDialogueNode() == Library.DOMINION_MAP) {
 				Cell[][] grid;
 				if(Main.game.getCurrentDialogueNode() == PhoneDialogue.MENU) {
 					grid = Main.game.getWorlds().get(Main.game.getPlayer().getWorldLocation()).getGrid();
@@ -4395,6 +4618,33 @@ public class MainControllerInitMethod {
 					}
 				}
 			}
+			
+			if (Main.game.getCurrentDialogueNode() == PhoneDialogue.MAP || Main.game.getCurrentDialogueNode() == CityPlaces.WORLD_MAP) {
+				WorldType worldType = PhoneDialogue.worldTypeMap;
+				if(Main.game.getCurrentDialogueNode() == CityPlaces.WORLD_MAP) {
+					worldType = WorldType.WORLD_MAP;
+				}
+				Cell[][] grid = Main.game.getWorlds().get(worldType).getGrid();
+
+				for(int i=grid[0].length-1; i>=0; i--) {
+					for(int j=0; j<grid.length; j++) {
+						Cell c = grid[j][i];
+						if(PhoneDialogue.worldTypeMap == WorldType.WORLD_MAP || Main.game.getCurrentDialogueNode() == CityPlaces.WORLD_MAP) {
+							MainController.setWorldMapLocationListeners(c, i, j);
+						} else {
+							boolean discovered = c.isDiscovered() || Main.game.isMapReveal();
+							if(!discovered) {
+								continue;
+							}
+							if(c.getPlace().getPlaceType() == PlaceType.GENERIC_IMPASSABLE) {
+								continue;
+							}
+							MainController.setMapLocationListeners(c, i, j);
+						}
+					}
+				}
+			}
+			
 		}
 
 		// Hotkey bindings:
@@ -4443,6 +4693,21 @@ public class MainControllerInitMethod {
 				}
 			}
 		}
+
+		// Sexual orientation preferences:
+		if (Main.game.getCurrentDialogueNode() == OptionsDialogue.ORIENTATION_PREFERENCE) {
+			for (SexualOrientation o : SexualOrientation.values()) {
+				for(SexualOrientationPreference preference : SexualOrientationPreference.values()) {
+					if (((EventTarget) MainController.document.getElementById(preference+"_"+o)) != null) {
+						((EventTarget) MainController.document.getElementById(preference+"_"+o)).addEventListener("click", e -> {
+							Main.getProperties().orientationPreferencesMap.put(o, preference.getValue());
+							Main.saveProperties();
+							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+						}, false);
+					}
+				}
+			}
+		}
 		
 		// Age preferences:
 		if (Main.game.getCurrentDialogueNode() == OptionsDialogue.AGE_PREFERENCE) {
@@ -4463,7 +4728,18 @@ public class MainControllerInitMethod {
 		
 		// Furry preferences:
 		if (Main.game.getCurrentDialogueNode() == OptionsDialogue.FURRY_PREFERENCE) {
+			
+			for(Subspecies s : Subspecies.values()) {
+				id="SUBSPECIES_PREFERNCE_INFO_"+s;
 
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
+					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(Util.capitaliseSentence(s.getName(null)), s.getDescription(null));
+					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
+				}
+			}
+			
 			// Human encounter rates:
 			if (((EventTarget) MainController.document.getElementById("furry_preference_human_encounter_zero")) != null) {
 				((EventTarget) MainController.document.getElementById("furry_preference_human_encounter_zero")).addEventListener("click", e -> {
@@ -4605,41 +4881,15 @@ public class MainControllerInitMethod {
 			
 			
 			// Multi-breast options:
-			if (((EventTarget) MainController.document.getElementById("furry_preference_multi_breast_zero")) != null) {
-				((EventTarget) MainController.document.getElementById("furry_preference_multi_breast_zero")).addEventListener("click", e -> {
-					Main.getProperties().multiBreasts=0;
-					Main.saveProperties();
-					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-				}, false);
-				
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_zero", "mousemove", MainController.moveTooltipListener, false);
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_zero", "mouseleave", MainController.hideTooltipListener, false);
-				TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Off", "Randomly-generated NPCs will never spawn in with multiple rows of breasts.");
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_zero", "mouseenter", el, false);
-			}
-			if (((EventTarget) MainController.document.getElementById("furry_preference_multi_breast_one")) != null) {
-				((EventTarget) MainController.document.getElementById("furry_preference_multi_breast_one")).addEventListener("click", e -> {
-					Main.getProperties().multiBreasts=1;
-					Main.saveProperties();
-					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-				}, false);
-				
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_one", "mousemove", MainController.moveTooltipListener, false);
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_one", "mouseleave", MainController.hideTooltipListener, false);
-				TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Furry-only", "Randomly-generated NPCs will only spawn in with multiple rows of breasts if they have furry skin.");
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_one", "mouseenter", el, false);
-			}
-			if (((EventTarget) MainController.document.getElementById("furry_preference_multi_breast_two")) != null) {
-				((EventTarget) MainController.document.getElementById("furry_preference_multi_breast_two")).addEventListener("click", e -> {
-					Main.getProperties().multiBreasts=2;
-					Main.saveProperties();
-					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
-				}, false);
-
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_two", "mousemove", MainController.moveTooltipListener, false);
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_two", "mouseleave", MainController.hideTooltipListener, false);
-				TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("On", "Randomly-generated NPCs will spawn in with multiple rows of breasts if their breast type is furry (starts at 'Minor morph' level).");
-				MainController.addEventListener(MainController.document, "furry_preference_multi_breast_two", "mouseenter", el, false);
+			for(int i=0; i<3; i++) {
+				id = "MULTI_BREAST_PREFERENCE_"+i;
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					setMultiBreastPreference(id, i);
+				}
+				id = "UDDER_PREFERENCE_"+i;
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					setUdderPreference(id, i);
+				}
 			}
 			
 			// Race preferences:
@@ -4840,6 +5090,7 @@ public class MainControllerInitMethod {
 			
 			Map<String, PropertyValue> settingsMap = Util.newHashMapOfValues(
 					new Value<>("ARTWORK", PropertyValue.artwork),
+					new Value<>("AUTO_SEX_CLOTHING_MANAGEMENT", PropertyValue.autoSexClothingManagement),
 					new Value<>("NON_CON", PropertyValue.nonConContent),
 					new Value<>("VOLUNTARY_NTR", PropertyValue.voluntaryNTR),
 					new Value<>("INVOLUNTARY_NTR", PropertyValue.involuntaryNTR),
@@ -4851,6 +5102,7 @@ public class MainControllerInitMethod {
 					new Value<>("HAIR_FACIAL", PropertyValue.facialHairContent),
 					new Value<>("ANAL", PropertyValue.analContent),
 					new Value<>("FUTA_BALLS", PropertyValue.futanariTesticles),
+					new Value<>("CLOACA", PropertyValue.bipedalCloaca),
 					new Value<>("AGE", PropertyValue.ageContent),
 					new Value<>("HAIR_PUBIC", PropertyValue.pubicHairContent),
 					new Value<>("HAIR_BODY", PropertyValue.bodyHairContent),
@@ -5474,6 +5726,141 @@ public class MainControllerInitMethod {
 					"Mark for reroll",
 					DicePoker.isAbleToSelectReroll()?"":"[style.italicsBad(You cannot mark your dice for reroll in this scene!)]");
 			MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
+		}
+	}
+	
+	static void setMultiBreastPreference(String id, int i) {
+		((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+			Main.getProperties().multiBreasts=i;
+			Main.saveProperties();
+			Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+		}, false);
+		
+		MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
+		MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
+		TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(Properties.multiBreastsLabels[i], Properties.multiBreastsDescriptions[i]);
+		MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
+	}
+
+	static void setUdderPreference(String id, int i) {
+		((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+			Main.getProperties().udders=i;
+			Main.saveProperties();
+			Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+		}, false);
+		
+		MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
+		MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
+		TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(Properties.uddersLabels[i], Properties.uddersDescriptions[i]);
+		MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
+	}
+	
+	
+	private static void fluidHandler(MilkingRoom room, FluidStored fluid) {
+		
+		String idModifier = "MILK";
+		if(fluid.isCum()) {
+			idModifier = "CUM";
+		} else if(fluid.isGirlCum()) {
+			idModifier = "GIRLCUM";
+		}
+		String fluidName = fluid.getFluid().getName(fluid.getFluidCharacter());
+		
+		Map<CoverableArea, SexAreaOrifice> areas = Util.newHashMapOfValues(
+				new Value<>(CoverableArea.MOUTH, SexAreaOrifice.MOUTH),
+				new Value<>(CoverableArea.VAGINA, SexAreaOrifice.VAGINA),
+				new Value<>(CoverableArea.ANUS, SexAreaOrifice.ANUS));
+		
+		for(Entry<CoverableArea, SexAreaOrifice> area : areas.entrySet()) {
+			String id = idModifier+"_"+area.getKey()+"_"+fluid.getFluid().hashCode();
+			if (((EventTarget) MainController.document.getElementById(id)) != null) {
+				int milkAmount = Math.min(fluid.getMillilitres(), MilkingRoom.INGESTION_AMOUNT);
+				boolean canIngest = room.isAbleToIngestThroughArea(Main.game.getPlayer(), area.getKey(), milkAmount);
+				
+				String fluidOwnerName = fluid.getFluidCharacter()==null?"the":UtilText.parse(fluid.getFluidCharacter(), "[npc.namePos]");
+				
+				
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+					Main.game.getTextEndStringBuilder().append("<p>");
+					if(canIngest) {
+						switch(area.getKey()) {
+							case ANUS:
+								Main.game.getTextEndStringBuilder().append(
+										"Grabbing one of the free tubes connected to the vat of "+fluidOwnerName+" "+fluidName+", you quickly remove the suction device on the end, before screwing on one of the funnel attachments."
+										+ " Guiding the end of the tube around to your [pc.ass+], you waste no time in sliding the funnel into your [pc.asshole+].<br/>"
+										+ "Flicking the switch on the side of the vat from 'suck' to 'pump', you then press the start button, letting out a delighted [pc.moan] as you feel the "+fluidName+" being pumped into your [pc.asshole].");
+								break;
+							case MOUTH:
+								Main.game.getTextEndStringBuilder().append(
+										"Grabbing one of the free tubes connected to the vat of "+fluidOwnerName+" "+fluidName+", you quickly remove the suction device on the end, before screwing on one of the straw-like attachments."
+										+ " Lifting the straw up to your mouth, you waste no time in sliding it between your [pc.lips+].<br/>"
+										+ "Flicking the switch on the side of the vat from 'suck' to 'pump', you then press the start button, letting out a delighted [pc.moan] as you hungrily gulp down the "+fluidName+".");
+								break;
+							case VAGINA:
+								Main.game.getTextEndStringBuilder().append(
+										"Grabbing one of the free tubes connected to the vat of "+fluidOwnerName+" "+fluidName+", you quickly remove the suction device on the end, before screwing on one of the funnel attachments."
+										+ " Guiding the end of the tube between your [pc.legs+], you waste no time in sliding the funnel into your [pc.pussy+].<br/>"
+										+ "Flicking the switch on the side of the vat from 'suck' to 'pump', you then press the start button, letting out a delighted [pc.moan] as you feel the "+fluidName+" being pumped"
+											+(Main.game.getPlayer().isVisiblyPregnant()
+												?" into your [pc.pussy]."
+												:" directly into your waiting womb."));
+								break;
+							default:
+								break;
+						}
+						String ingestion = Main.game.getPlayer().ingestFluid(fluid.getFluidCharacter(), fluid.getFluid(), area.getValue(), milkAmount);
+						if(!ingestion.isEmpty()) {
+							Main.game.getTextEndStringBuilder().append("</p>"
+									+ "<p>"
+									+ ingestion);
+						}
+						Main.game.getTextEndStringBuilder().append("</p>");
+						Main.game.getTextEndStringBuilder().append(
+								"<p style='text-align:center;'>"
+										+ "<i style='color:"+Colour.GENERIC_MINOR_BAD.toWebHexString()+";'>"+MilkingRoom.INGESTION_AMOUNT+"ml of "+fluidOwnerName+" "+fluidName+" has been consumed!</i>"
+								+ "</p>");
+						
+						room.incrementFluidStored(fluid.getFluidCharacter(), fluid.getFluid(), -milkAmount);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}
+				}, false);
+				
+				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
+				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
+				String verb = "Drink";
+				String description = "Drink "+milkAmount+"ml of the "+fluidName+".";
+				if(area.getKey()!=CoverableArea.MOUTH) {
+					verb = "Pump";
+					description = "Pump "+milkAmount+"ml of the "+fluidName+" into your "+area.getKey().getName()+".";
+				}
+				if(canIngest) {
+					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(verb+" ("+milkAmount+"ml)",
+							description);
+					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
+					
+				} else {
+					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(verb+" ("+milkAmount+"ml)",
+							room.getAreaIngestionBlockedDescription(Main.game.getPlayer(), area.getKey(), milkAmount));
+					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
+				}
+			}
+		}
+		
+		String id = idModifier+"_SELL_"+fluid.getFluid().hashCode();
+		if (((EventTarget) MainController.document.getElementById(id)) != null) {
+			((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+				int income = Math.max(1, (int)(fluid.getFluid().getValuePerMl()*fluid.getMillilitres()));
+				Main.game.getPlayer().incrementMoney(income);
+				room.getFluidsStored().remove(fluid);
+				Main.game.getTextEndStringBuilder().append("<p style='text-align:center;'>You sold the "+fluidName+" for "+(UtilText.formatAsMoney(income, "span"))+"!</p>");
+				Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+			}, false);
+			
+			MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
+			MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
+			TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell",
+					"Sell all of the "+fluidName+" for "+(Math.max(1, (int)(fluid.getFluid().getValuePerMl()*fluid.getMillilitres())))+" flames.");
+			MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 		}
 	}
 }

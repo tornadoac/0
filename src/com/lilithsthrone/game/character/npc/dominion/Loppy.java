@@ -29,7 +29,6 @@ import com.lilithsthrone.game.character.body.valueEnums.NippleSize;
 import com.lilithsthrone.game.character.body.valueEnums.OrificeElasticity;
 import com.lilithsthrone.game.character.body.valueEnums.OrificePlasticity;
 import com.lilithsthrone.game.character.body.valueEnums.PenisGirth;
-import com.lilithsthrone.game.character.body.valueEnums.PenisSize;
 import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
 import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
@@ -43,7 +42,7 @@ import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.inventory.CharacterInventory;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
@@ -68,7 +67,7 @@ public class Loppy extends NPC {
 	}
 	
 	public Loppy(boolean isImported) {
-		super(isImported, new NameTriplet("Loppy"),
+		super(isImported, new NameTriplet("Loppy"), "Hasenkamp",
 				"Loppy is one of the two prostitutes Angel has working for her."
 						+ " Just like her younger sister, Bunny, Loppy is a rabbit-morph, and seems to genuinely love her line of work.",
 				22, Month.JANUARY, 7,
@@ -179,7 +178,7 @@ public class Loppy extends NPC {
 		// Anus modifiers
 		
 		// Penis:
-		this.setPenisSize(PenisSize.THREE_LARGE.getMaximumValue());
+		this.setPenisSize(9);
 		this.setPenisGirth(PenisGirth.THREE_THICK);
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		this.setPenisCumStorage(CumProduction.FOUR_LARGE.getMaximumValue());
@@ -230,7 +229,7 @@ public class Loppy extends NPC {
 	}
 	
 	@Override
-	public DialogueNodeOld getEncounterDialogue() {
+	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 

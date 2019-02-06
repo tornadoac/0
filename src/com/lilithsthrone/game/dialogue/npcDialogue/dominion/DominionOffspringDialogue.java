@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.dialogue.npcDialogue.dominion;
 
-import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.attributes.AffectionLevel;
 import com.lilithsthrone.game.character.attributes.CorruptionLevel;
 import com.lilithsthrone.game.character.body.valueEnums.Femininity;
@@ -13,12 +12,13 @@ import com.lilithsthrone.game.character.persona.PersonalityTrait;
 import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.quests.QuestLine;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.places.dominion.lilayashome.LilayaHomeGeneric;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseCombat;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
+import com.lilithsthrone.game.dialogue.responses.ResponseTag;
 import com.lilithsthrone.game.dialogue.utils.InventoryInteraction;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
@@ -27,13 +27,10 @@ import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.occupantManagement.OccupancyUtil;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.game.sex.SexPace;
-import com.lilithsthrone.game.sex.SexPositionSlot;
-import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
-import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.Cell;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -57,8 +54,7 @@ public class DominionOffspringDialogue {
 		}
 	}
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER = new DialogueNodeOld("", "You encounter a certain special someone in the alleyway.", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER = new DialogueNode("", "You encounter a certain special someone in the alleyway.", true) {
 		
 		@Override
 		public String getLabel(){
@@ -426,7 +422,7 @@ public class DominionOffspringDialogue {
 				}
 			}
 			
-			return UtilText.nodeContentSB.toString();
+			return UtilText.parse(offspring(), UtilText.nodeContentSB.toString());
 		}
 
 		@Override
@@ -478,7 +474,7 @@ public class DominionOffspringDialogue {
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll come back some other time.", OFFSPRING_ENCOUNTER) {
 							@Override
-							public DialogueNodeOld getNextDialogue() {
+							public DialogueNode getNextDialogue() {
 								setOffspringFlags();
 								return Main.game.getDefaultDialogueNoEncounter();
 							}
@@ -758,11 +754,11 @@ public class DominionOffspringDialogue {
 									|| (!Main.game.getPlayer().isFeminine() && offspring().getSexualOrientation()==SexualOrientation.ANDROPHILIC)
 									|| (offspring().getSexualOrientation()==SexualOrientation.AMBIPHILIC))
 									|| offspring().hasFetish(Fetish.FETISH_INCEST)) {
-								//Incest fetish and not attracted to player, or attracted to player and no incest fetsh:
+								//Incest fetish and not attracted to player, or attracted to player and no incest fetish:
 								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), -5));
 								
 							} else {
-								//Not attracted to player, and no incest fetsh:
+								//Not attracted to player, and no incest fetish:
 								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), -20));
 							}
 							setOffspringFlags();
@@ -940,7 +936,7 @@ public class DominionOffspringDialogue {
 				} else if (index == 0 && offspring().hasFlag(NPCFlagValue.flagOffspringIntroduced)) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", OFFSPRING_ENCOUNTER) {
 							@Override
-							public DialogueNodeOld getNextDialogue() {
+							public DialogueNode getNextDialogue() {
 								return Main.game.getDefaultDialogueNoEncounter();
 							}
 							@Override
@@ -1077,8 +1073,7 @@ public class DominionOffspringDialogue {
 	}
 	
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_APOLOGY = new DialogueNodeOld("A familiar face", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_APOLOGY = new DialogueNode("A familiar face", "", true) {
 		
 		@Override
 		public String getLabel(){
@@ -1169,7 +1164,7 @@ public class DominionOffspringDialogue {
 			if (index == 1) {
 				return new Response("Continue", "Give [npc.name] some time to think, and continue on your way.", OFFSPRING_ENCOUNTER_APOLOGY) {
 					@Override
-					public DialogueNodeOld getNextDialogue(){
+					public DialogueNode getNextDialogue(){
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -1180,8 +1175,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_FIGHT = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_FIGHT = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -1270,8 +1264,7 @@ public class DominionOffspringDialogue {
 	}
 	
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_TALKING = new DialogueNodeOld("", "You encounter a certain special someone in the alleyway.", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_TALKING = new DialogueNode("", "You encounter a certain special someone in the alleyway.", true) {
 
 		@Override
 		public String getLabel(){
@@ -1365,7 +1358,7 @@ public class DominionOffspringDialogue {
 							offspring().setFlag(NPCFlagValue.flagOffspringApartmentIntroduced, true);
 						}
 						@Override
-						public DialogueNodeOld getNextDialogue() {
+						public DialogueNode getNextDialogue() {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
@@ -1549,7 +1542,7 @@ public class DominionOffspringDialogue {
 								offspring().setFlag(NPCFlagValue.flagOffspringApartmentIntroduced, true);
 							}
 							@Override
-							public DialogueNodeOld getNextDialogue() {
+							public DialogueNode getNextDialogue() {
 								return Main.game.getDefaultDialogueNoEncounter();
 							}
 						};
@@ -1561,8 +1554,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_BACKGROUND = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_BACKGROUND = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -1706,8 +1698,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_SMALL_TALK = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_SMALL_TALK = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -1806,8 +1797,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_ENCOURAGE = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_ENCOURAGE = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -1872,8 +1862,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_SCOLD = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_SCOLD = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -1940,8 +1929,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_OFFER_ROOM = new DialogueNodeOld("Offer room", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_OFFER_ROOM = new DialogueNode("Offer room", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1968,8 +1956,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_OFFER_ROOM_BACK_HOME = new DialogueNodeOld("New Room", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_OFFER_ROOM_BACK_HOME = new DialogueNode("New Room", "", true, true) {
 		
 		@Override
 		public String getContent() {
@@ -1990,8 +1977,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_CHOOSE_NAME = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_CHOOSE_NAME = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -2041,8 +2027,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_PRESENT = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_PRESENT = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -2088,8 +2073,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_SEX = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_SEX = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -2103,7 +2087,7 @@ public class DominionOffspringDialogue {
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "From the moment you entered [npc.namePos] apartment, you haven't been able to take your [pc.eyes] off of [npc.herHim]."
-						+ " The fact that [npc.sheIs] your [npc.daughter] is only serving to make you even more aroused, and as [npc.she] smiles "+(offspring().isFeminine()?"sweetly":"charmigly")+" at you once more, you can't help but act."
+						+ " The fact that [npc.sheIs] your [npc.daughter] is only serving to make you even more aroused, and as [npc.she] smiles "+(offspring().isFeminine()?"sweetly":"charmingly")+" at you once more, you can't help but act."
 					+ "</p>");
 			
 			if(offspring().getHistory()==Occupation.NPC_PROSTITUTE){
@@ -2171,19 +2155,25 @@ public class DominionOffspringDialogue {
 					return new ResponseSex("Incestuous sex",
 							"It's time to show your [npc.daughter] what [npc.her] [pc.mother] can do!",
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))),
-							null, AFTER_SEX_CONSENSUAL);
+							new SMGeneric(
+								Util.newArrayListOfValues(Main.game.getPlayer()),
+								Util.newArrayListOfValues(offspring()),
+								null,
+								null),
+							AFTER_SEX_CONSENSUAL,
+							"");
 					
 				} else if (index == 2) {
 					return new ResponseSex("Submissive sex",
 							"It's time to let your [npc.daughter] show you what [npc.she] can do!",
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
-							null, AFTER_SEX_CONSENSUAL);
+							new SMGeneric(
+									Util.newArrayListOfValues(offspring()),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									null,
+									null),
+							AFTER_SEX_CONSENSUAL,
+							"");
 					
 				} else {
 					return null;
@@ -2195,10 +2185,13 @@ public class DominionOffspringDialogue {
 						return new ResponseSex("Incestuous sex ("+UtilText.formatAsMoney(100, "span")+")",
 								"Pay your [npc.daughter] 100 flames to get what you want!",
 								true, false,
-								new SMStanding(
-										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-										Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))),
-								null, AFTER_SEX_CONSENSUAL);
+								new SMGeneric(
+										Util.newArrayListOfValues(Main.game.getPlayer()),
+										Util.newArrayListOfValues(offspring()),
+										null,
+										null),
+								AFTER_SEX_CONSENSUAL,
+								"");
 					} else {
 						return new Response("Pay "+UtilText.formatAsMoneyUncoloured(100, "span"), "You don't have enough money...", null);
 					}
@@ -2208,10 +2201,13 @@ public class DominionOffspringDialogue {
 						return new ResponseSex("Submissive sex ("+UtilText.formatAsMoney(100, "span")+")",
 								"Pay your [npc.daughter] 100 flames to get what you want!",
 								true, false,
-								new SMStanding(
-										Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_DOMINANT)),
-										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
-								null, AFTER_SEX_CONSENSUAL);
+								new SMGeneric(
+										Util.newArrayListOfValues(offspring()),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									null,
+									null),
+								AFTER_SEX_CONSENSUAL,
+								"");
 					} else {
 						return new Response("Pay "+UtilText.formatAsMoneyUncoloured(100, "span"), "You don't have enough money...", null);
 					}
@@ -2232,8 +2228,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld OFFSPRING_ENCOUNTER_APARTMENT_FIGHT = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode OFFSPRING_ENCOUNTER_APARTMENT_FIGHT = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
@@ -2286,14 +2281,13 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_COMBAT_VICTORY = new DialogueNodeOld("Victory", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
 		public String getDescription() {
 			return "You have defeated [npc.name]!";
 		}
-
+		
 		@Override
 		public String getContent() {
 			if(offspring().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled()) {
@@ -2328,7 +2322,7 @@ public class DominionOffspringDialogue {
 			if (index == 1) {
 				return new Response("Apologise", "Maybe you went too far... Perhaps you should apologise?", null){
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -2363,11 +2357,11 @@ public class DominionOffspringDialogue {
 							"Well, [npc.she] <i>is</i> asking for it!",
 							Util.newArrayListOfValues(Fetish.FETISH_INCEST), null, Fetish.FETISH_INCEST.getAssociatedCorruptionLevel(), null, null, null,
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(offspring()),
 							null,
-							AFTER_SEX_VICTORY, "<p>"
+							null), AFTER_SEX_VICTORY, "<p>"
 								+ "Reaching down to take hold of one of [npc.namePos] [npc.arms], you pull [npc.herHim] to [npc.her] [npc.feet], before wrapping your [pc.arms] around [npc.her] back and stepping forwards."
 								+ " Tilting your head to one side, you press your [pc.lips+] against [npc.hers] and start passionately thrusting your [pc.tongue+] into [npc.her] mouth."
 							+ "</p>"
@@ -2381,11 +2375,11 @@ public class DominionOffspringDialogue {
 							"Rape [npc.herHim]", "[npc.She] needs to be punished for attacking you like that...",
 							Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM, Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(offspring()),
 							null,
-							AFTER_SEX_VICTORY, "<p>"
+							null), AFTER_SEX_VICTORY, "<p>"
 								+ "Reaching down, you grab [npc.namePos] [npc.arm], and, pulling [npc.herHim] to [npc.her] feet, you start grinding yourself up against [npc.herHim]."
 								+ " Seeing the lustful look in your [pc.eyes], [npc.she] lets out a little [npc.sob], desperately trying to struggle out of your grip as you hold [npc.herHim] firmly in your embrace."
 							+ "</p>"
@@ -2405,18 +2399,14 @@ public class DominionOffspringDialogue {
 							"Well, [npc.she] <i>is</i> asking for it! (Start the sex scene in the 'gentle' pace.)",
 							Util.newArrayListOfValues(Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-								@Override
-								public SexPace getStartingSexPaceModifier(GameCharacter character) {
-									if(character.isPlayer()) {
-										return SexPace.DOM_GENTLE;
-									}
-									return null;
-								}
-							},
-							null, AFTER_SEX_VICTORY, "<p>"
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(offspring()),
+									null,
+									null,
+									ResponseTag.START_PACE_PLAYER_DOM_GENTLE),
+							AFTER_SEX_VICTORY,
+							"<p>"
 								+ "Reaching down to take hold of one of [npc.namePos] [npc.arms], you gently lift [npc.herHim] to [npc.her] [npc.feet], before wrapping your [pc.arms] around [npc.her] back and stepping forwards."
 								+ " Tilting your head to one side, you softly press your [pc.lips+] against [npc.hers] and start slowly thrusting your [pc.tongue+] into [npc.her] mouth."
 							+ "</p>"
@@ -2430,19 +2420,14 @@ public class DominionOffspringDialogue {
 							"[npc.She] needs to be punished for attacking you like that... (Start the sex scene in the 'gentle' pace.)",
 							Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM, Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-								@Override
-								public SexPace getStartingSexPaceModifier(GameCharacter character) {
-									if(character.isPlayer()) {
-										return SexPace.DOM_GENTLE;
-									}
-									return null;
-								}	
-							},
-							null,
-							AFTER_SEX_VICTORY, "<p>"
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(offspring()),
+									null,
+									null,
+									ResponseTag.START_PACE_PLAYER_DOM_GENTLE),
+							AFTER_SEX_VICTORY,
+							"<p>"
 								+ "Reaching down, you take hold of [npc.namePos] [npc.arm], and, pulling [npc.herHim] to [npc.her] feet, you start pressing yourself up against [npc.herHim]."
 								+ " Seeing the lustful look in your [pc.eyes], [npc.she] lets out a little [npc.sob], desperately trying to struggle out of your grip as you hold [npc.herHim] in your embrace."
 							+ "</p>"
@@ -2462,19 +2447,14 @@ public class DominionOffspringDialogue {
 							"Well, [npc.she] <i>is</i> asking for it! (Start the sex scene in the 'rough' pace.)",
 							Util.newArrayListOfValues(Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							true, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-								@Override
-								public SexPace getStartingSexPaceModifier(GameCharacter character) {
-									if(character.isPlayer()) {
-										return SexPace.DOM_ROUGH;
-									}
-									return null;
-								}
-							},
-							null,
-							AFTER_SEX_VICTORY, "<p>"
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(offspring()),
+									null,
+									null,
+									ResponseTag.START_PACE_PLAYER_DOM_ROUGH),
+							AFTER_SEX_VICTORY,
+							"<p>"
 								+ "Reaching down to take hold of one of [npc.namePos] [npc.arms], you roughly yank [npc.herHim] to [npc.her] [npc.feet], before wrapping your [pc.arms] around [npc.her] back and stepping forwards."
 								+ " Tilting your head to one side, you greedily press your [pc.lips+] against [npc.hers] and start dominantly thrusting your [pc.tongue+] into [npc.her] mouth."
 							+ "</p>"
@@ -2488,19 +2468,14 @@ public class DominionOffspringDialogue {
 							"[npc.She] needs to be punished for attacking you like that... (Start the sex scene in the 'rough' pace.)",
 							Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM, Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-								@Override
-								public SexPace getStartingSexPaceModifier(GameCharacter character) {
-									if(character.isPlayer()) {
-										return SexPace.DOM_ROUGH;
-									}
-									return null;
-								}	
-							},
-							null,
-							AFTER_SEX_VICTORY, "<p>"
+							new SMGeneric(
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									Util.newArrayListOfValues(offspring()),
+									null,
+									null,
+									ResponseTag.START_PACE_PLAYER_DOM_ROUGH),
+							AFTER_SEX_VICTORY,
+							"<p>"
 								+ "Reaching down, you grab [npc.namePos] [npc.arm], and, roughly yanking [npc.herHim] to [npc.her] feet, you start forcefully grinding yourself up against [npc.herHim]."
 								+ " Seeing the lustful look in your [pc.eyes], [npc.she] lets out a little [npc.sob], desperately trying to struggle out of your grip as you firmly hold [npc.herHim] in your embrace."
 							+ "</p>"
@@ -2521,11 +2496,11 @@ public class DominionOffspringDialogue {
 								+ "Perhaps it would be best to let [npc.name] choose what to do next?",
 							Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE, Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(offspring()),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
 							null,
-							AFTER_SEX_DEFEAT, "<p>"
+							null), AFTER_SEX_DEFEAT, "<p>"
 								+ "Looking down at your [npc.daughter] as [npc.she] shuffles about on the floor, you're suddenly overcome with regret, and, kneeling down next to [npc.herHim], you pull [npc.herHim] into a loving hug."
 								+ " Leaning in over [npc.her] shoulder as you press yourself to [npc.herHim], you apologise for what you've done,"
 								+ " [pc.speech([npc.Name], I'm so sorry! I don't know what came over me! Please forgive me!)]"
@@ -2571,7 +2546,7 @@ public class DominionOffspringDialogue {
 						"Scare [npc.name] away. <b>This will remove [npc.herHim] from this area, allowing another character to move into this tile.</b>",
 						AFTER_COMBAT_VICTORY){
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -2616,7 +2591,7 @@ public class DominionOffspringDialogue {
 			} else if (index == 0) {
 				return new Response("Leave", "Now that you've taught [npc.name] a lesson, you can be on your way...", AFTER_COMBAT_VICTORY){
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -2640,8 +2615,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 
-	public static final DialogueNodeOld AFTER_COMBAT_DEFEAT = new DialogueNodeOld("Defeat", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeat", "", true) {
 
 		@Override
 		public String getDescription() {
@@ -2704,11 +2678,11 @@ public class DominionOffspringDialogue {
 					return new ResponseSex("Sex",
 							"[npc.Name] forces [npc.herself] on you...",
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))),
+							new SMGeneric(
+									Util.newArrayListOfValues(offspring()),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
 							null,
-							AFTER_SEX_DEFEAT, "<p>"
+							null), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally breaking away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>"
@@ -2726,19 +2700,14 @@ public class DominionOffspringDialogue {
 							"[npc.Name] forces [npc.herself] on you...",
 							Util.newArrayListOfValues(Fetish.FETISH_INCEST), null, CorruptionLevel.FIVE_CORRUPT, null, null, null,
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-								@Override
-								public SexPace getStartingSexPaceModifier(GameCharacter character) {
-									if(character.isPlayer()) {
-										return SexPace.SUB_EAGER;
-									}
-									return null;
-								}
-							},
-							null,
-							AFTER_SEX_DEFEAT, "<p>"
+							new SMGeneric(
+									Util.newArrayListOfValues(offspring()),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									null,
+									null,
+									ResponseTag.START_PACE_PLAYER_SUB_EAGER),
+							AFTER_SEX_DEFEAT,
+							"<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>"
@@ -2755,19 +2724,14 @@ public class DominionOffspringDialogue {
 					return new ResponseSex("Resist Sex",
 							"[npc.Name] forces [npc.herself] on you...",
 							false, false,
-							new SMStanding(
-									Util.newHashMapOfValues(new Value<>(offspring(), SexPositionSlot.STANDING_DOMINANT)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-								@Override
-								public SexPace getStartingSexPaceModifier(GameCharacter character) {
-									if(character.isPlayer()) {
-										return SexPace.SUB_RESISTING;
-									}
-									return null;
-								}
-							},
-							null,
-							AFTER_SEX_DEFEAT, "<p>"
+							new SMGeneric(
+									Util.newArrayListOfValues(offspring()),
+									Util.newArrayListOfValues(Main.game.getPlayer()),
+									null,
+									null,
+									ResponseTag.START_PACE_PLAYER_SUB_RESISTING),
+							AFTER_SEX_DEFEAT,
+							"<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
 								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
@@ -2789,7 +2753,7 @@ public class DominionOffspringDialogue {
 				if (index == 1) {
 					return new Response("Continue", "You're left to continue on your way...", AFTER_COMBAT_DEFEAT){
 						@Override
-						public DialogueNodeOld getNextDialogue(){
+						public DialogueNode getNextDialogue(){
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 						@Override
@@ -2805,8 +2769,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SEX_CONSENSUAL = new DialogueNodeOld("Post-sex", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX_CONSENSUAL = new DialogueNode("Post-sex", "", true) {
 		
 		@Override
 		public String getDescription(){
@@ -2845,7 +2808,7 @@ public class DominionOffspringDialogue {
 			if (index == 1) {
 				return new Response("Continue", "Carry on your way.", AFTER_SEX_CONSENSUAL){
 					@Override
-					public DialogueNodeOld getNextDialogue(){
+					public DialogueNode getNextDialogue(){
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -2856,8 +2819,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SEX_VICTORY = new DialogueNodeOld("Step back", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Step back", "", true) {
 		
 		@Override
 		public String getDescription(){
@@ -2970,7 +2932,7 @@ public class DominionOffspringDialogue {
 						Main.game.getTextStartStringBuilder().append(parsed);
 					}
 					@Override
-					public DialogueNodeOld getNextDialogue(){
+					public DialogueNode getNextDialogue(){
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -2989,7 +2951,7 @@ public class DominionOffspringDialogue {
 						"Scare [npc.name] away. <b>This will remove [npc.herHim] from this area, allowing another character to move into this tile.</b>",
 						AFTER_COMBAT_VICTORY){
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -3037,8 +2999,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SEX_DEFEAT = new DialogueNodeOld("Collapse", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Collapse", "", true) {
 		
 		@Override
 		public int getMinutesPassed(){
@@ -3095,7 +3056,7 @@ public class DominionOffspringDialogue {
 			if (index == 1) {
 				return new Response("Continue", "Carry on your way.", AFTER_SEX_VICTORY){
 					@Override
-					public DialogueNodeOld getNextDialogue(){
+					public DialogueNode getNextDialogue(){
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
@@ -3106,8 +3067,7 @@ public class DominionOffspringDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld ENSLAVEMENT_DIALOGUE = new DialogueNodeOld("New Slave", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode ENSLAVEMENT_DIALOGUE = new DialogueNode("New Slave", "", true) {
 		
 		@Override
 		public String getDescription(){
@@ -3166,7 +3126,7 @@ public class DominionOffspringDialogue {
 			if (index == 1) {
 				return new Response("Continue", "Carry on your way.", ENSLAVEMENT_DIALOGUE){
 					@Override
-					public DialogueNodeOld getNextDialogue(){
+					public DialogueNode getNextDialogue(){
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override

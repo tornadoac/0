@@ -102,7 +102,7 @@
 			#ffb380
 			#ffccaa
 			#ffe6d5
-		Yellow is used as base colour for changing the SECODNARY colour of the graphic in-game, and the game will only recognise and change the following colours:
+		Yellow is used as base colour for changing the SECONDARY colour of the graphic in-game, and the game will only recognise and change the following colours:
 			#ffd42a
 			#ffdd55
 			#ffe680
@@ -121,6 +121,7 @@
 		<!-- Special item tags that apply to this weapon. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 		<itemTags> 
 			<tag>SOLD_BY_VICKY</tag>
+			<tag>WEAPON_BLADE</tag>
 		</itemTags>
 		
 	</coreAttributes>

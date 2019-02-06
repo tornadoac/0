@@ -21,6 +21,7 @@ import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -147,7 +148,7 @@ public enum Spell {
 			false,
 			"Flash",
 			"flash",
-			"Crates a blinding flash of light that stuns the target.",
+			"Creates a blinding flash of light that stuns the target.",
 			0,
 			DamageVariance.LOW,
 			60,
@@ -535,7 +536,7 @@ public enum Spell {
 			
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
-											Util.newArrayListOfValues(//TODO chunni three from here
+											Util.newArrayListOfValues(//TODO chuuni three from here
 													"May the heavens burst, and floods sweep the Earth! By the powers manifest within me, I tear open the skies, and deliver unto you your watery grave!"),
 											"With an upwards thrust of your [pc.arm], you summon forth a cloud of rain above your own head!",
 											"With an upwards thrust of your [pc.arm], you summon forth a cloud of rain above [npc.namePos] head!",
@@ -566,7 +567,7 @@ public enum Spell {
 		}
 	},
 
-	SOOTHING_WATERS(true,
+	SOOTHING_WATERS(false,
 			SpellSchool.WATER,
 			SpellType.DEFENSIVE,
 			DamageType.ICE,
@@ -1490,20 +1491,7 @@ public enum Spell {
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				if(damage>0) {
-					if(target.hasStatusEffect(StatusEffect.DESPERATE_FOR_SEX)) {
-						descriptionSB.append(UtilText.parse(caster, target,
-									"<p>"
-										+ "<b>[npc2.Name] [npc2.verb(take)] " + (damage*2) + " <b style='color:" + Colour.ATTRIBUTE_HEALTH.toWebHexString() + ";'>energy damage</b>"
-										+ " and "+damage+" <b style='color:" + Colour.ATTRIBUTE_MANA.toWebHexString() + ";'>aura damage</b> as [npc2.she] [npc2.verb(struggle)] to control [npc2.her] burning desire for sex!</b><br/>"
-									+ "</p>"));
-
-						target.incrementHealth(-damage*2);
-						target.incrementMana(-damage);
-						
-					} else {
-						descriptionSB.append(target.incrementLust(damage));
-					}
-					
+					descriptionSB.append(target.incrementLust(damage, true));
 				}
 				
 				if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2)) {
@@ -2285,6 +2273,11 @@ public enum Spell {
 					"Lasts for [style.colourGood(3 turns)]")) {
 		
 		@Override
+		public boolean isSpellBook() {
+			return false;
+		}
+		
+		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			descriptionSB.setLength(0);
@@ -2333,6 +2326,11 @@ public enum Spell {
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 25)), Util.newArrayListOfValues("Lasts for [style.colourGood(5 turns)]")) {
 		
 		@Override
+		public boolean isSpellBook() {
+			return false;
+		}
+		
+		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			descriptionSB.setLength(0);
@@ -2355,6 +2353,72 @@ public enum Spell {
 			if(isHit) {
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
+			}
+			
+			descriptionSB.append(getCostDescription(caster, cost));
+			caster.incrementMana(-cost);
+			
+			return descriptionSB.toString();
+		}
+	},
+	
+
+	
+	DARK_SIREN_SIRENS_CALL(false,
+			SpellSchool.AIR,
+			SpellType.OFFENSIVE,
+			DamageType.PHYSICAL,
+			false,
+			"Siren's Call",
+			"dark_siren_sirens_call",
+			"Unleashes a reverberating scream, the power of which causes the ground to split open. From this fissure, poisonous vapours rise to choke and stifle all nearby enemies.",
+			10,
+			DamageVariance.NONE,
+			200,
+			Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.BANEFUL_FISSURE, 10)),
+			null,
+			null,
+			Util.newArrayListOfValues(
+					"<b>25</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(10 turns)]",
+					"Affects [style.colourExcellent(all enemies)]")) {
+		
+		@Override
+		public boolean isSpellBook() {
+			return false;
+		}
+		
+		@Override
+		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
+			descriptionSB.setLength(0);
+
+			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
+			float cost = getModifiedCost(caster);
+			
+			descriptionSB.append("<p>"
+									+getCastDescription(caster, target,
+											Util.newArrayListOfValues(
+													"Powers beneath the earth, obey your [npc.master]'s command! Rend unto the end of time a chasm of darkness, from which the suffocating miasma of toxic dimensions may pour forth!"),
+										"",
+										"Concentrating on the immense arcane power within your scythe, you smite down into the ground beneath [npc.namePos] [npc.feet], splitting the earth and summoning forth poison fumes!",
+										"",
+										"Concentrating on the immense arcane power within [npc.her] scythe, [npc.name] smites down into the ground beneath your [pc.feet], splitting the earth and summoning forth poison fumes!",
+										"Concentrating on the immense arcane power within [npc.her] scythe, [npc.name] smites down into the ground beneath [npc2.namePos] [npc2.feet], splitting the earth and summoning forth poison fumes!")
+								+"</p>");
+
+			descriptionSB.append(getDamageDescription(caster, target, damage, true, isCritical));
+			
+			if(Combat.getEnemies().contains(target)) {
+				for(NPC combatant : Combat.getEnemies()) {
+					applyStatusEffects(caster, combatant, isCritical);
+					descriptionSB.append(getStatusEffectApplication(caster, combatant, isHit, isCritical));
+				}
+			} else {
+				applyStatusEffects(caster, Main.game.getPlayer(), isCritical);
+				descriptionSB.append(getStatusEffectApplication(caster, Main.game.getPlayer(), isHit, isCritical));
+				for(NPC combatant : Combat.getAllies()) {
+					applyStatusEffects(caster, combatant, isCritical);
+					descriptionSB.append(getStatusEffectApplication(caster, combatant, isHit, isCritical));
+				}
 			}
 			
 			descriptionSB.append(getCostDescription(caster, cost));
@@ -2486,12 +2550,8 @@ public enum Spell {
 				System.err.println("Error! Spell icon file does not exist (Trying to read from '"+pathName+"')!");
 			}
 			SVGString = Util.inputStreamToString(is);
-
-			SVGString = SVGString.replaceAll("#ff2a2a", damageType.getMultiplierAttribute().getColour().getShades()[0]);
-			SVGString = SVGString.replaceAll("#ff5555", damageType.getMultiplierAttribute().getColour().getShades()[1]);
-			SVGString = SVGString.replaceAll("#ff8080", damageType.getMultiplierAttribute().getColour().getShades()[2]);
-			SVGString = SVGString.replaceAll("#ffaaaa", damageType.getMultiplierAttribute().getColour().getShades()[3]);
-			SVGString = SVGString.replaceAll("#ffd5d5", damageType.getMultiplierAttribute().getColour().getShades()[4]);
+			
+			SVGString = SvgUtil.colourReplacement(this.toString(), damageType.getMultiplierAttribute().getColour(), SVGString);
 			
 			is.close();
 
@@ -2521,6 +2581,10 @@ public enum Spell {
 
 	public List<String> getModifiersAsStringList() {
 		return modifiersList;
+	}
+	
+	public boolean isSpellBook() {
+		return true;
 	}
 	
 	public boolean isForbiddenSpell() {

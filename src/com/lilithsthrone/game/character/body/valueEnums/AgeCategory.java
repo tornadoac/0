@@ -60,10 +60,10 @@ public enum AgeCategory {
 	private Colour colour;
 	private ContentPreferenceValue agePreferenceDefault;
 
-	private AgeCategory(String name, int minimumBodySize, int maximumBodySize, Colour colour, ContentPreferenceValue agePreferenceDefault) {
+	private AgeCategory(String name, int minimumAge, int maximumAge, Colour colour, ContentPreferenceValue agePreferenceDefault) {
 		this.name = name;
-		this.minimumAge = minimumBodySize;
-		this.maximumAge = maximumBodySize;
+		this.minimumAge = minimumAge;
+		this.maximumAge = maximumAge;
 		this.colour = colour;
 		this.agePreferenceDefault = agePreferenceDefault;
 	}
@@ -112,6 +112,10 @@ public enum AgeCategory {
 			category = AgeCategory.TWENTIES_MIDDLE;
 			//Agemod
 		}
+		if(category==null) {
+			category = AgeCategory.TWENTIES_MIDDLE;
+		}
+		
 		int lowerBound = category.getMinimumValue();
 		int upperBound = category.getMaximumValue();
 		return lowerBound + Util.random.nextInt(upperBound-lowerBound);

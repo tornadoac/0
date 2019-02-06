@@ -12,7 +12,7 @@ import com.lilithsthrone.game.character.effects.Perk;
 import com.lilithsthrone.game.character.effects.StatusEffect;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.race.Race;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.SexAreaInterface;
 import com.lilithsthrone.game.sex.SexPace;
@@ -28,8 +28,9 @@ import com.lilithsthrone.utils.Util;
  */
 public class Response {
 	
-	protected String title, tooltipText;
-	protected DialogueNodeOld nextDialogue;
+	protected String title;
+	protected String tooltipText;
+	protected DialogueNode nextDialogue;
 	
 	protected List<Fetish> fetishesRequired;
 	protected CorruptionLevel corruptionBypass;
@@ -45,7 +46,7 @@ public class Response {
 	
 	public Response(String title,
 			String tooltipText,
-			DialogueNodeOld nextDialogue) {
+			DialogueNode nextDialogue) {
 		
 		this(title, tooltipText, nextDialogue,
 				null, null,
@@ -54,7 +55,7 @@ public class Response {
 	
 	public Response(String title,
 			String tooltipText,
-			DialogueNodeOld nextDialogue,
+			DialogueNode nextDialogue,
 			List<Fetish> fetishesForUnlock,
 			CorruptionLevel corruptionBypass,
 			List<Perk> perksRequired,
@@ -69,7 +70,7 @@ public class Response {
 	
 	public Response(String title,
 			String tooltipText,
-			DialogueNodeOld nextDialogue, 
+			DialogueNode nextDialogue, 
 			List<Fetish> fetishesForUnlock,
 			CorruptionLevel corruptionBypass,
 			List<Perk> perksRequired,
@@ -112,7 +113,7 @@ public class Response {
 		return tooltipText;
 	}
 
-	public DialogueNodeOld getNextDialogue() {
+	public DialogueNode getNextDialogue() {
 		if(isAvailable() || isAbleToBypass()) {
 			return nextDialogue;
 		} else {
@@ -289,12 +290,12 @@ public class Response {
 				SB.append("<br/>"
 						+"<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Requirement</b>"
 						+ " (Race): "
-						+"<span style='color:"+raceRequired.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(raceRequired.getName())+"</span>");
+						+"<span style='color:"+raceRequired.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(raceRequired.getName(false))+"</span>");
 			} else {
 				SB.append("<br/>"
 						+"<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Requirement</b>"
 						+ " (Race): "
-						+"<span style='color:"+raceRequired.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(raceRequired.getName())+"</span>");
+						+"<span style='color:"+raceRequired.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(raceRequired.getName(false))+"</span>");
 			}
 		}
 		
@@ -501,20 +502,19 @@ public class Response {
 	}
 	
 	public boolean isFemininityInRange() {
-		if(femininityRequired==null)
+		if(femininityRequired==null) {
 			return true;
+		}
 		
 		switch(femininityRequired){
 			case ANDROGYNOUS:
 				return Femininity.valueOf(Main.game.getPlayer().getFemininityValue()) == Femininity.ANDROGYNOUS;
 			case FEMININE:
-				return Main.game.getPlayer().getFemininityValue() >= Femininity.FEMININE.getMinimumFemininity();
 			case FEMININE_STRONG:
-				return Main.game.getPlayer().getFemininityValue() >= Femininity.FEMININE_STRONG.getMinimumFemininity();
+				return Main.game.getPlayer().getFemininityValue() >= femininityRequired.getMinimumFemininity();
 			case MASCULINE:
-				return Main.game.getPlayer().getFemininityValue() <= Femininity.MASCULINE.getMaximumFemininity();
 			case MASCULINE_STRONG:
-				return Main.game.getPlayer().getFemininityValue() <= Femininity.MASCULINE_STRONG.getMaximumFemininity();
+				return Main.game.getPlayer().getFemininityValue() <= femininityRequired.getMaximumFemininity();
 			default:
 				return true;
 		}

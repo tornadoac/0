@@ -45,7 +45,7 @@ import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.inventory.AbstractCoreItem;
 import com.lilithsthrone.game.inventory.CharacterInventory;
 import com.lilithsthrone.game.inventory.InventorySlot;
@@ -67,7 +67,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.2.6
- * @version 0.2.11
+ * @version 0.3.1
  * @author Innoxia
  */
 public class Roxy extends NPC {
@@ -96,7 +96,7 @@ public class Roxy extends NPC {
 	}
 	
 	public Roxy(boolean isImported) {
-		super(isImported, new NameTriplet("Roxy"),
+		super(isImported, new NameTriplet("Roxy"), "Yap",
 				"Roxy is the rat-girl owner of the Gambling Den's shop, 'Roxy's Box'."
 					+ " With a patch over one eye, and visible scarring down one side of her face, Roxy is clearly no stranger to violence."
 					+ " She has some particularly vulgar mannerisms, and has little patience for any of her customers.",
@@ -268,7 +268,7 @@ public class Roxy extends NPC {
 	}
 	
 	@Override
-	public DialogueNodeOld getEncounterDialogue() {
+	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 
@@ -293,23 +293,30 @@ public class Roxy extends NPC {
 			}
 		}
 		
-		Colour condomColour1 = ClothingType.PENIS_CONDOM.getAvailablePrimaryColours().get(Util.random.nextInt(ClothingType.PENIS_CONDOM.getAvailablePrimaryColours().size()));
-		Colour condomColour2 = ClothingType.PENIS_CONDOM.getAvailablePrimaryColours().get(Util.random.nextInt(ClothingType.PENIS_CONDOM.getAvailablePrimaryColours().size()));
-		
-		for (int i = 0; i < 6+(Util.random.nextInt(12)); i++) {
-			this.addClothing(AbstractClothingType.generateClothing(ClothingType.PENIS_CONDOM, condomColour1, false), false);
-		}
-		for (int i = 0; i < 6+(Util.random.nextInt(12)); i++) {
-			this.addClothing(AbstractClothingType.generateClothing(ClothingType.PENIS_CONDOM, condomColour2, false), false);
-		}
-		
 		List<AbstractClothingType> clothingToAdd = new ArrayList<>();
 		
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
 			if(clothing!=null
 					&& clothing.getRarity()==Rarity.COMMON
 					&& (clothing.getItemTags().contains(ItemTag.SOLD_BY_FINCH) || clothing.getItemTags().contains(ItemTag.SOLD_BY_NYAN))) {
-				clothingToAdd.add(clothing);
+				if(clothing.isCondom()) {
+					Colour condomColour = Util.randomItemFrom(clothing.getAvailablePrimaryColours());
+					Colour condomColourSec = Colour.CLOTHING_BLACK;
+					Colour condomColourTer = Colour.CLOTHING_BLACK;
+					
+					if(!clothing.getAvailableSecondaryColours().isEmpty()) {
+						condomColourSec = Util.randomItemFrom(clothing.getAvailableSecondaryColours());
+					}
+					if(!clothing.getAvailableTertiaryColours().isEmpty()) {
+						condomColourTer = Util.randomItemFrom(clothing.getAvailableTertiaryColours());
+					}
+					for (int i = 0; i < (3+(Util.random.nextInt(4)))*(clothing.getRarity()==Rarity.COMMON?3:(clothing.getRarity()==Rarity.UNCOMMON?2:1)); i++) {
+						this.addClothing(AbstractClothingType.generateClothing(clothing, condomColour, condomColourSec, condomColourTer, false), false);
+					}
+					
+				} else {
+					clothingToAdd.add(clothing);
+				}
 			}
 		}
 		

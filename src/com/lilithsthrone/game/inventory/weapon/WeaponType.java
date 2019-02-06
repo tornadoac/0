@@ -291,7 +291,9 @@ public class WeaponType {
 			ColourListPresets.ALL.getPresetColourList(),
 			ColourListPresets.JUST_STEEL.getPresetColourList(),
 			ColourListPresets.ALL_METAL.getPresetColourList(),
-			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
+			Util.newArrayListOfValues(
+					ItemTag.SOLD_BY_VICKY,
+					ItemTag.WEAPON_BLADE)) {
 
 		@Override
 		public String equipText(GameCharacter character) {
@@ -370,7 +372,9 @@ public class WeaponType {
 			ColourListPresets.ALL.getPresetColourList(),
 			ColourListPresets.JUST_STEEL.getPresetColourList(),
 			ColourListPresets.ALL_METAL.getPresetColourList(),
-			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
+			Util.newArrayListOfValues(
+					ItemTag.SOLD_BY_VICKY,
+					ItemTag.WEAPON_BLADE)) {
 
 		@Override
 		public String equipText(GameCharacter character) {
@@ -669,7 +673,9 @@ public class WeaponType {
 			null,
 			null,
 			null,
-			Util.newArrayListOfValues(ItemTag.REMOVE_FROM_DEBUG_SPAWNER)) {
+			Util.newArrayListOfValues(
+					ItemTag.REMOVE_FROM_DEBUG_SPAWNER
+					)) {
 
 		@Override
 		public String equipText(GameCharacter character) {
@@ -1023,13 +1029,16 @@ public class WeaponType {
 	};
 	
 	public static List<AbstractWeaponType> rareWeapons = new ArrayList<>();
-	public static List<AbstractWeaponType> allweapons = new ArrayList<>();
+	private static List<AbstractWeaponType> allweapons = new ArrayList<>();
 	public static List<AbstractWeaponType> moddedWeapons = new ArrayList<>();
 	
 	public static Map<AbstractWeaponType, String> weaponToIdMap = new HashMap<>();
 	public static Map<String, AbstractWeaponType> idToWeaponMap = new HashMap<>();
 	
 	public static AbstractWeaponType getWeaponTypeFromId(String id) {
+//		System.out.print("ID: "+id);
+		id = Util.getClosestStringMatch(id, idToWeaponMap.keySet());
+//		System.out.println("  set to: "+id);
 		return idToWeaponMap.get(id);
 	}
 	
@@ -1126,12 +1135,10 @@ public class WeaponType {
 					weaponToIdMap.put(weapon, f.getName());
 					idToWeaponMap.put(f.getName(), weapon);
 					
-					if(weapon != MAIN_WESTERN_KKP) {
-						allweapons.add(weapon);
-					
-						if (weapon.getRarity() == Rarity.RARE) {
-							rareWeapons.add(weapon);
-						}
+					allweapons.add(weapon);
+				
+					if (weapon.getRarity() == Rarity.RARE) {
+						rareWeapons.add(weapon);
 					}
 					
 				} catch (IllegalArgumentException | IllegalAccessException e) {
@@ -1139,5 +1146,9 @@ public class WeaponType {
 				}
 			}
 		}
+	}
+
+	public static List<AbstractWeaponType> getAllweapons() {
+		return allweapons;
 	}
 }

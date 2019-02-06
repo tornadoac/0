@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.character.body;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,22 +15,22 @@ import com.lilithsthrone.game.character.body.valueEnums.PenisGirth;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
 import com.lilithsthrone.game.character.effects.StatusEffect;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
-import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.Sex;
+import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.0
- * @version 0.2.11
+ * @version 0.3.1
  * @author Innoxia
  */
-public class Vagina implements BodyPartInterface, Serializable {
+public class Vagina implements BodyPartInterface {
 
-	private static final long serialVersionUID = 1L;
 	
 	protected VaginaType type;
 	protected Clitoris clitoris;
@@ -107,10 +106,21 @@ public class Vagina implements BodyPartInterface, Serializable {
 			}
 		}
 		descriptorList.add(wetnessDescriptor);
-		if((owner.getPubicHair()==BodyHair.SIX_BUSHY || owner.getPubicHair()==BodyHair.FIVE_UNKEMPT) && Main.game.isPubicHairEnabled()) {
+		if(owner.getPubicHair().getValue()>=BodyHair.FOUR_NATURAL.getValue() && Main.game.isPubicHairEnabled()) {
 			descriptorList.add("hairy");
 		}
-		descriptorList.add(type.getDescriptor(owner));
+		
+		if(owner.isVaginaBestial()) {
+			descriptorList.add(Util.randomItemFrom(Util.newArrayListOfValues(
+					(this.getType().getRace()==Race.HORSE_MORPH?"mare":null),
+					"feral",
+					owner.getVaginaRace().getName(true)+"-",
+					"bestial",
+					"animalistic")));
+		} else {
+			descriptorList.add(type.getDescriptor(owner));
+		}
+		
 		descriptorList.add(orificeVagina.getCapacity().getDescriptor());
 		
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
@@ -135,6 +145,16 @@ public class Vagina implements BodyPartInterface, Serializable {
 	}
 	
 	public String setType(GameCharacter owner, VaginaType type, boolean overridePregnancyPrevention) {
+		if(!Main.game.isStarted() || owner==null) {// This always overrides pregnancy prevention, as the only times where this is true are for utility methods:
+			this.type = type;
+			this.girlcum.setType(type.getFluidType());
+			if(owner!=null) {
+				owner.resetAreaKnownByCharacters(CoverableArea.VAGINA);
+				owner.postTransformationCalculation();
+			}
+			return "";
+		}
+		
 		if (type == owner.getVaginaType()) {
 			if(owner.isPlayer()) {
 				if(type == VaginaType.NONE) {
@@ -288,6 +308,8 @@ public class Vagina implements BodyPartInterface, Serializable {
 		
 		this.type = type;
 		this.girlcum.setType(type.getFluidType());
+		owner.resetAreaKnownByCharacters(CoverableArea.VAGINA);
+		
 		switch (type) {
 			case NONE:
 				if(owner.isPlayer()) {
@@ -1002,5 +1024,13 @@ public class Vagina implements BodyPartInterface, Serializable {
 
 	public Clitoris getClitoris() {
 		return clitoris;
+	}
+
+	@Override
+	public boolean isBestial(GameCharacter owner) {
+		if(owner==null) {
+			return false;
+		}
+		return owner.getLegConfiguration().getBestialParts().contains(Vagina.class);
 	}
 }

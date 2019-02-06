@@ -46,7 +46,6 @@ import com.lilithsthrone.game.character.body.valueEnums.NippleSize;
 import com.lilithsthrone.game.character.body.valueEnums.OrificeElasticity;
 import com.lilithsthrone.game.character.body.valueEnums.OrificePlasticity;
 import com.lilithsthrone.game.character.body.valueEnums.PenisGirth;
-import com.lilithsthrone.game.character.body.valueEnums.PenisSize;
 import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
 import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
@@ -65,7 +64,7 @@ import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.DamageType;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
@@ -84,10 +83,10 @@ import com.lilithsthrone.game.sex.SexAreaInterface;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexPace;
-import com.lilithsthrone.game.sex.SexPositionSlot;
 import com.lilithsthrone.game.sex.managers.dominion.SMBraxDoggy;
 import com.lilithsthrone.game.sex.managers.universal.SMCowgirl;
 import com.lilithsthrone.game.sex.managers.universal.SMKneeling;
+import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
@@ -107,7 +106,7 @@ public class Brax extends NPC {
 	}
 	
 	public Brax(boolean isImported) {
-		super(isImported, new NameTriplet("Brax", "Bree", "Brandi"),
+		super(isImported, new NameTriplet("Brax", "Bree", "Brandi"), "Volkov",
 				"The 'Chief of Dominion Operations', Brax is a high-ranking enforcer. Muscular, handsome, and with an incredibly dominant personality, he's the focus of every female enforcer's attention.",
 				30, Month.NOVEMBER, 27,
 				3, Gender.M_P_MALE,
@@ -218,7 +217,7 @@ public class Brax extends NPC {
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.THREE_THICK);
-		this.setPenisSize(PenisSize.FOUR_HUGE.getMedianValue());
+		this.setPenisSize(8);
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		// Leave cum as normal value
 		
@@ -302,9 +301,9 @@ public class Brax extends NPC {
 	}
 	
 	public void setBraxsPostQuestStatus() {
-		Main.game.getBrax().setLocation(WorldType.ENFORCER_HQ, PlaceType.ENFORCER_HQ_RECEPTION_DESK, true);
-		Main.game.getBrax().setPendingClothingDressing(true);
-		Main.game.getCandi().addSlave(Main.game.getBrax());
+		Main.game.getNpc(Brax.class).setLocation(WorldType.ENFORCER_HQ, PlaceType.ENFORCER_HQ_RECEPTION_DESK, true);
+		Main.game.getNpc(Brax.class).setPendingClothingDressing(true);
+		Main.game.getNpc(CandiReceptionist.class).addSlave(Main.game.getNpc(Brax.class));
 	}
 	
 	@Override
@@ -379,7 +378,7 @@ public class Brax extends NPC {
 	}
 	
 	@Override
-	public DialogueNodeOld getEncounterDialogue() {
+	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 
@@ -427,8 +426,7 @@ public class Brax extends NPC {
 		}
 	}
 
-	public static final DialogueNodeOld AFTER_COMBAT_VICTORY = new DialogueNodeOld("Victory", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
 		public String getDescription() {
@@ -522,8 +520,7 @@ public class Brax extends NPC {
 		}
 
 	};
-	public static final DialogueNodeOld AFTER_COMBAT_VICTORY_NO_SEX = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_COMBAT_VICTORY_NO_SEX = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -545,7 +542,7 @@ public class Brax extends NPC {
 					public void effects() {
 //						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_ENFORCER_HQ);
 						Main.game.setActiveWorld(Main.game.getWorlds().get(WorldType.DOMINION), PlaceType.DOMINION_ENFORCER_HQ, true);
-						((Brax) Main.game.getBrax()).setBraxsPostQuestStatus();
+						((Brax) Main.game.getNpc(Brax.class)).setBraxsPostQuestStatus();
 					}
 				};
 			} else {
@@ -553,8 +550,7 @@ public class Brax extends NPC {
 			}
 		}
 	};
-	public static final DialogueNodeOld AFTER_COMBAT_VICTORY_DOMINANT_SEX = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_COMBAT_VICTORY_DOMINANT_SEX = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -601,10 +597,10 @@ public class Brax extends NPC {
 				return new ResponseSex("Get started", "Start dominating your new bitch.",
 						false, false,
 						new SMKneeling(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.KNEELING_RECEIVING_ORAL)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getBrax(), SexPositionSlot.KNEELING_PERFORMING_ORAL))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Brax.class), SexSlotBipeds.KNEELING_PERFORMING_ORAL))),
 						null,
-						AFTER_DOMINANT_SEX, "<p>"
+						null, AFTER_DOMINANT_SEX, "<p>"
 							+ "With a forceful push, you shove Brax down onto his knees before you."
 							+ " His meek, submissive look couldn't be further from the aggressive snarl that he greeted you with when you entered his office, and you grin down at him as you prepare to make him your bitch."
 						+ "</p>");
@@ -614,8 +610,7 @@ public class Brax extends NPC {
 			}
 		}
 	};
-	public static final DialogueNodeOld AFTER_COMBAT_VICTORY_SUBMISSIVE_SEX = new DialogueNodeOld("", "", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_COMBAT_VICTORY_SUBMISSIVE_SEX = new DialogueNode("", "", true, true) {
 
 		@Override
 		public String getContent() {
@@ -657,10 +652,10 @@ public class Brax extends NPC {
 				return new ResponseSex("Obey", "Do as Brax says and present yourself for him.",
 						false, true,
 						new SMBraxDoggy(
-								Util.newHashMapOfValues(new Value<>(Main.game.getBrax(), SexPositionSlot.DOGGY_BEHIND)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_ON_ALL_FOURS))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Brax.class), SexSlotBipeds.DOGGY_BEHIND)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS))),
 						null,
-						AFTER_SUBMISSIVE_SEX, "<p>"
+						null, AFTER_SUBMISSIVE_SEX, "<p>"
 							+ "You obediently do as Brax commands and drop down on all fours right there in the middle of his office."
 							+ (Main.game.getPlayer().getTailType() == TailType.LYCAN
 								?" You can't help but shake your ass at the dominant wolf-boy, and you playfully flick your wolf-like tail back and forth, making pitiful little whining noises as you eagerly plead for Brax's thick cock."
@@ -678,10 +673,9 @@ public class Brax extends NPC {
 
 	
 //	private static String fetishChanges = "";
-	public static final DialogueNodeOld AFTER_COMBAT_DEFEAT = new DialogueNodeOld("Defeat", "", true) {
+	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeat", "", true) {
 		/**
 		 */
-		private static final long serialVersionUID = 1L;
 
 		@Override
 		public String getDescription() {
@@ -714,7 +708,7 @@ public class Brax extends NPC {
 					+ "</p>";
 				
 			} else {
-				if(Main.game.getBrax().getFoughtPlayerCount()>1) {
+				if(Main.game.getNpc(Brax.class).getFoughtPlayerCount()>1) {
 					return "<p>"
 							+ "You can't carry on fighting any longer, and your legs give out from beneath you as you sink down onto your knees."
 							+ " As Brax lets out a deep laugh, you find yourself looking down at the floor, trying to avoid his powerful gaze."
@@ -825,8 +819,8 @@ public class Brax extends NPC {
 								
 								Main.game.getPlayer().setBreastType(BreastType.WOLF_MORPH);
 								Main.game.getPlayer().setAssType(AssType.WOLF_MORPH);
-								Main.game.getPlayer().setArmType(ArmType.LYCAN);
-								Main.game.getPlayer().setLegType(LegType.LYCAN);
+								Main.game.getPlayer().setArmType(ArmType.WOLF_MORPH);
+								Main.game.getPlayer().setLegType(LegType.WOLF_MORPH);
 								
 								if(Main.getProperties().multiBreasts!=0) {
 									Main.game.getPlayer().setBreastRows(3);
@@ -847,8 +841,8 @@ public class Brax extends NPC {
 								
 								Main.game.getPlayer().setBreastType(BreastType.WOLF_MORPH);
 								Main.game.getPlayer().setAssType(AssType.WOLF_MORPH);
-								Main.game.getPlayer().setArmType(ArmType.LYCAN);
-								Main.game.getPlayer().setLegType(LegType.LYCAN);
+								Main.game.getPlayer().setArmType(ArmType.WOLF_MORPH);
+								Main.game.getPlayer().setLegType(LegType.WOLF_MORPH);
 								
 								Main.game.getPlayer().setSkinType(SkinType.LYCAN);
 								Main.game.getPlayer().setFaceType(FaceType.LYCAN);
@@ -894,8 +888,7 @@ public class Brax extends NPC {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_DEFEAT_TRANSFORMATION_REFUSED = new DialogueNodeOld("Brax's Office", "In Brax's Office after being forced to drink the potion.", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_DEFEAT_TRANSFORMATION_REFUSED = new DialogueNode("Brax's Office", "In Brax's Office after being forced to drink the potion.", true, true) {
 
 		@Override
 		public String getContent() {
@@ -916,10 +909,10 @@ public class Brax extends NPC {
 				return new ResponseSex("Dominated", "Brax is far too strong for you to resist...",
 						false, false,
 						new SMBraxDoggy(
-								Util.newHashMapOfValues(new Value<>(Main.game.getBrax(), SexPositionSlot.DOGGY_BEHIND)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_ON_ALL_FOURS))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Brax.class), SexSlotBipeds.DOGGY_BEHIND)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS))),
 						null,
-						AFTER_SUBMISSIVE_SEX, "<p>"
+						null, AFTER_SUBMISSIVE_SEX, "<p>"
 							+ "Brax spins you around, and with a forceful shove, pushes you down to the ground."
 							+ " You land on all-fours, with your ass raised up towards the dominant wolf-boy."
 							+ " Hearing him let out a deep growl, you make a pitiful little whining noise in response as you realise that you're perfectly presented for Brax to take you, doggy-style."
@@ -934,8 +927,7 @@ public class Brax extends NPC {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_DEFEAT_TRANSFORMATION = new DialogueNodeOld("Brax's Office", "In Brax's Office after being forced to drink the potion.", true, true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_DEFEAT_TRANSFORMATION = new DialogueNode("Brax's Office", "In Brax's Office after being forced to drink the potion.", true, true) {
 
 		@Override
 		public String getContent() {
@@ -1029,10 +1021,10 @@ public class Brax extends NPC {
 				return new ResponseSex("Obey", "The arousing liquid you've just been forced to drink is forcing you to obey, and you eagerly fall down on all fours so that Brax can fuck you, doggy-style.",
 						false, false,
 						new SMBraxDoggy(
-								Util.newHashMapOfValues(new Value<>(Main.game.getBrax(), SexPositionSlot.DOGGY_BEHIND)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.DOGGY_ON_ALL_FOURS))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Brax.class), SexSlotBipeds.DOGGY_BEHIND)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS))),
 						null,
-						AFTER_SUBMISSIVE_SEX, "<p>"
+						null, AFTER_SUBMISSIVE_SEX, "<p>"
 							+ "You obediently do as Brax commands and drop down on all fours right there in the middle of his office."
 							+ (Main.game.getPlayer().getTailType() == TailType.LYCAN
 								?" You can't help but shake your ass at the dominant wolf-boy, and you playfully flick your wolf-like tail back and forth, making pitiful little whining noises as you eagerly plead for Brax's thick cock."
@@ -1048,8 +1040,7 @@ public class Brax extends NPC {
 		}
 	};
 
-	public static final DialogueNodeOld AFTER_SUBMISSIVE_SEX = new DialogueNodeOld("Brax is done", "Brax has finished having his fun with you.", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SUBMISSIVE_SEX = new DialogueNode("Brax is done", "Brax has finished having his fun with you.", true) {
 
 		@Override
 		public int getMinutesPassed() {
@@ -1096,7 +1087,7 @@ public class Brax extends NPC {
 					@Override
 					public void effects() {
 						if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.braxBeaten)) {
-							((Brax) Main.game.getBrax()).setBraxsPostQuestStatus();
+							((Brax) Main.game.getNpc(Brax.class)).setBraxsPostQuestStatus();
 						}
 						Main.game.setActiveWorld(Main.game.getWorlds().get(WorldType.DOMINION), PlaceType.DOMINION_ENFORCER_HQ, true);
 					}
@@ -1108,8 +1099,7 @@ public class Brax extends NPC {
 		}
 	};
 
-	public static final DialogueNodeOld AFTER_DOMINANT_SEX = new DialogueNodeOld("Brax collapses", "Brax collapses and you return to his office.", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_DOMINANT_SEX = new DialogueNode("Brax collapses", "Brax collapses and you return to his office.", true) {
 
 		@Override
 		public String getContent() {
@@ -1130,7 +1120,7 @@ public class Brax extends NPC {
 					@Override
 					public void effects() {
 						Main.game.setActiveWorld(Main.game.getWorlds().get(WorldType.DOMINION), PlaceType.DOMINION_ENFORCER_HQ, true);
-						((Brax) Main.game.getBrax()).setBraxsPostQuestStatus();
+						((Brax) Main.game.getNpc(Brax.class)).setBraxsPostQuestStatus();
 					}
 				};
 				

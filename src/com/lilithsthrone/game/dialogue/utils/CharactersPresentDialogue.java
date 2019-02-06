@@ -8,15 +8,15 @@ import com.lilithsthrone.game.character.effects.PerkManager;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.misc.Elemental;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.DialogueNodeType;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.responses.ResponseSex;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.game.sex.SexPositionSlot;
 import com.lilithsthrone.game.sex.managers.universal.SMChair;
-import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
+import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
@@ -55,8 +55,7 @@ public class CharactersPresentDialogue {
 	}
 	
 	
-	public static final DialogueNodeOld MENU = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode MENU = new DialogueNode("", "", true) {
 
 		@Override
 		public DialogueNodeType getDialogueNodeType() {
@@ -162,41 +161,62 @@ public class CharactersPresentDialogue {
 							return new Response("Rape", characterViewed.getCompanionSexRejectionReason(true), null);
 							
 						} else {
-							return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...", 
-									false, false,
-									isSittingSex()
-										? new SMChair(
-												Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_BOTTOM)),
-												Util.newHashMapOfValues(new Value<>(characterViewed, SexPositionSlot.CHAIR_TOP))) {
-											@Override
-											public boolean isPublicSex() {
-												return isCompanionSexPublic();
-											}
+							if(isSittingSex()) {
+								return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...", 
+										false, false,
+										new SMChair(
+													Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_BOTTOM)),
+													Util.newHashMapOfValues(new Value<>(characterViewed, SexSlotBipeds.CHAIR_TOP))) {
+												@Override
+												public boolean isPublicSex() {
+													return isCompanionSexPublic();
+												}
+											},
+										null,
+										null,
+										AFTER_SEX,
+										"<p>"
+											+ "Grinning, you step forwards and pull [npc.name] into a passionate kiss."
+											+ " [npc.She] desperately tries to push you away, [npc.moaning],"
+											+ " [npc.speech(No! Stop!)]"
+										+ "</p>") {
+									@Override
+									public void effects() {
+										Main.game.setActiveNPC((NPC) characterViewed);
+										if(Main.game.getActiveNPC().hasFetish(Fetish.FETISH_NON_CON_SUB)) {
+											Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 10));
+										} else {
+											Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), -50));
 										}
-										: new SMStanding(
-												Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-												Util.newHashMapOfValues(new Value<>(characterViewed, SexPositionSlot.STANDING_SUBMISSIVE))) {
-											@Override
-											public boolean isPublicSex() {
-												return isCompanionSexPublic();
-											}
-										},
-									null,
-									AFTER_SEX, "<p>"
-										+ "Grinning, you step forwards and pull [npc.name] into a passionate kiss."
-										+ " [npc.She] desperately tries to push you away, [npc.moaning],"
-										+ " [npc.speech(No! Stop!)]"
-									+ "</p>") {
-								@Override
-								public void effects() {
-									Main.game.setActiveNPC((NPC) characterViewed);
-									if(Main.game.getActiveNPC().hasFetish(Fetish.FETISH_NON_CON_SUB)) {
-										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 10));
-									} else {
-										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), -50));
 									}
-								}
-							};
+								};
+								
+							} else {
+								return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...", 
+										false, false,
+										new SMGeneric(
+													Util.newArrayListOfValues(Main.game.getPlayer()),
+													Util.newArrayListOfValues(characterViewed),
+										null,
+										null),
+										AFTER_SEX, "<p>"
+											+ "Grinning, you step forwards and pull [npc.name] into a passionate kiss."
+											+ " [npc.She] desperately tries to push you away, [npc.moaning],"
+											+ " [npc.speech(No! Stop!)]"
+										+ "</p>") {
+									@Override
+									public void effects() {
+										Main.game.setActiveNPC((NPC) characterViewed);
+										if(Main.game.getActiveNPC().hasFetish(Fetish.FETISH_NON_CON_SUB)) {
+											Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 10));
+										} else {
+											Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), -50));
+										}
+									}
+								};
+								
+							}
+							
 						}
 						
 					} else {
@@ -204,37 +224,54 @@ public class CharactersPresentDialogue {
 							return new Response("Sex", characterViewed.getCompanionSexRejectionReason(true), null);
 							
 						} else {
-							return new ResponseSex("Sex", "Have sex with [npc.name].", 
-									true, false,
-									isSittingSex()
-										? new SMChair(
-												Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_BOTTOM)),
-												Util.newHashMapOfValues(new Value<>(characterViewed, SexPositionSlot.CHAIR_TOP))) {
-											@Override
-											public boolean isPublicSex() {
-												return isCompanionSexPublic();
-											}
-										}
-										: new SMStanding(
-												Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_DOMINANT)),
-												Util.newHashMapOfValues(new Value<>(characterViewed, SexPositionSlot.STANDING_SUBMISSIVE))) {
-											@Override
-											public boolean isPublicSex() {
-												return isCompanionSexPublic();
-											}
-										},
-									null,
-									AFTER_SEX, "<p>"
-										+ "Grinning, you step forwards and pull [npc.name] into a passionate kiss."
-										+ " [npc.She] desperately leans into you, [npc.moaning],"
-										+ " [npc.speech(~Mmm!~ Yes!)]"
-									+ "</p>") {
-								@Override
-								public void effects() {
-									Main.game.setActiveNPC((NPC) characterViewed);
-									Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
-								}
-							};
+							if(isSittingSex()) {
+								return new ResponseSex("Sex", "Have sex with [npc.name].", 
+										true, false,
+										new SMChair(
+													Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_BOTTOM)),
+													Util.newHashMapOfValues(new Value<>(characterViewed, SexSlotBipeds.CHAIR_TOP))) {
+												@Override
+												public boolean isPublicSex() {
+													return isCompanionSexPublic();
+												}
+											},
+										null,
+										null,
+										AFTER_SEX,
+										"<p>"
+											+ "Grinning, you step forwards and pull [npc.name] into a passionate kiss."
+											+ " [npc.She] desperately leans into you, [npc.moaning],"
+											+ " [npc.speech(~Mmm!~ Yes!)]"
+										+ "</p>") {
+									@Override
+									public void effects() {
+										Main.game.setActiveNPC((NPC) characterViewed);
+										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
+									}
+								};
+								
+							} else {
+								return new ResponseSex("Sex", "Have sex with [npc.name].", 
+										true, false,
+										new SMGeneric(
+													Util.newArrayListOfValues(Main.game.getPlayer()),
+													Util.newArrayListOfValues(characterViewed),
+													null,
+													null),
+										AFTER_SEX,
+										"<p>"
+											+ "Grinning, you step forwards and pull [npc.name] into a passionate kiss."
+											+ " [npc.She] desperately leans into you, [npc.moaning],"
+											+ " [npc.speech(~Mmm!~ Yes!)]"
+										+ "</p>") {
+									@Override
+									public void effects() {
+										Main.game.setActiveNPC((NPC) characterViewed);
+										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
+									}
+								};
+							}
+							
 						}
 					}
 					
@@ -244,38 +281,51 @@ public class CharactersPresentDialogue {
 						
 					} else {
 						if(((NPC) characterViewed).isAttractedTo(Main.game.getPlayer())) {
-							return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
-									Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
-									true, true,
-									isSittingSex()
-										? new SMChair(
-												Util.newHashMapOfValues(new Value<>(characterViewed, SexPositionSlot.CHAIR_BOTTOM)),
-												Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.CHAIR_TOP))) {
-											@Override
-											public boolean isPublicSex() {
-												return isCompanionSexPublic();
-											}
-										}
-										: new SMStanding(
-												Util.newHashMapOfValues(new Value<>(characterViewed, SexPositionSlot.STANDING_DOMINANT)),
-												Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexPositionSlot.STANDING_SUBMISSIVE))) {
-											@Override
-											public boolean isPublicSex() {
-												return isCompanionSexPublic();
-											}
-										},
-									null,
-									AFTER_SEX, "<p>"
-										+ "Taking hold of [npc.namePos] [npc.arms], you take a step forwards, guiding [npc.her] [npc.hands] around your body as you press forwards into a passionate kiss."
-										+ " [npc.She] eagerly pulls you into [npc.herHim], [npc.moaning],"
-										+ " [npc.speech(Looking for some fun, hmm?)]"
-									+ "</p>") {
-								@Override
-								public void effects() {
-									Main.game.setActiveNPC((NPC) characterViewed);
-									Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
-								}
-							};
+							if(isSittingSex()) {
+								return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
+										Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
+										true, true,
+										new SMChair(
+													Util.newHashMapOfValues(new Value<>(characterViewed, SexSlotBipeds.CHAIR_BOTTOM)),
+													Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_TOP))) {
+												@Override
+												public boolean isPublicSex() {
+													return isCompanionSexPublic();
+												}
+											},
+										null,
+										null, AFTER_SEX, "<p>"
+											+ "Taking hold of [npc.namePos] [npc.arms], you take a step forwards, guiding [npc.her] [npc.hands] around your body as you press forwards into a passionate kiss."
+											+ " [npc.She] eagerly pulls you into [npc.herHim], [npc.moaning],"
+											+ " [npc.speech(Looking for some fun, hmm?)]"
+										+ "</p>") {
+									@Override
+									public void effects() {
+										Main.game.setActiveNPC((NPC) characterViewed);
+										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
+									}
+								};
+								
+							} else {
+								return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
+										Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
+										true, true,
+										new SMGeneric(
+													Util.newArrayListOfValues(characterViewed),
+													Util.newArrayListOfValues(Main.game.getPlayer()),
+										null,
+										null), AFTER_SEX, "<p>"
+											+ "Taking hold of [npc.namePos] [npc.arms], you take a step forwards, guiding [npc.her] [npc.hands] around your body as you press forwards into a passionate kiss."
+											+ " [npc.She] eagerly pulls you into [npc.herHim], [npc.moaning],"
+											+ " [npc.speech(Looking for some fun, hmm?)]"
+										+ "</p>") {
+									@Override
+									public void effects() {
+										Main.game.setActiveNPC((NPC) characterViewed);
+										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
+									}
+								};
+							}
 							
 						} else {
 							return new Response("Submissive sex", "[npc.Name] is not too keen on having sex with you, so you'd need to be the dom...", null);
@@ -309,7 +359,7 @@ public class CharactersPresentDialogue {
 				} else if (index == 2) {
 					
 					if(!characterViewed.isAbleToSelfTransform()) {
-						return new Response("Transformations", "Only demons and slimes can transform themselves on command...", null);
+						return new Response("Transformations", characterViewed.getUnableToTransformDescription(), null);
 						
 					} else if(!Main.game.isSavedDialogueNeutral()) {
 						return new Response("Transformations", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
@@ -327,12 +377,12 @@ public class CharactersPresentDialogue {
 					
 				} else if(index==5) {
 					if(!Main.game.isSavedDialogueNeutral()) {
-						return new Response(characterViewed instanceof Elemental?"Dispell":"Go Home", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
+						return new Response(characterViewed instanceof Elemental?"Dispel":"Go Home", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
 						
 					} else {
 						if(charactersPresent.size()==1 || (charactersPresent.size()==2 && characterViewed.isElementalSummoned())) {
-							return new ResponseEffectsOnly(characterViewed instanceof Elemental?"Dispell":"Go Home",
-									characterViewed instanceof Elemental?"Dispell [npc.namePos] physical form, and return [npc.herHim] to your arcane aura.":"Tell [npc.name] to go home."){
+							return new ResponseEffectsOnly(characterViewed instanceof Elemental?"Dispel":"Go Home",
+									characterViewed instanceof Elemental?"Dispel [npc.namePos] physical form, and return [npc.herHim] to your arcane aura.":"Tell [npc.name] to go home."){
 								@Override
 								public void effects() {
 									if(characterViewed.isElementalSummoned()) {
@@ -345,8 +395,8 @@ public class CharactersPresentDialogue {
 								}
 							};
 						} else {
-							return new Response(characterViewed instanceof Elemental?"Dispell":"Go Home",
-									characterViewed instanceof Elemental?"Dispell [npc.namePos] physical form, and return [npc.herHim] to your arcane aura.":"Tell [npc.name] to go home.",
+							return new Response(characterViewed instanceof Elemental?"Dispel":"Go Home",
+									characterViewed instanceof Elemental?"Dispel [npc.namePos] physical form, and return [npc.herHim] to your arcane aura.":"Tell [npc.name] to go home.",
 									MENU){
 								@Override
 								public void effects() {
@@ -372,14 +422,14 @@ public class CharactersPresentDialogue {
 					
 				} else if(index==10) {
 					if(!characterViewed.isElementalSummoned()) {
-						return new Response("Dispell Elemental", "[npc.Name] doesn't have an elemental summoned...", null);
+						return new Response("Dispel Elemental", "[npc.Name] doesn't have an elemental summoned...", null);
 						
 					} else {
 						if(!Main.game.isSavedDialogueNeutral()) {
-							return new Response("Dispell Elemental", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
+							return new Response("Dispel Elemental", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
 							
 						} else {
-							return new Response("Dispell Elemental", "Tell [npc.name] to dispell [npc.her] elemental.", MENU){
+							return new Response("Dispel Elemental", "Tell [npc.name] to dispel [npc.her] elemental.", MENU){
 								@Override
 								public void effects() {
 									characterViewed.removeCompanion(characterViewed.getElemental());
@@ -396,8 +446,7 @@ public class CharactersPresentDialogue {
 		}
 	};
 	
-	public static final DialogueNodeOld AFTER_SEX = new DialogueNodeOld("Step back", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode AFTER_SEX = new DialogueNode("Step back", "", true) {
 		
 		@Override
 		public String getDescription(){
@@ -437,7 +486,7 @@ public class CharactersPresentDialogue {
 			if (index == 1) {
 				return new Response("Continue", "Decide what to do next.", AFTER_SEX) {
 					@Override
-					public DialogueNodeOld getNextDialogue() {
+					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 					@Override
@@ -453,8 +502,7 @@ public class CharactersPresentDialogue {
 	};
 	
 
-	public static final DialogueNodeOld PERKS = new DialogueNodeOld("", "", true) {
-		private static final long serialVersionUID = 1L;
+	public static final DialogueNode PERKS = new DialogueNode("", "", true) {
 
 		@Override
 		public DialogueNodeType getDialogueNodeType() {
@@ -500,10 +548,13 @@ public class CharactersPresentDialogue {
 					
 				}
 			}
-			UtilText.nodeContentSB.append("</div>"
-					+ "<div class='container-full-width' style='padding:8px; text-align:center;'>"
-						+ "<i>Please note that this perk tree is a work-in-progress. This is not the final version, and is just a proof of concept!</i>"
-					+ "</div>");
+			UtilText.nodeContentSB.append("</div>");
+			
+			if(!(characterViewed instanceof Elemental)) {
+				UtilText.nodeContentSB.append("<div class='container-full-width' style='padding:8px; text-align:center;'>"
+							+ "<i>Please note that this perk tree is a work-in-progress. This is not the final version, and is just a proof of concept!</i>"
+						+ "</div>");
+			}
 			
 			UtilText.nodeContentSB.append(PerkManager.MANAGER.getPerkTreeDisplay(characterViewed));
 			
@@ -520,8 +571,6 @@ public class CharactersPresentDialogue {
 					@Override
 					public void effects() {
 						characterViewed.resetPerksMap();
-						characterViewed.setPerkPoints(characterViewed.getPerkPointsAtLevel(characterViewed.getLevel()));
-						characterViewed.clearTraits();
 					}
 				};
 			}

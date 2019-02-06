@@ -133,7 +133,27 @@ public class BodyCoveringTemplateFactory {
 				Colour.allSkinColours);
 	}
 	
-	private static BodyCoveringTemplate createEyeIrisesWithCustomColors(List<Colour> naturalIrisColors, List<Colour> dyeIrisColours, boolean heteroIsExtra) {
+	public static BodyCoveringTemplate createPenisSkin() {
+		return new BodyCoveringTemplate("a layer of",
+				false,
+				"skin",
+				"skin",
+				Util.newArrayListOfValues(CoveringModifier.SMOOTH),
+				null,
+				Util.newArrayListOfValues(
+						CoveringPattern.NONE),
+				Util.newArrayListOfValues(
+						CoveringPattern.MARKED,
+						CoveringPattern.MOTTLED,
+						CoveringPattern.SPOTTED,
+						CoveringPattern.STRIPED),
+				Colour.allSkinColours,
+				null,
+				Util.newArrayListOfValues(Colour.ORIFICE_INTERIOR),
+				Colour.allSkinColours);
+	}
+	
+	public static BodyCoveringTemplate createEyeIrisesWithCustomColors(List<Colour> naturalIrisColors, List<Colour> dyeIrisColours, boolean heteroIsExtra) {
 		List<CoveringPattern> natural = Util.newArrayListOfValues(CoveringPattern.EYE_IRISES, CoveringPattern.EYE_IRISES_HETEROCHROMATIC);
 		List<CoveringPattern> extra = null;
 		if (heteroIsExtra) {
@@ -162,7 +182,7 @@ public class BodyCoveringTemplateFactory {
 		return createEyeIrisesWithCustomColors(Colour.naturalIrisColours, Colour.dyeIrisColours, true);
 	}
 	
-	public static BodyCoveringTemplate createEyeIrisesHeterochromiaNaturallyOccuring() {
+	public static BodyCoveringTemplate createEyeIrisesHeterochromiaNaturallyOccurring() {
 		return createEyeIrisesWithCustomColors(Colour.naturalIrisColours, Colour.dyeIrisColours, false);
 	}
 }

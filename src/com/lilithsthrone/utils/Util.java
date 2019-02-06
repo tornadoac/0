@@ -29,9 +29,11 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 
 import com.lilithsthrone.game.character.body.CoverableArea;
+import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.DisplacementType;
+
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
@@ -39,7 +41,7 @@ import javafx.scene.paint.Color;
  * This is just a big mess of utility classes that I wanted to throw somewhere.
  * 
  * @since 0.1.0
- * @version 0.2.6
+ * @version 0.3
  * @author Innoxia
  */
 public class Util {
@@ -141,79 +143,6 @@ public class Util {
 		return newColour((hex & 0xFF0000) >> 16, (hex & 0xFF00) >> 8, (hex & 0xFF));
 	}
 	
-	public static String colourReplacement(String gradientReplacementID, Colour colour, Colour colourSecondary, Colour colourTertiary, String inputString) {
-		String s = inputString;
-		
-		// Fixes issue of SVG icons overflowing:
-		s = s.replaceFirst("width=\"100%\"\\R   height=\"100%\"", "");
-		
-		for (int i = 0; i <= 14; i++) {
-			s = s.replaceAll("linearGradient" + i, gradientReplacementID + colour.toString() + (colourSecondary!=null?colourSecondary.toString():"") + (colourTertiary!=null?colourTertiary.toString():"") + "linearGradient" + i);
-			s = s.replaceAll("innoGrad" + i, gradientReplacementID + colour.toString() + (colourSecondary!=null?colourSecondary.toString():"") + (colourTertiary!=null?colourTertiary.toString():"") + "innoGrad" + i);
-		}
-		
-		if(colour!=null) {
-			s = s.replaceAll("#ff2a2a", colour.getShades()[0]);
-			s = s.replaceAll("#ff5555", colour.getShades()[1]);
-			s = s.replaceAll("#ff8080", colour.getShades()[2]);
-			s = s.replaceAll("#ffaaaa", colour.getShades()[3]);
-			s = s.replaceAll("#ffd5d5", colour.getShades()[4]);
-		}
-		
-		if(colourSecondary!=null) {
-			s = s.replaceAll("#ff7f2a", colourSecondary.getShades()[0]);
-			s = s.replaceAll("#ff9955", colourSecondary.getShades()[1]);
-			s = s.replaceAll("#ffb380", colourSecondary.getShades()[2]);
-			s = s.replaceAll("#ffccaa", colourSecondary.getShades()[3]);
-			s = s.replaceAll("#ffe6d5", colourSecondary.getShades()[4]);
-		}
-		
-		if(colourTertiary!=null) {
-			s = s.replaceAll("#ffd42a", colourTertiary.getShades()[0]);
-			s = s.replaceAll("#ffdd55", colourTertiary.getShades()[1]);
-			s = s.replaceAll("#ffe680", colourTertiary.getShades()[2]);
-			s = s.replaceAll("#ffeeaa", colourTertiary.getShades()[3]);
-			s = s.replaceAll("#fff6d5", colourTertiary.getShades()[4]);
-		}
-		
-		return s;
-	}
-	
-	public static String colourReplacementPattern(String gradientReplacementID, Colour colour, Colour colourSecondary, Colour colourTertiary, String inputString) {
-		String s = inputString;
-
-		for (int i = 0; i <= 14; i++) {
-			s = s.replaceAll("linearGradient" + i, gradientReplacementID + colour.toString() + (colourSecondary!=null?colourSecondary.toString():"") + (colourTertiary!=null?colourTertiary.toString():"") + "linearGradient" + i);
-			s = s.replaceAll("innoGrad" + i, gradientReplacementID + colour.toString() + (colourSecondary!=null?colourSecondary.toString():"") + (colourTertiary!=null?colourTertiary.toString():"") + "innoGrad" + i);
-		}
-		
-		if(colour!=null) {
-			s = s.replaceAll("#f4d7d7", colour.getShades()[0]);
-			s = s.replaceAll("#e9afaf", colour.getShades()[1]);
-			s = s.replaceAll("#de8787", colour.getShades()[2]);
-			s = s.replaceAll("#d35f5f", colour.getShades()[3]);
-			s = s.replaceAll("#c83737", colour.getShades()[4]);
-		}
-		
-		if(colourSecondary!=null) {
-			s = s.replaceAll("#f4e3d7", colourSecondary.getShades()[0]);
-			s = s.replaceAll("#e9c6af", colourSecondary.getShades()[1]);
-			s = s.replaceAll("#deaa87", colourSecondary.getShades()[2]);
-			s = s.replaceAll("#d38d5f", colourSecondary.getShades()[3]);
-			s = s.replaceAll("#c87137", colourSecondary.getShades()[4]);
-		}
-		
-		if(colourTertiary!=null) {
-			s = s.replaceAll("#f4eed7", colourTertiary.getShades()[0]);
-			s = s.replaceAll("#e9ddaf", colourTertiary.getShades()[1]);
-			s = s.replaceAll("#decd87", colourTertiary.getShades()[2]);
-			s = s.replaceAll("#d3bc5f", colourTertiary.getShades()[3]);
-			s = s.replaceAll("#c8ab37", colourTertiary.getShades()[4]);
-		}
-
-		return s;
-	}
-	
 	/**
 	 * Takes an input, and a maximum value, and returns LT's universal "dropoff" formula to it.
 	 * @param input
@@ -312,8 +241,14 @@ public class Util {
 	}
 	
 	@SafeVarargs
+	/**
+	 * @param values The values to add to the new list.
+	 * @return A list of provided values, with nulls stripped.
+	 */
 	public static <U> ArrayList<U> newArrayListOfValues(U... values) {
-		return new ArrayList<>(Arrays.asList(values));
+		ArrayList<U> list = new ArrayList<>(Arrays.asList(values));
+		list.removeIf(e -> e==null);
+		return list;
 	}
 	
 	@SafeVarargs
@@ -339,13 +274,19 @@ public class Util {
 	}
 	
 	@SafeVarargs
+	/**
+	 * @param maps The maps to draw entries from.
+	 * @return A new map containing all of the entries from the provided 'maps'. Nulls are stripped, and 'maps' are unaltered.
+	 */
 	public static <U, T> Map<U, List<T>> mergeMaps(Map<U, List<T>>... maps) {
 		Map<U, List<T>> mergedMap = new HashMap<>();
 		
 		for(Map<U, List<T>> map : maps) {
-			for(Entry<U, List<T>> entry : map.entrySet()) {
-				mergedMap.putIfAbsent(entry.getKey(), new ArrayList<>());
-				mergedMap.get(entry.getKey()).addAll(entry.getValue());
+			if(map!=null) {
+				for(Entry<U, List<T>> entry : map.entrySet()) {
+					mergedMap.putIfAbsent(entry.getKey(), new ArrayList<>());
+					mergedMap.get(entry.getKey()).addAll(entry.getValue());
+				}
 			}
 		}
 		
@@ -356,6 +297,10 @@ public class Util {
 		int total = 0;
 		for(int i : map.values()) {
 			total+=i;
+		}
+		
+		if(total==0) {
+			return null;
 		}
 		
 		int choice = Util.random.nextInt(total) + 1;
@@ -476,7 +421,7 @@ public class Util {
 	}
 	
 	public static String getStringOfLocalDateTime(LocalDateTime date) {
-		return intToDate(date.getDayOfMonth())+" "+date.getMonth().getDisplayName(TextStyle.FULL, Locale.getDefault())+", "+date.getYear();
+		return intToDate(date.getDayOfMonth())+" "+date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH)+", "+date.getYear();
 	}
 	
 	/**
@@ -532,7 +477,21 @@ public class Util {
 		
 		return intToString;
 	}
-	
+
+	/**
+	 * @param integer Input number to convert.
+	 * @return 'once', 'twice', or 'integer times'
+	 */
+	public static String intToCount(int integer) {
+		if(integer==1) {
+			return "once";
+		} else if(integer==2) {
+			return "twice";
+		}
+		
+		return intToString(integer)+" times";
+	}
+		
 	public static String intToPosition(int integer) {
 		String intToString = "";
 		
@@ -773,6 +732,26 @@ public class Util {
 	private static String insertIntoSentences(String sentence, int frequency, String[] inserts) {
 		return insertIntoSentences(sentence, frequency, inserts, true);
 	}
+	
+	private static String insertIntoSentencesAtPunctuation(String sentence, String[] inserts) {
+		splitSentence = sentence.split(" ");
+		utilitiesStringBuilder.setLength(0);
+		
+		utilitiesStringBuilder.append(inserts[random.nextInt(inserts.length)]+" ");
+		
+		char cOld = 'X';
+		for(char c : sentence.toCharArray()) {
+			utilitiesStringBuilder.append(c);
+			
+			if((cOld=='.'||cOld=='!'||cOld=='?'||cOld==',')
+					&& c==' ') {
+				utilitiesStringBuilder.append(inserts[random.nextInt(inserts.length)]+" ");
+			}
+			cOld = c;
+		}//^\.\. |! |\? 
+
+		return utilitiesStringBuilder.toString();
+	}
 
 	private static String[] bimboWords = new String[] { ", like,", ", like,", ", like,", ", um,", ", uh,", ", ah," };
 	/**
@@ -852,7 +831,11 @@ public class Util {
 	 *            modified sentence
 	 */
 	public static String addSexSounds(String sentence, int frequency) {
-		return insertIntoSentences(sentence, frequency, sexSounds);
+		if(Math.random()<0.75f) { // 75% chance of the sex sounds to be more readable:
+			return insertIntoSentencesAtPunctuation(sentence, sexSounds);
+		} else {
+			return insertIntoSentences(sentence, frequency, sexSounds);
+		}
 	}
 
 	private static String[] drunkSounds = new String[] { " ~Hic!~" };
@@ -915,11 +898,21 @@ public class Util {
 		return utilitiesStringBuilder.toString();
 	}
 	
-	
 	public static String SplitR(String choices, String splitter) {
 	    return choices.split(splitter)[random.nextInt(choices.length() - choices.replace(splitter, "").length() + 1)];
 	};
 	
+	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalise) {
+		return Util.toStringList(subspecies,
+				(Subspecies o) -> 
+				"<span style='color:"+o.getColour(null).toWebHexString()+";'>"
+					+(capitalise
+							?Util.capitaliseSentence(o.getNamePlural(null))
+							:o.getNamePlural(null))
+					+"</span>",
+				"and");
+	}
+
 	public static String clothesToStringList(Collection<AbstractClothing> clothingSet, boolean capitalise) {
 		return Util.toStringList(clothingSet, (AbstractClothing o) -> (capitalise?Util.capitaliseSentence(o.getClothingType().getName()):o.getClothingType().getName()), "and");
 	}
@@ -932,8 +925,8 @@ public class Util {
 		return Util.toStringList(list, (String o) -> capitalise?Util.capitaliseSentence(o):o, "and");
 	}
 
-	public static String stringsToStringChoice(List<String> list) {
-		return Util.toStringList(list, Util::capitaliseSentence, "or");
+	public static String stringsToStringChoice(List<String> list, boolean capitalise) {
+		return Util.toStringList(list, (String o) -> capitalise?Util.capitaliseSentence(o):o, "or");
 	}
 
 	public static String colourSetToStringList(Set<Colour> colourSet) {
@@ -966,5 +959,55 @@ public class Util {
 
 	public static int randomItemFrom(int[] array) {
 		return array[Util.random.nextInt(array.length)];
+	}
+	
+	public static String getClosestStringMatch(String input, Collection<String> choices) {
+		int distance = Integer.MAX_VALUE;
+		String closestString = input;
+		for(String choice : choices) {
+			int newDistance = getLevenshteinDistance(input, choice);
+			if(newDistance < distance) {
+				closestString = choice;
+				distance = newDistance;
+			}
+		}
+		return closestString;
+	}
+	
+	public static int getLevenshteinDistance(String inputOne, String inputTwo) {
+		// Don't care about case:
+		inputOne = inputOne.toLowerCase();
+		inputTwo = inputTwo.toLowerCase();
+		
+		// i == 0
+		int[] costs = new int[inputTwo.length() + 1];
+		
+		for (int j = 0; j < costs.length; j++) {
+			costs[j] = j;
+		}
+		for (int i = 1; i <= inputOne.length(); i++) {
+			// j == 0; nw = lev(i - 1, j)
+			costs[0] = i;
+			int nw = i - 1;
+			for (int j = 1; j <= inputTwo.length(); j++) {
+				int cj = Math.min(
+						1 + Math.min(costs[j], costs[j - 1]),
+						inputOne.charAt(i - 1) == inputTwo.charAt(j - 1)
+							? nw
+							: nw + 1);
+				nw = costs[j];
+				costs[j] = cj;
+			}
+		}
+		return costs[inputTwo.length()];
+	}
+	
+	private static Map<String, List<String>> errorLogMap = new HashMap<>();
+	public static void logGetNpcByIdError(String method, String id) {
+		errorLogMap.putIfAbsent(method, new ArrayList<>());
+		if(!errorLogMap.get(method).contains(id)) {
+			System.err.println("Main.game.getNPCById("+id+") returning null in method: "+method);
+			errorLogMap.get(method).add(id);
+		}
 	}
 }

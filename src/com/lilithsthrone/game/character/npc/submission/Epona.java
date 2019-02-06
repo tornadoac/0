@@ -43,7 +43,7 @@ import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.inventory.CharacterInventory;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
@@ -68,7 +68,7 @@ public class Epona extends NPC {
 	}
 	
 	public Epona(boolean isImported) {
-		super(isImported, new NameTriplet("Epona"),
+		super(isImported, new NameTriplet("Epona"), "Katsaros",
 				"Epona is the horse-girl in charge of organising the Gambling Den's 'Pregnancy Roulette'."
 						+ " Obsessed with breeding, she absolutely loves her job, and gets incredibly excited when a new round is about to start.",
 				28, Month.MAY, 28,
@@ -181,7 +181,7 @@ public class Epona extends NPC {
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.FOUR_FAT);
-		this.setPenisSize(18);
+		this.setPenisSize(8);
 		this.setTesticleSize(TesticleSize.FOUR_HUGE);
 		this.setPenisCumStorage(550);
 		this.fillCumToMaxStorage();
@@ -235,12 +235,8 @@ public class Epona extends NPC {
 	}
 	
 	@Override
-	public DialogueNodeOld getEncounterDialogue() {
+	public DialogueNode getEncounterDialogue() {
 		return null;
-	}
-
-	@Override
-	public void endSex() {
 	}
 
 }

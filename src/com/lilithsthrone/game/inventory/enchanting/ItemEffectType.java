@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lilithsthrone.game.character.CharacterUtils;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.PregnancyPossibility;
 import com.lilithsthrone.game.character.attributes.Attribute;
@@ -39,6 +40,7 @@ import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.fetishes.FetishDesire;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.Race;
+import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
@@ -52,7 +54,7 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.7
- * @version 0.2.4
+ * @version 0.3.1
  * @author Innoxia
  */
 public class ItemEffectType {
@@ -90,7 +92,7 @@ public class ItemEffectType {
 			return ""; // THIS EFFECT IS NOT USED, AS AbstractFilledCondom OVERRIDES THE USUAL AbstractItem's applyEffects() METHOD!!!
 		}
 	};
-	
+
 	public static AbstractItemEffectType FILLED_MOO_MILKER_DRINK = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"Provides a milky drink."),
 			Colour.GENERIC_SEX) {
@@ -98,222 +100,10 @@ public class ItemEffectType {
 		@Override
 		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 			return ""; // THIS EFFECT IS NOT USED, AS AbstractFilledBreastPump OVERRIDES THE USUAL AbstractItem's applyEffects() METHOD!!!
+			// Then why is it here? :thinking:
 		}
 	};
 	
-	public static AbstractItemEffectType BOOK_READ_CAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds cat-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldCatMorph("+Attribute.DAMAGE_CAT_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldCatMorph("+Attribute.RESISTANCE_CAT_MORPH.getName()+")]"),
-			Colour.RACE_CAT_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.CAT_MORPH, ItemType.BOOK_CAT_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_COW_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds cow-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldCowMorph("+Attribute.DAMAGE_COW_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldCowMorph("+Attribute.RESISTANCE_COW_MORPH.getName()+")]"),
-			Colour.RACE_COW_MORPH) {
-
-		@Override
-		public List<TFModifier> getPrimaryModifiers() {
-			return null;
-		}
-
-		@Override
-		public List<TFModifier> getSecondaryModifiers(TFModifier primaryModifier) {
-			return null;
-		}
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.COW_MORPH, ItemType.BOOK_COW_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_DEMON = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds demon encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldDemon("+Attribute.DAMAGE_DEMON.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldDemon("+Attribute.RESISTANCE_DEMON.getName()+")]"),
-			Colour.RACE_DEMON) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.DEMON, ItemType.BOOK_DEMON);
-		}
-	};
-
-	public static AbstractItemEffectType BOOK_READ_IMP = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds imp encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldImp("+Attribute.DAMAGE_IMP.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldImp("+Attribute.RESISTANCE_IMP.getName()+")]"),
-			Colour.RACE_IMP) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.IMP, ItemType.BOOK_IMP);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_DOG_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds dog-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldDogMorph("+Attribute.DAMAGE_DOG_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldDogMorph("+Attribute.RESISTANCE_DOG_MORPH.getName()+")]"),
-			Colour.RACE_DOG_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.DOG_MORPH, ItemType.BOOK_DOG_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_FOX_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds fox-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldDogMorph("+Attribute.DAMAGE_FOX_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldDogMorph("+Attribute.RESISTANCE_FOX_MORPH.getName()+")]"),
-			Colour.RACE_FOX_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.FOX_MORPH, ItemType.BOOK_FOX_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_ALLIGATOR_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds alligator-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldAlligatorMorph("+Attribute.DAMAGE_ALLIGATOR_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldAlligatorMorph("+Attribute.RESISTANCE_ALLIGATOR_MORPH.getName()+")]"),
-			Colour.RACE_ALLIGATOR_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.ALLIGATOR_MORPH, ItemType.BOOK_ALLIGATOR_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_HARPY = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds harpy encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldHarpy("+Attribute.DAMAGE_HARPY.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldHarpy("+Attribute.RESISTANCE_HARPY.getName()+")]"),
-			Colour.RACE_HARPY) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.HARPY, ItemType.BOOK_HARPY);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_HORSE_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds horse-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldHorseMorph("+Attribute.DAMAGE_HORSE_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldHorseMorph("+Attribute.RESISTANCE_HORSE_MORPH.getName()+")]"),
-			Colour.RACE_HORSE_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.HORSE_MORPH, ItemType.BOOK_HORSE_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_REINDEER_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds reindeer-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldReindeerMorph("+Attribute.DAMAGE_REINDEER_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldReindeerMorph("+Attribute.RESISTANCE_REINDEER_MORPH.getName()+")]"),
-			Colour.RACE_REINDEER_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.REINDEER_MORPH, ItemType.BOOK_REINDEER_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_HUMAN = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds human encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldHuman("+Attribute.DAMAGE_HUMAN.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldHuman("+Attribute.RESISTANCE_HUMAN.getName()+")]"),
-			Colour.RACE_HUMAN) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.HUMAN, ItemType.BOOK_HUMAN);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_SQUIRREL_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds squirrel-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldSquirrelMorph("+Attribute.DAMAGE_SQUIRREL_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldSquirrelMorph("+Attribute.RESISTANCE_SQUIRREL_MORPH.getName()+")]"),
-			Colour.RACE_SQUIRREL_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.SQUIRREL_MORPH, ItemType.BOOK_SQUIRREL_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_RAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds rat-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldRatMorph("+Attribute.DAMAGE_RAT_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldRatMorph("+Attribute.RESISTANCE_RAT_MORPH.getName()+")]"),
-			Colour.RACE_RAT_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.RAT_MORPH, ItemType.BOOK_RAT_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_RABBIT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds rabbit-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldRabbitMorph("+Attribute.DAMAGE_RABBIT_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldRabbitMorph("+Attribute.RESISTANCE_RABBIT_MORPH.getName()+")]"),
-			Colour.RACE_RABBIT_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.RABBIT_MORPH, ItemType.BOOK_RABBIT_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_BAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds bat-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldBatMorph("+Attribute.DAMAGE_BAT_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldBatMorph("+Attribute.RESISTANCE_BAT_MORPH.getName()+")]"),
-			Colour.RACE_BAT_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.BAT_MORPH, ItemType.BOOK_BAT_MORPH);
-		}
-	};
-	
-	public static AbstractItemEffectType BOOK_READ_WOLF_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds wolf-morph encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldWolfMorph("+Attribute.DAMAGE_WOLF_MORPH.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldWolfMorph("+Attribute.RESISTANCE_WOLF_MORPH.getName()+")]"),
-			Colour.RACE_WOLF_MORPH) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.WOLF_MORPH, ItemType.BOOK_WOLF_MORPH);
-		}
-	};
-
-	public static AbstractItemEffectType BOOK_READ_SLIME = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Adds slime encyclopedia entry.",
-			"[style.boldExcellent(+5)] [style.boldSlime("+Attribute.DAMAGE_SLIME.getName()+")]",
-			"[style.boldExcellent(+5)] [style.boldSlime("+Attribute.RESISTANCE_SLIME.getName()+")]"),
-			Colour.RACE_SLIME) {
-		
-		@Override
-		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getBookEffect(Subspecies.SLIME, ItemType.BOOK_SLIME);
-		}
-	};
 	
 	public static AbstractItemEffectType ORIENTATION_CHANGE = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"Sets orientation to gynephilic.",
@@ -1199,6 +989,35 @@ public class ItemEffectType {
 		}
 	};
 	
+	public static AbstractItemEffectType EGGPLANT_POTION = new AbstractItemEffectType(null,
+			Colour.BASE_PURPLE) {
+
+		@Override
+		public List<TFModifier> getPrimaryModifiers() {
+			return Util.newArrayListOfValues(TFModifier.TF_PENIS);
+		}
+
+		@Override
+		public List<TFModifier> getSecondaryModifiers(TFModifier primaryModifier) {
+			return getRacialSecondaryModifiers(Race.HUMAN, primaryModifier);
+		}
+		
+		@Override
+		public List<TFPotency> getPotencyModifiers(TFModifier primaryModifier, TFModifier secondaryModifier) {
+			return getRacialPotencyModifiers(Race.HUMAN, primaryModifier, secondaryModifier);
+		}
+		
+		@Override
+		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
+			return Util.newArrayListOfValues(getRacialEffect(Race.HUMAN, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+		}
+		
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			return getRacialEffect(Race.HUMAN, primaryModifier, secondaryModifier, potency, user, target).applyEffect();
+		}
+	};
+	
 	public static AbstractItemEffectType GIFT_CHOCOLATES = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(Restores)] 30% [style.boldHealth(energy)]"),
 			Colour.ATTRIBUTE_HEALTH) {
@@ -1603,7 +1422,8 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType RACE_BIOJUICE = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(+50)] [style.boldCorruption(corruption)] to 'potion effects'",
+			"[style.boldGood(+25)] [style.boldCorruption(corruption)]",
+			"[style.boldGood(+25)] [style.boldCorruption(corruption)] to 'potion effects'",
 			"[style.boldSlime(Transforms body into slime!)]"),
 			Colour.RACE_SLIME) {
 
@@ -1622,7 +1442,9 @@ public class ItemEffectType {
 				}
 				
 			} else {
-				return target.incrementAttribute(Attribute.MAJOR_CORRUPTION, 50)
+				return target.incrementAttribute(Attribute.MAJOR_CORRUPTION, 25)
+						+ "<br/>"
+						+ target.addPotionEffect(Attribute.MAJOR_CORRUPTION, 25)
 						+ "<br/>"
 						+ target.setBodyMaterial(BodyMaterial.SLIME);
 			}
@@ -2445,43 +2267,18 @@ public class ItemEffectType {
 					
 					if(!fetishesToAdd.isEmpty()) {
 						Fetish f = fetishesToAdd.get(Util.random.nextInt(fetishesToAdd.size()));
-						target.addFetish(f);
-						
-						return "<p>"
-									+(target.isPlayer()
-										?"A staggering wave of arcane energy crashes over you, the sheer strength of which almost causes you to black out."
-											+ " As you stagger back from the brink of unconsciousness, you realise that you've [style.boldGood(gained)] the [style.boldFetish("+f.getName(target)+" fetish)]!"
-										:UtilText.parse(target, "A staggering wave of arcane energy crashes over [npc.name], the sheer strength of which almost causes [npc.herHim] to black out."
-											+ " As [npc.she] staggers back from the brink of unconsciousness, [npc.she] discovers that [npc.sheIs] [style.boldGood(gained)] the [style.boldFetish("+f.getName(target)+" fetish)]!"))
-								+"</p>";
+						return target.addFetish(f);
 						
 					} else {
 						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens...)]"))
+									+"[style.colourDisabled(Nothing happens...)]"
 								+"</p>";
 					}
 					
 				} else {
 					Fetish fetish = secondaryModifier.getFetish();
 					
-					if(!target.hasFetish(fetish)) {
-						target.addFetish(fetish);
-						return "<p>"
-									+(target.isPlayer()
-										?"A staggering wave of arcane energy crashes over you, the sheer strength of which almost causes you to black out."
-											+ " As you stagger back from the brink of unconsciousness, you realise that you've [style.boldGood(gained)] the [style.boldFetish("+fetish.getName(target)+" fetish)]!"
-										:UtilText.parse(target, "A staggering wave of arcane energy crashes over [npc.name], the sheer strength of which almost causes [npc.herHim] to black out."
-											+ " As [npc.she] staggers back from the brink of unconsciousness, [npc.she] discovers that [npc.sheIs] [style.boldGood(gained)] the [style.boldFetish("+fetish.getName(target)+" fetish)]!"))
-								+"</p>";	
-					} else {
-						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens, as you already have the "+fetish.getName(target)+" fetish...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens, as [npc.she] already has the "+fetish.getName(target)+" fetish...)]"))
-								+"</p>";
-					}
+					return target.addFetish(fetish);
 				}
 				
 			} else if(potency==TFPotency.MINOR_BOOST) {
@@ -2498,21 +2295,12 @@ public class ItemEffectType {
 					if(!fetishesToBoost.isEmpty()) {
 						Fetish f = fetishesToBoost.get(Util.random.nextInt(fetishesToBoost.size()));
 						FetishDesire newDesire = target.getFetishDesire(f).getNextDesire();
-						target.setFetishDesire(f, newDesire);
 						
-						return "<p>"
-									+(target.isPlayer()
-										?"A warm wave of arcane energy rises up within you, and as you feel its influential power seeping into your mind,"
-												+ " you realise that you now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsPlayerVerb()+"</b> [style.boldFetish("+f.getShortDescriptor()+")]!"
-										:UtilText.parse(target, "A warm wave of arcane energy rises up within [npc.name], and as [npc.she] feels its influential power seeping into [npc.her] mind,"
-												+ " [npc.she] realises that [npc.she] now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsVerb()+"</b> [style.boldLust("+f.getShortDescriptor()+")]!"))
-								+"</p>";
+						return target.setFetishDesire(f, newDesire);
 						
 					} else {
 						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens...)]"))
+									+"[style.colourDisabled(Nothing happens...)]"
 								+"</p>";
 					}
 					
@@ -2520,21 +2308,7 @@ public class ItemEffectType {
 					Fetish fetish = secondaryModifier.getFetish();
 					FetishDesire newDesire = target.getFetishDesire(fetish).getNextDesire();
 					
-					if(target.setFetishDesire(fetish, newDesire)) {
-						return "<p>"
-									+(target.isPlayer()
-										?"A warm wave of arcane energy rises up within you, and as you feel its influential power seeping into your mind,"
-												+ " you realise that you now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsPlayerVerb()+"</b> [style.boldFetish("+fetish.getShortDescriptor()+")]!"
-										:UtilText.parse(target, "A warm wave of arcane energy rises up within [npc.name], and as [npc.she] feels its influential power seeping into [npc.her] mind,"
-												+ " [npc.she] realises that [npc.she] now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsVerb()+"</b> [style.boldLust("+fetish.getShortDescriptor()+")]!"))
-								+"</p>";
-					} else {
-						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens, as you already "+newDesire.getNameAsPlayerVerb()+" "+fetish.getShortDescriptor()+"...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens, as [npc.she] already "+newDesire.getNameAsPlayerVerb()+" "+fetish.getShortDescriptor()+"...)]"))
-								+"</p>";
-					}
+					return target.setFetishDesire(fetish, newDesire);
 				}
 				
 			} else if(potency==TFPotency.MINOR_DRAIN) {
@@ -2551,21 +2325,12 @@ public class ItemEffectType {
 					if(!fetishesToDrain.isEmpty()) {
 						Fetish f = fetishesToDrain.get(Util.random.nextInt(fetishesToDrain.size()));
 						FetishDesire newDesire = target.getFetishDesire(f).getPreviousDesire();
-						target.setFetishDesire(f, newDesire);
 						
-						return "<p>"
-									+(target.isPlayer()
-										?"A warm wave of arcane energy rises up within you, and as you feel its influential power seeping into your mind,"
-												+ " you realise that you now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsPlayerVerb()+"</b> [style.boldFetish("+f.getShortDescriptor()+")]!"
-										:UtilText.parse(target, "A warm wave of arcane energy rises up within [npc.name], and as [npc.she] feels its influential power seeping into [npc.her] mind,"
-												+ " [npc.she] realises that [npc.she] now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsVerb()+"</b> [style.boldLust("+f.getShortDescriptor()+")]!"))
-								+"</p>";
+						return target.setFetishDesire(f, newDesire);
 						
 					} else {
 						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens...)]"))
+									+"[style.colourDisabled(Nothing happens...)]"
 								+"</p>";
 					}
 					
@@ -2573,29 +2338,7 @@ public class ItemEffectType {
 					Fetish fetish = secondaryModifier.getFetish();
 					FetishDesire newDesire = target.getFetishDesire(fetish).getPreviousDesire();
 					
-					if(target.setFetishDesire(fetish, newDesire)) {
-						return "<p>"
-									+(target.isPlayer()
-										?"A warm wave of arcane energy rises up within you, and as you feel its influential power seeping into your mind,"
-												+ " you realise that you now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsPlayerVerb()+"</b> [style.boldFetish("+fetish.getShortDescriptor()+")]!"
-										:UtilText.parse(target, "A warm wave of arcane energy rises up within [npc.name], and as [npc.she] feels its influential power seeping into [npc.her] mind,"
-												+ " [npc.she] realises that [npc.she] now <b style='color:"+newDesire.getColour().toWebHexString()+";'>"+newDesire.getNameAsVerb()+"</b> [style.boldLust("+fetish.getShortDescriptor()+")]!"))
-								+"</p>";
-					} else {
-						if(target.hasFetish(fetish)) {
-							return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(As you have the "+fetish.getName(target)+" fetish, your love of it can't decrease...)]"
-										:UtilText.parse(target, "[style.colourDisabled(As [npc.she] has the "+fetish.getName(target)+" fetish, [npc.her] love of it can't decrease...)]"))
-								+"</p>";
-						} else {
-							return "<p>"
-										+(target.isPlayer()
-											?"[style.colourDisabled(Nothing happens, as you already "+newDesire.getNameAsPlayerVerb()+" "+fetish.getShortDescriptor()+"...)]"
-											:UtilText.parse(target, "[style.colourDisabled(Nothing happens, as [npc.she] already "+newDesire.getNameAsPlayerVerb()+" "+fetish.getShortDescriptor()+"...)]"))
-									+"</p>";
-						}
-					}
+					return target.setFetishDesire(fetish, newDesire);
 				}
 				
 			} else {
@@ -2611,42 +2354,18 @@ public class ItemEffectType {
 					
 					if(!fetishesToRemove.isEmpty()) {
 						Fetish f = fetishesToRemove.get(Util.random.nextInt(fetishesToRemove.size()));
-						target.removeFetish(f);
+						return target.removeFetish(f);
 						
-						return "<p>"
-									+(target.isPlayer()
-										?"A staggering wave of arcane energy crashes over you, the sheer strength of which almost causes you to black out."
-											+ " As you stagger back from the brink of unconsciousness, you realise that you've [style.boldBad(lost)] your [style.boldFetish("+f.getName(target)+" fetish)]!"
-										:UtilText.parse(target, "A staggering wave of arcane energy crashes over [npc.name], the sheer strength of which almost causes [npc.herHim] to black out."
-											+ " As [npc.she] staggers back from the brink of unconsciousness, [npc.she] discovers that [npc.sheIs] [style.boldBad(lost)] [npc.her] [style.boldFetish("+f.getName(target)+" fetish)]!"))
-								+"</p>";
 					} else {
 						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens...)]"))
+									+"[style.colourDisabled(Nothing happens...)]"
 								+"</p>";
 					}
 					
 				} else {
 					Fetish fetish = secondaryModifier.getFetish();
 					
-					if(target.hasFetish(fetish)) {
-						target.removeFetish(fetish);
-						return "<p>"
-									+(target.isPlayer()
-										?"A staggering wave of arcane energy crashes over you, the sheer strength of which almost causes you to black out."
-											+ " As you stagger back from the brink of unconsciousness, you realise that you've [style.boldBad(lost)] your [style.boldFetish("+fetish.getName(target)+" fetish)]!"
-										:UtilText.parse(target, "A staggering wave of arcane energy crashes over [npc.name], the sheer strength of which almost causes [npc.herHim] to black out."
-											+ " As [npc.she] staggers back from the brink of unconsciousness, [npc.she] discovers that [npc.sheIs] [style.boldBad(lost)] [npc.her] [style.boldFetish("+fetish.getName(target)+" fetish)]!"))
-								+"</p>";
-					} else {
-						return "<p>"
-									+(target.isPlayer()
-										?"[style.colourDisabled(Nothing happens, as you already lack the "+fetish.getName(target)+" fetish...)]"
-										:UtilText.parse(target, "[style.colourDisabled(Nothing happens, as [npc.she] already lacks the "+fetish.getName(target)+" fetish...)]"))
-								+"</p>";
-					}
+					return target.removeFetish(fetish);
 				}
 			}
 		}
@@ -2654,32 +2373,40 @@ public class ItemEffectType {
 	
 	// RACIAL:
 	
-	public static AbstractItemEffectType RACE_DEMON = new AbstractItemEffectType(null,
+	public static AbstractItemEffectType DEBUG_DEMON_POTION_EFFECT = new AbstractItemEffectType(null,
 			Colour.RACE_DEMON) {
-
-		@Override
-		public List<TFModifier> getPrimaryModifiers() {
-			return TFModifier.getTFRacialBodyPartsList();
-		}
-
-		@Override
-		public List<TFModifier> getSecondaryModifiers(TFModifier primaryModifier) {
-			return getRacialSecondaryModifiers(Race.DEMON, primaryModifier);
-		}
-		
-		@Override
-		public List<TFPotency> getPotencyModifiers(TFModifier primaryModifier, TFModifier secondaryModifier) {
-			return getRacialPotencyModifiers(Race.DEMON, primaryModifier, secondaryModifier);
-		}
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.DEMON, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			List<String> effectsDescription = new ArrayList<>();
+			
+			effectsDescription.add("[style.boldBad(Does not affect player or unique characters)]");
+			
+			effectsDescription.add("[style.boldTfGeneric(Transforms)] non-demons into [style.boldDemon(half-demons)]");
+
+			effectsDescription.add("[style.boldTfGeneric(Transforms)] half-demons into [style.boldDemon(demons)]");
+			
+			return effectsDescription;
 		}
 		
 		@Override
 		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			return getRacialEffect(Race.DEMON, primaryModifier, secondaryModifier, potency, user, target).applyEffect();
+			if(target.isPlayer()) {
+				return "<p style='text-align:center'>[style.italicsDisbaled(This item does not work on you...)]</p>";
+			}
+			if(target.isUnique() && (!target.isSlave() || target.getOwner().isPlayer())) {
+				return "<p style='text-align:center'>[style.italicsDisbaled(This item does not work on non-slave unique characters...)]</p>";
+			}
+			
+			Subspecies sub = target.getSubspecies();
+			if(sub.getRace()!=Race.DEMON) {
+				target.setBody(CharacterUtils.generateHalfDemonBody(target, sub));
+				return UtilText.parse(target, "<p style='text-align:center; color:"+Colour.RACE_DEMON.toWebHexString()+";'><i>[npc.Name] is now [npc.a_race]!</i></p>");
+			} else {
+				target.setBody(target.getGender(), Subspecies.DEMON, RaceStage.GREATER);
+				target.setSubspeciesOverride(Subspecies.DEMON);
+				return UtilText.parse(target, "<p style='text-align:center; color:"+Colour.RACE_DEMON.toWebHexString()+";'><i>[npc.Name] is now [npc.a_race]!</i></p>");
+			}
 		}
 	};
 	
@@ -3149,7 +2876,8 @@ public class ItemEffectType {
 				return TFModifier.getTFBodyPartFetishList();
 				
 			} else if(primaryModifier == TFModifier.CLOTHING_ENSLAVEMENT
-					|| primaryModifier == TFModifier.CLOTHING_SEALING) {
+					|| primaryModifier == TFModifier.CLOTHING_SEALING
+					|| primaryModifier == TFModifier.CLOTHING_CONDOM) {
 				return Util.newArrayListOfValues(TFModifier.ARCANE_BOOST);
 				
 			} else {
@@ -3163,8 +2891,12 @@ public class ItemEffectType {
 					|| primaryModifier == TFModifier.CLOTHING_MAJOR_ATTRIBUTE
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BEHAVIOUR
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART
+					|| primaryModifier == TFModifier.CLOTHING_CONDOM
 					|| !getClothingTFSecondaryModifiers(primaryModifier).isEmpty()) {
 				return TFPotency.getAllPotencies();
+				
+			} else if(primaryModifier == TFModifier.CLOTHING_SEALING) {
+				return Util.newArrayListOfValues(TFPotency.MINOR_BOOST, TFPotency.MINOR_DRAIN, TFPotency.DRAIN, TFPotency.MAJOR_DRAIN);
 				
 			} else {
 				return Util.newArrayListOfValues(TFPotency.MINOR_BOOST);
@@ -3176,7 +2908,7 @@ public class ItemEffectType {
 			List<String> effectsList = new ArrayList<>();
 			
 			if(primaryModifier == TFModifier.CLOTHING_ATTRIBUTE
-					|| primaryModifier == TFModifier.CLOTHING_MAJOR_ATTRIBUTE) { //This is overriden in a couple of places ,such as in InventoryTooltipEventListener
+					|| primaryModifier == TFModifier.CLOTHING_MAJOR_ATTRIBUTE) { //This is overridden in a couple of places, such as in InventoryTooltipEventListener
 				effectsList.add(
 						(potency.getClothingBonusValue()<0
 								?"[style.boldBad("+potency.getClothingBonusValue()+")] "
@@ -3184,10 +2916,21 @@ public class ItemEffectType {
 						+ "<b style='color:"+secondaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(secondaryModifier.getAssociatedAttribute().getName())+"</b>");
 				
 			} else if(primaryModifier == TFModifier.CLOTHING_SEALING) {
-				effectsList.add("[style.boldArcane(Seals onto wearer)]");
+				if(potency==TFPotency.MINOR_DRAIN) {
+					effectsList.add("[style.boldCrimson(Seals onto wearer)] <b>(Removal cost: [style.boldArcane(25)])</b>");
+					
+				} else if(potency==TFPotency.DRAIN) {
+					effectsList.add("[style.boldCrimson(Seals onto wearer)] <b>(Removal cost: [style.boldArcane(100)])</b>");
+					
+				} else if(potency==TFPotency.MAJOR_DRAIN) {
+					effectsList.add("[style.boldCrimson(Seals onto wearer)] <b>(Removal cost: [style.boldArcane(500)])</b>");
+					
+				} else {
+					effectsList.add("[style.boldCrimson(Seals onto wearer)] <b>(Removal cost: [style.boldArcane(5)])</b>");
+				}
 				
 			} else if(primaryModifier == TFModifier.CLOTHING_ENSLAVEMENT) {
-				effectsList.add("[style.boldCrimson(Enslaves the wearer)]");
+					effectsList.add("[style.boldCrimson(Enslaves the wearer)]");
 				
 			} else if(primaryModifier == TFModifier.TF_MOD_FETISH_BEHAVIOUR
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART) {
@@ -3210,6 +2953,22 @@ public class ItemEffectType {
 					effectsList.add("[style.boldMinorBad(Slightly decreases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
 				}
 				
+			} else if(primaryModifier == TFModifier.CLOTHING_CONDOM) {
+				if(potency==TFPotency.MAJOR_BOOST) {
+					effectsList.add("[style.boldExcellent(Infinite)] safe cum capacity.");
+					
+				} else if(potency==TFPotency.BOOST) {
+					effectsList.add("[style.boldGood("+CumProduction.SIX_EXTREME.getMaximumValue()+"ml)] safe cum capacity.");
+					
+				} else if(potency==TFPotency.MINOR_BOOST) {
+					effectsList.add("[style.boldMinorGood("+CumProduction.FIVE_HUGE.getMaximumValue()+"ml)] safe cum capacity.");
+					
+				} else if(potency==TFPotency.MAJOR_DRAIN
+						|| potency==TFPotency.DRAIN
+						|| potency==TFPotency.MINOR_DRAIN) {
+					effectsList.add("[style.boldTerrible(Sabotaged)] to always break!");
+				}
+				
 			} else {
 				return getClothingTFDescriptions(primaryModifier, secondaryModifier, potency, limit, user, target);
 			}
@@ -3229,7 +2988,8 @@ public class ItemEffectType {
 					|| primaryModifier == TFModifier.CLOTHING_ENSLAVEMENT
 					|| primaryModifier == TFModifier.CLOTHING_SEALING
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BEHAVIOUR
-					|| primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART) {
+					|| primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART
+					|| primaryModifier == TFModifier.CLOTHING_CONDOM) {
 				return "";
 			}
 			return applyClothingTF(primaryModifier, secondaryModifier, potency, limit, user, target, timer);
@@ -3282,7 +3042,7 @@ public class ItemEffectType {
 			List<String> effectsList = new ArrayList<>();
 			
 			if(primaryModifier == TFModifier.CLOTHING_ATTRIBUTE
-					|| primaryModifier == TFModifier.CLOTHING_MAJOR_ATTRIBUTE) { //This is overriden in a couple of places ,such as in InventoryTooltipEventListener
+					|| primaryModifier == TFModifier.CLOTHING_MAJOR_ATTRIBUTE) { //This is overridden in a couple of places, such as in InventoryTooltipEventListener
 				effectsList.add(
 						(potency.getClothingBonusValue()<0
 								?"[style.boldBad("+potency.getClothingBonusValue()+")] "
@@ -3292,22 +3052,22 @@ public class ItemEffectType {
 			} else if(primaryModifier == TFModifier.TF_MOD_FETISH_BEHAVIOUR
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART) {
 				if(potency==TFPotency.MAJOR_BOOST) {
-					effectsList.add("[style.boldExcellent(Grants)] [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
+					effectsList.add("[style.boldExcellent(Grants)] [style.boldFetish("+secondaryModifier.getName()+" fetish)]");
 					
 				} else if(potency==TFPotency.BOOST) {
-					effectsList.add("[style.boldGood(Increases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
+					effectsList.add("[style.boldGood(Increases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)]");
 					
 				} else if(potency==TFPotency.MINOR_BOOST) {
-					effectsList.add("[style.boldMinorGood(Slightly increases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
+					effectsList.add("[style.boldMinorGood(Slightly increases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)]");
 					
 				} else if(potency==TFPotency.MAJOR_DRAIN) {
-					effectsList.add("<b style='color:"+FetishDesire.ZERO_HATE.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(FetishDesire.ZERO_HATE.getNameAsVerb())+"</b> [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
+					effectsList.add("<b style='color:"+FetishDesire.ZERO_HATE.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(FetishDesire.ZERO_HATE.getNameAsVerb())+"</b> [style.boldFetish("+secondaryModifier.getName()+" fetish)]");
 					
 				} else if(potency==TFPotency.DRAIN) {
-					effectsList.add("[style.boldBad(Decreases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
+					effectsList.add("[style.boldBad(Decreases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)]");
 					
 				} else if(potency==TFPotency.MINOR_DRAIN) {
-					effectsList.add("[style.boldMinorBad(Slightly decreases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)] while worn.");
+					effectsList.add("[style.boldMinorBad(Slightly decreases)] [style.boldLust(desire)] for [style.boldFetish("+secondaryModifier.getName()+" fetish)]");
 				}
 				
 			} else {
@@ -3376,10 +3136,9 @@ public class ItemEffectType {
 		}
 	};
 	
-
-	private static Map<AbstractItemEffectType, String> itemEffectTypeToIdMap = new HashMap<>();
-	private static Map<String, AbstractItemEffectType> idToItemEffectTypeMap = new HashMap<>();
-	private static List<AbstractItemEffectType> allEffectTypes = new ArrayList<>();
+	public static Map<AbstractItemEffectType, String> itemEffectTypeToIdMap = new HashMap<>();
+	public static Map<String, AbstractItemEffectType> idToItemEffectTypeMap = new HashMap<>();
+	public static List<AbstractItemEffectType> allEffectTypes = new ArrayList<>();
 	
 	public static void addAbstractItemEffectToIds(String id, AbstractItemEffectType itemEffectType) {
 		allEffectTypes.add(itemEffectType);
@@ -3389,6 +3148,7 @@ public class ItemEffectType {
 	}
 	
 	public static AbstractItemEffectType getItemEffectTypeFromId(String id) {
+		id = Util.getClosestStringMatch(id, idToItemEffectTypeMap.keySet());
 		return idToItemEffectTypeMap.get(id);
 	}
 	
@@ -3396,35 +3156,33 @@ public class ItemEffectType {
 		return itemEffectTypeToIdMap.get(itemEffectType);
 	}
 	
+	public static AbstractItemEffectType getBookEffectFromSubspecies(Subspecies subspecies) {
+		String id = Util.getClosestStringMatch("BOOK_READ_"+subspecies.toString(), idToItemEffectTypeMap.keySet());
+		return idToItemEffectTypeMap.get(id);
+	}
+	
 	public static List<AbstractItemEffectType> getAllEffectTypes() {
 		return allEffectTypes;
 	}
 
 	static {
-		
 		Field[] fields = ItemEffectType.class.getFields();
-		
 		for(Field f : fields){
-			
 			if (AbstractItemEffectType.class.isAssignableFrom(f.getType())) {
-				
 				AbstractItemEffectType iet;
 				try {
 					iet = ((AbstractItemEffectType) f.get(null));
 					
 					allEffectTypes.add(iet);
 					
-					// I feel like this is stupid :thinking:
 					itemEffectTypeToIdMap.put(iet, f.getName());
 					idToItemEffectTypeMap.put(f.getName(), iet);
 					
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
-				
 			}
 		}
-  	    
 	}
 	
 }

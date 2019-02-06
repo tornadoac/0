@@ -9,14 +9,14 @@ import com.lilithsthrone.game.character.body.Body;
 import com.lilithsthrone.game.character.body.valueEnums.OrificeModifier;
 import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.Sex;
+import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.0
- * @version 0.2.11
+ * @version 0.3.1
  * @author Innoxia
  */
 public enum VaginaType implements BodyPartTypeInterface {
@@ -49,7 +49,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 
 	COW_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_COW_MORPH, Race.COW_MORPH),
 
-	HORSE_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_HORSE_MORPH, Race.HORSE_MORPH, OrificeModifier.PUFFY),
+	HORSE_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_HORSE_MORPH, Race.HORSE_MORPH, OrificeModifier.PUFFY, OrificeModifier.MUSCLE_CONTROL),
 
 	REINDEER_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_REINDEER_MORPH, Race.REINDEER_MORPH, OrificeModifier.PUFFY),
 
@@ -94,6 +94,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 		if(this==NONE) {
 			return "";
 		}
+
 		if (gc.getAppearsAsAgeValue()<=12) {
 			if(gc.isVaginaVirgin()) {
 				return UtilText.returnStringAtRandom(
@@ -248,21 +249,21 @@ public enum VaginaType implements BodyPartTypeInterface {
 					case DEMON_COMMON:
 						return UtilText.returnStringAtRandom("irresistible", "demonic");
 					case DOG_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "dog-like", "canine");
+						return UtilText.returnStringAtRandom("hot", "dog-like", "canine");
 					case WOLF_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "wolf-like", "lupine");
+						return UtilText.returnStringAtRandom("hot", "wolf-like", "lupine");
 					case FOX_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "fox-like", "vulpine");
+						return UtilText.returnStringAtRandom("hot", "fox-like", "vulpine");
 					case CAT_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "cat-like", "feline");
+						return UtilText.returnStringAtRandom("hot", "cat-like", "feline");
 					case COW_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "cow-like", "bovine");
+						return UtilText.returnStringAtRandom("hot", "cow-like", "bovine");
 					case ALLIGATOR_MORPH:
 						return UtilText.returnStringAtRandom("hot", "alligator-like", "reptilian");
 					case HORSE_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "equine");
+						return UtilText.returnStringAtRandom("hot", "equine");
 					case REINDEER_MORPH:
-						return UtilText.returnStringAtRandom("hot", "animalistic", "reindeer-like", "rangiferine");
+						return UtilText.returnStringAtRandom("hot", "reindeer-like", "rangiferine");
 					case HUMAN:
 						return UtilText.returnStringAtRandom("hot");
 					case NONE:

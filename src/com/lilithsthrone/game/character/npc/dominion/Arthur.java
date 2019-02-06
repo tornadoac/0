@@ -40,7 +40,7 @@ import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
-import com.lilithsthrone.game.dialogue.DialogueNodeOld;
+import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.inventory.CharacterInventory;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
@@ -63,7 +63,7 @@ public class Arthur extends NPC {
 	}
 	
 	public Arthur(boolean isImported) {
-		super(isImported, new NameTriplet("Arthur"),
+		super(isImported, new NameTriplet("Arthur"), "Fairbanks",
 				"With messy brown hair, pale skin, and a thin frame, the Arthur of this world looks exactly the same as the one you've always known."
 						+ " Just as he was in your world, this Arthur used to be a colleague of Lilaya's, before Lilaya kicked him out."
 						+ "<br/>"
@@ -93,6 +93,10 @@ public class Arthur extends NPC {
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.12")) {
+			equipClothing(true, true, true, true);
+		}
+		this.setSurname("Fairbanks");
 	}
 	
 	@Override
@@ -179,7 +183,7 @@ public class Arthur extends NPC {
 		
 		// Penis:
 		this.setPenisVirgin(false);
-		this.setPenisGirth(PenisGirth.ONE_THIN);
+		this.setPenisGirth(PenisGirth.TWO_AVERAGE);
 		this.setPenisSize(6);
 		this.setTesticleSize(TesticleSize.TWO_AVERAGE);
 		// Leave cum as normal value
@@ -193,7 +197,6 @@ public class Arthur extends NPC {
 	
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-
 		this.unequipAllClothingIntoVoid(true);
 		
 		this.setMoney(0);
@@ -203,7 +206,7 @@ public class Arthur extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SCIENTIST_TORSO_OVER_LAB_COAT, Colour.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TROUSERS, Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SCIENTIST_EYES_SAFETY_GOGGLES, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_WORK_BOOTS, Colour.CLOTHING_TAN, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Colour.CLOTHING_BLACK, false), true, this);
 
 	}
 	
@@ -217,17 +220,13 @@ public class Arthur extends NPC {
 	}
 	
 	@Override
-	public DialogueNodeOld getEncounterDialogue() {
+	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 
 	@Override
 	public boolean isTrader() {
 		return true; // TODO Wait, what?
-	}
-
-	@Override
-	public void endSex() {
 	}
 
 }

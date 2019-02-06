@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 
 <clothing>
-  <coreAtributes>
+  <coreAttributes>
     <value>300</value> <!--10 flames = £1 ~ $1.5-->
     <determiner><![CDATA[a string of]]></determiner>
     <name><![CDATA[anal beads]]></name>
@@ -52,9 +52,11 @@
     <itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
       <tag>SOLD_BY_FINCH</tag>
       <tag>PLUGS_ANUS</tag>
+      <tag>ENABLE_SEX_EQUIP</tag>
+      <tag>TRANSPARENT</tag>
     </itemTags>
     
-  </coreAtributes>
+  </coreAttributes>
 
   <displacementText type="REMOVE_OR_EQUIP">
     <playerSelf>
@@ -103,7 +105,7 @@
       <![CDATA[[npc.Name] holds you still as [npc.sheHe] roughly forces the anal beads into your [pc.ass+]]]>
     </NPCPlayerRough>
     <NPCOtherNPC>
-      <![CDATA[[npc1.Name] pushs the anal beads into [npc2.Name]'s [npc2.ass+].]]>
+      <![CDATA[[npc1.Name] pushes the anal beads into [npc2.Name]'s [npc2.ass+].]]>
     </NPCOtherNPC>
     <NPCOtherNPCRough>
       <![CDATA[[npc1.Name] holds [npc2.name] still as [npc1.sheHe] roughly forces the anal beads into [npc2.herHis] [npc2.ass+].]]>
