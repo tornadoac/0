@@ -1465,9 +1465,9 @@ public class CharacterUtils {
 		
 		if(randomiseAge) {
 			character.setBirthday(LocalDateTime.of(Main.game.getStartingDate().getYear()-AgeCategory.getAgeFromPreferences(character.getGender()), character.getBirthMonth(), character.getDayOfBirth(), 12, 0));
-			if(character.getRace()==Race.DEMON || character.getRace()==Race.HARPY) {
+			if((character.getRace()==Race.DEMON || character.getRace()==Race.HARPY) && (character.getAgeValue() >= 18)){
 				character.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(9));
-			}
+			}//18 
 		}
 		
 		// Piercings (in order of probability that they'll have them, based on some random website that orders popularity):
