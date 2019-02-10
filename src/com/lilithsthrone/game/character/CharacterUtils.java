@@ -1465,9 +1465,9 @@ public class CharacterUtils {
 		
 		if(randomiseAge) {
 			character.setBirthday(LocalDateTime.of(Main.game.getStartingDate().getYear()-AgeCategory.getAgeFromPreferences(character.getGender()), character.getBirthMonth(), character.getDayOfBirth(), 12, 0));
-			if(character.getRace()==Race.DEMON || character.getRace()==Race.HARPY) {
+			if((character.getRace()==Race.DEMON || character.getRace()==Race.HARPY) && (character.getAgeValue() >= 18)){
 				character.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(9));
-			}
+			}//18 
 		}
 		
 		// Piercings (in order of probability that they'll have them, based on some random website that orders popularity):
@@ -1659,6 +1659,76 @@ public class CharacterUtils {
 				character.addGirlcumModifier(FluidModifier.HALLUCINOGENIC);
 			}
 		}
+		
+		//Uses age appearance to remove body hair, and modify breast and height values
+		int tempAge = character.getAppearsAsAgeValue();
+		//Height
+		if (tempAge > 12 && tempAge <= 16) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .8),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge > 10 && tempAge <= 12) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .6),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge > 6 &&tempAge <= 10) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .4),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		} else if (tempAge <= 6) {
+			character.setHeight(Math.max((int) (character.getHeightValue() * .2),
+					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
+		}
+		
+		//Breast ReModification
+		if (character.hasBreasts() && tempAge < 16){ //There are male and androgenous types with breasts
+			if (tempAge > 12 && tempAge < 16) {
+				character.setBreastSize(CupSize.AA.getMeasurement() + Util.random.nextInt(3)); //int3 allows C, would 2 be better?
+			} else if (tempAge > 10 && tempAge < 12) {
+				character.setBreastSize(CupSize.TRAINING_A.getMeasurement() + Util.random.nextInt(3));
+			} else if (tempAge < 10) {
+				character.setBreastSize(CupSize.FLAT.getMeasurement() + Util.random.nextInt(3));
+			}
+		}
+		
+		//Penis ReModification
+		if(character.hasPenis() || character.getRace()==Race.DEMON) {
+			if (tempAge < 16 ){
+				if(character.getRace()==Race.HARPY){
+					character.setTesticleSize(TesticleSize.ZERO_VESTIGIAL.getValue());
+				}else{
+					character.setTesticleSize(TesticleSize.ONE_TINY.getValue());
+				}
+			}
+			if (tempAge > 12 && tempAge < 16) {
+				character.setPenisSize(PenisSize.TWO_AVERAGE.getMinimumValue()+ Util.random.nextInt(2));
+				if(character.getRace()==Race.HARPY){
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMedianValue());
+				}else{
+					character.setPenisCumStorage(CumProduction.TWO_SMALL_AMOUNT.getMedianValue());
+				}
+			} else if (tempAge > 10 && tempAge < 12) {
+				character.setPenisSize(PenisSize.ONE_TINY.getMinimumValue() + Util.random.nextInt(PenisSize.ONE_TINY.getMaximumValue() - PenisSize.ONE_TINY.getMinimumValue())+1);
+				if(character.getRace()==Race.HARPY){
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMinimumValue());
+				}else{
+					character.setPenisCumStorage(CumProduction.TWO_SMALL_AMOUNT.getMinimumValue());
+				}
+			} else if (tempAge < 10) {
+				character.setPenisSize(PenisSize.ZERO_MICROSCOPIC.getMinimumValue() + Util.random.nextInt(PenisSize.ZERO_MICROSCOPIC.getMaximumValue() - PenisSize.ZERO_MICROSCOPIC.getMinimumValue())+1);
+				if(character.getRace()==Race.HARPY){
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMinimumValue());
+				}else{
+					character.setPenisCumStorage(CumProduction.ONE_TRICKLE.getMinimumValue());
+				}
+			}
+		}
+		
+		//Remove accessory hair
+		if (tempAge < 15) {
+			character.setPubicHair(BodyHair.ZERO_NONE);
+			character.setUnderarmHair(BodyHair.ZERO_NONE);
+			character.setAssHair(BodyHair.ZERO_NONE);
+			character.setFacialHair(BodyHair.ZERO_NONE);
+		}
+		
 		
 		character.setAssStretchedCapacity(character.getAssRawCapacityValue());
 		character.setNippleStretchedCapacity(character.getNippleRawCapacityValue());

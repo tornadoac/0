@@ -3169,8 +3169,8 @@ public abstract class GameCharacter implements XMLSaving {
 		this.birthday = birthday;
 		
 		if(this.isPlayer()) {
-			if(this.getAgeValue()<18) {
-				this.birthday = (this.getBirthday().minusYears(18-this.getAgeValue()));
+			if(this.getAgeValue()<2) { //18
+				this.birthday = (this.getBirthday().minusYears(2-this.getAgeValue()));
 				
 			} else if(this.getAgeValue()>50) {
 				this.birthday = (this.getBirthday().plusYears(this.getAgeValue()-50));
@@ -3183,7 +3183,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	
 	public int getAppearsAsAgeValue() {
-		return Math.max(18, getAgeValue() + ageAppearanceDifference);
+		return Math.max(2, getAgeValue() + ageAppearanceDifference);
 	}
 
 	public AgeCategory getAge() {
@@ -3194,10 +3194,10 @@ public abstract class GameCharacter implements XMLSaving {
 		int age = (int) ChronoUnit.YEARS.between(birthday, Main.game.getDateNow());
 		
 		if(birthday.getYear()>=Main.game.getStartingDate().getYear()) {
-			return 18 + age;
+			return 2 + age; //18
 		}
 		
-		return Math.max(18, age);
+		return Math.max(2, age); //18
 	}
 	
 	public int getAgeAppearanceDifference() {

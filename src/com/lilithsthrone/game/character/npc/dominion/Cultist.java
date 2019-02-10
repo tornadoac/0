@@ -99,7 +99,7 @@ public class Cultist extends NPC {
 			
 			CharacterUtils.randomiseBody(this, true);
 
-			this.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(10));
+			//this.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(10)); //18
 			
 			this.setVaginaVirgin(false);
 			this.setAssVirgin(false);
@@ -137,7 +137,7 @@ public class Cultist extends NPC {
 			this.setFetishDesire(Fetish.FETISH_PENIS_GIVING, FetishDesire.TWO_NEUTRAL);
 		}
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.11")) {
-			this.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(10));
+			//this.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(10)); //18
 		}
 	}
 
