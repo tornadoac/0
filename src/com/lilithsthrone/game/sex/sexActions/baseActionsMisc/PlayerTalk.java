@@ -12,6 +12,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.ArousalIncrease;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
+import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.game.sex.SexParticipantType;
 import com.lilithsthrone.game.sex.SexType;
@@ -430,7 +431,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.VAGINA))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.VAGINA));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.VAGINA)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.VAGINA));
@@ -497,7 +498,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, null))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, null));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, null)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, null));
@@ -551,7 +552,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.ANUS))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.ANUS));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.ANUS)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.ANUS));
@@ -631,7 +632,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, null))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, null));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, null)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, null));
@@ -695,7 +696,9 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.MOUTH))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.MOUTH));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(
+						new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.MOUTH),
+						new SexType(SexParticipantType.NORMAL, null, SexAreaPenetration.TONGUE)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.MOUTH));
@@ -770,7 +773,9 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, null))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, null));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(
+						new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, null),
+						new SexType(SexParticipantType.NORMAL, SexAreaPenetration.TONGUE, null)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, null));
@@ -835,7 +840,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.NIPPLE))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.NIPPLE));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.NIPPLE)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.NIPPLE));
@@ -902,7 +907,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST));
@@ -969,7 +974,7 @@ public class PlayerTalk {
 		@Override
 		public void applyEffects() {
 			if(!((NPC)Sex.getCharacterTargetedForSexAction(this)).getSexBehaviourDeniesRequests(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST))) {
-				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST));
+				((NPC)Sex.getCharacterTargetedForSexAction(this)).generateSexChoices(true, Main.game.getPlayer(), Util.newArrayListOfValues(new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST)));
 				
 			} else if(!Sex.isDom(Main.game.getPlayer())) {
 				Sex.addRequestsBlocked(Main.game.getPlayer(), new SexType(SexParticipantType.NORMAL, null, SexAreaOrifice.BREAST));
