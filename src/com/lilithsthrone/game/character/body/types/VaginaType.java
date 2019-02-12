@@ -308,7 +308,6 @@ public enum VaginaType implements BodyPartTypeInterface {
 					return gc.getVaginaCapacity().getDescriptor();
 				}
 		}
-		
 	}
 
 	@Override
