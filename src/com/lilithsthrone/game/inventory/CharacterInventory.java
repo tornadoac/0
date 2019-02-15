@@ -191,7 +191,6 @@ public class CharacterInventory implements XMLSaving {
 		inventory.setMoney(Integer.valueOf(((Element)parentElement.getElementsByTagName("money").item(0)).getAttribute("value")));
 		inventory.setEssenceCount(TFEssence.ARCANE, Integer.valueOf(((Element)parentElement.getElementsByTagName("essences").item(0)).getAttribute("value")));
 
-		
 		NodeList nodes = parentElement.getElementsByTagName("dirtySlots");
 		Element dirtySlotContainerElement = (Element) nodes.item(0);
 		if(dirtySlotContainerElement!=null) {
@@ -380,7 +379,6 @@ public class CharacterInventory implements XMLSaving {
 		return getUniqueQuestWeaponCount()>0 || getUniqueQuestClothingCount()>0 || getUniqueQuestItemCount()>0;
 	}
 	
-	
 	// -------------------- Items -------------------- //
 	
 	/**
@@ -537,7 +535,6 @@ public class CharacterInventory implements XMLSaving {
 		return false;
 	}
 	
-	
 	// -------------------- Weapons -------------------- //
 	
 	/**
@@ -656,7 +653,6 @@ public class CharacterInventory implements XMLSaving {
 	public void unequipOffhandWeapon() {
 		offhandWeapon = null;
 	}
-	
 	
 	// -------------------- Clothing -------------------- //
 	
@@ -939,8 +935,6 @@ public class CharacterInventory implements XMLSaving {
 		clothingRemovalList.add(c);	
 	}
 	
-	
-
 	private StringBuilder equipTextSB = new StringBuilder();
 
 	public String getEquipDescription() {
@@ -1217,7 +1211,6 @@ public class CharacterInventory implements XMLSaving {
 						return false;
 					}
 				}
-				
 				
 				// Sort clothing to remove in zLayer order(so you take off your
 				// shirt before removing bra etc.):
@@ -1673,12 +1666,10 @@ public class CharacterInventory implements XMLSaving {
 
 	private StringBuilder unableToReplaceText = new StringBuilder();
 
-	
 	public String getReplaceDescription() {
 		return unableToReplaceText.toString();
 	}
 
-	
 	public boolean isAbleToBeReplaced(AbstractClothing clothing, DisplacementType dt, boolean replaceIfAble, boolean automaticClothingManagement, GameCharacter characterClothingOwner, GameCharacter characterRemovingClothing) {
 		if (dt == DisplacementType.REMOVE_OR_EQUIP)
 			throw new IllegalArgumentException("Can't replace DisplacementType.REMOVE_OR_EQUIP!");
@@ -1874,7 +1865,6 @@ public class CharacterInventory implements XMLSaving {
 		return false;
 	}
 
-	
 	public SimpleEntry<AbstractClothing, DisplacementType> getNextClothingToRemoveForCoverableAreaAccess(GameCharacter character, CoverableArea coverableArea) { 
 		List<AbstractClothing> zLayerSortedList = new ArrayList<>(clothingCurrentlyEquipped);
 		zLayerSortedList.sort(new ClothingZLayerComparator());

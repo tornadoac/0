@@ -44,7 +44,6 @@ public enum AffectionLevel {
 	/** 90 to 100*/
 	POSITIVE_FIVE_WORSHIP("worshipping", "worships", 90, 100, Colour.AFFECTION_POSITIVE_FIVE);
 	
-	
 	private String name;
 	private String descriptor;
 	private int minimumValue, maximumValue;

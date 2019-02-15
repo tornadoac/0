@@ -140,7 +140,6 @@ public class SlimeRoyalGuard extends NPC {
 			this.setFetishDesire(Fetish.FETISH_PREGNANCY, FetishDesire.ZERO_HATE);
 		}
 		
-		
 		// Body:
 		
 		// Core:

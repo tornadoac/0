@@ -21,7 +21,6 @@ public enum ForcedTFTendency {
 	private String name;
 	private String description;
 
-	
 	private ForcedTFTendency(String name, String description) {
 		this.name = name;
 		this.description = description;
@@ -35,7 +34,5 @@ public enum ForcedTFTendency {
 	public String getDescription() {
 		return description;
 	}
-
-
 
 }

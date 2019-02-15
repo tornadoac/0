@@ -127,7 +127,6 @@ public class ZaranixMaidKatherine extends NPC {
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 		}
 		
-		
 		// Body:
 		// Add full body reset as this method is called after leaving Zaranix's house:
 		this.setAgeAppearanceDifferenceToAppearAsAge(18);
@@ -308,7 +307,6 @@ public class ZaranixMaidKatherine extends NPC {
 						"Katherine's [npc.breasts+] starts to heave up and down as she pants, [katherine.speech(Oh no! I'm feeling weak already! Y-You're sure to take advantage of me if I lose!)]") 
 			+ "</p>";
 	}
-	
 	
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {

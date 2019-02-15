@@ -106,7 +106,6 @@ public class ImpAttacker extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			
 			// BODY RANDOMISATION:
 			
 			CharacterUtils.randomiseBody(this, true);
@@ -506,7 +505,6 @@ public class ImpAttacker extends NPC {
 			
 			// Add long tongue (for cunnilingus):
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_FACE, TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.BOOST, 1));
-			
 			
 		} else if(target.getLocationPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_MALES) {
 			

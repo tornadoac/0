@@ -191,7 +191,6 @@ public class FingerNipple {
 		
 	};
 	
-	
 	public static final SexAction MILK_TARGET = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.TWO_LOW,
@@ -477,8 +476,6 @@ public class FingerNipple {
 			return Sex.getCharacterPerformingAction().incrementBreastStoredMilk(-Sex.getCharacterPerformingAction().getBreastRawMilkStorageValue()/5);
 		}
 	};
-	
-	
 	
 	public static final SexAction NIPPLE_FINGERING_START = new SexAction(
 			SexActionType.START_ONGOING,

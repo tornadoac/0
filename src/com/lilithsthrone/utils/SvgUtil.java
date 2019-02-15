@@ -84,8 +84,6 @@ public class SvgUtil {
 		return s;
 	}
 	
-
-	
 	public static String colourReplacement(String gradientReplacementID, BaseColour colour, String inputString) {
 		return colourReplacement(gradientReplacementID, colour, null, null, inputString);
 	}

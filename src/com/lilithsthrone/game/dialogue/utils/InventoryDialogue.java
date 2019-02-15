@@ -1061,7 +1061,6 @@ public class InventoryDialogue {
 						return null;
 					}
 					
-					
 				// ****************************** Interacting with an NPC ******************************
 				} else {
 					switch(interactionType) {
@@ -2424,7 +2423,6 @@ public class InventoryDialogue {
 						return null;
 					}
 					
-					
 				// ****************************** Interacting with an NPC ******************************
 				} else {
 					switch(interactionType) {
@@ -3436,7 +3434,6 @@ public class InventoryDialogue {
 						return null;
 					}
 					
-					
 				// ****************************** Interacting with an NPC ******************************
 				} else {
 					switch(interactionType) {
@@ -3606,7 +3603,6 @@ public class InventoryDialogue {
 									return new Response("Equip (self)", clothing.getCannotBeEquippedText(Main.game.getPlayer()), null);
 								}
 								
-									
 							} else if (index == 10) {
 								return getQuickTradeResponse();
 								
@@ -5918,7 +5914,6 @@ public class InventoryDialogue {
 			}
 			inventorySB.append("</div>");
 
-			
 			if(Pattern.getPattern(dyePreviewPattern)!=null && Pattern.getPattern(dyePreviewPattern).isPrimaryRecolourAvailable()) {
 				inventorySB.append("<div class='container-full-width'>"
 						+ "Pattern Primary Colour:<br/>");
@@ -5982,7 +5977,6 @@ public class InventoryDialogue {
 						+ "</div>"
 					+ "</div>"
 					+ "<h3 style='text-align:center;'><b>Dye & Preview</b></h3>");
-		
 		
 		inventorySB.append("<div class='container-quarter-width' style='text-align:center;'>"
 				+ "<b>Damage type:</b>");
@@ -6201,7 +6195,6 @@ public class InventoryDialogue {
 			return DialogueNodeType.INVENTORY;
 		}
 	};
-	
 	
 	public static final DialogueNode DYE_CLOTHING_CHARACTER_CREATION = new DialogueNode("Choose Colour", "", true) {
 
@@ -6433,8 +6426,6 @@ public class InventoryDialogue {
 		}
 	};
 	
-	
-	
 	// Utility methods:
 	
 	private static String getItemDisplayPanel(String SVGString, String title, String description) {
@@ -6543,8 +6534,6 @@ public class InventoryDialogue {
 		return Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ENCHANTMENT_DISCOVERY);
 	}
 	
-	
-	
 	// Items:
 	
 	private static void transferItems(GameCharacter from, GameCharacter to, AbstractItem item, int count) {
@@ -6623,7 +6612,6 @@ public class InventoryDialogue {
 		}
 		resetPostAction();
 	}
-	
 	
 	// Weapons:
 	
@@ -6704,7 +6692,6 @@ public class InventoryDialogue {
 		resetPostAction();
 	}
 	
-	
 	// Clothing:
 	
 	private static void transferClothing(GameCharacter from, GameCharacter to, AbstractClothing clothing, int count) {
@@ -6772,7 +6759,6 @@ public class InventoryDialogue {
 		resetPostAction();
 		return to.equipClothingFromGround(clothing, true, equipper);
 	}
-	
 	
 	private static void dropClothing(GameCharacter from, AbstractClothing clothing, int count) {
 		if (!Main.game.getPlayerCell().getInventory().isInventoryFull() || Main.game.getPlayerCell().getInventory().hasClothing(clothing)) {

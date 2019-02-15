@@ -721,7 +721,6 @@ public enum Fetish {
 		}
 	},
 	
-	
 	// FETISH_SPANKING("spanking", "You love the idea of spanking or being
 	// spanked during sex."),
 

@@ -230,8 +230,6 @@ public class Properties {
 			createXMLElementWithValue(doc, previousSave, "versionNumber", Main.VERSION_NUMBER);
 			createXMLElementWithValue(doc, previousSave, "lastQuickSaveName", lastQuickSaveName);
 			
-			
-
 			Element valuesElement = doc.createElement("propertyValues");
 			properties.appendChild(valuesElement);
 			for(PropertyValue value : values) {
@@ -261,8 +259,6 @@ public class Properties {
 			createXMLElementWithValue(doc, settings, "forcedFetishPercentage", String.valueOf(forcedFetishPercentage));
 
 			createXMLElementWithValue(doc, settings, "difficultyLevel", difficultyLevel.toString());
-			
-			
 			
 			// Game key binds:
 			Element keyBinds = doc.createElement("keyBinds");
@@ -325,7 +321,6 @@ public class Properties {
 				}
 				element.setAttributeNode(neutralValue);
 			}
-			
 			
 			// Gender pronouns:
 			Element pronouns = doc.createElement("genderPronouns");
@@ -513,7 +508,6 @@ public class Properties {
 				discovered.setValue(String.valueOf(this.subspeciesAdvancedKnowledge.contains(subspecies)));
 				element.setAttributeNode(discovered);
 			}
-			
 			
 			// Write out to properties.xml:
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();

@@ -17,7 +17,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Eye implements BodyPartInterface {
 
-	
 	public static final int MAXIMUM_PAIRS = 4;
 	
 	protected EyeType type;

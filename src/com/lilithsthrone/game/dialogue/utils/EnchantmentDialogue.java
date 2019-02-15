@@ -125,7 +125,6 @@ public class EnchantmentDialogue {
 		
 		inventorySB.append("</div>");
 		
-		
 		// Secondary mods:
 		inventorySB.append("<div class='container-half-width' style='padding-bottom:0;'>");
 		for (TFModifier tfMod : ingredient.getEnchantmentEffect().getSecondaryModifiers(primaryMod)) {
@@ -159,7 +158,6 @@ public class EnchantmentDialogue {
 		
 		inventorySB.append("</div>");
 
-		
 		// Potency:
 		inventorySB.append("<div class='container-full-width' style='text-align:center; padding:8px 0; margin-top:0;'>");
 		
@@ -247,7 +245,6 @@ public class EnchantmentDialogue {
 		
 		inventorySB.append("</div>");
 		
-		
 		// Item crafting:
 		inventorySB.append("<div class='container-full-width' style='text-align:center; padding:8px 0; margin-top:0;'>");
 		
@@ -317,7 +314,6 @@ public class EnchantmentDialogue {
 		
 		inventorySB.append("</div>");
 		inventorySB.append("<p id='hiddenPField' style='display:none;'></p>");
-		
 		
 		return inventorySB.toString();
 	}
@@ -745,7 +741,6 @@ public class EnchantmentDialogue {
 										?"<div class='square-button saveIcon' id='load_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskLoadConfirm()+"</div></div>"
 										:"<div class='square-button saveIcon' id='load_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskLoad()+"</div></div>")
 									:"<div class='square-button saveIcon disabled'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskLoadDisabled()+"</div></div>")
-	
 	
 							+ (fileName.equals(deleteConfirmationName)
 								?"<div class='square-button saveIcon' id='delete_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskDeleteConfirm()+"</div></div>"

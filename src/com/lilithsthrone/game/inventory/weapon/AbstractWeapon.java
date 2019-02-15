@@ -206,7 +206,6 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 			return null;
 		}
 		
-		
 		if(!parentElement.getAttribute("coreEnchantment").equals("null")) {
 			try {
 				weapon.coreEnchantment = Attribute.getAttributeFromId(parentElement.getAttribute("coreEnchantment"));

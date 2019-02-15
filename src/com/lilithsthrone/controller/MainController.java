@@ -442,7 +442,6 @@ public class MainController implements Initializable {
 //								 System.out.println(action.getPrimaryDefault().getFullName()+(action.getSecondaryDefault()!=null?" | "+action.getSecondaryDefault().getFullName():"")+": "+action.getName());
 //							 }
 							 
-							 
 //							 System.out.println(Main.game.isInSex());
 						 }
 						 
@@ -961,7 +960,6 @@ public class MainController implements Initializable {
 			}
 		});
 
-		
 		// Attributes WebView:
 		webViewAttributes.setContextMenuEnabled(false);
 		webEngineAttributes = webViewAttributes.getEngine();
@@ -1249,7 +1247,6 @@ public class MainController implements Initializable {
 		}
 	}
 	
-	
 	static void setTesticleCountListener(int i) {
 		String id = "TESTICLE_COUNT_"+i;
 		if (((EventTarget) document.getElementById(id)) != null) {
@@ -1385,8 +1382,6 @@ public class MainController implements Initializable {
 			addEventListener(documentAttributes, "ESSENCE_" + TFEssence.ARCANE.hashCode(), "mouseenter", el2, false);
 		}
 		
-		
-		
 		Attribute[] attributes = {
 				Attribute.HEALTH_MAXIMUM,
 				Attribute.MANA_MAXIMUM,
@@ -1450,7 +1445,6 @@ public class MainController implements Initializable {
 					addEventListener(documentAttributes, idModifier+a.getName(), "mouseenter", el, false);
 				}
 			}
-			
 			
 			if(((EventTarget) documentAttributes.getElementById(idModifier+"ATTRIBUTES"))!=null){
 				((EventTarget) documentAttributes.getElementById(idModifier+"ATTRIBUTES")).addEventListener("click", e -> {
@@ -1562,7 +1556,6 @@ public class MainController implements Initializable {
 					addEventListener(documentAttributes, id, "mouseenter", el, false);
 				}
 			}
-			
 			
 			for (Perk trait : character.getTraits()) {
 				id = "TRAIT_" + idModifier + trait;
@@ -1909,7 +1902,6 @@ public class MainController implements Initializable {
 			}
 		}
 	}
-	
 	
 	private boolean useJavascriptToSetContent = true;
 	

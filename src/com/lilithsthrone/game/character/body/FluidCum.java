@@ -24,7 +24,6 @@ import com.lilithsthrone.utils.XMLSaving;
  */
 public class FluidCum implements FluidInterface, XMLSaving {
 
-	
 	protected FluidType type;
 	protected FluidFlavour flavour;
 	protected List<FluidModifier> fluidModifiers;
@@ -45,7 +44,6 @@ public class FluidCum implements FluidInterface, XMLSaving {
 
 		CharacterUtils.addAttribute(doc, element, "type", this.type.toString());
 		CharacterUtils.addAttribute(doc, element, "flavour", this.flavour.toString());
-		
 		
 		Element cumModifiers = doc.createElement("cumModifiers");
 		element.appendChild(cumModifiers);

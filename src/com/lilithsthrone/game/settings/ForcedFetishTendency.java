@@ -21,7 +21,6 @@ public enum ForcedFetishTendency {
 	private String name;
 	private String description;
 
-	
 	private ForcedFetishTendency(String name, String description) {
 		this.name = name;
 		this.description = description;
@@ -35,7 +34,5 @@ public enum ForcedFetishTendency {
 	public String getDescription() {
 		return description;
 	}
-
-
 
 }

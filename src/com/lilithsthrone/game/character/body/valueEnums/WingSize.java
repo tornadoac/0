@@ -15,7 +15,6 @@ public enum WingSize {
 	THREE_LARGE(3, "large", Colour.GENERIC_SIZE_FOUR),
 	FOUR_HUGE(4, "huge", Colour.GENERIC_SIZE_FIVE);
 	
-	
 	private int value;
 	private String descriptor;
 	private Colour colour;

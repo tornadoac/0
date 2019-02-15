@@ -630,8 +630,6 @@ public class Name {
 			"Lynixi",
 			"Liloria"};
 	
-
-	
 	public static String getRandomName(GameCharacter gc) {
 		switch(gc.getFemininity()) {
 			case MASCULINE_STRONG:

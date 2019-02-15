@@ -15,7 +15,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Tail implements BodyPartInterface {
 
-	
 	public static final int MAXIMUM_COUNT = 9;
 	
 	protected TailType type;

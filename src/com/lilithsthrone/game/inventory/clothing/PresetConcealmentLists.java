@@ -98,6 +98,4 @@ public enum PresetConcealmentLists {
 		this.presetInventorySlotList = presetInventorySlotList;
 	}
 
-	
-	
 }

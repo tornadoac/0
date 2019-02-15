@@ -984,7 +984,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
 	// Lust:
 	LUST_PERK_0(
 			100,
@@ -1207,9 +1206,6 @@ public enum StatusEffect {
 			return false;
 		}
 	},
-	
-	
-	
 	
 	// STANDARD EFFECTS:
 	
@@ -1735,7 +1731,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
 	// SEXUAL ORIENTATIONS:
 	
 	ORIENTATION_ANDROPHILIC(
@@ -2188,7 +2183,6 @@ public enum StatusEffect {
 			}
 		}
 
-		
 	},
 	
 	WELL_RESTED_BOOSTED(
@@ -2216,7 +2210,6 @@ public enum StatusEffect {
 			}
 		}
 
-		
 	},
 	
 	OVERWORKED(
@@ -2407,7 +2400,6 @@ public enum StatusEffect {
 			return true;
 		}
 
-		
 	},
 	
 	DRUNK_1(
@@ -3274,8 +3266,6 @@ public enum StatusEffect {
 			}
 		}
 
-		
-		
 		@Override
 		public boolean isSexEffect() {
 			return true;
@@ -3380,8 +3370,6 @@ public enum StatusEffect {
 			}
 		}
 
-		
-		
 		@Override
 		public boolean isSexEffect() {
 			return true;
@@ -3451,8 +3439,6 @@ public enum StatusEffect {
 			return UtilText.parse(target, "After consuming a Vixen's Virility pill, [npc.namePos] fertility and virility have been temporarily boosted.");
 		}
 
-		
-		
 		@Override
 		public boolean isSexEffect() {
 			return true;
@@ -3477,8 +3463,6 @@ public enum StatusEffect {
 							+ " This is a <b>preventative</b> measure, and will not alter the outcome of any unprotected sex [npc.she] had before taking the pill!");
 		}
 
-		
-		
 		@Override
 		public boolean isSexEffect() {
 			return true;
@@ -3983,8 +3967,6 @@ public enum StatusEffect {
 					|| (target.getPenisRawCapacityValue()!=target.getPenisStretchedCapacity()));
 		}
 	},
-	
-	
 	
 	CREAMPIE_VAGINA(
 			80,
@@ -4693,7 +4675,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
 	CUM_INFLATION_1(
 			80,
 			"swollen belly",
@@ -4811,7 +4792,6 @@ public enum StatusEffect {
 			return true;
 		}
 	},
-	
 	
 	BREAST_CUM_INFLATION_1(
 			80,
@@ -4931,7 +4911,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
 	FRUSTRATED_NO_ORGASM(
 			80,
 			"Frustrated",
@@ -4959,8 +4938,6 @@ public enum StatusEffect {
 			return "";
 		}
 
-		
-		
 		@Override
 		public boolean isSexEffect() {
 			return true;
@@ -6012,14 +5989,12 @@ public enum StatusEffect {
 			return modifiersList;
 		}
 		
-		
 		@Override
 		public String extraRemovalEffects(GameCharacter target) {
 			target.clearPotionAttributes();
 			return "";
 		}
 
-		
 	},
 	
 	HAPPINESS(
@@ -6478,9 +6453,6 @@ public enum StatusEffect {
 		
 	},
 	
-	
-	
-
 	// COMBAT EFFECTS:
 	
 	COMBAT_HIDDEN(
@@ -6497,8 +6469,6 @@ public enum StatusEffect {
 			return "You don't know what perks, status effects, spells, or special attacks your opponent has available. You require the "+Perk.OBSERVANT.getName(target)+" perk to reveal such information.";
 		}
 
-		
-		
 		@Override
 		public boolean isCombatEffect() {
 			return true;
@@ -6559,8 +6529,6 @@ public enum StatusEffect {
 						target.getName("The") + "'s head is spinning and [npc.sheIs] struggling to stay upright..");
 		}
 
-		
-		
 		@Override
 		public boolean isCombatEffect() {
 			return true;
@@ -6585,8 +6553,6 @@ public enum StatusEffect {
 						target.getName("The") + "'s head is spinning and [npc.sheIs] struggling to stay upright. [npc.sheIs] finding it incredibly difficult to land a hit on you or dodge one of your attacks.");
 		}
 
-		
-		
 		@Override
 		public boolean isCombatEffect() {
 			return true;
@@ -6610,8 +6576,6 @@ public enum StatusEffect {
 						target.getName("The") + "'s been temporarily crippled, and [npc.sheIs] struggling to do as much damage with [npc.her] attacks as [npc.sheIs] usually able to.");
 		}
 
-		
-		
 		@Override
 		public boolean isCombatEffect() {
 			return true;
@@ -6635,8 +6599,6 @@ public enum StatusEffect {
 				return UtilText.parse(target, "[npc.Name] is feeling particularly vulnerable, and [npc.she] isn't able to defend [npc.herself] to the best of [npc.her] ability.");
 		}
 
-		
-		
 		@Override
 		public boolean isCombatEffect() {
 			return true;
@@ -7677,8 +7639,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
-
 	POISON_VAPOURS(
 			10,
 			"Poison Vapours",
@@ -8147,8 +8107,6 @@ public enum StatusEffect {
 			return true;
 		}
 	},
-	
-
 	
 	ELEMENTAL_AIR_WHIRLWIND(10,
 			"Whirlwind",
@@ -9141,7 +9099,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
 	ARCANE_CLOUD(
 			10,
 			"Arcane Cloud",
@@ -9316,12 +9273,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
-	
-	
-	
-
-
 	ELEMENTAL_ARCANE_LEWD_ENCOURAGEMENTS(10,
 			"Lewd Encouragements",
 			null,
@@ -9523,9 +9474,6 @@ public enum StatusEffect {
 		}
 	},
 	
-	
-	
-
 	ARCANE_DUALITY_POSITIVE(
 			10,
 			"Arcane Duality (Defence)",
@@ -9638,7 +9586,6 @@ public enum StatusEffect {
 			} else {
 				randomEnemy = Combat.getEnemies().get(Util.random.nextInt(Combat.getEnemies().size()));
 			}
-			
 			
 			int damage = (int) Math.round(5 * (1-(Util.getModifiedDropoffValue(randomEnemy.getAttributeValue(Attribute.RESISTANCE_LUST), 100)/100f)));
 			if (damage < 1) {
@@ -10207,7 +10154,6 @@ public enum StatusEffect {
 			
 			descriptionSB.append("</p>");
 
-			
 			return descriptionSB.toString();
 		}
 		
@@ -10624,7 +10570,6 @@ public enum StatusEffect {
 			
 			descriptionSB.append("</p>");
 			
-			
 			return descriptionSB.toString();
 		}
 		
@@ -10912,7 +10857,6 @@ public enum StatusEffect {
 			appendOrificeAdditionGenericDescriptions(target, type, UtilText.parse(target, "[npc.NamePos] [npc.crotchNipples]"), descriptionSB);
 			
 			descriptionSB.append("</p>");
-			
 			
 			return descriptionSB.toString();
 		}
@@ -11854,7 +11798,6 @@ public enum StatusEffect {
 			stringBuilderToAppendTo.append("<br/><b style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>No stretch effect.</b>");
 		}
 		
-		
 		if(!Sex.hasLubricationTypeFromAnyone(owner, orificeType)) {
 			stringBuilderToAppendTo.append("<br/>"+orificeName+" "+(orificeType.isPlural()?"are":"is")+" <b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>dry</b>!");
 			
@@ -12090,7 +12033,6 @@ public enum StatusEffect {
 		
 		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;top:0;'>"+baseSVG+"</div>");
 
-		
 		boolean breastsExposed = owner.hasBreasts() && owner.isCoverableAreaVisible(CoverableArea.NIPPLES);
 		boolean crotchBoobsExposed = owner.hasBreastsCrotch() && owner.isCoverableAreaVisible(CoverableArea.NIPPLES_CROTCH);
 

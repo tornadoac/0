@@ -187,7 +187,6 @@ public class BreastType {
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] avian, [npc.crotchNipplesFullDescription]."){
 	};
 	
-	
 	private static List<AbstractBreastType> allBreastTypes;
 	private static Map<AbstractBreastType, String> breastToIdMap = new HashMap<>();
 	private static Map<String, AbstractBreastType> idToBreastMap = new HashMap<>();

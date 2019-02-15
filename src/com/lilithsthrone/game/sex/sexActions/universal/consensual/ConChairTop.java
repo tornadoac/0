@@ -990,7 +990,6 @@ public class ConChairTop {
 		}
 	};
 	
-	
 	public static final SexAction PLAYER_RIDE_PARTNERS_COCK = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1098,7 +1097,6 @@ public class ConChairTop {
 		}
 		
 	};
-	
 	
 	public static final SexAction PLAYER_RIDE_ANAL_PARTNERS_COCK = new SexAction(
 			SexActionType.START_ONGOING,
@@ -1265,7 +1263,6 @@ public class ConChairTop {
 		}
 	};
 	
-	
 	public static final SexAction PLAYER_GET_PEGGED = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -1360,8 +1357,6 @@ public class ConChairTop {
 					+ " You let out [pc.a_moan+] at the aggressive penetration, and grip down tightly on [npc.her] [npc.tail] for a moment, shuddering in pleasure as it starts thrusting in and out of your [pc.pussy+].";
 		}
 	};
-	
-	
 	
 	// Partner actions:
 

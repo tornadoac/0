@@ -290,7 +290,7 @@ public class DemonHome {
 					+ "<p>"
 					+ UtilText.parsePlayerSpeech("No,")
 					+ " you reply, "
-					+ UtilText.parsePlayerSpeech("I'm just here to check in on a friend, but it looks like he's not here anymore...")
+					+ UtilText.parsePlayerSpeech("I'm just here to check in on a friend, but it looks like he's not here any more...")
 					+ "</p>"
 					+ "<p>"
 					+ UtilText.parseNPCSpeech("Ah, well, in that case, I'm Felicity, Arthur's friend,", Femininity.FEMININE)

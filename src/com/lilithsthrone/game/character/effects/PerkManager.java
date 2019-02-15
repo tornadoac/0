@@ -65,7 +65,6 @@ public enum PerkManager {
 		both5 = addPerkEntry(perkTree, PerkCategory.BOTH, 3, Perk.NYMPHOMANIAC, both4);
 		both6 = addPerkEntry(perkTree, PerkCategory.BOTH, 3, Perk.SEDUCTION_5_B, both5, both1);
 
-		
 		//Physical:
 		physical2 = addPerkEntry(perkTree, PerkCategory.PHYSICAL, 2, Perk.PHYSIQUE_5, physical1);
 		addPerkEntry(perkTree, PerkCategory.PHYSICAL, 2, Perk.OBSERVANT, physical1);
@@ -141,7 +140,6 @@ public enum PerkManager {
 		arcane2 = addPerkEntry(perkTree, PerkCategory.ARCANE, 10, Perk.ARCANE_5, arcane3);
 		arcane3 = addPerkEntry(perkTree, PerkCategory.ARCANE, 11, Perk.ARCANE_5, arcane2);
 		
-		
 		// NPC version of the perk tree:
 		NPCPerkTree = new HashMap<>();
 		
@@ -172,7 +170,6 @@ public enum PerkManager {
 		both5 = addPerkEntry(NPCPerkTree, PerkCategory.BOTH, 3, Perk.NYMPHOMANIAC, both4);
 		both6 = addPerkEntry(NPCPerkTree, PerkCategory.BOTH, 3, Perk.SEDUCTION_5_B, both5, both1);
 
-		
 		//Physical:
 		physical2 = addPerkEntry(NPCPerkTree, PerkCategory.PHYSICAL, 2, Perk.PHYSIQUE_5, physical1);
 		addPerkEntry(NPCPerkTree, PerkCategory.PHYSICAL, 2, Perk.OBSERVANT, physical1);
@@ -247,8 +244,6 @@ public enum PerkManager {
 		arcane2 = addPerkEntry(NPCPerkTree, PerkCategory.ARCANE, 10, Perk.ARCANE_5, arcane3);
 		arcane3 = addPerkEntry(NPCPerkTree, PerkCategory.ARCANE, 11, Perk.ARCANE_5, arcane2);
 		
-		
-
 		// Elemental version of the perk tree:
 		elementalPerkTree = new HashMap<>();
 		

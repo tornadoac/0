@@ -49,7 +49,6 @@ public enum MouthType implements BodyPartTypeInterface {
 	
 	HARPY(BodyCoveringType.MOUTH, Race.HARPY);
 
-	
 	private BodyCoveringType skinType;
 	private Race race;
 	private List<OrificeModifier> defaultRacialOrificeModifiers;

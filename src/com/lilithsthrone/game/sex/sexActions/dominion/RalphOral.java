@@ -82,7 +82,6 @@ public class RalphOral {
 			else
 				UtilText.nodeContentSB.append(", which is quickly muffled as you stretch your jaw open wide and take the hot, throbbing cock into your mouth.");
 			
-			
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -592,7 +591,6 @@ public class RalphOral {
 		
 	};
 
-	
 	// Partner actions:
 
 	public static final SexAction PARTNER_CUSTOMER = new SexAction(
@@ -855,7 +853,6 @@ public class RalphOral {
 			
 			UtilText.nodeContentSB.append("You hear Ralph let out an impatient grunt as he bends down towards you, "
 					+ UtilText.parseSpeech("What are you doing? You agreed to do this, so don't keep me waiting!", Main.game.getNpc(Ralph.class)));
-			
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -1898,8 +1895,6 @@ public class RalphOral {
 							+ UtilText.parseSpeech("Well, I think you've more than earned that discount...", Main.game.getNpc(Ralph.class)));
 				}
 			}
-			
-			
 			
 			if(((Ralph)Main.game.getNpc(Ralph.class)).isDiscountActive() && (SexFlags.ralphDiscount<Main.game.getDialogueFlags().ralphDiscount)){
 				UtilText.nodeContentSB.append(

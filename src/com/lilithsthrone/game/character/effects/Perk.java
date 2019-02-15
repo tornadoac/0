@@ -456,7 +456,6 @@ public enum Perk {
 		}
 	},
 	
-	
 	ARCANE_BASE(20,
 			false,
 			"natural arcane power",
@@ -532,7 +531,6 @@ public enum Perk {
 		}
 	},
 	
-	
 	SEDUCTION_1(20,
 			false,
 			"seductive I",
@@ -601,8 +599,6 @@ public enum Perk {
 		}
 	},
 	
-	
-	
 	ARCANE_COMBATANT(20,
 			true,
 			"arcane combatant",
@@ -648,7 +644,6 @@ public enum Perk {
 		}
 	},
 	
-	
 	BRAWLER(20,
 			true,
 			"brawler",
@@ -666,7 +661,6 @@ public enum Perk {
 					+ " but [npc.is] also able to shrug off punches that would stagger or even incapacitate a normal person.");
 		}
 	},
-	
 	
 	OBSERVANT(60,
 			true,
@@ -1016,7 +1010,6 @@ public enum Perk {
 		}
 	},
 	
-	
 	CLOTHING_ENCHANTER(20,
 			false,
 			"arcane weaver",
@@ -1086,8 +1079,6 @@ public enum Perk {
 			}
 		}
 	},
-	
-
 	
 	FETISH_BROODMOTHER(20,
 			true,
@@ -1346,8 +1337,6 @@ public enum Perk {
 			return true;
 		}
 	},
-
-	
 
 	// SPECIFIC TO ELEMENTAL PERK TREE:
 	
@@ -3879,7 +3868,6 @@ public enum Perk {
 					+" face find themselves falling under [npc.her] spell, and within moments, are completely consumed by a wild, animalistic lust.");
 		}
 	},
-	
 	
 	;
 

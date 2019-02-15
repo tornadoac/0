@@ -27,7 +27,6 @@ public enum Wetness {
 	
 	SEVEN_DROOLING("drooling", 7, 0, Colour.GENERIC_SIZE_EIGHT);
 	
-	
 	private int wetness, arousalNeededToGetVaginaWet;
 	private String descriptor;
 	private Colour colour;

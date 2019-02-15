@@ -246,5 +246,4 @@ public class PrologueFemale extends NPC {
 		return null;
 	}
 	
-	
 }

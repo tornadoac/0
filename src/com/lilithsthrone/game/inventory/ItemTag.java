@@ -135,7 +135,6 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colourBestial(Only fits cephalopod bodies)]"),false), //octopuses and squids
 	
-	
 	PREVENTS_ERECTION_PHYSICAL( // Prevents the wearer from getting an erection during sex, by means of physically limiting the space into which the erection could take shape (i.e. chastity cages). As of 0.3.1, only affects descriptors.
 			Util.newArrayListOfValues(
 					"[style.colourTerrible(Prevents erection)]"),
@@ -149,7 +148,6 @@ public enum ItemTag {
 
 	/**<b>IMPORTANT</b> This tag should only ever be given to clothing going into the PENIS InventorySlot, as otherwise it will throw errors.*/
 	CONDOM(true), // Gives this clothing condom behaviour
-	
 	
 	// To detect whether creampies should leak out or not:
 	
@@ -180,7 +178,6 @@ public enum ItemTag {
 					"[style.colourSex(Seals nipples)]"),
 			true),
 
-	
 	DILDO_TINY( // 3 inches
 			Util.newArrayListOfValues(
 					"[style.colourSex(3-inch dildo)]"),

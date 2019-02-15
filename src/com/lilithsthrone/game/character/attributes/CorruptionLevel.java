@@ -128,9 +128,6 @@ public enum CorruptionLevel {
 		}
 	};
 	
-	
-	
-	
 	private String name;
 	private int minimumValue, maximumValue;
 	private Colour colour;

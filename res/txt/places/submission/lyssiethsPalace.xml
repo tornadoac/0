@@ -93,7 +93,7 @@
 				 As she stands up from behind her desk, you see that she's using one hand to cradle her conspicuously-swollen belly, and as she notices what it is you're looking at, she sighs,
 				#IF siren.getPregnantLitter().getFather().equals(pc)
 				#THEN
-					 [siren.speech(Yeah, that's right, you ended up getting your own sister pregnant... I <i>knew</i> you were gonna get me knocked up... J-Just because you're the father of our child, doesn't mean you're not my nemesis anymore! S-So, what do you want?!)]
+					 [siren.speech(Yeah, that's right, you ended up getting your own sister pregnant... I <i>knew</i> you were gonna get me knocked up... J-Just because you're the father of our child, doesn't mean you're not my nemesis any more! S-So, what do you want?!)]
 				#ELSE
 					#IF siren.getPregnantLitter().getFather().equals(lilaya)
 					#THEN
@@ -106,7 +106,7 @@
 				 As she stands up from behind her desk, you see that her belly is still conspicuously-swollen, and as she notices what it is you're looking at, she sighs,
 				#IF siren.getPregnantLitter().getFather().equals(pc)
 				#THEN
-					 [siren.speech(Yeah, that's right, I'm still pregnant, thanks to you... Getting your own sister pregnant... J-Just because you're the father of our child, doesn't mean you're not my nemesis anymore! S-So, what do you want?!)]
+					 [siren.speech(Yeah, that's right, I'm still pregnant, thanks to you... Getting your own sister pregnant... J-Just because you're the father of our child, doesn't mean you're not my nemesis any more! S-So, what do you want?!)]
 				#ELSE
 					#IF siren.getPregnantLitter().getFather().equals(lilaya)
 					#THEN
@@ -306,7 +306,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 	<!--LYSSIETH_OFFICE_TALK-->
 	
@@ -1342,8 +1341,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!--AFTER_LILAYA_DEMON_TF_SEX-->
 	
 	<htmlContent tag="AFTER_LILAYA_DEMON_TF_SEX"><![CDATA[
@@ -1605,8 +1602,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!--AFTER_MERAXIS_DEMON_TF_SEX-->
 	
@@ -1890,7 +1885,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 </dialogue>

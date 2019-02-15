@@ -214,8 +214,6 @@ public abstract class AbstractRacialBody {
 		// Core attributes::
 		this.attributeModifiers = attributeModifiers;
 		
-		
-
 		// Antenna:
 		this.antennaType = antennaType;
 		

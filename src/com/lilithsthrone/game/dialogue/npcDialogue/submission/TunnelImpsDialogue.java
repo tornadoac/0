@@ -393,7 +393,6 @@ public class TunnelImpsDialogue {
 		}
 	};
 	
-	
 	public static final DialogueNode IMP_ATTACK_OFFER_THREESOME = new DialogueNode("Imp Gang", "", true) {
 		
 		@Override
@@ -1358,7 +1357,6 @@ public class TunnelImpsDialogue {
 				return AFTER_COMBAT_VICTORY.getResponseTabTitle(index);
 			}
 		}
-		
 		
 		@Override
 		public Response getResponse(int responseTab, int index) {

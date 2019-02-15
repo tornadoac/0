@@ -146,7 +146,6 @@ public class Roxy extends NPC {
 			this.addFetish(Fetish.FETISH_DOMINANT);
 		}
 		
-		
 		// Body:
 
 		// Core:
@@ -359,7 +358,6 @@ public class Roxy extends NPC {
 		return item instanceof AbstractClothing;
 	}
 
-	
 	@Override
 	public List<Class<?>> getUniqueSexClasses() {
 		return Util.newArrayListOfValues(SARoxySpecials.class);

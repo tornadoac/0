@@ -16,7 +16,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Horn implements BodyPartInterface {
 
-	
 	public static final int MAXIMUM_ROWS = 3;
 	public static final int MAXIMUM_HORNS_PER_ROW = 4;
 	

@@ -11,7 +11,6 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum ObedienceLevel {
 	
-	
 	NEGATIVE_FIVE_REBELLIOUS("rebellious", -100, -90, Colour.AFFECTION_NEGATIVE_FIVE),
 	
 	NEGATIVE_FOUR_DEFIANT("defiant", -90, -70, Colour.AFFECTION_NEGATIVE_FOUR),
@@ -33,7 +32,6 @@ public enum ObedienceLevel {
 	POSITIVE_FOUR_DUTIFUL("dutiful", 70, 90, Colour.AFFECTION_POSITIVE_FOUR),
 
 	POSITIVE_FIVE_SUBSERVIENT("subservient", 90, 100, Colour.AFFECTION_POSITIVE_FIVE);
-	
 	
 	private String name;
 	private int minimumValue, maximumValue;

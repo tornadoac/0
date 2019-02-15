@@ -207,7 +207,6 @@ public enum BodyCoveringType {
 	
 	ARCANE_HAIR(BodyCoveringTemplateFactory.createElemental("energy", CoveringModifier.SWIRLING, Colour.COVERING_PINK)),
 	
-	
 	SLIME(BodyCoveringTemplateFactory.createSlime(CoveringPattern.NONE, CoveringPattern.allStandardCoveringPatterns)),
 
 	SLIME_EYE(BodyCoveringTemplateFactory.createSlime(CoveringPattern.EYE_IRISES,
@@ -369,7 +368,6 @@ public enum BodyCoveringType {
 	
 	HAIR_SCALES_ALLIGATOR(BodyCoveringTemplateFactory.createFurHeadHair(CoveringModifier.COARSE)), //Why do alligators have hair?!
 	
-	
 	// BODY HAIR:
 	
 	BODY_HAIR_HUMAN(BodyCoveringTemplateFactory.createBodyHair(CoveringModifier.COARSE)),
@@ -382,7 +380,6 @@ public enum BodyCoveringType {
 
 	BODY_HAIR_LYCAN_FUR(BodyCoveringTemplateFactory.createBodyHair(CoveringModifier.FURRY)),
 
-	
 	BODY_HAIR_FOX_FUR("a layer of",
 			false,
 			"hair",
@@ -439,8 +436,6 @@ public enum BodyCoveringType {
 			Colour.naturalScaleColours,
 			Colour.allCoveringColours),
 
-
-	
 	// EYES:
 	
 	EYE_HUMAN(BodyCoveringTemplateFactory.createEyeIrisesHeterochromiaNaturallyOccurring()),
@@ -455,7 +450,6 @@ public enum BodyCoveringType {
 	EYE_LYCAN(BodyCoveringTemplateFactory.createEyeIrisesWithCustomColors(
 			Colour.naturalPredatorIrisColours, Colour.dyePredatorIrisColours, true)),
 
-	
 	EYE_FOX_MORPH("a pair of",
 			true,
 			"eyes",
@@ -812,7 +806,6 @@ public enum BodyCoveringType {
 		if(dyePatterns != null) {
 			allPatterns.addAll(this.dyePatterns);
 		}
-		
 		
 		if(naturalColoursPrimary == null) {
 			this.naturalColoursPrimary = new ArrayList<>();

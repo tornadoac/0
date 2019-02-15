@@ -467,7 +467,6 @@ public class CharacterModificationUtils {
 		return contentSB.toString();
 	}
 	
-	
 	public static int[] soSilly = new int[] {0, 1, 2, 3, 4}; // Apparently just using normalValues.length isn't allowed (in MainController) :s
 	public static int[] normalSexExperienceValues = new int[] {0, 5, 25, 50, 100};
 	private static Colour[] sexColours = new Colour[] {Colour.GENERIC_EXCELLENT, Colour.BASE_PINK_LIGHT, Colour.BASE_PINK, Colour.BASE_PINK_DEEP, Colour.ATTRIBUTE_CORRUPTION};
@@ -479,7 +478,6 @@ public class CharacterModificationUtils {
 //			"your boyfriend in his apartment", "your boyfriend in your apartment", "some guy in his apartment", "some guy in your apartment", "some guy in a club's restroom"};
 //	public static String[] virginityLossesAndrophilic = new String[] {"your boyfriend in his apartment", "your boyfriend in your apartment", "some guy in his apartment", "some guy in your apartment", "some guy in a club's restroom"};
 //	
-	
 	
 	public static String getSexualExperienceDiv() {
 		contentSB.setLength(0);
@@ -659,8 +657,6 @@ public class CharacterModificationUtils {
 //					+ "</div>"
 				+ "</div>";
 	}
-	
-	
 	
 	// Advanced:
 	
@@ -1449,7 +1445,6 @@ public class CharacterModificationUtils {
 				UtilText.parse(BodyChanging.getTarget(), "Change what [npc.namePos] lower body is like.<br/><i>(Note that this also transforms all body parts below the waist.)</i>"),
 				contentSB.toString(), true);
 	}
-	
 	
 	public static String getSelfTransformEarChoiceDiv(List<Race> availableRaces) {
 		contentSB.setLength(0);
@@ -2365,7 +2360,6 @@ public class CharacterModificationUtils {
 					c = vagina.getRace().getColour();
 				}
 				
-				
 				if(BodyChanging.getTarget().getVaginaType() == vagina) {
 					contentSB.append(
 							"<div class='cosmetics-button active'>"
@@ -2667,16 +2661,6 @@ public class CharacterModificationUtils {
 				contentSB.toString(), true);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static String getSelfTransformPenisChoiceDiv(List<Race> availableRaces, boolean halfWidth) {
 		contentSB.setLength(0);
 		
@@ -2966,11 +2950,6 @@ public class CharacterModificationUtils {
 					:UtilText.parse(BodyChanging.getTarget(), "Change the modifiers for [npc.namePos] urethra.")),
 				contentSB.toString(), true);
 	}
-	
-	
-	
-	
-	
 	
 	public static String getBodySizeChoiceDiv() {
 		contentSB.setLength(0);
@@ -3714,7 +3693,6 @@ public class CharacterModificationUtils {
 		return contentSB.toString();
 	}
 	
-	
 	// ---------------------- Kate's Shop: ---------------------- //
 	
 	public static String getKatesDivHairLengths(boolean withCost, String title, String description) {
@@ -3998,7 +3976,6 @@ public class CharacterModificationUtils {
 											:"")
 										+ "</div>")
 						
-						
 					+ "</div>"
 					+ "<div class='container-quarter-width'>"
 					+ "Pattern:<br/>");
@@ -4029,7 +4006,6 @@ public class CharacterModificationUtils {
 		contentSB.append("<div class='container-half-width''>");
 		contentSB.append( "<div class='container-half-width'>"
 					+ "Primary Colour:<br/>");
-	
 	
 			List<Colour> availablePrimaryColours = new ArrayList<>(withDyeAndExtraPatterns
 															?coveringType.getAllPrimaryColours()
@@ -4191,7 +4167,6 @@ public class CharacterModificationUtils {
 			}
 		contentSB.append("</div>");
 		
-		
 		contentSB.append("</div>");
 		
 		return contentSB.toString();
@@ -4251,8 +4226,6 @@ public class CharacterModificationUtils {
 						+ "</p>"
 					+ "</div>"
 					+ "<div class='cosmetics-inner-container right'>");
-		
-		
 		
 		if(isPierced) {
 			contentSB.append(

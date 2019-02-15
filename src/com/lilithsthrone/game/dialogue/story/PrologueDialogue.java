@@ -189,7 +189,6 @@ public class PrologueDialogue {
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX"));
 			
-			
 			return UtilText.nodeContentSB.toString();
 		}
 		
@@ -207,7 +206,6 @@ public class PrologueDialogue {
 			}
 		}
 	};
-	
 	
 	public static final DialogueNode INTRO_SECOND_THOUGHTS = new DialogueNode("In the Museum", "", true, true) {
 

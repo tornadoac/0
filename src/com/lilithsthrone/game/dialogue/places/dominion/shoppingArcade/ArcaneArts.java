@@ -399,7 +399,6 @@ public class ArcaneArts {
 		}
 	};
 	
-	
 	public static final DialogueNode VICKY_POST_SEX_PACKAGE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
@@ -445,7 +444,6 @@ public class ArcaneArts {
 			return SHOP_WEAPONS.getResponse(responseTab, index);
 		}
 	};
-	
 	
 	public static final DialogueNode VICKY_POST_SEX = new DialogueNode("Arcane Arts", "-", true) {
 

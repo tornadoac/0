@@ -72,7 +72,6 @@ public class AbstractTattooType extends AbstractCoreType {
 		this.name = name;
 		this.description = description;
 		
-		
 		this.availablePrimaryColours = new ArrayList<>();
 		if (availablePrimaryColours == null) {
 			this.availablePrimaryColours.add(Colour.CLOTHING_BLACK);
@@ -89,7 +88,6 @@ public class AbstractTattooType extends AbstractCoreType {
 		if (availableTertiaryColours != null) {
 			this.availableTertiaryColours.addAll(availableTertiaryColours);
 		}
-		
 		
 		SVGStringMap = new HashMap<>();
 		

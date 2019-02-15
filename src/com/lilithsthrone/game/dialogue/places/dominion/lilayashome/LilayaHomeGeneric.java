@@ -550,7 +550,6 @@ public class LilayaHomeGeneric {
 					};
 				}
 				
-				
 			} else if(index==9) {
 				if(!Main.game.getPlayer().hasBreastsCrotch()) {
 					return new Response("Milk Self (Udders)", "You do not have any udders to milk!",  null);
@@ -1185,7 +1184,6 @@ public class LilayaHomeGeneric {
 		}
 	};
 
-	
 	private static GameCharacter testingSlave;
 	
 	public static final DialogueNode ROOM_ARTHUR_HYPNO_WATCH_DELIVERY = new DialogueNode("Arthur's Room", ".", true) {
@@ -1517,8 +1515,6 @@ public class LilayaHomeGeneric {
 		}
 	};
 	
-	
-	
 	public static final DialogueNode ROOM_ARTHUR_HYPNO_WATCH_OFFER_SLAVE = new DialogueNode("Arthur's Room", ".", true, true) {
 
 		@Override
@@ -1544,7 +1540,6 @@ public class LilayaHomeGeneric {
 			}
 		}
 	};
-	
 	
 	public static final DialogueNode BIRTHING_ROOM = new DialogueNode("Birthing room", ".", false) {
 

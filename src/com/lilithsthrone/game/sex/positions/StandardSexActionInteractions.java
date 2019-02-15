@@ -18,7 +18,6 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class StandardSexActionInteractions {
 	
-	
 	// Misc:
 	
 	public static SexActionInteractions spectator = new SexActionInteractions(
@@ -29,7 +28,6 @@ public class StandardSexActionInteractions {
 				OrgasmCumTarget.SELF_LEGS,
 				OrgasmCumTarget.SELF_FEET,
 				OrgasmCumTarget.FLOOR));
-	
 	
 	// Sex:
 	

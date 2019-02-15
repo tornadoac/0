@@ -17,7 +17,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Arm implements BodyPartInterface {
 
-	
 	public static final int MAXIMUM_ROWS = 3;
 	
 	protected AbstractArmType type;

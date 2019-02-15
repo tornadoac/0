@@ -28,7 +28,6 @@ import com.lilithsthrone.utils.XMLSaving;
  */
 public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 	
-	
 	private String cumProvidor;
 	private FluidCum cum;
 	private int millilitresStored;

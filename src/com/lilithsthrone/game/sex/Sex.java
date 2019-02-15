@@ -868,7 +868,6 @@ public class Sex {
 					participant.setLust(0);
 				}
 				
-				
 			// Partner effects:
 			} else {
 				
@@ -905,7 +904,6 @@ public class Sex {
 					if (participant.getVaginaPlasticity() == OrificePlasticity.ZERO_RUBBERY){
 		
 						participant.setVaginaStretchedCapacity(participant.getVaginaRawCapacityValue());
-		
 		
 						endSexSB.append(UtilText.parse(participant,
 								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
@@ -1024,7 +1022,6 @@ public class Sex {
 					endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>From [npc.namePos] newfound oral experience, [npc.she] is now experienced enough to comfortably suck "
 							+ PenisSize.getPenisSizeFromInt((int)Main.game.getPlayer().getFaceRawCapacityValue()).getDescriptor() + " cocks!</b></p>");
 				}
-				
 				
 				// Extra effects:
 				if(participant.getArousal() > ArousalLevel.THREE_HEATED.getMaximumValue() && getNumberOfOrgasms(participant) == 0) {
@@ -1146,7 +1143,6 @@ public class Sex {
 				"<p style='text-align:center; padding:0; margin:0;'><i style='color:" + BaseColour.LILAC_LIGHT.toWebHexString() + ";'>"+description+"</i></p>");
 	}
 
-	
 	public static final DialogueNode SEX_DIALOGUE = new DialogueNode("", "", true) {
 		
 		@Override
@@ -1838,7 +1834,6 @@ public class Sex {
 			initialPaces.put(participant, Sex.getSexPace(participant));
 		}
 		
-		
 		// Increment arousal and lust:
 		Map<GameCharacter, Float> arousalIncrements = new HashMap<>();
 		Map<GameCharacter, Float> lustIncrements = new HashMap<>();
@@ -1862,7 +1857,6 @@ public class Sex {
 			lustIncrements.put(targetCharacter, Math.min(2.5f, Math.max(-2.5f, sexAction.getArousalGainTarget().getArousalIncreaseValue())));
 		}
 		lustIncrements.put(targetCharacter, lustIncrements.get(targetCharacter) + (targetCharacter.getAffection(activeCharacter)/40)); //+-2.5
-		
 		
 		// Arousal increments for related status effects:
 		for(StatusEffect se : activeCharacter.getStatusEffects()) {
@@ -2411,7 +2405,6 @@ public class Sex {
 		return exposedSB.toString();
 	}
 
-	
 	private static String calculateWetAreas(boolean onSexInit) {
 		StringBuilder wetSB = new StringBuilder();
 		
@@ -2914,7 +2907,6 @@ public class Sex {
 			}
 		}
 		
-		
 		// TODO apply masochism effects to stretching:
 
 		// Stretching effects (will only stretch from penises):
@@ -3144,7 +3136,6 @@ public class Sex {
 		
 		return Sex.getInitialSexManager().isPositionChangingAllowed(characterWantingToChangePosition);
 	}
-	
 	
 	public static List<SexType> getRequestsBlocked(GameCharacter character) {
 		return requestsBlocked.get(character);
@@ -3391,7 +3382,6 @@ public class Sex {
 		}
 		return false;
 	}
-	
 	
 	public static int getPenetrationTypeFreeCount(GameCharacter penetrator, SexAreaPenetration penetrationType) {
 		int penetrationTypesAvailable = 1;
@@ -3688,7 +3678,6 @@ public class Sex {
 			}
 		}
 		
-		
 		// Add dominants to map, with player as the first entry:
 		List<GameCharacter> tempCharacterList = new ArrayList<>(sexManager.getDominants().keySet());
 		tempCharacterList.addAll(dominantSpectators);
@@ -3974,7 +3963,6 @@ public class Sex {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	public static Set<SexActionInterface> getActionsAvailablePlayer() {
 		return actionsAvailable.get(Main.game.getPlayer()).get(Sex.getTargetedPartner(Main.game.getPlayer()));

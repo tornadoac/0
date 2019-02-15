@@ -509,8 +509,6 @@ public class InventoryTooltipEventListener implements EventListener {
 				 +"</div>"));
 	}
 	
-
-
 	private void setEmptyInventorySlotTooltipContent(){
 		boolean dirty = equippedToCharacter.isDirtySlot(invSlot);
 		Main.mainController.setTooltipSize(TOOLTIP_WIDTH, 60+(dirty?56:0));
@@ -525,7 +523,6 @@ public class InventoryTooltipEventListener implements EventListener {
 						+ "</div>"
 					:"")));
 	}
-	
 	
 	public InventoryTooltipEventListener setCoreItem(AbstractCoreItem coreItem, GameCharacter owner, GameCharacter equippedToCharacter) {
 		resetVariables();
@@ -738,7 +735,6 @@ public class InventoryTooltipEventListener implements EventListener {
 						+ absItem.getDescription()
 					+ "</div>");
 
-		
 		// Value:
 
 		if (InventoryDialogue.getInventoryNPC() != null && InventoryDialogue.getNPCInventoryInteraction() == InventoryInteraction.TRADING) {
@@ -788,7 +784,6 @@ public class InventoryTooltipEventListener implements EventListener {
 		int listIncrease = 2 + absWep.getAttributeModifiers().size();
 		listIncrease += absWep.getSpells().size();
 		
-		
 		// Title:
 		tooltipSB.setLength(0);
 		tooltipSB.append("<body>"
@@ -801,7 +796,6 @@ public class InventoryTooltipEventListener implements EventListener {
 								? "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Not part of a set</span>"
 								: "<span style='color:" + Colour.RARITY_EPIC.toWebHexString() + ";'>"+absWep.getWeaponType().getClothingSet().getName() + " set</span>")
 						+ "</div>");
-		
 		
 		// Attribute modifiers:
 		tooltipSB.append("<div class='container-full-width'>"
@@ -873,7 +867,6 @@ public class InventoryTooltipEventListener implements EventListener {
 						+ absWep.getWeaponType().getDescription()
 					+ "</div>");
 
-		
 		// Value:
 
 		if (InventoryDialogue.getInventoryNPC() != null && InventoryDialogue.getNPCInventoryInteraction() == InventoryInteraction.TRADING) {
@@ -934,7 +927,6 @@ public class InventoryTooltipEventListener implements EventListener {
 			}
 		}
 		yIncrease += Math.max(0, listIncrease-4);
-		
 		
 		// Title:
 		tooltipSB.setLength(0);
@@ -1010,7 +1002,6 @@ public class InventoryTooltipEventListener implements EventListener {
 		}
 		tooltipSB.append("</div>");
 
-		
 		// Value:
 
 		if (InventoryDialogue.getInventoryNPC() != null && InventoryDialogue.getNPCInventoryInteraction() == InventoryInteraction.TRADING) {
@@ -1057,7 +1048,6 @@ public class InventoryTooltipEventListener implements EventListener {
 		Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
 
 	}
-	
 	
 	private void scarTooltip(Scar scar) {
 		// Title:

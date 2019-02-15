@@ -132,7 +132,6 @@ public class FortressFemalesLeader extends NPC {
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
 		}
 		
-		
 		// Body:
 		this.setAgeAppearanceDifferenceToAppearAsAge(18);
 		this.setTailType(TailType.DEMON_COMMON);

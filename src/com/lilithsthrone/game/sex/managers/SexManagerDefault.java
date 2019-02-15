@@ -164,7 +164,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 			}
 		}
 		
-		
 		// --- Priority 2 | Resisting ---
 		
 		// If the partner is resisting, they will not want to remove any clothing, and will instead simply use an available option. (Which will be a SUB_RESIST or neutral pace one.)
@@ -178,7 +177,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 			}
 		}
 
-		
 		// --- Priority 3 | Move into one of the partner's preferred positions ---
 		
 		boolean suitablePosition = false;
@@ -220,7 +218,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 				}
 			}
 		}
-		
 		
 		// --- Priority 4 | Removing clothing ---
 		
@@ -318,7 +315,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 			}
 		}
 		
-		
 		// --- Priority 5 | Ban actions that make no sense for the partner to perform ---
 		
 		// Ban all penetrations if the partner is a virgin in the associated orifice:
@@ -374,7 +370,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 				}
 			}
 			
-			
 			if((action.getSexAreaInteractions().keySet().contains(SexAreaOrifice.ANUS) || action.getSexAreaInteractions().values().contains(SexAreaOrifice.ANUS))) {
 				
 				if(action.getParticipantType()==SexParticipantType.SELF && !Sex.getCharacterPerformingAction().hasFetish(Fetish.FETISH_ANAL_RECEIVING)) {
@@ -389,8 +384,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 				
 			}
 		}
-		
-		
 		
 		// --- Priority 6 | Perform actions based on foreplay or sex ---
 		
@@ -422,7 +415,6 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 		return SexActionUtility.PARTNER_NONE;
 	}
 
-	
 	/**
 	 * Finger and tongue actions are considered foreplay.
 	 */

@@ -22,7 +22,6 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class PartnerSelfFingerNipple {
 	
-	
 	public static final SexAction PARTNER_PINCH_NIPPLES = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.ONE_MINIMUM,
@@ -93,7 +92,6 @@ public class PartnerSelfFingerNipple {
 
 	};
 	
-	
 	public static final SexAction PARTNER_SELF_FINGER_NIPPLE_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -128,7 +126,6 @@ public class PartnerSelfFingerNipple {
 					
 					"With a lewd cry, [npc.name] sinks [npc.her] digits into [npc.her] inviting nipple-cunts, panting heavily as [npc.she] start eagerly fingering [npc.herself]."));
 			
-		
 			switch (Sex.getActivePartner().getBreastStoredMilk()) {
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(" A small trickle of [npc.milk] leaks out around [npc.her] fingertips.");

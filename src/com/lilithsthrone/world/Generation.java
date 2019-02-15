@@ -474,9 +474,6 @@ public class Generation extends Task<Boolean> {
 		return grid;
 	}
 	
-	
-	
-	
 	/*
 	 * Take in grid where important places need to go
 	 * Take in important places list
@@ -485,7 +482,6 @@ public class Generation extends Task<Boolean> {
 	 * Start from middle and explore grid until visited all original places, changing IMPASSABLE to generic path or dangerous path as you go
 	 * cannot explore into corners
 	 */
-	
 	
 	public static Cell[][] generateTestMap(WorldType worldType, int x, int y, Cell[][] grid, int padding) {
 		int paddedCellSize = 2*padding+1;

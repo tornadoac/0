@@ -27,7 +27,6 @@ import com.lilithsthrone.utils.XMLSaving;
  */
 public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving {
 
-	
 	protected AbstractItemType itemType;
 	protected List<ItemEffect> itemEffects;
 

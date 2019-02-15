@@ -141,7 +141,6 @@ public class DicePoker {
 					+ "</div>");
 		UtilText.nodeContentSB.append("</div>");
 		
-		
 		UtilText.nodeContentSB.append("<div class='container-full-width'>");
 		UtilText.nodeContentSB.append("<div class='container-quarter-width' style='width:13%; margin:0 2%; text-align:center;'>"
 				+ "Progress:"

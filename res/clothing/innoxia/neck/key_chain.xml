@@ -49,7 +49,6 @@
 		<itemTags/>
 	</coreAttributes>
 
-	
   <replacementText type="REMOVE_OR_EQUIP">
     <self>
       <![CDATA[[npc.Name] [npc.verb(drape)] the key-chain around [npc.her] neck.]]>

@@ -472,7 +472,6 @@ public class HarpyNestsDialogue {
 		}
 	};
 	
-	
 	public static final DialogueNode WALKWAY = new DialogueNode("Walkway", ".", false) {
 
 		@Override
@@ -566,7 +565,6 @@ public class HarpyNestsDialogue {
 			return UtilText.nodeContentSB.toString();
 		}
 
-		
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index == 1) {
@@ -691,7 +689,6 @@ public class HarpyNestsDialogue {
 			return UtilText.nodeContentSB.toString();
 		}
 
-		
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index == 1) {

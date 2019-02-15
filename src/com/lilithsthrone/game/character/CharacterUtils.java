@@ -195,7 +195,6 @@ public class CharacterUtils {
 		}
 	}
 	
-	
 	public static void createXMLElementWithValue(Document doc, Element parentElement, String elementName, String value){
 		Element element = doc.createElement(elementName);
 		parentElement.appendChild(element);
@@ -367,7 +366,6 @@ public class CharacterUtils {
 		
 		body.updateCoverings(false, false, true, false);
 		
-		
 		// Iris colour:
 		if(Math.random()<=0.9f) {
 			if(Math.random()>=takesAfterMotherChance) {
@@ -484,7 +482,6 @@ public class CharacterUtils {
 		variance = (maximumMuscle==minimumMuscle?0:Util.random.nextInt(maximumMuscle-minimumMuscle));
 		body.setMuscle(minimumMuscle + variance);
 		
-		
 		// Body parts:
 		
 		boolean inheritsFromMotherFemininity = mother.isFeminine() == body.isFeminine();
@@ -506,7 +503,6 @@ public class CharacterUtils {
 				body.getAss().getHipSize().getValue(),
 				inheritsFromMotherFemininity, mother.getHipSize().getValue(),
 				inheritsFromFatherFemininity, father.getHipSize().getValue()));
-		
 		
 		// Breasts:
 		boolean inheritsFromMotherBreasts = mother.hasBreasts();
@@ -1008,7 +1004,6 @@ public class CharacterUtils {
 				body.getPenis().addPenisModifier(linkedCharacter, mod);
 			}
 		}
-		
 		
 		List<TailType> tailTypes = RacialBody.valueOfRace(halfSubspecies.getRace()).getTailType();
 		if(tailTypes.size()==1 && tailTypes.get(0)==TailType.NONE) {
@@ -1729,7 +1724,6 @@ public class CharacterUtils {
 			character.setFacialHair(BodyHair.ZERO_NONE);
 		}
 		
-		
 		character.setAssStretchedCapacity(character.getAssRawCapacityValue());
 		character.setNippleStretchedCapacity(character.getNippleRawCapacityValue());
 		character.setFaceStretchedCapacity(character.getFaceRawCapacityValue());
@@ -2238,7 +2232,6 @@ public class CharacterUtils {
 						canEquip = false;
 					}
 				}
-				
 				
 			} else {
 				for(InventorySlot is : ct.getIncompatibleSlots(character)) {

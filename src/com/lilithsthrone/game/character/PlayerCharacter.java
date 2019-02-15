@@ -202,8 +202,6 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, element, "id", world.toString());
 		}
 		
-		
-		
 //		private SizedStack<ShopTransaction> buybackStack; TODO
 		
 //		Element slavesOwned = doc.createElement("slavesExported");
@@ -617,7 +615,6 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			setRelationshipQuestUpdated(true);
 		}
 		
-		
 		if(quests.containsKey(questLine)) {
 			Quest currentQuest = questLine.getQuestTree().getFirstNodeWithData(quests.get(questLine)).getData();
 			
@@ -909,7 +906,6 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				Main.game.getDialogueFlags().setFlag(DialogueFlagValue.lilayaCondomBroke, false);
 				sb.append(UtilText.parseFromXMLFile("characters/dominion/lilaya", "ORGASM_REACTION_CREAMPIE"));
 			}
-			
 			
 			return new SexActionOrgasmOverride(false, sb.toString()) {
 				@Override

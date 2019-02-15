@@ -278,7 +278,6 @@ public class TunnelSlimeDialogue {
 		}
 	};
 	
-	
 	public static final DialogueNode AFTER_SLIME_SEX_AS_DOM = new DialogueNode("Step back", "", true) {
 		
 		@Override

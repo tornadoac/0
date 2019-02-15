@@ -164,7 +164,6 @@ public class AlleywayDemonDialogue {
 					
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/alleywayDemonAttack", "ALLEY_ATTACK_REPEAT_END", getDemon()));
 					
-				
 				} else { // The mugger doesn't want to attack the player:
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/alleywayDemonAttack", "ALLEY_ATTACK_PEACEFUL_INTRO", getDemon()));
 					

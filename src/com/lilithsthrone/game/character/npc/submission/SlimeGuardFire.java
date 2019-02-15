@@ -126,7 +126,6 @@ public class SlimeGuardFire extends NPC {
 			this.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.THREE_LIKE);
 		}
 		
-		
 		// Body:
 
 		// Core:

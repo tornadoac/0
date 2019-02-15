@@ -577,8 +577,6 @@ public class RoomPlayer {
 		}
 	};
 	
-
-	
 	public static final DialogueNode AUNT_HOME_PLAYERS_ROOM_CLUBBER_TAKEN_HOME = new DialogueNode("Your Room", "", true) {
 
 		@Override

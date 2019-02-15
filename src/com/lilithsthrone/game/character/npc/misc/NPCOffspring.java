@@ -111,8 +111,6 @@ public class NPCOffspring extends NPC {
 		setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 	}
 	
-	
-
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);

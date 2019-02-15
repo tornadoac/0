@@ -80,7 +80,6 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	private int enchantmentLimit;
 	protected List<ItemEffect> effects;
 
-	
 	// Images:
 	private Map<Colour, Map<Colour, Map<Colour, Map<String, Map<Colour, Map<Colour, Map<Colour, String>>>>>>> SVGStringMap;
 	private Map<Colour, Map<Colour, Map<Colour, Map<String, Map<Colour, Map<Colour, Map<Colour, String>>>>>>> SVGStringEquippedMap;
@@ -530,7 +529,6 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		this.allAvailableSecondaryColours.addAll(colourSet);
 		this.allAvailableSecondaryColours.sort((c1, c2) -> c1.compareTo(c2));
 
-		
 		this.availableTertiaryColours = new ArrayList<>();
 		if (availableTertiaryColours != null) {
 			this.availableTertiaryColours.addAll(availableTertiaryColours);
@@ -729,7 +727,6 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		AbstractClothingType type = ClothingType.getClothingTypeFromId(clothingTypeId);
 		return AbstractClothingType.generateClothing(type, type.getAvailablePrimaryColours().get(Util.random.nextInt(type.getAvailablePrimaryColours().size())), allowRandomEnchantment);
 	}
-	
 	
 	/**
 	 * Generates clothing with the provided enchantments.
@@ -1766,7 +1763,6 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		
 		SVGStringEquippedMap.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).get(patternColourPrimary).get(patternColourSecondary).put(patternColourTertiary, s);
 	}
-	
 	
 	private String getSVGStringFromMap(Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColourPrimary, Colour patternColourSecondary, Colour patternColourTertiary) {
 		if(pattern == null) {

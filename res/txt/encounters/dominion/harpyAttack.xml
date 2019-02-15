@@ -605,7 +605,6 @@
 	]]>
 	</htmlContent>
 	
-	
 	<htmlContent tag="HARPY_ATTACK_INTRO"><![CDATA[
 	#IF pc.isQuestCompleted(QUEST_LINE_SIDE_HARPY_PACIFICATION)
 	#THEN

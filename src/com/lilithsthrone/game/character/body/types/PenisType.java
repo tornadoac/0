@@ -56,7 +56,6 @@ public enum PenisType implements BodyPartTypeInterface {
 	
 	BAT_MORPH(BodyCoveringType.PENIS, TesticleType.BAT_MORPH, Race.BAT_MORPH, PenetrationModifier.SHEATHED);
 
-	
 	private BodyCoveringType skinType;
 	private TesticleType testicleType;
 	private Race race;
@@ -222,7 +221,6 @@ public enum PenisType implements BodyPartTypeInterface {
 		return race;
 	}
 
-	
 	public String getPenisHeadName(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("head", "tip");
 	}

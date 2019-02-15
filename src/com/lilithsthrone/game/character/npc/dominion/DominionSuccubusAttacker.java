@@ -204,7 +204,6 @@ public class DominionSuccubusAttacker extends NPC {
 		}
 	}
 	
-	
 	// ****************** Sex & Dirty talk: ***************************
 	
 	@Override

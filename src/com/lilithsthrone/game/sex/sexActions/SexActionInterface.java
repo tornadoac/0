@@ -52,7 +52,6 @@ public interface SexActionInterface {
 		return null;
 	}
 	
-	
 	public abstract SexActionType getActionType();
 	
 	public abstract String getActionTitle();
@@ -539,7 +538,6 @@ public interface SexActionInterface {
 				
 				return convertToResponse();
 				
-				
 			} else if(getActionType()==SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED) {
 
 				// Check penetrations:
@@ -580,7 +578,6 @@ public interface SexActionInterface {
 				
 				return convertToResponse();
 				
-				
 			} else if(getActionType()==SexActionType.REQUIRES_EXPOSED) {
 
 				// Check penetrations:
@@ -608,7 +605,6 @@ public interface SexActionInterface {
 				}
 				
 				return convertToResponse();
-				
 				
 			} else if(getActionType()==SexActionType.REQUIRES_NO_PENETRATION) {
 
@@ -638,7 +634,6 @@ public interface SexActionInterface {
 				
 				return convertToResponse();
 				
-			
 			} else {
 				if(!this.getSexAreaInteractions().isEmpty()) {
 					boolean ongoingFound = false;
@@ -889,7 +884,6 @@ public interface SexActionInterface {
 				}
 			};
 		}
-		
 		
 		return new Response(
 				this.endsSex()

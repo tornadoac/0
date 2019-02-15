@@ -672,7 +672,6 @@ public class ZaranixHomeGroundFloor {
 		}
 	};
 	
-	
 	public static final DialogueNode AFTER_SEX_THANKING_ZARANIX = new DialogueNode("", "", true) {
 
 		@Override
@@ -727,7 +726,6 @@ public class ZaranixHomeGroundFloor {
 		}
 	};
 	
-	
 	// Combat route:
 	
 	public static final DialogueNode ENTRANCE_KICK_DOWN_DOOR = new DialogueNode("", "", true) {
@@ -766,7 +764,6 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
 	
 	// General places:
 	

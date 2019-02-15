@@ -18,7 +18,6 @@ public enum AffectionLevelBasic {
 	/** -30 to 100*/
 	LIKE("likes", 30, 100, Colour.AFFECTION_POSITIVE_FIVE);
 	
-	
 	private String name;
 	private int minimumValue, maximumValue;
 	private Colour colour;

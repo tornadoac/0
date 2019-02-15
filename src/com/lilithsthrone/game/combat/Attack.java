@@ -65,7 +65,6 @@ public enum Attack {
 		return rollForCritical(attacker, defender, null);
 	}
 	
-	
 	public static boolean rollForCritical(GameCharacter attacker, GameCharacter defender, Spell spell) {
 		float criticalChance = attacker.getAttributeValue(Attribute.CRITICAL_CHANCE);
 		

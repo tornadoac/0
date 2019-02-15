@@ -124,7 +124,6 @@ public class Elizabeth extends NPC {
 			this.setFetishDesire(Fetish.FETISH_MASOCHIST, FetishDesire.ONE_DISLIKE);
 		}
 		
-		
 		// Body:
 		this.setSubspeciesOverride(Subspecies.HALF_DEMON);
 		this.setHalfDemonSubspecies(Subspecies.HUMAN);

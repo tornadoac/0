@@ -671,7 +671,6 @@ public class Brax extends NPC {
 		}
 	};
 
-	
 //	private static String fetishChanges = "";
 	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeat", "", true) {
 		/**
@@ -875,7 +874,6 @@ public class Brax extends NPC {
 						Main.game.getPlayer().setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
 						Main.game.getPlayer().setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 						
-						
 						if(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_CORRUPTION)<CorruptionLevel.TWO_HORNY.getMinimumValue()) {
 							Main.game.getPlayer().setAttribute(Attribute.MAJOR_CORRUPTION, CorruptionLevel.TWO_HORNY.getMinimumValue());
 						}
@@ -997,7 +995,6 @@ public class Brax extends NPC {
 					break;
 			}
 				
-					
 			descriptionSB.append("<p>"
 						+ "You see Brax's hand reaching around in the mirror, and with a pathetic little yelp, you quiver as he roughly grabs your crotch, "
 						+ "[brax.speech(This little cunt belongs to me, understood?)]"

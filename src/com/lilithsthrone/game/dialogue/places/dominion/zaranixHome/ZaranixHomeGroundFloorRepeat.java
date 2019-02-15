@@ -175,8 +175,6 @@ public class ZaranixHomeGroundFloorRepeat {
 		}
 	};
 	
-	
-	
 	public static final DialogueNode OUTSIDE_APOLOGY = new DialogueNode("Zaranix's Home", "", true, true) {
 
 		@Override
@@ -306,7 +304,6 @@ public class ZaranixHomeGroundFloorRepeat {
 			}
 		}
 	};
-	
 	
 	public static final DialogueNode OUTSIDE_LICKING_SOLES = new DialogueNode("Zaranix's Home", "", true, true) {
 
@@ -2013,7 +2010,5 @@ public class ZaranixHomeGroundFloorRepeat {
 			return ENTRANCE.getResponse(responseTab, index);
 		}
 	};
-	
-	
 	
 }

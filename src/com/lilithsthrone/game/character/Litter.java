@@ -127,8 +127,6 @@ public class Litter implements XMLSaving {
 		CharacterUtils.createXMLElementWithValue(doc, element, "monthOfConception", this.getConceptionDate().getMonth().toString());
 		CharacterUtils.createXMLElementWithValue(doc, element, "dayOfConception", String.valueOf(this.getConceptionDate().getDayOfMonth()));
 		
-		
-		
 		CharacterUtils.addAttribute(doc, element, "motherId", this.getMotherId());
 		CharacterUtils.addAttribute(doc, element, "fatherId", this.getFatherId());
 		
@@ -141,7 +139,6 @@ public class Litter implements XMLSaving {
 		CharacterUtils.addAttribute(doc, element, "fatherRace", String.valueOf(this.getFatherRace()));
 
 		CharacterUtils.addAttribute(doc, element, "birthedDescription", this.getBirthedDescription());
-		
 		
 		Element innerElement = doc.createElement("offspringList");
 		element.appendChild(innerElement);

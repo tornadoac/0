@@ -2361,7 +2361,6 @@ public enum Subspecies {
 	//TENGU(Race.TENGU.getName(), Race.TENGU, RacialBody.TENGU, SubspeciesPreference.TWO_LOW,
 	//		"A hermetic kind of "+Race.HARPY.getName());
 
-	
 	private String name;
 	private String namePlural;
 	private String singularMaleName;

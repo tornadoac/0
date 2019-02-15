@@ -1373,8 +1373,6 @@ public class SexPositionBipeds {
 				}
 			}
 			
-			
-			
 			return sb.toString();
 		}
 		
@@ -2015,7 +2013,6 @@ public class SexPositionBipeds {
 						positionSB.append(UtilText.parse(Sex.getCharacterInPosition(SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS_SECOND), Sex.getCharacterInPosition(SexSlotBipeds.MISSIONARY_ON_BACK_FOURTH),
 								" and [npc2.name], and [npc.is] deciding which one to have some fun with first."));
 						
-						
 					} else {
 						positionSB.append(UtilText.parse(Sex.getCharacterInPosition(SexSlotBipeds.MISSIONARY_ON_BACK_SECOND), Sex.getCharacterInPosition(SexSlotBipeds.MISSIONARY_ON_BACK_THIRD),
 								", [npc.name], and [npc2.name]"));
@@ -2156,7 +2153,6 @@ public class SexPositionBipeds {
 						Util.newArrayListOfValues(
 								OrgasmCumTarget.FLOOR));
 			}
-			
 			
 			// Remove kissing and other interactions if there are other positions blocking:
 			if((performer == SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS && target == SexSlotBipeds.MISSIONARY_ON_BACK)
@@ -2374,7 +2370,6 @@ public class SexPositionBipeds {
 						orgasmTargets);
 			}
 			
-			
 			// If on back, set correct restrictions and orgasm areas:
 			if(performer==SexSlotBipeds.MISSIONARY_ON_BACK || performer==SexSlotBipeds.MISSIONARY_ON_BACK_SECOND) {
 				SexActionInteractions interactions = super.getSexInteractions(performer, target);
@@ -2402,8 +2397,6 @@ public class SexPositionBipeds {
 										SexActionPresets.assToGroin);
 					} 
 				}
-				
-				
 				
 				List<OrgasmCumTarget> orgasmTargets = Util.newArrayListOfValues(
 													OrgasmCumTarget.SELF_STOMACH,

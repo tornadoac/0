@@ -118,7 +118,6 @@ public class Zaranix extends NPC {
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 		}
 		
-		
 		// Body
 		// Add full body reset as this method is called after leaving Zaranix's house:
 		this.setAgeAppearanceDifferenceToAppearAsAge(32);

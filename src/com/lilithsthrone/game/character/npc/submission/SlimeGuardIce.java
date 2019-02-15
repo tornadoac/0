@@ -126,7 +126,6 @@ public class SlimeGuardIce extends NPC {
 			this.setFetishDesire(Fetish.FETISH_SUBMISSIVE, FetishDesire.THREE_LIKE);
 		}
 		
-		
 		// Body:
 
 		// Core:

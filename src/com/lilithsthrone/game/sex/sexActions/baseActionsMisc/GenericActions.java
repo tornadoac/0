@@ -139,7 +139,6 @@ public class GenericActions {
 		}
 	};
 
-	
 	public static final SexAction PLAYER_HYPNOTIC_SUGGESTION_LUST_DECREASE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -240,8 +239,6 @@ public class GenericActions {
 			Sex.getActivePartner().incrementLust(50, false);
 		}
 	};
-	
-	
 	
 	public static final SexAction PLAYER_RESIST = new SexAction(
 			SexActionType.ONGOING,
@@ -776,7 +773,6 @@ public class GenericActions {
 		}
 	};
 	
-	
 	public static final SexAction PLAYER_STOP_PARTNER_SELF = new SexAction(
 			SexActionType.SPECIAL,
 			ArousalIncrease.ONE_MINIMUM,
@@ -952,7 +948,6 @@ public class GenericActions {
 			Sex.getCharacterTargetedForSexAction(this).incrementLust(50, false);
 		}
 	};
-	
 	
 	public static final SexAction PARTNER_RESIST = new SexAction(
 			SexActionType.ONGOING,

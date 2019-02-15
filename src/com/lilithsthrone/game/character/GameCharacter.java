@@ -185,7 +185,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public static final int LEVEL_CAP = 50;
 	public static final int MAX_TRAITS = 6;
 	
-	
 	// Core variables:
 	protected String id;
 	protected NameTriplet nameTriplet;
@@ -211,7 +210,6 @@ public abstract class GameCharacter implements XMLSaving {
 	private int artworkIndex = -1;
 	private String artworkFolderName = "";
 	
-	
 	// Location:
 	protected WorldType worldLocation;
 	protected WorldType homeWorldLocation;
@@ -219,13 +217,11 @@ public abstract class GameCharacter implements XMLSaving {
 	protected Vector2i homeLocation;
 	protected Vector2i globalLocation;
 	
-	
 	// Body:
 	protected Body body;
 	protected Gender genderIdentity; // What gender this character prefers to be. Used to determine NPC demonic transformations (i.e. a demon who identifies as a female will transform back into a female whenever possible.)
 	protected Map<CoverableArea, Set<String>> areasKnownByCharactersMap;
 	protected Map<SexAreaOrifice, List<FluidStored>> fluidsStoredMap;
-	
 	
 	// Inventory:
 	protected CharacterInventory inventory;
@@ -233,7 +229,6 @@ public abstract class GameCharacter implements XMLSaving {
 	private Map<InventorySlot, Scar> scars;
 	private Map<InventorySlot, Tattoo> tattoos;
 
-	
 	// Attributes, perks & status effects:
 	protected Map<Attribute, Float> attributes;
 	protected Map<Attribute, Float> bonusAttributes;
@@ -249,11 +244,9 @@ public abstract class GameCharacter implements XMLSaving {
 	protected Map<StatusEffect, Integer> statusEffects;
 	protected Map<StatusEffect, String> statusEffectDescriptions;
 	
-	
 	// Relationship stats:
 	/** String is character ID*/
 	private Map<String, Float> affectionMap;
-	
 	
 	// Pregnancy:
 	protected List<String> pregnancyReactions;
@@ -264,13 +257,11 @@ public abstract class GameCharacter implements XMLSaving {
 	protected List<Litter> littersBirthed;
 	protected List<Litter> littersFathered;
 	
-	
 	// Family:
 	protected String motherId;
 	protected String fatherId;
 	protected LocalDateTime conceptionDate;
 
-	
 	// Slavery:
 	protected List<String> slavesOwned;
 	protected String owner;
@@ -290,7 +281,6 @@ public abstract class GameCharacter implements XMLSaving {
 	
 	private int maxCompanions;
 	
-	
 	// Combat:
 	protected Set<SpecialAttack> specialAttacks;
 	protected List<Spell> spells;
@@ -299,19 +289,16 @@ public abstract class GameCharacter implements XMLSaving {
 	protected float health;
 	protected float mana;
 
-	
 	// Sex:
 	private int totalOrgasmCount;
 	private int daysOrgasmCount;
 	private int daysOrgasmCountRecord;
-	
 	
 	// Stats:
 	// Combat stats:
 	private int foughtPlayerCount;
 	private int lostCombatCount;
 	private int wonCombatCount;
-	
 	
 	// Sex stats:
 	private Map<String, SexCount> sexCount; // Character ID to count
@@ -326,7 +313,6 @@ public abstract class GameCharacter implements XMLSaving {
 	private float alcoholLevel = 0f;
 	private List<Addiction> addictions;
 	private Set<FluidType> psychoactiveFluidsIngested;
-	
 	
 	// Misc.:
 	protected static List<CharacterChangeEventListener> playerAttributeChangeEventListeners = new ArrayList<>();
@@ -603,7 +589,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, element, "petName", entry.getValue().toString());
 		}
 		
-		
 //		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "personality", this.getPersonality().toString());
 		Element personalityElement = doc.createElement("personality");
 		characterCoreInfo.appendChild(personalityElement);
@@ -668,8 +653,6 @@ public abstract class GameCharacter implements XMLSaving {
 		CharacterUtils.addAttribute(doc, location, "x", String.valueOf(this.getGlobalLocation().getX()));
 		CharacterUtils.addAttribute(doc, location, "y", String.valueOf(this.getGlobalLocation().getY()));
 		
-		
-
 		// ************** Body **************//
 		
 		Element characterBody = doc.createElement("body");
@@ -677,14 +660,10 @@ public abstract class GameCharacter implements XMLSaving {
 		
 		this.body.saveAsXML(characterBody, doc);
 		
-		
-		
 		// ************** Inventory **************//
 		
 		this.inventory.saveAsXML(properties, doc);
 		
-		
-
 		// ************** Markings **************//
 		
 		Element scarsElement = doc.createElement("scars");
@@ -818,7 +797,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, expEntry, "experience", String.valueOf(entry.getValue()));
 		}
 		
-		
 		// Status effects:
 		Element characterStatusEffects = doc.createElement("statusEffects");
 		properties.appendChild(characterStatusEffects);
@@ -829,8 +807,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, element, "type", se.toString());
 			CharacterUtils.addAttribute(doc, element, "value", String.valueOf(this.getStatusEffectDuration(se)));
 		}
-		
-		
 		
 		// ************** Relationships **************//
 		
@@ -843,8 +819,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, relationship, "character", entry.getKey());
 			CharacterUtils.addAttribute(doc, relationship, "value", String.valueOf(entry.getValue()));
 		}
-		
-		
 		
 		// ************** Pregnancy **************//
 		
@@ -889,8 +863,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.createXMLElementWithValue(doc, pregnancyReactionsElement, "id", value.toString());
 		}
 		
-		
-		
 		// ************** Family **************//
 
 		Element characterFamily = doc.createElement("family");
@@ -901,8 +873,6 @@ public abstract class GameCharacter implements XMLSaving {
 		CharacterUtils.createXMLElementWithValue(doc, characterFamily, "yearOfConception", String.valueOf(this.getConceptionDate().getYear()));
 		CharacterUtils.createXMLElementWithValue(doc, characterFamily, "monthOfConception", this.getConceptionDate().getMonth().toString());
 		CharacterUtils.createXMLElementWithValue(doc, characterFamily, "dayOfConception", String.valueOf(this.getConceptionDate().getDayOfMonth()));
-		
-		
 		
 		// ************** Slavery **************//
 
@@ -951,8 +921,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, slaveWorkHours, "hour"+String.valueOf(i), String.valueOf(workHours[i]));
 		}
 		
-		
-		
 		// ************** Companions **************//
 
 		Element companionElement = doc.createElement("companions");
@@ -969,8 +937,6 @@ public abstract class GameCharacter implements XMLSaving {
 		
 		CharacterUtils.createXMLElementWithValue(doc, companionElement, "partyLeader", this.getPartyLeader()==null?"":this.getPartyLeader().getId());
 		CharacterUtils.createXMLElementWithValue(doc, companionElement, "maxCompanions", String.valueOf(this.getMaxCompanions()));
-		
-		
 		
 		// ************** Sex Stats **************//
 		
@@ -989,7 +955,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 
-		
 		CharacterUtils.createXMLElementWithValue(doc, characterSexStats, "daysOrgasmCount", String.valueOf(this.getDaysOrgasmCount()));
 		CharacterUtils.createXMLElementWithValue(doc, characterSexStats, "daysOrgasmCountRecord", String.valueOf(this.getDaysOrgasmCountRecord()));
 		CharacterUtils.createXMLElementWithValue(doc, characterSexStats, "totalOrgasmCount", String.valueOf(this.getTotalOrgasmCount()));
@@ -1127,10 +1092,7 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
-		
 		// ************** Fluids **************//
-		
 		
 		Element characterAddictionsCore = doc.createElement("addictionsCore");
 		properties.appendChild(characterAddictionsCore);
@@ -1143,7 +1105,6 @@ public abstract class GameCharacter implements XMLSaving {
 			add.saveAsXML(characterAddictions, doc);
 		}
 		
-		
 		Element psychoactives = doc.createElement("psychoactiveFluids");
 		characterAddictionsCore.appendChild(psychoactives);
 		for(FluidType ft : this.getPsychoactiveFluidsIngested()) {
@@ -1151,8 +1112,6 @@ public abstract class GameCharacter implements XMLSaving {
 			psychoactives.appendChild(element);
 			CharacterUtils.addAttribute(doc, element, "value", ft.toString());
 		}
-
-
 
 		// ************** Artwork overrides **************//
 
@@ -1484,7 +1443,6 @@ public abstract class GameCharacter implements XMLSaving {
 		} catch(Exception ex) {
 		}
 		
-		
 		nodes = parentElement.getElementsByTagName("playerCore");
 		if(nodes.getLength()>0) { // Old version support:
 			
@@ -1505,8 +1463,6 @@ public abstract class GameCharacter implements XMLSaving {
 			} catch(Exception ex) {
 			}
 		}
-		
-		
 		
 		// ************** Location Information **************//
 		
@@ -1627,8 +1583,6 @@ public abstract class GameCharacter implements XMLSaving {
 			character.setLocation(new Vector2i(0, 0));
 		}
 		
-		
-
 		// ************** Body **************//
 
 		character.removeStatusEffect(StatusEffect.SUBSPECIES_BONUS);
@@ -1637,8 +1591,6 @@ public abstract class GameCharacter implements XMLSaving {
 			character.setGenderIdentity(character.getGender());
 		}
 		character.body.calculateRace(character);
-		
-		
 		
 		// ************** Inventory **************//
 		
@@ -1669,8 +1621,6 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterCreation.getDressed(character, false);
 		}
 		
-
-		
 		// ************** Markings **************//
 		
 		nodes = parentElement.getElementsByTagName("scars");
@@ -1697,7 +1647,6 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		}
-		
 		
 		// ************** Attributes **************//
 		
@@ -1881,7 +1830,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		// Status Effects:
 		nodes = parentElement.getElementsByTagName("statusEffects");
 		element = (Element) nodes.item(0);
@@ -1901,7 +1849,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		// ************** Relationships **************//
 		
 		nodes = parentElement.getElementsByTagName("characterRelationships");
@@ -1917,8 +1864,6 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		}
-		
-		
 		
 		// ************** Pregnancy **************//
 		
@@ -1996,7 +1941,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		// ************** Family **************//
 		
 		nodes = parentElement.getElementsByTagName("family");
@@ -2016,8 +1960,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
-		
 		// ************** Slavery **************//
 		
 		if(!noSlavery) {
@@ -2033,7 +1975,6 @@ public abstract class GameCharacter implements XMLSaving {
 						CharacterUtils.appendToImportLog(log, "<br/>Added owned slave: "+e.getAttribute("id"));
 					}
 				}
-				
 				
 				character.setOwner(((Element)slaveryElement.getElementsByTagName("owner").item(0)).getAttribute("value"));
 				CharacterUtils.appendToImportLog(log, "<br/>Set owner: "+character.getOwnerId());
@@ -2082,8 +2023,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
-		
 		// ************** Companions **************//
 		
 		if(!noCompanions) {
@@ -2108,14 +2047,10 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
-		
 		// ************** Sex Stats **************//
 		
 		nodes = parentElement.getElementsByTagName("sexStats");
 		Element sexStatsElement = (Element) nodes.item(0);
-		
-		
 		
 		if(sexStatsElement.getElementsByTagName("daysOrgasmCountRecord").getLength()!=0) {
 			character.setDaysOrgasmCountRecord(Integer.valueOf(((Element)sexStatsElement.getElementsByTagName("daysOrgasmCountRecord").item(0)).getAttribute("value")));
@@ -2178,7 +2113,6 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		}
-		
 		
 		// Cum counts:
 		element = (Element) (sexStatsElement).getElementsByTagName("cumCounts").item(0);
@@ -2316,7 +2250,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		element = (Element) (sexStatsElement).getElementsByTagName("sexPartnerMap").item(0);
 		if(element!=null) {
 			NodeList sexPartnerIds = element.getElementsByTagName("id");
@@ -2345,7 +2278,6 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		}
-		
 		
 		// ************** Addictions **************//
 
@@ -2562,7 +2494,6 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 	}
 
-	
 	protected StringBuilder infoScreenSB = new StringBuilder();
 
 	public Artwork getCurrentArtwork() {
@@ -4141,7 +4072,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		PlaceType placeType = this.getLocationPlace().getPlaceType();
 		boolean charactersImmediatelyPresent = 
 				placeType!=PlaceType.DOMINION_BACK_ALLEYS
@@ -4345,7 +4275,6 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		return characters;
 	}
-	
 	
 	public GameCharacter getMother() {
 		if(motherId==null || motherId.isEmpty()) {
@@ -4899,7 +4828,6 @@ public abstract class GameCharacter implements XMLSaving {
 		updateAttributeListeners();
 	}
 	
-	
 	// Fetishes:
 
 	/**The returned list is ordered by rendering priority.*/
@@ -5312,7 +5240,6 @@ public abstract class GameCharacter implements XMLSaving {
 			removeStatusEffect(se);
 	}
 
-	
 	// Stats:
 
 	public Map<SexType, Integer> getSexPartnerStats(GameCharacter c) {
@@ -5487,7 +5414,6 @@ public abstract class GameCharacter implements XMLSaving {
 				+ "</p>";
 	}
 	
-	
 	// Sex stats:
 	
 	public int getOrgasmsBeforeSatisfied() {
@@ -5564,7 +5490,6 @@ public abstract class GameCharacter implements XMLSaving {
 		sexCountMap.putIfAbsent(sexType, 0);
 		return sexCountMap.get(sexType);
 	}
-	
 	
 	public int getDaysOrgasmCountRecord() {
 		if(daysOrgasmCountRecord == 0) {
@@ -5692,7 +5617,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public Map<SexType, Entry<String, String>> getVirginityLossMap() {
 		return virginityLossMap;
 	}
-	
 	
 	public String getVirginityLossDescription(SexType sexType) {
 		
@@ -5895,7 +5819,6 @@ public abstract class GameCharacter implements XMLSaving {
 					}
 				}
 			}
-			
 			
 			// Choose a random line to say:
 			if(!speech.isEmpty()){
@@ -7517,9 +7440,7 @@ public abstract class GameCharacter implements XMLSaving {
 		return UtilText.parse(this, target, returnedLine);
 	}
 	
-	
 	// Dirty talk related to penetrating areas:
-	
 	
 	/**
 	 * @return A <b>non-formatted</b> String of this character's speech related to penetrating someone using their fingers. Returns null if no penetration found.
@@ -9922,7 +9843,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return UtilText.parse(this, target, availableLines.get(Util.random.nextInt(availableLines.size())));
 	}
 	
-	
 	// Area reveals: TODO All reveals need to take in character being revealed
 
 	public String getAssRevealDescription(GameCharacter characterBeingRevealed, List<GameCharacter> charactersReacting, boolean locationSpecific) {
@@ -10432,7 +10352,6 @@ public abstract class GameCharacter implements XMLSaving {
 								"[npc2.Name] lets out [npc2.a_sob+] as your [npc.penis+] is revealed.",
 								"[npc2.speech(No! Please! Get away from me!)] [npc2.name] screams as your [npc.penis+] is revealed."));
 			}
-			
 			
 		} else {
 			if(characterBeingRevealed.getPenisType()==PenisType.DILDO) {
@@ -11193,7 +11112,6 @@ public abstract class GameCharacter implements XMLSaving {
 				return generateGenericPenetrationDescription(characterPenetrating, penetrationType, characterPenetrated, orifice);
 			}
 			
-			
 		} else if(penetrationType == SexAreaPenetration.PENIS && orifice == SexAreaPenetration.FINGER) {
 			if(initialPenetration) {
 				return UtilText.parse(characterPenetrated, characterPenetrating,
@@ -11203,7 +11121,6 @@ public abstract class GameCharacter implements XMLSaving {
 				// Swap them around, as it makes for a better description:
 				return generateGenericPenetrationDescription(characterPenetrated, SexAreaPenetration.FINGER, characterPenetrating, SexAreaPenetration.PENIS);
 			}
-			
 			
 		} else if(penetrationType == SexAreaPenetration.FOOT && orifice == SexAreaPenetration.PENIS) {
 			if(initialPenetration) {
@@ -11221,7 +11138,6 @@ public abstract class GameCharacter implements XMLSaving {
 				return generateGenericPenetrationDescription(characterPenetrating, penetrationType, characterPenetrated, orifice);
 			}
 			
-			
 		} else if(penetrationType == SexAreaPenetration.PENIS && orifice == SexAreaPenetration.FOOT) {
 			if(initialPenetration) {
 				if(Sex.getSexPositionSlot(characterPenetrated).isStanding(characterPenetrated)) {
@@ -11238,7 +11154,6 @@ public abstract class GameCharacter implements XMLSaving {
 			} else {
 				return generateGenericPenetrationDescription(characterPenetrating, penetrationType, characterPenetrated, orifice);
 			}
-			
 			
 		} else if(orifice == SexAreaOrifice.ASS) {
 
@@ -11327,7 +11242,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 			
 			return generateGenericPenetrationDescription(characterPenetrating, penetrationType, characterPenetrated, orifice);
-			
 			
 		} else if(orifice == SexAreaOrifice.VAGINA) {
 			if(initialPenetration) {
@@ -11621,7 +11535,6 @@ public abstract class GameCharacter implements XMLSaving {
 				break;
 		}
 		
-		
 		if(characterPenetrating.isPlayer()) {
 			if(characterPenetrated.isPlayer()) {
 				return UtilText.parse(characterPenetrating, characterPenetrated,
@@ -11644,7 +11557,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 	}
-	
 	
 	public String getVirginityLossOrificeDescription(GameCharacter characterPenetrating, SexAreaPenetration penetrationType, GameCharacter characterPenetrated, SexAreaOrifice orifice) {
 		StringBuilder StringBuilderSB = new StringBuilder();
@@ -11907,13 +11819,10 @@ public abstract class GameCharacter implements XMLSaving {
 					+ "</p>");
 		}
 		
-		
 		StringBuilderSB.append(formatVirginityLoss("You'll always remember this moment as the time that you lost your anal virginity!"));
 		
 		return UtilText.parse(characterPenetrating, StringBuilderSB.toString());
 	}
-	
-	
 	
 	protected String getPlayerVaginaVirginityLossDescription(GameCharacter characterPenetrated, GameCharacter characterPenetrating, SexAreaPenetration penetration){
 		StringBuilder StringBuilderSB = new StringBuilder();
@@ -12043,7 +11952,6 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			}
 		}
-		
 		
 		StringBuilderSB.append(formatVirginityLoss("Your hymen has been torn; you have lost your virginity!"));
 		
@@ -12181,7 +12089,6 @@ public abstract class GameCharacter implements XMLSaving {
 						:""));
 	}
 	
-	
 	// Stretching:
 	
 	protected String formatStretching(String rawInput) {
@@ -12301,13 +12208,11 @@ public abstract class GameCharacter implements XMLSaving {
 		return "";
 	}
 
-	
 	// Too loose:
 	
 	protected String formatTooLoose(String rawInput) {
 		return UtilText.formatTooLoose(rawInput);
 	}
-	
 	
 	public String getTooLooseDescription(SexAreaOrifice orifice) {
 		switch(orifice) {
@@ -12448,7 +12353,6 @@ public abstract class GameCharacter implements XMLSaving {
 							+", [npc.name] [npc.verb(find)] [npc.herself] [style.colourArcane(craving)]"
 							+ " <span style='color:"+fluid.getType().getRace().getColour().toWebHexString()+";'>"+fluid.getType().getRace().getName(fluid.isBestial(charactersFluid))+"</span> "+fluid.getName(charactersFluid)+"!"
 					+ "</p>"));
-			
 			
 		} else if(this.getAddiction(fluid.getType()) != null) {
 			boolean curedWithdrawal = Main.game.getMinutesPassed()-this.getAddiction(fluid.getType()).getLastTimeSatisfied()>=24*60;
@@ -12661,7 +12565,6 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		return false;
 	}
-	
 	
 	// Combat:
 
@@ -14027,7 +13930,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return getUniqueQuestWeaponCount()+getUniqueQuestClothingCount()+getUniqueQuestItemCount()>0;
 	}
 	
-	
 	// -------------------- Items -------------------- //
 	
 	/**
@@ -14118,7 +14020,6 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 	}
 	
-	
 	public String useItem(AbstractItem item, GameCharacter target, boolean removingFromFloor) {
 		return useItem(item, target, removingFromFloor, false);
 	}
@@ -14153,7 +14054,6 @@ public abstract class GameCharacter implements XMLSaving {
 		
 	}
 
-	
 	// -------------------- Weapons -------------------- //
 	
 	/**
@@ -14207,7 +14107,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return inventory.getMainWeapon();
 	}
 
-	
 	/** @return Description of equipping this weapon. */
 	public String equipMainWeaponFromInventory(AbstractWeapon weapon, GameCharacter fromCharactersInventory) {
 		fromCharactersInventory.removeWeapon(weapon);
@@ -14299,7 +14198,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return inventory.getOffhandWeapon();
 	}
 	
-	
 	/** @return Description of equipping this weapon. */
 	public String equipOffhandWeaponFromInventory(AbstractWeapon weapon, GameCharacter fromCharactersInventory) {
 		String s = equipOffhandWeapon(weapon);
@@ -14385,7 +14283,6 @@ public abstract class GameCharacter implements XMLSaving {
 			updateInventoryListeners();
 		}
 	}
-	
 	
 	// -------------------- Clothing -------------------- //
 	
@@ -16249,7 +16146,6 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		body.calculateRace(this);
 		calculateSpecialAttacks();
 
@@ -16880,8 +16776,6 @@ public abstract class GameCharacter implements XMLSaving {
 
 	// Body parts in alphabetical order:
 	
-	
-	
 	// ------------------------------ Antennae: ------------------------------ //
 	
 	// Type:
@@ -16930,8 +16824,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public String incrementAntennaRows(int increment) {
 		return body.getAntenna().setAntennaRows(this, getAntennaRows()+increment);
 	}
-	
-	
 	
 	// ------------------------------ Arms: ------------------------------ //
 	
@@ -17031,8 +16923,6 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		return body.getArm().setUnderarmHair(this, BodyHair.getBodyHairFromValue(value));
 	}
-	
-	
 	
 	// ------------------------------ Ass: ------------------------------ //
 	
@@ -17235,8 +17125,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public String removeAssOrificeModifier(OrificeModifier modifier) {
 		return body.getAss().getAnus().getOrificeAnus().removeOrificeModifier(this, modifier);
 	}
-	
-	
 	
 	// ------------------------------ Body Material: ------------------------------ //
 	
@@ -17663,8 +17551,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return tfDescription;
 	}
 	
-	
-	
 	// ------------------------------ Breasts: ------------------------------ //
 	
 	// Misc:
@@ -17976,8 +17862,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public List<ItemEffect> getMilkTransformativeEffects() {
 		return body.getBreast().getMilk().getTransformativeEffects();
 	}
-	
-	
 	
 // ------------------------------ Crotch Breasts: ------------------------------ //
 
@@ -18294,8 +18178,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getBreastCrotch().getMilk().getTransformativeEffects();
 	}
 	
-	
-	
 	// ------------------------------ Ears: ------------------------------ //
 	
 	// Type:
@@ -18338,8 +18220,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getEar().setPierced(this, pierced);
 	}
 	
-	
-
 	// ------------------------------ Eyes: ------------------------------ //
 	
 	// Type:
@@ -18465,8 +18345,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getEye().setPupilShape(this, eyeShape);
 	}
 	
-	
-
 	// ------------------------------ Face: ------------------------------ //
 	
 	// Type:
@@ -18721,8 +18599,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getFace().getMouth().getOrificeMouth().removeOrificeModifier(this, modifier);
 	}
 	
-	
-	
 	// ------------------------------ Genital arrangement: ------------------------------ //
 	
 	// Type:
@@ -18779,8 +18655,6 @@ public abstract class GameCharacter implements XMLSaving {
 		
 		return sb.toString();
 	}
-	
-	
 	
 	// ------------------------------ Hair: ------------------------------ //
 	
@@ -18868,8 +18742,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return "<p>" + "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Nothing seems to happen.</span>" + "</p>";
 	}
 	
-	
-	
 	// ------------------------------ Horns: ------------------------------ //
 	
 	// Type:
@@ -18941,8 +18813,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public int getTotalHorns() {
 		return body.getHorn().getHornsPerRow() * body.getHorn().getHornRows();
 	}
-	
-	
 	
 	// ------------------------------ Legs: ------------------------------ //
 	
@@ -19022,15 +18892,11 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 	}
 	
-	
-	
 	// ------------------------------ Mound: ------------------------------ //
 	
 	public String getMoundDescription() {
 		return body.getMoundDescription(this);
 	}
-	
-	
 	
 	// ------------------------------ Tongue: ------------------------------ //
 	
@@ -19090,8 +18956,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public String removeTongueModifier(TongueModifier modifier) {
 		return body.getFace().getTongue().removeTongueModifier(this, modifier);
 	}
-	
-	
 	
 	// ------------------------------ Penis: ------------------------------ //
 	
@@ -19277,7 +19141,6 @@ public abstract class GameCharacter implements XMLSaving {
 	public String removePenisModifier(PenetrationModifier modifier) {
 		return getCurrentPenis().removePenisModifier(this, modifier);
 	}
-	
 	
 	// Urethra:
 
@@ -19643,8 +19506,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return getCurrentPenis().getTesticle().getCum().getTransformativeEffects();
 	}
 	
-	
-	
 	// ------------------------------ Skin: ------------------------------ //
 	
 	// Type:
@@ -19869,8 +19730,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
 	}
 	
-	
-	
 	// ------------------------------ Tail: ------------------------------ //
 
 	public boolean hasTail() {
@@ -19920,8 +19779,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getTail().setTailCount(this, getTailCount() + increment);
 	}
 	
-	
-	
 	// ------------------------------ Tentacle: ------------------------------ //
 
 	public boolean hasTentacle() {
@@ -19967,8 +19824,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getTentacle().setTentacleCount(this, getTentacleCount() + increment);
 	}
 	
-	
-
 	// ------------------------------ Vagina: ------------------------------ //
 	
 	// Type:
@@ -20266,7 +20121,6 @@ public abstract class GameCharacter implements XMLSaving {
 		return body.getVagina().getOrificeUrethra().removeOrificeModifier(this, modifier);
 	}
 		
-	
 	// ------------------------------ Wings: ------------------------------ //
 
 	public boolean hasWings() {

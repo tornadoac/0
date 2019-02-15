@@ -164,7 +164,6 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 		return defaultFootStructure;
 	}
 	
-	
 	public String getFootNameSingular(GameCharacter gc) {
 		return this.getFootType().getFootName();
 	}
@@ -198,12 +197,10 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 		}
 	}
 	
-	
 //	@Override
 	public String getBodyDescription(GameCharacter owner) {
 		return UtilText.parse(owner, legBodyDescription);
 	}
-	
 	
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
@@ -437,7 +434,6 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 					+(legConfiguration.isBipedalPositionedCrotchBoobs()?(body.getBreastCrotch().getShape()==BreastShape.UDDERS?" or udders":" or crotch-boobs"):"")
 					+ ")] on display!</i></p>");
 		}
-		
 		
 		if(legConfiguration.getLandSpeedModifier()>0) {
 			bestialStringBuilder.append("<p><i>"

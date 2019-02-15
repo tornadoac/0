@@ -41,7 +41,6 @@ public enum OrificePlasticity {
 	/**Will recover none of its original size after sex.*/
 	SEVEN_MOULDABLE("mouldable", 7, 0.75f, Colour.GENERIC_SIZE_EIGHT);
 
-	
 	private String descriptor;
 	private int value;
 	private float stretchModifier, capacityIncreaseModifier;

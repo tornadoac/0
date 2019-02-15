@@ -15,7 +15,6 @@ import com.lilithsthrone.main.Main;
  */
 public class Hair implements BodyPartInterface {
 
-	
 	protected HairType type;
 	protected int length;
 	protected HairStyle style;

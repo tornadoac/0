@@ -13,7 +13,6 @@ import com.lilithsthrone.main.Main;
  */
 public class Skin implements BodyPartInterface {
 
-	
 	protected SkinType type;
 
 	public Skin(SkinType type) {

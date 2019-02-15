@@ -406,7 +406,6 @@
 	]]>
 	</htmlContent>
 	
-	
 	<htmlContent tag="PREGNANCY_ROULETTE"><![CDATA[
 	<p>
 		At the far end of the atrium, a long wooden counter has been set into the wall. A sign hanging above this opening reads 'Epona's Pregnancy Roulette', and, standing behind the desk, you see a brown-haired horse girl. As you approach, the horse-girl catches your eye, and, beckoning you over, she calls out, [epona.speech(Hey there! You got a moment?)]
@@ -916,7 +915,6 @@
 	]]>
 	</htmlContent>
 	
-	
 	<htmlContent tag="PREGNANCY_ROULETTE_BREEDER_POST_SEX"><![CDATA[
 	<p>
 		As all of you breeders have now finished, Epona steps forwards turns to address the room, [epona.speech(Great job everyone! Now I'll go and find out which of you is the father to this slut's kids! Please be patient, I'll be back in a moment.)]
@@ -981,6 +979,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 </dialogue>

@@ -1,9 +1,7 @@
 
-	
 	I'll probably add some more detailed descriptions of how much pre-cum is being produced based on how much cum you're producing. If I do create a dedicated pre-cum stat, it will most likely be based off your cum volume.
 	
 	isPenisPrehensile()
-	
 	
 	So, what are your thoughts on selecting a fetish (maybe a slightly limited list) at the start of the game. This could always be interesting in a story sense.
 But than as the story starts your first event in the new world could be influenced by your fetish. Say you pick Oral, your starting event (instead of an almost gangrape, stopped by your "aunt". Could be "almost oral", stopped by your "aunt".
@@ -27,7 +25,6 @@ This gives the user both a good experience on entering the game and allows you t
 	14) Several basic pets will be given to the player near the start of the game.  The harpy nest side-quest could be about teaching the player how to make the right choices with their basic ones to overcome the challenges they face.
 	15) Each pet will have a number of lines of flavor text that appear in decriptions for exploring areas, when they're summoned, when they're put away, their appearance, and for each of their attacks.  They are always tagged onto another scene to avoid extra clicks for the player.
 	
-	
 	Here's the start of the discussion:
 	That's a good point.  A score system like what CoC/TiTS uses might make more sense.
 	That also lets you work with overlapping TFs without essentially duplicating them.
@@ -45,12 +42,6 @@ This gives the user both a good experience on entering the game and allows you t
 	
 	That's what I was going for with the encyclopedia entries as well, but I think I need to re-design the UI to make it a little more concise. It's a bit of a mess at the moment.
 	You're right, that fits very well into the encyclopedia. Especially once it's changed to account wide.  It's almost like your achievement system for the game
-	
-	
-	
-	
-	
-	
 	
 	***BDSM-set***
 
@@ -78,24 +69,18 @@ metal chains (over torso slot)
 leather straps (torso/legs/hand/hip slot)
 restraining ropes (tail slot)
 	
-	
 	I was wondering if you could consider using the banner at the top of the game screen to display a basic backdrop of whatever area you character is in, as well as the current weather or time of day. 
 		As of now, it seems the current daytime and weather system is pushed off to the side for more important information to take up the screen.
 	
-	
-	
-	
-	
-	
-	- I only recently understood the system of subdued background colors and species symbols unifying the icons of transformation/buff/essences, etc. The foreground colors of the circular backgrounds are much more obvious, but don't have quite as obvious meanings (for instance, Canine Crush and Squirrel Java are the same blue). Perhaps using bolder or full-saturated border colors to distinguish items (green=buff, blue=tf, red=arcane, gray=armor, etc) or using the more distinct foreground color for discerning items would strengthen the visual cluing. I suggest this could also be reinforced in the tool tip (in the same spot as "Consumed on Use"/"Combat & Sex Use" it should say "Used for Human Transform Enchantments" or similar), have a color key to distinguish items in the inventory screen, and/or have a description under the "Effects:" heading in the inventory. The species symbols could probably use more prominent placement and be visible in the tool tips as well, as they are only easy to distinguish in their full-sized versions. Species symbols are sometimes really hard to identify in the mini map or other small placements.
+	- I only recently understood the system of subdued background colours and species symbols unifying the icons of transformation/buff/essences, etc. The foreground colours of the circular backgrounds are much more obvious, but don't have quite as obvious meanings (for instance, Canine Crush and Squirrel Java are the same blue). Perhaps using bolder or full-saturated border colours to distinguish items (green=buff, blue=tf, red=arcane, gray=armour, etc) or using the more distinct foreground colour for discerning items would strengthen the visual cluing. I suggest this could also be reinforced in the tool tip (in the same spot as "Consumed on Use"/"Combat & Sex Use" it should say "Used for Human Transform Enchantments" or similar), have a colour key to distinguish items in the inventory screen, and/or have a description under the "Effects:" heading in the inventory. The species symbols could probably use more prominent placement and be visible in the tool tips as well, as they are only easy to distinguish in their full-sized versions. Species symbols are sometimes really hard to identify in the mini map or other small placements.
 
 - The Slavery Overview, Slave List, and Room List menus are all very useful, but can require substantial scrolling to use once for common tasks they're populated. Some of the more basic functions in these menus would be better if they could also be accessed straight from the menu at the bottom of the screen. For instance, if the PC is in an empty room, the Manage Room menu for that room should be available right from the bottom menu instead of having to click Room List and then the magnifying glass first. The PC should be able to make a slave room or double slave room straight from the bottom menu in one click also, or change an unoccupied room back to empty.
 
 - Access to the slave's inventory, work shift and permissions from the main menu at bottom during slave interaction would be great. It would also be useful to be able to see the slave's affection/obedience without having to back out to the Slave List. Also, the tool tips for the interaction choices could be more informative about the likely impact of slave interaction choices. There should also be an option to summon a slave to their own room at any time, to avoid having to run around the whole house to track their random location down or wait for their shift to end.
 
-- It was not initially straightforward to discover how the various factors of affection, obedience, work shift, room options and overwork status were affecting my slaves' attitudes and earnings, or changed their behaviors. Confusingly, the tallies showing upkeep and income do not account for slaves' status effects, sometimes leading to affection or obedience decay at the same time the Slave List shows daily increases, or income tallies that don't match amounts collected.
+- It was not initially straightforward to discover how the various factors of affection, obedience, work shift, room options and overwork status were affecting my slaves' attitudes and earnings, or changed their behaviours. Confusingly, the tallies showing upkeep and income do not account for slaves' status effects, sometimes leading to affection or obedience decay at the same time the Slave List shows daily increases, or income tallies that don't match amounts collected.
 
-- The slave rules are straightforward and easy to set, but the impact of many of them is a mystery. For instance, permissions toggling silence, crawling, house freedom and outside freedoms don't seem to do much to influence slave behavior, affection or obedience. I suspect these are in an early implementation stage, but the impact of these choices could be clearer. Additionally, some of the ones that seem to be fully implemented have AI oddities - for instance, pairs of slaves with both the "Initiate Sex" and "Sex Toy" traits still seldom find each other, even with a "Pent Up" status. Perhaps there is a more useful way to organize what is seen in the Slavery Overview, to enable better understanding of the relationship between slave permissions and their actions (including +/- to obedience/affection).
+- The slave rules are straightforward and easy to set, but the impact of many of them is a mystery. For instance, permissions toggling silence, crawling, house freedom and outside freedoms don't seem to do much to influence slave behaviour, affection or obedience. I suspect these are in an early implementation stage, but the impact of these choices could be clearer. Additionally, some of the ones that seem to be fully implemented have AI oddities - for instance, pairs of slaves with both the "Initiate Sex" and "Sex Toy" traits still seldom find each other, even with a "Pent Up" status. Perhaps there is a more useful way to organize what is seen in the Slavery Overview, to enable better understanding of the relationship between slave permissions and their actions (including +/- to obedience/affection).
 
 - Enchanting needs some basic instructions - Lilaya's dialogue was an ok clue, but it was still a bit of a stumbling block for awhile to discover the menu location for the enchanting feature or how it worked, especially since it's not accessible if you first try it with non-enchantable items (like weapons or clothing, which seemed the most likely to be enchantable items even though they are currently not). A direct discussion or intro-based tutorial of how to clearly identify enchantable items and how to use them would help. There should also be a reference tutorial in the encyclopedia. I cannot understate how much better a game this was for me once I figured out how to deliberately enchant TF items - this one is a core mechanic that shouldn't be hard to find in the least!
 
@@ -106,9 +91,9 @@ restraining ropes (tail slot)
 - While functionality-packed, the enchantment UI is probably the least straightforward menu in the game. It is especially confusing when the player's intent is to add or subtract effects completely, given the "X" icon is used to remove some effects or bodily organs, negative potency must be used for others, and the "Transformative" button appears in different places to sometimes add and sometimes transform a part. The distribution of controls between the top menu and lower menu adds to the confusion, especially since arrangement splits the controls with the effects summary. To correct these issues, perhaps the potion effects summary could be moved up top, allowing the controls to be kept together. Rather than having increase or decrease buttons to change potency, instead use a row of "+" and "-" buttons (with small, medium and large icons to represent minor, normal, or major settings) to enable selection with one click, with the small and medium choices graying out when unavailable. The "Transformative" icon should become the visual parallel of the "X"/remove icon, and those two options should always show first (upper left position) in any list they appear in. The icon color choices should also be reviewed for clarity and explained in game, as their unifying logic is unclear.
 2) Though you have expressed your plans for re-balance in v0.2.0, it's worth mentioning that combat and enchanting balance issues exist that limit replay potential.
 Spoiler: Hide
-- Combat overwhelmingly favors willpower attacks and seduction-balanced characters. Appropriate for a sexy game, I suppose, but since combat should be part of the "good stuff" also, there should be ways to rock-paper-scissor this somewhat.
+- Combat overwhelmingly favours willpower attacks and seduction-balanced characters. Appropriate for a sexy game, I suppose, but since combat should be part of the "good stuff" also, there should be ways to rock-paper-scissor this somewhat.
 
-- The arcane weapons are interesting as a concept, but in practice hard to easily to tell apart in purpose or effect, and their stats seem so downplayed by PC/NPC level changes as to be almost meaningless in use. Their relative impact on opponents is also not too clear in the flavor text. The potential for crafting, enchanting, and discovering new combat items (and making their relative effects more interesting) is at present mostly untapped.
+- The arcane weapons are interesting as a concept, but in practice hard to easily to tell apart in purpose or effect, and their stats seem so downplayed by PC/NPC level changes as to be almost meaningless in use. Their relative impact on opponents is also not too clear in the flavour text. The potential for crafting, enchanting, and discovering new combat items (and making their relative effects more interesting) is at present mostly untapped.
 
 - Arcane essence costs seem unbalanced, especially comparing one-shot transformations to stepped ones - the latter are extremely expensive by comparison. The relative effect caused by "minor/normal/major" boosts or drains are often disproportionate between primary, secondary and tertiary items (ie, breast cup size transformation is slow vs rapid nipple/areolae changes). Gathering arcane essence now requires enormous amounts of grinding for certain cosmetic changes due to the expense of stepped changes (the masculinity-femininity scale is a notable example).
 3) Travel and exploration is getting to be very well managed, especially by comparison to earlier builds, but could still be slightly improved.
@@ -127,9 +112,6 @@ Similarly, sex interactions -- choice of pace, act preferences and fetish alignm
 
 Perhaps there could be options to look for trouble/attack hostile NPCs in alleys, or to just skip the fight entirely to have sex with willing sex partner NPCs, with PC initiating it. Since you mentioned plans for PC enslavement down the road, being the aggressor could open the PC to that risk. Also, if the relationship changes from sex above are implemented, maybe random NPCs can actually begin to like or hate the PC after being together a few times, and more consensual or vindictive interactions would result.
 	
-	
-	
-	
 	Flesh out the post-sex page a little. We've talked before about variation based on just how well fucked the NPC is, but there could also be some other things. Some ideas:
 • Have a short description of them replacing their clothing. This pretty much exists already, the game gives narration when you swap your equipment around.
 • Have them wipe their face off if you gave them a facial.
@@ -146,13 +128,9 @@ Add actions to make subs lick off any cum you've got on you. Might have conseque
 
 Before the sex system is frozen, you should probably implement a system for restraint of limbs. This would be used for scenes like the stocks, for characters wearing cuffs, or just if the dominant decides to pin the sub's hands in place with one of their own. The effect of this should be obvious - restricting any actions that require free hands. (And add a few for struggling or wiggling, I guess, to make up the difference)
 	
-	
-	
-	
 	missionary, leg lift, anvil positions
 	
 	a prostitute who specialises in losing her virginity (through regrowing her hymen)
-	
 	
 	Would be interesting to be able to put them into a pool of random encounters or whatnot. 
 	
@@ -187,7 +165,7 @@ Back Hair - Top bun, Front Hair - Long Bangs (Cover left eye)
 	Lipstick should leave a stain on your cock
 	
 
- was woundering if a skinsuit could be a thing, sometime a want to try thing but don't want to commit to a change, so it would be a kind of outfit that you can apply body modification on it but that you can remove whenever you want
+ was wondering if a skinsuit could be a thing, sometime a want to try thing but don't want to commit to a change, so it would be a kind of outfit that you can apply body modification on it but that you can remove whenever you want
 
 
 	Fetish levels:
@@ -206,14 +184,14 @@ Back Hair - Top bun, Front Hair - Long Bangs (Cover left eye)
 	     Could tie arousal in to how well she'll obey commands; ordering her to not pleasure herself at very high arousal levels is very unlikely to succeed, for instance.
 	       Items like rope bindings and chastity belts would make it much harder or impossible to increase stimulation.
 	
-	 I'd like the ability enchant multiple potions at once, mostly for slave cusomisation purposes.
+	 I'd like the ability enchant multiple potions at once, mostly for slave customisation purposes.
 	
 	Lilaya:
 		Sneak attack hug her in the lab and she gets embarrassed and tsundere~ (or hold hands)
 		Embarrassed to orgasm inside of you
-		Sneak attack hug and whisper in her ear "I love you" and watch her die of embarassment
+		Sneak attack hug and whisper in her ear "I love you" and watch her die of embarrassment
 	
-	some sort of animu mode? In which the characters get different eye and hair colors
+	some sort of animu mode? In which the characters get different eye and hair colours
 	
 	Would it be possible to add belly/underfur that changes the covering of chest/genital fur coverings. Not to be confused with a pattern as something like a cat/dog can have a white underfur while still having stripes or spots.
 	
@@ -228,16 +206,15 @@ Back Hair - Top bun, Front Hair - Long Bangs (Cover left eye)
 	
 	 the ability to have nicknames. You could have a full name and a separate option for if you want to be called by another name, which would be what is listed instead of your characters first name.
 	
-	-more descriptions for kissing/licking/fucking an orifice that already has your (or someone elses??) cum in it
+	-more descriptions for kissing/licking/fucking an orifice that already has your (or someone else's??) cum in it
 	-eating out a cream pie lessens/removes chance of pregnancy
 	-more sloppy seconds stuff
 	
-	 if you didn't ejaculate in while you would get thick seman that would have a higher impregnation chance
+	 if you didn't ejaculate in while you would get thick semen that would have a higher impregnation chance
 	
 	"perma-hard" effect for penis
 	
 	removal of nipples
-	
 	
 	One is that if you are in the BJ action and the person sucking has coloured lipstick on, that the lipstick stains said cock until the player or slave washes. This could count for anything too, like if there was an option to kiss balls, while performing anilingus that you could kiss the slaves asshole (or vice versa) or even kissing somebody's thighs. The possibilities are endless. (As is the amount of lipstick you decide to want to leave on somebody's body after some intense sexy time)
 
@@ -251,18 +228,16 @@ Footjobs (receive/perform)
 
 Prone bone (receive/perform)
 
-Receving cowgirl
+Receiving cowgirl
 
 Sixty-nine where you can choose to be bottom whilst being dom (sometimes people might prefer to be gently sucked as bottom rather than ramming their cock in someone's mouth from top) : P 
 
-Receving/performing oral in missionary position;
+Receiving/performing oral in missionary position;
 Being able to choose to face the wall yourself should you play as a sub (or facing the wall in general without the need to be a sub) ; ) The same goes for the "Back to wall" position too.
 
 And while this is fresh in my head, having relationships with slaves/Lilaya/Rose/shop owners/prostitutes would be awesome. Though I'm guessing that is for a future update.
 
 Oh yeah, and sex while people are asleep would be awesome. Cumming inside of them and them becoming pregnant without them knowing would be amazing.
-	
-	
 	
 	nipple/dick self-suck
 	
@@ -278,7 +253,7 @@ Oh yeah, and sex while people are asleep would be awesome. Cumming inside of the
 	
 	gentle fetish
 	
-	Asymmetrical coloring with more than just eyes. I really dig angel wings where one is black and one is white, for example
+	Asymmetrical colouring with more than just eyes. I really dig angel wings where one is black and one is white, for example
 	
 	lusty maiden cap corruption at 80
 	
@@ -296,14 +271,12 @@ Oh yeah, and sex while people are asleep would be awesome. Cumming inside of the
 
 Make "Cum Addict" fetish replace "Creampie" and "Dirty Clothes" statuses with positive versions, like "Exhibitionist" does.
 	
-	
 	jacket hoodie
-	
 	
 	Things I think would be nice to have:
 - A way to modify a target's gender preference (Perhaps via Mystery Kink?)
 - A way to change a target's makeup (Dye Brush? New makeup kit item?)
-- A way to change the hairstyle and hair color of a target
+- A way to change the hairstyle and hair colour of a target
 - Slave Permission to ask for sex with player instead of them raping the player
 - Have a bodyguard slave job to protect the player
 - Some way to track down children
@@ -335,11 +308,7 @@ Miscellaneous things I've noted:
 - Transformer fetish is probably overpowered in its current state. I think you should probably move its current effect to an alchemy skill.
 - Sadist fetish seems to take overkill damage into account. Haven't tested it, but it might be possible to knock yourself out via this fetish. Sadist fetish doesn't seem to be worth getting due to the benefit being rather negligible. 
 
-
-	
-	
 	if a character is wearing a short skirt, no underwear or crotch-less underwear, and has a sufficiently sized penis, I believe that it should hang out below the skirt. If you have a large cock and no underwear it should hang below the skirt. If you have a long skirt on, then maybe it would have to be stallion sized to hang out. If your wearing a short skirt but have underwear and a huge or larger penis, maybe the bulge of your penis in your underwear hangs out from your skirt.
-	
 	
 	Pure Soulmate:
 		"You lost your own to and took the virginity of the one you love the most, even though you are no longer a virgin you shouldn't have sex with anyone else, you'll to avoid this and protect you and you're lover"(edited)
@@ -351,9 +320,7 @@ Miscellaneous things I've noted:
 	Broken: broken maiden with doubled effects
 	Corrupt: Broken soulmate with a slightly stronger debuff and losing the ability to obtain another lover
 	
-	
 	candi will often take suggestions on what to make bree. Like you can suggest bree grow a cock.
-	
 	
 	FeliciTea's
 		Purrl Gray, Orange Puurkoe
@@ -387,12 +354,8 @@ Miscellaneous things I've noted:
 		 get essence farming going on.
 		 Rape Brothel: chase down your own prey, anything you catch you get to fuck
 	
-	
-	
 	Looking at the current mechanics for lubrication, it seems like that system could be expanded upon a bit more to make it more complicated so you can add in more scene variations based on it in the future.
 		You could then create variations for scenes that fall into three separate categories, insufficiently lubricated, sufficiently lubricated, and then overly lubricated, along with hopefully also changing how much/what quality of lube you'd need to get to those three levels depending on the action selected.
-	
-	
 	
 	Encyclopedia for mechanics:
 		plasticity
@@ -400,9 +363,7 @@ Miscellaneous things I've noted:
 		orifices
 		etc.
 	
-	
 	piercings referenced in sex
-	
 	
 	Work for Lilaya as a maid
 	
@@ -430,14 +391,12 @@ Miscellaneous things I've noted:
 		Slave
 		Latex
 	
-	
 	Personalities:
 -Each personality includes a library of dialogue lines for different situations.
 -These are used by both NPCs and the PC, one is chosen during character creation.
 -The primary thing that these personalities affect are the lines spoken during the 'dirty talk' action and when random lines are spoken in sex scenes.
 -Some buttons are also changed to reflect the PC's attitude ("Have some fun" vs "Help them out" vs "Take advantage of their lusts")
 -Fetishes may weigh what personality is chosen for an NPC, so sadists are more likely to be selfish or rude.
-	
 	
 	when you add the tea house, the person behind the counter should say goodbye with 'Tea you later', while their colleague shoots them an incredibly dirty glance
 	
@@ -453,17 +412,13 @@ Miscellaneous things I've noted:
 	
 	deer-morph colour should be: #ec9538
 	
-	
 	I'm going to give clothing different tearable/breakable parts, so it will be possible to rip open pantyhose, or tear down someone's blouse, for example.
 
 I'll implement clothing damage as mentioned above as well, in that it will go through phases of: Functional -> Torn -> Destroyed.
 
 Torn and destroyed items will be able to be repaired, so you won't lose your clothing
 	
-	
 	Event variation: Come to think of it, the Succubus encounter mentions that you elude her trap. I'd actually love to see what happens if you stumble into it.
-	
-	
 	
 	Now that multiple clothing colours are a thing, probably some of the old clothing items could do with them. Ones that spring immediately to mind as having significant non-primary-coloured parts would be the Bike Shorts, Shin Guards, Trainers, and Skater Shoes. Some of the panties also have that thing where if they're light pink, they turn out white with trim, which would also suggest multiple coloured areas would fit nicely.
 
@@ -480,11 +435,6 @@ The shield spells are completely useless. They give you +50 resist, but they onl
 We can suck our own fingers (or tail if we have one), but we can't make our partner do it. This would be both an alternative means to get them lubed up before use, or if you've already used them, make them taste themself on you.
 
 When farming for essence, it would be nice to have some form of indicator on the map to show if an NPC will give you any. Maybe a “Hunting Senses" perk? We could sure do with more of those. Or a spell we could learn - we have all sorts of examples of demons doing cool stuff with their magic, most of which we can't learn to do.
-	
-	
-	
-	
-	
 	
 	attacker broodmother scene includes how huge their belly has gotten.
 	
@@ -518,9 +468,6 @@ When farming for essence, it would be nice to have some form of indicator on the
 	
 	twin enemies
 	
-	
-	
-	
 	Suggestions:
 
 An action to pet an NPC while they're performing oral on you. There isn't a huge amount to do in that position, since you can't reach any of their fun bits, so an extra action to choose from would be nice. Could be stroking their hair or scritching behind their ears or something.
@@ -545,11 +492,6 @@ More positions with Kate and Lilaya, such as sitting in the chair and receiving 
 
 Drugged lipstick content. Something like you complete a short quest, then you can choose a fluid effect like addictive, psychoactive, aphrodisiac, etc. to wear in special lipstick. The effect would obviously be applied by kissing or performing oral, similarly to how saliva should when that gets fluid effects. I can imagine some of these being useful in combat, say aphrodisiac could boost enemy lust or psychoactive could damage enemy willpower if you force kiss them.
 	
-	
-	
-	
-	
-	
 	-jewelry: stud earrings, ring tongue piercings, ring nipple, gem stone on rings (with color-able gem), 
 -leather belt
 -neck bandanna and head bandanna
@@ -562,10 +504,7 @@ more for the proof of concept of the current clothing system:
 -anal plug (could prevent cum from leaking out)
 -equip-able eggplant dildo
 	
-	
 	Just throwing this out. Maybe add some body hair that is different from fur, such as abdominal hair (happy trail), chest hair, arm and leg hair, and ball hair (hair on sack). This way men could have body hair without having to be partial furry. And if this person becomes furry then it could replace the description for the body hair in that area.
-	
-	
 	
 	Shop that can replicate quest reward items
 	
@@ -585,7 +524,6 @@ more for the proof of concept of the current clothing system:
 	the ability to change the colour of the head/glans of the penis independently
 	
 	will foreskin ever be added? I think it could work just like how pubic hair works now. Starting with nothing but having several sizes up from that, and eventually being long enough to be dangling down from the penis. You could probably add an option in the 'content options' menu for toggling them on or off for those that don't want them.
-	
 	
 	Maybe there could be a side quest where you could unlock a spell for LIlaya where she can boost development and deliver in one event
 	
@@ -639,14 +577,6 @@ more for the proof of concept of the current clothing system:
 	
 	Produce milk -> make nipples wet!!!
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	Instead of an item, I honestly want just a way to edit every slave to a standard version. 
 
 They come in, they are given potions that set everything how I want it, as in, they come in, I want them to cum buckets and be leaking out every hole that can leak
@@ -684,23 +614,12 @@ at that point you got the wide strokes of all the slaves handled in one fell swo
 
 this is less about patience and more about tedious tasks. granted each update I start a new game and play it though trying to fill the house up with slaves as the end goal so I may see how much of a time sink this portion is different.
 	
-	
-	
-	
-	
-	
 	Option to disable sub/dom sex
-	
-	
-	
-	
 	
 	is there maybe any chance you might consider like a "fade to black" skip sex button or something?  Hell I'd even settle for a lay back and take it option or whatever. I like losing and such cause I like forced TFs but at the same time its alot to click through for the payoff. I'll keep playing either way, just a thought though
 	
-	
 	I'd like to throw in a suggestion with the Brax encounter. If you happen to already be a wolf-morph when you first encounter him, you can seduce him for information. Alternatively, if you are not, you could end up fighting him, losing, then being forcibly transformed into his dream wolf-morph (all optional). If you return after this, despite being his dream fuck, you only have the option to fight him.
 		I think it would make sense to now have the option to seduce him, but with a bit of a penalty compared to the first 'wolf tease' option. Perhaps you have no choice but to fuck him submissively, perhaps you gain corruption, perhaps he is guaranteed to breed you from this encounter, perhaps he has addictive cum from this encounter onward, etc. It just seems like you should gain a new option you did not have before, but have to sacrifice something to exploit that option.
-	
 	
 	Tongue length, width, type
 	
@@ -753,7 +672,6 @@ this is less about patience and more about tedious tasks. granted each update I 
 	
 	a trait that helps improve the submissive suggestion rate, like where she requests anal or oral, etc. Maybe Princess or Sweet Whispers
 	
-	
 	Suggestions:
 
 Lust-inducing spells that attack willpower. I don't think that needs elaborating.
@@ -771,9 +689,6 @@ How about a perk for “Sterile", giving -100 virility to match “Barren"?
 The way gender is determined for androgynous NPCs could use some work. Presently, the only variable used is clothing, however IMO before that the game should take into account certain body features; an extreme example is an NPC I met recently with the cross-dressing and exhibitionism fetishes. Standing there topless, with crotchless chaps on, her huge breasts and pussy were fully on display, but she was wearing a masculine watch, so the game called her a man. So, as I said, IMO a character with visible breasts or an exposed pussy should be considered female, then clothing should be taken into account.
 
 Speaking of bulges showing through clothing, crotch bulges should probably take what kind of clothing into account. A package that would be completely hidden by baggy jeans would still be very obvious in a thong.
-	
-	
-	
 	
 	add a more detailed forced TF preference screen later on for sure
 	
@@ -828,7 +743,6 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 	Add large increase/decrease for hip size.
 	
 	add an option to toggle off male/female animal junk individually , I can tolerate and sometimes appreciate the occasional full furry but dog benis/vagina is too far.
-	
 	
 	 a faster pumping option than "normal fuck" that isnt "rough fuck"
 	 add another action called "fast fuck" that doesn't set a pace, but uses the current pace in its descriptions
@@ -888,15 +802,15 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 		Suggestion: counterpart to denial fetish, a blueball fetish
 		Or an edging fetish if that's too much
 			maybe it could be implemented with the slavery features, where you forbid your slave NPCs from cumming until you say otherwise
-			and maybe some hypnose item/skill that makes it so they can't cum no matter how much stimulation they go through
+			and maybe some hypnosis item/skill that makes it so they can't cum no matter how much stimulation they go through
 		I meant as in, you get pleasure from edging and getting blueballed
 		Maybe the Frustration status could get replaced for people with that fetish
 	
-	The use of the force spell would be nice for generating props durring sex. IE make a chair of force so you can have the same sorta seated sex you can have with Lilaya. Hell it would be lovely if you could even make a matress of force magic so you could have missionary.
+	The use of the force spell would be nice for generating props during sex. IE make a chair of force so you can have the same sorta seated sex you can have with Lilaya. Hell it would be lovely if you could even make a mattress of force magic so you could have missionary.
 	
 	Alexa quest variation for if taken over nests.
 
-	1)  Four main types of clothes for each slot: Plain (no bonuses), Armored (defensive bonuses), Sexy (offensive bonuses) and Bondage (heavy offensive and defensive penalties, bonus to xp).
+	1)  Four main types of clothes for each slot: Plain (no bonuses), Armoured (defensive bonuses), Sexy (offensive bonuses) and Bondage (heavy offensive and defensive penalties, bonus to xp).
 	2) (edit: this is already accepted, but here's my two cents anyway) Anal and vaginal slots. Probably in the right side alongside the piercings and etc. Anal would be mostly buttplugs and vaginal mostly dildos.
 	 There could be a plain buttplug/dildo with no bonuses, a metal one which somehow protects the hp or is "holy" and protects the willpower,
 	  a spiky/oversized one which provides bonus willpower attack and a bondage one which provides a debuff (and maybe xp bonus).
@@ -978,7 +892,6 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 		70% arousal, 'Knot them' action appears -> 'knot them' locks you into that orifice, and replaces penetrative actions with humping versions -> orgasm -> stay knotted for 4 or so more rounds
 		I guess knots could increase pregnancy chance, yeahs
 	
-	
 	horseshoes
 	sandals
 	
@@ -1009,22 +922,20 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 		I also want the option of buttoning up the jackets
 	
 	Speaking of the fast travel system and the mall, each shop should have a fast travel button back to the entrance.
-	  It's actually confusing for the player when you leave a store to realize that you've been moved to another location, but don't have a fast button to get back like in the mansion.
+	  It's actually confusing for the player when you leave a store to realise that you've been moved to another location, but don't have a fast button to get back like in the mansion.
 	  after being done with pix in the gym the fast travel comes up and its very confusing because it does nothing so you have to move manually anyway
 	
 	Midair fucking while in flight
 	
 	kind of odd when brax gives you the potion, the resist options are available. 
-	i mean, it says your being good and obident in fucking him, so, being able to resist seems a little silly
+	i mean, it says your being good and obedient in fucking him, so, being able to resist seems a little silly
 	
 	Will there be an option during sex when you have pregnancy fetish.
-		If she isnt pregnant yet you comment that you intend to "put a bun in her oven" if she is already pregnant you can tell her the look suits her or something like that. Or even just caressing her stomach when it grows enough.
+		If she isn't pregnant yet you comment that you intend to "put a bun in her oven" if she is already pregnant you can tell her the look suits her or something like that. Or even just caressing her stomach when it grows enough.
 	
 	Dark Alleyways doesn't have any random drops (abandoned packages)
 	
-	
 	I think it'd be neat for people with multiple arms to be able to have different types of arms too. At the moment, to my knowledge, the only functional wings in the game are harpy wings, and while I'm sure there's plans for larger demon wings in the makings, it would be neat to have a pair of harpy wings and regular arms too.
-	
 	
 	add scars as a cosmetic thing for characters
 	
@@ -1042,7 +953,6 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 		
 	Define custom NPCs.
 	
-	
 	One thing I think would make a good addition is if some of the clothing had effects on your body. The breast wraps say in their description that they would bind your breast, how about making them so that they lower your appeared cup size by one level. Any shoes that have heels on them could alter your height by however big the heel is. Maybe baggy pants could help disguise your bulge better than say yoga pants by one or two sizes. I think this would help with the immersion.
 	Expanding on this idea, if you are not wearing underwear, then skirts could all have a certain length that they can cover before you are exposed. Also depending on nipple and areola size, certain bras can cover more than others before you are exposed, such as a full cup bra will cover more than a plunge bra. This could also apply to shirts and dresses with low neck lines.
 	
@@ -1059,7 +969,7 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 	
 	tribadism
 	
-	Multicolor hair
+	Multicolour hair
 	
 	strapons and double ended dildos
 	
@@ -1071,7 +981,6 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 	Something as simple as the option to skip one of the fights by letting that matriarch take the credit for pacifying the others, in exchange for a different reward than the cash, a special sex scene,
 	 and that harpy's traits being more common among the random harpies would be plenty to make the quest more interesting.
 	
-	
 		I'll add some kind of way to earn arcane essences while being a pure virgin, good idea! ^^
 
 	- I like the idea of selling your body to your attacker. I'm going to add some more non-violent resolutions to those encounters, and that could be one of them!
@@ -1079,7 +988,6 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 	- I'll add an option to keep sex going while the sub, good idea!
 	
 	- The options in sex are very cluttered (and switch around a lot) at the moment. I'm going to be tidying all those up soon, and I'll split the different paces up into clearer sub-sections to make sure that there are no mis-clicks or anything. ^^
-	
 	
 	What if, fetishes had a point system, instead of one off buying? 
 
@@ -1089,14 +997,11 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 	Potential an opposite like breast repulsion (reduces willpower damage from breast seduction by 5%)
 	On another note, I'd be interested to see some more modifiers on base white gear, like crotchless panties giving willpower damage instead of damage reduction
 	
-	
 	a romance fetish that makes a small percentage of NPCs hit on you/ initiate a conversation that may or may not lead to sex. Instead of trying to attack you?
-	IE if an NPC has the fetish and they like your gender then they should skip combat/ offer conversation and consensual sex. If the PC takes the fetish that could perhaps increase the spawn rate of other romantics.
-	
+	I.E. if an NPC has the fetish and they like your gender then they should skip combat/ offer conversation and consensual sex. If the PC takes the fetish that could perhaps increase the spawn rate of other romantics.
 	
 	I'd love a Shortstack named NPC to headpat without permission. I want her to get be all tsundere about it. Lol she might love the feeling but she's so insecure about her height that she thinks you're trying to rub in how easy it is for you to pat her head.
 	And the moment she ever gets the slightest bit taller than the PC either from her growing or the PC shrinking it goes straight to her head and she starts patting the PC's head to rub in the fact that now she's taller.
-	
 	
 	Combat suggestions:
 	
@@ -1113,11 +1018,7 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 	Hmm i wonder if maybe a more extreme version of the exhibitionist fetish the nudist fetish could be added.
 		NPCs with that fetish would not wear any clothes except for basic jewlery and players with it would get a penalty for not exposing themselves enough
 	
-	
-	
 	urethra penetration sex until we cum in somone's dick (or vice versa) that could cause a status that'll like... cause any children sired to potentially be fathered by someone else
-	
-	
 	
 	Slave UI:
 	1) a overview of the slave screen that clearly shows if they are working (making money) or not. I know there is maid and all that, but it's tedious to read that when it all kind of looks the same
@@ -1126,11 +1027,7 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 	4)either a default (all slaves get this) you setup before buying them so everyone that comes in has the same permissions. 
 	5) a next and previous slave button, holy shit you have no idea how much I want one of these just to quickly check all slaves permissions and jobs. 
 	
-	beyond that, added permissions, like ability to fuck your roomate or something along those lines would be nice. but i'm assuming once base game gets done you will go in and revamp/expand much of the mechanics currently there.
-	
-	
-	
-	
+	beyond that, added permissions, like ability to fuck your roommate or something along those lines would be nice. but i'm assuming once base game gets done you will go in and revamp/expand much of the mechanics currently there.
 	
 Forced fetishes:
 	Either implemented as a separate setting and fetish, or potentially rolled into existing forced TF setting and fetish -- but I expect separate is the better choice for many reasons.
@@ -1150,23 +1047,16 @@ Make fetishes more impactful:
 	Allow fetishes to be locked in -- possibly only when they are being forced on you? -- by re-selecting the fetish when it is already present. Once locked, it can't be removed by any means, except maybe via the full reset option.
 	When engaged in combat loss sex, make it costly/hard to resist taking a fetish related action when the NPC in control is taking a related action. Perhaps taking a penalty to combat resources, or a stacking status effect to represent the psychological toll of not doing things you are compelled to do even when under the control of another person.
 	
-	
-	
-	
 	NPCs shouldn't be taking virginities when you CHOOSE to submit to them. Especially relevant with pure virgin.
 -(feature request) self-denial stuff please? :smiley: (easiest way I see is an alternative chastity set that prevents orgasms). Appropriate fetish would rock too
 --As amusing as that was, I don't think remaking your vag should completely restore pure virgin. I'd suggest reducing the potency of the buff by 25% or so and adding a mention of it, for example: "Deep down, you know it is a lie..." in italic at the end of the buff's description.
 -load times. God, the load times. They get even worse once you get very familiar with the map and start spending more time loading than playing (pretty sure load times get worse as you go too). I think fixing that should be a priority over adding features. (I wrote all this during loading breaks btw :P). I also find it amusing that loading a saved game takes significantly less time than saving, "fast" travelling or moving between locations. turns out long load times aren't normal (wish I knew, would've saved me a few hours :P). We tried to track down the issue in the dialogue below, something related to an external drive but turns out not every external drive is affected. Weird.
 -(feature request) more races. Vampires, drows, angels, reptilians, dryads, nagas, maybe even some kind of insectoids.
--I think the minimap should get bigger while travelling, at least as an optional (on by default) thing. Once you memorize the map you're good, but it's not very enjoable early on.
--Considering the daemon racial feature is being to modify their bodies at will, I do belive at least the greater daemons should be able to expand their wings and fly.
+-I think the minimap should get bigger while travelling, at least as an optional (on by default) thing. Once you memorize the map you're good, but it's not very enjoyable early on.
+-Considering the daemon racial feature is being to modify their bodies at will, I do believe at least the greater daemons should be able to expand their wings and fly.
 - (feature request) Some erogenous zone shenanigans would be cool- sensitive ears or wings would be good examples.
 	
-	
-	
-	
-	
-	Theres an information booth close to a wall with a female standing in it. Her job is to help you out with direction/information etc.
+	There's an information booth close to a wall with a female standing in it. Her job is to help you out with direction/information etc.
 If she likes you enough she will hand you a pass that allows you to get into a door just around the corner, she says "Feel free to use what you find in there, ill be waiting~"
 	
 	Once the game gets further along, it would make sense for random NPCs to have progression if the player doesn't remove them.
@@ -1187,7 +1077,6 @@ If she likes you enough she will hand you a pass that allows you to get into a d
 	By 'expand', I mean that I might (a lot later in development) make it so that performing fetish-related actions would 'level up' your fetishes into more powerful versions.
 		e.g. Performing anal actions while having the anal fetish would 'level up' your anal fetish.
 		
-		
 	Y'know what'd be nice? A way to bookmark randomly-generated characters you like. Ones that have fetishes you like, or ones that you've sunk some resources into TFing. It can be easy to forget which map square people hang out in.
 	That's a good suggestion, but it would take me a long time to implement something like that, as there are lots of other things to do first ^^(edited)
 	Perhaps have a note area in the cellphone for free-form note taking?
@@ -1198,11 +1087,8 @@ If she likes you enough she will hand you a pass that allows you to get into a d
 	1) A bit in relation to the kissing and lipstick suggestion. Perfume/Pheromones/Smells and maybe body licking (It is sometimes erotic). The perfume/pheromones/smells could have an effect both in combat and in random encounters. For example you could be secreting mating pheromones and someone might pick up on the invitation. It could cause status effects during combat.
 	2) This one would probably work better for a single specific individual but its also in relation to the idea of people coming to your house. It would concern pregnancy fetishists (or races that are really into breeding like the bunnies and rats) specifically:
 	Basically if you have a certain amount of virility, Penis+Testicle size and cum production and have sex with a pregnancy fetishist or one female member of that race but don't cum inside them they might find you again either out in the open world or at the house/camp. They would basically try to get you to have sex with them again but they make it clear they want you to finish inside. 
-	The way they try to convince you could vary depending on the personnality of the NPC, some might try to provoke you by saying you couldn't do it even if you tried all day, some might try to fan your ego, some would ask up front what they are lacking for you to be interested.
+	The way they try to convince you could vary depending on the personality of the NPC, some might try to provoke you by saying you couldn't do it even if you tried all day, some might try to fan your ego, some would ask up front what they are lacking for you to be interested.
 	You would then have choices on how to answer to them, either you can choose to "take the bait" of their provocations etc, tell them you didn't feel like it but they could try to "convince you", make the "work" for it or even don't say anything and just breed them right then and there.
-	
-	
-	
 	
 	suggestion time:
 - Runaway Slave (if you don't equip your disobedience slave with low affection, they can run away (but you can capture them later if you met them)
@@ -1212,10 +1098,10 @@ If she likes you enough she will hand you a pass that allows you to get into a d
 - Group Battle (since you make a Group Sex...)
 - Countable Wings (since 8 set of wings is much more cooler than 1 set of wing)
 - Angelic Tongue... 
-- If your PC got raped, your enemy can 'wear' you (if they have the D) as an armor... (you'll be automatically enslaved by this and in the fight you NEED to protect your master or you'll be enslaved by another guy rinse and repeat)
+- If your PC got raped, your enemy can 'wear' you (if they have the D) as an armour... (you'll be automatically enslaved by this and in the fight you NEED to protect your master or you'll be enslaved by another guy rinse and repeat)
 
 For Accessories and Clothing suggestion:
-- Wings : Front Wing Armor as Wing Accessory or Purity Seal
+- Wings : Front Wing Armour as Wing Accessory or Purity Seal
 - Hand : Boxing Glove
 - Ankle : GPS Tracker, Iron Ball
 - Anus : Butt Plug, Tail Butt Plug
@@ -1227,18 +1113,14 @@ For Accessories and Clothing suggestion:
 - Tail : Ribbon, Bell (Cat bell)
 - Main Weapon : Magic Sword/Rifle
 - Offhand : Shield/Pistol
-- Armor Set (since I like knight... ohh but with crown not full face helmet)
-	
-	
+- Armour Set (since I like knight... ohh but with crown not full face helmet)
 	
 	TF for 3 breasts in one row
-	
 	
 	I'd love to see a mind control fetish put into the game, which could do a number of things like:
 -preventing corruption gain from suggestions and using the hypnotic watch
 -when being submissive, requesting a body part to be used would involve suggestion, making sure said body part will be used regardless of partner fetish
 - if an npc has this fetish, their fluids would be 100% psychoactive and would actively use suggestions.
-	
 	
 There seems to be a bit of a lack of variety for wrist related items. Could punk wristbands be added?
 Also, since there is currently nothing for the vagina clothing slot, what about making a piece of tape similar to whats available for nipples that can be placed over it?
@@ -1247,8 +1129,4 @@ A normal belt (or gothic belt with a chain attached) could be a good addition.
 Some other clothing that would be cool would be a normal long sleeve shirt (regular T-shirt with sleeves), a variant of that with an exposed midriff, eyebrow piercings, barbell ear piercings and long-helix ear piercings, low-rise pants (low on waist), an old long military coat, and anal-beads with a similar system to the butt-plug described above.
 T-shirts and long sleeve shirt with bare midriffs sound cool. Can distressed pants be added as well?
 I really like the virgin killer sweater that you can wear as a dress with and without pants. Maybe adding another shirt/dress that can work similarly, or making already existing clothing like the ribbed sweater or the sweatshirt like that. Maybe even the T-shirt, so it can be worn like some woman dress in the morning.
-	
-	
-	
-	
 	

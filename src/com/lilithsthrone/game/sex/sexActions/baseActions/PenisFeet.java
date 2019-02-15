@@ -22,7 +22,6 @@ public class PenisFeet {
 
 	// Foot tease
 	
-	
 	public static final SexAction FOOT_JOB_DOUBLE_RECEIVING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -586,7 +585,6 @@ public class PenisFeet {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
 	
 	public static final SexAction FOOT_JOB_DOUBLE_GIVING_START = new SexAction(
 			SexActionType.START_ONGOING,

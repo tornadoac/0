@@ -50,7 +50,6 @@ public enum HairType implements BodyPartTypeInterface {
 
 	HARPY(BodyCoveringType.HAIR_HARPY, Race.HARPY);
 
-	
 	private BodyCoveringType coveringType;
 	private Race race;
 

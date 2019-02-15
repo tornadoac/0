@@ -514,7 +514,7 @@
 		[npc.Name] doesn't say anything at first, and you wonder if perhaps you've inadvertently said the wrong thing, but just as you're wondering what you should say to fix the situation, you see tears start to stream from [npc.namePos] [npc.eyes], and [npc.she] asks in a stuttering voice, [npc.speech(R-Really? Y-You're not teasing me or anything? Y-You actually... I-I mean, y-you really want me to... Y-You're o-offering me a place t-to live?!)]
 	</p>
 	<p>
-		[pc.speech(Yeah, that's right. I live over near Dominion's central plaza, and the house is filled with empty rooms, and I just can't stand seeing you living on the streets anymore. So, would you like to-)]
+		[pc.speech(Yeah, that's right. I live over near Dominion's central plaza, and the house is filled with empty rooms, and I just can't stand seeing you living on the streets any more. So, would you like to-)]
 	</p>
 	<p>
 		Before you can finish your sentence, [npc.name] rushes forwards, throwing [npc.her] [npc.arms] around you and crying into your shoulder as [npc.she] wails, [npc.speech(Yes! Thank you! Thank you so much! I-I don't know what to say! Thank you!)]
@@ -596,7 +596,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 	<htmlContent tag="TUNNEL_ATTACK_INTRO"><![CDATA[
 	<p>

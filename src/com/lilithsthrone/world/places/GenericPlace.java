@@ -210,7 +210,6 @@ public class GenericPlace implements XMLSaving {
 		return placeType.getSVGString(placeUpgrades);
 	}
 	
-	
 	// For determining where this place should be placed:
 	
 	public PlaceType getParentPlaceType() {

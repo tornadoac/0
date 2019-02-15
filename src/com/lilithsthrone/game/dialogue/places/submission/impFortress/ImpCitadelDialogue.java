@@ -948,7 +948,6 @@ public class ImpCitadelDialogue {
 					}
 				}
 				
-				
 			} else {
 				if (index == 1) {
 					return new ResponseSex("Sex",
@@ -2066,7 +2065,6 @@ public class ImpCitadelDialogue {
 		}
 	};
 
-	
 	public static final DialogueNode KEEP_AFTER_COMBAT_DEFEAT = new DialogueNode("Keep", ".", true) {
 		
 		@Override
@@ -2192,7 +2190,6 @@ public class ImpCitadelDialogue {
 
 			return null;
 			
-			
 			// Removed for now due to unexpected complexity. Will be added at some point.
 			
 //			if (index == 1) {
@@ -2302,7 +2299,6 @@ public class ImpCitadelDialogue {
 			return null;
 		}
 	};
-	
 	
 	// Kept as prisoner dialogue: TODO Come back to this and add it another time.
 

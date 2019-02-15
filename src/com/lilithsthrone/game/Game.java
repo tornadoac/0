@@ -514,7 +514,6 @@ public class Game implements XMLSaving {
 				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "NPC failure"), false);
 			}
 			
-			
 			// Ending stuff:
 			try {
 				TransformerFactory tf = TransformerFactory.newInstance();
@@ -619,7 +618,6 @@ public class Game implements XMLSaving {
 					Main.game.eventLog.add(EventLogEntry.loadFromXML(e, doc));
 				}
 				Main.game.eventLog.sort(Comparator.comparingLong(EventLogEntry::getTime));
-				
 				
 				NodeList nodes = gameElement.getElementsByTagName("slaveryEventLog");
 				Element extraEffectNode = (Element) nodes.item(0);
@@ -784,7 +782,6 @@ public class Game implements XMLSaving {
 					System.out.println("NPCs finished");
 				}
 
-				
 				// Add in new NPCS:
 				Main.game.initUniqueNPCs();
 				
@@ -945,7 +942,6 @@ public class Game implements XMLSaving {
 				}
 				
 				Main.game.pendingSlaveInStocksReset = false;
-				
 				
 				if(debug) {
 					System.out.println("New NPCs finished");
@@ -1359,7 +1355,6 @@ public class Game implements XMLSaving {
 		
 		handleAtmosphericConditions(turnTime);
 
-		
 		// Apply status effects and update all NPCs:
 		isInNPCUpdateLoop = true;
 
@@ -1722,7 +1717,6 @@ public class Game implements XMLSaving {
 				return;
 			}
 			
-			
 			if (node != null) {
 				
 				// Add characters in this scene to the player's encountered characters list:
@@ -1824,7 +1818,6 @@ public class Game implements XMLSaving {
 					Main.saveGame("AutoSave_"+Main.game.getPlayer().getName(), true);
 					Main.game.setRequestAutosave(false);
 				}
-				
 				
 				if (node.isContinuesDialogue()) {
 					currentDialogue = 
@@ -1955,7 +1948,6 @@ public class Game implements XMLSaving {
 		if (getMapDisplay() == DialogueNodeType.NORMAL) {
 			initialPositionAnchor = positionAnchor;
 		}
-		
 		
 		// Add characters in this scene to the player's encountered characters list:
 		if(started) {
@@ -2460,7 +2452,6 @@ public class Game implements XMLSaving {
 			}
 		}
 		
-		
 		float fontSize = 1;
 		String strippedTitle = UtilText.parse(response.getTitle()).replaceAll("<.*?>", "").replaceAll(UtilText.getCurrencySymbol(), "1");
 		if(strippedTitle.length()>14) {
@@ -2533,7 +2524,6 @@ public class Game implements XMLSaving {
 		Main.game.updateResponses();
 //		setResponses(currentDialogueNode, false);
 	}
-	
 	
 	public void responseNavigationDown(){
 		int maxIndex = responsePage*MainController.RESPONSE_COUNT + MainController.RESPONSE_COUNT-1;
@@ -2658,7 +2648,6 @@ public class Game implements XMLSaving {
 						+ getResponsesDiv(currentDialogueNode)
 					+ "</div>"
 				+ "</body>";
-			
 			
 		} else {
 			currentDialogue = savedDialogue;
@@ -2930,7 +2919,6 @@ public class Game implements XMLSaving {
 		} else {
 			startingDate = startingDate.plusMonths(month.getValue() - startingDate.getMonthValue());
 		}
-		
 		
 //		startingDate = LocalDateTime.of(LocalDateTime.now().getYear(), month, LocalDateTime.now().getDayOfMonth(), 00, 00).plusYears(3);
 	}
@@ -3423,7 +3411,6 @@ public class Game implements XMLSaving {
 	public boolean isPlotDiscovered() {
 		return Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN);
 	}
-	
 	
 	public boolean isRenderMap() {
 		return renderMap;

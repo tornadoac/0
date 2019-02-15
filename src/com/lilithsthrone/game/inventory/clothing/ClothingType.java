@@ -2183,7 +2183,6 @@ public class ClothingType {
 		}
 	};
 	
-	
 	public static AbstractClothingType TORSO_RIBBED_SWEATER = new AbstractClothingType(250,
 			"a",
 			false,
@@ -8593,7 +8592,6 @@ public class ClothingType {
 //		}
 //	};
 	
-	
 	// CLOTHING SETS:
 
 	// MAID:
@@ -9879,7 +9877,6 @@ public class ClothingType {
 		}
 	};
 
-	
 	public static AbstractClothingType MILK_MAID_TORSO_DRESS = new AbstractClothingType(1500,
 			"a",
 			false,
@@ -10610,7 +10607,6 @@ public class ClothingType {
 		}
 	};
 	
-	
 	public static AbstractClothingType JOLNIR_HAT = new AbstractClothingType(400,
 			"a",
 			false,
@@ -10917,7 +10913,6 @@ public class ClothingType {
 					"[npc.Name] grabs your [pc.feet] and pulls your boots off.", null, null);
 		}
 	};
-	
 	
 	public static AbstractClothingType SCIENTIST_TORSO_OVER_LAB_COAT = new AbstractClothingType(800,
 			"a",
@@ -11610,7 +11605,6 @@ public class ClothingType {
 		}
 	};
 	
-	
 	private static List<AbstractClothingType> allClothing, moddedClothingList;
 	
 	private static List<InventorySlot> coreClothingSlots, lingerieSlots;
@@ -11723,7 +11717,6 @@ public class ClothingType {
 		
 		allClothing.addAll(moddedClothingList);
 		
-		
 		// Add in external res clothing:
 		
 		dir = new File("res/clothing");
@@ -11758,8 +11751,6 @@ public class ClothingType {
 				}
 			}
 		}
-		
-		
 		
 		// Add in hard-coded clothing:
 		

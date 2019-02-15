@@ -228,7 +228,6 @@ public class OccupantDialogue {
 							}
 						};
 						
-						
 					} else {
 						return new Response("Job", UtilText.parse(occupant(),
 								hasJob()?"You've already asked [npc.name] about [npc.her] job today.":"You've already asked [npc.name] how [npc.her] job hunt is going today."), null);
@@ -480,7 +479,6 @@ public class OccupantDialogue {
 				} else  {
 					return null;
 				}
-				
 				
 			} else if(responseTab == 2) {
 				switch(index) {
@@ -943,7 +941,6 @@ public class OccupantDialogue {
 							}
 						};
 						
-						
 					} else {
 						return new Response("Job", UtilText.parse(occupant(), "You've already asked [npc.name] about [npc.her] job today."), null);
 					}
@@ -1171,7 +1168,6 @@ public class OccupantDialogue {
 					return null;
 				}
 				
-				
 			} else if(responseTab == 2) {
 				switch(index) {
 					case 1:
@@ -1382,7 +1378,6 @@ public class OccupantDialogue {
 				UtilText.nodeContentSB.append(getFooterText());
 			}
 			
-			
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -1455,9 +1450,7 @@ public class OccupantDialogue {
 		}
 	};
 	
-	
 	// MANAGEMENT DIALOGUES:
-	
 	
 	public static final DialogueNode OCCUPANT_CHOOSE_NAME = new DialogueNode("", "", true) {
 		

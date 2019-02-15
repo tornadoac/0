@@ -28,7 +28,6 @@ public enum FluidFlavour {
 			Util.newArrayListOfValues(
 					"sweet")),
 	
-	
 	BEER("beer", BaseColour.TAN,
 			Util.newArrayListOfValues(
 					"yeasty",

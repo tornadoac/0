@@ -498,10 +498,7 @@ public class Main extends Application {
 		credits.add(new CreditsSlot("Zakarin", "", 0, 0, 0, 11));
 		credits.add(new CreditsSlot("Zero_One", "", 0, 0, 1, 0));
 		
-		
-		
 		credits.sort(Comparator.comparing((CreditsSlot a) -> a.getName().toLowerCase()));
-		
 		
 		Main.primaryStage = primaryStage;
 		
@@ -758,7 +755,6 @@ public class Main extends Application {
 		properties.fontSize = size;
 		properties.savePropertiesAsXML();
 	}
-	
 	
 	public static void quickSaveGame() {
 		if (Main.game.isInCombat()) {

@@ -17,7 +17,6 @@ DONE Colour
 	fluorescent
 	striped, spotted, mottled
 	
-	
 DONE Arm
 	{Content lock} [Underarm hair]
 	[Nail polish]
@@ -155,5 +154,3 @@ DONE Vagina
 
 DONE Wing
 	[allows flight]
-
-	

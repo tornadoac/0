@@ -267,9 +267,6 @@ public class PenisBreastsCrotch {
 		
 	};
 	
-	
-
-
 	private static String getTargetedCharacterResponse(SexAction action) {
 		if(Sex.getCharacterTargetedForSexAction(action).isBreastCrotchFuckablePaizuri()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
@@ -1029,7 +1026,6 @@ public class PenisBreastsCrotch {
 				}
 			}
 			
-			
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1048,7 +1044,6 @@ public class PenisBreastsCrotch {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
 	
 	// Partner actions:
 	
@@ -1275,7 +1270,6 @@ public class PenisBreastsCrotch {
 		
 	};
 
-	
 	private static String getTargetedCharacterReceivingResponse(SexAction action) {
 		if(Sex.getCharacterPerformingAction().isBreastCrotchFuckablePaizuri()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
@@ -1844,7 +1838,6 @@ public class PenisBreastsCrotch {
 						"Letting out [npc.a_moan+], [npc.name] [npc.verb(try)] to push [npc2.name] away from [npc.herHim],"
 								+ " tears running down [npc.her] cheeks as [npc2.she] [npc2.verb(continue)] thrusting [npc2.her] [npc2.cock+] against [npc.her] torso."));
 			}
-			
 			
 			return UtilText.nodeContentSB.toString();
 		}

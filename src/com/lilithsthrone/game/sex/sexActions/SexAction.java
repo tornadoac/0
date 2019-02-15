@@ -378,7 +378,6 @@ public abstract class SexAction implements SexActionInterface {
 				}
 			}
 			
-			
 			List<SexAreaInterface> cummedInList = this.getAreasCummedIn(characterPerformingAction, characterTarget);
 			if(cummedInList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);
@@ -569,7 +568,6 @@ public abstract class SexAction implements SexActionInterface {
 			characterFetishes.get(characterPerformingAction).removeIf(f -> !characterTarget.hasVagina() && (f==Fetish.FETISH_VAGINAL_GIVING || f==Fetish.FETISH_IMPREGNATION));
 			characterFetishesForPartner.get(characterPerformingAction).removeIf(f -> !characterTarget.hasVagina() && (f==Fetish.FETISH_VAGINAL_GIVING || f==Fetish.FETISH_IMPREGNATION));
 //		}
-		
 		
 		if(characterPerformingActionFetishes) {
 			return new ArrayList<>(characterFetishes.get(characterPerformingAction));

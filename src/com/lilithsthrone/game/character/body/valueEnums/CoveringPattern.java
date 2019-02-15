@@ -34,7 +34,6 @@ public enum CoveringPattern {
 	
 	OMBRE("ombre");
 	
-	
 	public static List<CoveringPattern> allStandardCoveringPatterns = new ArrayList<>();
 	public static List<CoveringPattern> allHairCoveringPatterns = new ArrayList<>();
 	public static List<CoveringPattern> allScalesCoveringPatterns = new ArrayList<>();
@@ -64,7 +63,6 @@ public enum CoveringPattern {
 		allScalesCoveringPatterns.add(MOTTLED);
 		allScalesCoveringPatterns.add(MARKED);
 	}
-	
 	
 	private String name;
 	

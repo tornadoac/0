@@ -398,7 +398,6 @@ public class ArmType {
 		}
 	};
 	
-	
 	private static List<AbstractArmType> allArmTypes;
 	private static Map<AbstractArmType, String> armToIdMap = new HashMap<>();
 	private static Map<String, AbstractArmType> idToArmMap = new HashMap<>();

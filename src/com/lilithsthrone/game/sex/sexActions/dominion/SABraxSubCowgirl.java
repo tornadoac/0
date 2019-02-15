@@ -31,7 +31,7 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class SABraxSubCowgirl {
 
-	// TODO: This class isn't being used anymore, but I need the facesitting actions for reference for when I add that position.
+	// TODO: This class isn't being used any more, but I need the facesitting actions for reference for when I add that position.
 	
 	// Player's actions:
 
@@ -2069,6 +2069,5 @@ public class SABraxSubCowgirl {
 				return null;
 		}
 	};
-	
 	
 }

@@ -171,7 +171,6 @@ public class HarpyAttackerDialogueCompanions {
 					
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/harpyAttackCompanions", "HARPY_ATTACK_REPEAT_END", getAllCharacters()));
 
-					
 				} else { // The mugger doesn't want to attack the player:
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/harpyAttackCompanions", "HARPY_ATTACK_PEACEFUL_INTRO", getAllCharacters()));
 					

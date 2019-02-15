@@ -320,7 +320,6 @@ public class BodyChanging {
 							
 					+ CharacterModificationUtils.getHeightChoiceDiv()
 					
-					
 					+ "<div class='cosmetics-container' style='background:transparent;'>"
 					
 						+ CharacterModificationUtils.getBodySizeChoiceDiv()
@@ -350,7 +349,6 @@ public class BodyChanging {
 //							true, true)
 //				;
 
-				
 			} else if(isDemonTFMenu()) {
 				
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -400,7 +398,6 @@ public class BodyChanging {
 						+"</div>"
 						
 						+ CharacterModificationUtils.getHeightChoiceDiv()
-						
 						
 						+ "<div class='cosmetics-container' style='background:transparent;'>"
 						
@@ -472,7 +469,6 @@ public class BodyChanging {
 					+"</div>"
 							
 					+ CharacterModificationUtils.getHeightChoiceDiv()
-					
 					
 					+ "<div class='cosmetics-container' style='background:transparent;'>"
 					
@@ -767,7 +763,6 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformTongueModifiersDiv()
 						+"</div>"
 						
-							
 						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_MOUTH, "Lip & Throat colour",
 								UtilText.parse(BodyChanging.getTarget(), "The natural colour of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."),
 								true, true)
@@ -1019,7 +1014,6 @@ public class BodyChanging {
 										:UtilText.parse(BodyChanging.getTarget(), "Change the colour of [npc.her] nipples.")),
 								true, true);
 				
-				
 			} else if(isDemonTFMenu()) {
 				return "<div class='container-full-width' style='text-align:center;'>"
 						+ (BodyChanging.getTarget().isPlayer()
@@ -1057,7 +1051,6 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNippleElasticityDiv()
 							+ CharacterModificationUtils.getSelfTransformNipplePlasticityDiv()
 						+"</div>"
-						
 						
 						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES, "Nipple Colour", 
 								(BodyChanging.getTarget().isPlayer()
@@ -1348,7 +1341,6 @@ public class BodyChanging {
 										?"You can harness the power of your demonic form to change the colour of your penis."
 										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] penis.")), true, true));
 				
-				
 			} else if(isDemonTFMenu()) {
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
 						+ (BodyChanging.getTarget().isPlayer()
@@ -1516,7 +1508,6 @@ public class BodyChanging {
 										:UtilText.parse(BodyChanging.getTarget(), "Change the colour of [npc.her] nipples.")),
 								true, true);
 				
-				
 			} else if(isDemonTFMenu()) {
 				return "<div class='container-full-width' style='text-align:center;'>"
 						+ (BodyChanging.getTarget().isPlayer()
@@ -1554,7 +1545,6 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNippleCrotchElasticityDiv()
 							+ CharacterModificationUtils.getSelfTransformNippleCrotchPlasticityDiv()
 						+"</div>"
-						
 						
 						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES_CROTCH, "Nipple Colour", 
 								(BodyChanging.getTarget().isPlayer()

@@ -30,7 +30,6 @@ public class SexSlotOther {
 
 	public static final SexSlot STANDING_SUBMISSIVE_TWO = new SexSlot(STANDING_SUBMISSIVE);
 	
-	
 	/* ORAL */
 	
 	public static final SexSlot RECEIVING_ORAL = new SexSlot(
@@ -106,7 +105,6 @@ public class SexSlotOther {
 			return Sex.getTargetedPartner(target).isSizeDifferenceTallerThan(target);
 		}
 	};
-	
 	
 	/* MOUTING */
 	

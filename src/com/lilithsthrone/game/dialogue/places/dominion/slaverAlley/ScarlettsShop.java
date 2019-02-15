@@ -126,7 +126,6 @@ public class ScarlettsShop {
 		}
 	};
 	
-	
 	public static final DialogueNode ALEXAS_SHOP_EXTERIOR = new DialogueNode("Alexa's Pet Shop", ".", false) {
 
 		@Override

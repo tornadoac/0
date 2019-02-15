@@ -20,8 +20,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- ENTRANCE -->
 	
 	<htmlContent tag="ENTRANCE_RUINS"><![CDATA[
@@ -62,8 +60,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- CHALLENGE -->
 	
@@ -590,8 +586,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- COURTYARD -->
 	
 	<htmlContent tag="COURTYARD_RUINS"><![CDATA[
@@ -614,8 +608,6 @@
 	]]>
 	</htmlContent>
 	
-
-	
 	<!-- WELL -->
 	
 	<htmlContent tag="WELL_RUINS"><![CDATA[
@@ -631,9 +623,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
 	
 	<!-- CELLS -->
 	
@@ -656,8 +645,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- LABORATORY -->
 	
@@ -711,10 +698,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
 	
 	<!-- LABORATORY -->
 	
@@ -944,10 +927,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- LABORATORY_ARCANIST_SOLO_TF -->
 	
 	<htmlContent tag="LABORATORY_ARCANIST_SOLO_TF"><![CDATA[
@@ -1007,7 +986,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 	<!-- LABORATORY_ARCANIST_COMPANION_TF -->
 	
@@ -1083,7 +1061,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 	<!-- LABORATORY_ARCANIST_BOTH_TF -->
 	
@@ -1173,10 +1150,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- LABORATORY_ARCANIST_POST_SEX -->
 	
 	<htmlContent tag="LABORATORY_ARCANIST_POST_SEX_SOLO"><![CDATA[
@@ -1211,9 +1184,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
 	
 	<!-- TREASURY -->
 	
@@ -1252,9 +1222,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
 	<!-- KEEP -->
 	
 	<htmlContent tag="KEEP_DEFEATED"><![CDATA[
@@ -1280,10 +1247,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
 	
 	<!-- KEEP_ENTRY -->
 	
@@ -1368,8 +1331,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- KEEP_DEMONS_DEFEATED -->
 	
 	<htmlContent tag="KEEP_DEMONS_DEFEATED"><![CDATA[
@@ -1387,8 +1348,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_CHALLENGE -->
 	
@@ -1423,8 +1382,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_CHALLENGE_RING_TRICK -->
 	
@@ -1512,7 +1469,6 @@
 	]]>
 	</htmlContent>
 	
-	
 	<!-- KEEP_COLLAPSE_ESCAPE -->
 	
 	<!--Escape after enslaving dark siren with ring:-->
@@ -1581,8 +1537,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_AFTER_COMBAT_VICTORY -->
 	
@@ -1763,8 +1717,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- KEEP_AFTER_COMBAT_DEFEAT -->
 	
 	<htmlContent tag="KEEP_CHALLENGE_LEADER_DEFEAT"><![CDATA[
@@ -1825,8 +1777,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!--KEEP_AFTER_COMBAT_DEFEAT_POST_SEX-->
 	
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_POST_SEX"><![CDATA[
@@ -1838,8 +1788,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!--KEEP_AFTER_COMBAT_DEFEAT_NO_NON_CON_THROWN_OUT-->
 	
@@ -1862,6 +1810,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 </dialogue>

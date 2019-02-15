@@ -16,7 +16,6 @@ public enum GenderNames {
 	N_PENIS_N_VAGINA_Y_BREASTS(false, false, true, "doll", "neuter", "mannequin"),
 	N_PENIS_N_VAGINA_N_BREASTS(false, false, false, "doll", "neuter", "mannequin");
 	
-	
 	private boolean hasPenis, hasVagina, hasBreasts;
 	private String feminine, masculine, neutral;
 	

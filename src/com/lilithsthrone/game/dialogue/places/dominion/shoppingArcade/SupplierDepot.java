@@ -183,7 +183,6 @@ public class SupplierDepot {
 		}
 	};
 	
-	
 	public static final DialogueNode SUPPLIER_DEPOT_CORRIDOR = new DialogueNode("Corridor", "-", false) {
 
 		@Override

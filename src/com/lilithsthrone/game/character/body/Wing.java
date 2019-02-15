@@ -15,7 +15,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Wing implements BodyPartInterface {
 
-	
 	protected WingType type;
 	protected int size;
 	

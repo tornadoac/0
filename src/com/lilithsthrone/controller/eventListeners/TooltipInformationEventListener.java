@@ -86,7 +86,6 @@ public class TooltipInformationEventListener implements EventListener {
 	
 	private static final int LINE_HEIGHT= 16;
 
-	
 	@Override
 	public void handleEvent(Event event) {
 		Main.mainController.setTooltipSize(360, 180);
@@ -104,7 +103,6 @@ public class TooltipInformationEventListener implements EventListener {
 			}
 				
 			Main.mainController.setTooltipSize(360, 284 + (yIncrease * LINE_HEIGHT));
-			
 			
 			// Title:
 			tooltipSB.setLength(0);
@@ -213,7 +211,6 @@ public class TooltipInformationEventListener implements EventListener {
 			
 			Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
 				
-			
 		} else if (levelUpPerk != null) { // Level Up Perk (same as Perk, but with requirements at top):
 
 			int yIncrease = (levelUpPerk.getModifiersAsStringList().size() > 4 ? levelUpPerk.getModifiersAsStringList().size() - 4 : 0);
@@ -325,7 +322,6 @@ public class TooltipInformationEventListener implements EventListener {
 				}
 			}
 
-			
 			Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
 
 		} else if (fetish != null) { // Fetishes:
@@ -567,7 +563,6 @@ public class TooltipInformationEventListener implements EventListener {
 					maximumLevelValue = LustLevel.getLustLevelFromValue(owner.getAttributeValue(Attribute.LUST)).getMaximumValue();
 				}
 				
-				
 				int yIncrease = (currentAttributeStatusEffect.getModifiersAsStringList(owner).size() > 4 ? currentAttributeStatusEffect.getModifiersAsStringList(owner).size() - 4 : 0)
 						+ (owner.hasStatusEffect(currentAttributeStatusEffect)?(owner.getStatusEffectDuration(currentAttributeStatusEffect) == -1 ? 0 : 2):0);
 
@@ -678,7 +673,6 @@ public class TooltipInformationEventListener implements EventListener {
 					tooltipSB.append(getBodyPartDiv("Face", owner.getFaceRace(), owner.getFaceCovering(), owner.isFaceBestial()));
 					tooltipSB.append(getBodyPartDiv("Torso", owner.getSkinRace(), owner.getSkinCovering(), owner.isSkinBestial()));
 					
-	
 					// LESSER:
 					tooltipSB.append(getBodyPartDiv("Arms", owner.getArmRace(), owner.getArmCovering(), owner.isArmBestial()));
 					tooltipSB.append(getBodyPartDiv("Legs", owner.getLegRace(), owner.getLegCovering(), owner.isLegBestial()));
@@ -949,7 +943,6 @@ public class TooltipInformationEventListener implements EventListener {
 			Main.mainController.setTooltipSize(360, 208 + (yIncrease>0?4:0) + (yIncrease * LINE_HEIGHT));
 			
 			Main.mainController.setTooltipContent(UtilText.parse(tooltipSB.toString()));
-			
 			
 		} else { // Standard information:
 			if(description==null || description.isEmpty()) {

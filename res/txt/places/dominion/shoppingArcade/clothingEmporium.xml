@@ -150,7 +150,7 @@
 		 [pc.speech(You don't happen to have any enchanted clothing hidden away somewhere, do you, Nyan? You've got a good selection stored back here, but I was looking for something a little special.)]
 	</p>
 	<p>
-		[nyan.speech(Ah! W-Well, erm, you see, ah, I-I used to, but then they said they wouldn't be offering any, a-and they'd already driven the others away, s-so I can't really get anything like that anymore,)]
+		[nyan.speech(Ah! W-Well, erm, you see, ah, I-I used to, but then they said they wouldn't be offering any, a-and they'd already driven the others away, s-so I can't really get anything like that any more,)]
 		 Nyan blurts out, tripping over her own words in her haste to offer an explanation.
 		  [nyan.speech(S-So I'm really sorry, b-but no...)]
 	</p>

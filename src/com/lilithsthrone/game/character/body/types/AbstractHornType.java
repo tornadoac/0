@@ -148,7 +148,6 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 		return UtilText.parse(owner, hornBodyDescription);
 	}
 	
-	
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
 		return UtilText.parse(owner, hornTransformationDescription);

@@ -18,7 +18,6 @@ public enum ObedienceLevelBasic {
 	/** 30 to 100*/
 	OBEDIENT("obedient", 30, 100, Colour.AFFECTION_POSITIVE_FIVE);
 	
-	
 	private String name;
 	private int minimumValue, maximumValue;
 	private Colour colour;

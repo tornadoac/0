@@ -16,7 +16,6 @@ public enum LabiaSize {
 	THREE_LARGE(3, "large", Colour.GENERIC_SIZE_FOUR),
 	FOUR_MASSIVE(4, "massive", Colour.GENERIC_SIZE_FIVE);
 	
-	
 	private int value;
 	private String descriptor;
 	private Colour colour;

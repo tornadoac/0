@@ -585,7 +585,6 @@ public enum PlaceUpgrade {
 	
 	;
 	
-	
 	private static ArrayList<PlaceUpgrade> coreRoomUpgrades, guestRoomUpgrades, slaveQuartersUpgradesSingle, slaveQuartersUpgradesDouble, getMilkingUpgrades;
 	
 	public static ArrayList<PlaceUpgrade> getCoreRoomUpgrades() {
@@ -642,7 +641,6 @@ public enum PlaceUpgrade {
 		guestRoomUpgrades = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_EMPTY_ROOM);
 				
-				
 		slaveQuartersUpgradesSingle = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_ROOM_SERVICE,
 				
@@ -678,7 +676,6 @@ public enum PlaceUpgrade {
 				
 				PlaceUpgrade.LILAYA_EMPTY_ROOM);
 	}
-	
 	
 	private boolean isCoreRoomUpgrade;
 	

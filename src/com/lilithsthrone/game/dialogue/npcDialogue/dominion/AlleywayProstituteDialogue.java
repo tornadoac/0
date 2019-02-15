@@ -845,7 +845,7 @@ public class AlleywayProstituteDialogue {
 							+ " No such thing is on your mind, however, and you let [npc.name] take the bag from you."
 						+ "</p>"
 						+ "<p>"
-							+ "[npc.speech(I don't know what to say! Thank you! Thank you so much! With this, I won't have to loiter around in the alleys anymore!)]"
+							+ "[npc.speech(I don't know what to say! Thank you! Thank you so much! With this, I won't have to loiter around in the alleys any more!)]"
 							+ " [npc.name] sobs, crying tears of joy as [npc.she] looks up into your [pc.eyes]."
 						+ "</p>"
 						+ "<p>"

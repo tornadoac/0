@@ -103,7 +103,6 @@ public class Kate extends NPC {
 		}
 	}
 	
-	
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -523,7 +522,6 @@ public class Kate extends NPC {
 				"[npc.Name] tears open the packet and rolls the condom down the length of your [pc.penis].",
 				"[npc.Name] tears open the packet and forcefully rolls the condom down the length of your [pc.penis].", null, null);
 	}
-	
 	
 	// Dirty talk:
 

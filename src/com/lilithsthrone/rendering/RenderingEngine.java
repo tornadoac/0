@@ -112,7 +112,6 @@ public enum RenderingEngine {
 			InventorySlot.PIERCING_NIPPLE,	InventorySlot.PIERCING_STOMACH,
 			InventorySlot.PIERCING_PENIS,	InventorySlot.PIERCING_VAGINA };
 	
-	
 	private RenderingEngine() {
 	}
 
@@ -162,7 +161,6 @@ public enum RenderingEngine {
 			
 			return equippedPanelSB.toString();
 		}
-		
 		
 		Set<InventorySlot> blockedSlots = new HashSet<>();
 		
@@ -316,7 +314,6 @@ public enum RenderingEngine {
 			}
 		}
 		equippedPanelSB.append("</div>");
-		
 		
 		equippedPanelSB.append("<div class='inventory-equipped' style='width:100%;'>");
 		
@@ -616,7 +613,6 @@ public enum RenderingEngine {
 			inventorySB.append(getInventoryIconsForPage(currentPage, charactersInventoryToRender, idModifier));
 		}
 		inventorySB.append("</div>");
-		
 		
 		inventorySB.append("</div>");
 
@@ -933,9 +929,7 @@ public enum RenderingEngine {
 				uiAttributeSB.append(getCharacterPanelDiv(true, "NPC_"+character.getId()+"_", character));
 			}
 			
-			
 			uiAttributeSB.append("</div>");
-			
 			
 		} else {
 			// Name box: TODO
@@ -1106,7 +1100,6 @@ public enum RenderingEngine {
 				}
 				uiAttributeSB.append("</div>");
 				
-			
 			} else if(Main.game.isInCombat()) {
 				
 				// Name box:
@@ -1124,9 +1117,7 @@ public enum RenderingEngine {
 					uiAttributeSB.append(getCharacterPanelDiv(Combat.getEnemies().size()>1, "NPC_"+character.getId()+"_", character));
 				}
 				
-				
 				uiAttributeSB.append("</div>");
-				
 				
 			} else {
 				// Name box: TODO
@@ -1255,7 +1246,6 @@ public enum RenderingEngine {
 			}
 			uiAttributeSB.append("</div>");
 			
-			
 			// Items Present:
 			uiAttributeSB.append("<div class='attribute-container effects'>"
 								+ "<p style='text-align:center;padding:0;margin:0;'><b>Items Present</b></p>");
@@ -1317,7 +1307,6 @@ public enum RenderingEngine {
 			uiAttributeSB.append(
 					"</div>");
 						
-			
 			// Event log:
 			uiAttributeSB.append(
 					"</div>"
@@ -1767,7 +1756,6 @@ public enum RenderingEngine {
 			renderedDisabledMap = false;
 		}
 		
-		
 		mapSB.append("</div>");
 
 
@@ -2046,7 +2034,6 @@ public enum RenderingEngine {
 							idPrefix + Attribute.LUST.getName()));
 		}
 		
-		
 		// Status effects:
 		panelSB.append("<hr style='border:1px solid "+Colour.TEXT_GREY_DARK.toWebHexString()+"; margin: 2px 0;'/>"
 				+"<div class='attribute-container' style='padding:0; overflow-y: auto;'>");
@@ -2187,7 +2174,6 @@ public enum RenderingEngine {
 		return panelSB.toString();
 	}
 	
-	
 	private static boolean isLimitedSpectatorPanel(GameCharacter character) {
 		return Sex.getSexPositionSlot(character)==SexSlotBipeds.MISC_WATCHING && !character.isPlayer();
 	}
@@ -2260,7 +2246,6 @@ public enum RenderingEngine {
 							100,
 							idPrefix + Attribute.AROUSAL.getName()));
 	
-			
 			// Status effects:
 			panelSB.append("<hr style='border:1px solid "+Colour.TEXT_GREY_DARK.toWebHexString()+"; margin: 2px 0;'/>"
 					+"<div class='attribute-container' style='padding:0; overflow-y: auto;'>");

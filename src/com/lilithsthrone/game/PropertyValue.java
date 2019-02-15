@@ -51,7 +51,6 @@ public enum PropertyValue {
 	newItemDiscovered(false),
 	newRaceDiscovered(false);
 	
-	
 	private boolean defaultValue;
 
 	private PropertyValue(boolean defaultValue) {

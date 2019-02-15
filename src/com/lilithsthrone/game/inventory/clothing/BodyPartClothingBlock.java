@@ -47,5 +47,4 @@ public class BodyPartClothingBlock {
 		return requiredTags;
 	}
 	
-	
 }

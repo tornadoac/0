@@ -76,7 +76,6 @@ public class NightlifeDistrict {
 		return characters;
 	}
 
-	
 	public static List<GameCharacter> getSavedClubbers(boolean submissiveClubbers) {
 		List<GameCharacter> clubbers = new ArrayList<>(Main.game.getCharactersPresent(WorldType.EMPTY, PlaceType.GENERIC_HOLDING_CELL));
 		
@@ -2409,7 +2408,6 @@ public class NightlifeDistrict {
 		}
 	};
 
-	
 	public static final DialogueNode WATERING_HOLE_BAR_KALAHARI_TALK = new DialogueNode("The Watering Hole", "", false) {
 		
 		@Override
@@ -2802,7 +2800,6 @@ public class NightlifeDistrict {
 			return WATERING_HOLE_BAR.getResponse(responseTab, index);
 		}
 	};
-	
 	
 	public static final DialogueNode WATERING_HOLE_VIP = new DialogueNode("The Watering Hole", "", false) {
 		
@@ -3363,7 +3360,6 @@ public class NightlifeDistrict {
 								null);
 					}
 					
-					
 				} else if(index==3) {
 					if((Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true))
 							|| (Main.game.getPlayer().hasVagina() && Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true))
@@ -3383,7 +3379,6 @@ public class NightlifeDistrict {
 								"You can't get access to your mouth, genitals, or asshole, so can't service any strangers at the glory holes.",
 								null);
 					}
-					
 					
 				}
 				else {
@@ -3833,7 +3828,6 @@ public class NightlifeDistrict {
 		}
 	};
 
-	
 	private static ClubberBehaviour currentBehaviour = ClubberBehaviour.INTRODUCTION;
 	private static int turnsAtPlace = 0;
 	private static boolean buyingDrinks = true;
@@ -4118,7 +4112,6 @@ public class NightlifeDistrict {
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_"+behaviour.toString(), getClubbersPresent()));
 
 			UtilText.nodeContentSB.append(getClubberStatus(this.getMinutesPassed()));
-			
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -4919,8 +4912,6 @@ public class NightlifeDistrict {
 		}
 	};
 
-
-	
 	public static final DialogueNode WATERING_HOLE_DOM_PARTNER_TOILETS_AFTER_SEX = new DialogueNode("Toilets", "", true) {
 		
 		@Override

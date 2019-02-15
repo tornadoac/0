@@ -104,7 +104,6 @@ public class ItemEffectType {
 		}
 	};
 	
-	
 	public static AbstractItemEffectType ORIENTATION_CHANGE = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"Sets orientation to gynephilic.",
 			"[style.boldExcellent(+50)] [style.boldCorruption(corruption)]"),
@@ -364,7 +363,6 @@ public class ItemEffectType {
 			}
 		}
 	};
-	
 	
 	public static AbstractItemEffectType MOTHERS_MILK = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"Advances pregnancy."),
@@ -1052,7 +1050,6 @@ public class ItemEffectType {
 		}
 	};
 	
-	
 	public static AbstractItemEffectType PRESENT = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"Contains a random item."),
 			Colour.GENERIC_EXCELLENT) {
@@ -1723,7 +1720,6 @@ public class ItemEffectType {
 		}
 	};
 	
-	
 	// Specials:
 	
 	public static AbstractItemEffectType BIMBO_LOLLIPOP = new AbstractItemEffectType(Util.newArrayListOfValues(
@@ -1754,7 +1750,6 @@ public class ItemEffectType {
 							+ "</p>"));
 				}
 			}
-			
 			
 			// Non-racial changes
 			if(target.getFemininityValue()<95) {

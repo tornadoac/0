@@ -132,7 +132,6 @@ public class SlimeQueen extends NPC {
 			this.setFetishDesire(Fetish.FETISH_DENIAL_SELF, FetishDesire.ZERO_HATE);
 		}
 		
-		
 		// Body:
 
 		// Core:

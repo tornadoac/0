@@ -286,6 +286,4 @@ public enum ColourListPresets {
 		this.presetColourList = presetColourList;
 	}
 
-	
-	
 }

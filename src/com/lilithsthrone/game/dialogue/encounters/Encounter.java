@@ -113,7 +113,6 @@ public enum Encounter {
 		}
 	},
 	
-	
 	DOMINION_STREET(null) {
 		
 		@Override

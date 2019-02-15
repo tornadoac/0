@@ -145,7 +145,6 @@ public class SlimeQueensLair {
 									new Value<>(Main.game.getNpc(SlimeGuardFire.class), "[slimeFire.speech(Sis' and I are gonna have so much fun with you!)] [slimeFire.name] sneers, gripping his fire-enchanted sword in one hand."),
 									new Value<>(Main.game.getNpc(SlimeGuardIce.class), "[slimeIce.speech(You'll be sorry for tricking us!)] [slimeIce.name] calls out, stepping up beside her brother as she prepares to fight.")));
 					
-					
 				} else if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_FIVE_CONVINCE)?index==2:index==3) {
 					return new ResponseSex("Side-by-side",
 							"Push [slimeFire.name] and [slimeIce.name] down onto all fours, side-by-side, and get ready to fuck them.",
@@ -440,9 +439,6 @@ public class SlimeQueensLair {
 			}
 		}
 	};
-	
-	
-	
 	
 	public static final DialogueNode STAIRCASE_UP = new DialogueNode("Spiral Staircase", "", false) {
 		
@@ -835,7 +831,6 @@ public class SlimeQueensLair {
 					}
 				};
 					
-				
 			} else {
 				return null;
 			}

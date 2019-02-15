@@ -329,7 +329,6 @@ public class FingerVagina {
 		}
 	};
 	
-	
 	public static final SexAction FINGERING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -836,7 +835,6 @@ public class FingerVagina {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
 	
 	public static final SexAction FINGERED_START = new SexAction(
 			SexActionType.START_ONGOING,

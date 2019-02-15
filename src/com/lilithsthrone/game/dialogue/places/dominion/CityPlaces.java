@@ -232,7 +232,6 @@ public class CityPlaces {
 
 					UtilText.nodeContentSB.append(getRandomStreetEvent());
 					
-					
 				} else { // Storm:
 					UtilText.nodeContentSB.append("<p>"
 								+ "Although the streets of Dominion look similar to those of Victorian-era London, there's a few major differences that reveal the other-worldly nature of this place."
@@ -318,7 +317,6 @@ public class CityPlaces {
 								+ " If they catch you, they'll be sure to force you into a fight."
 							+ "</p>");
 					
-					
 				}
 			}
 			
@@ -392,7 +390,6 @@ public class CityPlaces {
 		return "";
 	}
 
-	
 	public static final DialogueNode BACK_ALLEYS = new DialogueNode("Back Alleys", "", false) {
 
 		@Override
@@ -592,7 +589,6 @@ public class CityPlaces {
 		}
 	};
 
-	
 	public static final DialogueNode DOMINION_PLAZA = new DialogueNode("Lilith's Plaza", ".", false) {
 
 		@Override

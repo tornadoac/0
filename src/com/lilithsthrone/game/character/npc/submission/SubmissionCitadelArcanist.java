@@ -359,7 +359,6 @@ public class SubmissionCitadelArcanist extends NPC {
 
 		effects.addAll(maximumEffects);
 		
-		
 		AbstractItem ingredient = AbstractItemType.generateItem(itemType);
 		AbstractItem potion = EnchantingUtils.craftItem(ingredient, effects);
 		potion.setName("Foxy Fuck");

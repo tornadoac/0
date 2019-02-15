@@ -906,8 +906,6 @@ public class ImpFortressDialogue {
 		}
 	}
 	
-	
-	
 	public static boolean isMaleBossWantingToBreed(GameCharacter character) {
 		return !character.isVisiblyPregnant() && character.hasVagina() && character.isAbleToAccessCoverableArea(CoverableArea.VAGINA, true);
 	}
@@ -997,8 +995,6 @@ public class ImpFortressDialogue {
 			}
 		};
 	}
-	
-	
 	
 	// Dialogues:
 	
@@ -1260,7 +1256,6 @@ public class ImpFortressDialogue {
 		}
 	};
 
-	
 	public static final DialogueNode GUARDS_AFTER_ORAL_FOR_ENTRY_WITH_COMPANION = new DialogueNode("Finished", ".", false) {
 
 		@Override
@@ -1300,7 +1295,6 @@ public class ImpFortressDialogue {
 		}
 	};
 
-	
 	public static final DialogueNode ENTRANCE_ELEMENTAL = new DialogueNode("Keep", ".", false, true) {
 
 		@Override
@@ -1319,7 +1313,6 @@ public class ImpFortressDialogue {
 		}
 	};
 
-	
 	public static final DialogueNode GUARDS_AFTER_COMBAT_VICTORY = new DialogueNode("Victory", ".", true) {
 
 		@Override
@@ -1922,7 +1915,6 @@ public class ImpFortressDialogue {
 					}
 				}
 
-				
 			} else if(isBossEncountered()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/fortress"+getDialogueEncounterId(), "KEEP_ENTRY_RETURN", getAllCharacters()));
 				
@@ -2031,7 +2023,6 @@ public class ImpFortressDialogue {
 							title = "Imp sex (both)";
 						}
 					}
-					
 					
 					if(!getMainCompanion().isAttractedTo(getBoss()) && !getMainCompanion().isSlave() && !(getMainCompanion() instanceof Elemental)) {
 						return new Response(title,

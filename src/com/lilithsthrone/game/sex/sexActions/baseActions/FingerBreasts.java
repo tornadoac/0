@@ -356,7 +356,6 @@ public class FingerBreasts {
 		
 	};
 	
-	
 	public static final SexAction FORCE_FEEL_BREASTS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,

@@ -26,7 +26,6 @@ import com.lilithsthrone.utils.XMLSaving;
  */
 public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving {
 	
-	
 	private String milkProvidor;
 	private FluidMilk milk;
 	private int millilitresStored;

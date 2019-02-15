@@ -65,7 +65,6 @@ public enum LustLevel {
 		}
 	};
 	
-	
 	private String name;
 	private int minimumValue, maximumValue;
 	private float arousalModifier;

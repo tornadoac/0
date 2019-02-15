@@ -197,7 +197,6 @@ public class ReindeerOverseer extends NPC {
 		return false;
 	}
 	
-	
 	// Sex:
 	
 	@Override
@@ -218,5 +217,4 @@ public class ReindeerOverseer extends NPC {
 		return ReindeerOverseerDialogue.ENCOUNTER_START;
 	}
 
-	
 }

@@ -134,7 +134,6 @@ public enum SexAreaPenetration implements SexAreaInterface {
 		}
 	};
 
-	
 	private float baseArousalWhenPenetrating;
 	private float arousalChangePenetratingDry;
 	private boolean takesVirginity;

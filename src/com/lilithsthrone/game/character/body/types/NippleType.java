@@ -51,7 +51,6 @@ public enum NippleType implements BodyPartTypeInterface {
 	
 	HARPY(Race.HARPY);
 
-	
 	private Race race;
 	private List<OrificeModifier> defaultRacialOrificeModifiers;
 

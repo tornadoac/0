@@ -54,7 +54,6 @@ public class CharactersPresentDialogue {
 				|| Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.WATERING_HOLE_VIP_AREA;
 	}
 	
-	
 	public static final DialogueNode MENU = new DialogueNode("", "", true) {
 
 		@Override
@@ -124,7 +123,6 @@ public class CharactersPresentDialogue {
 							description = "You don't know what this person looks like!";
 						}
 							
-						
 					} else if(Main.game.getPlayer().hasCompanion(charactersPresent.get(index - 1))) {
 						title = "[style.colourCompanion([npc.Name])]";
 						description = "Take a detailed look at your [style.colourCompanion(companion)], [npc.name].";

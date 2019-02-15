@@ -16,7 +16,6 @@ public enum FluidRegeneration {
 	THREE_PLUMP(3, 0.015f, "rapid", "rapidly", Colour.GENERIC_SIZE_FOUR),
 	FOUR_MAXIMUM(4, 0.05f, "very rapid", "very rapidly", Colour.GENERIC_SIZE_FIVE);
 	
-	
 	private int value;
 	private float percentageRegen;
 	private String descriptor;

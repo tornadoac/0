@@ -23,7 +23,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Breast implements BodyPartInterface {
 
-	
 	public static final int MAXIMUM_BREAST_ROWS = 5;
 	public static final int MAXIMUM_NIPPLES_PER_BREAST = 4;
 	
@@ -370,8 +369,6 @@ public class Breast implements BodyPartInterface {
 					+ "</p>");
 		}
 	}
-	
-	
 	
 	// Rows:
 	

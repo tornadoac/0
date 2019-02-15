@@ -15,7 +15,6 @@ public enum LipSize {
 	THREE_PLUMP(3, "plump", Colour.GENERIC_SIZE_FOUR),
 	FOUR_HUGE(4, "huge", Colour.GENERIC_SIZE_FIVE);
 	
-	
 	private int value;
 	private String descriptor;
 	private Colour colour;

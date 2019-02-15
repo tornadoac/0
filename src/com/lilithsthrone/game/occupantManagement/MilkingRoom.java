@@ -320,7 +320,6 @@ public class MilkingRoom implements XMLSaving {
 	private String getFluidEntries(List<FluidStored> fluids, Colour colour, String title) {
 		StringBuilder milkyMilknessSB = new StringBuilder();
 		
-		
 		boolean fluidsFound = false;
 
 		milkyMilknessSB.append("<div class='container-full-width' style='margin-bottom:2px; text-align:center;'><b style='color:"+colour.toWebHexString()+";'>"+title+"</b>");

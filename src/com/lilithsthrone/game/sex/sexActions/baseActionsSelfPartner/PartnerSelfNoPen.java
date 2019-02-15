@@ -78,8 +78,6 @@ public class PartnerSelfNoPen {
 		
 	};
 	
-	
-	
 	public static final SexAction PARTNER_STROKE_PENIS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -132,8 +130,6 @@ public class PartnerSelfNoPen {
 		}
 		
 	};
-	
-	
 	
 	public static final SexAction PARTNER_STROKE_MOUND = new SexAction(
 			SexActionType.ONGOING,
