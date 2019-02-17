@@ -68,10 +68,9 @@ public class Main extends Application {
 	public static Stage primaryStage;
 	public static String author = "Innoxia";
 
-	public static final String VERSION_NUMBER = "0.3.0.7";
+	public static final String VERSION_NUMBER = "0.3.1";
 	//public static final String VERSION_DESCRIPTION = "Alpha";
 	public static final String VERSION_DESCRIPTION = "Alpha: Another new 'Dev'elopment ";
-
 
 	/**
 	 * To turn it on, just add -Ddebug=true to java's VM options. (You should be able to do this in Eclipse through Run::Run Configurations...::Arguments tab::VM Arguments).
