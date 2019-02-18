@@ -8,17 +8,17 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum Weather {
-	
+
 	CLOUD("cloudy", Colour.GENERIC_GOOD),
-	
+
 	CLEAR("clear", Colour.GENERIC_GOOD),
-	
+
 	RAIN("raining", Colour.GENERIC_BAD),
 
 	SNOW("snowing", Colour.GENERIC_BAD),
-	
+
 	MAGIC_STORM_GATHERING("stormy sky", Colour.GENERIC_ARCANE),
-	
+
 	MAGIC_STORM("arcane storm", Colour.GENERIC_ARCANE);
 
 	private String name;

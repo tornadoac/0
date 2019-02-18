@@ -62,13 +62,13 @@ public class Tongue implements BodyPartInterface {
 	
 	public String getDescriptor(GameCharacter owner) {
 		List<String> list = new ArrayList<>();
-        
+		
 		for(TongueModifier tm : tongueModifiers) {
 			list.add(tm.getName());
 		}
 		list.add(type.getDescriptor(owner));
 		
-        return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
+		return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
 	}
 	
 	/**

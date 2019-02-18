@@ -853,5 +853,4 @@ public enum Quest {
 	public int getExperienceReward() {
 		return experienceReward;
 	}
-
 }

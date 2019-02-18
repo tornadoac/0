@@ -6,7 +6,7 @@ import com.lilithsthrone.game.inventory.item.AbstractItemType;
 
 /**
  * Compares by rarity.
- * 
+ *
  * @since 0.1.2
  * @version 0.1.84
  * @author Innoxia

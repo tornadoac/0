@@ -16,9 +16,9 @@ body{
 }
 
 div {
-    width: 100%;
+	width: 100%;
 	margin:0;
-    padding: 0;
+	padding: 0;
 	background-color: transparent;
 }
 
@@ -49,37 +49,37 @@ h1{
 	font-size:2.5em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h2{
 	font-size:2em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h3{
 	font-size:1.8em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h4{
 	font-size:1.6em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h5{
 	font-size:1.4em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h6{
 	font-size:1.2em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 .quarterContainer{
@@ -96,7 +96,7 @@ h6{
 	height:30px;
 	padding:0;
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
 	border-radius: 5px;
 	/*background-color: #333333;*/
 	-webkit-user-select: none;

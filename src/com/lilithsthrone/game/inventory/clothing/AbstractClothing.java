@@ -622,7 +622,7 @@ public abstract class AbstractClothing extends AbstractCoreItem implements XMLSa
 	
 	/**
 	 * @param withDeterminer
-	 *            True if you want the determiner to prefix the name
+	 *			True if you want the determiner to prefix the name
 	 * @return A string in the format "blue shirt" or "a blue shirt"
 	 */
 	public String getName(boolean withDeterminer) {
@@ -655,9 +655,9 @@ public abstract class AbstractClothing extends AbstractCoreItem implements XMLSa
 
 	/**
 	 * @param withRarityColour
-	 *            If true, the name will be coloured to its rarity.
+	 *			If true, the name will be coloured to its rarity.
 	 * @return A string in the format "Blue cap of frostbite" or
-	 *         "Gold circlet of anti-magic"
+	 *		 "Gold circlet of anti-magic"
 	 */
 	public String getDisplayName(boolean withRarityColour) {
 		

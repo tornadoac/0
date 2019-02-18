@@ -3,9 +3,9 @@
  <metadata>
   <rdf:RDF>
    <cc:Work rdf:about="">
-    <dc:format>image/svg+xml</dc:format>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:title/>
+	<dc:format>image/svg+xml</dc:format>
+	<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+	<dc:title/>
    </cc:Work>
   </rdf:RDF>
  </metadata>
@@ -110,9 +110,9 @@
   <g fill="none">
    <path d="m166.19 51.766 16.786 7.0108" stroke-width="1.21px"/>
    <g stroke-width=".605">
-    <path d="m145.5 36.591c-2.2664 0.35664-3.8011 2.4967-4.2667 4.2496"/>
-    <path d="m159.95 42.441c-2.2664 0.35664-3.8011 2.4967-4.2667 4.2496"/>
-    <path d="m171.92 47.479c-2.2664 0.35664-3.8011 2.4967-4.2667 4.2496"/>
+	<path d="m145.5 36.591c-2.2664 0.35664-3.8011 2.4967-4.2667 4.2496"/>
+	<path d="m159.95 42.441c-2.2664 0.35664-3.8011 2.4967-4.2667 4.2496"/>
+	<path d="m171.92 47.479c-2.2664 0.35664-3.8011 2.4967-4.2667 4.2496"/>
    </g>
    <path d="m158.18 65.884 3.351-11.089c1.3162-2.1692 3.3537-2.6245 5.3272-2.5077" stroke-width="1.21px"/>
   </g>

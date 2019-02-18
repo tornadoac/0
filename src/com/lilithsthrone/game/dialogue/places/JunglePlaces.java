@@ -15,7 +15,7 @@ public class JunglePlaces {
 
 	public static final DialogueNode PATH = new DialogueNode("Jungle path", "", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override
@@ -31,7 +31,7 @@ public class JunglePlaces {
 
 	public static final DialogueNode CLUB = new DialogueNode("Club", "A place.", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override
@@ -47,7 +47,7 @@ public class JunglePlaces {
 
 	public static final DialogueNode BROTHEL = new DialogueNode("Brothel", "A place.", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override
@@ -63,7 +63,7 @@ public class JunglePlaces {
 
 	public static final DialogueNode TENTACLE_QUEENS_LAIR = new DialogueNode("Tentacle Queen's Lair", "A place.", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override
@@ -79,7 +79,7 @@ public class JunglePlaces {
 
 	public static final DialogueNode DENSE_JUNGLE = new DialogueNode("Dense Jungle", "A place.", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override
@@ -97,7 +97,7 @@ public class JunglePlaces {
 
 	public static final DialogueNode JUNGLE_ENTRANCE = new DialogueNode("", "Travel to Dominion.", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override

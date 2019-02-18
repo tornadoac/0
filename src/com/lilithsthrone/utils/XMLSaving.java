@@ -9,7 +9,7 @@ import org.w3c.dom.Element;
  * @author Innoxia
  */
 public interface XMLSaving {
-	
+
 	/**
 	 * @param parentElement The parent element to which to save this object to.
 	 * @param doc The document to which to save this object to.
@@ -25,7 +25,7 @@ public interface XMLSaving {
 	public static <T extends Object> T loadFromXML(Element parentElement, Document doc) {
 		return loadFromXML(null, parentElement, doc);
 	}
-	
+
 	/**
 	 * @param log A StringBuilder to write a log to.
 	 * @param parentElement The parent element from which to load this object from.

@@ -19,22 +19,22 @@ public class ShopTransaction implements XMLSaving {
 		this.abstractItemSold = abstractItemSold;
 		this.price = price;
 	}
-	
+
 	//TODO
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("shopTransaction");
 		parentElement.appendChild(element);
-		
+
 //		CharacterUtils.addAttribute(doc, element, "price", String.valueOf(this.getPrice()));
-//		
+//
 //		Element innerElement = doc.createElement("item");
 //		element.appendChild(innerElement);
-//		
+//
 //		this.getAbstractItemSold().saveAsXML(innerElement, doc);
-		
+
 		return element;
 	}
-	
+
 //	public static AbstractItem loadFromXML(Element parentElement, Document doc) {
 //		return AbstractItemType.generateItem(ItemType.getIdToItemMap().get(parentElement.getAttribute("id")));
 //	}

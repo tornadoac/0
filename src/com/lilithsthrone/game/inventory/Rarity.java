@@ -15,7 +15,6 @@ public enum Rarity {
 	EPIC("epic", Colour.RARITY_EPIC),
 	LEGENDARY("legendary", Colour.RARITY_LEGENDARY),
 	QUEST("quest", Colour.RARITY_QUEST),
-	
 	JINXED("jinxed", Colour.RARITY_JINXED);
 
 	private String name;

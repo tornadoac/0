@@ -1193,12 +1193,12 @@ public class InventoryTooltipEventListener implements EventListener {
 	}
 	
 	private int getBuybackPriceFor(AbstractCoreItem item) {
-	    for (ShopTransaction s : Main.game.getPlayer().getBuybackStack()) {
-	        if (s.getAbstractItemSold() == item) {
-	            return s.getPrice();
-	        }
-	    }
-	    throw new IllegalArgumentException("That's not a buyback item");
+		for (ShopTransaction s : Main.game.getPlayer().getBuybackStack()) {
+			if (s.getAbstractItemSold() == item) {
+				return s.getPrice();
+			}
+		}
+		throw new IllegalArgumentException("That's not a buyback item");
 	}
 	
 	private static String getTooltipText(GameCharacter character, String playerText, String NPCText) {

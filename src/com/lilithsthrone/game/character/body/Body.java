@@ -5887,7 +5887,7 @@ public class Body implements XMLSaving {
 
 	/**
 	 * @param femininity
-	 *            Value to set femininity to.
+	 *			Value to set femininity to.
 	 * @return True if femininity was changed.
 	 */
 	public boolean setFemininity(int femininity) {

@@ -14,13 +14,13 @@ public class InventoryWeaponComparator implements Comparator<AbstractWeapon> {
 	@Override
 	public int compare(AbstractWeapon first, AbstractWeapon second) {
 		int result = first.getRarity().compareTo(second.getRarity());
-		
+
 		if (result != 0) {
 			return result;
-			
+
 		} else {
 			result = first.getWeaponType().toString().compareTo(second.getWeaponType().toString());
-			
+
 			if(result!=0) {
 				return result;
 			} else {

@@ -48,27 +48,27 @@
   </coreAttributes>
 
   <replacementText type="REMOVE_OR_EQUIP">
-    <self>
-      <![CDATA[[npc.Name] [npc.verb(wrap)] the leather belt around [npc.her] waist, before fastening the buckle.]]>
-    </self>
-    <other>
-      <![CDATA[[npc.Name] [npc.verb(wrap)] the leather belt around [npc2.namePos] waist, before fastening the buckle.]]>
-    </other>
-    <otherRough>
-      <![CDATA[[npc.Name] tightly [npc.verb(wrap)] the leather belt around [npc2.namePos] waist, before fastening the buckle.]]>
-    </otherRough>
+	<self>
+	  <![CDATA[[npc.Name] [npc.verb(wrap)] the leather belt around [npc.her] waist, before fastening the buckle.]]>
+	</self>
+	<other>
+	  <![CDATA[[npc.Name] [npc.verb(wrap)] the leather belt around [npc2.namePos] waist, before fastening the buckle.]]>
+	</other>
+	<otherRough>
+	  <![CDATA[[npc.Name] tightly [npc.verb(wrap)] the leather belt around [npc2.namePos] waist, before fastening the buckle.]]>
+	</otherRough>
   </replacementText>
 
   <displacementText type="REMOVE_OR_EQUIP">
-    <self>
-      <![CDATA[[npc.Name] [npc.verb(unbuckle)] [npc.her] leather belt and [npc.verb(slip)] it off.]]>
-    </self>
-    <other>
-      <![CDATA[[npc.Name] [npc.verb(unbuckle)] [bpc2.namePos] leather belt and [npc.verb(slip)] it off.]]>
-    </other>
-    <otherRough>
-      <![CDATA[[npc.Name] impatiently [npc.verb(unbuckle)] [bpc2.namePos] leather belt and [npc.verb(pull)] it off.]]>
-    </otherRough>
+	<self>
+	  <![CDATA[[npc.Name] [npc.verb(unbuckle)] [npc.her] leather belt and [npc.verb(slip)] it off.]]>
+	</self>
+	<other>
+	  <![CDATA[[npc.Name] [npc.verb(unbuckle)] [bpc2.namePos] leather belt and [npc.verb(slip)] it off.]]>
+	</other>
+	<otherRough>
+	  <![CDATA[[npc.Name] impatiently [npc.verb(unbuckle)] [bpc2.namePos] leather belt and [npc.verb(pull)] it off.]]>
+	</otherRough>
   </displacementText>
   
 </clothing>

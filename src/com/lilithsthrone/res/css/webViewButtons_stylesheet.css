@@ -10,79 +10,79 @@ html {
 	padding:0;
 }
 
-body{
+body {
 	margin:0;
 	padding:0;
 }
 
 div {
-    width: 100%;
+	width: 100%;
 	margin:0;
-    padding: 0;
+	padding: 0;
 	background-color: transparent;
 }
 
-p{
+p {
 	margin:0;
 	padding:0;
 }
 
-table{
+table {
 	width:90vw;
 	padding:0;
 	margin:0;
 	border:0;
 	border-collapse:collapse;
 }
-td{
+td {
 	font-size:1em;
 	margin:0;
 	padding:2 2 2 2;
 	/*background:#000000;*/
 }
-tr{
+tr {
 	padding:0 0 8 0;
 	margin:0;
 }
 
-h1{
+h1 {
 	font-size:2.5em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
-h2{
+h2 {
 	font-size:2em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
-h3{
+h3 {
 	font-size:1.8em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h4{
 	font-size:1.6em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
-h5{
+h5 {
 	font-size:1.4em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
-h6{
+h6 {
 	font-size:1.2em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
-.quarterContainer{
+.quarterContainer {
 	position:relative;
 	float:left;
 	width:20%;
@@ -96,11 +96,11 @@ h6{
 	height:30px;
 	padding:0;
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
 	border-radius: 5px;
 	/*background-color: #333333;*/
 	-webkit-user-select: none;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#555),
@@ -111,10 +111,10 @@ h6{
 		1px 1px 2px rgba(000,000,000,0.7),
 		0px 1px 0px rgba(000,000,000,0.4);
 }
-.button.highlight{
+.button.highlight {
 	/*background: #ffdf80;*/
 	-webkit-user-select: none;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#ffecb3),
@@ -125,23 +125,23 @@ h6{
 		1px 1px 2px rgba(000,000,000,0.7),
 		0px 1px 0px rgba(000,000,000,0.4);
 }
-.button.disabled{
+.button.disabled {
 	background:#333333;
 	cursor:default;
 }
-.button:hover{
+.button:hover {
 	background:#666666;
 	cursor:pointer;
 }
-.button.disabled:hover{
+.button.disabled:hover {
 	background:#333333;
 	cursor:default;
 }
-.button.highlight:hover{
+.button.highlight:hover {
 	background:#fff2cc;
 	cursor:pointer;
 }
-.button.highlight.disabled:hover{
+.button.highlight.disabled:hover {
 	background: #ffdf80;
 	cursor:default;
 }
@@ -155,7 +155,7 @@ h6{
 	-webkit-user-select: none;
 }
 
-.disabledLayer{
+.disabledLayer {
 	position:absolute;
 	left:0;
 	top:0;

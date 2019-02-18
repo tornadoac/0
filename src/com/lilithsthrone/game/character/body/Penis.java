@@ -92,7 +92,7 @@ public class Penis implements BodyPartInterface {
 	@Override
 	public String getDescriptor(GameCharacter owner) {
 		List<String> list = new ArrayList<>();
-        
+		
 		for(PenetrationModifier pm : penisModifiers) {
 			if(!Main.game.isInSex() && pm!=PenetrationModifier.SHEATHED) {
 				list.add(pm.getName());
@@ -124,7 +124,7 @@ public class Penis implements BodyPartInterface {
 			}
 		}
 		
-        return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
+		return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
 	}
 	
 	public String getUrethraDescriptor(GameCharacter owner) {
@@ -144,17 +144,17 @@ public class Penis implements BodyPartInterface {
 	public String getPenisHeadName(GameCharacter gc) {
 		List<String> list = new ArrayList<>();
 		list.add("head");
-        
+		
 		if(penisModifiers.contains(PenetrationModifier.TAPERED)) {
 			list.add("tip");
 		}
 		
-        return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
+		return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
 	}
 	
 	public String getPenisHeadDescriptor(GameCharacter gc) {
 		List<String> list = new ArrayList<>();
-        
+		
 		if(penisModifiers.contains(PenetrationModifier.TAPERED)) {
 			list.add("tapered");
 			list.add("pointed");
@@ -165,7 +165,7 @@ public class Penis implements BodyPartInterface {
 			list.add("flat");
 		}
 		
-        return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
+		return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
 	}
 	
 	public String setType(GameCharacter owner, PenisType type) {

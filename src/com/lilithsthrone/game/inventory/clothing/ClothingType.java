@@ -11804,7 +11804,7 @@ public class ClothingType {
 				
 			}
 		}
-//  	    System.out.println(allClothing.size());
+//  		System.out.println(allClothing.size());
 	}
 	
 	public static List<AbstractClothingType> getAllClothing() {

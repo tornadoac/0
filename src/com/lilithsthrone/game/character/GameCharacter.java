@@ -517,7 +517,7 @@ public abstract class GameCharacter implements XMLSaving {
 		mana = getAttributeValue(Attribute.MANA_MAXIMUM);
 		setLust(getRestingLust());
 		
-		//Companion initialization
+		//Companion initialisation
 		elementalID = "";
 		companions = new ArrayList<>();
 		setMaxCompanions(1);
@@ -3963,7 +3963,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	
 	/**
-	 * Called when the player does something in relation to the value and it's important to the NPC. Override for custom behavior.
+	 * Called when the player does something in relation to the value and it's important to the NPC. Override for custom behaviour.
 	 * @param source
 	 * @param moral
 	 * @param power
@@ -4167,13 +4167,13 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 
 	private Set<GameCharacter> getParents(int level, Set<GameCharacter> trace) {
-	    assert level >= 0;
+		assert level >= 0;
 
-	    if(trace != null)
+		if(trace != null)
 			trace.add(this);
 
-	    if(level == 0)
-	        return getParents();
+		if(level == 0)
+			return getParents();
 
 		HashSet<GameCharacter> result = new HashSet<>();
 		GameCharacter c;
@@ -4185,16 +4185,16 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 
 	private Set<GameCharacter> getChildren(int level, Set<GameCharacter> exclude) {
-	    assert level >= 0;
+		assert level >= 0;
 
-	    if(exclude != null && exclude.contains(this)) {
-	    	return Collections.emptySet();
-	    }
+		if(exclude != null && exclude.contains(this)) {
+			return Collections.emptySet();
+		}
 
-	    if(level == 0) {
-	        return getChildren();
-	    }
-	    
+		if(level == 0) {
+			return getChildren();
+		}
+		
 		HashSet<GameCharacter> result = new HashSet<>();
 		for(GameCharacter child : getChildren()) {
 			result.addAll(child.getChildren(level - 1, exclude));
@@ -4215,18 +4215,18 @@ public abstract class GameCharacter implements XMLSaving {
 	public Set<Relationship> getRelationshipsTo(GameCharacter character, Relationship... excludedRelationships) {
 		EnumSet<Relationship> result = EnumSet.noneOf(Relationship.class);
 
-        if(character.getParents(0, null).contains(this))
-            result.add(Relationship.Parent);
-        if(character.getParents(1, null).contains(this))
-            result.add(Relationship.GrandParent);
-        if(character.getParents(2, null).contains(this))
-            result.add(Relationship.GrandGrandParent);
-        if(character.getChildren(0, null).contains(this))
-            result.add(Relationship.Child);
-        if(character.getChildren(1, null).contains(this))
-            result.add(Relationship.GrandChild);
-        if(character.getChildren(2, null).contains(this))
-            result.add(Relationship.GrandGrandChild);
+		if(character.getParents(0, null).contains(this))
+			result.add(Relationship.Parent);
+		if(character.getParents(1, null).contains(this))
+			result.add(Relationship.GrandParent);
+		if(character.getParents(2, null).contains(this))
+			result.add(Relationship.GrandGrandParent);
+		if(character.getChildren(0, null).contains(this))
+			result.add(Relationship.Child);
+		if(character.getChildren(1, null).contains(this))
+			result.add(Relationship.GrandChild);
+		if(character.getChildren(2, null).contains(this))
+			result.add(Relationship.GrandGrandChild);
 
 		Set<GameCharacter> commonParents = character.getParents();
 		commonParents.retainAll(this.getParents());
@@ -4250,15 +4250,15 @@ public abstract class GameCharacter implements XMLSaving {
 		return result;
 	}
 
-    public String getRelationshipStrTo(GameCharacter character, Relationship... excludedRelationships) {
-	    return getRelationshipStr(getRelationshipsTo(character, excludedRelationships), getGender().getType());
-    }
+	public String getRelationshipStrTo(GameCharacter character, Relationship... excludedRelationships) {
+		return getRelationshipStr(getRelationshipsTo(character, excludedRelationships), getGender().getType());
+	}
 
-    public static String getRelationshipStr(Collection<Relationship> rel, PronounType pronounType) {
-	    return UtilText.getNaturalEnumeration(rel.stream().map(x -> x.toString(pronounType)).collect(Collectors.toList()));
-    }
+	public static String getRelationshipStr(Collection<Relationship> rel, PronounType pronounType) {
+		return UtilText.getNaturalEnumeration(rel.stream().map(x -> x.toString(pronounType)).collect(Collectors.toList()));
+	}
 
-    public boolean isRelatedTo(GameCharacter character, Relationship... excludedRelationships) {
+	public boolean isRelatedTo(GameCharacter character, Relationship... excludedRelationships) {
 		return !getRelationshipsTo(character, excludedRelationships).isEmpty();
 	}
 	
@@ -16600,7 +16600,7 @@ public abstract class GameCharacter implements XMLSaving {
 	 * <b>THIS IS NOT A FINISHED METHOD.</b> TODO
 	 * 
 	 * @return The character's weight. Weight is calculated from height and
-	 *         takes into consideration special race modifiers.
+	 *		 takes into consideration special race modifiers.
 	 */
 	public int getWeight() {
 		return body.getCalculatedWeight();

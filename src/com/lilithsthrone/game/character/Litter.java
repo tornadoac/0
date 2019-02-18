@@ -370,7 +370,7 @@ public class Litter implements XMLSaving {
 		Set<PronounType> childrenPronouns = getOffspringCharacters().stream().map(x -> x.getGender().getType()).collect(Collectors.toSet());
 		PronounType childrenPronoun = PronounType.NEUTRAL;
 		if(childrenPronouns.size() == 1) {
-		    childrenPronoun = childrenPronouns.iterator().next();
+			childrenPronoun = childrenPronouns.iterator().next();
 		}
 		
 		Set<Relationship> relFather = Collections.emptySet();

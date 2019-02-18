@@ -1,19 +1,19 @@
 .root{
-    -fx-font-size: 12pt;
+	-fx-font-size: 12pt;
 	-fx-font-family: Verdana, "DejaVu Sans", sans-serif;
-    /*-fx-font-family: "Angelina";*/
+	/*-fx-font-family: "Angelina";*/
 	-fx-background-color: "#fcfcfc";/*linear-gradient(from 0% 0% to 100% 100%, #290a1f 0%, #1a001a 100%);*/
 }
 
 .context-menu {
-    -fx-background-color: #006699;
-    -fx-text-fill: white;
-    -fx-padding: 0;
-    -fx-spacing: 0;
-    -fx-background-radius: 0; 
-    -fx-hgap: 0;
-    -fx-vgap: 0;
-    -fx-effect: dropshadow(three-pass-box, #000000, 0, 0, 0, 0);
+	-fx-background-color: #006699;
+	-fx-text-fill: white;
+	-fx-padding: 0;
+	-fx-spacing: 0;
+	-fx-background-radius: 0; 
+	-fx-hgap: 0;
+	-fx-vgap: 0;
+	-fx-effect: dropshadow(three-pass-box, #000000, 0, 0, 0, 0);
 }
 
 /*.label{
@@ -32,11 +32,11 @@
 }
 
 .menu-item .label {
-    -fx-text-fill: yellow;
+	-fx-text-fill: yellow;
 }
 
 .menu-item:focused .label {
-    -fx-text-fill: white;
+	-fx-text-fill: white;
 }
 
 .button{
@@ -48,19 +48,19 @@
 }
 .button:hover{
 	-fx-background-color: "#DDDDDD";
-    /*-fx-text-fill: "#dc17e8";*/
+	/*-fx-text-fill: "#dc17e8";*/
 	-fx-cursor: hand;
 }
 
 .vbox {
-    -fx-background-color: #fcfcfc;
+	-fx-background-color: #fcfcfc;
 }
 
 
 /* The increment and decrement button CSS class of scrollbar */
  .increment-button , .decrement-button {
 	visibility: hidden;
-    -fx-background-color:transparent;
+	-fx-background-color:transparent;
 	-fx-background-radius: 2px;
 	-fx-padding:0 -0.75em 0 -0.75em;
 }
@@ -68,7 +68,7 @@
 /* The main scrollbar **track** CSS class  */
  .scroll-bar:horizontal .track ,
  .scroll-bar:vertical .track{
-     -fx-background-color: transparent;
+	 -fx-background-color: transparent;
 	 
 	 -fx-background-radius: 2px;
 	 -fx-border-radius: 2px;
@@ -77,7 +77,7 @@
 /* The main scrollbar **thumb** CSS class which we drag every time (movable) */
  .scroll-bar:horizontal .thumb,
  .scroll-bar:vertical .thumb {
-    -fx-background-color:#999999;
+	-fx-background-color:#999999;
 	-fx-background-insets: 2, 0, 0;
 	
 	-fx-background-radius: 2px;
@@ -104,7 +104,7 @@
 }
 
 #gridPanePhone{
-    -fx-background-color: #ff8080;
+	-fx-background-color: #ff8080;
 }
 
 #anchorPaneCanvas{

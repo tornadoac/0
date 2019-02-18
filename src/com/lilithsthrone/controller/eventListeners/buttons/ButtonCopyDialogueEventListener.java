@@ -19,7 +19,7 @@ public class ButtonCopyDialogueEventListener implements EventListener {
 	@Override
 	public void handleEvent(Event event) {
 		StringSelection selection = new StringSelection(Main.game.getContentForClipboard());
-	    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-	    clipboard.setContents(selection, selection);
+		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+		clipboard.setContents(selection, selection);
 	}
 }

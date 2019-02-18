@@ -830,7 +830,7 @@ public class CharacterInventory implements XMLSaving {
 	
 	/**
 	 * @return clothing in the slot specified. Returns null if no clothing in
-	 *         that slot.
+	 *		 that slot.
 	 */
 	public AbstractClothing getClothingInSlot(InventorySlot invSlot) {
 		AbstractClothing clothingInSlot = null;
@@ -844,7 +844,7 @@ public class CharacterInventory implements XMLSaving {
 
 	/**
 	 * @return The number of clothes being worn that belong to the specified
-	 *         ClothingSet.
+	 *		 ClothingSet.
 	 */
 	public int getClothingSetCount(ClothingSet clothingSet) {
 		return clothingSetCount.get(clothingSet);

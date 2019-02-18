@@ -2198,7 +2198,7 @@ public class MainController implements Initializable {
 	 * no world exists, a new world is generated.
 	 * 
 	 * @param forward
-	 *            true if move to next world, false if move to previous world
+	 *			true if move to next world, false if move to previous world
 	 */
 	public void moveGameWorld(WorldType worldType, PlaceType placeType, boolean setDefaultDialogue) {
 		int timeToTransition = Main.game.getActiveWorld().getWorldType().getTimeToTransition();

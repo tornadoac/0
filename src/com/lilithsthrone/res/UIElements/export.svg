@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-    <g stroke="#ff8080">
-        <path fill="none" stroke-linecap="round" stroke-width="4.6815326100000005" d="M42.968 42.11l.094 6.34c.04 2.747-1.704 5.488-4.552 5.462l-26.564-.249c-2.66-.024-4.785-2.602-4.8-5.544L6.98 14.934c-.02-4.004 2.909-5.297 5.876-5.297h19.282l10.593 10.097.021 5.479"/>
-        <path fill="none" stroke-linecap="round" stroke-width="8.72641173" d="M51.448 33.846l-26.35-.135"/>
-        <path fill="#ff8080" fill-rule="evenodd" stroke-width=".9358697100000001" d="M31.236 10.158v6.086c0 2.814 2.476 4.778 4.799 4.798l6.67.059z"/>
-        <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.36812" d="M57.921 34.19l-7.508-9.283.273 17.336z"/>
-    </g>
+	<g stroke="#ff8080">
+		<path fill="none" stroke-linecap="round" stroke-width="4.6815326100000005" d="M42.968 42.11l.094 6.34c.04 2.747-1.704 5.488-4.552 5.462l-26.564-.249c-2.66-.024-4.785-2.602-4.8-5.544L6.98 14.934c-.02-4.004 2.909-5.297 5.876-5.297h19.282l10.593 10.097.021 5.479"/>
+		<path fill="none" stroke-linecap="round" stroke-width="8.72641173" d="M51.448 33.846l-26.35-.135"/>
+		<path fill="#ff8080" fill-rule="evenodd" stroke-width=".9358697100000001" d="M31.236 10.158v6.086c0 2.814 2.476 4.778 4.799 4.798l6.67.059z"/>
+		<path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.36812" d="M57.921 34.19l-7.508-9.283.273 17.336z"/>
+	</g>
 </svg>

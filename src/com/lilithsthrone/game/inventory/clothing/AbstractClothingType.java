@@ -363,7 +363,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			
 			this.isMod = true;
 
-			this.name =        coreAttributes.getMandatoryFirstOf("name").getTextContent();
+			this.name =		coreAttributes.getMandatoryFirstOf("name").getTextContent();
 			this.namePlural =  coreAttributes.getMandatoryFirstOf("namePlural").getTextContent();
 			this.description = coreAttributes.getMandatoryFirstOf("description").getTextContent();
 			this.determiner =  coreAttributes.getMandatoryFirstOf("determiner").getTextContent();
@@ -372,11 +372,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				System.out.println("4");
 			}
 			
-			this.plural =             Boolean.valueOf(coreAttributes.getMandatoryFirstOf("namePlural").getAttribute("pluralByDefault"));
-			this.baseValue =          Integer.valueOf(coreAttributes.getMandatoryFirstOf("value").getTextContent());
+			this.plural =			 Boolean.valueOf(coreAttributes.getMandatoryFirstOf("namePlural").getAttribute("pluralByDefault"));
+			this.baseValue =		  Integer.valueOf(coreAttributes.getMandatoryFirstOf("value").getTextContent());
 			this.physicalResistance = Integer.valueOf(coreAttributes.getMandatoryFirstOf("physicalResistance").getTextContent());	
-			this.slot =       		  InventorySlot.valueOf(coreAttributes.getMandatoryFirstOf("slot").getTextContent());
-			this.rarity =             Rarity.valueOf(coreAttributes.getMandatoryFirstOf("rarity").getTextContent());
+			this.slot =	   		  InventorySlot.valueOf(coreAttributes.getMandatoryFirstOf("slot").getTextContent());
+			this.rarity =			 Rarity.valueOf(coreAttributes.getMandatoryFirstOf("rarity").getTextContent());
 
 			this.femininityRestriction = Femininity.valueOf(coreAttributes.getMandatoryFirstOf("femininity").getTextContent());
 			setUpFemininity(this.femininityRestriction);

@@ -6,17 +6,17 @@ package com.lilithsthrone.game.character;
  * @author Innoxia
  */
 public class SexCount {
-	
+
 	private int sexConsensualCount;
 	private int sexAsSubCount;
 	private int sexAsDomCount;
-	
+
 	public SexCount() {
 		sexConsensualCount = 0;
 		sexAsSubCount = 0;
 		sexAsDomCount = 0;
 	}
-	
+
 	public int getSexConsensualCount() {
 		return sexConsensualCount;
 	}

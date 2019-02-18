@@ -28,11 +28,11 @@ public class Vector2i {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
+
 	public static float getDistance(Vector2i point1, Vector2i point2) {
 		return (float) Math.sqrt(Math.pow(point1.getX()-point2.getX(), 2) + Math.pow(point1.getY()-point2.getY(), 2));
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(o instanceof Vector2i){
@@ -43,7 +43,7 @@ public class Vector2i {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 17;
@@ -51,7 +51,7 @@ public class Vector2i {
 		result = 31 * result + y;
 		return result;
 	}
-	
+
 	public boolean equals (int x, int y) {
 		return this.x==x && this.y==y;
 	}

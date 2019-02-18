@@ -22,26 +22,26 @@ public enum SexualOrientationPreference {
 
 	private String name;
 	private int value;
-	
+
 	private SexualOrientationPreference(String name, int value) {
 		this.name= name;
 		this.value=value;
 	}
-	
+
 	public static SexualOrientation getSexualOrientationFromUserPreferences(int gynephilicWeight, int ambiphilicWeight, int androphilicWeight) {
 		Map<SexualOrientation, Integer> orientationPreferencesMap = new HashMap<>();
 		orientationPreferencesMap.put(SexualOrientation.GYNEPHILIC, Main.getProperties().orientationPreferencesMap.get(SexualOrientation.GYNEPHILIC) * gynephilicWeight);
 		orientationPreferencesMap.put(SexualOrientation.AMBIPHILIC, Main.getProperties().orientationPreferencesMap.get(SexualOrientation.AMBIPHILIC) * ambiphilicWeight);
 		orientationPreferencesMap.put(SexualOrientation.ANDROPHILIC, Main.getProperties().orientationPreferencesMap.get(SexualOrientation.ANDROPHILIC) * androphilicWeight);
-		
+
 		SexualOrientation orientation = Util.getRandomObjectFromWeightedMap(orientationPreferencesMap);
-		
+
 		if(orientation!=null) {
 			return orientation;
 		}
 		return SexualOrientation.AMBIPHILIC;
 	}
-	
+
 	public int getValue() {
 		return value;
 	}

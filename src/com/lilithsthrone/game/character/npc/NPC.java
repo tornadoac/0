@@ -1928,7 +1928,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		
 		}
 		
-		// map of top -> bottom paired fetishes; NPCs with a paired fetish will greatly favor 
+		// map of top -> bottom paired fetishes; NPCs with a paired fetish will greatly favour 
 		// giving the player it's pair, and remove that fetish if there is a match
 		Map<Fetish, Fetish> pairedFetishMap = new HashMap<>();
 
@@ -2387,7 +2387,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_STRUTTER, "You've got legs that don't quit -- you really ought to use them");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_STRUTTER, "Maybe focus a bit more on what's above your waist -- or at least around the hips?");
 		
-		// Behavioral
+		// Behavioural
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DOMINANT, "Don't you think you deserve to be the one in charge?");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_DOMINANT, "You're really not as intimidating as you think.");
 		
@@ -2427,7 +2427,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL, "The only thing better than coming is telling your partner they can't, right?");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL, "If they're willing to fuck you, at least let them come once in a while.");
 		
-		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL_SELF, "Where's the fun in coming right away? Wouldn't you rather savor the experience?");
+		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL_SELF, "Where's the fun in coming right away? Wouldn't you rather savour the experience?");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL_SELF, "What's the point if you aren't getting off?");
 		
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_VOYEURIST, "Sometimes it's just fun to watch, isn't it?");
@@ -2437,7 +2437,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_EXHIBITIONIST, "Not everyone wants to see what you've got to offer.");
 		
 
-		// Behavioral unpaired
+		// Behavioural unpaired
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_BIMBO, "I think it's time you embraced your inner braindead slut.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_BIMBO, "Maybe have just a little self respect?");
 		
@@ -2450,7 +2450,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_INCEST, "You know it wouldn't be a taboo if it wasn't at least a little bit fun.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_INCEST, "You what? Gross.");
 		
-		// Behavioral transformative
+		// Behavioural transformative
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_TRANSFORMATION_GIVING, "You strike me as someone who should be an agent of change.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_TRANSFORMATION_GIVING, "You should really just let people be who they are.");
 		

@@ -566,9 +566,9 @@ public class Main extends Application {
 			Alert a = new Alert(AlertType.ERROR, "Unable to find the 'data' folder. Saving and error logging is disabled.\nMake sure that you've extracted the game from the zip file, and that the file has write permissions.\nContinue?",
 					ButtonType.YES, ButtonType.NO);
 			a.showAndWait().ifPresent(response -> {
-			     if (response == ButtonType.NO) {
-			         System.exit(1);
-			     }
+				 if (response == ButtonType.NO) {
+					 System.exit(1);
+				 }
 			 });
 		}
 	}
