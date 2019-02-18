@@ -56,7 +56,6 @@ public class PartnerSelfTailNipple {
 					
 					"[npc.Name] eagerly thrusts [npc.her] [npc.tail+] deep into a needy [npc.nipple], letting out a series of [npc.moans+] as [npc.she] starts tail-fucking [npc.her] own [npc.breasts]."));
 			
-		
 			switch (Main.game.getPlayer().getBreastStoredMilk()) {
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(" A small trickle of [npc.milk] leaks out around [npc.her] [npc.tail].");

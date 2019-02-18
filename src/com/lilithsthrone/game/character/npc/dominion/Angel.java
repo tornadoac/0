@@ -217,7 +217,6 @@ public class Angel extends NPC {
 
 	}
 	
-	
 	@Override
 	public boolean isUnique() {
 		return true;

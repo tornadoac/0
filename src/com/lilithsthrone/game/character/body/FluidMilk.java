@@ -24,7 +24,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class FluidMilk implements FluidInterface {
 
-	
 	protected FluidType type;
 	protected FluidFlavour flavour;
 	protected List<FluidModifier> fluidModifiers;

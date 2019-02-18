@@ -197,9 +197,6 @@ public class SlaverAlleyDialogue {
 		}
 	}
 	
-	
-	
-	
 	public static final DialogueNode OUTSIDE = new DialogueNode("Slaver Alley", "-", false) {
 		
 		@Override
@@ -914,8 +911,6 @@ public class SlaverAlleyDialogue {
 		}
 	}
 	
-	
-
 	private static String getImportRow(String name) {
 		String baseName = name.substring(0, name.lastIndexOf('.'));
 		return "<tr>"

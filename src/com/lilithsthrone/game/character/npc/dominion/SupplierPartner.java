@@ -110,7 +110,6 @@ public class SupplierPartner extends NPC {
 			this.setFetishDesire(Fetish.FETISH_ORAL_GIVING, FetishDesire.ONE_DISLIKE);
 		}
 		
-		
 		// Body:
 		this.setBody(Gender.M_P_MALE, Subspecies.DOG_MORPH_DOBERMANN, RaceStage.GREATER);
 

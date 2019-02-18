@@ -315,7 +315,6 @@ public class ClothingEmporium {
 					}
 				}
 				
-				
 				if (index == 0) {
 					return new Response("Leave", "Tell Nyan that you've got to get going.", EXTERIOR) {
 						@Override
@@ -330,7 +329,6 @@ public class ClothingEmporium {
 				} else {
 					return null;
 				}
-				
 				
 			} else if(responseTab==0) {
 				if (index == 1) {

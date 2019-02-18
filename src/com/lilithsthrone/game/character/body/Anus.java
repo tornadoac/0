@@ -20,7 +20,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Anus implements BodyPartInterface {
 
-	
 	// Asshole variables:
 	protected AnusType type;
 	protected OrificeAnus orificeAnus;

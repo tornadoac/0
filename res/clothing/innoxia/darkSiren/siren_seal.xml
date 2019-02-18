@@ -56,7 +56,6 @@
 		<itemTags/>
 	</coreAttributes>
 
-	
   <replacementText type="REMOVE_OR_EQUIP">
     <self>
       <![CDATA[[npc.Name] [npc.verb(hook)] the eyepatch's straps around [npc.her] [npc.ears], before positioning the pad over [npc.her] [npc.eye].]]>

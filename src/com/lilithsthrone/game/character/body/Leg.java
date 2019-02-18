@@ -58,7 +58,6 @@ public class Leg implements BodyPartInterface {
 					+ "</p>");
 		}
 
-		
 		this.footStructure = footStructure;
 		
 		StringBuilder sb = new StringBuilder();

@@ -295,7 +295,6 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 				}
 				this.itemTags = defaultItemTags;
 				
-				
 				this.isMod = true;
 				
 				this.baseValue = Integer.valueOf(coreAttributes.getElementsByTagName("value").item(0).getTextContent());
@@ -402,7 +401,6 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 				} catch(Exception ex) {
 					System.err.println("AbstractWeaponType loading failed. Cause: 'missDescriptions' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
 				}
-				
 				
 				List<Colour> importedPrimaryColours = new ArrayList<>();
 				try {
@@ -799,8 +797,6 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			}
 		}
 	}
-
-
 
 	public boolean isAbleToBeUsed(GameCharacter user, GameCharacter target) {
 		if(this.getArcaneCost()>0) {

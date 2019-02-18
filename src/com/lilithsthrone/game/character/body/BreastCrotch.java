@@ -187,7 +187,6 @@ public class BreastCrotch implements BodyPartInterface {
 							+ " and [npc.she] can't help but let out a surprised gasp as they quickly swell out into [npc.crotchBoobsSize] [npc.crotchBoobs]."
 						+ "<br/>");
 			
-			
 		} else {
 			UtilText.transformationContentSB.append(
 					"<p>"
@@ -197,7 +196,6 @@ public class BreastCrotch implements BodyPartInterface {
 						+ " After just a moment, the transformation ends, leaving [npc.herHim] with [npc.totalNipples] new nipples."
 						+ "<br/>");
 		}
-		
 		
 		// Parse existing content before transformation:
 		String s = UtilText.parse(owner, UtilText.transformationContentSB.toString());
@@ -393,8 +391,6 @@ public class BreastCrotch implements BodyPartInterface {
 		}
 	}
 	
-	
-	
 	// Rows:
 	
 	public int getRows() {
@@ -427,7 +423,6 @@ public class BreastCrotch implements BodyPartInterface {
 								+ " rapidly shrink away and [style.boldShrink(disappear)] into the [npc.skin] of [npc.her] stomach.<br/>"
 								+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(rows) + " pair"+ (rows > 1 ? "s" : "") + " of [npc.crotchBoobs])]!" 
 							+ "</p>");
-			
 			
 		} else if (rows > getRows()) {
 				transformation = UtilText.parse(owner,
@@ -481,7 +476,6 @@ public class BreastCrotch implements BodyPartInterface {
 								+ " and [npc.she] [npc.verb(continue)] [npc.moaning] as some of them [style.boldShrink(shrink)] into the flesh of [npc.her] [npc.crotchBoobs].<br/>"
 							+ "[npc.Name] now has [style.boldSex("+ Util.intToString(nippleCountPerBreast) + " "+ (nippleCountPerBreast > 1 ? "[npc.nipples]" : "[npc.nipple]") + " on each of [npc.her] [npc.crotchBoobs])]!" 
 						+ "</p>");
-			
 			
 		} else if (nippleCountPerBreast > getNippleCountPerBreast()) {
 				transformation = UtilText.parse(owner,

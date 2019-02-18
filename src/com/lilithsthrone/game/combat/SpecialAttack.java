@@ -653,7 +653,6 @@ public enum SpecialAttack {
 
 						"[npc.Name] [npc.verb(grin)] at [npc2.name] as [npc.she] [npc.moanVerb], [npc.speech(You're going to love the feeling of my cock!)]")));
 				
-			
 			return applySpecialSeduction(caster, target, Fetish.FETISH_PENIS_RECEIVING, attackText);
 
 		}
@@ -730,7 +729,6 @@ public enum SpecialAttack {
 
 						"[npc.Name] [npc.verb(grin)] at [npc2.name] as [npc.she] [npc.moanVerb], [npc.speech(Crawl over here and kiss my feet!)]")));
 				
-			
 			return applySpecialSeduction(caster, target, Fetish.FETISH_FOOT_RECEIVING, attackText);
 
 		}
@@ -917,8 +915,6 @@ public enum SpecialAttack {
 		}
 	},
 	
-	
-
 	TEASE_BREASTS_OTHERS(50,
 			"breasts lover tease",
 			"fetish_generic",
@@ -1518,7 +1514,6 @@ public enum SpecialAttack {
 		}
 	},
 	
-	
 	TEASE_DOMINANT(50, "dominant tease", "fetish_generic", Colour.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
@@ -1699,8 +1694,6 @@ public enum SpecialAttack {
 			return owner.hasFetish(Fetish.FETISH_SUBMISSIVE);
 		}
 	},
-	
-	
 	
 	//TODO need NPC-on-NPC variants
 	/*
@@ -2280,8 +2273,6 @@ public enum SpecialAttack {
 
 			descriptionSB.append(target.incrementLust(damage, true));
 		}
-		
-		
 		
 		Combat.setCooldown(caster, this, this.getCooldown()+1);
 		

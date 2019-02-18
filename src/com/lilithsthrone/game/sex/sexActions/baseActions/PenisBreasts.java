@@ -294,7 +294,6 @@ public class PenisBreasts {
 		
 	};
 	
-	
 	public static final SexAction FUCKING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -522,9 +521,6 @@ public class PenisBreasts {
 		
 	};
 	
-	
-
-
 	private static String getTargetedCharacterResponse(SexAction action) {
 		if(Sex.getCharacterTargetedForSexAction(action).isBreastFuckablePaizuri()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
@@ -1312,7 +1308,6 @@ public class PenisBreasts {
 				}
 			}
 			
-			
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1331,7 +1326,6 @@ public class PenisBreasts {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
 	
 	// Partner actions:
 	
@@ -1556,7 +1550,6 @@ public class PenisBreasts {
 		
 	};
 
-	
 	private static String getTargetedCharacterReceivingResponse(SexAction action) {
 		if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
@@ -2149,7 +2142,6 @@ public class PenisBreasts {
 						"Letting out [npc.a_moan+], [npc.name] [npc.verb(try)] to push [npc2.name] away from [npc.herHim],"
 								+ " tears running down [npc.her] cheeks as [npc2.she] [npc2.verb(continue)] thrusting [npc2.her] [npc2.cock+] against [npc.her] torso."));
 			}
-			
 			
 			return UtilText.nodeContentSB.toString();
 		}

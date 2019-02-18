@@ -77,7 +77,6 @@ public class SlaveImport extends NPC {
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR), true, this);
 			this.getClothingInSlot(InventorySlot.NECK).setSealed(true);
 			
-			
 			this.clearAffectionMap();
 			this.setObedience((float) Math.round((-25+(Math.random()*50))));
 			

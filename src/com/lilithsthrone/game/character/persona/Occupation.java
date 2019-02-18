@@ -97,7 +97,6 @@ public enum Occupation {
 	
 	NPC_FITNESS_INSTRUCTOR(Perk.JOB_MISC, "fitness instructor", "-", OccupationTag.HAS_PREREQUISITES),
 	
-	
 	// Commanding personality:
 	
 	NPC_MUGGER(Perk.JOB_MUGGER, "mugger", "[npc.NameIsFull] a mugger, and [npc.verb(make)] a living by stealing other people's possessions.", OccupationTag.LOWLIFE),
@@ -125,7 +124,6 @@ public enum Occupation {
 	NPC_ARCHITECT(Perk.JOB_MISC, "architect", "-", OccupationTag.HAS_PREREQUISITES),
 	
 	NPC_DOCTOR(Perk.JOB_MISC, "doctor", "-", OccupationTag.HAS_PREREQUISITES),
-	
 	
 	// Calm personality:
 
@@ -186,8 +184,6 @@ public enum Occupation {
 	
 	NPC_MODEL(Perk.JOB_MISC, "model", "-"),
 	
-	
-	
 	// Player histories:
 
 	UNEMPLOYED(Perk.JOB_UNEMPLOYED,
@@ -243,7 +239,6 @@ public enum Occupation {
 			return !character.isFeminine();
 		}
 	};
-	
 	
 	private static List<Occupation> historiesList;
 	

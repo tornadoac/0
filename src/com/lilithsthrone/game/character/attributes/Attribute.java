@@ -560,7 +560,6 @@ public enum Attribute {
 	}
 	;
 
-	
 	private int baseValue;
 	private	int lowerLimit;
 	private	int upperLimit;

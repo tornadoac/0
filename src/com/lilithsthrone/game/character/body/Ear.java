@@ -14,7 +14,6 @@ import com.lilithsthrone.main.Main;
  */
 public class Ear implements BodyPartInterface {
 
-	
 	protected EarType type;
 	protected boolean pierced;
 

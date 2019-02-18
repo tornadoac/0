@@ -173,7 +173,6 @@ public class Vicky extends NPC {
 		}
 	}
 
-	
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -211,7 +210,6 @@ public class Vicky extends NPC {
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
 			this.addFetish(Fetish.FETISH_NON_CON_DOM);
 		}
-		
 		
 		// Body:
 

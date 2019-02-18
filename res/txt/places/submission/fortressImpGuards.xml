@@ -219,8 +219,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- GUARDS_AFTER_ORAL_FOR_ENTRY -->
 	
 	<htmlContent tag="GUARDS_AFTER_ORAL_FOR_ENTRY"><![CDATA[
@@ -247,8 +245,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- ENTRANCE_DEMONIC_COMMAND -->
 	
 	<htmlContent tag="ENTRANCE_DEMONIC_COMMAND"><![CDATA[
@@ -272,8 +268,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- GUARDS_AFTER_COMBAT_VICTORY -->
 	
@@ -358,8 +352,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- GUARDS_AFTER_COMBAT_DEFEAT -->
 	
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_THROWN_OUT"><![CDATA[
@@ -433,8 +425,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- GUARDS_AFTER_SEX_VICTORY -->
 	
 	<htmlContent tag="GUARDS_AFTER_SEX_VICTORY"><![CDATA[
@@ -449,8 +439,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- AFTER_DEFEAT_SEX -->
 	

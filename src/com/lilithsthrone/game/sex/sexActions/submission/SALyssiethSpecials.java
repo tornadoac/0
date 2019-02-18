@@ -322,7 +322,6 @@ public class SALyssiethSpecials {
 		}
 	};
 	
-	
 	// STAGE 2
 	public static boolean specialActionTriggered = false; // OK to use this and not reset it, as the game can't be saved mid-sex, and this sex scene is only ever used once.
 	

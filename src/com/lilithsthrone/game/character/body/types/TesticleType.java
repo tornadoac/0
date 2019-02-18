@@ -48,7 +48,6 @@ public enum TesticleType implements BodyPartTypeInterface {
 
 	BAT_MORPH(BodyCoveringType.PENIS, FluidType.CUM_BAT_MORPH, Race.BAT_MORPH, false);
 
-	
 	private BodyCoveringType skinType;
 	private FluidType fluidType;
 	private Race race;

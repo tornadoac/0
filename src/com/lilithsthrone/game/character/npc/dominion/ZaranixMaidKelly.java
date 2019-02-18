@@ -127,7 +127,6 @@ public class ZaranixMaidKelly extends NPC {
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 		}
 		
-		
 		// Body:
 		// Add full body reset as this method is called after leaving Zaranix's house:
 		this.setAgeAppearanceDifferenceToAppearAsAge(18);

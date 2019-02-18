@@ -20,12 +20,10 @@ import com.lilithsthrone.utils.Util;
  */
 public class Testicle implements BodyPartInterface {
 
-	
 	public static final int MIN_TESTICLE_COUNT = 2;
 	public static final int MAX_TESTICLE_COUNT = 8;
 
 	public static final int MINIMUM_VALUE_FOR_ALL_CUM_TO_BE_EXPELLED = 5; //ml
-	
 	
 	protected TesticleType type;
 	protected int testicleSize;

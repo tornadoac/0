@@ -23,7 +23,6 @@ public enum Hand {
 	EIGHT_PAIR(8, "Pair", "22415", "Two dice of the same value."),
 	NINE_RUNT(9, "Runt", "13456", "All dice of different values.");
 	
-	
 	private int ranking;
 	private String name;
 	private String example;

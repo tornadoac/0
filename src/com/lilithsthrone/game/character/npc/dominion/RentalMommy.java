@@ -140,7 +140,6 @@ public class RentalMommy extends NPC {
 			this.addTrait(Perk.FETISH_BROODMOTHER);
 		}
 		
-		
 		// Body:
 
 		// Core:
@@ -277,5 +276,4 @@ public class RentalMommy extends NPC {
 		return RentalMommyDialogue.ENCOUNTER;
 	}
 
-	
 }

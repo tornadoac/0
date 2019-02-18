@@ -175,7 +175,6 @@ public class DarkSiren extends NPC {
 			this.addFetish(Fetish.FETISH_VOYEURIST);
 		}
 		
-		
 		// Body:
 		this.setSubspeciesOverride(Subspecies.HALF_DEMON);
 		this.setHalfDemonSubspecies(Subspecies.HUMAN);
@@ -302,8 +301,6 @@ public class DarkSiren extends NPC {
 		}//
 		return "#D397C5";//C374B1";
 	}
-	
-	
 	
 	@Override
 	public boolean isUnique() {

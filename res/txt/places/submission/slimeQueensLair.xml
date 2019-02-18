@@ -185,8 +185,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<htmlContent tag="GUARD_POST_TALK"><![CDATA[
 	<p>
 		Curious about the #IFgame.isIncestEnabled()#THENslime siblings'#ELSEslimes'#ENDIF history, and how they came to serve the Slime Queen, you decide to ask them about it. [pc.speech(So, how did you two end up working here?)]
@@ -721,9 +719,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
 	<htmlContent tag="BED_CHAMBER"><![CDATA[
 	<p>
 		Unlike all of the other doors that you've passed so far, the one at the end of this corridor is painted a soft shade of pink, and hanging from the handle, a little sign reads; 'Her Majesty's Room; Do not disturb!'. 
@@ -842,7 +837,7 @@
 		[slimeQueen.speech(Yes, I will, but there's a little problem. I don't really have any way to contact my subjects, and I've distributed quite a few of those canisters by now. I won't make any more, but I don't think your problem's going to disappear any time soon...)]
 	</p>
 	<p>
-		[pc.speech(Fine. At least there's not going to be any more encouragement from you from now on.)] You sigh. [pc.speech(Now, I'm going to need some proof for the enforcers that you won't be a problem anymore.)]
+		[pc.speech(Fine. At least there's not going to be any more encouragement from you from now on.)] You sigh. [pc.speech(Now, I'm going to need some proof for the enforcers that you won't be a problem any more.)]
 	</p>
 	<p>
 		[slimeQueen.speech(Hmm, you can have this, I guess,)] Catherine says, taking off her crown and throwing it to you. [slimeQueen.speech(It's kind of uncomfortable to wear, so I was thinking of getting rid of it anyway.)]
@@ -882,7 +877,7 @@
 		[slimeQueen.speech(~Mhmm~ T-That's right.)] Catherine giggles, sliding her free hand down to rub at her exposed pussy. [slimeQueen.speech(I-I spend all day in that bath, drinking water and letting my body convert it into more of my yummy slime! The distillery downstairs splits the transformative and non-transformative parts, and that's how we make Slime Quencher!)]
 	</p>
 	<p>
-		[pc.speech(Enough,)] you snap, tightening your grip as you continue, [pc.speech(I'm going to need some proof for the enforcers that you won't be a problem anymore.)]
+		[pc.speech(Enough,)] you snap, tightening your grip as you continue, [pc.speech(I'm going to need some proof for the enforcers that you won't be a problem any more.)]
 	</p>
 	<p>
 		[slimeQueen.speech(M-My crown...)] Catherine mutters, dropping her head down a little. [slimeQueen.speech(A-As a sign of my submission, y-you should take my crown.)]
@@ -1100,7 +1095,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 </dialogue>

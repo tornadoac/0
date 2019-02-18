@@ -188,7 +188,6 @@ public enum Race {
 			FurryPreference.NORMAL,
 			true),
 
-	
 	 REINDEER_MORPH("reindeer-morph",
 			"reindeer",
 			Colour.RACE_REINDEER_MORPH,

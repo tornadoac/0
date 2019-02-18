@@ -195,5 +195,3 @@ public class Pattern {
 // Thigh high socks
 // Knee high socks
 // Tshirt
-
-

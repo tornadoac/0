@@ -905,7 +905,6 @@ public class ConChairBottom {
 		
 	};
 	
-	
 	public static final SexAction PARTNER_RIDE_PLAYERS_COCK = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1019,7 +1018,6 @@ public class ConChairBottom {
 		}
 		
 	};
-	
 	
 	public static final SexAction PARTNER_RIDE_ANAL_PLAYERS_COCK = new SexAction(
 			SexActionType.START_ONGOING,
@@ -1138,7 +1136,6 @@ public class ConChairBottom {
 		
 	};
 	
-	
 	public static final SexAction PARTNER_GET_PEGGED = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -1206,7 +1203,6 @@ public class ConChairBottom {
 					+ " [npc.Her] [npc.legs] shudder, and [npc.she] grips down tightly on your [pc.tail] for a moment, [npc.moaning] in pleasure as you start thrusting it in and out of [npc.her] [npc.pussy+].";
 		}
 	};
-	
 	
 	// Player actions:
 
@@ -2163,10 +2159,6 @@ public class ConChairBottom {
 					"With a little [pc.moan], you start rhythmically bucking your [pc.ass] back against [npc.name], helping [npc.herHim] to fill your [pc.asshole+] with [npc.her] [npc.cock+] as you smile up at [npc.herHim].");
 		}
 	};
-	
-
-	
-	
 	
 	public static final SexAction PLAYER_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,

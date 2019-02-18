@@ -45,7 +45,6 @@ public enum Gender {
 	N_B_DOLL(GenderNames.N_PENIS_N_VAGINA_Y_BREASTS, PronounType.NEUTRAL, Colour.ANDROGYNOUS, ContentPreferenceValue.ZERO_NONE),
 	N_NEUTER(GenderNames.N_PENIS_N_VAGINA_N_BREASTS, PronounType.NEUTRAL, Colour.ANDROGYNOUS, ContentPreferenceValue.ZERO_NONE);
 
-	
 	private GenderNames name;
 	private Colour colour;
 	private PronounType type;

@@ -21,7 +21,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Tongue implements BodyPartInterface {
 
-	
 	protected TongueType type;
 	protected Set<TongueModifier> tongueModifiers;
 	protected int tongueLength;

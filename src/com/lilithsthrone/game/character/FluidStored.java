@@ -142,7 +142,6 @@ public class FluidStored implements XMLSaving {
 		
 	}
 	
-	
 	public String getCharactersFluidID() {
 		return charactersFluidID;
 	}

@@ -28,7 +28,6 @@ public enum HipSize {
 	
 	SEVEN_ABSURDLY_WIDE("absurdly wide", 7, Colour.GENERIC_SIZE_EIGHT);
 
-	
 	private String descriptor;
 	private int size;
 	private Colour colour;

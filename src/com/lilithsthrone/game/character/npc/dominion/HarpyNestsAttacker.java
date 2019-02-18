@@ -57,7 +57,6 @@ public class HarpyNestsAttacker extends NPC {
 			// Set random level from 2 to 5:
 			setLevel(Util.random.nextInt(4) + 2);
 			
-			
 			// RACE & NAME:
 			if(this.hasPenis()) {
 				if(this.hasBreasts()) {

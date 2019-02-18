@@ -303,8 +303,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- GUARDS_AFTER_ORAL_FOR_ENTRY -->
 	
 	<htmlContent tag="GUARDS_AFTER_ORAL_FOR_ENTRY"><![CDATA[
@@ -369,10 +367,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- ENTRANCE_DEMONIC_COMMAND -->
 	
 	<htmlContent tag="ENTRANCE_DEMONIC_COMMAND"><![CDATA[
@@ -396,8 +390,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- GUARDS_AFTER_COMBAT_VICTORY -->
 	
@@ -608,10 +600,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- GUARDS_AFTER_COMBAT_DEFEAT -->
 	
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_THROWN_OUT"><![CDATA[
@@ -721,10 +709,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- GUARDS_AFTER_SEX_VICTORY -->
 	
 	<htmlContent tag="GUARDS_AFTER_SEX_VICTORY"><![CDATA[
@@ -739,10 +723,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
 	
 	<!-- AFTER_DEFEAT_SEX -->
 	
@@ -762,10 +742,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- COURTYARD -->
 	
 	<htmlContent tag="COURTYARD"><![CDATA[
@@ -784,8 +760,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP -->
 	
@@ -824,8 +798,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_ENTRY -->
 	
@@ -1280,11 +1252,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
-	
 	<!-- KEEP_ALPHA_BRAWLER -->
 	
 	<htmlContent tag="KEEP_ALPHA_BRAWLER"><![CDATA[
@@ -1471,13 +1438,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
-	
-	
-	
 	
 	<!-- KEEP_AUDIENCE -->
 	
@@ -1685,12 +1645,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
-	
-	
 	<!-- KEEP_AFTER_SEX_AUDIENCE -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE"><![CDATA[
@@ -1719,9 +1673,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
 	<!-- KEEP_AFTER_JOINING_GAIN_KEY -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE_KEY"><![CDATA[
@@ -1733,12 +1684,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
-	
-	
 	
 	<!-- KEEP_AFTER_COMBAT_VICTORY -->
 	
@@ -2019,7 +1964,6 @@
 	]]>
 	</htmlContent>
 	
-	
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GIVE_TO_COMPANION"><![CDATA[
 	<p>
 		Wanting [npc.name] to have some fun with [npc2.name] and [npc2.her] imps before you let them go, you tell [npc.herHim] to fuck them in front of you. [npc2.Name] lets out a surprisingly erotic moan as [npc2.she] hears this, before thrusting [npc2.her] [npc2.hips] towards your companion. [npc2.speech(Oh yeah, come on then, suck my cock!)]
@@ -2111,11 +2055,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
-	
 	
 	<!-- KEEP_AFTER_COMBAT_DEFEAT -->
 	
@@ -2448,11 +2387,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
-	
 	<!-- KEEP_AFTER_SEX_PACIFIED -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_PACIFIED_WITH_COMPANION"><![CDATA[
@@ -2481,9 +2415,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
 	<!-- KEEP_AFTER_SEX_VICTORY -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_VICTORY"><![CDATA[
@@ -2508,8 +2439,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_AFTER_SEX_DEFEAT -->
 	
@@ -2592,6 +2521,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
 	
 </dialogue>

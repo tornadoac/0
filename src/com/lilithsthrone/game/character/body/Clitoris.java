@@ -17,7 +17,6 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
  */
 public class Clitoris implements BodyPartInterface {
 
-	
 	protected int clitSize;
 	protected int girth;
 	protected Set<PenetrationModifier> clitModifiers;

@@ -310,7 +310,6 @@ public class PenisNipple {
 		}
 	};
 	
-	
 	public static final SexAction PENIS_FUCKING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -816,8 +815,6 @@ public class PenisNipple {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
-	
 	
 	public static final SexAction USING_PENIS_START = new SexAction(
 			SexActionType.START_ONGOING,

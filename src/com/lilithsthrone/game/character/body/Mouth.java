@@ -19,7 +19,6 @@ import com.lilithsthrone.main.Main;
  */
 public class Mouth implements BodyPartInterface {
 
-	
 	protected MouthType type;
 	protected OrificeMouth orificeMouth;
 	protected int lipSize;

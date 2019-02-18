@@ -49,7 +49,6 @@ public class SexSlotBipeds {
 			"[npc1.Name] [npc1.verb(brace)] [npc1.herself] on all fours, letting out [npc1.a_moan+] as [npc1.she] [npc1.verb(prepare)] to reach [npc1.her] climax.",
 			false);
 	
-	
 	/**The partner who's behind the doggy-style target. They are kneeling or standing (SD); and can perform vaginal or anal penetration.*/
 	public static final SexSlot DOGGY_BEHIND = new SexSlot(
 			"Kneeling behind",
@@ -364,7 +363,6 @@ public class SexSlotBipeds {
 		}
 	};
 	
-	
 	/**Size difference. The partner who's on top of the doggy-style target. They are humping them, and can perform anal penetration.*/
 	public static final SexSlot DOGGY_SD_HUMPING = new SexSlot(
 			"Humping",
@@ -413,9 +411,6 @@ public class SexSlotBipeds {
 		}
 	};
 	
-	
-	
-	
 	/* Back to wall */
 	
 	public static final SexSlot BACK_TO_WALL_AGAINST_WALL = new SexSlot(
@@ -444,7 +439,6 @@ public class SexSlotBipeds {
 			"pinning against wall",
 			"[npc1.Name] [npc1.verb(press)] [npc1.herself] into [npc2.namePos] back, letting out [npc1.a_moan+] as [npc1.she] [npc1.verb(prepare)] to reach [npc1.her] climax.",
 			true);
-	
 	
 	/* Cowgirl */
 	
@@ -1074,7 +1068,6 @@ public class SexSlotBipeds {
 			"[npc1.Name] [npc1.verb(reach)] up and [npc1.verb(place)] a [npc1.hand] on one of [npc2.namePos] [npc2.legs], before letting out [npc1.a_moan+] as [npc1.she] [npc1.verb(prepare)] to reach [npc1.her] climax.",
 			false);
 	
-	
 	public static final SexSlot FACE_TO_WALL_AGAINST_WALL_SHOWER_PIX = new SexSlot(
 			"Facing wall",
 			"facing wall",
@@ -1087,7 +1080,6 @@ public class SexSlotBipeds {
 			"[npc1.Name] [npc1.verb(press)] [npc1.herself] into [npc2.namePos] back, letting out [npc1.a_moan+] as [npc1.she] [npc1.verb(prepare)] to reach [npc1.her] climax.",
 			true);
 	
-	
 	public static final SexSlot HAND_SEX_DOM_ROSE = new SexSlot(
 			"Standing",
 			"hand sex (dominant)",
@@ -1099,7 +1091,6 @@ public class SexSlotBipeds {
 			"hand sex (submissive)",
 			"[npc1.Name] [npc1.verb(look)] into [npc2.namePos] [npc2.eyes+] and [npc1.verb(let)] out [npc1.a_moan+] as [npc1.she] [npc1.verb(reach)] [npc1.her] climax.",
 			true);
-	
 	
 	public static final SexSlot MISSIONARY_DESK_SUB = new SexSlot(
 			"Lying on desk",
@@ -1125,7 +1116,6 @@ public class SexSlotBipeds {
 			"[npc1.Name] [npc1.verb(look)] down into [npc2.namePos] [npc2.eyes] and [npc1.verb(let)] out [npc1.a_moan+] as [npc1.she] [npc1.verb(prepare)] to reach [npc1.her] climax.",
 			true);
 	
-	
 	public static final SexSlot MATING_PRESS_BOTTOM = new SexSlot(
 			"On back",
 			"mating pressed",
@@ -1138,8 +1128,6 @@ public class SexSlotBipeds {
 			"Looking down into [npc2.namePos] [npc2.eyes] and pressing [npc.her] weight down on top of [npc2.herHim], [npc.name] [npc1.verb(let)] out [npc1.a_moan+] as [npc1.she] [npc1.verb(prepare)] to reach [npc1.her] climax.",
 			false);
 	
-	
-
 	public static final SexSlot KNEELING_RECEIVING_ORAL_CULTIST = new SexSlot(
 			"Standing",
 			"receiving oral",

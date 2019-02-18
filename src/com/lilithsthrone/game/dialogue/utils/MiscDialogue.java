@@ -19,7 +19,6 @@ public class MiscDialogue {
 	
 	private static StringBuilder descriptionSB = new StringBuilder();
 	
-	
 	public static final DialogueNode STATUS_EFFECTS = new DialogueNode("Important status effect updates", "", true) {
 
 		@Override

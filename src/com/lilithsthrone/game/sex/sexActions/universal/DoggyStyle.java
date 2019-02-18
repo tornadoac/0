@@ -315,7 +315,6 @@ public class DoggyStyle {
 		
 	};
 	
-	
 	// Player's orgasms:
 	
 	public static final SexAction PLAYER_DOGGY_OVER_BACK_ORGASM = new SexAction(
@@ -721,7 +720,6 @@ public class DoggyStyle {
 		
 	};
 
-	
 	public static final SexAction LOOK_BACK = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.ONE_MINIMUM,

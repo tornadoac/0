@@ -160,7 +160,6 @@ public class Cultist extends NPC {
 		colours.add(Colour.CLOTHING_BLACK);
 		Colour witchColour = colours.get(Util.random.nextInt(colours.size()));
 		
-		
 		List<AbstractClothingType> clothingChoices = new ArrayList<>();
 		
 		clothingChoices.add(ClothingType.GROIN_CROTCHLESS_PANTIES);
@@ -419,7 +418,6 @@ public class Cultist extends NPC {
 			return new Response ("", "", CultistDialogue.ENCOUNTER_CHAPEL_COMBAT_LOSS);
 		}
 	}
-	
 	
 	// ****************** Sex & Dirty talk: ***************************
 	

@@ -893,7 +893,6 @@ public class WeaponType {
 			null,
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
 		
-		
 		@Override
 
 		public String getDescription() {
@@ -1085,7 +1084,6 @@ public class WeaponType {
 		}
 		
 		allweapons.addAll(moddedWeapons);
-		
 		
 		// Add in external res clothing:
 		

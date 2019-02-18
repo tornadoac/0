@@ -30,7 +30,6 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class KneelingOral {
 
-	
 	public static final SexAction TWINTAIL_PULL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,

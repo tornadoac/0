@@ -11,14 +11,12 @@ public enum DialogueFlagValue {
 	stormTextUpdateRequired,
 	hasSnowedThisWinter,
 	
-	
 	// Essence reactions:
 	jinxedClothingDiscovered,
 	essencePostCombatDiscovered,
 	essenceOrgasmDiscovered,
 	essenceBottledDiscovered,
 
-	
 	// Misc.:
 	foundHappiness,
 	visitedSubmission,
@@ -28,7 +26,6 @@ public enum DialogueFlagValue {
 	gymIntroduced,
 	gymHadTour,
 	gymIsMember,
-	
 	
 	// Introductions:
 	angelIntroduced,
@@ -46,10 +43,8 @@ public enum DialogueFlagValue {
 	eponaIntroduced,
 	elizabethIntroduced,
 	
-	
 	// Red-light district:
 	prostitutionLicenseObtained,
-	
 	
 	// Shopping arcade:
 	nyanTalkedTo,

@@ -18,7 +18,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Ass implements BodyPartInterface {
 
-	
 	protected AbstractAssType type;
 	protected int assSize;
 	protected int hipSize;

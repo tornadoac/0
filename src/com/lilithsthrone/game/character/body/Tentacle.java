@@ -14,7 +14,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Tentacle implements BodyPartInterface {
 
-	
 	protected TentacleType type;
 	protected int tentacleCount;
 

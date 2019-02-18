@@ -136,7 +136,6 @@ public class Body implements XMLSaving {
 
 	private boolean takesAfterMother = true;
 	
-	
 	public static class BodyBuilder implements Builder<Body> {
 		// Required parameters:
 		private final Arm arm;
@@ -434,9 +433,6 @@ public class Body implements XMLSaving {
 		updateCoverings(true, true, true, true);
 	}
 	
-	
-	
-	
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		// Core:
@@ -590,7 +586,6 @@ public class Body implements XMLSaving {
 			
 		this.breastCrotch.milk.saveAsXML(parentElement, doc);
 		
-		
 		// Ear:
 		Element bodyEar = doc.createElement("ear");
 		parentElement.appendChild(bodyEar);
@@ -638,7 +633,6 @@ public class Body implements XMLSaving {
 				CharacterUtils.addAttribute(doc, tongueModifiers, tm.toString(), String.valueOf(this.face.tongue.hasTongueModifier(tm)));
 			}
 			
-		
 		// Hair:
 		Element bodyHair = doc.createElement("hair");
 		parentElement.appendChild(bodyHair);
@@ -697,7 +691,6 @@ public class Body implements XMLSaving {
 		
 		this.penis.testicle.cum.saveAsXML(parentElement, doc);
 		
-		
 		// Skin:
 		Element bodySkin = doc.createElement("skin");
 		parentElement.appendChild(bodySkin);
@@ -755,7 +748,6 @@ public class Body implements XMLSaving {
 			
 		this.vagina.girlcum.saveAsXML(parentElement, doc);
 			
-		
 		// Wing:
 		Element bodyWing = doc.createElement("wing");
 		parentElement.appendChild(bodyWing);
@@ -767,7 +759,6 @@ public class Body implements XMLSaving {
 		return parentElement;
 	}
 
-	
 	private void setBodyCoveringForXMLImport(BodyCoveringType bct, CoveringPattern pattern, CoveringModifier modifier, Colour primary, boolean primaryGlow, Colour secondary, boolean secondaryGlow) {
 		this.getCoverings().put(bct, new Covering(bct, pattern, modifier, primary, primaryGlow, secondary, secondaryGlow));
 	}
@@ -818,9 +809,6 @@ public class Body implements XMLSaving {
 		} catch(Exception ex) {	
 		}
 		
-		
-		
-		
 		// **************** Antenna **************** //
 		
 		Element antennae = (Element)parentElement.getElementsByTagName("antennae").item(0);
@@ -830,7 +818,6 @@ public class Body implements XMLSaving {
 
 		importedAntenna.rows = Integer.valueOf(antennae.getAttribute("rows"));
 		CharacterUtils.appendToImportLog(log, "<br/>rows: "+importedAntenna.getAntennaRows());
-		
 		
 		// **************** Arm **************** //
 		
@@ -1069,8 +1056,6 @@ public class Body implements XMLSaving {
 				+ "<br/>type: "+importedEar.getType()
 				+ "<br/>pierced: "+importedEar.isPierced());
 
-		
-		
 		// **************** Eye **************** //
 		
 		Element eye = (Element)parentElement.getElementsByTagName("eye").item(0);
@@ -1103,7 +1088,6 @@ public class Body implements XMLSaving {
 				+ "<br/>pairs: "+importedEye.getEyePairs()
 				+ "<br/>iris shape: "+importedEye.getIrisShape()
 				+ "<br/>pupil shape: "+importedEye.getPupilShape());
-		
 		
 		// **************** Face **************** //
 	
@@ -1170,7 +1154,6 @@ public class Body implements XMLSaving {
 			tongueModifiers.clear();
 			handleLoadingOfModifiers(TongueModifier.values(), log, tongueModifiersElement, tongueModifiers);
 			
-			
 		// **************** Hair **************** //
 		
 		Element hair = (Element)parentElement.getElementsByTagName("hair").item(0);
@@ -1198,7 +1181,6 @@ public class Body implements XMLSaving {
 				+ "<br/>length: "+importedHair.getLength()
 				+ "<br/>hairStyle: "+importedHair.getStyle());
 
-		
 		// **************** Horn **************** //
 		Element horn = (Element)parentElement.getElementsByTagName("horn").item(0);
 		
@@ -1254,8 +1236,6 @@ public class Body implements XMLSaving {
 					+ "<br/>rows: "+importedHorn.getHornRows());
 		}
 		
-		
-			
 		// **************** Leg **************** //
 		
 		Element leg = (Element)parentElement.getElementsByTagName("leg").item(0);
@@ -1277,7 +1257,6 @@ public class Body implements XMLSaving {
 		
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Body: Leg: "
 				+ "<br/>type: "+importedLeg.getType());
-		
 		
 		// **************** Penis **************** //
 		
@@ -1368,7 +1347,6 @@ public class Body implements XMLSaving {
 				+ "<br/>testicleSize: "+importedPenis.testicle.getTesticleSize()
 				+ "<br/>internal: "+importedPenis.testicle.isInternal());
 		
-		
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Cum:");
 		
 		importedPenis.testicle.cum = FluidCum.loadFromXML(parentElement, doc, importedPenis.getType().getTesticleType().getFluidType());
@@ -1376,7 +1354,6 @@ public class Body implements XMLSaving {
 			importedPenis.testicle.cum.type = importedPenis.getType().getTesticleType().getFluidType();
 		}
 
-		
 		// **************** Skin **************** //
 		
 		Element skin = (Element)parentElement.getElementsByTagName("skin").item(0);
@@ -1402,7 +1379,6 @@ public class Body implements XMLSaving {
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Body: Skin: "
 				+ "<br/>type: "+importedSkin.getType());
 
-		
 		// **************** Tail **************** //
 		
 		Element tail = (Element)parentElement.getElementsByTagName("tail").item(0);
@@ -1415,7 +1391,6 @@ public class Body implements XMLSaving {
 				+ "<br/>type: "+importedTail.getType()
 				+ "<br/>count: "+importedTail.getTailCount());
 
-		
 		// **************** Tentacle **************** //
 		
 		try {
@@ -1526,7 +1501,6 @@ public class Body implements XMLSaving {
 				+ "<br/>type: "+importedWing.getType()+"<br/>"
 				+ "<br/>size: "+importedWing.getSizeValue()+"<br/>");
 		
-		
 		Body body = new Body.BodyBuilder(
 				importedArm,
 				importedAss,
@@ -1577,7 +1551,6 @@ public class Body implements XMLSaving {
 				CharacterUtils.appendToImportLog(log, "<br/>pubic hair: OLD_VALUE - Set to NONE");
 			}
 		}
-		
 		
 		NodeList bodyCoverings = element.getElementsByTagName("bodyCovering");
 		for(int i = 0; i < bodyCoverings.getLength(); i++){
@@ -2168,7 +2141,6 @@ public class Body implements XMLSaving {
 			sb.append(", and [npc.scleraPrimaryColour(true)] sclerae.");
 		}
 		
-		
 		// Eye makeup:
 		if(owner.getEyeLiner().getPrimaryColour()!=Colour.COVERING_NONE) {
 			if(owner.isPlayer()) {
@@ -2366,7 +2338,6 @@ public class Body implements XMLSaving {
 			}
 		}
 		
-		
 		// Tongue & blowjob:
 		if (owner.isPlayer()) {
 			sb.append(" Your mouth holds [pc.a_tongueLength], [pc.tongueColour(true)] [pc.tongue]"+ (face.getTongue().isPierced() ? ", which has been pierced." : "."));
@@ -2403,7 +2374,6 @@ public class Body implements XMLSaving {
 				}
 			}
 		}
-		
 		
 		if (owner.isPlayer()) {
 			if (face.getMouth().getOrificeMouth().isVirgin()) {
@@ -2654,7 +2624,6 @@ public class Body implements XMLSaving {
 		}
 		sb.append("</p>");
 
-		
 		// Describe body:
 		
 		sb.append("<p>");
@@ -2698,7 +2667,6 @@ public class Body implements XMLSaving {
 						+ "<span style='color:"+ Muscle.valueOf(getMuscle()).getColour().toWebHexString() + ";'>" +Muscle.valueOf(getMuscle()).getName(false) + "</span>"
 							+ " body, giving [npc.herHim] <span style='color:"+ owner.getBodyShape().toWebHexStringColour() + ";'>[npc.a_bodyShape]</span> body shape.");
 		
-		
 		// Pregnancy:
 		if(owner.hasStatusEffect(StatusEffect.PREGNANT_1)){
 			sb.append(" [npc.Her] belly is slightly swollen, and it's clear to anyone who takes a closer look that <span style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc.sheIs] pregnant</span>.");
@@ -2711,8 +2679,6 @@ public class Body implements XMLSaving {
 					+ " <span style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc.sheIs] expecting to give birth very soon</span>.");
 		}
 		sb.append("</p>");
-		
-		
 		
 		// Breasts:
 		
@@ -2803,7 +2769,6 @@ public class Body implements XMLSaving {
 			}
 		}
 
-		
 		// Arms and legs:
 
 		sb.append("<p>");
@@ -2888,7 +2853,6 @@ public class Body implements XMLSaving {
 
 		sb.append("</p>");
 
-		
 		// Legs:
 		sb.append("<p>");
 		switch(owner.getLegConfiguration()) {
@@ -2971,7 +2935,6 @@ public class Body implements XMLSaving {
 		}
 		
 		sb.append("</p>");
-		
 		
 		// Wing:
 		if(wing.getType()!=WingType.NONE) {
@@ -3317,7 +3280,6 @@ public class Body implements XMLSaving {
 			}
 		}
 		
-		
 		// Ass & hips:
 		sb.append("<p>"
 				+ "[npc.Her] [npc.hips+] and [npc.assSize] [npc.ass] are"
@@ -3362,8 +3324,6 @@ public class Body implements XMLSaving {
 					+ "</p>");
 		}
 		
-		
-		
 		if(!owner.isPlayer()) {
 			sb.append(getSexDetails(owner));
 			sb.append(getPregnancyDetails(owner));
@@ -3379,7 +3339,6 @@ public class Body implements XMLSaving {
 		}
 	}
 
-	
 	/** To be called after every transformation. Returns the body's race. */
 	public void calculateRace(GameCharacter target) {
 		
@@ -5572,7 +5531,6 @@ public class Body implements XMLSaving {
 				}
 			}
 		}
-		
 		
 		if (isPlayer && !owner.isVaginaUrethraVirgin()) {
 			for(SexAreaPenetration pt : SexAreaPenetration.values()) {

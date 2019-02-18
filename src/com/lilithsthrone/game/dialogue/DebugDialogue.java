@@ -684,7 +684,6 @@ public class DebugDialogue {
 			}
 			inventorySB.append("</div>");
 			
-			
 			return inventorySB.toString();
 		}
 
@@ -796,10 +795,6 @@ public class DebugDialogue {
 			}
 		}
 	};
-	
-	
-	
-	
 	
 	public static final DialogueNode CLOTHING_COLLAGE = new DialogueNode("Clothing collage", "Clothing collage.", false) {
 		/**
@@ -956,7 +951,6 @@ public class DebugDialogue {
 					+ "</p>"
 					+ "<br/>"
 					
-					
 					+"<h6><b style='color:"+Colour.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>Target</b> <b>tag:</b></h6>"
 					+"<p>"
 					+"The target of a command is an NPC's name, or 'pc' for the player character. Target tags are <b>case-insensitive.</b> (i.e. pc is treated the same as PC, pC, or Pc)<br/>"
@@ -968,7 +962,6 @@ public class DebugDialogue {
 					+ "[<i style='color:"+Colour.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>npc</i>.command]"
 					+ "</p>"
 					+ "<br/>"
-					
 					
 					+"<h6><b style='color:"+Colour.CLOTHING_PINK_LIGHT.toWebHexString()+";'>Command</b> <b>and</b> <b style='color:"+Colour.CLOTHING_YELLOW.toWebHexString()+";'>argument</b> <b>tags:</b></h6>"
 					+"<p>"
@@ -1332,7 +1325,6 @@ public class DebugDialogue {
 			return true;
 		}
 	};
-	
 	
 	public static final DialogueNode POST_SEX_2KOMA = new DialogueNode("", "", true) {
 		@Override

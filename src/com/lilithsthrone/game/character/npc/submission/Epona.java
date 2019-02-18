@@ -122,7 +122,6 @@ public class Epona extends NPC {
 			this.addTrait(Perk.FETISH_SEEDER);
 		}
 		
-		
 		// Body:
 
 		// Core:

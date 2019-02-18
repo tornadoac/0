@@ -96,7 +96,6 @@ public class PlayerSelfFingerCrotchNipple {
 		
 	};
 	
-	
 	public static final SexAction PLAYER_SELF_FINGER_NIPPLE_CROTCH_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -128,7 +127,6 @@ public class PlayerSelfFingerCrotchNipple {
 					"You moan and squeal as you start eagerly fingering your nipple-cunts.",
 					"With a lewd cry, you sink your digits into your inviting nipple-cunts, panting heavily as you start eagerly fingering yourself."));
 			
-		
 			switch (Main.game.getPlayer().getBreastCrotchStoredMilk()) {
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(" A small trickle of [pc.crotchMilk] leaks out around your fingertips.");

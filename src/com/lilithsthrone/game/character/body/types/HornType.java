@@ -167,7 +167,6 @@ public class HornType {
 			"[npc.HornsDeterminer] [npc.hornColour(true)], straight #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
-	
 	private static List<AbstractHornType> allHornTypes;
 	private static Map<AbstractHornType, String> hornToIdMap = new HashMap<>();
 	private static Map<String, AbstractHornType> idToHornMap = new HashMap<>();

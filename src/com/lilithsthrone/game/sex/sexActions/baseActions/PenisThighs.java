@@ -534,7 +534,6 @@ public class PenisThighs {
 		}
 	};
 	
-	
 	public static final SexAction USING_COCK_BETWEEN_THIGHS_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,

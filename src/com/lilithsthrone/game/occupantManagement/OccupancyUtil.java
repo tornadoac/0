@@ -116,7 +116,6 @@ public class OccupancyUtil implements XMLSaving {
 		}
 	}
 	
-	
 	private void clearSlavesJobTracking() {
 		for(SlaveJob job : SlaveJob.values()) {
 			slavesAtJob.get(job).clear();
@@ -164,7 +163,6 @@ public class OccupancyUtil implements XMLSaving {
 				Util.logGetNpcByIdError("performHourlyUpdate(), getFriendlyOccupants() section.", id);
 			}
 		}
-		
 		
 		// Slaves:
 		
@@ -758,7 +756,6 @@ public class OccupancyUtil implements XMLSaving {
 					settingsEnabled = getSexSettingsEnabled(slave);
 					GenericSexualPartner partner;
 					
-					
 					if(Math.random()<0.25f) {
 						partner = new GenericSexualPartner(Gender.F_P_V_B_FUTANARI, slave.getWorldLocation(), slave.getLocation(), false);
 					} else {
@@ -819,7 +816,6 @@ public class OccupancyUtil implements XMLSaving {
 												"[npc.A_race] roughly fucked "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+], before filling [npc.her] [npc.breasts+] with"+UtilText.parse(partner," [npc.cum+]!")),
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+]")+UtilText.parse(partner," with [npc.her] [npc.cum+]!"))));
 									
-	
 								effects.add("<span style='color:"+Colour.CUM.toWebHexString()+";'>Nipple Creampie:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 								slave.calculateGenericSexEffects(false, partner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, SexAreaPenetration.PENIS));
@@ -869,7 +865,6 @@ public class OccupancyUtil implements XMLSaving {
 							effects,
 							true));
 					return events;
-					
 					
 				case IDLE:
 					// Can not reach :3
@@ -1044,7 +1039,6 @@ public class OccupancyUtil implements XMLSaving {
 						}
 						slave.setLastTimeHadSex((day*24*60l) + hour*60l, true);
 						
-						
 						switch(slave.getSlaveJob()) {
 							case CLEANING:
 								return new SlaveryEventLogEntry(hour,
@@ -1120,7 +1114,6 @@ public class OccupancyUtil implements XMLSaving {
 		
 		return null;
 	}
-	
 	
 	public MilkingRoom getMilkingRoom(WorldType worldType, Vector2i location) {
 		for(MilkingRoom room : getMilkingRooms()) {

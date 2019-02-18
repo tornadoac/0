@@ -163,7 +163,6 @@ public class AlleywayAttackerDialogue {
 					
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/alleywayAttack", "ALLEY_ATTACK_REPEAT_END", getMugger()));
 					
-				
 				} else { // The mugger doesn't want to attack the player:
 					if(isCanal()) {
 						UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/dominion/alleywayAttack", "ALLEY_ATTACK_PEACEFUL_CANAL_INTRO", getMugger()));

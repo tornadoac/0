@@ -138,9 +138,6 @@ public class GenericPositioningNew {
 		Sex.setPositionRequest(null);
 	}
 
-	
-	
-	
 	//--------------- ORAL ---------------//
 	
 	private static List<SexSlot> generatePerformerOralData(GameCharacter receiver) {
@@ -862,9 +859,6 @@ public class GenericPositioningNew {
 		}
 	};
 
-	
-	
-	
 	//--------------- ALL FOURS ---------------//
 	
 	private static List<SexSlot> generatePerformerAllFoursData(GameCharacter receiver) {
@@ -1210,10 +1204,6 @@ public class GenericPositioningNew {
 			Sex.setPositionRequest(generatePerformingAllFoursData(Sex.getCharacterTargetedForSexAction(this)));
 		}
 	};
-	
-	
-	
-	
 	
 	public static final SexAction PARTNER_POSITION_RESPONSE = new SexAction(
 			SexActionType.SPECIAL,

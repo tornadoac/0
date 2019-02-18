@@ -1553,7 +1553,6 @@ public class CharacterCreation {
 		}
 	};
 	
-	
 	public static final DialogueNode CHOOSE_SEX_EXPERIENCE = new DialogueNode("Start", "", true) {
 		
 		@Override
@@ -1805,7 +1804,6 @@ public class CharacterCreation {
 			}
 		}
 	};
-	
 	
 	private static StringBuilder importSB;
 	public static final DialogueNode IMPORT_CHOOSE = new DialogueNode("Import", "", true) {

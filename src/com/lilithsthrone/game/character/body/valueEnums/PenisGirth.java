@@ -15,7 +15,6 @@ public enum PenisGirth {
 	THREE_THICK(3, "thick", Colour.GENERIC_SIZE_FOUR),
 	FOUR_FAT(4, "fat", Colour.GENERIC_SIZE_FIVE);
 	
-	
 	private int value;
 	private String descriptor;
 	private Colour colour;

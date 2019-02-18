@@ -61,7 +61,6 @@ public enum WorldType {
 					new Value<>(new Color(0x3b3b3b), PlaceType.WORLD_MAP_LAVA_FLOWS) // lava flows
 					)),
 	
-	
 	DOMINION("Dominion",
 			Colour.BASE_PURPLE,
 			1,
@@ -598,7 +597,6 @@ public enum WorldType {
 
 			Util.newArrayListOfValues(PlaceType.JUNGLE_TENTACLE_QUEENS_LAIR));
 
-	
 	private final String name;
 	private final String fileLocation;
 	private Colour colour;

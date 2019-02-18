@@ -162,7 +162,6 @@ public class FortressAlphaLeader extends NPC {
 			this.setFetishDesire(Fetish.FETISH_NON_CON_DOM, FetishDesire.THREE_LIKE);
 		}
 		
-		
 		// Body:
 		this.setAgeAppearanceDifferenceToAppearAsAge(20);
 		this.setTailType(TailType.DEMON_COMMON);

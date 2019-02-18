@@ -309,7 +309,6 @@ public class GenericOrgasms {
 				
 			}
 			
-			
 		} else if(cumTarget==OrgasmCumTarget.INSIDE) {
 
 			List<String> modifiers = new ArrayList<>();
@@ -2444,7 +2443,6 @@ public class GenericOrgasms {
 		}
 	};
 	
-	
 	public static final SexAction GENERIC_ORGASM_WALL = new SexAction(GENERIC_ORGASM_FLOOR) {
 		@Override
 		public boolean isBaseRequirementsMet() {
@@ -3291,8 +3289,6 @@ public class GenericOrgasms {
 			return  Sex.getCharacterPerformingAction().getSexActionOrgasmOverride(this, OrgasmCumTarget.BACK, true).isEndsSex();
 		}
 	};
-	
-	
 	
 	// PLAYER:
 	
@@ -4490,7 +4486,6 @@ public class GenericOrgasms {
 			return fetishes;
 		}
 	};
-	
 	
 	public static final SexAction GENERIC_PREPARATION_ASK_FOR_PULL_OUT = new SexAction(
 			SexActionType.PREPARE_FOR_PARTNER_ORGASM,

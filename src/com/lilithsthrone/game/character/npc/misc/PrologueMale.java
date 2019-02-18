@@ -112,7 +112,6 @@ public class PrologueMale extends NPC {
 			this.addFetish(Fetish.FETISH_VAGINAL_GIVING);
 		}
 		
-		
 		// Body:
 
 		// Core:
@@ -235,6 +234,5 @@ public class PrologueMale extends NPC {
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
 	
 }

@@ -10,7 +10,6 @@ import com.lilithsthrone.main.Main;
  */
 public enum Quest {
 	
-	
 	// Main quests:
 
 	MAIN_PROLOGUE(QuestType.MAIN, 1, 5) {
@@ -212,7 +211,6 @@ public enum Quest {
 		}
 	},
 	
-	
 	MAIN_2_A_INTO_THE_DEPTHS(QuestType.MAIN, 1, 10) {
 		@Override
 		public String getName() {
@@ -378,7 +376,6 @@ public enum Quest {
 		}
 	},
 	
-	
 	// For when you discover your first essence:
 	
 	SIDE_ENCHANTMENTS_LILAYA_HELP(QuestType.SIDE, 1, 10) {
@@ -529,7 +526,6 @@ public enum Quest {
 		}
 	},
 	
-	
 	RELATIONSHIP_NYAN_STOCK_ISSUES(QuestType.RELATIONSHIP, 1, 0) {
 		@Override
 		public String getName() {
@@ -583,8 +579,6 @@ public enum Quest {
 			return "Nyan paid you the reward she promised, and also offered to give you a 25% discount in her store. She also let slip that she's single, in a clumsy attempt to hit on you...";
 		}
 	},
-	
-	
 	
 	// Angry Harpies:
 	
@@ -653,8 +647,6 @@ public enum Quest {
 			return "After informing the Enforcers that you've pacified all three of the major harpy nests, they resumed their regular patrols, resulting in the Harpy Nests being safe to travel through!";
 		}
 	},
-	
-	
 	
 	// Slime Queen:
 	

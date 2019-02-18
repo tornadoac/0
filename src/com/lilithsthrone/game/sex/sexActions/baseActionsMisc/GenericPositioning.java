@@ -1361,9 +1361,6 @@ public class GenericPositioning {
 		}
 	};
 	
-	
-	
-	
 	public static final SexAction PARTNER_POSITION_RESPONSE = new SexAction(
 			SexActionType.SPECIAL,
 			ArousalIncrease.ONE_MINIMUM,

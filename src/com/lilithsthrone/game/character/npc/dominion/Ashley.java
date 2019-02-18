@@ -108,7 +108,6 @@ public class Ashley extends NPC {
 
 //		this.addFetish(Fetish.FETISH_MASOCHIST);
 		
-		
 		// Body:
 
 		// Core:

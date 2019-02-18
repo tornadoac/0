@@ -32,5 +32,4 @@ public enum SexControl {
 		return value;
 	}
 	
-	
 }

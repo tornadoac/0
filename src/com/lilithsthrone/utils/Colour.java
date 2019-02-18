@@ -63,8 +63,6 @@ public enum Colour {
 	BASE_BLACK(false, BaseColour.BLACK, "black", Util.newArrayListOfValues("black")),
 	BASE_PITCH_BLACK(false, BaseColour.PITCH_BLACK, "black", Util.newArrayListOfValues("black")),
 	
-	
-	
 	// Game colours:
 	BACKGROUND(false, Util.newColour(0x222222), Util.newColour(0xcccccc), "grey"),
 	BACKGROUND_ALT(false, Util.newColour(0x292929), Util.newColour(0xbbbbbb), "grey"),
@@ -341,7 +339,6 @@ public enum Colour {
 	CLOTHING_GREY(false, Util.newColour(0x777777), Util.newColour(0x777777), "grey"),
 	CLOTHING_BLACK(false, Util.newColour(0x333333), Util.newColour(0x333333), "black"),
 	
-	
 	CLOTHING_RED_VERY_DARK(false, Util.newColour(0x660016), Util.newColour(0x660016), "midnight red"),
 	CLOTHING_RED_DARK(false, Util.newColour(0x900020), Util.newColour(0x900020), "burgundy"),
 	CLOTHING_RED_BRIGHT(false, Util.newColour(0xFA2424), Util.newColour(0xFA2424), "bright red"),
@@ -375,7 +372,6 @@ public enum Colour {
 	CLOTHING_PINK(false, Util.newColour(0xD75086), Util.newColour(0xD75086), "pink"),
 	CLOTHING_PINK_DARK(false, Util.newColour(0xFF1493), Util.newColour(0xFF1493), "deep pink"),
 	CLOTHING_PINK_HOT(false, Util.newColour(0xff69b4), Util.newColour(0xff69b4), "hot pink"),
-	
 	
 	CLOTHING_BLACK_STEEL(true, Util.newColour(0x333333), Util.newColour(0x333333), "black steel"),
 	CLOTHING_STEEL(true, Util.newColour(0x969696), Util.newColour(0x969696), "steel"),
@@ -501,7 +497,6 @@ public enum Colour {
 	HORN_LILAC(false, BaseColour.LILAC, "lilac"),
 	HORN_PURPLE(false, BaseColour.PURPLE, "purple"),
 
-	
 	// Antlers:
 	ANTLER_WHITE(false, BaseColour.WHITE, "ivory"),
 	ANTLER_TAN(false, BaseColour.TAN, "tan"),
@@ -605,8 +600,6 @@ public enum Colour {
 	EYE_ORANGE(false, BaseColour.ORANGE, "orange"),
 	EYE_BLACK(false, BaseColour.BLACK, "black");
 	
-	
-
 	// Skin/fur/body part groups:
 	
 	public static List<Colour> humanSkinColours = Util.newArrayListOfValues(
@@ -742,7 +735,6 @@ public enum Colour {
 			Colour.COVERING_PINK_LIGHT
 			);
 			
-			
 	public static List<Colour> dyeFeatherColours = Util.newArrayListOfValues(
 			Colour.COVERING_PLATINUM,
 			Colour.COVERING_GOLD,
@@ -830,7 +822,6 @@ public enum Colour {
 			Colour.HORN_PURPLE,
 			Colour.COVERING_RAINBOW);
 
-	
 	// Antlers:
 	public static List<Colour> antlerColours = Util.newArrayListOfValues(
 			Colour.ANTLER_WHITE,
@@ -916,7 +907,6 @@ public enum Colour {
 			Colour.EYE_GOLD,
 			Colour.COVERING_RAINBOW);
 	
-	
 	public static List<Colour> naturalPredatorIrisColours = Util.newArrayListOfValues(
 			Colour.EYE_BROWN,
 			Colour.EYE_AMBER,
@@ -938,7 +928,6 @@ public enum Colour {
 			Colour.EYE_PURPLE,
 			Colour.EYE_BLACK,
 			Colour.COVERING_RAINBOW);
-	
 	
 	public static List<Colour> naturalPupilColours = Util.newArrayListOfValues(
 			Colour.EYE_BLACK);
@@ -987,8 +976,6 @@ public enum Colour {
 			Colour.EYE_LILAC,
 			Colour.EYE_PURPLE,
 			Colour.COVERING_RAINBOW);
-	
-	
 	
 	private Color colour;
 	private Color lightColour;

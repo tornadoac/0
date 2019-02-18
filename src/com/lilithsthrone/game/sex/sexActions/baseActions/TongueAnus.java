@@ -518,8 +518,6 @@ public class TongueAnus {
 		}
 	};
 	
-	
-	
 	public static final SexAction RECEIVING_ANILINGUS_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.TWO_LOW,

@@ -86,7 +86,6 @@ public enum PlaceType {
 	
 	GENERIC_MUSEUM("Museum", "dominion/slaverAlleyIcon", BaseColour.TAN, Colour.MAP_BACKGROUND, null, null, false, true, false, "in Lily's Museum"),
 	
-	
 	// World map:
 
 	WORLD_MAP_THICK_JUNGLE("thick jungle", "The further into the jungle one travels, the thicker the vegetation becomes, which allows particularly wild and dangerous predators to conceal themselves...", "#6b8f7e", null, true, true, true, ""),
@@ -124,7 +123,6 @@ public enum PlaceType {
 
 	WORLD_MAP_VOLCANO("dragon's breath volcano", "A huge volcano, perpetually oozing red-hot lava. Despite its name, dragons are no more common here than they are elsewhere in Dominion.", Colour.BASE_ORANGE.getShades()[1], null, true, true, true, ""),
 	WORLD_MAP_LAVA_FLOWS("lava flows", "The lava which pours forth from the volcano slowly runs off in a southern direction.", Colour.BASE_GREY_DARK.getShades()[0], null, true, true, true, ""),
-	
 	
 	// Museum:
 	
@@ -408,9 +406,6 @@ public enum PlaceType {
 		}
 	},
 	
-	
-	
-	
 	ENFORCER_HQ_CORRIDOR("Corridor", null, BaseColour.BLACK, Colour.MAP_BACKGROUND, EnforcerHQDialogue.CORRIDOR, null, false, true, true, "in the Enforcer HQ"),
 
 	ENFORCER_HQ_WAITING_AREA("Waiting area", "dominion/enforcerHQ/waitingRoom", BaseColour.BROWN, Colour.MAP_BACKGROUND, EnforcerHQDialogue.WAITING_AREA, null, false, true, true, "in the Enforcer HQ"),
@@ -432,9 +427,6 @@ public enum PlaceType {
 	},
 
 	ENFORCER_HQ_ENTRANCE("Entranceway", "dominion/enforcerHQ/exit", BaseColour.RED, Colour.MAP_BACKGROUND, EnforcerHQDialogue.ENTRANCE, null, false, true, true, ""),
-	
-	
-	
 	
 	// Standard tiles:
 	HARPY_NESTS_WALKWAYS("Walkway", null, BaseColour.BLACK, Colour.MAP_BACKGROUND, HarpyNestsDialogue.WALKWAY, Encounter.HARPY_NEST_WALKWAYS, true, false, true, "in the Harpy Nests") {
@@ -499,10 +491,6 @@ public enum PlaceType {
 		}
 	},
 		
-		
-	
-	
-	
 	// Standard tiles:
 	JUNGLE_PATH("Jungle Path", null, BaseColour.GREEN, Colour.MAP_BACKGROUND, JunglePlaces.PATH, null, false, false, true, "in the jungle"),
 	
@@ -531,8 +519,6 @@ public enum PlaceType {
 //			return EntranceType.ALIGNED_FLIP_VERTICAL;
 //		}
 	},
-	
-	
 	
 	// Ground floor:
 	
@@ -669,8 +655,6 @@ public enum PlaceType {
 	
 	LILAYA_HOME_STAIR_DOWN("Staircase", "dominion/lilayasHome/stairsDown", BaseColour.RED, Colour.MAP_BACKGROUND, LilayaHomeGeneric.STAIRCASE_DOWN, null, false, true, false, "in Lilaya's Home"),
 	
-	
-
 	// Zaranix:
 	// Ground floor:
 	
@@ -856,7 +840,6 @@ public enum PlaceType {
 		}
 	},
 	
-	
 	// Angel's Kiss:
 
 	ANGELS_KISS_CORRIDOR("Corridor", null, BaseColour.GREY, Colour.MAP_BACKGROUND, RedLightDistrict.ANGELS_KISS_CORRIDOR, null, false, true, false, "in Angel's Kiss"),
@@ -867,7 +850,6 @@ public enum PlaceType {
 	ANGELS_KISS_BEDROOM_BUNNY("Bunny's Bedroom", "dominion/angelsKiss/bedroomBunny", BaseColour.PINK_LIGHT, Colour.MAP_BACKGROUND, RedLightDistrict.ANGELS_KISS_BEDROOM_BUNNY, null, false, true, false, "in Bunny's Bedroom"),
 	ANGELS_KISS_BEDROOM_LOPPY("Loppy's Bedroom", "dominion/angelsKiss/bedroomLoppy", BaseColour.PURPLE, Colour.MAP_BACKGROUND, RedLightDistrict.ANGELS_KISS_BEDROOM_LOPPY, null, false, true, false, "in Loppy's Bedroom"),
 	ANGELS_KISS_OFFICE("Angel's Office", "dominion/angelsKiss/office", BaseColour.BLUE_LIGHT, Colour.MAP_BACKGROUND, RedLightDistrict.ANGELS_KISS_OFFICE, null, false, true, false, "in Angel's Office"),
-	
 	
 	// Shopping arcade:
 	
@@ -919,7 +901,6 @@ public enum PlaceType {
 	// Exits & entrances:
 	SHOPPING_ARCADE_ENTRANCE("Exit", "dominion/shoppingArcade/exit", BaseColour.RED, Colour.MAP_BACKGROUND, ShoppingArcadeDialogue.ENTRY, null, false, true, true, "in the Shopping Arcade"),
 	
-	
 	// Supplier Depot:
 	
 	SUPPLIER_DEPOT_CORRIDOR("Corridor", null, BaseColour.BLACK, Colour.MAP_BACKGROUND, SupplierDepot.SUPPLIER_DEPOT_CORRIDOR, null, false, true, false, "in the supplier depot"),
@@ -956,7 +937,6 @@ public enum PlaceType {
 			}
 		}
 	},
-	
 	
 	// Slaver Alley:
 	
@@ -1072,7 +1052,6 @@ public enum PlaceType {
 	
 	// Nightlife:
 
-	
 	WATERING_HOLE_ENTRANCE("Entrance", "dominion/nightLife/exit", BaseColour.RED, Colour.MAP_BACKGROUND, NightlifeDistrict.WATERING_HOLE_ENTRANCE, null, false, true, true, "in 'The Watering Hole'") {
 		@Override
 		public Population getPopulation() {
@@ -1124,7 +1103,6 @@ public enum PlaceType {
 			return new Population(PopulationType.PEOPLE, PopulationDensity.SEVERAL, Subspecies.getWorldSpecies().get(WorldType.NIGHTLIFE_CLUB));
 		}
 	},
-	
 	
 	// Submission:
 	
@@ -1178,8 +1156,6 @@ public enum PlaceType {
 	FORTRESS_ALPHA_COURTYARD("Courtyard", null, BaseColour.BLACK, Colour.MAP_BACKGROUND, ImpFortressDialogue.COURTYARD, null, false, true, false, "in the Alpha Imp Fortress"),
 	FORTRESS_ALPHA_KEEP("Keep", "submission/impFortress/keep", BaseColour.CRIMSON, Colour.MAP_BACKGROUND, ImpFortressDialogue.KEEP, null, true, true, true, "in the Alpha Imp Fortress"),
 
-	
-	
 	SUBMISSION_IMP_FORTRESS_DEMON("Imp Citadel", "submission/impFortress2", BaseColour.PURPLE, Colour.MAP_BACKGROUND, SubmissionGenericPlaces.IMP_FORTRESS_DEMON, null, true, true, true, "in Submission") {
 		@Override
 		public String getSVGString(Set<PlaceUpgrade> upgrades) {
@@ -1254,8 +1230,6 @@ public enum PlaceType {
 		}
 	},
 	
-	
-
 	/**This fortress is <b>Female Imp Seducers</b>.*/
 	SUBMISSION_IMP_FORTRESS_FEMALES("Imp Fortress", "submission/impFortress3", BaseColour.PINK, Colour.MAP_BACKGROUND, SubmissionGenericPlaces.IMP_FORTRESS_FEMALES, null, true, true, true, "in Submission") {
 		@Override
@@ -1314,8 +1288,6 @@ public enum PlaceType {
 		}
 	},
 	
-	
-	
 	// Lyssieth palace:
 	
 	LYSSIETH_PALACE_CORRIDOR("Corridor", null, BaseColour.GREY, Colour.MAP_BACKGROUND, LyssiethPalaceDialogue.CORRIDOR, null, false, true, false, "in Lyssieth's Palace") {
@@ -1357,7 +1329,6 @@ public enum PlaceType {
 		}
 	},
 	
-	
 	// Bat caverns:
 
 	BAT_CAVERN_ENTRANCE("Winding Staircase", "submission/batCaverns/cavernStaircase", BaseColour.GREEN, Colour.MAP_BACKGROUND, BatCaverns.STAIRCASE, null, false, true, true, "in the Bat Caverns"),
@@ -1388,7 +1359,6 @@ public enum PlaceType {
 	SLIME_QUEENS_LAIR_ENTRANCE_GUARDS("Guard Post", "submission/slimeQueensLair/guards", BaseColour.RED, Colour.MAP_BACKGROUND, SlimeQueensLair.GUARD_POST, null, true, true, true, "in the Slime Queen's tower"),
 	SLIME_QUEENS_LAIR_ROYAL_GUARD("Royal Guard Post", "submission/slimeQueensLair/royalGuards", BaseColour.PURPLE, Colour.MAP_BACKGROUND, SlimeQueensLair.ROYAL_GUARD_POST, null, true, true, true, "in the Slime Queen's tower"),
 	SLIME_QUEENS_LAIR_SLIME_QUEEN("Bed Chamber", "submission/slimeQueensLair/bedChamber", BaseColour.PINK, Colour.MAP_BACKGROUND, SlimeQueensLair.BED_CHAMBER, null, false, true, true, "in the Slime Queen's tower"),
-	
 	
 	// Gambling Den:
 	
@@ -1422,10 +1392,8 @@ public enum PlaceType {
 	GAMBLING_DEN_PREGNANCY("Breeding Stalls", "submission/gamblingDen/normalPregnancy", BaseColour.BLUE_LIGHT, Colour.MAP_BACKGROUND, GamblingDenDialogue.PREGNANCY_ROULETTE_MALE_STALLS, null, false, true, true, "in the Gambling Den"),
 	GAMBLING_DEN_FUTA_PREGNANCY("Futa Breeding Stalls", "submission/gamblingDen/futaPregnancy", BaseColour.PINK_LIGHT, Colour.MAP_BACKGROUND, GamblingDenDialogue.PREGNANCY_ROULETTE_FUTA_STALLS, null, false, true, true, "in the Gambling Den"),
 	
-	
 	;
 
-	
 	private String name;
 	private String worldPlaceDescription;
 	protected String SVGString;

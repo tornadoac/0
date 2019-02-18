@@ -211,7 +211,6 @@ public class HarpyBimbo extends NPC {
 
 	}
 	
-	
 	@Override
 	public boolean isUnique() {
 		return true;

@@ -96,7 +96,6 @@ public class QuestTree {
 		node1 = new TreeNode<Quest>(Quest.SLIME_QUEEN_FOUR);
 		node2.addChild(node1);
 		
-		
 		TreeNode<Quest> nodeBranchA = new TreeNode<Quest>(Quest.SLIME_QUEEN_FIVE_FORCE);
 		node1.addChild(nodeBranchA);
 		TreeNode<Quest> nodeBranchB = new TreeNode<Quest>(Quest.SLIME_QUEEN_FIVE_CONVINCE);

@@ -91,8 +91,6 @@ public class SuccubisSecrets {
 		return BASE_PIERCINGS_COST;
 	}
 	
-	
-	
 	public static final DialogueNode EXTERIOR = new DialogueNode("Succubi's Secrets (Exterior)", "-", false) {
 
 		@Override
@@ -804,7 +802,6 @@ public class SuccubisSecrets {
 					description = "This is the "+bct.getName(Main.game.getPlayer())+" that's currently "+Util.stringsToStringList(entry.getValue(), false)+".";
 				}
 					
-				
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivCoveringsNew(
 						true, 
 						bct,
@@ -814,7 +811,6 @@ public class SuccubisSecrets {
 						true));
 			}
 			
-			
 			return UtilText.nodeContentSB.toString();
 		}
 		
@@ -822,7 +818,6 @@ public class SuccubisSecrets {
 		public String getContent() {
 			return "";
 		}
-		
 		
 		@Override
 		public Response getResponse(int responseTab, int index) {

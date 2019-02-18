@@ -31,7 +31,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Vagina implements BodyPartInterface {
 
-	
 	protected VaginaType type;
 	protected Clitoris clitoris;
 	protected int labiaSize;
@@ -923,7 +922,6 @@ public class Vagina implements BodyPartInterface {
 					+ owner.postTransformationCalculation()
 				+ "</p>";
 	}
-	
 	
 	public LabiaSize getLabiaSize() {
 		return LabiaSize.getLabiaSizeFromInt(labiaSize);

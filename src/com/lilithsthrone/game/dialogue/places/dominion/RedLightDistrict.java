@@ -260,7 +260,6 @@ public class RedLightDistrict {
 					}
 				}
 				
-				
 				if(prostitute.isSlave() && prostitute.getOwner().isPlayer()) {
 					//TODO append description of sex type
 //					SlaveryEventLogEntry currentSex = null;
@@ -298,7 +297,6 @@ public class RedLightDistrict {
 				}
 			}
 			
-			
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -334,7 +332,6 @@ public class RedLightDistrict {
 										null), AFTER_SEX_PROSTITUTE, UtilText.parseFromXMLFile("places/dominion/redLightDistrict/angelsKiss", "BEDROOM_PROSTITUTE_SLAVE_SEX_SUB"));
 							
 						}
-						
 						
 					} else {
 						if (index == 1) {
@@ -900,7 +897,6 @@ public class RedLightDistrict {
 		}
 	};
 
-	
 	public static final DialogueNode AFTER_SEX_LOPPY_THREESOME = new DialogueNode("Loppy's Bedroom", "Disentangle yourself from Loppy's clutches.", false) {
 
 		@Override

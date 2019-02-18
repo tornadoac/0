@@ -110,7 +110,6 @@ public class DialogueFlags implements XMLSaving {
 			CharacterUtils.addAttribute(doc, location, "y", String.valueOf(value.getY()));
 		}
 		
-		
 		return element;
 	}
 	
@@ -149,7 +148,6 @@ public class DialogueFlags implements XMLSaving {
 			newFlags.impCitadelImpWave = Integer.valueOf(((Element)parentElement.getElementsByTagName("impCitadelImpWave").item(0)).getAttribute("value"));
 		} catch(Exception ex) {
 		}
-		
 		
 		for(int i=0; i<((Element) parentElement.getElementsByTagName("dialogueValues").item(0)).getElementsByTagName("dialogueValue").getLength(); i++){
 			Element e = (Element) ((Element) parentElement.getElementsByTagName("dialogueValues").item(0)).getElementsByTagName("dialogueValue").item(i);

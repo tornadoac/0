@@ -284,8 +284,6 @@ public class Cowgirl {
 		return UtilText.nodeContentSB.toString();
 	}
 	
-
-	
 	public static String getPartnerTongueMouthDescription() {
 		
 		UtilText.nodeContentSB.setLength(0);
@@ -554,7 +552,5 @@ public class Cowgirl {
 		
 		return UtilText.nodeContentSB.toString();
 	}
-
-
 
 }

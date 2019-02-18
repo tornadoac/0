@@ -157,7 +157,6 @@ public class Util {
 //		//y = 0.75 * cos((x*(pi/2))-(pi/2))
 //		return ((int)((Math.signum(input) * maxValue * 0.75f * Math.cos((value * (Math.PI/2)) - (Math.PI/2)))*100))/100f;
 		
-		
 //		sin(x*pi/2)/2
 		if(input < maxValue/2) {
 			return input;
@@ -440,7 +439,6 @@ public class Util {
 			return intToString + " a lot";
 		}
 		
-		
 		if(integer>=1000) {
 			if((integer/1000)<20) {
 				intToString+=numbersLessThanTwenty[(integer/1000)]+" thousand";
@@ -502,7 +500,6 @@ public class Util {
 		if (integer >= 100_000) {
 			return intToString + " a lot";
 		}
-		
 		
 		if(integer>=1000) {
 			if((integer/1000)<20) {

@@ -43,7 +43,6 @@ public enum SpellUpgrade {
 			null, Util.newArrayListOfValues(
 					"Twin Comets now do <b>15</b> [style.colourFire(Fire Damage)] each")),
 	
-	
 	FLASH_1(true,
 			2,
 			SpellSchool.FIRE,
@@ -66,7 +65,6 @@ public enum SpellUpgrade {
 			"By focusing its power into a smaller, more concentrated burst, the caster is able to reduce the cost of Flash, while losing none of its effectiveness.",
 			null, Util.newArrayListOfValues(
 					"[style.colourExcellent(Reduces)] base cost to [style.boldMana(40)] aura")),
-	
 	
 	CLOAK_OF_FLAMES_1(true,
 			2,
@@ -91,7 +89,6 @@ public enum SpellUpgrade {
 			null, Util.newArrayListOfValues(
 					"<b>Melee</b> or <b>unarmed</b> attackers take <b>5</b> [style.colourFire(Fire Damage)]")),
 
-	
 	ELEMENTAL_FIRE_1(true,
 			5,
 			SpellSchool.FIRE,
@@ -792,7 +789,6 @@ public enum SpellUpgrade {
 		}
 	};
 
-	
 	private boolean isAlwaysAvailable;
 	private int pointCost;
 	private SpellSchool spellSchool;

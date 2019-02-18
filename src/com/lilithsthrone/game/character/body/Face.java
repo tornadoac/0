@@ -22,7 +22,6 @@ import com.lilithsthrone.main.Main;
  */
 public class Face implements BodyPartInterface {
 
-	
 	protected FaceType type;
 	protected boolean piercedNose;
 	protected BodyHair facialHair;

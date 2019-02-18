@@ -27,7 +27,6 @@ public enum Capacity {
 	
 	SEVEN_GAPING("gaping wide", PenisSize.THREE_LARGE, PenisSize.SEVEN_STALLION, PenisSize.SEVEN_STALLION, Colour.GENERIC_SIZE_EIGHT);
 
-	
 	private String descriptor;
 	private PenisSize sizeTooSmall, maximumSizeComfortable, maximumSizeComfortableWithLube;
 	private Colour colour;

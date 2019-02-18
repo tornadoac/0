@@ -37,7 +37,6 @@ public enum InventorySlot {
 	 *  Tattoo slot "neck".*/
 	NECK(30, "neck", false, false, false, "neck"),
 	
-	
 	// TORSO:
 
 	/** Clothing slot "over-torso". Used for coats.<br/>
@@ -60,7 +59,6 @@ public enum InventorySlot {
 	 *  Tattoo slot "stomach".*/
 	STOMACH(10, "stomach", false, false, false, "stomach"),
 
-	
 	// HAND:
 
 	/** Clothing slot "hands". Used for gloves.<br/>
@@ -87,7 +85,6 @@ public enum InventorySlot {
 	 *  Tattoo slot "ass".*/
 	ANUS(0, "anus", false, false, false, "ass"),
 
-	
 	// LEG & FOOT:
 
 	/** Clothing slot "legs". Used for trousers.<br/>
@@ -109,7 +106,6 @@ public enum InventorySlot {
 	/** Clothing slot "ankles". Used for bracelets.<br/>
 	 *  Tattoo slot "ankles".*/
 	ANKLE(50, "ankles", true, false, false, "ankles"),
-	
 	
 	// OPTIONAL EXTRAS:
 

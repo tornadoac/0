@@ -24,7 +24,6 @@ import com.lilithsthrone.utils.XMLSaving;
  */
 public class FluidGirlCum implements FluidInterface, XMLSaving {
 
-	
 	protected FluidType type;
 	protected FluidFlavour flavour;
 	protected List<FluidModifier> fluidModifiers;

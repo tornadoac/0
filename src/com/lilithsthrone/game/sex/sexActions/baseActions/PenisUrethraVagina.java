@@ -526,8 +526,6 @@ public class PenisUrethraVagina {
 		}
 	};
 	
-	
-	
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,

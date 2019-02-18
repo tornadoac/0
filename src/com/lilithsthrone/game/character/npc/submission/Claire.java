@@ -112,7 +112,6 @@ public class Claire extends NPC {
 			this.setFetishDesire(Fetish.FETISH_ANAL_RECEIVING, FetishDesire.ZERO_HATE);
 		}
 		
-		
 		// Body:
 
 		// Core:

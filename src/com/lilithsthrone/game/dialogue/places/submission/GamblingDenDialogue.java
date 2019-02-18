@@ -209,7 +209,6 @@ public class GamblingDenDialogue {
 		}
 	};
 	
-	
 	public static final DialogueNode CORRIDOR = new DialogueNode("Gambling Den", "", false) {
 		
 		@Override
@@ -475,7 +474,6 @@ public class GamblingDenDialogue {
 						}
 					}
 					
-	
 				} else {
 					return null;
 				}
@@ -1000,7 +998,6 @@ public class GamblingDenDialogue {
 								}
 								
 								initMother();
-								
 								
 								Main.game.getPlayer().displaceClothingForAccess(CoverableArea.PENIS);
 							}

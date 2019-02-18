@@ -411,7 +411,6 @@ public enum FluidType implements BodyPartTypeInterface {
 			Util.newArrayListOfValues(),
 			Race.HARPY);
 
-	
 	private FluidTypeBase baseType;
 	private BodyCoveringType bodyCoveringType;
 	private FluidFlavour flavour;

@@ -60,7 +60,6 @@ public enum ArousalLevel {
 		}
 	};
 	
-	
 	private String name;
 	private int minimumValue, maximumValue;
 	private Colour colour;

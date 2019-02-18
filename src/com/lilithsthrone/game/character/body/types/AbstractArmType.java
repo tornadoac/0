@@ -179,7 +179,6 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 		return UtilText.parse(owner, armBodyDescription);
 	}
 	
-	
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
 		return UtilText.parse(owner, armTransformationDescription);

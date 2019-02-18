@@ -83,7 +83,6 @@ public enum SpellSchool {
 			"Know the exact time until the next arcane storm breaks.",
 			Colour.GENERIC_ARCANE);
 	
-	
 	private String name;
 	private String description;
 	private String passiveBuff;

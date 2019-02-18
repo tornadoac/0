@@ -40,7 +40,7 @@ public class Pathing {
 		 * i) If it is not walkable or if it is on the closed list, ignore it.
 		 * Otherwise do the following.
 		 * 
-		 * ii) If it isn�t on the open list, add it to the open list. Make the
+		 * ii) If it isn't on the open list, add it to the open list. Make the
 		 * current square the parent of this square. Record the F, G, and H
 		 * costs of the square.
 		 * 

@@ -418,7 +418,6 @@ public class UtilText {
 				+ " <"+tag+" style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>"+essenceString+"</"+tag+">";
 	}
 	
-	
 	public static String formatAsEssences(int amount, String tag, boolean withOverlay) {
 		String essenceString = formatter.format(amount);
 		
@@ -642,7 +641,6 @@ public class UtilText {
 			String conditionalTrue = null;
 			String conditionalFalse = null;
 			
-			
 			boolean conditionalElseFound = false;
 			ParseMode currentParseMode = ParseMode.UNKNOWN;
 			
@@ -839,8 +837,6 @@ public class UtilText {
 		}
 		return input.substring(startingLocation, index).equals(stringToMatch);
 	}
-	
-
 	
 	public static List<ParserCommand> commandsList = new ArrayList<>();
 	public static Map<BodyPartType, List<ParserCommand>> commandsMap = new EnumMap<>(BodyPartType.class);
@@ -2885,7 +2881,6 @@ public class UtilText {
 							break;
 					}
 					
-					
 					for(int i=lastDescriptors.length-1; i>=0; i--) {
 						descriptors.remove(lastDescriptors[i]);
 						if(i>0) {
@@ -3466,7 +3461,6 @@ public class UtilText {
 			}
 		});
 		
-		
 		// Styles:
 		
 		commandsList.add(new ParserCommand(
@@ -3598,7 +3592,6 @@ public class UtilText {
 			}
 		}
 
-		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
 						"mainWeapon",
@@ -3617,7 +3610,6 @@ public class UtilText {
 			}
 		});
 
-		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
 						"offhandWeapon",
@@ -3635,11 +3627,6 @@ public class UtilText {
 				}
 			}
 		});
-		
-		
-		
-		
-		
 		
 		// Body parts:
 		
@@ -3790,7 +3777,6 @@ public class UtilText {
 				Util.newArrayListOfValues("wings"),
 				BodyPartType.WING);
 		
-		
 		// Special body parts:
 		
 		// Arm:
@@ -3931,7 +3917,6 @@ public class UtilText {
 			}
 		});
 		
-	
 		// Ass:
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
@@ -4028,8 +4013,6 @@ public class UtilText {
 			}
 		});
 
-
-		
 		// Hips: TODO rough
 		
 		commandsList.add(new ParserCommand(
@@ -4330,7 +4313,6 @@ public class UtilText {
 			}
 		});
 		
-		
 		// Crotch Breasts:
 		
 		commandsList.add(new ParserCommand(
@@ -4588,7 +4570,6 @@ public class UtilText {
 				return character.getBreastCrotchLactationRegeneration().getName();
 			}
 		});
-		
 		
 		// Eyes:
 		
@@ -6136,7 +6117,6 @@ public class UtilText {
 		}
 	}
 	
-	
 	public static List<GameCharacter> getSpecialNPCList() {
 		return specialNPCList;
 	}
@@ -6413,7 +6393,6 @@ public class UtilText {
 		return modifiedTags;
 	}
 	
-	
 	private static BodyPartInterface getBodyPartFromType(BodyPartType type, GameCharacter character) {
 		switch(type){
 			case ANTENNA:
@@ -6479,7 +6458,6 @@ public class UtilText {
 		}
 		return null;
 	}
-	
 	
 	/**
 	 * Some methods might return a null or empty string for a descriptor. This method accounts for that, applying a descriptor if one is available and then returning the descriptor + name combination.

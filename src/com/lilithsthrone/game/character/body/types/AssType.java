@@ -192,7 +192,6 @@ public class AssType {
 			"[npc.SheHasFull] an avian, [npc.anusFullDescription(true)]"){
 	};
 	
-	
 	private static List<AbstractAssType> allAssTypes;
 	private static Map<AbstractAssType, String> assToIdMap = new HashMap<>();
 	private static Map<String, AbstractAssType> idToAssMap = new HashMap<>();

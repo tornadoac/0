@@ -26,7 +26,6 @@ public class TooltipMoveEventListener implements EventListener {
 		
 		Main.mainController.getTooltip().setAnchorX(xPosition);
 		
-		
 		double yPosition = ((MouseEvent) event).getScreenY() + 16;
 //		if(tooWide) {
 //			if (yPosition + Main.mainController.getTooltip().getHeight() +16 > Main.primaryStage.getY() + Main.primaryStage.getHeight()) {

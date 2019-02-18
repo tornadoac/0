@@ -119,7 +119,6 @@ public class TattooType {
 			}
 		}
 		
-		
 		// Add in external res tattoos:
 		
 		dir = new File("res/tattoos");
@@ -150,7 +149,6 @@ public class TattooType {
 				}
 			}
 		}
-		
 		
 		Field[] fields = TattooType.class.getFields();
 		

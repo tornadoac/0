@@ -21,7 +21,6 @@ public interface FluidInterface extends BodyPartInterface {
 	public FluidFlavour getFlavour();
 	public String setFlavour(GameCharacter owner, FluidFlavour flavour);
 	
-	
 	public List<FluidModifier> getFluidModifiers();
 	
 	public boolean hasFluidModifier(FluidModifier fluidModifier);
@@ -29,10 +28,8 @@ public interface FluidInterface extends BodyPartInterface {
 	public String addFluidModifier(GameCharacter owner, FluidModifier fluidModifier);
 	public String removeFluidModifier(GameCharacter owner, FluidModifier fluidModifier);
 	
-	
 	public List<ItemEffect> getTransformativeEffects();
 	public void addTransformativeEffect(ItemEffect ie);
-	
 	
 	public float getValuePerMl();
 	

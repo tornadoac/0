@@ -301,7 +301,6 @@ public class TailVagina {
 		}
 	};
 	
-	
 	public static final SexAction TAIL_FUCKING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -807,8 +806,6 @@ public class TailVagina {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
-	
 	
 	public static final SexAction USING_TAIL_START = new SexAction(
 			SexActionType.START_ONGOING,

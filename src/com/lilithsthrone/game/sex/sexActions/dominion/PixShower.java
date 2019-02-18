@@ -1054,6 +1054,4 @@ public class PixShower {
 		}
 	};
 	
-
-
 }

@@ -22,7 +22,6 @@ import com.lilithsthrone.utils.Util.Value;
  */
 public class PlayerSelfFingerNipple {
 	
-	
 	public static final SexAction PLAYER_PINCH_NIPPLES = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -98,7 +97,6 @@ public class PlayerSelfFingerNipple {
 		
 	};
 	
-	
 	public static final SexAction PLAYER_SELF_FINGER_NIPPLE_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -133,7 +131,6 @@ public class PlayerSelfFingerNipple {
 					
 					"With a lewd cry, you sink your digits into your inviting nipple-cunts, panting heavily as you start eagerly fingering yourself."));
 			
-		
 			switch (Main.game.getPlayer().getBreastStoredMilk()) {
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(" A small trickle of [pc.milk] leaks out around your fingertips.");

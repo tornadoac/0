@@ -155,7 +155,6 @@ public class TunnelAttackDialogue {
 					
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/submission/tunnelAttack", "TUNNEL_ATTACK_REPEAT_END", getMugger()));
 					
-				
 				} else { // The mugger doesn't want to attack the player:
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("encounters/submission/tunnelAttack", "TUNNEL_ATTACK_PEACEFUL_INTRO", getMugger()));
 					

@@ -14,7 +14,6 @@ public enum GenitalArrangement {
 	/** Probably won't ever be used, and does not have complete support*/
 	CLOACA_BEHIND("rear-facing cloaca", "[npc.NamePos] genitals and asshole are all located within a slit-like cloaca, which is located in the place where [npc.her] asshole would normally be.");
 	
-	
 	private String name;
 	private String description;
 

@@ -584,7 +584,6 @@ public class PenisFoot {
 		}
 	};
 	
-	
 	public static final SexAction FOOT_JOB_SINGLE_GIVING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,

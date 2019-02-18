@@ -913,7 +913,6 @@ public class PenisMouth {
 				
 				return Util.randomItemFrom(descriptions);
 				
-				
 			} else if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.SIXTY_NINE_TOP) {
 				
 				for(PenetrationModifier pm : Sex.getCharacterPerformingAction().getPenisModifiers()) {
@@ -1204,8 +1203,6 @@ public class PenisMouth {
 		}
 	};
 	
-	
-	
 	public static final SexAction GIVING_BLOWJOB_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -1353,8 +1350,6 @@ public class PenisMouth {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
-	
 	
 	// TODO add descriptions of kissing knot, flared head pushing down throat, tentacles, ribs and barbs
 	

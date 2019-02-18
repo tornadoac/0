@@ -298,7 +298,6 @@ public class PenisAss {
 		}
 	};
 	
-	
 	public static final SexAction ASS_FUCKING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -812,7 +811,6 @@ public class PenisAss {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
 	
 	public static final SexAction USING_COCK_AGAINST_ASS_START = new SexAction(
 			SexActionType.START_ONGOING,

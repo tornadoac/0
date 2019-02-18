@@ -196,7 +196,7 @@ public class EnforcerHQDialogue {
 			if(isBraxMainQuestComplete()) {
 				return "<p>"
 						+ "You flash the pass that Candi gave to you at the horse-boy guard, but he refuses to step aside."
-						+ " [style.speechMasculine(Those passes aren't valid anymore, don't waste my time.)]"
+						+ " [style.speechMasculine(Those passes aren't valid any more, don't waste my time.)]"
 					+ "</p>"
 					+ "<p>"
 						+ "It looks like he's not going to let you pass, and you don't really have any business back there anyway..."
@@ -1273,9 +1273,7 @@ public class EnforcerHQDialogue {
 		}
 	};
 	
-	
 	//---------- [brax.namePos] office:
-	
 	
 	public static final DialogueNode INTERIOR_BRAX = new DialogueNode("[brax.namePos] Office", "-", true) {
 
@@ -1562,7 +1560,7 @@ public class EnforcerHQDialogue {
 		@Override
 		public String getContent() {
 			return "<p>"
-						+ "You barely have time to say goodbye to your gullible friend before he bounds out of the door, muttering about how he won't need 'that slut downstairs' anymore."
+						+ "You barely have time to say goodbye to your gullible friend before he bounds out of the door, muttering about how he won't need 'that slut downstairs' any more."
 					+ "</p>"
 					+ "<p>"
 						+ "You finally have a moment to look at the piece of paper [brax.name] gave to you, and as you read, you let out an annoyed tutting sound, realising that Arthur is a hard person to track down."
@@ -1847,8 +1845,6 @@ public class EnforcerHQDialogue {
 		}
 	};
 	
-	
 	//----------- Repeatable [brax.name] encounter: -----------
-	
 	
 }

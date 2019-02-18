@@ -111,7 +111,6 @@ public class PixsPlayground {
 					return new Response("Enter", "Step inside the gym.", GYM);
 				}
 				
-				
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Arcade Entrance", "Fast travel to the entrance to the arcade."){
 					@Override

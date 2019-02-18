@@ -72,7 +72,6 @@ public class Axel extends NPC {
 
 	}
 
-	
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -110,7 +109,6 @@ public class Axel extends NPC {
 			this.setFetishDesire(Fetish.FETISH_CUM_ADDICT, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_ANAL_RECEIVING, FetishDesire.THREE_LIKE);
 		}
-		
 		
 		// Body:
 

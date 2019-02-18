@@ -89,7 +89,6 @@ public enum SlaveEventTag {
 	JOB_MILK_CROTCH_MILKED("[npc.NamePos] udder-[npc.crotchMilk] was milked!"),
 	JOB_GIRLCUM_MILKED("[npc.NamePos] [npc.girlcum] was milked!"),
 
-	
 	JOB_LILAYA_INTRUSIVE_TESTING("Lilaya ran some rather intrusive tests on [npc.name]."),
 	
 	JOB_LILAYA_FEMININE_TF("Lilaya tested some very intrusive feminine transformations on [npc.name]."),

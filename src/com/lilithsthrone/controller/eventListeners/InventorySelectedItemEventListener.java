@@ -60,7 +60,6 @@ public class InventorySelectedItemEventListener implements EventListener {
 						break;
 				}
 				
-				
 			} else {
 				InventoryDialogue.setOwner(owner);
 				InventoryDialogue.setItem(item);

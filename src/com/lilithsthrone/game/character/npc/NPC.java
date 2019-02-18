@@ -314,7 +314,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			npc.setSellModifier(Float.valueOf(((Element)npcSpecificElement.getElementsByTagName("sellModifier").item(0)).getAttribute("value")));
 			npc.addedToContacts = (Boolean.valueOf(((Element)npcSpecificElement.getElementsByTagName("addedToContacts").item(0)).getAttribute("value")));
 		
-	
 			NodeList npcValues = ((Element) npcSpecificElement.getElementsByTagName("NPCValues").item(0)).getElementsByTagName("NPCValue");
 			for(int i = 0; i < npcValues.getLength(); i++){
 				Element e = (Element) npcValues.item(i);
@@ -937,7 +936,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		return Util.newHashMapOfValues(new Value<>(TFEssence.ARCANE, Util.random.nextInt(this.getLevel())+1));
 	}
 	
-	
 	// Relationships:
 	
 	public float getHourlyAffectionChange(int hour) {
@@ -970,7 +968,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		// To get rid of e.g. 2.3999999999999999999999:
 		return Math.round(totalAffectionChange*100)/100f;
 	}
-	
 	
 	// Misc:
 
@@ -1105,7 +1102,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	public boolean isAffectionHighEnoughToInviteHome() {
 		return this.getAffection(Main.game.getPlayer())>=AffectionLevel.POSITIVE_THREE_CARING.getMinimumValue();
 	}
-	
 	
 	public Value<String, AbstractItem> getTransformativePotion(GameCharacter target) {
 		return getTransformativePotion(target, false);
@@ -1309,11 +1305,9 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			skipGenitalsTF = vaginaSet && penisSet;
 		}
 		
-		
 		Map<ItemEffect, String> possibleEffects = new HashMap<>();
 		
 		// Order of transformation preferences are: Sexual organs -> minor parts -> Legs & arms -> Face & skin 
-		
 		
 		if(!skipGenitalsTF) {
 			// Sexual transformations:
@@ -1386,7 +1380,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				return new Value<>(s, EnchantingUtils.craftItem(AbstractItemType.generateItem(itemType), effects));
 			}
 		}
-		
 		
 		// All minor part transformations:
 		if(Main.getProperties().getForcedTFPreference() != FurryPreference.HUMAN) {
@@ -1462,7 +1455,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					reaction,
 					EnchantingUtils.craftItem(AbstractItemType.generateItem(itemType), effects));
 		}
-		
 		
 		// Other transformations:
 		
@@ -1557,7 +1549,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		if(possibleEffects.isEmpty()) {
 			return null;
 		}
-		
 		
 //		List<ItemEffect> keysAsArray = new ArrayList<>(possibleEffects.keySet());
 //		ItemEffect effect = keysAsArray.get(Util.random.nextInt(keysAsArray.size()));
@@ -1872,8 +1863,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		return body;
 	}
 	
-	
-	
 	/**
 	 * Example return value: ["Let's see if you don't enjoy sucking my dick after this!", AbstractItem]
 	 * @return NPC's speech as a reaction to giving you this potion, along with the potion itself.
@@ -1939,7 +1928,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		
 		}
 		
-		
 		// map of top -> bottom paired fetishes; NPCs with a paired fetish will greatly favor 
 		// giving the player it's pair, and remove that fetish if there is a match
 		Map<Fetish, Fetish> pairedFetishMap = new HashMap<>();
@@ -1966,8 +1954,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			pairedFetishMap.put(Fetish.FETISH_TRANSFORMATION_GIVING, Fetish.FETISH_TRANSFORMATION_RECEIVING);
 			pairedFetishMap.put(Fetish.FETISH_KINK_GIVING, Fetish.FETISH_KINK_RECEIVING);
 		}
-		
-		
 		
 		for(Entry<Fetish, Fetish> entry : pairedFetishMap.entrySet()) {
 			currentTopFetish = entry.getKey();
@@ -2066,7 +2052,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				default:
 			}
 			
-			
 			// set chances if NPC has top fetish
 			if(this.hasFetish(currentTopFetish)) {
 				currentBottomChance *= pairedFetishMultiplier;
@@ -2099,8 +2084,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				currentBottomRemoveChance = 0;
 			}
 				
-			
-			
 			// if player has positive bottom fetish desire, adjust potency level to fully add fetish, not just desire
 			if( Main.game.getPlayer().getFetishDesire(currentBottomFetish) == FetishDesire.THREE_LIKE ||
 					Main.game.getPlayer().getFetishDesire(currentBottomFetish) == FetishDesire.FOUR_LOVE) {
@@ -2119,13 +2102,11 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				currentBottomRemoveChance = 0;
 			}
 			
-			
 			// prevent extraneous effects if player has bottom fetish, plus alter remove potency to drop fetish, not just desire
 			if(Main.game.getPlayer().hasFetish(currentBottomFetish)) {
 				currentBottomChance = 0;
 				currentBottomRemovePotency = TFPotency.DRAIN;
 			} 
-			
 			
 			// if player has positive top fetish desire, adjust potency level to fully add fetish, not just desire
 			if( Main.game.getPlayer().getFetishDesire(currentTopFetish) == FetishDesire.THREE_LIKE ||
@@ -2145,13 +2126,11 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				currentTopRemoveChance = 0;
 			}
 			
-			
 			// prevent extraneous effects if player has top fetish, plus alter remove potency to drop fetish, not just desire
 			if(Main.game.getPlayer().hasFetish(currentTopFetish)) {
 				currentTopChance = 0;
 				currentTopRemovePotency = TFPotency.DRAIN;
 			} 
-			
 			
 			// some settings and status combinations can create negative values, so let's zero those out
 			if(currentTopChance < 0) { currentTopChance = 0 ;}
@@ -2196,7 +2175,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		// map of unpaired fetish -> boolean stating whether it wants to be shared, or hoarded
 		// currently, all unpaired fetishes seem like they are something the owner would want to share,
 		// but setting the second argument to false will cause the NPC to instead have an aversion to 
@@ -2207,7 +2185,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		unpairedFetishMap.put(Fetish.FETISH_CROSS_DRESSER, true);
 		unpairedFetishMap.put(Fetish.FETISH_INCEST, true);
 		unpairedFetishMap.put(Fetish.FETISH_MASTURBATION, true);
-		
 		
 		for(Entry<Fetish, Boolean> entry : unpairedFetishMap.entrySet()) {
 			currentTopFetish = entry.getKey();
@@ -2220,7 +2197,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			
 			currentTopChance = baseTopChance;
 			currentTopRemoveChance = baseTopRemoveChance;
-			
 			
 			if(wantsToShare) {
 				// Increase base add chances based on NPC's experience levels for this fetishes
@@ -2265,7 +2241,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				}
 			}
 			
-				
 			// set chances if NPC has top fetish
 			if(this.hasFetish(currentTopFetish)) {
 				if(wantsToShare) {
@@ -2285,8 +2260,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				currentTopRemoveChance = 0;
 			}
 			
-			
-			
 			// if player has positive top fetish desire, adjust potency level to fully add fetish, not just desire
 			if( Main.game.getPlayer().getFetishDesire(currentTopFetish) == FetishDesire.THREE_LIKE ||
 				Main.game.getPlayer().getFetishDesire(currentTopFetish) == FetishDesire.FOUR_LOVE) {
@@ -2305,14 +2278,12 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				currentTopRemoveChance = 0;
 			}
 			
-			
 			// prevent extraneous effects if player has top fetish, plus alter remove potency to drop fetish, not just desire
 			if(Main.game.getPlayer().hasFetish(currentTopFetish)) {
 				currentTopChance = 0;
 				currentTopRemovePotency = TFPotency.DRAIN;
 			} 
 			
-		
 			// some setting and status combos can result in negative values, so let's zero those out
 			if(currentTopChance < 0) { currentTopChance = 0 ;}
 			if(currentTopRemoveChance < 0) { currentTopRemoveChance = 0 ;}
@@ -2337,9 +2308,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			
 		}
 				
-				
-		
-		
 		// randomly select from possible effects 
 		int total = 0;
 		for(Entry<ItemEffect, Integer> entry : possibleEffects.entrySet()) {
@@ -2371,13 +2339,11 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 //		System.out.println(selectedEffect.getSecondaryModifier() + " " + selectedEffect.getPotency()); 
 //		System.out.println(count); 
 		
-		
 		// no fetish to add, so we have nothing to return
 		if(selectedEffect == null) {
 			return null;
 		}
 			
-		
 		// Let's figure out what flavor text string to pair with our selected effect
 
 		// I'm VERY uncertain that you'll like any of this flavor text at all, so please feel free to modify as you see fit
@@ -2389,7 +2355,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		
 		String defaultFetishAddFlavorText = "Why not expand your horizons a bit, eh?";
 		String defaultFetishRemoveFlavorText = "Maybe you should cool down a bit about the more extreme stuff, eh?.";
-		
 		
 		// body part
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_ANAL_GIVING, "You're going to love doing it in the ass after this.");
@@ -2421,7 +2386,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_STRUTTER, "You've got legs that don't quit -- you really ought to use them");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_STRUTTER, "Maybe focus a bit more on what's above your waist -- or at least around the hips?");
-		
 		
 		// Behavioral
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DOMINANT, "Don't you think you deserve to be the one in charge?");
@@ -2486,8 +2450,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_INCEST, "You know it wouldn't be a taboo if it wasn't at least a little bit fun.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_INCEST, "You what? Gross.");
 		
-		
-		
 		// Behavioral transformative
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_TRANSFORMATION_GIVING, "You strike me as someone who should be an agent of change.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_TRANSFORMATION_GIVING, "You should really just let people be who they are.");
@@ -2500,8 +2462,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_KINK_RECEIVING, "You strike me as someone who would really enjoy trying new things.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_KINK_RECEIVING, "I think you're already excitable enough as it is.");
-		
-		
 		
 		if(selectedEffect.getPotency() == TFPotency.MINOR_BOOST || selectedEffect.getPotency() == TFPotency.BOOST) {
 			// default for adding a fetish, just in case a fetish is somehow selected without a string defined in the lookup
@@ -2520,7 +2480,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			}
 		}
 		
-		
 		// finally, build and return our fetish potion
 		List<ItemEffect> effects = new ArrayList<>();
 		effects.add(selectedEffect);
@@ -2530,11 +2489,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				EnchantingUtils.craftItem(AbstractItemType.generateItem(itemType), effects));
 	}
 	
-	
-	
-	
 	// Sex:
-	
 	
 	public void calculateGenericSexEffects(boolean isDom, NPC partner, SexType sexType) {
 		this.setLastTimeHadSex(Main.game.getMinutesPassed(), true);
@@ -2622,8 +2577,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	
 	public void endSex() {
 	}
-	
-	
 	
 	public boolean getSexBehaviourDeniesRequests(SexType sexTypeRequest) {
 		
@@ -3105,7 +3058,6 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			foreplaySexTypes.keySet().removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaPenetration.TAIL);
 			mainSexTypes.keySet().removeIf(sexType -> sexType.getPerformingSexArea()==SexAreaPenetration.TAIL);
 		}
-		
 		
 		// ************************ Finally, set preferences from the resulting lists. ************************ //
 

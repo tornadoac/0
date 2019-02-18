@@ -500,7 +500,6 @@ public class OptionsDialogue {
 									?"<div class='square-button saveIcon' id='load_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskLoadConfirm()+"</div></div>"
 									:"<div class='square-button saveIcon' id='load_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskLoad()+"</div></div>")
 	
-	
 							+ (name.equals(deleteConfirmationName)
 								?"<div class='square-button saveIcon' id='delete_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskDeleteConfirm()+"</div></div>"
 								:"<div class='square-button saveIcon' id='delete_saved_" + baseName + "'><div class='square-button-content'>"+SVGImages.SVG_IMAGE_PROVIDER.getDiskDelete()+"</div></div>")
@@ -541,7 +540,6 @@ public class OptionsDialogue {
 					+ "</div>"
 				+ "</div>";
 	}
-	
 	
 	public static final DialogueNode OPTIONS = new DialogueNode("Options", "Options", true) {
 		
@@ -1094,7 +1092,6 @@ public class OptionsDialogue {
 				+ "</tr>";
 	}
 	
-	
 	public static final DialogueNode PATCH_NOTES = new DialogueNode("Patch Notes", "Patch notes", true) {
 		
 		@Override
@@ -1141,7 +1138,6 @@ public class OptionsDialogue {
 		}
 	};
 	
-	
 	public static final DialogueNode GENDER_PREFERENCE = new DialogueNode("Gender preferences", "", true) {
 		
 		@Override
@@ -1161,7 +1157,6 @@ public class OptionsDialogue {
 			UtilText.nodeContentSB.append(getGenderPreferencesPanel(PronounType.MASCULINE));
 			UtilText.nodeContentSB.append(getGenderPreferencesPanel(PronounType.NEUTRAL));
 			UtilText.nodeContentSB.append(getGenderPreferencesPanel(PronounType.FEMININE));
-			
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -1401,7 +1396,6 @@ public class OptionsDialogue {
 			UtilText.nodeContentSB.append(getAgePreferencesPanel(PronounType.NEUTRAL));
 			UtilText.nodeContentSB.append(getAgePreferencesPanel(PronounType.FEMININE));
 			
-			
 			return UtilText.nodeContentSB.toString();
 		}
 		
@@ -1542,7 +1536,6 @@ public class OptionsDialogue {
 			UtilText.nodeContentSB.append("</div>"
 					+ "</div>");
 
-			
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width'>"
 						+"<div class='container-half-width inner'>"
@@ -1595,7 +1588,6 @@ public class OptionsDialogue {
 							+"</div>"
 						+ "</div>"
 					+ "</div>");
-			
 			
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align: center;'>"
 												+ "<div style='display:inline-block; margin:0 auto;'>"
@@ -1695,7 +1687,6 @@ public class OptionsDialogue {
 		
 		return sb.toString();
 	};
-	
 	
 	public static final DialogueNode CONTENT_PREFERENCE = new DialogueNode("Content Options", "", true) {
 		
@@ -2131,7 +2122,6 @@ public class OptionsDialogue {
 		
 		return contentSB.toString();
 	}
-	
 	
 	public static final DialogueNode CREDITS = new DialogueNode("Credits", "", true) {
 		

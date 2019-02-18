@@ -642,7 +642,6 @@ public class Lab {
 		}
 	};
 	
-	
 	public static final DialogueNode LILAYA_PRESENT = new DialogueNode("Lilaya's Laboratory", "", false) {
 		
 		@Override
@@ -921,7 +920,6 @@ public class Lab {
 			}
 		}
 	};
-	
 	
 	public static final DialogueNode LILAYA_EXPLAINS_ESSENCES = new DialogueNode("", "", true, true) {
 		
@@ -1276,8 +1274,6 @@ public class Lab {
 	
 	public static final DialogueNode LILAYA_EXPLAINS_ESSENCES_3 = new DialogueNode("", "", true, true) {
 		
-
-		
 		@Override
 		public String getContent() {
 //			return UtilText.parse("/res/txt/dialogue/places/dominion/aunts_home/explaining_essences_3.txt", AuntsHome.getContext());
@@ -1334,7 +1330,6 @@ public class Lab {
 								+ " Jinxed clothing is a major problem for people without demonic-strength auras, as they need to pay demons to remove the jinx for them, but for you and I, jinxes are no more than a minor inconvenience.)]"
 						+ "</p>");
 			}
-			
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -1459,7 +1454,6 @@ public class Lab {
 				} else {
 					return new Response("Extract (1)", "You don't have any free space in your inventory!", null);
 				}
-				
 				
 			} else if(index == 2) {
 				if((!Main.game.getPlayer().isInventoryFull() || Main.game.getPlayer().hasItem(AbstractItemType.generateItem(TFEssence.essenceToItem(TFEssence.ARCANE))))) {
@@ -1587,7 +1581,6 @@ public class Lab {
 		}
 	};
 	
-	
 	public static final DialogueNode LILAYA_CURRENT_DATE_TALK = new DialogueNode("Lilaya's Lab", "-", true, false) {
 		
 		@Override
@@ -1636,7 +1629,6 @@ public class Lab {
 			}
 		}
 	};
-	
 	
 	//----------------------------------
 
@@ -3004,7 +2996,6 @@ public class Lab {
 			} catch(Exception ex) {
 			}
 			
-						
 			UtilText.nodeContentSB.append(" As all the other eggs start cracking in turn, you feel a wave of exhaustion washing over you, and with what little strength you have left, you feebly call out for Lilaya."
 					+ "</p>"
 					+ "<p>"
@@ -3030,7 +3021,6 @@ public class Lab {
 							+ "</p>");
 				}
 			 
-			
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -3052,7 +3042,6 @@ public class Lab {
 			}
 		}
 	};
-	
 	
 	private static String getOffspringDescriptor(GameCharacter offspring) {
 		List<String> descriptors = new ArrayList<>();
@@ -3212,8 +3201,6 @@ public class Lab {
 	};
 	
 	public static final DialogueNode LAB_LEAVE = new DialogueNode("Lilaya's Laboratory", "", false, true) {
-		
-
 		
 		@Override
 		public String getContent() {

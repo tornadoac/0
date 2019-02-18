@@ -791,8 +791,6 @@ public enum ParserTarget {
 	
 	;
 	
-	
-	
 	private String description;
 	private List<String> tags;
 	private ParserTarget(List<String> tags, String description) {

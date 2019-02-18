@@ -48,7 +48,6 @@ public enum SkinType implements BodyPartTypeInterface {
 
 	HARPY(BodyCoveringType.FEATHERS, Race.HARPY);
 
-	
 	private BodyCoveringType coveringType;
 	private Race race;
 

@@ -515,8 +515,6 @@ public class LumiDialogue {
 		}
 	};
 	
-	
-	
 	public static final DialogueNode LUMI_APPEARS_REPEAT_ENCOUNTER = new DialogueNode("Alleyways", "", true, true) {
 
 		@Override

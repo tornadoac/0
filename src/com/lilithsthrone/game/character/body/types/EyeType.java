@@ -49,7 +49,6 @@ public enum EyeType implements BodyPartTypeInterface {
 
 	HARPY(BodyCoveringType.EYE_HARPY, Race.HARPY, 1, EyeShape.ROUND, EyeShape.ROUND);
 
-	
 	private BodyCoveringType coveringType;
 	private Race race;
 	private int eyePairs;

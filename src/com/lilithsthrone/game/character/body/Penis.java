@@ -29,7 +29,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class Penis implements BodyPartInterface {
 
-	
 	public static final float TWO_PENIS_SIZE_MULTIPLIER = 1.6f;
 
 	protected PenisType type;

@@ -14,7 +14,6 @@ import com.lilithsthrone.utils.Util;
  */
 public class EventLogEntryGainItem extends EventLogEntry {
 
-	
 	public EventLogEntryGainItem(AbstractCoreItem item) {
 		super(Main.game.getMinutesPassed(),
 				(item instanceof AbstractItem?"Gained Item":(item instanceof AbstractClothing?"Gained Clothing":"Gained Weapon")),

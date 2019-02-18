@@ -686,8 +686,6 @@ public class TongueVagina {
 		}
 	};
 	
-	
-	
 	public static final SexAction RECEIVING_CUNNILINGUS_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,

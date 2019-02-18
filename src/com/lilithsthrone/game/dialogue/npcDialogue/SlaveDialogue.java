@@ -2222,7 +2222,6 @@ public class SlaveDialogue {
 		}
 	}
 	
-	
 	public static final DialogueNode SLAVE_SPANKING = new DialogueNode("", "", true, true) { //TODO
 		
 		@Override
@@ -2586,8 +2585,6 @@ public class SlaveDialogue {
 					break;
 			}
 			
-			
-			
 			if(slave().hasBreasts()) {
 				UtilText.nodeContentSB.append(
 							" Your [pc.hands] reach up to cup and squeeze [npc.her] [npc.breasts+], drawing "+firstCry+" from [npc.namePos] mouth as [npc.she] "+firstReaction+","
@@ -2635,7 +2632,6 @@ public class SlaveDialogue {
 					+ "<p>"
 						+ finalDescription
 					+ "</p>");
-			
 			
 			UtilText.nodeContentSB.append(
 					"<p>"
@@ -2939,8 +2935,6 @@ public class SlaveDialogue {
 		}
 	};
 
-
-	
 	public static final DialogueNode SLAVE_USES_YOU_POST_SEX_STREETS = new DialogueNode("Used", "", true) {
 
 		@Override

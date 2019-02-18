@@ -540,7 +540,7 @@
 		 Arthur exclaims, very much in tone that would never suggest he was Zaranix's slave.
 	</p>
 	<p>
-		[zaranix.speech(You won't need to trouble yourself with proving that to me anymore,)]
+		[zaranix.speech(You won't need to trouble yourself with proving that to me any more,)]
 		 Zaranix replies.
 		 [zaranix.speech(If truth be told, you'd already convinced me that it wasn't going to happen after your first day here.
 		 It's a moot point now anyway. Apparently, Lilaya wants you back. So go on, you're free. Oh, and you have [pc.name] here to thank for tracking you down.)]
@@ -779,8 +779,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- PLACE TILES -->
 	

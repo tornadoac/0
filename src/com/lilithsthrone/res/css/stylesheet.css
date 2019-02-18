@@ -103,9 +103,6 @@
   -fx-background-color: transparent;
 }
 
-
-
-
 #gridPanePhone{
     -fx-background-color: #ff8080;
 }
@@ -147,4 +144,3 @@
 #vBoxAttributes{
 	-fx-background-color: "#f0f0f0";
 }
-

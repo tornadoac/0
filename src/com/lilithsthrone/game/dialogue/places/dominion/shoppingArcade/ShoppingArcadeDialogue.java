@@ -16,7 +16,6 @@ import com.lilithsthrone.world.places.PlaceType;
  */
 public class ShoppingArcadeDialogue {
 
-	
 	public static final DialogueNode OUTSIDE = new DialogueNode("Shopping arcade", "-", false) {
 		
 		@Override

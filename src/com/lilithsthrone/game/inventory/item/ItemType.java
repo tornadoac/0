@@ -2285,7 +2285,6 @@ public class ItemType {
 				}
 			}
 		
-		
 	}
 	
 	public static AbstractItemType BOTTLED_ESSENCE_ARCANE = new AbstractItemType(40,
@@ -2947,8 +2946,6 @@ public class ItemType {
 		}
 	};
 	
-	
-	
 	// Specials:
 	
 	public static AbstractItemType HARPY_MATRIARCH_BIMBO_LOLLIPOP = new AbstractItemType(1250,
@@ -2969,7 +2966,6 @@ public class ItemType {
 					ItemTag.RACIAL_TF_ITEM,
 					ItemTag.NOT_FOR_SALE)) {
 
-		
 		@Override
 		public boolean isTransformative() {
 			return true;
@@ -3015,7 +3011,6 @@ public class ItemType {
 					ItemTag.RACIAL_TF_ITEM,
 					ItemTag.NOT_FOR_SALE)) {
 
-		
 		@Override
 		public boolean isTransformative() {
 			return true;
@@ -3060,7 +3055,6 @@ public class ItemType {
 					ItemTag.RACIAL_TF_ITEM,
 					ItemTag.NOT_FOR_SALE)) {
 
-		
 		@Override
 		public boolean isTransformative() {
 			return true;
@@ -3090,7 +3084,6 @@ public class ItemType {
 			
 		}
 	};
-	
 	
 	// Crafting outputs:
 	
@@ -3157,7 +3150,6 @@ public class ItemType {
 			null,
 			null, null) {
 
-		
 		@Override
 		public boolean isTransformative() {
 			return true;
@@ -3189,7 +3181,6 @@ public class ItemType {
 						+ " You feel a strange tingling feeling spreading throughout your body as the elixir's effects start to make themselves known...");
 		}
 	};
-	
 	
 	// Non-TF:
 
@@ -3310,7 +3301,6 @@ public class ItemType {
 			TFEssence.ARCANE,
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.ORIENTATION_CHANGE)), null) {
 
-		
 		@Override
 		public boolean isFetishGiving() {
 			return true;
@@ -3453,7 +3443,6 @@ public class ItemType {
 					ItemTag.BAT_CAVERNS_SPAWN,
 					ItemTag.SOLD_BY_RALPH)) {
 
-		
 		@Override
 		public String getUseName() {
 			return "milk";
@@ -3614,7 +3603,6 @@ public class ItemType {
 			null,
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.PRESENT)), null) {
 
-		
 		@Override
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return !(target.isInventoryFull() && Main.game.getPlayerCell().getInventory().isInventoryFull());
@@ -3882,8 +3870,6 @@ public class ItemType {
 			TFEssence.ARCANE,
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.EGGPLANT)), null) {
 
-		
-
 		@Override
 		public AbstractItemEffectType getEnchantmentEffect() {
 			return ItemEffectType.EGGPLANT_POTION;
@@ -4115,7 +4101,6 @@ public class ItemType {
 			return false;
 		}
 	};
-	
 	
 	// Standard non-racial transformatives:
 	
@@ -4526,7 +4511,6 @@ public class ItemType {
 			effectsString.add("Adds "+subspecies.getName(null)+" encyclopedia entry.");
 			effectsString.add("[style.boldExcellent(+5)] <b style='color:"+s.getSpellSchool().getColour()+";'>"+subspecies.getDamageMultiplier().getName()+"</b>");
 			effectsString.add("[style.boldExcellent(+5)] <b style='color:"+s.getSpellSchool().getColour()+";'>"+subspecies.getResistanceMultiplier().getName()+"</b>");
-			
 			
 			AbstractItemEffectType effectType = new AbstractItemEffectType(effectsString, s.getSpellSchool().getColour()) {
 				

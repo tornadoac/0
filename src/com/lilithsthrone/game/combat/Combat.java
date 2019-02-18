@@ -701,7 +701,6 @@ public enum Combat {
 				
 			}
 			
-			
 			if(responseTab==1) { // Special attacks:
 				if (Main.game.getPlayer().getSpecialAttacks().size() >= index && index!=0) {
 					int cooldown = Combat.getCooldown(Main.game.getPlayer(), Main.game.getPlayer().getSpecialAttacks().get(index - 1));
@@ -765,7 +764,6 @@ public enum Combat {
 					return null;
 				}
 			}
-			
 			
 			if (index == 0) {
 				if (escapeChance == 0) {
@@ -971,7 +969,6 @@ public enum Combat {
 		}
 	};
 
-	
 	// Calculations for melee attack:
 	private static void attackMain(GameCharacter attacker) {
 		GameCharacter target = getTargetedCombatant(attacker);
@@ -1071,7 +1068,6 @@ public enum Combat {
 				+ attacker.getOffhandAttackDescription(isHit)
 				+"</p>";
 	}
-	
 	
 	private static void attackDual(GameCharacter attacker) {
 		GameCharacter target = getTargetedCombatant(attacker);
@@ -1660,7 +1656,6 @@ public enum Combat {
 				attackDescriptionSB.append("Costs [style.boldArcane("+cost+" Arcane essence"+(cost>1?"s":"")+")] "+(Main.game.getPlayer().getMainWeapon().getWeaponType().isMelee()?"per attack":"to fire")+"<br/>");
 			}
 		}
-		
 		
 		attackDescriptionSB.append("Main and offhand attacks <b style='color:" + Colour.GENERIC_EXCELLENT.toWebHexString() + ";'>always hit</b>.");
 		

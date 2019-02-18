@@ -117,11 +117,11 @@
 		
 	Rose says she looks familiar in prologue?
 	
-	~I cant get the extra discount anymore, I do the blowjob scene but if I press the second discount button on ralph, nothing happens and the blowjob scene continues.~
+	~I cant get the extra discount any more, I do the blowjob scene but if I press the second discount button on Ralph, nothing happens and the blowjob scene continues.~
 	: but then at the end he acts as if no one was alerted and you get it all
 	
 	I'm not certain as to this, but it appears there is a bug when if you unlock a perk, and a perk that requires that perk at the same time, you don't get the affect of the latter.
-		Or atleast it visually appears as a perk you don't have
+		Or at least it visually appears as a perk you don't have
 		
 	Spell cost reduction does not affect the cost of the main hand weapon's associated attack spell, but all other spell costs are reduced normally.
 		Correction: It's the fireball spell itself that does not conform to spell cost reduction.
@@ -129,7 +129,6 @@
 	(Possibly referring to brax) -> NPC also refuse feminization potion still, despite being available and noted as usable in sex, they never work
 	
 	Futa enemy -> im stroking her penis -> she says: "go on keep using your fingers"
-	
 	
 	The only thing allowed to be done at the Lab are "tests"
 		somehow the options magically appeared because I got a birthing notice
@@ -142,9 +141,9 @@
 	Pulling aside backless panties with nothing else equipped gets rid of the exposed breasts status
 		Actually, it's just being completely exposed in general
 		I think it's trying to merge the statuses into one, but it doesn't increase the penalty
-		Or maybe it's supposed to get rid of the exposed breasts status effect when you wear backless panties, but it doesnt?
+		Or maybe it's supposed to get rid of the exposed breasts status effect when you wear backless panties, but it doesn't?
 	
-	(Maybe fixed) I just ran into a horse girl thats wearing assless chaps and backless panties but I don't know what her asshole looks like
+	(Maybe fixed) I just ran into a horse girl that's wearing assless chaps and backless panties but I don't know what her asshole looks like
 	
 	Nyan responds to you going back to the general choice of which type of clothing as if you just entered the back warehouse
 	
@@ -177,17 +176,14 @@
 	After Brax defeat/transformation (starting as male - androgynous) - "Your precum quickly lubricates your ." and "Your precum quickly lubricates your hard ."
 	"You lost your anal virginity to ." even though no anal sex yet
 	
-	
 	Hard to replicate:
-	I was grinding for Exp from a level 2 enemy, and after I leveled up to lv4 I went into the house to sleep.
-	Afterward I was unable to click on anything above the bottom row of buttons.
+	I was grinding for Exp from a level 2 enemy, and after I levelled up to lv4 I went into the house to sleep.
+	Afterwards I was unable to click on anything above the bottom row of buttons.
 	For example the Load, Overwrite, Deletes buttons when you click on the Save/load bottom button.
 	Or anything in the inventory?
 	I'm seriously unsure as to what caused this bug.
 	It could even be because I spammed the 1/6/9 keys to finish fights faster.
-	Or it could have been the fact after I leveled up I accidentally pressed the explore button again which activated a fight.
-	
-	
+	Or it could have been the fact after I levelled up I accidentally pressed the explore button again which activated a fight.
 	
 	Not quite bugs
 	If you ask Lilaya about 'tests', then you cannot do any other dialogue options (such as asking about essences) until you leave and return.
@@ -196,4 +192,4 @@
 	sometimes if you use the scroll wheel on the "Continue" box at the main menu, then a scroll bar will appear (which, while not causing any problems, does not fit with everything else appearance-wise).
 		I think slightly enlarging the box may mitigate this, but I'm not sure.
 		
-	Create a character -> choose slut -> back -> choose strong and you get "Recovering orfices" on a virgin
+	Create a character -> choose slut -> back -> choose strong and you get "Recovering orifices" on a virgin

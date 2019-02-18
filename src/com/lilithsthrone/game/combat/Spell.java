@@ -393,7 +393,6 @@ public enum Spell {
 				}
 			}
 			
-			
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
 			
@@ -480,7 +479,6 @@ public enum Spell {
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
 			}
-			
 			
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
@@ -607,7 +605,6 @@ public enum Spell {
 			}
 			
 			descriptionSB.append("</p>");
-			
 			
 			caster.incrementMana(-cost);
 			
@@ -772,7 +769,6 @@ public enum Spell {
 					}
 				}
 			}
-			
 			
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
@@ -1186,7 +1182,6 @@ public enum Spell {
 				}
 			}
 			
-			
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
 			
@@ -1502,7 +1497,6 @@ public enum Spell {
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
 			}
-			
 			
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
@@ -1875,7 +1869,6 @@ public enum Spell {
 					
 					stealItem = target.getInventorySlotsTaken()>0;
 					
-				
 					double rnd = Math.random();
 					
 					if(mainWeaponSteal && (rnd<0.2 || (!offhandWeaponSteal && !stealItem && clothingToSteal==null))) {
@@ -2362,8 +2355,6 @@ public enum Spell {
 		}
 	},
 	
-
-	
 	DARK_SIREN_SIRENS_CALL(false,
 			SpellSchool.AIR,
 			SpellType.OFFENSIVE,
@@ -2443,7 +2434,6 @@ public enum Spell {
 		return spellsFromSchoolMap;
 	}
 	
-	
 	private static StringBuilder descriptionSB = new StringBuilder();
 	
 	protected static Map<Integer, List<TreeEntry<SpellSchool, SpellUpgrade>>> spellStealUpgradeTree;
@@ -2464,7 +2454,6 @@ public enum Spell {
 		spellStealUpgradeTree.get(2).add(new TreeEntry<>(SpellSchool.ARCANE, 2, SpellUpgrade.STEAL_3B));
 		spellStealUpgradeTree.get(2).get(1).addLink(spellStealUpgradeTree.get(2).get(0));
 	}
-	
 	
 	private boolean forbiddenSpell;
 	private SpellSchool spellSchool;
@@ -2541,7 +2530,6 @@ public enum Spell {
 		if (extraEffects != null) {
 			modifiersList.addAll(extraEffects);
 		}
-		
 		
 		// SVG:
 		try {

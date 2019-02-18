@@ -114,5 +114,4 @@ public class TattooCounter implements XMLSaving {
 		this.glow = glow;
 	}
 	
-	
 }

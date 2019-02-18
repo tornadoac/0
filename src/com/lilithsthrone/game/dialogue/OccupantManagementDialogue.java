@@ -265,7 +265,6 @@ public class OccupantManagementDialogue {
 									+ "<b>Day: "+dayNumber+(dayNumber==Main.game.getDayNumber()?" (Today)":"")+(dayNumber==Main.game.getDayNumber()-1?" (Yesterday)":"")+"</b>"
 									+ "<div id='NEXT_DAY' class='normal-button' style='width:15%; margin-left:8px;'>Next</div>"
 
-						
 						+ "<div class='container-full-width' style='text-align:center; margin-bottom:0;'>"
 							+ "<div style='width:10%; float:left; font-weight:bold; margin:0; padding:0;'>"
 								+ "Time"
@@ -343,7 +342,6 @@ public class OccupantManagementDialogue {
 			return getSlaveryResponse(index);
 		}
 	};
-	
 	
 	public static final DialogueNode ROOM_MANAGEMENT = new DialogueNode("Room Management", ".", true) {
 
@@ -494,8 +492,6 @@ public class OccupantManagementDialogue {
 		return importantCells;
 	}
 	
-	
-	
 	private static String getWorldRooms(WorldType worldType) {
 		StringBuilder worldRoomSB = new StringBuilder();
 		
@@ -526,7 +522,6 @@ public class OccupantManagementDialogue {
 		
 		return worldRoomSB.toString();
 	}
-	
 	
 	public static Cell cellToInspect;
 	
@@ -570,7 +565,6 @@ public class OccupantManagementDialogue {
 								+"</div>"
 							+ "</div>");
 			
-			
 			GenericPlace place = cellToInspect.getPlace();
 			float affectionChange = place.getHourlyAffectionChange();
 			float obedienceChange = place.getHourlyObedienceChange();
@@ -597,7 +591,6 @@ public class OccupantManagementDialogue {
 				UtilText.nodeContentSB.append("<b style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>Empty</b>");
 			}
 			
-			
 			UtilText.nodeContentSB.append(
 					"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
@@ -618,7 +611,6 @@ public class OccupantManagementDialogue {
 							+"</div>"
 						+ "</div>"
 						+ "</div>");
-			
 			
 			// Normal upgrades:
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -649,7 +641,6 @@ public class OccupantManagementDialogue {
 					+"<p><i>Purchasing a [style.boldArcane(core modification)] will remove [style.boldBad(all)] other modifications in this room!</i></p>"
 					+ getRoomUpgradeHeader());
 
-			
 //			for (PlaceUpgrade upgrade : place.getPlaceUpgrades()) {
 //				if(upgrade.isCoreRoomUpgrade()) {
 //					UtilText.nodeContentSB.append(getUpgradeEntry(cellToInspect, upgrade));
@@ -725,8 +716,6 @@ public class OccupantManagementDialogue {
 		}
 	};
 	
-
-
 	public static final DialogueNode ROOM_UPGRADES_MANAGEMENT = new DialogueNode("Room Management", ".", true) {
 
 		@Override
@@ -789,7 +778,6 @@ public class OccupantManagementDialogue {
 			}
 		}
 	};
-	
 	
 	private static String getRoomUpgradeHeader() {
 		return "<div class='container-full-width' style='margin-bottom:0;'>"
@@ -978,7 +966,6 @@ public class OccupantManagementDialogue {
 		return purchaseAvailability.toString();
 	}
 	
-	
 	private static final DialogueNode SLAVE_LIST = new DialogueNode("Slave & Occupant Management", ".", true) {
 
 		@Override
@@ -1055,7 +1042,6 @@ public class OccupantManagementDialogue {
 				UtilText.nodeContentSB.append(
 						"</div>");
 			}
-			
 			
 			// Your slaves:
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -1584,7 +1570,6 @@ public class OccupantManagementDialogue {
 						+"</div>"
 					+ "</div>");
 
-		
 		// Job:
 		headerSB.append("<div class='container-half-width inner' style='width:50%; margin:0;'>"
 				+ "<b>Job:</b> <b style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>"+Util.capitaliseSentence(character.getSlaveJob().getName(character))+"</b><br/>");
@@ -1597,7 +1582,6 @@ public class OccupantManagementDialogue {
 			headerSB.append(".");
 		}
 		headerSB.append("</div>");
-		
 		
 		// Permissions:
 		headerSB.append("<div class='container-half-width inner' style='width:50%; margin:0;'>"
@@ -1613,13 +1597,11 @@ public class OccupantManagementDialogue {
 		}
 		headerSB.append(".</div>");
 		
-		
 		headerSB.append("</div>"
 				+ "</div>");
 		
 		return headerSB.toString();
 	}
-	
 	
 	/**
 	 * <b>Use getSlaveryManagementDetailedDialogue(NPC slave) to initialise this!!!</b>
@@ -1715,7 +1697,6 @@ public class OccupantManagementDialogue {
 							"</div>"
 						+ "</div>"
 					+ "</div>");
-			
 			
 			// Jobs:
 			// TODO description box explaining that setting just influence random events
@@ -2321,7 +2302,6 @@ public class OccupantManagementDialogue {
 						true,
 						true));
 			}
-			
 			
 			return UtilText.parse(BodyChanging.getTarget(), UtilText.nodeContentSB.toString());
 		}

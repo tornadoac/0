@@ -125,7 +125,6 @@ public class DominionOffspringDialogue {
 								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognised you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
 							+ "</p>");
 					
-					
 				} else { // Mugger introduction:
 					
 					if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
@@ -351,7 +350,6 @@ public class DominionOffspringDialogue {
 					}
 					UtilText.nodeContentSB.append("</p>");
 				}
-				
 				
 				// Taking into account player not apologised for attack/rape
 				if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) || offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
@@ -1053,7 +1051,6 @@ public class DominionOffspringDialogue {
 											+ "Walking away, you leave your [npc.daughter] to get on with whatever it was that [npc.she] was up to, and continue on your journey."
 										+ "</p>");
 								
-								
 								setOffspringFlags();
 							}	
 						};
@@ -1071,7 +1068,6 @@ public class DominionOffspringDialogue {
 		Main.game.getPlayer().setCharacterReactedToPregnancy(offspring(), true);
 		Main.game.getDialogueFlags().offspringDialogueTokens = 2;
 	}
-	
 	
 	public static final DialogueNode OFFSPRING_ENCOUNTER_APOLOGY = new DialogueNode("A familiar face", "", true) {
 		
@@ -1262,7 +1258,6 @@ public class DominionOffspringDialogue {
 		
 		return footerSB.toString();
 	}
-	
 	
 	public static final DialogueNode OFFSPRING_ENCOUNTER_TALKING = new DialogueNode("", "You encounter a certain special someone in the alleyway.", true) {
 
@@ -1715,7 +1710,6 @@ public class DominionOffspringDialogue {
 						+ " Talking to your [npc.daughter] fills you with a deep sense of calm and happiness, and every time [npc.she] smiles and offers [npc.her] opinion on something,"
 							+ " you listen with rapt attention to every word that comes out of [npc.her] mouth."
 					+ "</p>");
-			
 			
 			switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
 				case NEGATIVE_FIVE_LOATHE: case NEGATIVE_FOUR_HATE:case NEGATIVE_THREE_STRONG_DISLIKE: case NEGATIVE_TWO_DISLIKE:case NEGATIVE_ONE_ANNOYED:case ZERO_NEUTRAL:
@@ -2214,7 +2208,6 @@ public class DominionOffspringDialogue {
 				} else {
 					return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 				}
-				
 				
 			} else {
 				if (index == 8 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {

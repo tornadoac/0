@@ -440,9 +440,6 @@ public class MainControllerInitMethod {
 			}
 		}
 		
-		
-		
-		
 		if(Main.game.getCurrentDialogueNode() == CharacterCreation.BACKGROUND_SELECTION_MENU) {
 			for(Occupation history : Occupation.values()) {
 				id = "OCCUPATION_"+history;
@@ -459,7 +456,6 @@ public class MainControllerInitMethod {
 			
 			}
 		}
-		
 		
 		// -------------------- Inventory listeners -------------------- //
 		
@@ -537,7 +533,6 @@ public class MainControllerInitMethod {
 			}
 			// Quest inventory:
 			MainController.setInventoryPageLeft(5);
-			
 			
 			// Player:
 			for (Entry<AbstractWeapon, Integer> entry : Main.game.getPlayer().getMapOfDuplicateWeapons().entrySet()) {
@@ -707,7 +702,6 @@ public class MainControllerInitMethod {
 				}
 			}
 			
-	
 			// -------------------- Enchantments --------------------
 			
 			// Tooltips:
@@ -1018,7 +1012,6 @@ public class MainControllerInitMethod {
 				}
 			}
 
-			
 			// -------------------- Room upgrades -------------------- //
 			
 			if(Main.game.getCurrentDialogueNode() == OccupantManagementDialogue.ROOM_MANAGEMENT) {
@@ -1199,8 +1192,6 @@ public class MainControllerInitMethod {
 				}
 			}
 			
-			
-			
 			// -------------------- Slavery -------------------- //
 			
 			// Room specials:
@@ -1212,7 +1203,6 @@ public class MainControllerInitMethod {
 				}
 				
 			}
-			
 			
 			if(Main.game.getCurrentDialogueNode() == OccupantManagementDialogue.OCCUPANT_OVERVIEW) {
 				id ="PREVIOUS_DAY";
@@ -1396,7 +1386,6 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				
 				// Jobs:
 				for(SlaveJob job : SlaveJob.values()) {
 					id = "SLAVE_JOB_INFO_" + job;
@@ -1537,7 +1526,6 @@ public class MainControllerInitMethod {
 					}
 				}
 			}
-			
 			
 			for(String slaveId : Main.game.getPlayer().getSlavesOwned()) {
 				id = slaveId;
@@ -1863,7 +1851,6 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 					
-					
 					id = slaveId+"_TRADER_TRANSFER";
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
@@ -1918,7 +1905,6 @@ public class MainControllerInitMethod {
 				}
 			}
 			
-			
 			// -------------------- Incest Renaming -------------------- //
 			
 			if(Main.game.getActiveNPC()!=null) {
@@ -1953,7 +1939,6 @@ public class MainControllerInitMethod {
 					}, false);
 				}
 			}
-			
 			
 			// -------------------- Character Creation -------------------- //
 			
@@ -2087,7 +2072,6 @@ public class MainControllerInitMethod {
 				
 				}
 				
-				
 				// Sex experiences:
 				for(int i : CharacterModificationUtils.soSilly) {
 					
@@ -2203,7 +2187,6 @@ public class MainControllerInitMethod {
 					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_PENIS)
 					|| Main.game.getCurrentDialogueNode().equals(BodyChanging.BODY_CHANGING_BREASTS_CROTCH)) {
 				
-				
 				// Gender:
 				id = "CHOOSE_GENDER_MALE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -2273,9 +2256,7 @@ public class MainControllerInitMethod {
 					}, false);
 				}
 				
-				
 				// Variable femininity:
-				
 				
 				id = "FEMININITY_INCREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -2337,8 +2318,6 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				
-			
 				// Height:
 				id = "HEIGHT_INCREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -2403,7 +2382,6 @@ public class MainControllerInitMethod {
 						}, false);
 					}
 				}
-				
 				
 				// Lip puffiness:
 				id = "LIP_PUFFY_ON";
@@ -2483,7 +2461,6 @@ public class MainControllerInitMethod {
 						}, false);
 					}
 				}
-				
 				
 				// Nipple size:
 				for(NippleSize ns : NippleSize.values()) {
@@ -2607,7 +2584,6 @@ public class MainControllerInitMethod {
 						}, false);
 					}
 				}
-				
 				
 				// Testicle size:
 				for(TesticleSize ts : CharacterModificationUtils.getTesticleSizesAvailable()) {
@@ -2763,7 +2739,6 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				
 				for(AbstractLegType legType: LegType.getAllLegTypes()) {
 					id = "CHANGE_LEG_"+LegType.getIdFromLegType(legType);
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -2860,8 +2835,6 @@ public class MainControllerInitMethod {
 						}, false);
 					}
 				}
-				
-				
 				
 				// Face:
 				
@@ -3038,8 +3011,6 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				
-				
 				// Breasts:
 				
 				id = "BREAST_SIZE_INCREASE";
@@ -3100,7 +3071,6 @@ public class MainControllerInitMethod {
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
-				
 				
 				for(int i=1; i <= Breast.MAXIMUM_BREAST_ROWS; i++) {
 					MainController.setBreastCountListener(i);
@@ -3274,7 +3244,6 @@ public class MainControllerInitMethod {
 					}
 				}
 				
-				
 				// Penis:
 				
 				for(PenisType penisType: PenisType.values()) {
@@ -3398,7 +3367,6 @@ public class MainControllerInitMethod {
 					}, false);
 				}
 
-				
 				id = "MILK_PRODUCTION_INCREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
@@ -3442,7 +3410,6 @@ public class MainControllerInitMethod {
 					}, false);
 				}
 
-				
 				id = "MILK_CROTCH_PRODUCTION_INCREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
 					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
@@ -3485,8 +3452,6 @@ public class MainControllerInitMethod {
 						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 					}, false);
 				}
-				
-				
 				
 				for(OrificeElasticity elasticity: OrificeElasticity.values()) {
 					id = "URETHRA_ELASTICITY_"+elasticity;
@@ -3540,7 +3505,6 @@ public class MainControllerInitMethod {
 			
 			// -------------------- Cosmetics -------------------- //
 			
-			
 			boolean noCost = !Main.game.isInNewWorld() || Main.game.getCurrentDialogueNode().getDialogueNodeType()==DialogueNodeType.PHONE;
 			
 			for(BodyCoveringType bct : BodyCoveringType.values()) {
@@ -3572,7 +3536,6 @@ public class MainControllerInitMethod {
 						}
 					}, false);
 				}
-				
 				
 				id = bct+"_PRIMARY_GLOW_OFF";
 				
@@ -4248,8 +4211,6 @@ public class MainControllerInitMethod {
 				
 			}
 			
-			
-			
 			// -------------------- Phone listeners -------------------- // TODO track listeners
 			
 			// Phone item viewer:
@@ -4461,7 +4422,6 @@ public class MainControllerInitMethod {
 				}
 			}
 
-			
 			for(Perk perk : Perk.values()) {
 				GameCharacter character = Main.game.getCurrentDialogueNode() == PhoneDialogue.CHARACTER_LEVEL_UP
 						?Main.game.getPlayer()
@@ -4806,7 +4766,6 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, "furry_preference_human_encounter_four", "mouseenter", el, false);
 			}
 			
-			
 			// Forced TF racial limits:
 			id = "forced_tf_limit_human";
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -4878,7 +4837,6 @@ public class MainControllerInitMethod {
 						"Forced transformations from NPCs will always give you non-human hair, ears, eyes, tails, horns, antenna, wings, breasts, genitalia, ass, arms, legs, skin, and face. (So everything will be affected.)");
 				MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 			}
-			
 			
 			// Multi-breast options:
 			for(int i=0; i<3; i++) {
@@ -5183,7 +5141,6 @@ public class MainControllerInitMethod {
 				}, false);
 			}
 			
-			
 			id = "PREGNANCY_LACTATION_ON";
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
 				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
@@ -5218,7 +5175,6 @@ public class MainControllerInitMethod {
 				}, false);
 			}
 			
-			
 			id = "FORCED_FETISH_ON";
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
 				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
@@ -5236,7 +5192,6 @@ public class MainControllerInitMethod {
 				}, false);
 			}
 			
-			
 			// Forced TF Tendency setting events
 			id = "FORCED_TF_TENDENCY_"+ForcedTFTendency.NEUTRAL;
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5252,8 +5207,6 @@ public class MainControllerInitMethod {
 						ForcedTFTendency.NEUTRAL.getDescription());
 				MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 			}
-			
-			
 			
 			id = "FORCED_TF_TENDENCY_"+ForcedTFTendency.FEMININE;
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5330,8 +5283,6 @@ public class MainControllerInitMethod {
 						ForcedFetishTendency.NEUTRAL.getDescription());
 				MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 			}
-			
-			
 			
 			id = "FORCED_FETISH_TENDENCY_"+ForcedFetishTendency.BOTTOM;
 			if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5554,7 +5505,6 @@ public class MainControllerInitMethod {
 							Main.game.flashMessage(Colour.GENERIC_BAD, "Import Failed!");
 						}
 						
-							
 					}, false);
 				}
 			}
@@ -5755,7 +5705,6 @@ public class MainControllerInitMethod {
 		MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 	}
 	
-	
 	private static void fluidHandler(MilkingRoom room, FluidStored fluid) {
 		
 		String idModifier = "MILK";
@@ -5778,7 +5727,6 @@ public class MainControllerInitMethod {
 				boolean canIngest = room.isAbleToIngestThroughArea(Main.game.getPlayer(), area.getKey(), milkAmount);
 				
 				String fluidOwnerName = fluid.getFluidCharacter()==null?"the":UtilText.parse(fluid.getFluidCharacter(), "[npc.namePos]");
-				
 				
 				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 					Main.game.getTextEndStringBuilder().append("<p>");

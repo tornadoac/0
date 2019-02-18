@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dialogue>
 	
-	
 	<!-- COURTYARD -->
 	
 	<htmlContent tag="COURTYARD"><![CDATA[
@@ -20,8 +19,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP -->
 	
@@ -65,8 +62,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_ENTRY -->
 	
@@ -175,11 +170,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
-	
 	<!-- KEEP_FEMALES_NYMPHO -->
 	
 	<htmlContent tag="KEEP_FEMALES_NYMPHO"><![CDATA[
@@ -252,7 +242,6 @@
 	]]>
 	</htmlContent>
 	
-	
 	<htmlContent tag="KEEP_FEMALES_NYMPHO_SCARED_OFF"><![CDATA[
 	<p>
 		Not wanting to have sex with [npc.name], you stand before [npc.herHim] and declare, [pc.speech(I don't think so. There are plenty of imps out in Submission for you to have sex with, so just get out of here! And don't come back!)]
@@ -298,13 +287,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
-	
-	
-	
 	
 	<!-- KEEP_TALK -->
 	
@@ -358,8 +340,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- KEEP_AFTER_SEX_AUDIENCE -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE"><![CDATA[
@@ -375,8 +355,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
 	<!-- KEEP_AFTER_JOINING_GAIN_KEY -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE_KEY"><![CDATA[
@@ -388,12 +366,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
-	
-	
-	
 	
 	<!-- KEEP_AFTER_COMBAT_VICTORY -->
 	
@@ -534,10 +506,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
-	
 	<!-- KEEP_AFTER_COMBAT_DEFEAT -->
 	
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT"><![CDATA[
@@ -616,9 +584,6 @@
 	]]>
 	</htmlContent>
 	
-	
-	
-	
 	<!-- KEEP_AFTER_SEX_PACIFIED -->
 	
 	<htmlContent tag="KEEP_AFTER_SEX_PACIFIED"><![CDATA[
@@ -633,9 +598,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
-	
 	
 	<!-- KEEP_AFTER_SEX_VICTORY -->
 	
@@ -661,8 +623,6 @@
 	</p>
 	]]>
 	</htmlContent>
-	
-	
 	
 	<!-- KEEP_AFTER_SEX_DEFEAT -->
 	

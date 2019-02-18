@@ -20,7 +20,6 @@ public class BodyCoveringSkinToneColorHelper {
 					BodyCoveringType.MAKEUP_NAIL_POLISH_FEET,
 					BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS);
 			
-	
 	private static class FilteredColours {
 		private List<Colour> primary;
 		private List<Colour> secondary;
@@ -37,7 +36,6 @@ public class BodyCoveringSkinToneColorHelper {
 		public List<Colour> getSecondary() {
 			return secondary;
 		}
-		
 		
 	}
 	

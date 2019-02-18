@@ -45,7 +45,6 @@ public interface SexManagerInterface {
 	public Map<GameCharacter, SexSlot> getDominants();
 	public Map<GameCharacter, SexSlot> getSubmissives();
 	
-	
 	public default SexPace getStartingSexPaceModifier(GameCharacter character) {
 		return null;
 	}
@@ -67,7 +66,6 @@ public interface SexManagerInterface {
 	 * @return The action that the partner takes.
 	 */
 	public SexActionInterface getPartnerSexAction(SexActionInterface sexActionPlayer);
-	
 	
 	public default String getStartSexDescription() {
 		return "";
@@ -318,7 +316,6 @@ public interface SexManagerInterface {
 	public default boolean isAppendStartingWetDescriptions() {
 		return true;
 	}
-	
 	
 	// Player:
 	public default String getAssRevealReaction(GameCharacter characterBeingRevealed, List<GameCharacter> charactersReacting, boolean locationSpecific) {

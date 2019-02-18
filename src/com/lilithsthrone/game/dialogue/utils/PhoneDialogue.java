@@ -558,8 +558,6 @@ public class PhoneDialogue {
 							+ "<b>"+Util.getModifiedDropoffValue(Main.game.getPlayer().getAttributeValue(Attribute.MISS_CHANCE), Attribute.MISS_CHANCE.getUpperLimit())+"%</b>",
 							true)
 					
-
-
 					+ getAttributeBox(Main.game.getPlayer(), Attribute.DAMAGE_UNARMED,
 							"Unarmed Damage:<br/>"
 							+ "<b>"+(100+Util.getModifiedDropoffValue(Main.game.getPlayer().getAttributeValue(Attribute.DAMAGE_UNARMED), Attribute.DAMAGE_UNARMED.getUpperLimit()))+"%</b>",
@@ -577,7 +575,6 @@ public class PhoneDialogue {
 							"Ranged Weapon Damage:<br/>"
 							+ "<b>"+(100+Util.getModifiedDropoffValue(Main.game.getPlayer().getAttributeValue(Attribute.DAMAGE_RANGED_WEAPON), Attribute.DAMAGE_RANGED_WEAPON.getUpperLimit()))+"%</b>",
 							true)
-					
 					
 					+ getAttributeBox(Main.game.getPlayer(), Attribute.DAMAGE_PHYSICAL,
 							"Physical Damage:<br/>"
@@ -890,7 +887,6 @@ public class PhoneDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
 			
 			UtilText.nodeContentSB.append(
 					"<details>"
@@ -1619,7 +1615,6 @@ public class PhoneDialogue {
 		}
 	};
 	
-	
 	public static final DialogueNode ENCYCLOPEDIA = new DialogueNode("Encyclopedia", "", true) {
 
 		@Override
@@ -2155,7 +2150,6 @@ public class PhoneDialogue {
 						Main.game.getPlayer().resetPerksMap();
 					}
 				};
-				
 				
 			} else if (index == 0) {
 				return new Response("Back", "Return to your phone's main menu.", MENU) {
@@ -2749,7 +2743,6 @@ public class PhoneDialogue {
 			
 			journalSB.append("</div>");
 			
-			
 			return journalSB.toString();
 		}
 		
@@ -2768,7 +2761,6 @@ public class PhoneDialogue {
 			return DialogueNodeType.PHONE;
 		}
 	};
-	
 	
 	private static String getFetishEntry(Fetish othersFetish, Fetish selfFetish) {
 		return "<div class='container-full-width' style='background:transparent; margin:2px 0; width:100%;'>"
