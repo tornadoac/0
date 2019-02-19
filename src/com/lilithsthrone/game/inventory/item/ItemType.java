@@ -121,7 +121,7 @@ public class ItemType {
 	// return false;
 	// }
 	// },
-	
+
 	//
 	// // Lilin's consumables:
 	// // Lyxias' dream: Increases breast size and lactation, cum production
@@ -275,25 +275,25 @@ public class ItemType {
 	// return false;
 	// }
 	// },
-	
+
 	private static String getGenericUseDescription(GameCharacter user, GameCharacter target, String playerUseSelf, String playerUsePartner, String partnerUseSelf, String partnerUsePlayer) {
 		if (user!=null && user.isPlayer()) {
 			if(target!=null) {
 				if(target.isPlayer()) {
 					return "<p>"+playerUseSelf+"</p>";
-					
+
 				} else {
 					return UtilText.parse(target, "<p>"+playerUsePartner+"</p>");
 				}
 			} else {
 				return "";
 			}
-			
+
 		} else {
 			if(target!=null) {
 				if(target.isPlayer()) {
 					return UtilText.parse(user, "<p>"+partnerUsePlayer+"</p>");
-					
+
 				} else {
 					return UtilText.parse(user, "<p>"+partnerUseSelf+"</p>");
 				}
@@ -302,11 +302,11 @@ public class ItemType {
 			}
 		}
 	}
-	
+
 	// Crafting:
-	
+
 	// Strength ingredients are beer-type alcohol:
-	
+
 	public static AbstractItemType STR_INGREDIENT_EQUINE_CIDER = new AbstractItemType(60,
 			"a bottle of",
 			false,
@@ -353,7 +353,7 @@ public class ItemType {
 						+ " As the last few drops slide down your throat, you notice a faint, musky dryness permeating through the sweet liquid, which lingers for some time as a slightly unpleasant aftertaste.");
 		}
 	};
-	
+
 	public static AbstractItemType STR_INGREDIENT_BUBBLE_MILK = new AbstractItemType(20,
 			"a bottle of",
 			false,
@@ -367,7 +367,7 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_BUBBLE_MILK)), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_BUBBLE_MILK)),
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM,
@@ -400,7 +400,7 @@ public class ItemType {
 						+ " Despite its name and the appearance of being carbonated, the mellow taste lacks any sort of fizz, and, after draining the entire bottle, a soft, pleasant aftertaste lingers in your mouth.");
 		}
 	};
-	
+
 	public static AbstractItemType STR_INGREDIENT_WOLF_WHISKEY = new AbstractItemType(120,
 			"a bottle of",
 			false,
@@ -414,7 +414,7 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_WOLF_WHISKEY)), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_WOLF_WHISKEY)),
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM,
@@ -447,7 +447,7 @@ public class ItemType {
 						+ " You soon discover that the musky, pungent aroma rising from the bottle's opening is almost identical to the whiskey's rather unpleasant taste.");
 		}
 	};
-	
+
 	public static AbstractItemType STR_INGREDIENT_SWAMP_WATER = new AbstractItemType(40,
 			"a bottle of",
 			false,
@@ -461,7 +461,7 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_SWAMP_WATER)), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_SWAMP_WATER)),
 			Util.newArrayListOfValues(
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM,
@@ -495,7 +495,7 @@ public class ItemType {
 						+ " The intense alcoholic taste is very different to anything you've ever tried before, and you can't help but greedily gulp down the entire bottle, leaving a strange, tangy aftertaste lingering on your tongue.");
 		}
 	};
-	
+
 	public static AbstractItemType STR_INGREDIENT_BLACK_RATS_RUM = new AbstractItemType(200,
 			"a bottle of",
 			false,
@@ -509,7 +509,7 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_BLACK_RATS_RUM)), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.STR_BLACK_RATS_RUM)),
 			Util.newArrayListOfValues(
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
 					ItemTag.ATTRIBUTE_TF_ITEM,
@@ -542,9 +542,9 @@ public class ItemType {
 						+ " As the last few drops slide down your throat, you notice a faint, musky dryness permeating through the alcoholic liquid, which lingers for some time as a slightly unpleasant aftertaste.");
 		}
 	};
-	
+
 	// Intelligence ingredients are cold non-alcoholic drinks:
-	
+
 	public static AbstractItemType INT_INGREDIENT_FELINE_FANCY = new AbstractItemType(150,
 			"a bottle of",
 			false,
@@ -591,7 +591,7 @@ public class ItemType {
 						+ " A rich, creamy smell rises from the opening, and as you greedily drink down the cool liquid, you're delighted to discover that it tastes every bit as good as its delicious aroma suggested it would.");
 		}
 	};
-	
+
 	public static AbstractItemType INT_INGREDIENT_GRAPE_JUICE = new AbstractItemType(150,
 			"a bottle of",
 			false,
@@ -638,7 +638,7 @@ public class ItemType {
 						+ " The heady fragrance of rich red wine wafts from the neck of the newly opened bottle, soon joined by a rich, sweet taste, that lingers on your tongue well after you've had your fill.");
 		}
 	};
-	
+
 	public static AbstractItemType INT_INGREDIENT_VANILLA_WATER = new AbstractItemType(10,
 			"a bottle of",
 			false,
@@ -652,7 +652,7 @@ public class ItemType {
 			null,
 			Rarity.UNCOMMON,
 			TFEssence.ARCANE,
-			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.INT_VANILLA_WATER)), 
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.INT_VANILLA_WATER)),
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
@@ -687,9 +687,9 @@ public class ItemType {
 						+ " A faint smell of vanilla informs you that this isn't any ordinary water, and as you tilt your head back and start drinking the cool liquid, the taste of vanilla overwhelms your senses.");
 		}
 	};
-	
+
 	// Fitness ingredients are energy drinks and coffee:
-	
+
 	public static AbstractItemType FIT_INGREDIENT_CANINE_CRUSH = new AbstractItemType(20,
 			"a bottle of",
 			false,
@@ -738,7 +738,7 @@ public class ItemType {
 							+ " As the last few drops slide down your throat, a strange, musky aftertaste lingers on your tongue.");
 		}
 	};
-	
+
 	public static AbstractItemType FIT_INGREDIENT_SQUIRREL_JAVA = new AbstractItemType(20,
 			"a bottle of",
 			false,
@@ -787,7 +787,7 @@ public class ItemType {
 						+ " As the last few drops slide down your throat, a strange, sweet aftertaste lingers on your tongue.");
 		}
 	};
-	
+
 	public static AbstractItemType INT_INGREDIENT_FRUIT_BAT_SQUASH = new AbstractItemType(15,
 			"a",
 			false,
@@ -835,7 +835,7 @@ public class ItemType {
 						+ " The first carton's contents has a very strong orange flavour, and, after quickly finishing it, [npc.name] gets you to drink down the other one, which proves to be apple-flavoured.");
 		}
 	};
-	
+
 	public static AbstractItemType FIT_INGREDIENT_EGG_NOG = new AbstractItemType(30,
 			"a bottle of",
 			false,
@@ -884,7 +884,7 @@ public class ItemType {
 						+ " as you finish gulping down the last of the carton's contents, you find that a strange, slightly salty aftertaste lingers on your tongue.");
 		}
 	};
-	
+
 	public static AbstractItemType SEX_INGREDIENT_HARPY_PERFUME = new AbstractItemType(250,
 			"a bottle of",
 			false,
@@ -930,7 +930,7 @@ public class ItemType {
 						+ " You instantly feel a bubbly wave of excitement running through you, and without thinking, you find yourself letting out a very girly giggle.");
 		}
 	};
-	
+
 	public static AbstractItemType SEX_INGREDIENT_SLIME_QUENCHER = new AbstractItemType(250,
 			"a bottle of",
 			false,
@@ -978,7 +978,7 @@ public class ItemType {
 						+ " The recognisable taste of a sugary energy drink fills your mouth, and, with [npc.namePos] help, you greedily gulp down the all of the glowing liquid in a matter of seconds.");
 		}
 	};
-	
+
 	public static AbstractItemType SEX_INGREDIENT_BUNNY_JUICE = new AbstractItemType(250,
 			"a bottle of",
 			false,
@@ -1025,7 +1025,7 @@ public class ItemType {
 						+ " An intense taste of carrots instantly fills your mouth, and as you swallow the delicious liquid, you discover that it has an unusually sweet aftertaste.");
 		}
 	};
-	
+
 	public static AbstractItemType SEX_INGREDIENT_MINCE_PIE = new AbstractItemType(10,
 			"a",
 			false,
@@ -1072,9 +1072,9 @@ public class ItemType {
 						+ " The warm, spiced fruit filling is absolutely delicious, and you greedily wolf down the entire pie.");
 		}
 	};
-	
+
 	// Corruption ingredients are "mysterious liquids" (cum and milk...):
-	
+
 	public static AbstractItemType COR_INGREDIENT_LILITHS_GIFT = new AbstractItemType(1500,
 			"a bottle of",
 			false,
@@ -1122,7 +1122,7 @@ public class ItemType {
 						+ " You suppress your gag reflex as your senses are suddenly overwhelmed by the sickeningly-sweet liquid.");
 		}
 	};
-	
+
 	public static AbstractItemType COR_INGREDIENT_IMPISH_BREW = new AbstractItemType(10,
 			"a bottle of",
 			false,
@@ -1169,7 +1169,7 @@ public class ItemType {
 					"[npc.Name] pulls out a bottle of 'Impish Brew', and, after quickly after quickly unscrewing the cap, [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the musky contents.");
 		}
 	};
-	
+
 	public static AbstractItemType FETISH_UNREFINED = new AbstractItemType(500,
 			"a vial of",
 			false,
@@ -1217,7 +1217,7 @@ public class ItemType {
 							+ " [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the thick pink liquid that's contained within.");
 		}
 	};
-	
+
 	public static AbstractItemType FETISH_REFINED = new AbstractItemType(750,
 			"a vial of",
 			false,
@@ -1238,7 +1238,7 @@ public class ItemType {
 		public boolean isFetishGiving() {
 			return true;
 		}
-		
+
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return true;
@@ -1264,7 +1264,7 @@ public class ItemType {
 							+ " [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the sickly sweet liquid that's contained within.");
 		}
 	};
-	
+
 	public static AbstractItemType ADDICTION_REMOVAL = new AbstractItemType(750,
 			"a bottle of",
 			false,
@@ -1312,7 +1312,7 @@ public class ItemType {
 							+ " [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the tasteless liquid that's contained within.");
 		}
 	};
-	
+
 	public static AbstractItemType MUSHROOM = new AbstractItemType(500,
 			"a cluster of",
 			true,
@@ -1355,9 +1355,9 @@ public class ItemType {
 					"[npc.Name] pops a small cluster of glowing mushrooms into your mouth, and as [npc.she] makes you chew and swallow them down, you discover that they have a refreshing, minty taste.");
 		}
 	};
-	
+
 	// Racial ingredients:
-	
+
 
 	public static AbstractItemType DEBUG_DEMON_POTION = new AbstractItemType(100_000_000,
 			"a bottle of",
@@ -1379,7 +1379,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return true;
 		}
-		
+
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return true;
@@ -1406,7 +1406,7 @@ public class ItemType {
 						+ " You suppress your gag reflex as your senses are suddenly overwhelmed by the sickeningly-sweet liquid.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_HUMAN = new AbstractItemType(1000,
 			"a vial of",
 			false,
@@ -1454,7 +1454,7 @@ public class ItemType {
 						+ " The faint scent of roses rises up from the opening, and you find yourself letting out a gentle sigh as you drink down the cool liquid.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_CAT_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1502,7 +1502,7 @@ public class ItemType {
 						+ " A rich, fishy smell accompanies the sight of what looks to be tinned salmon, and you soon find yourself greedily gulping down the delicious meat.");
 		}
 	};
-	
+
 
 	public static AbstractItemType RACE_INGREDIENT_COW_MORPH  = new AbstractItemType(250,
 			"a pot of",
@@ -1554,7 +1554,7 @@ public class ItemType {
 							+ " letting out satisfied little humming noises as you discover that it's quite possibly the most delicious yoghurt that you've ever tasted.");
 		}
 	};
-	
+
 
 	public static AbstractItemType RACE_INGREDIENT_SQUIRREL_MORPH = new AbstractItemType(250,
 			"a bag of",
@@ -1603,7 +1603,7 @@ public class ItemType {
 						+ " You quickly wolf down the bag's contents, finding that the nuts are as delicious as they look.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_BAT_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1650,7 +1650,7 @@ public class ItemType {
 							+ " The slices of orange, mango, and strawberry are all absolutely delicious, and it only takes you a moment to finish off the entire pot.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_RAT_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1699,7 +1699,7 @@ public class ItemType {
 							+ " You quickly discover that it's absolutely delicious, and it only takes you a moment to finish off the entire burger.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_RABBIT_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1746,7 +1746,7 @@ public class ItemType {
 							+ " The taste is absolutely delicious, and as you swallow down the sweet mess, a delightfully carroty aftertaste lingers on your tongue.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_DOG_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1793,7 +1793,7 @@ public class ItemType {
 						+ " As you crunch down on the dry biscuit, you find that it's quite bland and salty.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_FOX_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1887,7 +1887,7 @@ public class ItemType {
 						+ " The strong taste of carrots instantly fills your mouth, but before you have any time to relish the flavour, you find that it's dissolved in your saliva, and you've gulped down the sugary mess.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_REINDEER_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1935,7 +1935,7 @@ public class ItemType {
 						+ " Despite the unusual combination of flavours, it's tasty enough, and you soon find yourself having eaten the whole cookie.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_ALLIGATOR_MORPH = new AbstractItemType(250,
 			"a",
 			false,
@@ -1984,7 +1984,7 @@ public class ItemType {
 							+ " as you can't help but greedily gulp down the tangy mess and move on to your next mouthful.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_WOLF_MORPH = new AbstractItemType(250,
 			"a package of",
 			false,
@@ -2032,7 +2032,7 @@ public class ItemType {
 						+ " Without further thought, you greedily devour the dripping flesh, licking your fingers clean after rapidly finishing your impromptu meal.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_HARPY = new AbstractItemType(250,
 			"a",
 			false,
@@ -2056,7 +2056,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return true;
 		}
-		
+
 		@Override
 		public AbstractItemEffectType getEnchantmentEffect() {
 			return ItemEffectType.RACE_HARPY;
@@ -2085,7 +2085,7 @@ public class ItemType {
 							+ " which soon turn into desperate whines as you find yourself unable to think about anything other than wildly sucking on the object in your mouth.");
 		}
 	};
-	
+
 	public static AbstractItemType RACE_INGREDIENT_SLIME = new AbstractItemType(2500,
 			"a",
 			false,
@@ -2109,7 +2109,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return true;
 		}
-		
+
 		@Override
 		public AbstractItemEffectType getEnchantmentEffect() {
 			return ItemEffectType.RACE_SLIME;
@@ -2124,12 +2124,12 @@ public class ItemType {
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return (!Main.game.isInCombat() || target.isPlayer()) && !target.isPregnant();
 		}
-		
+
 		@Override
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "This item cannot be used on pregnant people!";
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "drink";
@@ -2147,9 +2147,9 @@ public class ItemType {
 							+ " The glowing pink liquid within gives off a faintly sweet smell, and [npc.name] tilts your head back and forces you to gulp it all down....");
 		}
 	};
-	
+
 	// Essence bottles:
-	
+
 //	BOTTLED_ESSENCE_ANGEL(
 //			null,
 //			false,
@@ -2174,7 +2174,7 @@ public class ItemType {
 //				return "<p>"
 //							+ ""
 //						+ "</p>";
-//				
+//
 //			} else {
 //				return "<p>"
 //						+ "(You shouldn't be seeing this. x_x)"
@@ -2182,7 +2182,7 @@ public class ItemType {
 //			}
 //		}
 //	};
-	
+
 	private static String getEssenceAbsorptionText(Colour essenceColour, GameCharacter user, GameCharacter target) {
 			if (user!=null && user.isPlayer()) {
 				if(target!=null) {
@@ -2219,7 +2219,7 @@ public class ItemType {
 									+ " You feel a subtle change in your aura, letting you know that you've successfully absorbed the essence."
 								+ "</p>";
 						}
-						
+
 					} else {
 						return UtilText.parse(target,
 								"<p>"
@@ -2231,7 +2231,7 @@ public class ItemType {
 				} else {
 					return "";
 				}
-				
+
 			} else {
 				if(target!=null) {
 					if(target.isPlayer()) {
@@ -2271,9 +2271,9 @@ public class ItemType {
 									+ " You feel a subtle change in your aura, letting you know that you've successfully absorbed the essence."
 								+ "</p>");
 						}
-						
+
 					} else {
-						return UtilText.parse(user, 
+						return UtilText.parse(user,
 								"<p>"
 									+ "Pulling the cork stopper out from the top of the little bottle, [npc.name] releases an arcane essence from its glass prison."
 									+ " Drawn towards [npc.her] powerful arcane aura, the essence immediately darts towards [npc.name], and with a little "
@@ -2284,9 +2284,9 @@ public class ItemType {
 					return "";
 				}
 			}
-		
+
 	}
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_ARCANE = new AbstractItemType(40,
 			null,
 			false,
@@ -2313,16 +2313,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.GENERIC_ARCANE, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_CAT_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2350,16 +2350,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_CAT_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 
 	public static AbstractItemType BOTTLED_ESSENCE_COW_MORPH = new AbstractItemType(
 			50,
@@ -2388,16 +2388,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_COW_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_DEMON = new AbstractItemType(
 			75,
 			null,
@@ -2425,11 +2425,11 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_DEMON, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
@@ -2462,16 +2462,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_IMP, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_ALLIGATOR_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2500,7 +2500,7 @@ public class ItemType {
 			return getEssenceAbsorptionText(Colour.RACE_ALLIGATOR_MORPH, user, target);
 		}
 	};
-	
+
 
 	public static AbstractItemType BOTTLED_ESSENCE_SQUIRREL_MORPH = new AbstractItemType(
 			50,
@@ -2529,16 +2529,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_SQUIRREL_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_RAT_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2566,16 +2566,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_RAT_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_RABBIT_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2603,16 +2603,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_RABBIT_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_BAT_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2640,16 +2640,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_BAT_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_DOG_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2677,16 +2677,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_DOG_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_HARPY = new AbstractItemType(
 			50,
 			null,
@@ -2714,16 +2714,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_HARPY, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_HORSE_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2751,16 +2751,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_HORSE_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_REINDEER_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2788,16 +2788,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_REINDEER_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_HUMAN = new AbstractItemType(
 			50,
 			null,
@@ -2825,16 +2825,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_HUMAN, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_WOLF_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2862,16 +2862,16 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_WOLF_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	public static AbstractItemType BOTTLED_ESSENCE_FOX_MORPH = new AbstractItemType(
 			50,
 			null,
@@ -2899,11 +2899,11 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_FOX_MORPH, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
@@ -2936,18 +2936,18 @@ public class ItemType {
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getEssenceAbsorptionText(Colour.RACE_SLIME, user, target);
 		}
-		
+
 		public boolean isAbleToBeUsed(GameCharacter target) {
 			return target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.TWO_SMART.getMinimumValue() || target.isPlayer();
 		}
-		
+
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "Only people who are at least proficient in the use of the arcane are able to absorb essences!";
 		}
 	};
-	
+
 	// Specials:
-	
+
 	public static AbstractItemType HARPY_MATRIARCH_BIMBO_LOLLIPOP = new AbstractItemType(1250,
 			null,
 			false,
@@ -2992,7 +2992,7 @@ public class ItemType {
 
 		}
 	};
-	
+
 	public static AbstractItemType HARPY_MATRIARCH_NYMPHO_LOLLIPOP = new AbstractItemType(1250,
 			null,
 			false,
@@ -3036,7 +3036,7 @@ public class ItemType {
 							+ " Before you know what you're doing, you're pushing the delicious, cock-shaped candy into your mouth, letting out lewd moans as you find yourself unable to stop sucking and licking it...");
 		}
 	};
-	
+
 	public static AbstractItemType HARPY_MATRIARCH_DOMINANT_PERFUME = new AbstractItemType(1250,
 			null,
 			false,
@@ -3059,7 +3059,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return true;
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "spray";
@@ -3081,12 +3081,12 @@ public class ItemType {
 						+ " Although only a small amount of liquid shoots out, the entire bottle's contents are instantly drained, leaving [npc.name] holding an empty vessel."
 						+ " As you look down at it in surprise, the strong, feminine scent rises up to overpower your senses,"
 							+ " and you find yourself letting out a desperate moan as the nature of the perfume's powerful enchantment starts to make itself known...");
-			
+
 		}
 	};
-	
+
 	// Crafting outputs:
-	
+
 	public static AbstractItemType POTION = new AbstractItemType(750,
 			"",
 			false,
@@ -3107,7 +3107,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return false;
 		}
-		
+
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return true;
@@ -3117,7 +3117,7 @@ public class ItemType {
 		public boolean isAbleToBeUsedInCombat() {
 			return true;
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "drink";
@@ -3134,7 +3134,7 @@ public class ItemType {
 						+ " You feel a strange tingling feeling spreading throughout your body as the potion's effects start to make themselves known...");
 		}
 	};
-	
+
 	public static AbstractItemType ELIXIR = new AbstractItemType(1500,
 			"",
 			false,
@@ -3154,7 +3154,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return true;
 		}
-		
+
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return true;
@@ -3181,7 +3181,7 @@ public class ItemType {
 						+ " You feel a strange tingling feeling spreading throughout your body as the elixir's effects start to make themselves known...");
 		}
 	};
-	
+
 	// Non-TF:
 
 	public static AbstractItemType DYE_BRUSH = new AbstractItemType(150,
@@ -3207,7 +3207,7 @@ public class ItemType {
 		public String getUseName() {
 			return "use";
 		}
-		
+
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return false;
@@ -3217,7 +3217,7 @@ public class ItemType {
 		public boolean isAbleToBeUsedInCombat() {
 			return false;
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return "<p>"
@@ -3249,7 +3249,7 @@ public class ItemType {
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.USED_CONDOM_DRINK)),
 			Util.newArrayListOfValues(
 					ItemTag.REMOVE_FROM_DEBUG_SPAWNER)) {
-		
+
 
 		@Override
 		public String getUseName() {
@@ -3286,7 +3286,7 @@ public class ItemType {
 			return false;
 		}
 	};
-	
+
 	public static AbstractItemType ORIENTATION_HYPNO_WATCH = new AbstractItemType(50000,
 			"a",
 			false,
@@ -3305,17 +3305,17 @@ public class ItemType {
 		public boolean isFetishGiving() {
 			return true;
 		}
-		
+
 		@Override
 		public String getDeterminer() {
 			return UtilText.generateSingularDeterminer(this.getName(false));
 		}
-		
+
 		@Override
 		public int getEnchantmentLimit() {
 			return 1;
 		}
-		
+
 		@Override
 		public AbstractItemEffectType getEnchantmentEffect() {
 			return ItemEffectType.ORIENTATION_CHANGE;
@@ -3325,12 +3325,12 @@ public class ItemType {
 		public AbstractItemType getEnchantmentItemType(List<ItemEffect> effects) {
 			return ORIENTATION_HYPNO_WATCH;
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "hypnotise";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3341,14 +3341,14 @@ public class ItemType {
 					"Taking hold of the delicate chain, [npc.name] starts slowly swinging the Hypno-Watch back and forth in front of your face,"
 							+ " and you find yourself unable to do anything but fixate your gaze on the swirling face as the item's arcane power seeps into your mind...");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
 		}
 
 	};
-	
+
 	public static AbstractItemType VIXENS_VIRILITY = new AbstractItemType(20,
 			"a",
 			false,
@@ -3374,7 +3374,7 @@ public class ItemType {
 		public String getUseName() {
 			return "swallow";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3385,7 +3385,7 @@ public class ItemType {
 		}
 
 	};
-	
+
 	public static AbstractItemType PROMISCUITY_PILL = new AbstractItemType(20,
 			"a",
 			false,
@@ -3413,7 +3413,7 @@ public class ItemType {
 		public String getUseName() {
 			return "swallow";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3423,7 +3423,7 @@ public class ItemType {
 					"[npc.Name] pops a Promiscuity pill out of its little foil wrapper, before bringing it up to your [pc.lips], forcing it into your mouth, and making sure that you swallow it down.");
 		}
 	};
-	
+
 	public static AbstractItemType MOO_MILKER_EMPTY = new AbstractItemType(50,
 			"a",
 			false,
@@ -3447,7 +3447,7 @@ public class ItemType {
 		public String getUseName() {
 			return "milk";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3474,7 +3474,7 @@ public class ItemType {
 				} else {
 					return "You need to have at least 1ml of milk stored in your breasts in order to use this!";
 				}
-				
+
 			} else {
 				if(!target.isAbleToAccessCoverableArea(CoverableArea.NIPPLES, true)) {
 					return UtilText.parse(target, "You need to be able to access [npc.namePos] nipples in order to use this!");
@@ -3484,7 +3484,7 @@ public class ItemType {
 			}
 		}
 	};
-	
+
 	public static AbstractItemType MOO_MILKER_FULL = new AbstractItemType(150,
 			"a",
 			false,
@@ -3501,7 +3501,7 @@ public class ItemType {
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.FILLED_MOO_MILKER_DRINK)),
 			Util.newArrayListOfValues(
 					ItemTag.REMOVE_FROM_DEBUG_SPAWNER)) {
-		
+
 
 		@Override
 		public String getUseName() {
@@ -3517,7 +3517,7 @@ public class ItemType {
 					"Unscrewing the top of the breast pump, [npc.name] brings it up to your [pc.lips], before forcing you to gulp down the contents.");
 		}
 	};
-	
+
 	public static AbstractItemType PREGNANCY_TEST = new AbstractItemType(100,
 			"an",
 			false,
@@ -3542,7 +3542,7 @@ public class ItemType {
 		public String getUseName() {
 			return "use";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3552,7 +3552,7 @@ public class ItemType {
 					"[npc.Name] swipes the pregnancy tester over your stomach, waiting until [npc.she] hears it beep before bringing it up to take a look at the readout.");
 		}
 	};
-	
+
 	public static AbstractItemType MOTHERS_MILK = new AbstractItemType(100,
 			"a bottle of",
 			false,
@@ -3578,7 +3578,7 @@ public class ItemType {
 		public String getUseName() {
 			return "drink";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3588,7 +3588,7 @@ public class ItemType {
 					"[npc.Name] produces a bottle of 'Mother's Milk', and, pushing the teat-like opening into your mouth, [npc.she] forces you to suckle down the creamy liquid within.");
 		}
 	};
-	
+
 	public static AbstractItemType PRESENT = new AbstractItemType(250,
 			"a",
 			false,
@@ -3612,12 +3612,12 @@ public class ItemType {
 		public String getUnableToBeUsedDescription(GameCharacter target) {
 			return "There's no space in your inventory or on the ground for whatever item is contained within!";
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "open";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3627,7 +3627,7 @@ public class ItemType {
 					"[npc.Name] produces a present, and then proceeds to make you untie the ribbon and peel off the wrapping paper, before getting you to open the box to discover what's inside...");
 		}
 	};
-	
+
 	public static AbstractItemType GIFT_ROSE = new AbstractItemType(
 			100,
 			null,
@@ -3652,12 +3652,12 @@ public class ItemType {
 			return "A single, red rose."
 					+ " You imagine that if it were any other colour, it would smell just as sweet.";
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "smell";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3666,13 +3666,13 @@ public class ItemType {
 					"You take a smell of the delicate perfume given off by the red Rose.",
 					"You take a smell of the delicate perfume given off by the red Rose.");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
 		}
 	};
-	
+
 	public static AbstractItemType GIFT_ROSE_BOUQUET = new AbstractItemType(
 			500,
 			null,
@@ -3701,12 +3701,12 @@ public class ItemType {
 				return "A bouquet filled with roses of many colours, it smells pleasant even from a distance.";
 			}
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "smell";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3715,13 +3715,13 @@ public class ItemType {
 					"You take a smell of the delicate perfume given off by the Rose bouquet.",
 					"You take a smell of the delicate perfume given off by the Rose bouquet.");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
 		}
 	};
-	
+
 	public static AbstractItemType GIFT_CHOCOLATES = new AbstractItemType(
 			300,
 			"a box of",
@@ -3747,12 +3747,12 @@ public class ItemType {
 				return "A box filled with various chocolates.";
 			}
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "eat";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3762,7 +3762,7 @@ public class ItemType {
 					"[npc.Name] removes the lid from the box of chocolates, and starts feeding the contents to you.");
 		}
 	};
-	
+
 	public static AbstractItemType GIFT_PERFUME = new AbstractItemType(
 			300,
 			"a bottle of",
@@ -3790,7 +3790,7 @@ public class ItemType {
 				return "A small bottle of perfume.";
 			}
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "spray";
@@ -3805,7 +3805,7 @@ public class ItemType {
 					"[npc.Name] pulls out a bottle of 'Rose Perfume', and, after lifting it to your neck, [npc.she] sprays a little squirt onto your [pc.skin].");
 		}
 	};
-	
+
 	public static AbstractItemType GIFT_TEDDY_BEAR = new AbstractItemType(
 			600,
 			null,
@@ -3833,7 +3833,7 @@ public class ItemType {
 				return "A cute brown teddy bear, with the words 'Hug me!' sewed onto a little heart that it's holding.";
 			}
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "hug";
@@ -3847,13 +3847,13 @@ public class ItemType {
 					"[npc.Name] hugs the teddy bear. [npc.She] remarks on how soft and fluffy...",
 					"[npc.Name] gets you to hug the teddy bear. It's soft and fluffy...");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
 		}
 	};
-	
+
 	// Why did I make this?
 	public static AbstractItemType EGGPLANT = new AbstractItemType(
 			25,
@@ -3879,12 +3879,12 @@ public class ItemType {
 		public AbstractItemType getEnchantmentItemType(List<ItemEffect> effects) {
 			return EGGPLANT_POTION;
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "eat";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3894,7 +3894,7 @@ public class ItemType {
 					"[npc.Name] produces an eggplant, and then proceeds to force you to eat it. The bitter taste of disappointment overwhelms you both.");
 		}
 	};
-	
+
 	public static AbstractItemType EGGPLANT_POTION = new AbstractItemType(
 			250,
 			null,
@@ -3916,7 +3916,7 @@ public class ItemType {
 		public boolean isTransformative() {
 			return true;
 		}
-		
+
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return true;
@@ -3926,12 +3926,12 @@ public class ItemType {
 		public boolean isAbleToBeUsedInCombat() {
 			return true;
 		}
-		
+
 		@Override
 		public String getUseName() {
 			return "drink";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3962,7 +3962,7 @@ public class ItemType {
 		public String getUseName() {
 			return "inspect";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
@@ -3971,7 +3971,7 @@ public class ItemType {
 					"The package is quite small, measuring roughly 20cm along each edge. It's constructed of brown cardboard, and sealed with packaging tape.",
 					"The package is quite small, measuring roughly 20cm along each edge. It's constructed of brown cardboard, and sealed with packaging tape.");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
@@ -3998,12 +3998,12 @@ public class ItemType {
 		public String getUseName() {
 			return "inspect";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return UtilText.parse(user, "You feel a weak arcane pulse being given off by the key as you turn it over in your [npc.hands].");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
@@ -4028,12 +4028,12 @@ public class ItemType {
 		public String getUseName() {
 			return "inspect";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return UtilText.parse(user, "You feel a weak arcane pulse being given off by the key as you turn it over in your [npc.hands].");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
@@ -4058,12 +4058,12 @@ public class ItemType {
 		public String getUseName() {
 			return "inspect";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return UtilText.parse(user, "You feel a weak arcane pulse being given off by the key as you turn it over in your [npc.hands].");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
@@ -4090,24 +4090,24 @@ public class ItemType {
 		public String getUseName() {
 			return "inspect";
 		}
-		
+
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return UtilText.parse(user, "The ring feels warm to the touch, revealing the fact that it's carrying a potent enchantment. Maybe once all this is over, Lyssieth will allow you to keep it as a reward...");
 		}
-		
+
 		@Override
 		public boolean isConsumedOnUse() {
 			return false;
 		}
 	};
-	
+
 	// Standard non-racial transformatives:
-	
+
 //	MASOCHISTS_HEAVEN("a bottle of", "it", "Masochist's Heaven",
 //			"A clear plastic bottle of Masochist's Heaven. A girl, lying back in the missionary position, is prominently featured on the label, screaming in delight as a huge cock painfully stretches out her tight, dry pussy.",
 //			"potion", Colour.CLOTHING_WHITE, true, 25, Rarity.RARE, "Decreases orifice capacity, elasticity, and wetness.") {
-//		
+//
 //		@Override
 //		protected String extraEffects(GameCharacter user, GameCharacter target) {
 //			if (user!=null && user.isPlayer() && target.isPlayer())
@@ -4140,7 +4140,7 @@ public class ItemType {
 //	GOING_BIG("a bottle of", "it", "Going Big",
 //			"A clear plastic bottle of a drink branded as 'Going Big'. A girl, presenting herself doggy-style, is prominently featured on the label, crying out in delight as a gigantic cock easily stretches out her tight, wet pussy.",
 //			"potion", Colour.CLOTHING_WHITE, true, 25, Rarity.RARE, "Decreases orifice capacity. Increases elasticity and wetness.") {
-//		
+//
 //		@Override
 //		protected String extraEffects(GameCharacter user, GameCharacter target) {
 //			if (user!=null && user.isPlayer() && target.isPlayer())
@@ -4202,14 +4202,14 @@ public class ItemType {
 //			return false;
 //		}
 //	};
-//	
-//	
+//
+//
 //
 //	BUBBLE_MILK("a bottle of", "it", "bubble-milk",
 //			"A clear plastic bottle of bubble-milk. Despite its name, the milk doesn't physically bubble, but instead refers to the feeling"
 //					+ " you get after drinking it. A busty greater cow-girl is prominently featured on the label, smiling as she milks her gigantic udder-tits into a metal bucket.",
 //			"potion", Colour.CLOTHING_WHITE, true, 25, Rarity.RARE, "Increases breast size and lactation.") {
-//		
+//
 //		@Override
 //		protected String extraEffects(GameCharacter user, GameCharacter target) {
 //			if (user!=null && user.isPlayer() && target.isPlayer())
@@ -4337,7 +4337,7 @@ public class ItemType {
 //		}
 //	};
 //
-//	
+//
 //
 //	SCARLET_WHISPER("a bottle of", "it", "Scarlet Whisper",
 //			"A delicate glass bottle of <i>Scarlet Whisper</i>, filled with a bright pink liquid. The label on the front displays"
@@ -4406,19 +4406,19 @@ public class ItemType {
 //		}
 //	};
 //
-	
+
 
 	public static int getMooMilkerMaxMilk() {
 		return 1000;
 	}
-	
+
 	private static List<AbstractItemType> dominionAlleywayItems = new ArrayList<>();
 	private static List<AbstractItemType> submissionTunnelItems = new ArrayList<>();
 	private static List<AbstractItemType> batCavernItems = new ArrayList<>();
 	private static List<AbstractItemType> essences = new ArrayList<>();
 	private static List<AbstractItemType> allItems = new ArrayList<>();
 	private static Map<Subspecies, String> subspeciesBookId = new HashMap<>();
-	
+
 	/**
 	 * If you're looking for spell books, their id is:<br/>
 	 * SPELL_BOOK_"+spell.toString()<br/>
@@ -4434,111 +4434,111 @@ public class ItemType {
 	 * "SPELL_SCROLL_"+spellSchool.toString()
 	 */
 	private static Map<String, AbstractItemType> idToItemMap = new HashMap<>();
-	
+
 	public static AbstractItemType getSpellBookType(Spell s) {
 		return idToItemMap.get("SPELL_BOOK_"+s);
 	}
-	
+
 	public static AbstractItemType getSpellScrollType(SpellSchool school) {
 		return idToItemMap.get("SPELL_SCROLL_"+school);
 	}
-	
+
 	public static AbstractItemType getLoreBook(Subspecies subspecies) {
 		return idToItemMap.get(subspeciesBookId.get(subspecies));
 	}
-	
+
 	static{
 		Field[] fields = ItemType.class.getFields();
-		
+
 		for(Field f : fields){
-			
+
 			if (AbstractItemType.class.isAssignableFrom(f.getType())) {
-				
+
 				AbstractItemType item;
 				try {
 					item = ((AbstractItemType) f.get(null));
-					
+
 					// I feel like this is stupid :thinking:
 					itemToIdMap.put(item, f.getName());
 					idToItemMap.put(f.getName(), item);
-					
+
 					allItems.add(item);
-					
+
 					if(item.getItemTags().contains(ItemTag.DOMINION_ALLEYWAY_SPAWN)) {
 						dominionAlleywayItems.add(item);
 					}
-					
+
 					if(item.getItemTags().contains(ItemTag.SUBMISSION_TUNNEL_SPAWN)) {
 						submissionTunnelItems.add(item);
-					} 
-					
+					}
+
 					if(item.getItemTags().contains(ItemTag.BAT_CAVERNS_SPAWN)) {
 						batCavernItems.add(item);
-					} 
-					
+					}
+
 					if(item.getItemTags().contains(ItemTag.ESSENCE)) {
 						essences.add(item);
 					}
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
 		}
-		
+
 		for(Spell s : Spell.values()) {
 			if(!s.isSpellBook()) {
 				continue;
 			}
-			
+
 			List<String> effectsString = Util.newArrayListOfValues(
 					"[style.boldExcellent(Permanently)] gain the spell '<b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+"</b>'.");
-			
+
 
 			Subspecies subspecies = Subspecies.ELEMENTAL_ARCANE;
 			if(s == Spell.ELEMENTAL_EARTH) {
 				subspecies = Subspecies.ELEMENTAL_EARTH;
-				
+
 			} else if(s == Spell.ELEMENTAL_WATER) {
 				subspecies = Subspecies.ELEMENTAL_WATER;
-				
+
 			} else if(s == Spell.ELEMENTAL_AIR) {
 				subspecies = Subspecies.ELEMENTAL_AIR;
-				
+
 			} else if(s == Spell.ELEMENTAL_FIRE) {
 				subspecies = Subspecies.ELEMENTAL_FIRE;
 			}
 			effectsString.add("Adds "+subspecies.getName(null)+" encyclopedia entry.");
 			effectsString.add("[style.boldExcellent(+5)] <b style='color:"+s.getSpellSchool().getColour()+";'>"+subspecies.getDamageMultiplier().getName()+"</b>");
 			effectsString.add("[style.boldExcellent(+5)] <b style='color:"+s.getSpellSchool().getColour()+";'>"+subspecies.getResistanceMultiplier().getName()+"</b>");
-			
+
 			AbstractItemEffectType effectType = new AbstractItemEffectType(effectsString, s.getSpellSchool().getColour()) {
-				
+
 				@Override
 				public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 					boolean hasSpell = target.hasSpell(s);
 					target.addSpell(s);
-					
+
 					String raceKnowledgeGained = "";
 					if(target.isPlayer()) {
 						if(s == Spell.ELEMENTAL_EARTH) {
 							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_EARTH, true);
-							
+
 						} else if(s == Spell.ELEMENTAL_WATER) {
 							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_WATER, true);
-							
+
 						} else if(s == Spell.ELEMENTAL_AIR) {
 							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_AIR, true);
-							
+
 						} else if(s == Spell.ELEMENTAL_FIRE) {
 							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_FIRE, true);
-							
+
 						} else if(s == Spell.ELEMENTAL_ARCANE) {
 							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_ARCANE, true);
-							
+
 						}
 					}
-					
+
 					if(hasSpell) {
 						if(target.isPlayer()) {
 							return "<p style='text-align:center'>"
@@ -4561,7 +4561,7 @@ public class ItemType {
 													+ " and [npc.she] closes it after just a couple of minutes, having not learned anything new...")
 									+ "</p>";
 						}
-						
+
 					} else {
 						if(target.isPlayer()) {
 							return "<p style='text-align:center'>"
@@ -4579,7 +4579,7 @@ public class ItemType {
 										+ "<br/>[style.italicsExcellent(Spell book added to Lilaya's library!)]"
 									+ "</p>"
 									+raceKnowledgeGained;
-							
+
 						} else {
 							return "<p style='text-align:center'>"
 									+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
@@ -4600,9 +4600,9 @@ public class ItemType {
 					}
 				}
 			};
-			
+
 			ItemEffectType.addAbstractItemEffectToIds("EFFECT_SPELL_"+s, effectType);
-			
+
 			int value = 2500;
 			switch(s) {
 				// Tier 1:
@@ -4612,7 +4612,7 @@ public class ItemType {
 				case FIREBALL:
 				case SLAM:
 					break;
-					
+
 				// Tier 2:
 				case ARCANE_CLOUD:
 				case FLASH:
@@ -4632,7 +4632,7 @@ public class ItemType {
 				case STEAL:
 					value = 10000;
 					break;
-					
+
 				// Tier 4:
 				case ELEMENTAL_AIR:
 				case ELEMENTAL_ARCANE:
@@ -4641,19 +4641,19 @@ public class ItemType {
 				case ELEMENTAL_WATER:
 					value = 25000;
 					break;
-					
+
 				// Tier 5:
 				case LILITHS_COMMAND:
 				case TELEPORT:
 					value = 1000000;
 					break;
-					
+
 				case WITCH_CHARM:
 				case WITCH_SEAL:
 				case DARK_SIREN_SIRENS_CALL:
 					break;
 			}
-			
+
 			AbstractItemType spellBook = new AbstractItemType(value,
 					null,
 					false,
@@ -4669,7 +4669,7 @@ public class ItemType {
 					null,
 					Util.newArrayListOfValues(new ItemEffect(effectType)),
 					Util.newArrayListOfValues(ItemTag.SPELL_BOOK)) {
-		
+
 				@Override
 				public String getSVGString() {
 					return super.getSVGString()
@@ -4677,38 +4677,38 @@ public class ItemType {
 								+ s.getSVGString()
 							+ "</div>";
 				}
-				
+
 //				@Override
 //				public boolean isConsumedOnUse() {
 //					return false;
 //				}
-				
+
 				@Override
 				public boolean isAbleToBeUsed(GameCharacter target) {
 					return (target.isPlayer() || target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.ONE_AVERAGE.getMinimumValue())
 							&& !(target instanceof Elemental);
 				}
-		
+
 				@Override
 				public String getUnableToBeUsedDescription(GameCharacter target) {
 					if(target.isPlayer()) {
 						return "You already know how to cast this spell!";
-						
+
 					} else if(target instanceof Elemental) {
 						return UtilText.parse(target, "[npc.Name], like all elementals, cannot learn spells from books."
 								+ " Instead, [npc.she] will need to focus on improving [npc.her] understanding of the arcane in order to learn new spells."
 								+ " (Elementals gain new spells via the perk tree.)");
-						
+
 					} else {
 						return UtilText.parse(target, "[npc.Name] does not have enough arcane skill to know how to learn this spell! (Requires arcane to be 5 or greater.)");
 					}
 				}
-				
+
 				@Override
 				public String getUseName() {
 					return "read";
 				}
-				
+
 				@Override
 				public String getUseDescription(GameCharacter user, GameCharacter target) {
 					return getGenericUseDescription(user, target,
@@ -4717,7 +4717,7 @@ public class ItemType {
 							"[npc.Name] produces a spell book, which [npc.she] then starts to read...",
 							"[npc.Name] produces a spell book, which [npc.she] then forces you to read...");
 				}
-				
+
 				@Override
 				public boolean isAbleToBeUsedInSex() {
 					return false;
@@ -4728,19 +4728,19 @@ public class ItemType {
 					return false;
 				}
 			};
-			
+
 			itemToIdMap.put(spellBook, "SPELL_BOOK_"+s);
 			idToItemMap.put("SPELL_BOOK_"+s, spellBook);
-			
+
 			allItems.add(spellBook);
 		}
-		
+
 		for(SpellSchool school : SpellSchool.values()) {
-			
+
 			AbstractItemEffectType effectType = new AbstractItemEffectType(Util.newArrayListOfValues(
 							"[style.boldExcellent(+1)] to <span style='color:"+school.getColour().toWebHexString()+";'>"+school.getName()+"</span> upgrade points."),
 							school.getColour()) {
-						
+
 						@Override
 						public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 							target.incrementSpellUpgradePoints(school, 1);
@@ -4752,7 +4752,7 @@ public class ItemType {
 					};
 
 			ItemEffectType.addAbstractItemEffectToIds("EFFECT_SCROLL_SCHOOL_"+school, effectType);
-			
+
 			AbstractItemType scroll = new AbstractItemType(1000,
 					null,
 					false,
@@ -4767,22 +4767,22 @@ public class ItemType {
 					null,
 					Util.newArrayListOfValues(new ItemEffect(effectType)),
 					Util.newArrayListOfValues(ItemTag.SPELL_SCROLL)) {
-				
+
 				@Override
 				public boolean isAbleToBeUsed(GameCharacter target) {
 					return target.isPlayer() || target.getAttributeValue(Attribute.MAJOR_ARCANE)>=IntelligenceLevel.ONE_AVERAGE.getMinimumValue();
 				}
-		
+
 				@Override
 				public String getUnableToBeUsedDescription(GameCharacter target) {
 					return UtilText.parse(target, "[npc.Name] does not have enough arcane skill to know how to absorb the power of this scroll! (Requires arcane to be 5 or greater.)");
 				}
-				
+
 				@Override
 				public String getUseName() {
 					return "read";
 				}
-				
+
 				@Override
 				public String getUseDescription(GameCharacter user, GameCharacter target) {
 					return getGenericUseDescription(user, target,
@@ -4791,7 +4791,7 @@ public class ItemType {
 							"[npc.Name] produces a scroll, which [npc.she] then starts to read...",
 							"[npc.Name] produces a scroll, which [npc.she] then forces you to read...");
 				}
-				
+
 				@Override
 				public boolean isAbleToBeUsedInSex() {
 					return false;
@@ -4802,44 +4802,44 @@ public class ItemType {
 					return false;
 				}
 			};
-			
+
 			itemToIdMap.put(scroll, "SPELL_SCROLL_"+school);
 			idToItemMap.put("SPELL_SCROLL_"+school, scroll);
-			
+
 			allItems.add(scroll);
 		}
-		
+
 		// Race books:
-		
+
 		Map<String, List<Subspecies>> subspeciesLoreMap = new HashMap<>();
 		for(Subspecies sub : Subspecies.values()) {
 			subspeciesLoreMap.putIfAbsent(sub.getAdvancedDescriptionId(), new ArrayList<>());
 			subspeciesLoreMap.get(sub.getAdvancedDescriptionId()).add(sub);
 		}
-		
+
 		// Add effects from here, as Subspecies and ItemEffectType are dependent on one another to be initialised.
 		for(Subspecies sub : Subspecies.values()) {
 			subspeciesLoreMap.putIfAbsent(sub.getAdvancedDescriptionId(), new ArrayList<>());
 			subspeciesLoreMap.get(sub.getAdvancedDescriptionId()).add(sub);
 		}
-		
+
 		for(Entry<String, List<Subspecies>> entry : subspeciesLoreMap.entrySet()) {
 			Subspecies mainSubspecies = entry.getValue().contains(Subspecies.getMainSubspeciesOfRace(entry.getValue().get(0).getRace()))
 											?Subspecies.getMainSubspeciesOfRace(entry.getValue().get(0).getRace())
 											:entry.getValue().get(0);
-			
+
 			AbstractItemEffectType bookType = generateBookEffect(mainSubspecies);
 			ItemEffectType.allEffectTypes.add(bookType);
 			String id = "BOOK_READ_"+mainSubspecies.toString();
 			ItemEffectType.itemEffectTypeToIdMap.put(bookType, id);
 			ItemEffectType.idToItemEffectTypeMap.put(id, bookType);
 		}
-		
+
 		for(Entry<String, List<Subspecies>> entry : subspeciesLoreMap.entrySet()) {
 			Subspecies mainSubspecies = entry.getValue().contains(Subspecies.getMainSubspeciesOfRace(entry.getValue().get(0).getRace()))
 											?Subspecies.getMainSubspeciesOfRace(entry.getValue().get(0).getRace())
 											:entry.getValue().get(0);
-			
+
 			AbstractItemType loreBook = new AbstractItemType(250,
 							null,
 							false,
@@ -4866,17 +4866,17 @@ public class ItemType {
 								+ mainSubspecies.getSVGStringNoBackground()
 							+ "</div>";
 				}
-		
+
 				@Override
 				public boolean isConsumedOnUse() {
 					return false;
 				}
-				
+
 				@Override
 				public String getUseName() {
 					return "read";
 				}
-				
+
 				@Override
 				public String getUseDescription(GameCharacter user, GameCharacter target) {
 					return getGenericUseDescription(user, target,
@@ -4886,20 +4886,20 @@ public class ItemType {
 							"[npc.Name] produces a book, titled '"+getName(false)+"', which [npc.she] then forces you to read...");
 				}
 			};
-			
+
 			String id = "BOOK_"+mainSubspecies.toString();
-					
+
 			itemToIdMap.put(loreBook, id);
 			idToItemMap.put(id, loreBook);
-			
+
 			for(Subspecies subspecies : entry.getValue()) {
 				subspeciesBookId.put(subspecies, id);
 			}
-			
+
 			allItems.add(loreBook);
 		}
 	}
-	
+
 	private static AbstractItemEffectType generateBookEffect(Subspecies subspecies) {
 		return new AbstractItemEffectType(Util.newArrayListOfValues(
 				"Adds "+subspecies.getName(null)+" encyclopedia entry.",
@@ -4916,26 +4916,26 @@ public class ItemType {
 	public static List<AbstractItemType> getDominionAlleywayItems() {
 		return dominionAlleywayItems;
 	}
-	
+
 	public static List<AbstractItemType> getSubmissionTunnelItems() {
 		return submissionTunnelItems;
 	}
-	
+
 	public static List<AbstractItemType> getBatCavernItems() {
 		return batCavernItems;
 	}
 	public static List<AbstractItemType> getEssences() {
 		return essences;
 	}
-	
+
 	public static List<AbstractItemType> getAllItems() {
 		return allItems;
 	}
-	
+
 	public static Map<AbstractItemType, String> getItemToIdMap() {
 		return itemToIdMap;
 	}
-	
+
 	public static Map<String, AbstractItemType> getIdToItemMap() {
 		return idToItemMap;
 	}

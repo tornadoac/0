@@ -6,16 +6,16 @@ package com.lilithsthrone.game.settings;
  * @author FeiFongWong
  */
 public enum ForcedFetishTendency {
-	
-	BOTTOM_HEAVY("Bottoming+", "Forced fetishes will almost always add bottoming and remove topping activities and behaviors."),
-	
-	BOTTOM("Bottoming", "While NPC tastes still matter, forced fetishes will usually add bottoming and remove topping activities and behaviors."),
-	
+
+	BOTTOM_HEAVY("Bottoming+", "Forced fetishes will almost always add bottoming and remove topping activities and behaviours."),
+
+	BOTTOM("Bottoming", "While NPC tastes still matter, forced fetishes will usually add bottoming and remove topping activities and behaviours."),
+
 	NEUTRAL("Neutral", "Forced fetishes will be determined solely by the tastes and whims of the controlling NPC, and the inherent randomness of the universe."),
-	
-	TOP ("Topping", "While NPC tastes still matter, forced fetishes will usually add topping and remove bottoming activities and behaviors."),
-	
-	TOP_HEAVY("Topping+", "Forced fetishes will almost always add topping and remove bottoming activities and behaviors.");
+
+	TOP ("Topping", "While NPC tastes still matter, forced fetishes will usually add topping and remove bottoming activities and behaviours."),
+
+	TOP_HEAVY("Topping+", "Forced fetishes will almost always add topping and remove bottoming activities and behaviours.");
 
 
 	private String name;
@@ -30,7 +30,7 @@ public enum ForcedFetishTendency {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}

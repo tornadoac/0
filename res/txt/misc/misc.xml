@@ -39,7 +39,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="POST_SEX_CENTAUR"><![CDATA[
 	<p>
 		Having put [npc.name] in [npc.her] place, you gather your things and make your exit, leaving [npc.herHim] panting and moaning on the floor behind you.
@@ -53,5 +53,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

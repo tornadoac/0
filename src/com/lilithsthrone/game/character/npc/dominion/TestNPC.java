@@ -47,7 +47,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * Test class that I'm using to try out some methods and stuff. It might end up as a bit of a mess, but don't remove it.
- * 
+ *
  * @since 0.1.83
  * @version 0.2.11
  * @author Innoxia
@@ -57,7 +57,7 @@ public class TestNPC extends NPC {
 	public TestNPC() {
 		this(false);
 	}
-	
+
 	public TestNPC(boolean isImported) {
 		super(isImported, new NameTriplet("TestNPC"), "Scriven",
 				"A mysterious [test.race] that you found in the back of one of the Shopping Arcade's many shops.",
@@ -71,7 +71,7 @@ public class TestNPC extends NPC {
 				new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.LOW),
 				new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 				new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-		
+
 		if(!isImported) {
 			String s = "";
 			int[] nameArray = new int[] {78, 111, 120, 105, 110, 105, 97};
@@ -79,37 +79,37 @@ public class TestNPC extends NPC {
 				s+=(char)c;
 			}
 			this.setName(new NameTriplet(s));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setEyeCovering(new Covering(BodyCoveringType.EYE_FELINE, Colour.EYE_GREEN));
 			this.setHairCovering(new Covering(BodyCoveringType.HAIR_FELINE_FUR, Colour.COVERING_BROWN), true);
 			this.setSkinCovering(new Covering(BodyCoveringType.FELINE_FUR, Colour.COVERING_BROWN), true);
 			this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Colour.SKIN_LIGHT), true);
-	
+
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 5);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 25);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 0);
-			
+
 			this.setFemininity(75);
-			
+
 			this.setHeight(170);
-			
+
 			this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
-			
+
 			this.setAssSize(AssSize.THREE_NORMAL.getValue());
-			
+
 			this.setBreastSize(CupSize.B.getMeasurement());
-			
+
 			this.setHipSize(HipSize.FOUR_WOMANLY.getValue());
-			
+
 			this.setPiercedEar(true);
-			
+
 			this.setAssVirgin(true);
 			this.setNippleVirgin(true);
 			this.setVaginaVirgin(true);
 			this.setFaceVirgin(true);
-			
+
 			this.addFetish(Fetish.FETISH_ANAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_BREASTS_SELF);
 			this.addFetish(Fetish.FETISH_CUM_ADDICT);
@@ -124,7 +124,7 @@ public class TestNPC extends NPC {
 			this.addFetish(Fetish.FETISH_PURE_VIRGIN);
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
 			this.addFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING);
-			
+
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Colour.CLOTHING_WHITE, false), true, this);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Colour.CLOTHING_WHITE, false), true, this);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_HOODIE, Colour.CLOTHING_PINK_LIGHT, false), true, this);
@@ -136,7 +136,7 @@ public class TestNPC extends NPC {
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -150,7 +150,7 @@ public class TestNPC extends NPC {
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		this.resetInventory(true);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Colour.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Colour.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_HOODIE, Colour.CLOTHING_PINK_LIGHT, false), true, this);
@@ -159,22 +159,22 @@ public class TestNPC extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HEAD_HEADBAND, Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Colour.CLOTHING_BLACK, false), true, this);
 	}
-	
+
 
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
@@ -186,19 +186,19 @@ public class TestNPC extends NPC {
 			setPendingClothingDressing(true);
 		}
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAttractedTo(GameCharacter character) {
 		return getSexPaceSubPreference(Main.game.getPlayer())!=SexPace.SUB_RESISTING;
 	}
 
 	public static boolean resisting = true;
-	
+
 	@Override
 	public SexPace getSexPaceSubPreference(GameCharacter character){
 		if(resisting && Main.game.isNonConEnabled()) {
@@ -207,9 +207,9 @@ public class TestNPC extends NPC {
 			return SexPace.SUB_EAGER;
 		}
 	}
-	
+
 	public static final DialogueNode TEST_DIALOGUE = new DialogueNode("Shopping arcade", ".", true) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 15;
@@ -226,7 +226,7 @@ public class TestNPC extends NPC {
 						+ "You could take a closer look, or carry on your way..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
@@ -236,7 +236,7 @@ public class TestNPC extends NPC {
 						TestNPC.resisting = true;
 					}
 				};
-				
+
 			} else if(index==0) {
 				return new Response("Leave", "The door is marked 'private' after all...", TEST_DIALOGUE) {
 					@Override
@@ -244,15 +244,15 @@ public class TestNPC extends NPC {
 						return Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
-	public static final DialogueNode TEST_DIALOGUE_ENTER = new DialogueNode("A cozy room", ".", true, true) {
-		
+
+	public static final DialogueNode TEST_DIALOGUE_ENTER = new DialogueNode("A cosy room", ".", true, true) {
+
 		@Override
 		public int getMinutesPassed(){
 			return 15;
@@ -261,7 +261,7 @@ public class TestNPC extends NPC {
 		@Override
 		public String getContent() {
 			return "<p>"
-						+ "You step forwards, and, quietly pushing the door open, you step into a cozy little back room."
+						+ "You step forwards, and, quietly pushing the door open, you step into a cosy little back room."
 						+ " In front of you, with [test.her] back to the door, a small-framed [test.race] is sitting in front of a desk."
 						+ " Scrunched up pieces of paper litter the floor around [test.her], and you notice that [test.sheIs] so engrossed in [test.her] writing that [test.she] didn't hear your entry."
 					+ "</p>"
@@ -272,7 +272,7 @@ public class TestNPC extends NPC {
 								:"")
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
@@ -282,7 +282,7 @@ public class TestNPC extends NPC {
 							TestNPC.resisting = false;
 						}
 					};
-				
+
 			} else if (index == 2 && Main.game.isNonConEnabled()) {
 				return new ResponseSex("Rape [test.herHim]", "[test.Her] back is turned, and [test.she] hasn't noticed you enter the room...",
 						Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM), null, Fetish.FETISH_NON_CON_DOM.getAssociatedCorruptionLevel(), null, null, null,
@@ -305,7 +305,7 @@ public class TestNPC extends NPC {
 							+ "You drop down behind [test.herHim], pushing [test.her] weak body into the floor as you growl into [test.her] [test.ear+],"
 							+ " [pc.speech(Scream all you want, you're mine now!)]"
 						+ "</p>");
-				
+
 			} else if (index == 3 && Main.game.isNonConEnabled()) {
 				return new ResponseSex("Rape [test.herHim] (gentle)", "[test.Her] back is turned, and [test.she] hasn't noticed you enter the room... (Start the sex scene in the 'gentle' pace.)",
 						Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM), null, Fetish.FETISH_NON_CON_DOM.getAssociatedCorruptionLevel(), null, null, null,
@@ -336,7 +336,7 @@ public class TestNPC extends NPC {
 							+ "You drop down behind [test.herHim], taking hold of [test.her] weak body and preventing [test.her] from escaping as you growl into [test.her] [test.ear+],"
 							+ " [pc.speech(Hush now, there's no point in struggling, you're mine now!)]"
 						+ "</p>");
-				
+
 			} else if (index == 4 && Main.game.isNonConEnabled()) {
 				return new ResponseSex("Rape [test.herHim] (rough)", "[test.Her] back is turned, and [test.she] hasn't noticed you enter the room... (Start the sex scene in the 'rough' pace.)",
 						Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM), null, Fetish.FETISH_NON_CON_DOM.getAssociatedCorruptionLevel(), null, null, null,
@@ -368,7 +368,7 @@ public class TestNPC extends NPC {
 							+ " You grin as [test.she] struggles back up onto all fours, and, roughly grabbing [test.her] frail body, you tightly grip [test.her] waist, preventing [test.her] from escaping as you growl into [test.her] [test.ear+],"
 							+ " [pc.speech(Scream all you want, bitch! You're mine now!)]"
 						+ "</p>");
-				
+
 			} else if(index==0) {
 				return new Response("Leave", "Step back without alerting the [test.race] to your presence.", TEST_DIALOGUE) {
 					@Override
@@ -376,14 +376,14 @@ public class TestNPC extends NPC {
 						return Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
-	public static final DialogueNode TEST_DIALOGUE_GREET = new DialogueNode("A cozy room", ".", true, true) {
+
+	public static final DialogueNode TEST_DIALOGUE_GREET = new DialogueNode("A cosy room", ".", true, true) {
 
 		@Override
 		public String getContent() {
@@ -410,7 +410,7 @@ public class TestNPC extends NPC {
 						+ "[test.speech(But... Now that you've seen it... And seeing as you're already here... We may as well fuck, right?)]"
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -428,7 +428,7 @@ public class TestNPC extends NPC {
 							+ "[test.speech(~Mmmm!~)] [test.she] moans, leaning into you,"
 							+ " [test.speech(Fuck me!)]"
 						+ "</p>");
-				
+
 			} else if (index == 2) {
 				return new ResponseSex("Sex (gentle)",
 						"Well, [test.she] <i>is</i> asking for it! (Start the sex scene in the 'gentle' pace.)",
@@ -447,7 +447,7 @@ public class TestNPC extends NPC {
 							+ "[test.speech(~Mmmm!~)] [test.she] moans, leaning into you,"
 							+ " [test.speech(Fuck me!)]"
 						+ "</p>");
-				
+
 			} else if (index == 3) {
 				return new ResponseSex("Sex (rough)",
 						"Well, [test.she] <i>is</i> asking for it! (Start the sex scene in the 'rough' pace.)",
@@ -466,7 +466,7 @@ public class TestNPC extends NPC {
 								+ "[test.speech(~Mmmm!~)] [test.she] moans, leaning into you,"
 								+ " [test.speech(Yes! I like it rough!)]"
 							+ "</p>");
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Inventory", "You're sure that [npc.name] won't mind you managing [npc.her] clothing and items..."){
 					@Override
@@ -474,7 +474,7 @@ public class TestNPC extends NPC {
 						Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 					}
 				};
-				
+
 			} else if(index==0) {
 				return new Response("Leave", "Leave the room.", TEST_DIALOGUE) {
 					@Override
@@ -482,13 +482,13 @@ public class TestNPC extends NPC {
 						return Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode TEST_DIALOGUE_AFTER_RAPE = new DialogueNode("Step back", ".", true) {
 
 		@Override
@@ -512,7 +512,7 @@ public class TestNPC extends NPC {
 						+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==0) {
@@ -522,7 +522,7 @@ public class TestNPC extends NPC {
 						return Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -549,7 +549,7 @@ public class TestNPC extends NPC {
 						+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==0) {
@@ -559,7 +559,7 @@ public class TestNPC extends NPC {
 						return Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

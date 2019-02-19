@@ -60,7 +60,7 @@
 	#IF pc.isHasSlaverLicense()
 	#THEN
 		<p>
-			[pc.speech(Ok,)] you reply, stepping forwards alongside the diminutive cat-boy into his store...
+			[pc.speech(OK,)] you reply, stepping forwards alongside the diminutive cat-boy into his store...
 		</p>
 	#ELSE
 		<p>
@@ -191,12 +191,12 @@
 
 	<htmlContent tag="MARKET_STALL_CAFE"><![CDATA[
 	<p>
-		Scattered around Slaver Alley, there appear to be several cozy-looking cafes. Wondering if you could enter one of these to get a drink, you step up to the front door, but your entrance is barred by a muscular-looking wolf-girl, who snarls, [genericFemale.speech(You're not a member of the Zaibatsu Exchange, are you, punk?!)]
+		Scattered around Slaver Alley, there appear to be several cosy-looking cafes. Wondering if you could enter one of these to get a drink, you step up to the front door, but your entrance is barred by a muscular-looking wolf-girl, who snarls, [genericFemale.speech(You're not a member of the Zaibatsu Exchange, are you, punk?!)]
 	</p>
 	<p>
 		Realising that this is definitely going to be more trouble than it's worth, you turn your back on the wolf-girl and step back out into the street, before wondering where to go to next...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

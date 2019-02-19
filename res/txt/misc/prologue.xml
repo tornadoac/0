@@ -207,7 +207,7 @@
 		[lilaya.speech(Yes! This is to do with the delay! Arthur's gone missing, and I can't start without him! Everyone's crowding me asking questions, so I can't go out and look for him myself. Please, please <i>please</i> can you go and find him for me?)]
 	</p>
 	<p>
-		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(Ok, Lily, I'll find him for you, don't worry.)]
+		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(OK, Lily, I'll find him for you, don't worry.)]
 	</p>
 	<p>
 		As Lily starts thanking you, someone calls out from behind her, asking her to return to the stage. Thanking you once more, she then rushes off, leaving you to do as you said you would...
@@ -252,7 +252,7 @@
 		[lilaya.speech(Erm... goodbye!)] Lily awkwardly calls out, completely oblivious as to what was going on, before turning back to you. [lilaya.speech(Yes! This is to do with the delay! Arthur's gone missing, and I can't start without him! Everyone's crowding me asking questions, so I can't go out and look for him myself. Please, please <i>please</i> can you go and find him for me?)]
 	</p>
 	<p>
-		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(Ok, Lily, I'll find him for you, don't worry.)]
+		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(OK, Lily, I'll find him for you, don't worry.)]
 	</p>
 	<p>
 		As Lily starts thanking you, someone calls out from behind her, asking her to return to the stage. Thanking you once more, she then rushes off, leaving you to do as you said you would...
@@ -371,7 +371,7 @@
 	</p>
 
 	<p>
-		As alarming as the two mens' appearances are, they're nothing compared to the woman in front of you. While the men are in possession of horse-like features, the woman could better be described as a cat possessing human-like features. She's completely covered in a fine layer of black fur, and every part of her body, including her face, has somehow transformed into that of an anthropomorphic cat-girl. Her long tail swishes excitedly behind her, and as she brushes a strand of loose fur-like hair behind her upright cat-ears, she looks down at you with an evil grin on her face.
+		As alarming as the two men's appearances are, they're nothing compared to the woman in front of you. While the men are in possession of horse-like features, the woman could better be described as a cat possessing human-like features. She's completely covered in a fine layer of black fur, and every part of her body, including her face, has somehow transformed into that of an anthropomorphic cat-girl. Her long tail swishes excitedly behind her, and as she brushes a strand of loose fur-like hair behind her upright cat-ears, she looks down at you with an evil grin on her face.
 	</p>
 	]]>
 	</htmlContent>
@@ -845,5 +845,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

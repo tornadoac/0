@@ -14,7 +14,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="EXTERIOR_REFURBISHING"><![CDATA[
 	<p>
 		The establishment before you is one of the few in the Shopping Arcade that's not open for business, but you're sure that all of that will change very soon.
@@ -26,7 +26,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="EXTERIOR_CLOSED"><![CDATA[
 	<p>
 		The establishment before you is one of the few in the Shopping Arcade that's not open for business.
@@ -39,7 +39,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="EXTERIOR_CLOSED_NYAN_INFO"><![CDATA[
 	<p>
 		The establishment before you is one of the few in the Shopping Arcade that's not open for business.
@@ -52,7 +52,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RECEPTION_EMPTY"><![CDATA[
 	<p>
 		From the long, wooden desk that runs parallel to the back wall, you can safely assume that this room was once used as a reception area.
@@ -65,14 +65,14 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RECEPTION_EMPTY_STAFF_DOOR"><![CDATA[
 	<p>
 		The Depot's storage area is sure to be behind that door, and you wonder if you should continue through it now, or come back another time...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RECEPTION_EMPTY_STAFF_DOOR_UNLOCKING"><![CDATA[
 	<p>
 		You walk up to the door, flinching a little as one of the floorboards loudly creaks beneath your feet.
@@ -90,7 +90,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RECEPTION_POPULATED"><![CDATA[
 	<p>
 		The long, wooden reception desk that runs parallel to the back wall has been sanded down and polished since the first time you saw it.
@@ -101,14 +101,14 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RECEPTION_POPULATED_STAFF_DOOR"><![CDATA[
 	<p>
 		You know that the Depot's storage area is behind the door marked 'Private: Staff Only', and you wonder if you should ask the mouse-girl if you can go back there...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RECEPTION_POPULATED_STAFF_DOOR_UNLOCKING"><![CDATA[
 	<p>
 		Wanting to pay [wolfgang.name] another visit, you approach the mouse-girl receptionist.
@@ -122,7 +122,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="CORRIDOR"><![CDATA[
 	<p>
 		This corridor runs from the Depot's reception area all the way to the back of the building.
@@ -130,7 +130,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="STORAGE_ROOM"><![CDATA[
 	<p>
 		You find yourself standing in a huge, double-height storage room.
@@ -139,14 +139,14 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="STORAGE_ROOM_SEARCHED"><![CDATA[
 	<p>
 		[style.italicsBad(You have already searched through all of the open crates in this room!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="STORAGE_ROOM_SEARCHING"><![CDATA[
 	<p>
 		You doubt that it would be worth your time trying to open each and every crate to see what's inside, but checking the ones that appear to have already been half-opened would only take you a moment.
@@ -154,12 +154,12 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE"><![CDATA[
 	<p>
 		As you approach the end of the corridor, you hear the deep rumble of a pair of male voices, occasionally interspersed with a roar of laughter, growing louder and louder.
 		 You discover that the noise is coming from behind a frosted-glass door labelled as 'Supplier Offices'.
-		 A long list of names is displayed beneath this, and you see that with the exception of the entry at the very bottom, reading 'Wolfgang & Karl', all the rest have been crossed out. 
+		 A long list of names is displayed beneath this, and you see that with the exception of the entry at the very bottom, reading 'Wolfgang & Karl', all the rest have been crossed out.
 	</p>
 	<p>
 		Seeing no alternative but to make a bold entrance, you reach for the handle of the door, and, pushing it open, you step forwards.
@@ -183,12 +183,12 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_PACIFIED"><![CDATA[
 	<p>
 		As you approach the end of the corridor, you hear the steady hum of numerous voices growing louder and louder.
 		 You discover that the noise is coming from behind the familiar frosted-glass door labelled as 'Supplier Offices'.
-		 The long list of names beneath that title have all been restored, and you can't help but smirk as you see that the pair 'Wolfgang & Karl' have been put at the very top this time around. 
+		 The long list of names beneath that title have all been restored, and you can't help but smirk as you see that the pair 'Wolfgang & Karl' have been put at the very top this time around.
 	</p>
 	<p>
 		Knowing that this area is now safe for you to enter, you reach for the handle of the door, and, pushing it open, you step forwards into a very neat and orderly waiting area.
@@ -207,12 +207,12 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_ENFORCER_REACTION"><![CDATA[
 	<p>
 		As you approach the end of the corridor, you hear the deep rumble of a pair of male voices, occasionally interspersed with a roar of laughter, growing louder and louder.
 		 You discover that the noise is coming from behind a frosted-glass door labelled as 'Supplier Offices'.
-		 A long list of names is displayed beneath this, and you see that with the exception of the entry at the very bottom, reading 'Wolfgang & Karl', all the rest have been crossed out. 
+		 A long list of names is displayed beneath this, and you see that with the exception of the entry at the very bottom, reading 'Wolfgang & Karl', all the rest have been crossed out.
 	</p>
 	<p>
 		Seeing no alternative but to make a bold entrance, you reach for the handle of the door, and, pushing it open, you step forwards.
@@ -223,7 +223,7 @@
 		The most striking feature in front of you, however, is the pair of black-and-brown-furred greater dobermann-boys, who both instantly push their chairs back and jump to their feet as you enter.
 		 The one closest to you is a little taller and more muscular than the other, and although they're both wearing black jeans, shirts, and heavy work-boots, this larger dobermann is sporting a pair of gold-framed aviators.
 		 It's this larger of the two who's the first to speak, and he adopts a menacing pose as he growls,
-		 [wolfgang.speech(We both know that you Enforcers have nothing on us! Why don't you turn around and fuck off back to your cozy little desk job at your HQ?)]
+		 [wolfgang.speech(We both know that you Enforcers have nothing on us! Why don't you turn around and fuck off back to your cosy little desk job at your HQ?)]
 	</p>
 	<p>
 		[pc.speech(That attitude isn't going to get you far with me,)]
@@ -238,12 +238,12 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_REPEAT"><![CDATA[
 	<p>
 		As you approach the end of the corridor, you hear the familiar rumbling of Wolfgang's and Karl's voices, occasionally interspersed with a roar of laughter, growing louder and louder.
 		 The noise is once again coming from behind the frosted-glass door labelled as 'Supplier Offices'.
-		 Coming to a halt, you look down again at the long list of crossed-out names that are displayed beneath that heading, with the pair 'Wolfgang & Karl' being the only one left intact. 
+		 Coming to a halt, you look down again at the long list of crossed-out names that are displayed beneath that heading, with the pair 'Wolfgang & Karl' being the only one left intact.
 	</p>
 	<p>
 		Seeing no alternative but to make a bold entrance, you reach for the handle of the door, and, pushing it open, you step forwards.
@@ -269,12 +269,12 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_REPEAT_ENFORCER_REACTION"><![CDATA[
 	<p>
 		As you approach the end of the corridor, you hear the familiar rumbling of Wolfgang's and Karl's voices, occasionally interspersed with a roar of laughter, growing louder and louder.
 		 The noise is once again coming from behind the frosted-glass door labelled as 'Supplier Offices'.
-		 Coming to a halt, you look down again at the long list of crossed-out names that are displayed beneath that heading, with the pair 'Wolfgang & Karl' being the only one left intact. 
+		 Coming to a halt, you look down again at the long list of crossed-out names that are displayed beneath that heading, with the pair 'Wolfgang & Karl' being the only one left intact.
 	</p>
 	<p>
 		Seeing no alternative but to make a bold entrance, you reach for the handle of the door, and, pushing it open, you step forwards.
@@ -300,7 +300,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_CONVINCE_THEM"><![CDATA[
 	<p>
 		Deciding that it would be a good idea to try diplomacy before the situation resorts to violence, you explain the situation to Wolfgang,
@@ -335,7 +335,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_CONVINCE_THEM_REPEAT"><![CDATA[
 	<p>
 		Deciding once again to try diplomacy before the situation resorts to violence, you explain the situation to Wolfgang,
@@ -370,7 +370,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_PAID_OFF"><![CDATA[
 	<p>
 		Not wanting to get into a fight, and definitely not willing to offer your body to these thugs, you hand over five-hundred flames to Wolfgang.
@@ -384,7 +384,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_ENFORCER_BLUFF"><![CDATA[
 	<p>
 		Deciding to make the most of the fact that Wolfgang has mistaken you for an Enforcer, you put on your most serious look as you stare him down.
@@ -436,7 +436,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_OFFER_BODY"><![CDATA[
 	<p>
 		Wanting to avoid a fight, and unwilling to hand over any of your money, you bite your [pc.lip] and allow your gaze to roam up and down over Wolfgang's powerful, muscular body.
@@ -464,7 +464,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_ENFORCER_THANKS"><![CDATA[
 	<p>
 		Feeling more than a little turned-on at the thought of being fucked while wearing an Enforcer's uniform, you bite your [pc.lip] and allow your gaze to roam up and down over Wolfgang's powerful, muscular body.
@@ -494,7 +494,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_VICTORY"><![CDATA[
 	<p>
 		Wolfgang and Karl stagger back, before collapsing down onto a very shabby-looking sofa.
@@ -514,7 +514,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_VICTORY_LEAVE"><![CDATA[
 	<p>
 		You aren't interested in having any sort of sexual experience with these two losers, so you turn around and walk out of the office.
@@ -522,7 +522,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_VICTORY_FUCK_THEM"><![CDATA[
 	<p>
 		The sight of these two dobermanns collapsed down before you is too much for you to resist.
@@ -540,7 +540,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_VICTORY_SUB_FUCKED"><![CDATA[
 	<p>
 		The sight of these two dobermanns collapsed down before you is too much for you to resist.
@@ -576,7 +576,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_DEFEAT"><![CDATA[
 	<p>
 		Unable to continue fighting, you stagger back and collapse down onto a very shabby sofa.
@@ -599,7 +599,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_PACIFIED_FUCK_THEM"><![CDATA[
 	<p>
 		The sight of the two big, strong dobermanns is too much for you to resist, and you feel your dominant side taking control as you step forwards, grinning.
@@ -611,7 +611,7 @@
 		 Wolfgang responds.
 	</p>
 	<p>
-		Not satisfied with his response, you step forwards, tracing your [pc.fingers] over [wolfgang.name]'s muscular abdomen, before dropping your [pc.hand] down to grab the huge bulge between his legs, 
+		Not satisfied with his response, you step forwards, tracing your [pc.fingers] over [wolfgang.name]'s muscular abdomen, before dropping your [pc.hand] down to grab the huge bulge between his legs,
 		 [pc.speech(I really don't know if I can trust you... I think I'm going to need you both to prove how good you are these days. So get down on all fours and present yourselves to me!)]
 	</p>
 	<p>
@@ -625,7 +625,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_PACIFIED_SUB_FUCKED"><![CDATA[
 	<p>
 		The sight of the two big, strong dobermanns is too much for you to resist, and you step forwards, grinning.
@@ -659,7 +659,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFICE_PACIFIED_LEAVE"><![CDATA[
 	<p>
 		[pc.speech(I was just dropping by to make sure that you two are behaving yourselves.
@@ -677,7 +677,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SEX_WILLING"><![CDATA[
 	<p>
 		Wolfgang steps back, sinking down onto a nearby sofa as he grins.
@@ -697,7 +697,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SEX_WILLING_DOMMED_THEM"><![CDATA[
 	<p>
 		You step back, allowing Wolfgang and Karl to crawl away and collapse onto to a nearby sofa.
@@ -713,7 +713,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SEX_WILLING_PACIFIED"><![CDATA[
 	<p>
 		Wolfgang steps back, sinking down onto a nearby sofa as he grins.
@@ -730,7 +730,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SEX_WILLING_DOMMED_THEM_PACIFIED"><![CDATA[
 	<p>
 		You step back, allowing Wolfgang and Karl to crawl away and collapse onto to a nearby sofa.
@@ -743,7 +743,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SEX_FUCKED"><![CDATA[
 	<p>
 		Wolfgang steps back, sinking down onto a nearby sofa as he grins.
@@ -759,5 +759,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

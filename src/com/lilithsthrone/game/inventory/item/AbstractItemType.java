@@ -29,7 +29,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public abstract class AbstractItemType extends AbstractCoreType {
-	
+
 	private String determiner, name, namePlural, description, pathName;
 	private boolean plural;
 	private Colour colourPrimary;
@@ -67,14 +67,14 @@ public abstract class AbstractItemType extends AbstractCoreType {
 
 		this.value = value;
 		this.rarity = rarity;
-		
+
 		this.relatedEssence = relatedEssence;
-		
+
 		this.itemTags = new HashSet<>();
 		if(itemTags!=null) {
 			this.itemTags.addAll(itemTags);
 		}
-		
+
 		if(effects==null) {
 			this.effects = new ArrayList<>();
 		} else {
@@ -96,7 +96,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		} else {
 			this.colourTertiary = colourTertiary;
 		}
-		
+
 		// Set this item's file image:
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/" + pathName + ".svg");
@@ -106,18 +106,18 @@ public abstract class AbstractItemType extends AbstractCoreType {
 			String s = Util.inputStreamToString(is);
 
 			SVGString = colourReplacement(this.getColourPrimary(), this.getColourSecondary(), this.getColourTertiary(), s);
-			
+
 			is.close();
 
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 	}
-	
+
 	private String colourReplacement(Colour colour, Colour colourSecondary, Colour colourTertiary, String inputString) {
 		return SvgUtil.colourReplacement(Integer.toString(this.hashCode()), colour, colourSecondary, colourTertiary, inputString);
 	}
-	
+
 	@Override
 	public boolean equals(Object o) { // I know it doesn't include everything, but this should be enough to check for equality.
 		if(super.equals(o)){
@@ -134,7 +134,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() { // I know it doesn't include everything, but this should be enough to check for equality.
 		int result = super.hashCode();
@@ -150,7 +150,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 	public static AbstractItem generateItem(AbstractItemType itemType) {
 		return new AbstractItem(itemType) {};
 	}
-	
+
 	public static AbstractItem generateFilledCondom(Colour colour, GameCharacter character, FluidCum cum, int millilitres) {
 		return new AbstractFilledCondom(ItemType.CONDOM_USED, colour, character, cum, millilitres) {};
 	}
@@ -158,41 +158,41 @@ public abstract class AbstractItemType extends AbstractCoreType {
 	public static AbstractItem generateFilledBreastPump(Colour colour, GameCharacter character, FluidMilk milk, int quantity) {
 		return new AbstractFilledBreastPump(ItemType.MOO_MILKER_FULL, colour, character, milk, quantity) {};
 	}
-	
+
 	public String getId() {
 		return ItemType.getItemToIdMap().get(this);
 	}
-	
+
 	public List<ItemEffect> getEffects() {
 		return effects;
 	}
-	
+
 	public boolean isAbleToBeSold() {
 		return getRarity()!=Rarity.QUEST;
 	}
-	
+
 	public boolean isAbleToBeDropped() {
 		return getRarity()!=Rarity.QUEST;
 	}
-	
+
 	// Enchantments:
-	
+
 	public int getEnchantmentLimit() {
 		return 100;
 	}
-	
+
 	public AbstractItemEffectType getEnchantmentEffect() {
 		return null;
 	}
-	
+
 	public TFEssence getRelatedEssence() {
 		return relatedEssence;
 	}
-	
+
 	public AbstractItemType getEnchantmentItemType(List<ItemEffect> effects) {
 		return null;
 	}
-	
+
 	// Getters & setters:
 
 	public String getDeterminer() {
@@ -210,7 +210,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 			return (this.isPlural()?namePlural:name);
 		}
 	}
-	
+
 	public String getNamePlural(boolean displayName) {
 		if(displayName) {
 			return Util.capitaliseSentence((determiner!=null?determiner:"") + " <span style='color: " + rarity.getColour().toWebHexString() + ";'>" + namePlural + "</span>");
@@ -236,11 +236,11 @@ public abstract class AbstractItemType extends AbstractCoreType {
 	public Colour getColourPrimary() {
 		return colourPrimary;
 	}
-	
+
 	public Colour getColourSecondary() {
 		return colourSecondary;
 	}
-	
+
 	public Colour getColourTertiary() {
 		return colourTertiary;
 	}
@@ -260,7 +260,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 	public String getUseName() {
 		return "use";
 	}
-	
+
 	public String getUseDescription(GameCharacter user, GameCharacter target) {
 		return "<p>"
 					+ "You use the item."
@@ -270,43 +270,43 @@ public abstract class AbstractItemType extends AbstractCoreType {
 	public boolean isAbleToBeUsedFromInventory() {
 		return true;
 	}
-	
+
 	public boolean isAbleToBeUsed(GameCharacter target) {
 		return !Main.game.isInCombat() || target.isPlayer();
 	}
-	
+
 	public boolean isAbleToBeUsedInSex() {
 		return true;
 	}
-	
+
 	public boolean isAbleToBeUsedInCombat() {
 		return true;
 	}
-	
+
 	public boolean isConsumedOnUse() {
 		return true;
 	}
-	
+
 	public boolean isTransformative() {
 		return false;
 	}
-	
+
 	public boolean isGift() {
 		return false;
 	}
-	
+
 	public boolean isFetishGiving() {
 		return false;
 	}
-	
+
 	public String getUnableToBeUsedFromInventoryDescription() {
 		return "This item cannot be used in this way!";
 	}
-	
+
 	public String getUnableToBeUsedDescription(GameCharacter target) {
 		return "This item cannot be used in this way!";
 	}
-	
+
 	public String getDyeBrushEffects(AbstractClothing clothing, Colour colour) {
 		return "<p>"
 					+ "As you take hold of the Dye-brush, you see the purple glow around the tip growing in strength."
@@ -315,7 +315,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 					+ " You see that the arcane enchantment has dyed the " + clothing.getName() + " " + colour.getName() + "."
 				+ "</p>";
 	}
-	
+
 	public String getDyeBrushEffects(AbstractWeapon weapon, Colour colour) {
 		return "<p>"
 					+ "As you take hold of the Dye-brush, you see the purple glow around the tip growing in strength."

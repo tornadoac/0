@@ -4,7 +4,7 @@ The "Orifice stats" is:
 	Wetness
 	Elasticity
 	Virgin
-	
+
 "Fluids" have the following stats:
 	Special Effects (Applies TF, Applies addiction)
 	Maximum amount
@@ -12,11 +12,11 @@ The "Orifice stats" is:
 	Viscosity
 	Taste
 	Smell
-	
+
 DONE Colour
 	fluorescent
 	striped, spotted, mottled
-	
+
 DONE Arm
 	{Content lock} [Underarm hair]
 	[Nail polish]
@@ -78,7 +78,7 @@ DONE Face
 	[Makeup level]
 	[Makeup colour]
 	[Beard]
-	
+
 DONE Hair
 	Colour
 	Length
@@ -117,10 +117,10 @@ DONE Penis
 		Orifice stats
 		[Internal tentacles]
 		[Internally ribbed]
-		
+
 [Second penis]
 	Same as first
-		
+
 DONE Skin
 	[Primary colour]
 	[Secondary colour]
@@ -131,7 +131,7 @@ DONE Tail
 	[isOrifice]
 	Orifice stats
 	[Fluid cum] (Type derived from tail type)
-	
+
 DONE Tongue
 	Pierced
 	[bifurcated]

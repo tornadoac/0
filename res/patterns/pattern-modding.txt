@@ -9,8 +9,7 @@ To add a pattern:
 
 To add support of patterns to an item (clothing only):
 * Get your item's SVG image.
-* Find the area you want to have the patterns. Color it with a single fill and make sure to keep line art separate from it.
+* Find the area you want to have the patterns. Colour it with a single fill and make sure to keep line art separate from it.
 * Put that area in the layer named "patternLayer". This layer will be completely replaced by the pattern in game if the item has one!
 * Use a single shape in there; due to a JavaFX bug that I can't identify yet, it doesn't like multiple shapes, so Unify them if needed (for example, for gloves).
 * That's it! No XML editing required.
-
