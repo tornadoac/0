@@ -236,7 +236,7 @@
 	<p>
 		#IF pc.hasTraitActivated(PERK_CHUUNI)
 		#THEN [pc.speech(That's lucky for you; I'm vastly more powerful than you could ever imagine!)] you declare, before marching over to the door on the far side of the room and quickly making your exit.
-		#ELSE [pc.speech(Ok, see you next time,)] you say, rolling your eyes. Before the little chunni can make any more outrageous statements, you march over to the door on the far side of the room and quickly make your exit.
+		#ELSE [pc.speech(OK, see you next time,)] you say, rolling your eyes. Before the little chunni can make any more outrageous statements, you march over to the door on the far side of the room and quickly make your exit.
 		#ENDIF
 	</p>
 	<p>
@@ -252,7 +252,7 @@
 	<p>
 		#IF pc.hasTraitActivated(PERK_CHUUNI)
 		#THEN [pc.speech(That's lucky for you; I'm vastly more powerful than you could ever imagine!)] you declare, before telling [npc.name] to follow you and then marching over to the door on the far side of the room.
-		#ELSE [pc.speech(Ok, see you next time,)] you say, rolling your eyes. Before the little chunni can make any more outrageous statements, you tell [npc.name] to follow you and then march over to the door on the far side of the room.
+		#ELSE [pc.speech(OK, see you next time,)] you say, rolling your eyes. Before the little chunni can make any more outrageous statements, you tell [npc.name] to follow you and then march over to the door on the far side of the room.
 		#ENDIF
 	</p>
 	<p>
@@ -786,8 +786,8 @@
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
-		#THEN [lyssieth.speech(Be a good [pc.girl] now and let mommy have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your new cock. [lyssieth.speech(You were a little naughty, refusing to suck mommy's cock, so after I've done this for you, I think you can make it up to me by letting me fuck you, ok?)]
-		#ELSE [lyssieth.speech(Mmm, I can't wait to have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your new cock. [lyssieth.speech(You were quite bad, refusing to suck my cock, so after I've done this for you, I think you can make it up to me by letting me fuck you, ok?)]
+		#THEN [lyssieth.speech(Be a good [pc.girl] now and let mommy have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your new cock. [lyssieth.speech(You were a little naughty, refusing to suck mommy's cock, so after I've done this for you, I think you can make it up to me by letting me fuck you, OK?)]
+		#ELSE [lyssieth.speech(Mmm, I can't wait to have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your new cock. [lyssieth.speech(You were quite bad, refusing to suck my cock, so after I've done this for you, I think you can make it up to me by letting me fuck you, OK?)]
 		#ENDIF
 	</p>
 	<p>
@@ -809,8 +809,8 @@
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
-		#THEN [lyssieth.speech(Well, if that's what it'll take for you to be a good [pc.girl]... Come on then, let mommy have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your cock. [lyssieth.speech(You're a little naughty, refusing to suck mommy's cock like that, so after I've done this for you, I think you can make it up to me by letting me fuck you, ok?)]
-		#ELSE [lyssieth.speech(Well, I can't complain, I <i>do</i> like cock... Come on then, let me have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your cock. [lyssieth.speech(You're quite bad, refusing to suck my cock like that, so after I've done this for you, I think you can make it up to me by letting me fuck you, ok?)]
+		#THEN [lyssieth.speech(Well, if that's what it'll take for you to be a good [pc.girl]... Come on then, let mommy have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your cock. [lyssieth.speech(You're a little naughty, refusing to suck mommy's cock like that, so after I've done this for you, I think you can make it up to me by letting me fuck you, OK?)]
+		#ELSE [lyssieth.speech(Well, I can't complain, I <i>do</i> like cock... Come on then, let me have a taste,)] Lyssieth teases, leaning forwards to deliver a long, wet lick up the underside of your cock. [lyssieth.speech(You're quite bad, refusing to suck my cock like that, so after I've done this for you, I think you can make it up to me by letting me fuck you, OK?)]
 		#ENDIF
 	</p>
 	<p>
@@ -952,7 +952,7 @@
 	<p>
 		#IF pc.hasTraitActivated(PERK_CHUUNI)
 		#THEN Smirking at your rival, you declare, [pc.speech(Hah! There's no way that I've ever lose to you! My powers are beyond your comprehension! Now, I must take my leave; my ultimate arcane abilities are soon to be known and feared throughout all of Dominion, and there are no doubt some hapless fools up there who need to be put in their place!)]
-		#ELSE Rolling your eyes at your sister's ridiculous statement, you say, [pc.speech(Ok, sure thing Meraxis, but for now, I need to take my leave. I'll see you later.)]
+		#ELSE Rolling your eyes at your sister's ridiculous statement, you say, [pc.speech(OK, sure thing Meraxis, but for now, I need to take my leave. I'll see you later.)]
 		#ENDIF
 	</p>
 	<p>
@@ -977,7 +977,7 @@
 	<p>
 		#IF pc.hasTraitActivated(PERK_CHUUNI)
 		#THEN Smirking at your rival, you declare, [pc.speech(Hah! There's no way that I've ever lose to you! My powers are beyond your comprehension! Now, I must take my leave; my ultimate arcane abilities are soon to be known and feared throughout all of Dominion, and there are no doubt some hapless fools up there who need to be put in their place!)]
-		#ELSE Rolling your eyes at your sister's ridiculous statement, you say, [pc.speech(Ok, sure thing Meraxis, but for now, I need to take my leave. I'll see you later.)]
+		#ELSE Rolling your eyes at your sister's ridiculous statement, you say, [pc.speech(OK, sure thing Meraxis, but for now, I need to take my leave. I'll see you later.)]
 		#ENDIF
 	</p>
 	<p>
@@ -1065,7 +1065,7 @@
 		[pc.speech(Lilaya's right,)] you say, wanting to encourage Meraxis to become a full demon alongside her sister, [pc.speech(There's no need to be nervous around us.)]
 	</p>
 	<p>
-		Looking up at her mother to see a reassuring smile on her face, Meraxis gulps and consents, [siren.speech(Ok, I'll do it. B-But I must observe the metamorphosis of my elder sibling before undergoing my own demonic awakening.)]
+		Looking up at her mother to see a reassuring smile on her face, Meraxis gulps and consents, [siren.speech(OK, I'll do it. B-But I must observe the metamorphosis of my elder sibling before undergoing my own demonic awakening.)]
 	</p>
 	<p>
 		[lilaya.speech(You mean you want to want to watch mommy and I fuck to get you in the mood?)] Lilaya crassly asks.

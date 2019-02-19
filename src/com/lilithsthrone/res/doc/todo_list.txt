@@ -356,14 +356,14 @@
 	add the multiple-partner scenes to slave scenes and other encounters
 	When visiting a person you know in dominion that has their own place and you initiate sex. When you select the forbid self clothing. The text is said but then they start displacing their clothing anyway and the icon remains as forbid self clothing instead of changing to allow self clothing.
 	Add ability to use pumps on slaves
-	the watering hole is still having issues as a sub lol. Now when I run around with a person as a sub, it seems that during our adventure a new randomly generated NPC will pop up and join our group, taking over any further dialog while retaining the old NPC on the top right list. From what I gather so far it seems to happen the most when a NPC takes you to the booths to do things
+	the watering hole is still having issues as a sub lol. Now when I run around with a person as a sub, it seems that during our adventure a new randomly generated NPC will pop up and join our group, taking over any further dialogue while retaining the old NPC on the top right list. From what I gather so far it seems to happen the most when a NPC takes you to the booths to do things
 	I found a minor bug in that when looking at the pregnancy stats tab in the menus that it will say one gender in the fathered/mothered section, but then say the other gender in the offspring list
 	slow fluids absorption rate
 	the dialogue after impregnating a Demon in the Dark Alley needs to be changed. As its pre 0.3.0 and is the one for Imps. Even though its completely redone
 	add offspring moving in text
 	Hi. Also the Essences and Jinxes dialogue also needs to be updated. Especially since instead of a Pentagram its still a square
 	add a way to change foot type to potions, and I'll also add a TF item for all subspecies, so that you don't have to fiddle about with things
-	bribing Dobermann duo in clothing suppliers quest with one's body doesn't seem to be working - the text after the act implies that the deal has been struck and they'll allow other suppliers back, yet the quest doesn't advance and going back to them shows text as if the PC was defeated in battle and raped instead
+	bribing dobermann duo in clothing suppliers quest with one's body doesn't seem to be working - the text after the act implies that the deal has been struck and they'll allow other suppliers back, yet the quest doesn't advance and going back to them shows text as if the PC was defeated in battle and raped instead
 	seem to be experiencing a bug where horse slaves (haven't tested guests or PC) have three different hair settings when sent to Kate, one where you'd expect and two more under the "coverings" category, one of which is replacing the fur settings. All 3 functionally change hair, meaning you can't dye fur. this bug persists across save/loads, and effects both naturally generated horses as well as transformed ones.
 		I've gone back and created a new save to test if this still occurs for horse PCs, and it does. This hasn't occurred with any variant of the cat, dog, or fox races, and doesn't effect the cow race either. i haven't tested the other races and race variants.
 	centaurs
@@ -493,7 +493,7 @@
 
 	Add brothel shower
 
-	Ok not sure if anyone else reported this or not, but for some reason as a Sadist the lust I'm suppose to gain from damaging others is being given to the target instead of my character
+	OK not sure if anyone else reported this or not, but for some reason as a Sadist the lust I'm suppose to gain from damaging others is being given to the target instead of my character
 
 	Female characters are given male names, and male characters are given female ones(?)
 
@@ -586,7 +586,7 @@
 
 	IMPS
 	Imp fortress dialogue out in Submission has no p tags
-		ok, it seems the female fort is the only one where the guards actually tried to fight
+		OK, it seems the female fort is the only one where the guards actually tried to fight
 
 	NPCs use vaginal tease vs you when you have no vagina
 		I also noticed the very effective not effective thing not popping up correctly with the fetishes
@@ -1665,7 +1665,7 @@ Enchantment Suggestion: Emotion Mask - Enchanted clothing piece changes the pers
 
 	I've just been messing with the game recently and found some interesting stuff. Nothing like glitches, but just some things I was curious about. For example, I was messing with Brax, Bree, and Brandi interactions. The situation can go by punishing Brax into Bree from the dialogue, then Bree into Brandi. I was messing with the fetish tf potions, and found that you can change Brandi back into to Bree by erasing the bimbo fetish. You can also impregnate her, but she has no reaction to it. You can change her back from Bree into Brax too by taking away femininity. Of course, the only way to tell this has happened is by the clothes being distinct from Brax, Bree, and Brandi. This is because the dialogue prompts do not change. Anyway, it was just something I was messing with and thinking more about as I've been testing the force tf fetish, and just overall using items in sex which I find kind of confusing on when people will or will not accept potions or items.
 
-	the dominant version of Lilaya's geisha scene is broken. She always starts with 0 arousal in Resisting pace, and ends the scene at the first turn, saying "Eugh... I'm not really feeling this right now, ok?" Nothing I've done has been able to avoid this. The submissive version of the scene works fine.
+	the dominant version of Lilaya's geisha scene is broken. She always starts with 0 arousal in Resisting pace, and ends the scene at the first turn, saying "Eugh... I'm not really feeling this right now, OK?" Nothing I've done has been able to avoid this. The submissive version of the scene works fine.
 
 	add a chance for NPCs to orgasm multiple times in sex
 
@@ -2477,7 +2477,7 @@ Scarlett is free-willed, and will do whatever she wants.'
 
 	why did I encounter a cuntboy when I have it switched to OFF.
 
-	: bug: adding two different aligator transformations to a potion (hair, tail) causes you to Discover your Natural Scale Color twice.
+	: bug: adding two different alligator transformations to a potion (hair, tail) causes you to Discover your Natural Scale Colour twice.
 
 	If you try to give an NPC a slave collar while they have a neck slot item that is jinxed (and therefore cannot be removed), the collar doesn't get equipped, but the NPC is still made a slave.
 
@@ -2485,7 +2485,7 @@ Scarlett is free-willed, and will do whatever she wants.'
 
 	Nyan
 
-	Dobermann dog-boys
+	dobermann dog-boys
 	Scar over eye & tattoos
 	(Just finished fucking enforcer when first meet them)
 
@@ -2537,7 +2537,7 @@ colour-able bell-collar bell with the metallic colours.
 
 	I'll look into the cross-dressing fetish probabilities, thank you for the report! I'll also add an "autosave on/off" option soon as I can.
 
-	Horse-girl futa was able to initate (receiving) blowjob while player was eating her out
+	Horse-girl futa was able to initiate (receiving) blowjob while player was eating her out
 	Submissive incestuous sex has an issue where if you are kneeling you can suck them off and eat them out at the same time
 
 	Burning lust tooltip "you aren't interested in having sex at all right now"
@@ -3012,7 +3012,7 @@ Going going to page 2 of sex actions and then switching to another tab puts you 
 	if you got a piercing on your cock and a TF removes the cock, that piercing stays in the cock-slot.
 
 	When NPC is virgin (dirty talk):
-		I'm still a virgin, ok
+		I'm still a virgin, OK
 		This is going to be good (while performing paizuri)
 
 	Fix pussy control action, and add leg-locking to missionary
@@ -3279,7 +3279,7 @@ It was actually quite amusing, I got to grind out 8 condoms super quick
 -doing the scene again, because she came and made it end before i intended, when she starts kissing me, "stop penetrations" does nothing but waste a turn. it does not post text, it does not stop the kissing, nothing.
 -at the start, she started making out with me, and it says her saliva lubes my mouth, and mine lubes her tongue. when she sucked on my dick or her tail, they were lubed with her saliva, but not mine. liquid weirdness?
 -and sticking something lubed with my saliva in her mouth lubes her mouth, after the kissing.
--ok, another bug with lilaya chair sex, with me standing and fucking her, it said "With a little moan, Lilaya starts rhythmically bucking her hips back against you, helping you to fill her dry with your large cock as she smiles up at you."
+-OK, another bug with lilaya chair sex, with me standing and fucking her, it said "With a little moan, Lilaya starts rhythmically bucking her hips back against you, helping you to fill her dry with your large cock as she smiles up at you."
 
 	AI in sex, so I'll make sure to tweak their preferences for performing self-actions
 		Is it supposed to be that Vaginal and anal sex never happens when you get defeated by a man? I've been several times and it either ends up in a blowjob or they just use their fingers.
@@ -3534,7 +3534,7 @@ When you use Arthur's hypno-watch on someone, it says they are now “command_un
 
 	: i was checking a item i found in a alleyway and when i backed out to continue moving i got the post-sex sence from dom'ing Brax dispite me being outside the police station.
 
-	ok, two weird stuff: first, everytime i entered brax's fight, he said that candi gave me the pass again, even in the first time. Secondly, and this is more complex, i tried to brew a potion of submissiveness right after DIANA, the dominant harpy offers herself. Once back in the main story menu, it told me BRITTANY was worn out from sex and to go back to BRITTANY'S place, and lo and behold, the info in that section was the one of brittany instead of diana's. I had to move over the original brittany's place to get it back right.
+	OK, two weird stuff: first, everytime i entered brax's fight, he said that candi gave me the pass again, even in the first time. Secondly, and this is more complex, i tried to brew a potion of submissiveness right after DIANA, the dominant harpy offers herself. Once back in the main story menu, it told me BRITTANY was worn out from sex and to go back to BRITTANY'S place, and lo and behold, the info in that section was the one of brittany instead of diana's. I had to move over the original brittany's place to get it back right.
 	WOW, First Brax is not talking just about you, candy has a habit of giving out passes. As for the sexond one I am completely lost how that happened
 
 	: Got a bug, i was in the arcade checking Nyan's specials menu then i clicked on section under her name to check her appearance and instead i got the apperance of my imported slave
@@ -3770,11 +3770,11 @@ Npc's are doing that black magic voodoo thing where they're pulling up my chemis
 
 	Started a new game in 1.95, chose “very experienced", Lilaya's tests, “You'll always remember this moment as the time that you lost your penile virginity!".
 
-	Importing a save exported from 1.89, the center panel appears but the side panels don't. Needless to say, the game is not playable in this state.
+	Importing a save exported from 1.89, the centre panel appears but the side panels don't. Needless to say, the game is not playable in this state.
 
 	Tried out the new thigh sex, and it told me that my partner's pre-cum lubricated their thighs. It obviously should have been my thighs (and status-effect-wise it was, it's just the narration that was wrong).
 
-	The new Paizuri dirty talk is for the be-cocked partner, but not for the boobèd one.
+	The new Paizuri dirty talk is for the be-cocked partner, but not for the boobed one.
 	Paizuri doesn't have ongoing narration (pink italic text).
 	Thigh sex doesn't have ongoing narration or dirty talk.
 	Hotdogging doesn't have ongoing narration or dirty talk.
@@ -4031,7 +4031,7 @@ Finally importing from 1.89.2 reset my slaves cleanliness permissions. Test subj
 
 	add a way to manually find removed offspring (search for offspring at city hall or something)
 
-	Ok, every slave is set to
+	OK, every slave is set to
 	house freedom
 	use you
 	3 meals
@@ -4068,7 +4068,7 @@ Finally importing from 1.89.2 reset my slaves cleanliness permissions. Test subj
 	not able to repeat this, my slaves aren't touching each other at all.
 	going to try a new save in a new install area so nothing is contaminated.
 
-	In the new instance of the game, I was able to get 2 of the 4 non breeder slaves in an area to have sex... granted the slave they were having sex with was not attracted so its basicly rape, and the other work room where everyone was attractive to each other won't touch each other.
+	In the new instance of the game, I was able to get 2 of the 4 non breeder slaves in an area to have sex... granted the slave they were having sex with was not attracted so its basically rape, and the other work room where everyone was attractive to each other won't touch each other.
 
 	Current bug After finding a fugitive (I've only found females so far):
 When enslaving them, their name will be whatever they spawned in as. IE ("the wolf girl" is her name)
@@ -4080,7 +4080,7 @@ Men's trousers can only be black or white.
 
 Gynephilic causes you to deal half willpower damage to males. That's not what the description says it does.
 
-Importing a save directly from 1.89.2 to 1.90.5 is broken. The game loads, but the sidebars don't render, just the center panel. Error log here. Importing to 1.90 then exporting again works as a workaround.
+Importing a save directly from 1.89.2 to 1.90.5 is broken. The game loads, but the sidebars don't render, just the centre panel. Error log here. Importing to 1.90 then exporting again works as a workaround.
 	[at java.lang.reflect.Method.invoke(Method.java:498)
 	at com.lilithsthrone.game.Game.importGame(Game.java:493)]
 
@@ -5698,7 +5698,7 @@ When you defeat them you will get the option to "reclaim" giving you back only i
 	Head pats
 	Headpats and scritches during oral when
 
-	adding a "TF preferences" screen to allow you to define what you're ok with being transformed into
+	adding a "TF preferences" screen to allow you to define what you're OK with being transformed into
 
 	I'll also definitely add an options menu to set NPC transformation ratios, as well as making them take your preferences into account. They should already be doing that, but there must be a bug in my method.
 
@@ -5908,7 +5908,7 @@ When it should be an indication that I'm gaining testicles, and the three messag
 	-Content types that are partially disabled (like forced TFs) should either prevent the PC from being able to take those kinks, or prevent random NPCs from spawning with them, depending on what part is actually disabled.
 	-Additionally/alternatively, enabling specific content partially unlocks that content (such as allowing the Lilaya scene and Brax's forced TF) but taking the fetish makes the content more likely (kids spawning in alleys and random NPCs TFing the player).
 
-	Equals and HashCode *should* be ok for Abstract Clothing, Item, and Weapon types, but maybe make sure.
+	Equals and HashCode *should* be OK for Abstract Clothing, Item, and Weapon types, but maybe make sure.
 
 	GATE HAIR PROPERLY FOR TFS
 
@@ -6958,7 +6958,7 @@ Also noticed the Stop partner self action option disappears.
 		Harpy nests (Alexa and the three matriarchs)
 
 		Harpy attacker
-		Ok last bug report from me for tonight, I got a random harpy girl pregnant and it said this:
+		OK last bug report from me for tonight, I got a random harpy girl pregnant and it said this:
 		"TODO: Harpy is pregnant encounter.
 		You ended up getting Ralph pregnant, and now she wants revenge!"
 

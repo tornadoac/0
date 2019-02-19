@@ -55,7 +55,7 @@ public class SupplierLeader extends NPC {
 	public SupplierLeader() {
 		this(false);
 	}
-	
+
 	public SupplierLeader(boolean isImported) {
 		super(isImported, new NameTriplet("Wolfgang", "Wolfgang", "Winifred"), "Meyer",
 				"Wolfgang is the senior of the two dobermanns who decided to drive out all the clothing suppliers from the Shopping Arcade.",
@@ -68,13 +68,13 @@ public class SupplierLeader extends NPC {
 				WorldType.SUPPLIER_DEN,
 				PlaceType.SUPPLIER_DEPOT_OFFICE,
 				true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -83,33 +83,33 @@ public class SupplierLeader extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 35);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 70);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MUGGER);
-	
+
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_CUM_STUD);
 			this.addFetish(Fetish.FETISH_VAGINAL_GIVING);
-			
+
 			this.setFetishDesire(Fetish.FETISH_SUBMISSIVE, FetishDesire.ONE_DISLIKE);
 			this.setFetishDesire(Fetish.FETISH_ORAL_GIVING, FetishDesire.ONE_DISLIKE);
 		}
-		
+
 		// Body:
 		this.setBody(Gender.M_P_MALE, Subspecies.DOG_MORPH_DOBERMANN, RaceStage.GREATER);
 
@@ -118,10 +118,10 @@ public class SupplierLeader extends NPC {
 		this.setFemininity(5);
 		this.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
 		this.setBodySize(BodySize.THREE_LARGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DOG_MORPH, Colour.EYE_BROWN));
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_CANINE_FUR, Colour.COVERING_BLACK), true);
 		this.setHairLength(0);
 		this.setHairStyle(HairStyle.NONE);
@@ -139,19 +139,19 @@ public class SupplierLeader extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		// Leave as default
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		// Leave as default
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		// Leave as default
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisSize(7);
@@ -159,14 +159,14 @@ public class SupplierLeader extends NPC {
 		this.setPenisCumStorage(65);
 		this.fillCumToMaxStorage();
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -190,7 +190,7 @@ public class SupplierLeader extends NPC {
 	public void endSex() {
 		setPendingClothingDressing(true);
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
@@ -199,7 +199,7 @@ public class SupplierLeader extends NPC {
 	@Override
 	public void changeFurryLevel() {
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
@@ -222,14 +222,14 @@ public class SupplierLeader extends NPC {
 			return new Response("", "", SupplierDepot.SUPPLIER_DEPOT_OFFICE_COMBAT_PLAYER_LOSS);
 		}
 	}
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
 	}
-	
+
 	public List<AbstractCoreItem> getLootItems() {
 		return Util.newArrayListOfValues(AbstractItemType.generateItem(ItemType.RACE_INGREDIENT_WOLF_MORPH));
 	}
-	
+
 }

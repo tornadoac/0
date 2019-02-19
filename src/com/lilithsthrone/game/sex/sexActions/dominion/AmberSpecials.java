@@ -14,7 +14,7 @@ import com.lilithsthrone.game.sex.sexActions.SexActionType;
  * @author Innoxia
  */
 public class AmberSpecials {
-	
+
 	public static final SexAction PARTNER_STOP_SEX = new SexAction(
 			SexActionType.SPECIAL,
 			ArousalIncrease.ONE_MINIMUM,
@@ -22,7 +22,7 @@ public class AmberSpecials {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.SELF) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "";
@@ -39,22 +39,22 @@ public class AmberSpecials {
 					&& Sex.isDom(Sex.getActivePartner())
 					&& !Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public SexActionPriority getPriority() {
 			return SexActionPriority.HIGH;
 		}
-		
+
 		@Override
 		public String getDescription() {
 			return "With a satisfied sigh, [npc.name] pulls back, growling,"
 					+ " [npc.speech(Good bitch! I think you've learned your lesson!)]";
 		}
-		
+
 		@Override
 		public boolean endsSex() {
 			return true;
 		}
 	};
-	
+
 }

@@ -11,12 +11,11 @@ public class EventListenerData {
 	public String ID, type;
 	public EventListener listener;
 	public boolean useCapture;
-	
+
 	public EventListenerData(String ID, String type, EventListener listener, boolean useCapture) {
 		this.ID = ID;
 		this.type = type;
 		this.listener = listener;
 		this.useCapture = useCapture;
 	}
-	
 }

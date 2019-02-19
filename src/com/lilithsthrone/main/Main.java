@@ -80,34 +80,34 @@ public class Main extends Application {
 	public final static boolean DEBUG = Boolean.valueOf(System.getProperty("debug", "false"));
 
 	public static final Image WINDOW_IMAGE = new Image("/com/lilithsthrone/res/images/windowIcon32.png");
-	
+
 	private static Properties properties;
-	
+
 	public static String patchNotes =
-		
+
 		"<p>"
 			+ "Hello again!"
 		+ "</p>"
-			
+
 		+ "<p>"
 			+ "First of all, I must apologise for how long this preview took to get released."
 			+ " Everything was going well enough up until the point where I started adding taurs, and then everything slowed to a crawl as I had to work my way though a lot of refactoring and supporting code additions."
-			+ " All of the code support for taurs (including framework for future additions of lamia, mermaids, arachnae, and cepholopods) is now complete, including sex position support."
+			+ " All of the code support for taurs (including framework for future additions of lamia, mermaids, arachnae, and cephalopods) is now complete, including sex position support."
 			+ " I have implemented this sex support to most generic sex scenes, but all of the unique ones still need going over so that I can add handling of taurs and other body types."
-			+ " I also need to go over sex actions and make sure they are correctly support body types of aprticipants (some of them make reference to things like grabbing gentials of the person behind them, which is impossible for taurs)."
+			+ " I also need to go over sex actions and make sure they are correctly support body types of participants (some of them make reference to things like grabbing genitals of the person behind them, which is impossible for taurs)."
 		+ "</p>"
-			
+
 		+ "<p>"
 			+ "I'll get as much stuff finished and polished for the full release of 0.3.1 as I possibly can, which will be out in a much speedier time than this preview."
 			+ " There are also several outstanding bugs that need to be fixed, but they shouldn't be too critical, so please bear with them until the full release! ^^"
 		+ "</p>"
 		+ "<br/>"
-			
+
 		+ "<p>"
 			+ "Thank you all for playing Lilith's Throne! And a very big thank you to all the people supporting me on Patreon!"
 			+ " If you wanted to ask me any specific questions about the game, you can either find me on my blog, or on the Lilith's Throne Discord. You can find a link to the discord on my blog. ^^"
 		+ "</p>"
-			
+
 		+ "<br/>"
 
 		+ "<list>"
@@ -183,7 +183,7 @@ public class Main extends Application {
 			+"<ul>Adjusted some of the more ridiculously-sized penises to slightly more believable, although still extremely large, values. (Such as Amber going from 18 inches to 10.)</ul>"
 			+"<ul>Slightly tidied up and compacted the Furry Preferences screen.</ul>"
 			+"<ul>Set multi-breast values for animal-morphs to more closely resemble their real-life thorax-counterparts. (Remember that you can turn this off in the 'Options -> Furry Settings' menu.)</ul>"
-			+"<ul>Slightly altered some average breast sizes (rabbit-morph from E to C, bat-moprh from C to B).</ul>"
+			+"<ul>Slightly altered some average breast sizes (rabbit-morph from E to C, bat-morph from C to B).</ul>"
 			+"<ul>Improved lactation transformation menu options.</ul>"
 			+"<ul>Changed access requirement for Rose's hand holding scene. You now need to talk to her in the order 3, 1, 4, 2 in order for the hand-holding scene action to appear.</ul>"
 			+"<ul>Humans and harpies can now spawn as slaves in the stocks in Slaver Alley.</ul>"
@@ -192,7 +192,7 @@ public class Main extends Application {
 			+"<ul>Added foot structure transformation options to the 'racial food' items' enchantment menu. Select 'legs' as the primary enchantment, and then, depending on the item, you'll be able to select one or more from the three foot structure types as the secondary modifier. </ul>"
 			+"<ul>Compacted formatting of additional information during sex. (Meaning things which were coloured, such as lubrications and penetrations.)</ul>"
 			+"<ul>Youko tails are now treated as being prehensile.</ul>"
-			+"<ul>Updated the exposes status effects, changing the icon, description, and effects. Added an alternative (neutral) effect for if the exposed cahracter's lower body is not bipedal.</ul>"
+			+"<ul>Updated the exposes status effects, changing the icon, description, and effects. Added an alternative (neutral) effect for if the exposed character's lower body is not bipedal.</ul>"
 			+"<ul>Added 'horns per row' self-transform option to the demon & slime self-transformation menus.</ul>"
 			+"<ul>Increased base value of demon and half-demon slaves to 120,000 and 50,000, respectively.</ul>"
 			+"<ul>Clothing transformation status effect updates now tell you which item of your clothing has caused the transformation.</ul>"
@@ -236,7 +236,7 @@ public class Main extends Application {
 			+"<ul>The sadist fetish now correctly applies lust damage to the attacker, not the target.</ul>"
 		+ "</list>"
 	;
-	
+
 	public static String disclaimer = "<h6 style='text-align: center; color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>You must read and agree to the following in order to play this game!</h6>"
 
 			+ "<p>This game is a <b>fictional</b> text-based erotic RPG. All content contained within this game forms part of a fictional universe that is not related to real-life places, people or events.<br/><br/>"
@@ -256,7 +256,7 @@ public class Main extends Application {
 
 			+ "As a final note, the creators of this game wish to stress that the content presented within is entirely fictional and does not reflect any of their personal views or opinions."
 			+ " This game has been made in the spirit of creating a piece of artistic interactive literature, and it is imperative that you maintain a clear distinction between reality and the fictional events depicted in this game.</p>";
-	
+
 	public static List<CreditsSlot> credits = new ArrayList<>();
 
 	// World generation:
@@ -266,7 +266,7 @@ public class Main extends Application {
 
 		CheckForDataDirectory();
 		CheckForResFolder();
-		
+
 		credits.add(new CreditsSlot("Anonymous", "", 99, 99, 99, 99));
 
 		credits.add(new CreditsSlot("Adhana Konker", "", 0, 0, 3, 0));
@@ -497,11 +497,11 @@ public class Main extends Application {
 		credits.add(new CreditsSlot("Nelson Adams", "", 0, 0, 12, 0));
 		credits.add(new CreditsSlot("Zakarin", "", 0, 0, 0, 11));
 		credits.add(new CreditsSlot("Zero_One", "", 0, 0, 1, 0));
-		
+
 		credits.sort(Comparator.comparing((CreditsSlot a) -> a.getName().toLowerCase()));
-		
+
 		Main.primaryStage = primaryStage;
-		
+
 		Main.primaryStage.focusedProperty().addListener(new ChangeListener<Boolean>() {
 			@Override
 			public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
@@ -518,7 +518,7 @@ public class Main extends Application {
 		Main.primaryStage.setTitle("Lilith's Throne " + VERSION_NUMBER + " " + VERSION_DESCRIPTION+(DEBUG?" (Debug Mode)":""));
 
 		loadFonts();
-		
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/lilithsthrone/res/fxml/main.fxml"));
 
 		Pane pane = loader.load();
@@ -536,7 +536,7 @@ public class Main extends Application {
 		Main.primaryStage.show();
 		Main.game = new Game();
 		Main.sexEngine = new Sex();
-		
+
 		loader = new FXMLLoader(getClass().getResource("/com/lilithsthrone/res/fxml/main.fxml"));
 		try {
 			if (Main.mainScene == null) {
@@ -555,11 +555,11 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		Main.game.setContent(new Response("", "", OptionsDialogue.MENU));
-		
+
 	}
-	
+
 	protected static void CheckForDataDirectory() {
 		File dir = new File("data/");
 		if(!dir.exists()) {
@@ -572,7 +572,7 @@ public class Main extends Application {
 			 });
 		}
 	}
-	
+
 	protected static void CheckForResFolder() {
 		File dir = new File("res/");
 		if(!dir.exists()) {
@@ -625,7 +625,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		
+
 		// Create folders:
 		File dir = new File("data/");
 		dir.mkdir();
@@ -633,7 +633,7 @@ public class Main extends Application {
 		dir.mkdir();
 		dir = new File("data/characters");
 		dir.mkdir();
-		
+
 		// Open error log
 		if(!DEBUG) {
 			try {
@@ -643,7 +643,7 @@ public class Main extends Application {
 				System.err.println("Version: "+VERSION_NUMBER);
 				System.err.println("Java: "+System.getProperty("java.version"));
 //				System.err.println("OS: "+System.getProperty("os.name"));
-				
+
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -660,17 +660,17 @@ public class Main extends Application {
 			properties = new Properties();
 			properties.savePropertiesAsXML();
 		}
-		
+
 		launch(args);
 	}
-	
+
 	/**
 	 * Starts a completely new game. Runs a new World Generation.
 	 */
 	public static void startNewGame(DialogueNode startingDialogueNode) {
-		
+
 		Main.game = new Game();
-		
+
 		// Generate world:
 		if (!(gen == null))
 			if (gen.isRunning()) {
@@ -682,7 +682,7 @@ public class Main extends Application {
 		gen.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
 			@Override
 			public void handle(WorkerStateEvent t) {
-				
+
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/lilithsthrone/res/fxml/main.fxml"));
 				Pane pane;
 				try {
@@ -702,7 +702,7 @@ public class Main extends Application {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				
+
 				Main.game.setPlayer(new PlayerCharacter(new NameTriplet("Player"), 1, null, Gender.M_P_MALE, Subspecies.HUMAN, RaceStage.HUMAN, WorldType.MUSEUM, PlaceType.MUSEUM_ENTRANCE));
 
 				Main.game.initNewGame(startingDialogueNode);
@@ -713,40 +713,40 @@ public class Main extends Application {
 		});
 		new Thread(gen).start();
 	}
-	
+
 	public static boolean isVersionOlderThan(String versionToCheck, String versionToCheckAgainst) {
 		String[] v1 = versionToCheck.split("\\.");
 		String[] v2 = versionToCheckAgainst.split("\\.");
-		
+
 		try {
 			int maxlength = (v1.length > v2.length) ? v1.length : v2.length;
 			for (int i = 0; i < maxlength; i++) {
 				int v1i;
 				int v2i;
-				
+
 				if(v1[1].charAt(0)=='1') { // Versions prior to 0.2.x used an old system of the format: 0.1.10.1 being a lower version than 0.1.9.1:
 					v1i = (i < v1.length) ? Integer.valueOf((v1[i]+"00").substring(0, 3)) : 0;
 					v2i = (i < v2.length) ? Integer.valueOf((v2[i]+"00").substring(0, 3)) : 0;
-					
+
 				} else { // Versions of 0.2.x and higher use a new system of the format: 0.2.10.1 being a higher version than 0.2.9.1:
 					v1i = (i < v1.length) ? Integer.valueOf(v1[i]) : 0;
 					v2i = (i < v2.length) ? Integer.valueOf(v2[i]) : 0;
 				}
-				
+
 				if (v1i < v2i) {
 					return true;
 				} else if (v1i > v2i) {
 					return false;
-				} 
+				}
 			}
-			
+
 		} catch(Exception ex) {
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public static int getFontSize() {
 		return properties.fontSize;
 	}
@@ -755,20 +755,20 @@ public class Main extends Application {
 		properties.fontSize = size;
 		properties.savePropertiesAsXML();
 	}
-	
+
 	public static void quickSaveGame() {
 		if (Main.game.isInCombat()) {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot quicksave while in combat!");
-			
+
 		} else if (Main.game.isInSex()) {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot quicksave while in sex!");
-			
+
 		} else if (Main.game.getCurrentDialogueNode().getDialogueNodeType()!=DialogueNodeType.NORMAL) {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Can only quicksave in a normal scene!");
-			
+
 		} else if (!Main.game.isStarted() || !Main.game.getCurrentDialogueNode().equals(Main.game.getDefaultDialogueNoEncounter())) {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot save in this scene!");
-			
+
 		} else {
 			Main.getProperties().lastQuickSaveName = "QuickSave_"+Main.game.getPlayer().getName();
 			saveGame("QuickSave_"+Main.game.getPlayer().getName(), true);
@@ -777,7 +777,7 @@ public class Main extends Application {
 
 	public static void quickLoadGame() {
 		String name = "QuickSave_"+Main.game.getPlayer().getName();
-		
+
 //		if(new File("data/saves/"+name+".lts").exists()) {
 			loadGame(name);
 //		} else {
@@ -788,7 +788,7 @@ public class Main extends Application {
 	public static boolean isSaveGameAvailable() {
 		return Main.game.isStarted() && Main.game.getSavedDialogueNode() == Main.game.getDefaultDialogueNoEncounter();
 	}
-	
+
 	public static void saveGame(String name, boolean allowOverwrite) {
 		if (name.length()==0) {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Name too short!");
@@ -802,7 +802,7 @@ public class Main extends Application {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Incompatible characters!");
 			return;
 		}
-		
+
 		Game.exportGame(name, allowOverwrite);
 
 		try {
@@ -827,13 +827,13 @@ public class Main extends Application {
 
 		return file.exists();
 	}
-	
+
 	public static void loadGame(String name) {
 		if (isLoadGameAvailable(name)) {
 			Game.importGame(name);
 		}
 	}
-	
+
 	public static void deleteGame(String name) {
 		File file = new File("data/saves/"+name+".xml");
 
@@ -844,12 +844,12 @@ public class Main extends Application {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-			
+
 		} else {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "File not found...");
 		}
 	}
-	
+
 	public static void deleteExportedGame(String name) {
 		File file = new File("data/saves/"+name+".xml");
 
@@ -860,12 +860,12 @@ public class Main extends Application {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-			
+
 		} else {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "File not found...");
 		}
 	}
-	
+
 	public static void deleteExportedCharacter(String name) {
 		File file = new File("data/characters/"+name+".xml");
 
@@ -876,15 +876,15 @@ public class Main extends Application {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-			
+
 		} else {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "File not found...");
 		}
 	}
-	
+
 	public static List<File> getSavedGames() {
 		List<File> filesList = new ArrayList<>();
-		
+
 		File dir = new File("data/saves");
 		if (dir.isDirectory()) {
 			File[] directoryListing = dir.listFiles((path, name) -> name.endsWith(".xml"));
@@ -894,13 +894,13 @@ public class Main extends Application {
 		}
 
 		filesList.sort(Comparator.comparingLong(File::lastModified).reversed());
-		
+
 		return filesList;
 	}
-	
+
 	public static List<File> getCharactersForImport() {
 		List<File> filesList = new ArrayList<>();
-		
+
 		File dir = new File("data/characters");
 		if (dir.isDirectory()) {
 			File[] directoryListing = dir.listFiles((path, name) -> name.endsWith(".xml"));
@@ -910,13 +910,13 @@ public class Main extends Application {
 		}
 
 		filesList.sort(Comparator.comparingLong(File::lastModified).reversed());
-		
+
 		return filesList;
 	}
-	
+
 	public static List<File> getSlavesForImport() {
 		List<File> filesList = new ArrayList<>();
-		
+
 		File dir = new File("data/characters");
 		if (dir.isDirectory()) {
 			File[] directoryListing = dir.listFiles((path, name) -> name.endsWith(".xml"));
@@ -924,15 +924,15 @@ public class Main extends Application {
 				filesList.addAll(Arrays.asList(directoryListing));
 			}
 		}
-		
+
 		filesList.sort(Comparator.comparingLong(File::lastModified).reversed());
-		
+
 		return filesList;
 	}
-	
+
 	public static List<File> getGamesForImport() {
 		List<File> filesList = new ArrayList<>();
-		
+
 		File dir = new File("data/saves");
 		if (dir.isDirectory()) {
 			File[] directoryListing = dir.listFiles((path, name) -> name.endsWith(".xml"));
@@ -942,10 +942,10 @@ public class Main extends Application {
 		}
 
 		filesList.sort(Comparator.comparingLong(File::lastModified).reversed());
-		
+
 		return filesList;
 	}
-	
+
 	public static void importCharacter(File file) {
 		if (file != null) {
 			try {
@@ -955,10 +955,10 @@ public class Main extends Application {
 						CharacterImportSetting.NO_COMPANIONS,
 						CharacterImportSetting.NO_ELEMENTAL,
 						CharacterImportSetting.CLEAR_SLAVERY));
-				
+
 				Main.game.getPlayer().getSlavesOwned().clear();
 				Main.game.getPlayer().endPregnancy(false);
-				
+
 				Main.game.setRenderAttributesSection(true);
 				Main.game.clearTextStartStringBuilder();
 				Main.game.clearTextEndStringBuilder();
@@ -968,7 +968,7 @@ public class Main extends Application {
 				Main.game.getPlayer().calculateStatusEffects(0);
 
 				Main.game.initNewGame(CharacterCreation.START_GAME_WITH_IMPORT);
-				
+
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

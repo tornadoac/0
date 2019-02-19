@@ -26,9 +26,9 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * Contains all positional changes for both sub and dom.
- * 
+ *
  * If sub, positional change is just a suggestion, which the NPC may refuse if they have other preferences.
- * 
+ *
  * @since 0.1.79
  * @version 0.3.1
  * @author Innoxia
@@ -42,7 +42,7 @@ public class ToiletStall {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isCharacterBannedFromPositioning(Sex.getCharacterPerformingAction())
@@ -50,7 +50,7 @@ public class ToiletStall {
 					&& Sex.getSexControl(Sex.getCharacterPerformingAction())==SexControl.FULL
 					&& Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Swap with [npc2.name]";
@@ -72,7 +72,7 @@ public class ToiletStall {
 			Sex.swapSexPositionSlots(Main.game.getPlayer(), Sex.getActivePartner());
 		}
 	};
-	
+
 	private static boolean checkBaseRequirements(PositioningData data, boolean request) {
 		return !Sex.isCharacterBannedFromPositioning(Sex.getCharacterPerformingAction())
 				&& !(Sex.getPosition() == data.getPosition() && Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==data.getPerformerSlots().get(0))
@@ -95,14 +95,14 @@ public class ToiletStall {
 		Map<GameCharacter, SexSlot> submissives = new HashMap<>();
 		List<GameCharacter> doms = new ArrayList<>(Sex.getDominantParticipants().keySet());
 		List<GameCharacter> subs = new ArrayList<>(Sex.getSubmissiveParticipants().keySet());
-		
+
 		GameCharacter performer = Sex.getCharacterPerformingAction();
 		GameCharacter target = Sex.getTargetedPartner(performer);
 		if(requestAccepted) {
 			target = Sex.getCharacterPerformingAction();
 			performer = Sex.getTargetedPartner(target);
 		}
-		
+
 		if(Sex.isDom(performer)) {
 			doms.remove(performer);
 			dominants.put(performer, data.getPerformerSlots().get(0));
@@ -133,7 +133,7 @@ public class ToiletStall {
 		});
 		Sex.setPositionRequest(null);
 	}
-	
+
 	public static final SexAction PLAYER_POSITION_FACE_TO_WALL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -146,7 +146,7 @@ public class ToiletStall {
 				SexPositionBipeds.FACING_WALL_STALL,
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET),
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_AGAINST_WALL));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -170,7 +170,7 @@ public class ToiletStall {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_POSITION_FACE_TO_WALL_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -183,7 +183,7 @@ public class ToiletStall {
 				SexPositionBipeds.FACING_WALL_STALL,
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_AGAINST_WALL),
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -206,7 +206,7 @@ public class ToiletStall {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_POSITION_BACK_TO_WALL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -219,7 +219,7 @@ public class ToiletStall {
 				SexPositionBipeds.BACK_TO_WALL_STALL,
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET),
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_AGAINST_WALL));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -243,7 +243,7 @@ public class ToiletStall {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_POSITION_BACK_TO_WALL_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -256,7 +256,7 @@ public class ToiletStall {
 				SexPositionBipeds.BACK_TO_WALL_STALL,
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_AGAINST_WALL),
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -279,7 +279,7 @@ public class ToiletStall {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_POSITION_KNEELING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -316,7 +316,7 @@ public class ToiletStall {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_POSITION_KNEELING_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -351,7 +351,7 @@ public class ToiletStall {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_FORCE_POSITION_SELF_KNEELING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -364,7 +364,7 @@ public class ToiletStall {
 				SexPositionBipeds.KNEELING_ORAL_STALL,
 				Util.newArrayListOfValues(SexSlotBipeds.KNEELING_PERFORMING_ORAL),
 				Util.newArrayListOfValues(SexSlotBipeds.KNEELING_RECEIVING_ORAL));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -423,7 +423,7 @@ public class ToiletStall {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction PARTNER_POSITION_RESPONSE = new SexAction(
 			SexActionType.SPECIAL,
 			ArousalIncrease.ONE_MINIMUM,
@@ -437,12 +437,12 @@ public class ToiletStall {
 			return Sex.getPositionRequest()!=null
 					&& !Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public SexActionPriority getPriority() {
 			return SexActionPriority.UNIQUE_MAX;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "";
@@ -457,7 +457,7 @@ public class ToiletStall {
 		public String getDescription() {
 
 			Set<SexSlot> positionPreferences = Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this));
-			
+
 			if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.FACE_TO_WALL_FACING_TARGET) {
 				if(positionPreferences.contains(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -472,7 +472,7 @@ public class ToiletStall {
 					return "Grabbing you by the shoulders, [npc.name] pulls you away from the wall, pushing you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.BACK_TO_WALL_FACING_TARGET) {
 				if(positionPreferences.contains(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -485,12 +485,12 @@ public class ToiletStall {
 									+ " Moving up to press [npc.her] body against yours, [npc.she] leans in over your shoulder and [npc.moans] into your ear, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Grabbing you by the shoulders, [npc.name] pulls you away from the wall, pushing you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.KNEELING_RECEIVING_ORAL) {
 				if(positionPreferences.contains(SexSlotBipeds.KNEELING_RECEIVING_ORAL) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -503,12 +503,12 @@ public class ToiletStall {
 									+ " With [npc.a_moan+], [npc.she] takes hold of your head with one [npc.hand], pulling you forwards into [npc.her] crotch as [npc.she] [npc.moansVerb] down at you, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.KNEELING_PERFORMING_ORAL) {
 				if(positionPreferences.contains(SexSlotBipeds.KNEELING_PERFORMING_ORAL) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -521,30 +521,29 @@ public class ToiletStall {
 									+ " Looking down, you see [npc.herHim] grinning up at you,"
 									+ " [npc.speech(This is your lucky day! I love giving oral! You'd better appreciate this!)]";
 					}
-					
+
 				} else {
 					return "Reaching up and throwing your [pc.arms] off of [npc.her], [npc.name] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Do you really expect me to go down on you?! Don't you <i>dare</i> try that again!)]";
 				}
-				
-			} 
-			
+
+			}
+
 			return "";
 		}
 
 		@Override
 		public void applyEffects() {
 			Set<SexSlot> positionPreferences = Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this));
-			
+
 			if((Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.FACE_TO_WALL_FACING_TARGET && (positionPreferences.contains(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()))
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.BACK_TO_WALL_FACING_TARGET && (positionPreferences.contains(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()))
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.KNEELING_RECEIVING_ORAL && (positionPreferences.contains(SexSlotBipeds.KNEELING_RECEIVING_ORAL) || positionPreferences.isEmpty()))
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.KNEELING_PERFORMING_ORAL && (positionPreferences.contains(SexSlotBipeds.KNEELING_PERFORMING_ORAL) || positionPreferences.isEmpty()))) {
 				setNewSexManager(Sex.getPositionRequest(), true);
 			}
-			
+
 			Sex.setPositionRequest(null);
 		}
 	};
-	
 }

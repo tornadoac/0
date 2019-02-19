@@ -336,8 +336,8 @@
 				#THEN
 					<p>
 						#IF !npc.hasFetish(FETISH_IMPREGNATION)
-						#THEN Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I-I got you both pregnant?! I really should have pulled out... I don't have any money to support either of you or anything, but you'll be ok, right?)]
-						#ELSE Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps in delight as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I got you both pregnant?! Fuck, that turns me on so much... I knew I'd get the two of you knocked up when I cummed in your hot little pussies!)]
+						#THEN Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I-I got you both pregnant?! I really should have pulled out... I don't have any money to support either of you or anything, but you'll be OK, right?)]
+						#ELSE Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps in delight as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I got you both pregnant?! Fuck, that turns me on so much... I knew I'd get the two of you knocked up when I came in your hot little pussies!)]
 						#ENDIF
 					</p>
 					<p>
@@ -346,8 +346,8 @@
 				#ELSE
 					<p>
 						#IF !npc.hasFetish(FETISH_IMPREGNATION)
-						#THEN Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I-I got you pregnant, [pc.name]?! And you're going to be a mother as well, [npc2.name]?! Oh, [pc.name], I really should have pulled out... I don't have any money to support you or anything, but you'll be ok, right?)]
-						#ELSE Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps in delight as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I got you pregnant, [pc.name]?! Fuck, that turns me on so much... And you're going to be a mother as well, [npc2.name]?! I knew I'd get you knocked up, [pc.name], right from the moment when I cummed in your hot little pussy!)]
+						#THEN Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I-I got you pregnant, [pc.name]?! And you're going to be a mother as well, [npc2.name]?! Oh, [pc.name], I really should have pulled out... I don't have any money to support you or anything, but you'll be OK, right?)]
+						#ELSE Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps in delight as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I got you pregnant, [pc.name]?! Fuck, that turns me on so much... And you're going to be a mother as well, [npc2.name]?! I knew I'd get you knocked up, [pc.name], right from the moment when I came in your hot little pussy!)]
 						#ENDIF
 					</p>
 					<p>
@@ -359,8 +359,8 @@
 				#THEN
 					<p>
 						#IF !npc.hasFetish(FETISH_IMPREGNATION)
-						#THEN Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I-I got you pregnant, [npc2.name]?! And you're going to be a mother as well, [pc.name]?! Oh, [npc2.name], I really should have pulled out... I don't have any money to support you or anything, but you'll be ok, right?)]
-						#ELSE Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps in delight as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I got you pregnant, [npc2.name]?! Fuck, that turns me on so much... And you're going to be a mother as well, [pc.name]?! I knew I'd get you knocked up, [npc2.name], right from the moment when I cummed in your hot little pussy!)]
+						#THEN Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I-I got you pregnant, [npc2.name]?! And you're going to be a mother as well, [pc.name]?! Oh, [npc2.name], I really should have pulled out... I don't have any money to support you or anything, but you'll be OK, right?)]
+						#ELSE Smiling fondly at you and [npc2.name] as you approach, [npc.name] suddenly notices that you're both sporting swollen bellies, and [npc.she] gasps in delight as [npc.she] looks back and forth between each of your pregnant bumps. [npc.speech(I got you pregnant, [npc2.name]?! Fuck, that turns me on so much... And you're going to be a mother as well, [pc.name]?! I knew I'd get you knocked up, [npc2.name], right from the moment when I came in your hot little pussy!)]
 						#ENDIF
 					</p>
 					<p>
@@ -377,8 +377,8 @@
 			#THEN
 				<p>
 					#IF !npc.hasFetish(FETISH_IMPREGNATION)
-					#THEN Smiling fondly at you as you approach, [npc.name] suddenly notices that you're sporting a swollen belly, and [npc.she] gasps as [npc.she] looks down at your pregnant bump. [npc.speech(I-I got you pregnant?! I really should have pulled out... I don't have any money to support you or anything, but you'll be ok, right?)]
-					#ELSE Smiling fondly at you as you approach, [npc.name] suddenly notices that you're sporting a swollen belly, and [npc.she] gasps in delight as [npc.she] looks down at your pregnant bump. [npc.speech(I got you pregnant?! Fuck, that turns me on so much... I knew I'd get you knocked up when I cummed in your hot little pussy!)]
+					#THEN Smiling fondly at you as you approach, [npc.name] suddenly notices that you're sporting a swollen belly, and [npc.she] gasps as [npc.she] looks down at your pregnant bump. [npc.speech(I-I got you pregnant?! I really should have pulled out... I don't have any money to support you or anything, but you'll be OK, right?)]
+					#ELSE Smiling fondly at you as you approach, [npc.name] suddenly notices that you're sporting a swollen belly, and [npc.she] gasps in delight as [npc.she] looks down at your pregnant bump. [npc.speech(I got you pregnant?! Fuck, that turns me on so much... I knew I'd get you knocked up when I came in your hot little pussy!)]
 					#ENDIF
 				</p>
 				<p>
@@ -395,8 +395,8 @@
 		#THEN
 			<p>
 				#IF !npc.hasFetish(FETISH_IMPREGNATION)
-				#THEN Smiling fondly at you as you approach, [npc.name] suddenly notices that [npc2.namePos] sporting a swollen belly, and [npc.she] gasps as [npc.she] looks down at [npc2.her] pregnant bump. [npc.speech(I-I got you pregnant?! I really should have pulled out... I don't have any money to support you or anything, but you'll be ok, right?)]
-				#ELSE Smiling fondly at you as you approach, [npc.name] suddenly notices that [npc2.namePos] sporting a swollen belly, and [npc.she] gasps in delight as [npc.she] looks down at [npc2.her] pregnant bump. [npc.speech(I got you pregnant?! Fuck, that turns me on so much... I knew I'd get you knocked up when I cummed in your hot little pussy!)]
+				#THEN Smiling fondly at you as you approach, [npc.name] suddenly notices that [npc2.namePos] sporting a swollen belly, and [npc.she] gasps as [npc.she] looks down at [npc2.her] pregnant bump. [npc.speech(I-I got you pregnant?! I really should have pulled out... I don't have any money to support you or anything, but you'll be OK, right?)]
+				#ELSE Smiling fondly at you as you approach, [npc.name] suddenly notices that [npc2.namePos] sporting a swollen belly, and [npc.she] gasps in delight as [npc.she] looks down at [npc2.her] pregnant bump. [npc.speech(I got you pregnant?! Fuck, that turns me on so much... I knew I'd get you knocked up when I came in your hot little pussy!)]
 				#ENDIF
 			</p>
 			<p>
@@ -543,7 +543,7 @@
 			Deciding to spend some time getting to know [npc.name] a little better, you ask, [pc.speech(How are you doing these days, [npc.name]? Do you have somewhere safe to sleep, and do you get enough to eat?)]
 		</p>
 		<p>
-			[npc.Name] casts [npc.her] [npc.eyes] to the floor, shuffling [npc.her] [npc.feet] a little as [npc.she] replies, [npc.speech(Nobody ever asks me stuff like that... I guess I'm ok, I usually get enough money to buy food and stuff. I don't really have any fixed place to sleep, but the tunnels nearest to the street are usually safe enough...)]
+			[npc.Name] casts [npc.her] [npc.eyes] to the floor, shuffling [npc.her] [npc.feet] a little as [npc.she] replies, [npc.speech(Nobody ever asks me stuff like that... I guess I'm OK, I usually get enough money to buy food and stuff. I don't really have any fixed place to sleep, but the tunnels nearest to the street are usually safe enough...)]
 		</p>
 		<p>
 			[pc.speech(Do you have any friends or family that can help you?)] you ask, [npc.namePos] previous answer making you more concerned than ever for [npc.her] well-being.
@@ -567,7 +567,7 @@
 				[npc.speech(Well, they could always be going better,)] [npc.name] replies, half-heartedly laughing as [npc.she] does [npc.her] best to make light of [npc.her] dire situation. [npc.speech(I mean, I'm fine, I get enough to eat and stuff, but it's really hard to keep going sometimes, you know?)]
 			</p>
 			<p>
-				[pc.speech(I'm so sorry to hear that,)] you reply, wondering what you can do to help your friend. [pc.speech(You'll be ok, won't you?)]
+				[pc.speech(I'm so sorry to hear that,)] you reply, wondering what you can do to help your friend. [pc.speech(You'll be OK, won't you?)]
 			</p>
 			<p>
 				[npc.speech(Yeah, yeah, don't worry about me!)] [npc.name] says, putting on a brave face. [npc.speech(Things have been a lot better recently. After all, I've got you to talk to these days! It's been a while since I had a real friend...)]
@@ -588,13 +588,13 @@
 					[npc.speech(Yeah, I'm eating well enough, thanks for asking,)] [npc.she] replies, smiling happily at you. [npc.speech(Things really do seem to be getting better for me recently. I mean, I'm still living rough out here in the tunnels, but now at least I've got a friend...)]
 				</p>
 				<p>
-					You can't help but smile as you hear [npc.name] saying that, and reply, [pc.speech(I'm glad to hear that you're doing ok for yourself. I'm happy to call you my friend as well. Just make sure to take care of yourself, ok? I'm always concerned about you, and wondering how you're getting on.)]
+					You can't help but smile as you hear [npc.name] saying that, and reply, [pc.speech(I'm glad to hear that you're doing OK for yourself. I'm happy to call you my friend as well. Just make sure to take care of yourself, OK? I'm always concerned about you, and wondering how you're getting on.)]
 				</p>
 				<p>
 					[npc.speech(Aww, [pc.name]!)] [npc.name] laughs, playfully pushing you on the shoulder as [npc.she] tries to hide [npc.her] emotions. [npc.speech(You don't need to worry about me, I'm fine! I-I've even saved up a couple hundred flames, and was just about to go buy myself some food.)]
 				</p>
 				<p>
-					Before you can offer to go with [npc.herHim], [npc.name] continues, [npc.speech(A-Anyway, you've got things to do, and I'm pretty hungry already, so I'll catch you later, ok? It was really great talking with you again!)]
+					Before you can offer to go with [npc.herHim], [npc.name] continues, [npc.speech(A-Anyway, you've got things to do, and I'm pretty hungry already, so I'll catch you later, OK? It was really great talking with you again!)]
 				</p>
 				<p>
 					[npc.Name] suddenly steps forwards and gives you a hug. Responding to [npc.her] gesture in kind, you throw your [pc.arms] around [npc.herHim] and hold [npc.herHim] close for a moment, before the two of you finally step back from one another.
@@ -612,7 +612,7 @@
 						[npc.NamePos] [npc.eyes] immediately light up as [npc.she] hears that you're asking about [npc.her] well-being. Eager to spend some time talking with you, [npc.she] happily replies, [npc.speech(Oh, I've been fine, thank you, [pc.name]! I've always got enough to eat these days, and I'm feeling so much happier now that I've finally got a really close friend. M-Meeting you was the best thing that's ever happened to me..)]
 					</p>
 					<p>
-						[pc.speech(I'm so happy to hear that,)] you reply, stepping forwards and throwing your [pc.arms] around [npc.name]. [pc.speech(I'm so happy that I met you, too. You just keep on making sure to take proper care of yourself, ok?)]
+						[pc.speech(I'm so happy to hear that,)] you reply, stepping forwards and throwing your [pc.arms] around [npc.name]. [pc.speech(I'm so happy that I met you, too. You just keep on making sure to take proper care of yourself, OK?)]
 					</p>
 					<p>
 						[npc.speech(Y-Yes, [pc.name].)] [npc.she] replies, holding you close as the two of you share a loving hug. After a moment, however, [npc.name] pulls back, and, smiling happily at you, [npc.she] says, [npc.speech(I'm honestly doing so much better than when you first met me. A-And I know I never really said it, but I'm so sorry for attacking you...)]
@@ -660,7 +660,7 @@
 		[npc.speech(R-Really? That's for me?)] [npc.name] asks, stepping forwards and cautiously taking the flames from you. [npc.speech(I-I don't know what to say. Thank you so, so much, [pc.name]! You have no idea how much this will help!)]
 	</p>
 	<p>
-		[pc.speech(You're very welcome,)] you reply. [pc.speech(Just promise to care of yourself, ok?)]
+		[pc.speech(You're very welcome,)] you reply. [pc.speech(Just promise to care of yourself, OK?)]
 	</p>
 	<p>
 		[npc.speech(I will! Thank you! In fact, I'm going to go buy myself some food right now. Thank you so much!)]
@@ -728,7 +728,7 @@
 		[pc.speech(That's right. Look, I need to be on my way now, and I'm sure you'd like to take a moment to think all of this over, but I'll come and find you here some other time, alright?)]
 	</p>
 	<p>
-		[npc.speech(O-Ok... That would be good... I-I'll see you another time... [pc.name]...)] [npc.name] stammers. You see [npc.herHim] starting to blush as [npc.she] says your name, but before you can say anything else, [npc.she] turns around and sprints off, leaving you alone once again.
+		[npc.speech(O-OK... That would be good... I-I'll see you another time... [pc.name]...)] [npc.name] stammers. You see [npc.herHim] starting to blush as [npc.she] says your name, but before you can say anything else, [npc.she] turns around and sprints off, leaving you alone once again.
 	</p>
 	<p>
 		Smiling to yourself as you think that you might have just made a new friend, you set off and continue on your way...
@@ -804,10 +804,10 @@
 		[npc.NamePos] slowly steps forwards, looking all around in awe as [npc.she] mutters, [npc.speech(I-Is this really happening? I... I get to live <i>here</i>?)]
 	</p>
 	<p>
-		[pc.speech(Yes, this is your room now. Is everything ok?)]
+		[pc.speech(Yes, this is your room now. Is everything OK?)]
 	</p>
 	<p>
-		[npc.speech(It's more than ok... I don't know what to say... This is the best thing that's ever happened to me!)] [npc.name] replies, trying to hold back tears of joy. before you can reply, [npc.she] suddenly rushes forwards and throws [npc.her] [npc.arms] around you. [npc.speech(Thank you so, so much! You've changed my life!)]
+		[npc.speech(It's more than OK... I don't know what to say... This is the best thing that's ever happened to me!)] [npc.name] replies, trying to hold back tears of joy. before you can reply, [npc.she] suddenly rushes forwards and throws [npc.her] [npc.arms] around you. [npc.speech(Thank you so, so much! You've changed my life!)]
 	</p>
 	<p>
 		You happily return [npc.namePos] hug for a moment, before [npc.she] pulls back and wipes the tears from [npc.her] [npc.eyes]. [npc.speech(I'll keep on looking for a job, and once I've got one, I'll start paying rent. I'll repay you for all of this, I promise!)]

@@ -780,7 +780,7 @@ public class Lab {
 						+ "</p>"
 						+ "<p>"
 							+ (Main.game.getPlayer().hasPenis() && !Main.game.getNpc(Lilaya.class).isVisiblyPregnant() && Main.game.getNpc(Lilaya.class).getFetishDesire(Fetish.FETISH_PREGNANCY).isNegative()
-									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, ok? I'm <b>not</b> getting pregnant!)] she demands."
+									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, OK? I'm <b>not</b> getting pregnant!)] she demands."
 									:" [lilaya.speech(Mmm, yes!)] she giggles.")
 						+ "</p>"
 						+ "<p>"
@@ -809,7 +809,7 @@ public class Lab {
 						+ "</p>"
 						+ "<p>"
 							+ (Main.game.getPlayer().hasPenis() && !Main.game.getNpc(Lilaya.class).isVisiblyPregnant() && Main.game.getNpc(Lilaya.class).getFetishDesire(Fetish.FETISH_PREGNANCY).isNegative()
-									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, ok? I'm <b>not</b> getting pregnant!)] she demands."
+									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, OK? I'm <b>not</b> getting pregnant!)] she demands."
 									:" [lilaya.speech(Mmm, yes!)] she giggles.")
 						+ "</p>"
 						+ "<p>"
@@ -1281,7 +1281,7 @@ public class Lab {
 			UtilText.nodeContentSB.setLength(0);
 			
 			UtilText.nodeContentSB.append("<p>"
-					+ "[lilaya.speech(Ok, so, first thing to know is that these essences are no longer part of the person that they originally came from."
+					+ "[lilaya.speech(OK, so, first thing to know is that these essences are no longer part of the person that they originally came from."
 							+ " It's not as though you're trapping a part of their soul into enchanted items or anything like that!)]"
 					+ " Lilaya starts explaining."
 					+ " [lilaya.speech(So don't have any qualms about using these essences to enchant or unjinx anything!)]"
@@ -1379,7 +1379,7 @@ public class Lab {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.essenceExtractionKnown)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "Turning towards Lilaya, you get her attention before asking, [pc.speech(Is it ok if I extract some more essences?)]"
+							+ "Turning towards Lilaya, you get her attention before asking, [pc.speech(Is it OK if I extract some more essences?)]"
 						+ "</p>"
 						+ "<p>"
 							+ "[lilaya.speech(Of course!)] she responds. [lilaya.speech(Use as many vials as you'd like!)]"
@@ -1613,7 +1613,7 @@ public class Lab {
 				+ "</p>"
 				+ "<p>"
 					+ "Lilaya's cheeks suddenly flush red, and she turns away as she brings a close to the conversation,"
-					+ " [lilaya.speech(Anyway! D-Don't worry about anything! Three years into the future is nothing! I-I'll try and investigate a little more, ok?!)]"
+					+ " [lilaya.speech(Anyway! D-Don't worry about anything! Three years into the future is nothing! I-I'll try and investigate a little more, OK?!)]"
 				+ "</p>"
 				+ "<p>"
 					+ "It's quite apparent that Lilaya isn't interested in discussing the matter any more..."
@@ -1814,7 +1814,7 @@ public class Lab {
 						+ "</p>"
 						+ "<p>"
 							+ (Main.game.getPlayer().hasPenis() && !Main.game.getNpc(Lilaya.class).isVisiblyPregnant() && Main.game.getNpc(Lilaya.class).getFetishDesire(Fetish.FETISH_PREGNANCY).isNegative()
-									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, ok? I'm <b>not</b> getting pregnant!)] she demands."
+									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, OK? I'm <b>not</b> getting pregnant!)] she demands."
 									:" [lilaya.speech(Mmm, yes!)] she giggles.")
 						+ "</p>"
 						+ "<p>"
@@ -2062,7 +2062,7 @@ public class Lab {
 						+ "</p>"
 						+ "<p>"
 							+ (Main.game.getPlayer().hasPenis() && !Main.game.getNpc(Lilaya.class).isVisiblyPregnant() && Main.game.getNpc(Lilaya.class).getFetishDesire(Fetish.FETISH_PREGNANCY).isNegative()
-									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, ok? I'm <b>not</b> getting pregnant!)] she demands."
+									?" [lilaya.speech(Mmm, yes! Just, if you want to fuck me, make sure you pull out, OK? I'm <b>not</b> getting pregnant!)] she demands."
 									:" [lilaya.speech(Mmm, yes!)] she giggles.")
 						+ "</p>"
 						+ "<p>"
@@ -2814,14 +2814,14 @@ public class Lab {
 			if (!Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_FIRST_TIME_PREGNANCY)) {
 				UtilText.nodeContentSB.append("<p>"
 								+ "As Lilaya leads you over to the bed, she explains the situation, "
-								+ "[lilaya.speech(Ok, so I know you haven't done anything like this before, so I'll quickly explain what's going to happen."
+								+ "[lilaya.speech(OK, so I know you haven't done anything like this before, so I'll quickly explain what's going to happen."
 										+ " In order for you to start laying your eggs, I need to focus a special kind of arcane spell into your nice little bump here."
 										+ " This isn't as intense as giving birth to live young, so you're going to stay conscious through all of this.)]"
 							+ "</p>");
 			} else {
 				UtilText.nodeContentSB.append("<p>"
 						+ "As Lilaya leads you over to the bed, she explains the situation, "
-						+ "[lilaya.speech(Ok, so I know we've done this before, but I'll just quickly remind you of what's going to happen."
+						+ "[lilaya.speech(OK, so I know we've done this before, but I'll just quickly remind you of what's going to happen."
 								+ " In order for you to start laying your eggs, I need to focus a special kind of arcane spell into your nice little bump here."
 								+ " This isn't as intense as giving birth to live young, so you're going to stay conscious through all of this.)]"
 					+ "</p>");
@@ -2849,7 +2849,7 @@ public class Lab {
 						+ "</p>"
 
 						+ "<p>"
-							+ "[lilaya.speech(Ok, all set?)]"
+							+ "[lilaya.speech(OK, all set?)]"
 						+ "</p>");
 			
 			return UtilText.nodeContentSB.toString();
@@ -2957,7 +2957,7 @@ public class Lab {
 					+ "</p>"
 					+ "<p>"
 						+ "Lilaya instantly stands up and starts backing off towards the door,"
-						+ " [lilaya.speech(Ok, ok, don't worry, I'm leaving. You'll be safe in here...)]"
+						+ " [lilaya.speech(OK, OK, don't worry, I'm leaving. You'll be safe in here...)]"
 					+ "</p>"
 					+ "<p>"
 						+ "Still making soothing shushing noises, she opens the door to your room and slips out, before closing it firmly behind her."
@@ -3133,7 +3133,7 @@ public class Lab {
 		@Override
 		public String getContent() {
 			return "<p>"
-						+ "[pc.speech(Ok, Lilaya, I'll find a room for Arthur,)]"
+						+ "[pc.speech(OK, Lilaya, I'll find a room for Arthur,)]"
 						+ " you answer, trying to get your [lilaya.relation(pc)] to calm down as you agree to do as she asks."
 					+ "</p>"
 					+ "<p>"
@@ -3184,7 +3184,7 @@ public class Lab {
 					+ "</p>"
 					+ "<p>"
 						+ "[lilaya.speech(Oh, I'm sorry, I thought <i>I</i> was talking."
-							+ " But that's ok."
+							+ " But that's OK."
 							+ " Seeing as you want to interrupt me, you're obviously very eager to talk about how much you liked fucking her behind my back, so please, do go on!)]"
 					+ "</p>";
 		}

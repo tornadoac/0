@@ -323,7 +323,7 @@ public class Name {
 			"King", "Knight", "Lane", "Lawrence",
 			"Lawson", "Lee", "Lewis", "Lloyd",
 			"Macdonald", "Marshall", "Martin", "Mason",
-			"Matthews", "Mcdonald", "Miller", "Mills",
+			"Matthews", "McDonald", "Miller", "Mills",
 			"Mitchell", "Moore", "Morgan", "Morris",
 			"Murphy", "Murray", "Owen", "Palmer",
 			"Parker", "Patel", "Pearce", "Pearson",
@@ -645,7 +645,7 @@ public class Name {
 	}
 	
 	/** Surnames of all demons and half-demons reflect their Lilin lineage.<br/>
-	 * For the case of descendents of Lyssieth, a surname would be:<br/>
+	 * For the case of descendants of Lyssieth, a surname would be:<br/>
 	 * Lyssieth<b>martusarri</b> (Lyssieth's designated heir. Only Lilaya has this surname. This needs to be manually set.)<br/>
 	 * Lyssieth<b>marturabitu</b> (Eldest daughter, if not the designated heir. As most Lilin's eldest daughters are also their designated heir, this surname is very rare.)<br/>
 	 * Lyssieth<b>martuilani</b> (A direct daughter of Lyssieth.)<br/>

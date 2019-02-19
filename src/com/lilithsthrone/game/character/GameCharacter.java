@@ -5891,10 +5891,10 @@ public abstract class GameCharacter implements XMLSaving {
 			case SUB_NORMAL:
 				if(this.isVaginaVirgin() && this.hasVagina()) {
 					returnedLine = UtilText.returnStringAtRandom(
-							"I'll be a good [npc1.girl]! Just... I'm still a virgin, ok?",
+							"I'll be a good [npc1.girl]! Just... I'm still a virgin, OK?",
 							"I'll do whatever you want! I'm still a virgin though...",
 							"Let's get started! But... I'm still a virgin...",
-							"Let's have some fun! But... I'm still a virgin, ok?");
+							"Let's have some fun! But... I'm still a virgin, OK?");
 				} else {
 					returnedLine = UtilText.returnStringAtRandom(
 							"I'll be a good [npc.girl]!",

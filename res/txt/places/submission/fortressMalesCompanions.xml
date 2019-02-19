@@ -146,7 +146,7 @@
 	
 	<htmlContent tag="KEEP_PACIFIED_LEAVE"><![CDATA[
 	<p>
-		Not wanting to have sex right now, you quickly blurt out, [pc.speech(Ah, sorry, [npc2.name], I was just checking everything was ok. I've got to go now!)]
+		Not wanting to have sex right now, you quickly blurt out, [pc.speech(Ah, sorry, [npc2.name], I was just checking everything was OK. I've got to go now!)]
 	</p>
 	<p>
 		Ignoring the booming admonishment that's shouted after you in response, you nad [npc.name] quickly turn your backs on [npc2.name] and [npc2.her] imps, and make haste as you exit [npc2.her] dojo...
@@ -652,7 +652,7 @@
 	
 	<htmlContent tag="KEEP_AUDIENCE_SEX"><![CDATA[
 	<p>
-		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(Ok, I'll do it. But just me, not my companion.)]
+		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, I'll do it. But just me, not my companion.)]
 	</p>
 	<p>
 		[npc2.Name] releases [npc2.her] grip on [npc2.her] katana as [npc2.she] hears your reply. Striding forwards and coming to a halt right in front of you, [npc2.she] reaches out to grab you by the shoulders, and, before you can react, [npc2.she] pushes you down onto your knees, before booming, [npc2.speech(Excellent! Now surrender your womb to me!)]
@@ -671,7 +671,7 @@
 	
 	<htmlContent tag="KEEP_AUDIENCE_SEX_IMPS"><![CDATA[
 	<p>
-		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(Ok, I'll do it. But just me, not my companion.)]
+		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, I'll do it. But just me, not my companion.)]
 	</p>
 	<p>
 		[npc2.Name] releases [npc2.her] grip on [npc2.her] katana as [npc2.she] hears your reply. Striding forwards and coming to a halt right in front of you, [npc2.she] reaches out to grab you by the shoulders, and, before you can react, [npc2.she] pushes you down onto your knees, before booming, [npc2.speech(Excellent! Now make sure to satisfy all three of them!)]
@@ -693,7 +693,7 @@
 	
 	<htmlContent tag="KEEP_AUDIENCE_SEX_DOUBLE_BREEDING"><![CDATA[
 	<p>
-		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(Ok, we'll do it.)]
+		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
@@ -720,7 +720,7 @@
 	
 	<htmlContent tag="KEEP_AUDIENCE_SEX_BREEDING_COMPANION_IMPS"><![CDATA[
 	<p>
-		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(Ok, we'll do it.)]
+		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc3) || !game.isNonConEnabled()
@@ -755,7 +755,7 @@
 	
 	<htmlContent tag="KEEP_AUDIENCE_SEX_IMPS_COMPANION_BREEDING"><![CDATA[
 	<p>
-		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(Ok, we'll do it.)]
+		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
@@ -795,7 +795,7 @@
 	
 	<htmlContent tag="KEEP_AUDIENCE_SEX_DOUBLE_IMPS"><![CDATA[
 	<p>
-		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(Ok, we'll do it.)]
+		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc3) || !game.isNonConEnabled()
@@ -985,10 +985,10 @@
 	
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
-		Feeling sorry for [npc2.name] and [npc2.her] imps, you tell [npc.name] to stand back before bending down next to the [npc2.race] and asking, [pc.speech(Are you ok? Sorry, I think I went a little too far...)]
+		Feeling sorry for [npc2.name] and [npc2.her] imps, you tell [npc.name] to stand back before bending down next to the [npc2.race] and asking, [pc.speech(Are you OK? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc2.NamePos] defeated expression quickly shifts into a hungry grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] booms, [npc2.speech(No, I'm not ok! Now help me up!)]
+		[npc2.NamePos] defeated expression quickly shifts into a hungry grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] booms, [npc2.speech(No, I'm not OK! Now help me up!)]
 	</p>
 	<p>
 		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So, how are you going to apologise for what you did?!)]
@@ -1013,10 +1013,10 @@
 	
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_SUBMIT_IMPS"><![CDATA[
 	<p>
-		Feeling sorry for [npc2.name] and [npc2.her] imps, you tell [npc.name] to stand back before bending down next to the [npc2.race] and asking, [pc.speech(Are you ok? Sorry, I think I went a little too far...)]
+		Feeling sorry for [npc2.name] and [npc2.her] imps, you tell [npc.name] to stand back before bending down next to the [npc2.race] and asking, [pc.speech(Are you OK? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc2.NamePos] defeated expression quickly shifts into a hungry grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] booms, [npc2.speech(No, I'm not ok! Now help me up!)]
+		[npc2.NamePos] defeated expression quickly shifts into a hungry grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] booms, [npc2.speech(No, I'm not OK! Now help me up!)]
 	</p>
 	<p>
 		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So, how are you going to apologise for what you did?!)]
@@ -1038,7 +1038,7 @@
 	
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX_SUBMISSION_APOLOGY"><![CDATA[
 	<p>
-		Feeling sorry for [npc2.name] and [npc2.her] imps, you bend down next to [npc2.herHim] and ask, [pc.speech(Are you ok? Sorry, I think my friend and I went a little too far, didn't we, [npc.name]?)]
+		Feeling sorry for [npc2.name] and [npc2.her] imps, you bend down next to [npc2.herHim] and ask, [pc.speech(Are you OK? Sorry, I think my friend and I went a little too far, didn't we, [npc.name]?)]
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
@@ -1049,7 +1049,7 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] defeated expression quickly shifts into a hungry grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] booms, [npc2.speech(No, I'm not ok! Now help me up!)]
+		[npc2.NamePos] defeated expression quickly shifts into a hungry grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] booms, [npc2.speech(No, I'm not OK! Now help me up!)]
 	</p>
 	<p>
 		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So, how are you two going to apologise for what you did?!)]
@@ -1134,7 +1134,7 @@
 		[npc2.speech(I'm only interested in those I can impregnate!)] [npc2.Name] bellows, before roughly shoving you and [npc.name] down onto your backs in front of [npc2.herHim]. [npc2.speech(No, if I can't fill your bellies with imps, then I'm not interested. You two can satisfy my guards instead!)]
 	</p>
 	<p>
-		As you're now in such a submissive position, all you can do is look up into the [npc2.race]'s [npc2.eyeColour] eyes, before agreeing to do as asked, [pc.speech(Ok...)]
+		As you're now in such a submissive position, all you can do is look up into the [npc2.race]'s [npc2.eyeColour] eyes, before agreeing to do as asked, [pc.speech(OK...)]
 	</p>
 	<p>
 		[npc2.speech(That's what I like to hear!)] [npc2.Name] bellows, before beckoning [npc2.her] imps forwards. [npc2.speech(Come on, it's not every day I let you three have fun like this!)]
@@ -1520,7 +1520,7 @@
 			</p>
 		#ELSE
 			<p>
-				Having finished with you, [npc.name] then stands up, before dismissively shooing you away with one hand. [npc.speech(Come back once your pregnancy is over, and I'll knock you up all over again. Don't get that dildo removed too soon, ok?!)]
+				Having finished with you, [npc.name] then stands up, before dismissively shooing you away with one hand. [npc.speech(Come back once your pregnancy is over, and I'll knock you up all over again. Don't get that dildo removed too soon, OK?!)]
 			</p>
 		#ENDIF
 	#ELSE
@@ -1620,7 +1620,7 @@
 			#ENDIF
 		#ELSE
 			<p>
-				Having finished with you, [npc2.name] then stands up, before dismissively shooing you away with one hand. [npc2.speech(Come back once your pregnancies are over, and I'll knock you up all over again. Don't get those dildos removed too soon, ok?!)]
+				Having finished with you, [npc2.name] then stands up, before dismissively shooing you away with one hand. [npc2.speech(Come back once your pregnancies are over, and I'll knock you up all over again. Don't get those dildos removed too soon, OK?!)]
 			</p>
 		#ENDIF
 	#ELSE

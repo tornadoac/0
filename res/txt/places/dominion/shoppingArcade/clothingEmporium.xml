@@ -170,7 +170,7 @@
 		 [nyan.speech(Sorry about that... I can get a little overwhelmed sometimes, and I have to perform those breathing exercises to avoid having a panic attack... I should be alright now...)]
 	</p>
 	<p>
-		[pc.speech(I'm sorry, I didn't mean to get you worked up, will you be ok?)]
+		[pc.speech(I'm sorry, I didn't mean to get you worked up, will you be OK?)]
 		 you ask, although the fact that she didn't stutter once in her last reply has already given you your answer.
 	</p>
 	<p>
@@ -187,7 +187,7 @@
 	</p>
 	<p>
 		Sensing that Nyan is on the verge of a panic attack, you decide that it would be best to drop the subject for the moment.
-		 [pc.speech(Thank you for telling me about it, Nyan, but we should carry on looking at the clothing you've got in here, ok?)]
+		 [pc.speech(Thank you for telling me about it, Nyan, but we should carry on looking at the clothing you've got in here, OK?)]
 	</p>
 	<p>
 		Nyan lets out a relieved sigh as she casts her eyes down at her clipboard, clearly grateful for the fact that you're dropping the subject for now.

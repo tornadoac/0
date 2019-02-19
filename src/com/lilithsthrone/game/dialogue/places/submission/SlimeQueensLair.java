@@ -804,7 +804,7 @@ public class SlimeQueensLair {
 						"Now that you've worn [slimeRoyalGuard.name] out, [slimeRoyalGuard.he] should be easier to beat!",
 						Main.game.getNpc(SlimeRoyalGuard.class),
 						Util.newHashMapOfValues(
-								new Value<>(Main.game.getPlayer(), "[pc.speech(Ok, I'll fight you...)] you sigh, preparing for combat."),
+								new Value<>(Main.game.getPlayer(), "[pc.speech(OK, I'll fight you...)] you sigh, preparing for combat."),
 								new Value<>(Main.game.getNpc(SlimeRoyalGuard.class), "[slimeRoyalGuard.speech(E-Excellent!)] [slimeRoyalGuard.name] replies, already flustered and turned on from your teasing.")));
 				
 			} else if(index==2) {

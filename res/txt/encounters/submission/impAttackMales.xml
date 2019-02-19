@@ -135,10 +135,10 @@
 	
 	<htmlContent tag="IMP_ATTACK_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
-		The pile of defeated imps before you is truly a saddening sight to see, and as you catch the eye of [npc.name], you think that it almost looks like [npc.sheIs] crying. Feeling immensely guilty, and wanting to put things right, you drop down to your knees before them, and ask, [pc.speech(Are you all ok? I didn't mean to go so far...)]
+		The pile of defeated imps before you is truly a saddening sight to see, and as you catch the eye of [npc.name], you think that it almost looks like [npc.sheIs] crying. Feeling immensely guilty, and wanting to put things right, you drop down to your knees before them, and ask, [pc.speech(Are you all OK? I didn't mean to go so far...)]
 	</p>
 	<p>
-		[npc.speech(What does it look like, [pc.insult]?!)] [npc.Name] snaps. [npc.speech(Of course we're not ok!)]
+		[npc.speech(What does it look like, [pc.insult]?!)] [npc.Name] snaps. [npc.speech(Of course we're not OK!)]
 	</p>
 	<p>
 		[pc.speech(Well, what can I do to make things better?)] You ask, desperate to do anything in order to earn the gang's forgiveness.

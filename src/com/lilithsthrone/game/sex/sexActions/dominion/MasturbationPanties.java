@@ -29,7 +29,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class MasturbationPanties {
-	
+
 	public static final SexAction PLAYER_STROKE_VAGINA_PANTIES = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -41,7 +41,7 @@ public class MasturbationPanties {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Panty-pussy rub";
@@ -60,7 +60,7 @@ public class MasturbationPanties {
 					"Sliding Lilaya's panties over your [pc.pussy+], you let out [pc.a_moan+] as you imagine your demonic [lilaya.relation(pc)] wearing them as she works away in her lab.",
 					"You eagerly slide Lilaya's panties over your needy [pc.pussy], moaning and sighing as you gently press the fabric against your outer labia.");
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			if(!LilayasRoom.lilayasPanties.isDirty() && Sex.hasLubricationTypeFromAnyone(Main.game.getPlayer(), SexAreaOrifice.VAGINA)) {
@@ -68,12 +68,12 @@ public class MasturbationPanties {
 				return "<p style='text-align:center'>"
 							+ "[style.italicsDirty(Lilaya's panties are quickly dirtied as you rub them against your wet pussy.)]"
 						+ "</p>";
-				
+
 			} else {
 				return "";
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getExtraFetishes(GameCharacter characterPerformingAction) {
 			if(characterPerformingAction.isPlayer()) {
@@ -82,9 +82,9 @@ public class MasturbationPanties {
 				return null;
 			}
 		}
-		
+
 	};
-	
+
 	public static final SexAction PLAYER_STROKE_PENIS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -96,7 +96,7 @@ public class MasturbationPanties {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Panty-cock rub";
@@ -123,12 +123,12 @@ public class MasturbationPanties {
 				return "<p style='text-align:center'>"
 							+ "[style.italicsDirty(Lilaya's panties are quickly dirtied as you rub them over your cock.)]"
 						+ "</p>";
-				
+
 			} else {
 				return "";
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getExtraFetishes(GameCharacter characterPerformingAction) {
 			if(characterPerformingAction.isPlayer()) {
@@ -138,7 +138,7 @@ public class MasturbationPanties {
 			}
 		}
 	};
-	
+
 	public static final SexAction PLAYER_STROKE_MOUND = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -156,7 +156,7 @@ public class MasturbationPanties {
 			return !Main.game.getPlayer().hasPenis()
 					&& !Main.game.getPlayer().hasVagina();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Panty-mound rub";
@@ -175,7 +175,7 @@ public class MasturbationPanties {
 					"Pressing Lilaya's panties up against your sensitive genderless mound, you close your [pc.eyes] and imagine your demonic [lilaya.relation(pc)]'s pussy as you masturbate.",
 					"You eagerly slide Lilaya's panties over your doll-like mound, moaning and sighing as you gently press the fabric against your sensitive [pc.skin].");
 		}
-		
+
 		@Override
 		public List<Fetish> getExtraFetishes(GameCharacter characterPerformingAction) {
 			if(characterPerformingAction.isPlayer()) {
@@ -185,7 +185,7 @@ public class MasturbationPanties {
 			}
 		}
 	};
-	
+
 	public static final SexAction PLAYER_SNIFF_PANTIES = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -216,7 +216,7 @@ public class MasturbationPanties {
 					"Pressing Lilaya's panties up against your nose, you close your [pc.eyes] and imagine your demonic [lilaya.relation(pc)]'s pussy as you breathe in her musky, perfume-laced scent.",
 					"You eagerly press Lilaya's panties over your nose, moaning and sighing as you breathe in the musky, perfume-laced scent of the fabric.");
 		}
-		
+
 		@Override
 		public List<Fetish> getExtraFetishes(GameCharacter characterPerformingAction) {
 			if(characterPerformingAction.isPlayer()) {
@@ -228,7 +228,7 @@ public class MasturbationPanties {
 			}
 		}
 	};
-	
+
 	public static final SexAction PLAYER_MASTURBATION_ORGASM_IN_PANTIES = new SexAction(
 			SexActionType.ORGASM,
 			ArousalIncrease.FIVE_EXTREME,
@@ -263,7 +263,7 @@ public class MasturbationPanties {
 		public String getDescription() {
 			return GenericOrgasms.getGenericOrgasmDescription(this, Main.game.getPlayer(), OrgasmCumTarget.LILAYA_PANTIES);
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			if (!Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.PENIS)

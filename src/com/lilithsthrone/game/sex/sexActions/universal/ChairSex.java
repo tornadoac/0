@@ -52,14 +52,14 @@ public class ChairSex {
 		Map<GameCharacter, SexSlot> submissives = new HashMap<>();
 		List<GameCharacter> doms = new ArrayList<>(Sex.getDominantParticipants().keySet());
 		List<GameCharacter> subs = new ArrayList<>(Sex.getSubmissiveParticipants().keySet());
-		
+
 		GameCharacter performer = Sex.getCharacterPerformingAction();
 		GameCharacter target = Sex.getTargetedPartner(performer);
 		if(requestAccepted) {
 			target = Sex.getCharacterPerformingAction();
 			performer = Sex.getTargetedPartner(target);
 		}
-		
+
 		if(Sex.isDom(performer)) {
 			doms.remove(performer);
 			dominants.put(performer, data.getPerformerSlots().get(0));
@@ -90,7 +90,7 @@ public class ChairSex {
 		});
 		Sex.setPositionRequest(null);
 	}
-	
+
 	public static final SexAction SWITCH_TO_GIVING_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -98,7 +98,7 @@ public class ChairSex {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		private PositioningData data = new PositioningData(
 				SexPositionBipeds.CHAIR_SEX_ORAL,
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_KNEELING),
@@ -127,7 +127,7 @@ public class ChairSex {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction POSITION_GIVING_ORAL_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -140,7 +140,7 @@ public class ChairSex {
 				SexPositionBipeds.CHAIR_SEX_ORAL,
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_KNEELING),
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_ORAL_SITTING));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -162,7 +162,7 @@ public class ChairSex {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction SWITCH_TO_RECEIVING_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -175,7 +175,7 @@ public class ChairSex {
 				SexPositionBipeds.CHAIR_SEX_ORAL,
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_ORAL_SITTING),
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_KNEELING));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -199,7 +199,7 @@ public class ChairSex {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction POSITION_RECEIVING_ORAL_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -212,7 +212,7 @@ public class ChairSex {
 				SexPositionBipeds.CHAIR_SEX_ORAL,
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_ORAL_SITTING),
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_KNEELING));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -234,7 +234,7 @@ public class ChairSex {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction SWITCH_SITTING_BOTTOM = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -271,7 +271,7 @@ public class ChairSex {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction POSITION_SITTING_BOTTOM_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -284,7 +284,7 @@ public class ChairSex {
 				SexPositionBipeds.CHAIR_SEX,
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_BOTTOM),
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_TOP));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -306,7 +306,7 @@ public class ChairSex {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction SWITCH_SITTING_TOP = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -343,7 +343,7 @@ public class ChairSex {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction POSITION_SITTING_TOP_REQUEST = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -356,7 +356,7 @@ public class ChairSex {
 				SexPositionBipeds.CHAIR_SEX,
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_TOP),
 				Util.newArrayListOfValues(SexSlotBipeds.CHAIR_BOTTOM));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -378,7 +378,7 @@ public class ChairSex {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction PARTNER_POSITION_RESPONSE = new SexAction(
 			SexActionType.SPECIAL,
 			ArousalIncrease.ONE_MINIMUM,
@@ -392,12 +392,12 @@ public class ChairSex {
 			return Sex.getPositionRequest()!=null
 					&& !Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public SexActionPriority getPriority() {
 			return SexActionPriority.UNIQUE_MAX;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "";
@@ -421,12 +421,12 @@ public class ChairSex {
 							return "Pushing [npc2.name] down, [npc.name] steps forwards and [npc.verb(straddle)] [npc2.her] lap, leaning forwards to gaze into [npc2.her] eyes as [npc.she] [npc.moansVerb],"
 									+ " [npc.speech(Sure, I'll take you for a ride...)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab [npc2.name] by the [npc2.arm], [npc.name] [npc.verb(pull)] [npc2.herHim] back into [npc2.her] old position as [npc.she] angrily scolds [npc2.herHim], "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.CHAIR_BOTTOM) {
 				if(Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this)).contains(SexSlotBipeds.CHAIR_BOTTOM)
 						|| Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this)).isEmpty()) {
@@ -440,12 +440,12 @@ public class ChairSex {
 										+ " [npc.she] [npc.verb(pull)] [npc2.herHim] down so that [npc2.sheIs] straddling [npc.her] lap. Leaning forwards to gaze into [npc2.her] eyes, [npc.name] [npc.moansVerb],"
 									+ " [npc.speech(Good [npc2.girl]...)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab [npc2.name] by the [npc2.arm], [npc.name] [npc.verb(pull)] [npc2.herHim] back into [npc2.her] old position as [npc.she] angrily scolds [npc2.herHim], "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.CHAIR_ORAL_SITTING) {
 				if(Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this)).contains(SexSlotBipeds.CHAIR_ORAL_SITTING)
 						|| Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this)).isEmpty()) {
@@ -459,12 +459,12 @@ public class ChairSex {
 									+ " Leaning forwards to gaze into [npc2.her] eyes, [npc.name] [npc.moansVerb],"
 									+ " [npc.speech(Good [npc2.girl]. Let's put your mouth to use...)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab [npc2.name] by the [npc2.arm], [npc.name] [npc.verb(pull)] [npc2.herHim] back into [npc2.her] old position as [npc.she] angrily scolds [npc2.herHim], "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.CHAIR_KNEELING) {
 				if(Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this)).contains(SexSlotBipeds.CHAIR_KNEELING)
 						|| Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this)).isEmpty()) {
@@ -476,13 +476,13 @@ public class ChairSex {
 							return "Pushing [npc2.name] down, [npc.name] kneels before [npc2.herHim], leaning forwards to gaze up into [npc2.her] eyes as [npc.she] [npc.moansVerb],"
 									+ " [npc.speech(I love performing oral...)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab [npc2.name] by the [npc2.arm], [npc.name] [npc.verb(pull)] [npc2.herHim] back into [npc2.her] old position as [npc.she] angrily scolds [npc2.herHim], "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
 			}
-			
+
 			return "";
 		}
 
@@ -496,9 +496,9 @@ public class ChairSex {
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.CHAIR_KNEELING && (positionPreferences.contains(SexSlotBipeds.CHAIR_KNEELING) || positionPreferences.isEmpty()))) {
 				setNewSexManager(Sex.getPositionRequest(), true);
 			}
-			
+
 			Sex.setPositionRequest(null);
 		}
 	};
-	
+
 }

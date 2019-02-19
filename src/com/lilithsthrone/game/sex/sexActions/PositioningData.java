@@ -7,7 +7,7 @@ import com.lilithsthrone.game.sex.positions.SexSlot;
 
 /**
  * For use in position request SexActions.
- * 
+ *
  * @since 0.3.1
  * @version 0.3.1
  * @author Innoxia
@@ -17,7 +17,7 @@ public class PositioningData {
 	private AbstractSexPosition position;
 	private List<SexSlot> performerSlots;
 	private List<SexSlot> partnerSlots;
-	
+
 	/**
 	 * @param performerSlots Slot 0 is always used as the slot for the one performing the associated action.
 	 * @param partnerSlots Slot 0 is always used as the slot for the one targeted by the associated action.
@@ -35,7 +35,7 @@ public class PositioningData {
 				&& ((PositioningData)o).getPerformerSlots().equals(this.getPerformerSlots())
 				&& ((PositioningData)o).getPartnerSlots().equals(this.getPartnerSlots());
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 17;
@@ -44,7 +44,7 @@ public class PositioningData {
 		result = 31 * result + this.getPartnerSlots().hashCode();
 		return result;
 	}
-	
+
 	public AbstractSexPosition getPosition() {
 		return position;
 	}
@@ -58,5 +58,4 @@ public class PositioningData {
 	public List<SexSlot> getPartnerSlots() {
 		return partnerSlots;
 	}
-	
 }

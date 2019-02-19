@@ -13,7 +13,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_APPEARS_EVADE"><![CDATA[
 	<p>
 		Not wanting to stick around to discover who this mysterious stalker could be, you turn and hurry down a particularly narrow passageway. Reaching the far end, you look back to see a little shadowy figure rush past the opening.
@@ -23,7 +23,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_APPEARS_FIRST_ENCOUNTER"><![CDATA[
 	<p>
 		You aren't going to run from the first hint of danger, and decide that you'll turn the tables on the person who's been tailing you for all this time.
@@ -43,7 +43,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_APPEARS_FIRST_ENCOUNTER_WAITING"><![CDATA[
 	<p>
 		[pc.thought(Wait, how long has it been? Why aren't they coming?)]
@@ -58,28 +58,28 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="MAX_MONEY_STOLEN"><![CDATA[
 	<p>
 		You reflexively check your belongings, and quickly discover that [style.boldTerrible(you're missing seven-hundred flames!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ALL_MONEY_STOLEN"><![CDATA[
 	<p>
 		You reflexively check your belongings, and quickly discover that [style.boldTerrible(all of your money has been stolen!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_LET_THEM_ESCAPE"><![CDATA[
 	<p>
 		Deciding that you have better things to do than chasing some thief through the alleyways, you tell yourself that being a few flames lighter won't do you much harm, and, with a shrug, you continue on your way, reminding yourself to stay alert for any possible thieves in the future.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_CHASE"><![CDATA[
 	<p>
 		[pc.speech(Hey! Come back here, you thief!)]
@@ -102,7 +102,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_CHASE_CONTINUE"><![CDATA[
 	<p>
 		As you enter the alleyway, your eyes quickly settle on the unmistakable figure of the fluffy-tailed thief, desperately trying to climb a twelve-foot-high wall. As you hurry forwards, she loses her grip, and falls back onto her butt. It looks like it's a dead-end for your fluffy fugitive, and a win for you.
@@ -121,7 +121,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_COMBAT_PC_OPENING"><![CDATA[
 	<p>
 		[pc.speech(What do I want? Well, my money first of all, and then to teach a lesson to a certain naughty wolf-girl.)]
@@ -129,7 +129,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_COMBAT_LUMI_OPENING"><![CDATA[
 	<p>
 		[lumi.speech(I knew it! I knew you wanted to hurt me, l-like all the others!)]
@@ -138,10 +138,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="COMBAT_PLAYER_LOSS"><![CDATA[
 	<p>
-		You can't carry on fighting any longer, and you feel your legs giving out beneath you as you collapse to the ground, defeated. Taking this chance, the opportunistic wolf-girl shoves the coins back into her mouth, before darting past you and running off down the alleyway. 
+		You can't carry on fighting any longer, and you feel your legs giving out beneath you as you collapse to the ground, defeated. Taking this chance, the opportunistic wolf-girl shoves the coins back into her mouth, before darting past you and running off down the alleyway.
 	</p>
 	<p>
 		With seemingly bottomless stamina, the little wolf-girl sprints off at full tilt, and, exhausted from your fight, you know that you have no chance of catching her. You resign yourself to simply resting until you've recovered enough strength to stand back up and carry on your way. As you set off, you try to forget about the money that was stolen from you.
@@ -151,7 +151,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="COMBAT_PLAYER_WIN"><![CDATA[
 	<p>
 		Beaten down, the wolf-girl staggers back and leans against the nearest wall. As she sinks down to the ground, breathing heavily, you're left with no doubt in your mind that she's completely unable to continue fighting.
@@ -161,10 +161,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="COMBAT_PLAYER_WIN_RECOVER_MONEY"><![CDATA[
 	<p>
-		You quietly start to gather up the stolen coins. Most of them were dropped at your feet, but a few are lying beside the defeated wolf-girl. As you step forwards to collect them, you take a glance at the half-unconscious thief to make sure that she's ok.
+		You quietly start to gather up the stolen coins. Most of them were dropped at your feet, but a few are lying beside the defeated wolf-girl. As you step forwards to collect them, you take a glance at the half-unconscious thief to make sure that she's OK.
 	</p>
 	<p>
 		As you do so, she suddenly opens an eye, which flicks over to peek at your bent down form as you reach for another coin. Taking this opportunity, she jumps to her feet with surprising flexibility, and, darting past you, sprints off down the alleyway at full tilt. You suddenly find yourself alone and wondering how she managed to run off that quickly after taking such a beating. Shrugging, you finish collecting the last couple of coins and prepare to leave.
@@ -174,14 +174,14 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="COMBAT_PLAYER_WIN_TAKE_ADVANTAGE"><![CDATA[
 	<p>
 		The fight has gotten you riled up, and, looking down at the helpless wolf-girl before you, the thought of using her as sexual relief is foremost on your mind. Stepping forwards, you allow a devilish grin to settle on your face, and prepare to take advantage of the defeated thief.
 	</p>
 	<p>
 		[pc.speech(Oh, this is going to be good!)]
-		 You laugh, bending down to grab the wolf-girl's shoulders before pinning her to the ground. Shaken out of her daze by the sudden physical contact, the thief opens her eyes and looks up at you. At first, she simply seems to be surprised, but as she sees the hungry grin on your face, her eyes fill with panic. 
+		 You laugh, bending down to grab the wolf-girl's shoulders before pinning her to the ground. Shaken out of her daze by the sudden physical contact, the thief opens her eyes and looks up at you. At first, she simply seems to be surprised, but as she sees the hungry grin on your face, her eyes fill with panic.
 	</p>
 	<p>
 		[lumi.speech(W-What are you doing? Let me go!)] She shouts as she starts to struggle against you. Tears quickly well up in her eyes as she discovers that you've totally immobilised her, and her struggles and cries quickly start to get more frantic and desperate.
@@ -200,7 +200,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SEX"><![CDATA[
 	<p>
 		As you step back from the [lumi.race], she sinks to the floor, tears running down her face. She doesn't say anything, nor does she make any move. She just stays immobile, staring blankly off into space.
@@ -210,7 +210,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_CAUGHT_TALK"><![CDATA[
 	<p>
 		[pc.speech(Calm down, little pup, I'm not going to hurt you, I just want to talk.)]
@@ -267,7 +267,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_CAUGHT_TALK_GIVE_MONEY"><![CDATA[
 	<p>
 		Sensing that the wolf-girl has quickly grown comfortable with your presence, you reach out to give her head a gentle pat, before giving her soft ears a stroke. [pc.speech(You can keep the money.)]
@@ -276,7 +276,7 @@
 		The little wolf-girl fails to contain a small moan as the pleasure from your petting completely overwhelms her. Quickly realising what she's just done, she clasps her hands over her mouth and pretends as though nothing just happened, although the fact that her fluffy tail is pointing straight up into the air gives her feelings away. From behind her hands, the wolf-girl mutters a barely audible question. [lumi.speech(W-What can I ~mmh~ keep?)]
 	</p>
 	<p>
-		Giving her ears one last stroke, you gently boop [lumi.her] nose. [pc.speech(The money you took from me, silly. You can keep it, but I'll tell you how to use it)]
+		Giving her ears one last stroke, you gently 'boop' [lumi.her] nose. [pc.speech(The money you took from me, silly. You can keep it, but I'll tell you how to use it)]
 	</p>
 	<p>
 		Her big [lumi.eyeColour] eyes light up at what you just said, and [lumi.she] gazes up at you in disbelief. [lumi.speech(Really? You... You'd really give all of this to me? Even if I... I took it from you? You're not kidding?)]
@@ -311,13 +311,13 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_CAUGHT_TALK_ASK_FOR_MONEY_BACK"><![CDATA[
 	<p>
-		[pc.speech(Listen, I can see that you're not a mean girl, but stealing is bad, ok?)] You tell the wolf-girl, putting a hand on [lumi.her] shoulder. [pc.speech(I can't force you not to do it, but you should know that other people won't be as kind or understanding as I am.)]
+		[pc.speech(Listen, I can see that you're not a mean girl, but stealing is bad, OK?)] You tell the wolf-girl, putting a hand on [lumi.her] shoulder. [pc.speech(I can't force you not to do it, but you should know that other people won't be as kind or understanding as I am.)]
 	</p>
 	<p>
-		The wolf-girl pouts and looks at the ground as she receives her scolding. Putting on a gentler and more reassuring tone, you continue, [pc.speech(Look at me. I will take my money back now, ok?)]
+		The wolf-girl pouts and looks at the ground as she receives her scolding. Putting on a gentler and more reassuring tone, you continue, [pc.speech(Look at me. I will take my money back now, OK?)]
 	</p>
 	<p>
 		She looks at you with sad eyes, her shoulders drooped as she reluctantly hands over your coins. In a barely audible whimper, she mutters, [lumi.speech(H-Here... I'm... I'm sorry...)]
@@ -342,21 +342,21 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LUMI_CAUGHT_TALK_THREATEN"><![CDATA[
 	<p>
 		[pc.speech(This is not acceptable. At all. You're lucky I decided not to give you a beating, but you'd better believe that I won't spare you a second time if you ever do this again. Now, give me my money!)] You shout, scowling in anger as you assertively reach out your hand.
 	</p>
 	<p>
-		The wolf-girl's gaze instantly drops to the ground, and tears start visibly welling in [lumi.her] eyes as she mutters, [lumi.speech(I knew it... I knew you wouldn't be nice to me either...)] 
+		The wolf-girl's gaze instantly drops to the ground, and tears start visibly welling in [lumi.her] eyes as she mutters, [lumi.speech(I knew it... I knew you wouldn't be nice to me either...)]
 	</p>
 	<p>
-		The wolf-girl's voice starts trembling as she realises that you're not the friendly person she took you for. Stepping towards you, she puts your money in your palm, before quickly dashing past you, sobbing uncontrollably and disappearing into the backalleys of Dominion.
+		The wolf-girl's voice starts trembling as she realises that you're not the friendly person she took you for. Stepping towards you, she puts your money in your palm, before quickly dashing past you, sobbing uncontrollably and disappearing into the back alleys of Dominion.
 	</p>
 	<p>
 		With that, you're left alone with your money in the alleyway. You tell yourself that it's best not to try and make friends with thieves, and, putting your money safely away, you move to continue on your way. After what just happened, you can be sure that you won't be bothered by that particular wolf-girl ever again...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

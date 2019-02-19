@@ -2591,7 +2591,7 @@ public class ImpCitadelDialogue {
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			/* It's ok if some are randomised. I don't mind players save/loading to try to get different events.
+			/* It's OK if some are randomised. I don't mind players save/loading to try to get different events.
 			(Maximum times/day)Events:
 				(1) Fucked by demon - unjinxes clothing one at a time
 				(-) Fucked by imps

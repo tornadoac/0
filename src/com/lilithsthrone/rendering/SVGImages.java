@@ -31,56 +31,56 @@ public enum SVGImages {
 			journalIcon, peopleIcon, zoomInIcon, zoomOutIcon, copyIcon, exportIcon, calendarIcon, informationIcon, addIcon,
 
 			diskSave, diskSaveDisabled, diskSaveConfirm, diskOverwrite, diskLoad, diskLoadConfirm, diskLoadDisabled, diskDelete, diskDeleteConfirm,
-			
+
 			itemsOnFloorIcon,
-			
+
 			drinkSmall, drink,
-			
+
 			dice1, dice2, dice3, dice4, dice5, dice6, diceGlow,
-			
+
 			playerMapIconMasculine,
 			playerMapIconAndrogynous,
 			playerMapIconFeminine,
 			playerMapDangerousIcon,
 
 			raceBackground, raceBackgroundHalf, raceBackgroundSlime, raceBackgroundDemon, raceUnknown, raceDobermann, raceDobermannDesaturated,
-			
+
 			perkTreeArrow, spellOverlay,
 
 			weatherDayClear, weatherDayCloud, weatherDayRain, weatherDaySnow, weatherDayStormIncoming, weatherDayStorm, weatherDayStormProtected,
 			weatherNightClear, weatherNightCloud, weatherNightRain, weatherNightSnow, weatherNightStormIncoming, weatherNightStorm, weatherNightStormProtected,
 
 			womensWatchHourHand, womensWatchMinuteHand, mensWatchHourHand, mensWatchMinuteHand,
-			
+
 			protectionEnabled, protectionDisabled, tattoo,
-			
+
 			responseCombat, responseSex, responseLocked, responseUnlocked, responseUnlockedDisabled, responseOption, responseOptionDisabled, responseCorruptionBypass,
 			responseSubResist, responseSubNormal, responseSubEager,
 			responseDomGentle, responseDomNormal, responseDomRough,
-			
+
 			NPCWarningMale, NPCWarningFemale, NPCWarningDemon,
 
 			stopwatch,
-			
+
 			counterZero, counterOne, counterTwo, counterThree, counterFour, counterFive, counterFivePlus,
 			counterZeroDisabled, counterOneDisabled, counterTwoDisabled, counterThreeDisabled, counterFourDisabled, counterFiveDisabled, counterFivePlusDisabled,
-			
+
 			scaleZero, scaleOne, scaleTwo, scaleThree, scaleFour,
 			scaleZeroDisabled, scaleOneDisabled, scaleTwoDisabled, scaleThreeDisabled, scaleFourDisabled,
 
 			slaveBuy, slaveBuyDisabled, slaveSell, slaveSellDisabled, slaveInspect, slaveInspectDisabled, slaveJob, slaveJobDisabled,
 			slavePermissionsDisabled, slavePermissions, slaveTransfer, slaveTransferDisabled, slaveCosmetics, slaveCosmeticsDisabled,
-			
+
 			transactionBuy, transactionBuyDisabled, transactionBid, transactionBidDisabled, transactionSell, transactionSellDisabled,
-			
+
 			// Effects:
 			creampie, creampieMasochist,
 			fluidIngested, fluidIngestedMasochist,
-			
+
 			// Items:
-			
+
 			hypnoWatchBase, hypnoWatchGynephilic, hypnoWatchAmbiphilic, hypnoWatchAndrophilic,
-			
+
 			// Sex:
 			coverableAreaMouth,
 			coverableAreaAnus, coverableAreaAss,
@@ -90,14 +90,14 @@ public enum SVGImages {
 			coverableAreaMound,
 			coverableAreaThighs,
 			coverableAreaUrethraPenis,
-			
+
 			penetrationTypeFinger, penetrationTypePenis, penetrationTypeTail, penetrationTypeTongue, penetrationTypeFoot,
 			combinationStretching, combinationTooLoose, combinationWet, combinationDry,
 			stretching, holeTooBig;
 
 	private Map<Integer, String> youkoTailsMap = new HashMap<>();
 	private Map<Integer, String> youkoTailsDesaturatedMap = new HashMap<>();
-	
+
 
 	private Map<Colour, String> refinedBackgroundMap = new EnumMap<>(Colour.class);
 	private Map<Colour, String> refinedSwirlsMap = new EnumMap<>(Colour.class);
@@ -111,7 +111,7 @@ public enum SVGImages {
 
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/InventoryIcons/concealed.svg");
 			concealedIcon = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/InventoryIcons/cummedInWarningIcon.svg");
 			cummedInIcon = Util.inputStreamToString(is);
 
@@ -152,7 +152,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/questInventory.svg");
 			questInventoryIconDisabled = Util.inputStreamToString(is);
 			questInventoryIconDisabled = setColour(questInventoryIconDisabled, Colour.BASE_PITCH_BLACK);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/itemsOnFloor.svg");
 			itemsOnFloorIcon = Util.inputStreamToString(is);
 			itemsOnFloorIcon = setColour(itemsOnFloorIcon, Colour.BASE_BLACK);
@@ -185,7 +185,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/glow.svg");
 			diceGlow = Util.inputStreamToString(is);
 			diceGlow = setColour(diceGlow, Colour.BASE_GOLD);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/journal.svg");
 			journalIcon = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/people.svg");
@@ -208,11 +208,11 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/add.svg");
 			addIcon = Util.inputStreamToString(is);
 			addIcon = setColour(addIcon, Colour.BASE_BLACK);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/calendar.svg");
 			calendarIcon = Util.inputStreamToString(is);
 			calendarIcon = setColour(calendarIcon, Colour.BASE_CRIMSON);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/diskSave.svg");
 			diskSave = Util.inputStreamToString(is);
 			diskSave = setColour(diskSave, Colour.BASE_BLACK);
@@ -225,7 +225,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/diskSave.svg");
 			diskSaveConfirm = Util.inputStreamToString(is);
 			diskSaveConfirm = setColour(diskSaveConfirm, Colour.GENERIC_EXCELLENT);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/diskLoad.svg");
 			diskLoad = Util.inputStreamToString(is);
 			diskLoad = setColour(diskLoad, Colour.BASE_BLUE_LIGHT);
@@ -235,26 +235,26 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/diskLoad.svg");
 			diskLoadDisabled = Util.inputStreamToString(is);
 			diskLoadDisabled = setColour(diskLoadDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/diskDelete.svg");
 			diskDelete = Util.inputStreamToString(is);
 			diskDelete = setColour(diskDelete, Colour.BASE_CRIMSON);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/diskDelete.svg");
 			diskDeleteConfirm = Util.inputStreamToString(is);
 			diskDeleteConfirm = setColour(diskDeleteConfirm, Colour.GENERIC_EXCELLENT);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/map/playerIcon.svg");
 			playerMapIconMasculine = Util.inputStreamToString(is);
 			playerMapIconMasculine = setColour(playerMapIconMasculine, Colour.MASCULINE_PLUS);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/map/playerIcon.svg");
 			playerMapIconAndrogynous = Util.inputStreamToString(is);
 			playerMapIconAndrogynous = setColour(playerMapIconAndrogynous, Colour.ANDROGYNOUS);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/map/playerIcon.svg");
 			playerMapIconFeminine = Util.inputStreamToString(is);
 			playerMapIconFeminine = setColour(playerMapIconFeminine, Colour.FEMININE_PLUS);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/map/playerIcon.svg");
 			playerMapDangerousIcon = Util.inputStreamToString(is);
 			playerMapDangerousIcon = setColour(playerMapDangerousIcon, Colour.GENERIC_BAD);
@@ -270,21 +270,21 @@ public enum SVGImages {
 
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceBackgroundDemon.svg");
 			raceBackgroundDemon = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceUnknown.svg");
 			raceUnknown = Util.inputStreamToString(is);
 			raceUnknown = setColour(raceUnknown, Colour.RACE_UNKNOWN);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceDogMorphDobermann.svg");
 			raceDobermann = Util.inputStreamToString(is);
 			raceDobermann = setColour(raceDobermann, Colour.RACE_DOG_MORPH);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceDogMorphDobermann.svg");
 			raceDobermannDesaturated = Util.inputStreamToString(is);
 			raceDobermannDesaturated = setColour(raceDobermannDesaturated, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/perkTreeArrow.svg");
 			perkTreeArrow = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/combat/spell/spell_overlay.svg");
 			spellOverlay = Util.inputStreamToString(is);
 
@@ -329,7 +329,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/weatherNightStormProtected.svg");
 			weatherNightStormProtected = Util.inputStreamToString(is);
 			weatherNightStormProtected = setColour(weatherNightStormProtected, Colour.CLOTHING_BLUE_LIGHT);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/protection.svg");
 			protectionDisabled = Util.inputStreamToString(is);
 			protectionDisabled = setColour(protectionDisabled, Colour.CLOTHING_BLACK);
@@ -339,7 +339,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/tattoo.svg");
 			tattoo = Util.inputStreamToString(is);
 			tattoo = setColour(tattoo, Colour.CLOTHING_BLACK);
-			
+
 
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseCombat.svg");
 			responseCombat = Util.inputStreamToString(is);
@@ -348,25 +348,25 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseLocked.svg");
 			responseLocked = Util.inputStreamToString(is);
 			responseLocked = setColour(responseLocked, Colour.GENERIC_BAD);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseUnlocked.svg");
 			responseUnlocked = Util.inputStreamToString(is);
 			responseUnlocked = setColour(responseUnlocked, Colour.GENERIC_GOOD);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseUnlocked.svg");
 			responseUnlockedDisabled = Util.inputStreamToString(is);
 			responseUnlockedDisabled = setColour(responseUnlockedDisabled, Colour.BASE_BLACK);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseOption.svg");
 			responseOption = Util.inputStreamToString(is);
 			responseOption = setColour(responseOption, Colour.GENERIC_GOOD);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseOption.svg");
 			responseOptionDisabled = Util.inputStreamToString(is);
 			responseOptionDisabled = setColour(responseOptionDisabled, Colour.BASE_BLACK);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseCorruptionBypass.svg");
 			responseCorruptionBypass = Util.inputStreamToString(is);
 			responseCorruptionBypass = setColour(responseCorruptionBypass, Colour.GENERIC_ARCANE);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseSubResist.svg");
 			responseSubResist = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseSubNormal.svg");
@@ -379,7 +379,7 @@ public enum SVGImages {
 			responseDomNormal = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseDomRough.svg");
 			responseDomRough = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseNPC.svg");
 			NPCWarningMale = Util.inputStreamToString(is);
 			NPCWarningMale = setColour(NPCWarningMale, Colour.MASCULINE_PLUS);
@@ -389,13 +389,13 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseNPC.svg");
 			NPCWarningDemon = Util.inputStreamToString(is);
 			NPCWarningDemon = setColour(NPCWarningDemon, Colour.GENERIC_ARCANE);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/stopwatch.svg");
 			stopwatch = Util.inputStreamToString(is);
 			stopwatch = setColour(stopwatch, Colour.BASE_GREY);
-			
+
 			// scales:
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/fetishes/overlay0.svg");
 			counterZero = Util.inputStreamToString(is);
 			counterZero = setColour(counterZero, Colour.BASE_PINK);
@@ -417,7 +417,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/fetishes/overlay5Plus.svg");
 			counterFivePlus = Util.inputStreamToString(is);
 			counterFivePlus = setColour(counterFivePlus, Colour.BASE_PINK);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/fetishes/overlay0.svg");
 			counterZeroDisabled = Util.inputStreamToString(is);
 			counterZeroDisabled = setColour(counterZeroDisabled, Colour.BASE_BLACK);
@@ -439,7 +439,7 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/fetishes/overlay5Plus.svg");
 			counterFivePlusDisabled = Util.inputStreamToString(is);
 			counterFivePlusDisabled = setColour(counterFivePlusDisabled, Colour.BASE_BLACK);
-			
+
 
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/scale_zero.svg");
 			scaleZero = Util.inputStreamToString(is);
@@ -472,80 +472,80 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/scale_four.svg");
 			scaleFourDisabled = Util.inputStreamToString(is);
 			scaleFourDisabled = setColour(scaleFourDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveBuy.svg");
 			slaveBuy = Util.inputStreamToString(is);
 			slaveBuy = setColour(slaveBuy, Colour.GENERIC_BAD);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveBuyDisabled.svg");
 			slaveBuyDisabled = Util.inputStreamToString(is);
 			slaveBuyDisabled = setColour(slaveBuyDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveSell.svg");
 			slaveSell = Util.inputStreamToString(is);
 			slaveSell = setColour(slaveSell, Colour.GENERIC_GOOD);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveSellDisabled.svg");
 			slaveSellDisabled = Util.inputStreamToString(is);
 			slaveSellDisabled = setColour(slaveSellDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveInspect.svg");
 			slaveInspect = Util.inputStreamToString(is);
 			slaveInspect = setColour(slaveInspect, Colour.BASE_BLUE_STEEL);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveInspect.svg");
 			slaveInspectDisabled = Util.inputStreamToString(is);
 			slaveInspectDisabled = setColour(slaveInspectDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveJob.svg");
 			slaveJob = Util.inputStreamToString(is);
 			slaveJob = setColour(slaveJob, Colour.BASE_BROWN_DARK);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveJob.svg");
 			slaveJobDisabled = Util.inputStreamToString(is);
 			slaveJobDisabled = setColour(slaveJobDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slavePermissions.svg");
 			slavePermissions = Util.inputStreamToString(is);
 			slavePermissions = setColour(slavePermissions, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slavePermissionsDisabled.svg");
 			slavePermissionsDisabled = Util.inputStreamToString(is);
 			slavePermissionsDisabled = setColour(slavePermissionsDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveTransfer.svg");
 			slaveTransfer = Util.inputStreamToString(is);
 			slaveTransfer = setColour(slaveTransfer, Colour.GENERIC_GOOD);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveTransfer.svg");
 			slaveTransferDisabled = Util.inputStreamToString(is);
 			slaveTransferDisabled = setColour(slaveTransferDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveCosmetics.svg");
 			slaveCosmetics = Util.inputStreamToString(is);
 			slaveCosmetics = setColour(slaveCosmetics, Colour.BASE_CRIMSON);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveCosmetics.svg");
 			slaveCosmeticsDisabled  = Util.inputStreamToString(is);
 			slaveCosmeticsDisabled = setColour(slaveCosmeticsDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionBuy.svg");
 			transactionBuy = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionBuyDisabled.svg");
 			transactionBuyDisabled = Util.inputStreamToString(is);
 			transactionBuyDisabled = setColour(transactionBuyDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionBid.svg");
 			transactionBid = Util.inputStreamToString(is);
 			transactionBid = setColour(transactionBid, Colour.BASE_BROWN);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionBid.svg");
 			transactionBidDisabled = Util.inputStreamToString(is);
 			transactionBidDisabled = setColour(transactionBidDisabled, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionSell.svg");
 			transactionSell = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionSellDisabled.svg");
 			transactionSellDisabled = Util.inputStreamToString(is);
 			transactionSellDisabled = setColour(transactionSellDisabled, Colour.BASE_GREY);
-			
+
 			for(int i=1; i<=9; i++) {
 				is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceFoxTail"+i+".svg");
 				String svg = Util.inputStreamToString(is);
@@ -554,9 +554,9 @@ public enum SVGImages {
 						Colour.RACE_FOX_MORPH,
 						Colour.RACE_FOX_MORPH,
 						svg);
-				
+
 				youkoTailsMap.put(i, svg);
-				
+
 
 				is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceFoxTail"+i+".svg");
 				svg = Util.inputStreamToString(is);
@@ -565,10 +565,10 @@ public enum SVGImages {
 						Colour.BASE_GREY,
 						Colour.BASE_GREY,
 						svg);
-				
+
 				youkoTailsDesaturatedMap.put(i, svg);
 			}
-			
+
 
 			// Effects:
 
@@ -581,13 +581,13 @@ public enum SVGImages {
 			fluidIngested = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/fluidIngestedMasochist.svg");
 			fluidIngestedMasochist = Util.inputStreamToString(is);
-			
+
 			// Items:
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/hypnoClockBase.svg");
 			hypnoWatchBase = Util.inputStreamToString(is);
 			hypnoWatchBase = setColour(hypnoWatchBase, Colour.BASE_GREY);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/hypnoClockGyne.svg");
 			hypnoWatchGynephilic = Util.inputStreamToString(is);
 			hypnoWatchGynephilic = setColour(hypnoWatchGynephilic, Colour.FEMININE_PLUS);
@@ -599,9 +599,9 @@ public enum SVGImages {
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/hypnoClockAndro.svg");
 			hypnoWatchAndrophilic = Util.inputStreamToString(is);
 			hypnoWatchAndrophilic = setColour(hypnoWatchAndrophilic, Colour.MASCULINE_PLUS);
-			
+
 			// Sex:
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/coverableAreaAnus.svg");
 			coverableAreaAnus = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/coverableAreaAss.svg");
@@ -618,7 +618,7 @@ public enum SVGImages {
 			coverableAreaVagina = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/coverableAreaMound.svg");
 			coverableAreaMound = Util.inputStreamToString(is);
-			
+
 
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/coverableAreaBreastsCrotch.svg");
 			coverableAreaBreastsCrotch = Util.inputStreamToString(is);
@@ -631,10 +631,10 @@ public enum SVGImages {
 			coverableAreaUrethraVagina = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/coverableAreaUrethraPenis.svg");
 			coverableAreaUrethraPenis = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/coverableAreaThighs.svg");
 			coverableAreaThighs = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/penetrationTypeFinger.svg");
 			penetrationTypeFinger = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/penetrationTypePenis.svg");
@@ -645,7 +645,7 @@ public enum SVGImages {
 			penetrationTypeTongue = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/penetrationTypeFoot.svg");
 			penetrationTypeFoot = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/combinationStretching.svg");
 			combinationStretching = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/combinationTooLoose.svg");
@@ -654,27 +654,27 @@ public enum SVGImages {
 			combinationWet = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/combinationDry.svg");
 			combinationDry = Util.inputStreamToString(is);
-			
+
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/stretching.svg");
 			stretching = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/holeTooBig.svg");
 			holeTooBig = Util.inputStreamToString(is);
-			
+
 			String tempString = "";
 			for(AbstractItemEffectType effect : ItemEffectType.getAllEffectTypes()) {
 				is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/refined_background.svg");
 				tempString = Util.inputStreamToString(is);
 				tempString = setColour(tempString, effect.getColour());
-				
+
 				refinedBackgroundMap.put(effect.getColour(), tempString);
 			}
-			
+
 			tempString = "";
 			for(TFModifier secondaryModifier : TFModifier.values()) {
 				is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/refined_swirls.svg");
 				tempString = Util.inputStreamToString(is);
 				tempString = setColour(tempString, secondaryModifier.getColour());
-				
+
 				refinedSwirlsMap.put(secondaryModifier.getColour(), tempString);
 			}
 
@@ -698,7 +698,7 @@ public enum SVGImages {
 	public String getConcealedIcon() {
 		return concealedIcon;
 	}
-	
+
 	public String getCummedInIcon() {
 		return cummedInIcon;
 	}
@@ -766,7 +766,7 @@ public enum SVGImages {
 	public String getCopyIcon() {
 		return copyIcon;
 	}
-	
+
 	public String getExportIcon() {
 		return exportIcon;
 	}
@@ -789,7 +789,7 @@ public enum SVGImages {
 	public String getDiskSaveDisabled() {
 		return diskSaveDisabled;
 	}
-	
+
 	public String getDiskSaveConfirm() {
 		return diskSaveConfirm;
 	}
@@ -801,7 +801,7 @@ public enum SVGImages {
 	public String getDiskLoad() {
 		return diskLoad;
 	}
-	
+
 	public String getDiskLoadConfirm() {
 		return diskLoadConfirm;
 	}
@@ -813,7 +813,7 @@ public enum SVGImages {
 	public String getDiskDelete() {
 		return diskDelete;
 	}
-	
+
 	public String getDiskDeleteConfirm() {
 		return diskDeleteConfirm;
 	}
@@ -841,7 +841,7 @@ public enum SVGImages {
 	public String getPerkTreeArrow() {
 		return perkTreeArrow;
 	}
-	
+
 	public String getSpellOverlay() {
 		return spellOverlay;
 	}
@@ -873,7 +873,7 @@ public enum SVGImages {
 	public String getWeatherDayRain() {
 		return weatherDayRain;
 	}
-	
+
 	public String getWeatherDaySnow() {
 		return weatherDaySnow;
 	}
@@ -901,7 +901,7 @@ public enum SVGImages {
 	public String getWeatherNightRain() {
 		return weatherNightRain;
 	}
-	
+
 	public String getWeatherNightSnow() {
 		return weatherNightSnow;
 	}
@@ -945,7 +945,7 @@ public enum SVGImages {
 	public String getResponseUnlocked() {
 		return responseUnlocked;
 	}
-	
+
 	public String getResponseUnlockedDisabled() {
 		return responseUnlockedDisabled;
 	}
@@ -1001,15 +1001,15 @@ public enum SVGImages {
 	public String getCoverableAreaAss() {
 		return coverableAreaAss;
 	}
-	
+
 	public String getCoverableAreaNipple() {
 		return coverableAreaNipple;
 	}
-	
+
 	public String getCoverableAreaBreasts() {
 		return coverableAreaBreasts;
 	}
-	
+
 	public String getCoverableAreaBreastsFlat() {
 		return coverableAreaBreastsFlat;
 	}
@@ -1033,15 +1033,15 @@ public enum SVGImages {
 	public String getCoverableAreaMound() {
 		return coverableAreaMound;
 	}
-	
+
 	public String getCoverableAreaUrethraVagina() {
 		return coverableAreaUrethraVagina;
 	}
-	
+
 	public String getCoverableAreaUrethraPenis() {
 		return coverableAreaUrethraPenis;
 	}
-	
+
 	public String getCoverableAreaThighs() {
 		return coverableAreaThighs;
 	}
@@ -1049,15 +1049,15 @@ public enum SVGImages {
 	public String getPenetrationTypeFinger() {
 		return penetrationTypeFinger;
 	}
-	
+
 	public String getPenetrationTypeTail() {
 		return penetrationTypeTail;
 	}
-	
+
 	public String getPenetrationTypeTongue() {
 		return penetrationTypeTongue;
 	}
-	
+
 	public String getPenetrationTypePenis() {
 		return penetrationTypePenis;
 	}
@@ -1065,7 +1065,7 @@ public enum SVGImages {
 	public String getPenetrationTypeFoot() {
 		return penetrationTypeFoot;
 	}
-	
+
 	public String getCombinationStretching() {
 		return combinationStretching;
 	}
@@ -1085,7 +1085,7 @@ public enum SVGImages {
 	public String getStretching() {
 		return stretching;
 	}
-	
+
 	public String getHoleTooBig() {
 		return holeTooBig;
 	}
@@ -1097,11 +1097,11 @@ public enum SVGImages {
 	public Map<Colour, String> getRefinedSwirlsMap() {
 		return refinedSwirlsMap;
 	}
-	
+
 	public String getHypnoWatchBase() {
 		return hypnoWatchBase;
 	}
-	
+
 	public String getHypnoWatchGynephilic() {
 		return hypnoWatchGynephilic;
 	}
@@ -1165,7 +1165,7 @@ public enum SVGImages {
 	public String getSlaveInspect() {
 		return slaveInspect;
 	}
-	
+
 	public String getSlaveInspectDisabled() {
 		return slaveInspectDisabled;
 	}
@@ -1173,7 +1173,7 @@ public enum SVGImages {
 	public String getSlaveJob() {
 		return slaveJob;
 	}
-	
+
 	public String getSlaveJobDisabled() {
 		return slaveJobDisabled;
 	}
@@ -1181,7 +1181,7 @@ public enum SVGImages {
 	public String getSlavePermissions() {
 		return slavePermissions;
 	}
-	
+
 	public String getSlavePermissionsDisabled() {
 		return slavePermissionsDisabled;
 	}
@@ -1201,11 +1201,11 @@ public enum SVGImages {
 	public String getSlaveTransferDisabled() {
 		return slaveTransferDisabled;
 	}
-	
+
 	public String getSlaveCosmetics() {
 		return slaveCosmetics;
 	}
-	
+
 	public String getSlaveCosmeticsDisabled() {
 		return slaveCosmeticsDisabled;
 	}
@@ -1217,11 +1217,11 @@ public enum SVGImages {
 	public String getTransactionBuyDisabled() {
 		return transactionBuyDisabled;
 	}
-	
+
 	public String getTransactionBid() {
 		return transactionBid;
 	}
-	
+
 	public String getTransactionBidDisabled() {
 		return transactionBidDisabled;
 	}
@@ -1273,7 +1273,7 @@ public enum SVGImages {
 	public String getRaceDobermann() {
 		return raceDobermann;
 	}
-	
+
 	public String getRaceDobermannDesaturated() {
 		return raceDobermannDesaturated;
 	}
@@ -1341,7 +1341,7 @@ public enum SVGImages {
 	public String getDrinkSmall() {
 		return drinkSmall;
 	}
-	
+
 	public String getDrink() {
 		return drink;
 	}
@@ -1389,5 +1389,5 @@ public enum SVGImages {
 	public String getFoxTailDesaturated(int i) {
 		return youkoTailsDesaturatedMap.get(i);
 	}
-	
+
 }

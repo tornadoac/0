@@ -214,10 +214,10 @@
 		[npc.speech(Sure...)] [npc.she] hesitantly replies, before letting out a resigned sigh as [npc.she] realises what it is you're going to do. [npc.speech(If that's what you want to do, then fine, whatever.)]
 	</p>
 	<p>
-		Turning away from your companion and kneeling down beside [npc2.name], you offer your apologies, [pc.speech(I'm sorry, I think we went a little too far. Are you ok?)]
+		Turning away from your companion and kneeling down beside [npc2.name], you offer your apologies, [pc.speech(I'm sorry, I think we went a little too far. Are you OK?)]
 	</p>
 	<p>
-		[npc2.speech(Yer a real [pc.insult], ain't yer?! Course we ain't ok!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at you. [npc2.speech(How yer gonna apologise, huh, [pc.insult]?!)]
+		[npc2.speech(Yer a real [pc.insult], ain't yer?! Course we ain't OK!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at you. [npc2.speech(How yer gonna apologise, huh, [pc.insult]?!)]
 	</p>
 	<p>
 		The commanding tone in [npc2.namePos] voice makes you let out an excited little whimper. [pc.speech(Well, how about you and your friends use me however you want!)]
@@ -261,10 +261,10 @@
 		#ENDIF
 	</p>
 	<p>
-		Getting your companion to kneel down beside you in front of [npc2.name], you offer your apologies, [pc.speech(I'm sorry, I think we went a little too far. Are you ok?)]
+		Getting your companion to kneel down beside you in front of [npc2.name], you offer your apologies, [pc.speech(I'm sorry, I think we went a little too far. Are you OK?)]
 	</p>
 	<p>
-		[npc2.speech(Yer a real pair o' [pc.insultPlural], ain't yer?! Course we ain't ok!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at the two of you. [npc2.speech(How yer gonna apologise, huh, [pc.insultPlural]?!)]
+		[npc2.speech(Yer a real pair o' [pc.insultPlural], ain't yer?! Course we ain't OK!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at the two of you. [npc2.speech(How yer gonna apologise, huh, [pc.insultPlural]?!)]
 	</p>
 	<p>
 		The commanding tone in [npc2.namePos] voice makes you let out an excited little whimper. [pc.speech(Well, how about you and your friends use me and [npc.name] here however you want!)]
@@ -337,7 +337,7 @@
 		[npc2.speech(Hah! What was all that about?!)] [npc2.name] sneers, stepping forwards to grin hungrily down at you and your companion. [npc2.speech(I bet yer was both just hopin' we'd win, so that we'd give yer a good fucking!)]
 	</p>
 	<p>
-		The other imps all agree with their leader, and quickly conclude that you only started this fight in the hopes that they'd beat and fuck you. Before you can say anything to the contrary, they've convinced themselves that this must be your fetish, and agree amongst one another that they'd be more than happy to help indulge you in it. Before you know what's happing, the imps are swarming all over you and [npc.name], and as they push the two of you into position, [npc2.name] calls out, [npc2.speech(Let's give 'em what they's wantin'; a good, hard, fuckin'!)]
+		The other imps all agree with their leader, and quickly conclude that you only started this fight in the hopes that they'd beat and fuck you. Before you can say anything to the contrary, they've convinced themselves that this must be your fetish, and agree amongst one another that they'd be more than happy to help indulge you in it. Before you know what's happing, the imps are swarming all over you and [npc.name], and as they push the two of you into position, [npc2.name] calls out, [npc2.speech(Let's give 'em what they's wantin': a good, hard, fuckin'!)]
 	</p>
 	]]>
 	</htmlContent>
@@ -350,7 +350,7 @@
 		[npc2.speech(Hah! What was all that about?!)] [npc2.name] laughs, stepping forwards to sneer down at you. [npc2.speech(I bet yer was both just testin' us, weren't yer?!)]
 	</p>
 	<p>
-		You let out a low groan, which the imps take as an affirmation of their assumption. Still regarding you and [npc.name] as their leader's guests, it seems as though they're reluctant to do anything more to you, and as the rest of the imps wander off, [npc2.name] reprimands the two of you, [npc2.speech(Don't yer go tryin' taht again, yer hear?! We ain't got time fer yer games!)]
+		You let out a low groan, which the imps take as an affirmation of their assumption. Still regarding you and [npc.name] as their leader's guests, it seems as though they're reluctant to do anything more to you, and as the rest of the imps wander off, [npc2.name] reprimands the two of you, [npc2.speech(Don't yer go tryin' that again, yer hear?! We ain't got time fer yer games!)]
 	</p>
 	<p>
 		Turning [npc2.her] back on you, [npc2.name] joins [npc2.her] comrades in leaving you to recover. As you push yourself back up onto your [pc.feet], you wonder what you and [npc.name] should do now...
@@ -931,7 +931,7 @@
 	
 	<htmlContent tag="LABORATORY_ARCANIST_SOLO_TF"><![CDATA[
 	<p>
-		[pc.speech(Ok, I'll drink it,)] you say. [pc.speech(Being a fox-girl sounds kind of hot...)]
+		[pc.speech(OK, I'll drink it,)] you say. [pc.speech(Being a fox-girl sounds kind of hot...)]
 	</p>
 	<p>
 		[citadelArcanist.speech(I knew you'd do it,)] [citadelArcanist.name] giggles. [citadelArcanist.speech(Now, open wide!)]

@@ -6,5 +6,5 @@ package com.lilithsthrone.game.sex.sexActions.dominion;
  * @author Innoxia
  */
 public class KrugerThreesome {
-	
+
 }

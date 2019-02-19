@@ -11,25 +11,25 @@ import com.lilithsthrone.game.sex.SexType;
 
 /**
  * Slots which characters can occupy in sex positions.
- * 
+ *
  * @since 0.3.1
  * @version 0.3.1
  * @author Innoxia
  */
 public class SexSlot {
-	
+
 	private String name;
 	private String description;
 	private String orgasmDescription;
 	private boolean standing;
-	
+
 	public SexSlot(String name, String description, String orgasmDescription, boolean standing) {
 		this.name = name;
 		this.description = description;
 		this.orgasmDescription = orgasmDescription;
 		this.standing = standing;
 	}
-	
+
 	/**
 	 * <b>Should only be used for basic slots!</b> This is due to the fact that the 'name' variable is set via a getName(null) call, and the 'standing' variable is set via a isStanding(null) call.
 	 * @param slotToCopy
@@ -54,7 +54,7 @@ public class SexSlot {
 	public String getDescription() {
 		return description;
 	}
-	
+
 	/**
 	 * return The description of the character in this slot orgasming. 'npc' is the parser tag used for the orgasming character, while 'npc2' is for the targeted character that they're interacting with.
 	 */
@@ -70,10 +70,10 @@ public class SexSlot {
 	public boolean isStanding(GameCharacter target) {
 		return standing;
 	}
-	
+
 	public boolean isMeetsPreferenceCriteria(GameCharacter character, AbstractSexPosition position, SexType preference) {
 		VariableInteractions.setCharacterForPositionTesting(character);
-		
+
 		if(position.getSlotTargets().containsKey(this)) {
 			for(SexActionInteractions value : position.getSlotTargets().get(this).values()) {
 				for(Entry<SexAreaInterface, List<SexAreaInterface>> interaction : value.getInteractions().entrySet()) {
@@ -106,12 +106,11 @@ public class SexSlot {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 0;
 		result = 31 * result + getDescription().hashCode();
 		return result;
 	}
-	
 }

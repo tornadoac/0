@@ -899,8 +899,8 @@ public class HarpyNestOffspringDialogue {
 													"<p>"
 														+ "Letting out a disappointed whine, your [npc.daughter] reluctantly accepts your excuse to leave."
 														+ (offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH
-																?" [npc.speech(Ok then... I'll see you later!)]"
-																:" [npc.speech(Ok then... I'll see you later I guess...)]")
+																?" [npc.speech(OK then... I'll see you later!)]"
+																:" [npc.speech(OK then... I'll see you later I guess...)]")
 													+"</p>");
 											break;
 										default:
@@ -953,7 +953,7 @@ public class HarpyNestOffspringDialogue {
 													"<p>"
 														+ "Letting out a miserable whine, your [npc.daughter] reluctantly accepts your excuse to leave."
 														+ (offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH
-																?" [npc.speech(Aww... Come back soon, ok?! I miss you!)]"
+																?" [npc.speech(Aww... Come back soon, OK?! I miss you!)]"
 																:" [npc.speech(Aww... I hope you come back soon...)]")
 													+"</p>");
 											break;
@@ -1269,7 +1269,7 @@ public class HarpyNestOffspringDialogue {
 									+ "</p>"
 									+ "<p>"
 										+ "You follow your [npc.daughter]'s lead and get up off the sofa."
-										+ " [pc.speech(Ok, well I hope you don't mind me coming to visit some other time!)]"
+										+ " [pc.speech(OK, well I hope you don't mind me coming to visit some other time!)]"
 									+ "</p>"
 									+ "<p>"
 										+ "[npc.speech(Not at all! I'd love to see you again!)]"
@@ -1424,7 +1424,7 @@ public class HarpyNestOffspringDialogue {
 										+ "</p>"
 										+ "<p>"
 											+ "Your [npc.daughter] follows your lead as you stand up and get up off the sofa."
-											+ " [npc.speech(Ok, [npc.pcName], come back to visit soon!)]"
+											+ " [npc.speech(OK, [npc.pcName], come back to visit soon!)]"
 										+ "</p>"
 										+ "<p>"
 											+ "[pc.speech(Of course, I'll visit you again as soon as I can,)]"
@@ -1961,7 +1961,7 @@ public class HarpyNestOffspringDialogue {
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "A flicker of worry crosses [npc.namePos] face for a moment, but [npc.she] quickly regains [npc.her] composure."
-							+ " [npc.speech(Well, I <i>could</i> take you as a client, but this is strictly professional, ok? I do love you, but not quite in the same way that I think you love me...)]"
+							+ " [npc.speech(Well, I <i>could</i> take you as a client, but this is strictly professional, OK? I do love you, but not quite in the same way that I think you love me...)]"
 						+ "</p>"
 						+ "<p>"
 							+ "Although you're disappointed to hear that [npc.sheIs] not interested in having sex with you, you're nonetheless relieved to hear that there's still an opportunity to get what you want."
@@ -1983,7 +1983,7 @@ public class HarpyNestOffspringDialogue {
 								+ " [pc.speech(Well, the offer's out there, if you ever change your mind.)]"
 						+ "</p>"
 						+ "<p>"
-							+ "[npc.speech(Ok, can we move on and pretend that this never happened now?!)]"
+							+ "[npc.speech(OK, can we move on and pretend that this never happened now?!)]"
 							+ " [npc.she] says, clearly upset by this turn of events."
 						+ "</p>");
 			}
@@ -2471,13 +2471,13 @@ public class HarpyNestOffspringDialogue {
 							+ "You can't carry on fighting any more, and you feel your [pc.legs] giving out beneath you as you collapse to the ground, defeated."
 						+ "</p>"
 						+ "<p>"
-							+ "[npc.speech(Are you ok, [npc.pcName]?!)] [npc.name] shouts, before leaning down to grab one of your [pc.arms]."
+							+ "[npc.speech(Are you OK, [npc.pcName]?!)] [npc.name] shouts, before leaning down to grab one of your [pc.arms]."
 							+ " [npc.speech(I was only defending myself!)]"
 						+ "</p>"
 						+ "<p>"
 							+ "As you groan in the affirmative, [npc.name] lets out a sigh of relief."
 							+ " Pulling you to your feet, [npc.she] suddenly steps forwards and presses [npc.herself] up against you."
-							+ " [npc.speech(Well, so long as you're ok, I think it's time for your apology!)]"
+							+ " [npc.speech(Well, so long as you're OK, I think it's time for your apology!)]"
 						+ "</p>"
 						+ "<p>"
 							+ "The moment that you open your mouth to respond, your [npc.daughter] darts forwards, pressing [npc.her] [npc.lips+] against yours as [npc.she] pulls you into a passionate kiss."
@@ -2491,7 +2491,7 @@ public class HarpyNestOffspringDialogue {
 							+ "You can't carry on fighting any more, and you feel your [pc.legs] giving out beneath you as you collapse to the ground, defeated."
 						+ "</p>"
 						+ "<p>"
-							+ "[npc.speech(Are you ok [npc.pcName]?!)] [npc.name] shouts, before leaning down to grab one of your [pc.arms]."
+							+ "[npc.speech(Are you OK [npc.pcName]?!)] [npc.name] shouts, before leaning down to grab one of your [pc.arms]."
 							+ " [npc.speech(I was only defending myself!)]"
 						+ "</p>"
 						+ "<p>"

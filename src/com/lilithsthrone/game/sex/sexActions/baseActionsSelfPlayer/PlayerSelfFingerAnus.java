@@ -23,7 +23,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PlayerSelfFingerAnus {
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_ANUS_SPREAD_ASS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.TWO_LOW,
@@ -31,12 +31,12 @@ public class PlayerSelfFingerAnus {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.SELF) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.getSexPace(Main.game.getPlayer())!=SexPace.SUB_RESISTING && Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Spread ass";
@@ -63,7 +63,7 @@ public class PlayerSelfFingerAnus {
 							"Sliding your fingertips over your [pc.asshole+], you let out [pc.a_moan+] as you grab your [pc.assSize] ass cheeks and pull them apart in order to present your [pc.asshole+].",
 							"You eagerly slide your [pc.fingers] over your needy [pc.asshole], [pc.moaning+] as you use your [pc.hands] to pull your ass cheeks aside and present yourself for anal penetration.");
 				}
-				
+
 			} else {
 				if((Sex.getPosition()==SexPositionBipeds.DOGGY_STYLE && Sex.getSexPositionSlot(Main.game.getPlayer())==SexSlotBipeds.DOGGY_ON_ALL_FOURS)) {
 					return UtilText.parse(Sex.getCharacterTargetedForSexAction(this),
@@ -81,10 +81,10 @@ public class PlayerSelfFingerAnus {
 							"You eagerly slide your [pc.fingers] over your needy [pc.asshole], [pc.moaning+] as you use your [pc.hands] to pull your ass cheeks aside and present yourself for anal penetration."));
 				}
 			}
-			
+
 		}
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_ANUS_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -96,7 +96,7 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Anal fingering (self)";
@@ -111,16 +111,16 @@ public class PlayerSelfFingerAnus {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Reaching around to your [pc.ass], you tease your [pc.fingers] over the entrance to your [pc.asshole+], before pushing them inside and letting out a deep sigh.",
-					
+
 					"You probe your [pc.fingers] down over your [pc.ass], and can't help but let out a loud [pc.moan+] as you push two of your digits into your inviting [pc.asshole].",
-					
+
 					"Sliding your fingertips down over your neglected [pc.asshole], you let out a deep [pc.moan] as you push your digits inside.",
-					
+
 					"You eagerly push your [pc.fingers] into your [pc.asshole+], [pc.moaning] out loud as you start pumping your digits in and out of your [pc.ass].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_ANUS_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -133,12 +133,12 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle anal fingering (self)";
@@ -153,16 +153,16 @@ public class PlayerSelfFingerAnus {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you slowly push your [pc.fingers] deep inside your [pc.asshole+].",
-					
+
 					"Gently pumping your [pc.fingers] in and out of your [pc.asshole+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically finger your [pc.ass].",
-					
+
 					"Curling your [pc.fingers] up inside your [pc.asshole], you let out a little whimper as you start "+(Main.game.getPlayer().hasPenis()?"gently stroking your prostate.":"gently fingering your [pc.ass+]."),
-					
+
 					"Focusing on pleasuring your [pc.ass+], you start gently pumping your [pc.fingers] in and out of your [pc.asshole+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_ANUS_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -175,12 +175,12 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Anal fingering (self)";
@@ -195,16 +195,16 @@ public class PlayerSelfFingerAnus {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you greedily push your [pc.fingers] deep inside your [pc.asshole+].",
-					
+
 					"Pumping your [pc.fingers] in and out of your [pc.asshole+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically finger your [pc.ass].",
-					
+
 					"Curling your [pc.fingers] up inside your [pc.asshole], you let out [pc.a_moan] as you start "+(Main.game.getPlayer().hasPenis()?"stroking your prostate.":"fingering your [pc.ass+]."),
-					
+
 					"Focusing on pleasuring your [pc.ass+], you start pumping your [pc.fingers] in and out of your [pc.asshole+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_ANUS_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -217,12 +217,12 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Rough anal fingering (self)";
@@ -237,19 +237,19 @@ public class PlayerSelfFingerAnus {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you roughly slam your [pc.fingers] deep inside your [pc.asshole+], before starting to roughly finger your [pc.ass].",
-					
+
 					"Roughly pumping your [pc.fingers] in and out of your [pc.asshole+], you find yourself letting out a series of delighted [pc.moans] as you ruthlessly finger your own [pc.ass].",
-					
+
 					"Forcefully curling your [pc.fingers] up inside your [pc.asshole], you let out [pc.a_moan] as you start "
 							+(Main.game.getPlayer().hasPenis()
 									?"roughly grinding your fingertips up against your prostate."
 									:"roughly grinding your digits in and out of your [pc.ass+]."),
-					
+
 					"Focusing on pleasuring your [pc.ass+], you start roughly slamming your [pc.fingers] in and out of your [pc.asshole+].");
 		}
 
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_FINGER_ANUS_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -262,12 +262,12 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Anal fingering (self)";
@@ -282,16 +282,16 @@ public class PlayerSelfFingerAnus {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you greedily push your [pc.fingers] deep inside your [pc.asshole+].",
-					
+
 					"Pumping your [pc.fingers] in and out of your [pc.asshole+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically finger your [pc.ass].",
-					
+
 					"Curling your [pc.fingers] up inside your [pc.asshole], you let out [pc.a_moan] as you start "+(Main.game.getPlayer().hasPenis()?"stroking your prostate.":"fingering your [pc.ass+]."),
-					
+
 					"Focusing on pleasuring your [pc.ass+], you start pumping your [pc.fingers] in and out of your [pc.asshole+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_FINGER_ANUS_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -304,12 +304,12 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager anal fingering (self)";
@@ -324,19 +324,19 @@ public class PlayerSelfFingerAnus {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you eagerly slam your [pc.fingers] deep inside your [pc.asshole+], before starting to desperately finger your [pc.ass].",
-					
+
 					"Enthusiastically pumping your [pc.fingers] in and out of your [pc.asshole+], you find yourself letting out a series of delighted [pc.moans] as you frantically finger your own [pc.ass].",
-					
+
 					"Desperately curling your [pc.fingers] up inside your [pc.asshole], you let out [pc.a_moan] as you start "
 							+(Main.game.getPlayer().hasPenis()
 									?"eagerly grinding your fingertips up against your prostate."
 									:"eagerly grinding your digits in and out of your [pc.ass+]."),
-					
+
 					"Focusing on pleasuring your [pc.ass+], you eagerly start slamming your [pc.fingers] in and out of your [pc.asshole+].");
 		}
 
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_ANUS_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -348,7 +348,7 @@ public class PlayerSelfFingerAnus {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop anal fingering (self)";

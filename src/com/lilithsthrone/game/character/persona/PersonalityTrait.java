@@ -34,7 +34,7 @@ public enum PersonalityTrait {
 			"Selfish", "You treat others in an unfriendly, hostile manner, and rather than showing any signs of wanting to cooperate, you're far more likely to act in a competitive manner.",
 			"Average", "You are friendly towards new people, but are also liable to drop any pretence of cooperation and compassion if that person turns out to be less-than-amicable.",
 			"Trusting", "You are very trusting, and always try your best to be friendly towards other people."),
-	
+
 	/**How organised and willing to plan ahead a person is. It indicates the level of self-discipline a person has, and how seriously they treat their obligations to others.<br/>
 	 * Careless -> Average -> Vigilant*/
 	CONSCIENTIOUSNESS("Conscientiousness",
@@ -71,12 +71,12 @@ public enum PersonalityTrait {
 			"Confident", "You are very emotionally stable, and always feel calm and in control.",
 			"Average", "You have your emotions under control, for the most part.",
 			"Neurotic", "You have a tendency to interpret situations in the worst possible manner, and often feel anxious, frustrated, and worried.");
-	
+
 
 	private String name;
 	private String description;
 	private Colour colour;
-	
+
 	private String nameLow;
 	private String descriptionLow;
 	private String nameAverage;
@@ -90,7 +90,7 @@ public enum PersonalityTrait {
 	private String descriptionAveragePlayer;
 	private String nameHighPlayer;
 	private String descriptionHighPlayer;
-	
+
 	private PersonalityTrait(String name, String description, Colour colour,
 			String nameLow, String descriptionLow,
 			String nameAverage, String descriptionAverage,
@@ -98,7 +98,7 @@ public enum PersonalityTrait {
 			String nameLowPlayer, String descriptionLowPlayer,
 			String nameAveragePlayer, String descriptionAveragePlayer,
 			String nameHighPlayer, String descriptionHighPlayer) {
-		
+
 		this.name = name;
 		this.description = description;
 		this.colour = colour;
@@ -121,7 +121,7 @@ public enum PersonalityTrait {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getNameFromWeight(GameCharacter character, PersonalityWeight weight) {
 		switch(weight) {
 			case LOW:
@@ -136,7 +136,7 @@ public enum PersonalityTrait {
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public String getDescriptionFromWeight(GameCharacter character, PersonalityWeight weight) {
 		switch(weight) {
 			case LOW:
@@ -147,11 +147,11 @@ public enum PersonalityTrait {
 				return this.getDescriptionAverage(character);
 		}
 	}
-	
+
 	public Colour getColour() {
 		return colour;
 	}
-	
+
 	public String getNameLow(GameCharacter character) {
 		if(character.isPlayer()) {
 			return nameLowPlayer;
@@ -199,5 +199,4 @@ public enum PersonalityTrait {
 			return UtilText.parse(character, descriptionHigh);
 		}
 	}
-
 }

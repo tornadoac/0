@@ -1212,7 +1212,7 @@ public class EnforcerHQDialogue {
 							+ " she asks. [brax.speechNoEffects(I'm, like, totally horny right now!)]"
 						+ "</p>"
 						+ "<p>"
-							+ "[candi.speechNoEffects(Hehe! Good girl, Brandi! You gotta, like, remember to ask nicely like that, ok?)]"
+							+ "[candi.speechNoEffects(Hehe! Good girl, Brandi! You gotta, like, remember to ask nicely like that, OK?)]"
 							+ " Candi says, handing you [brax.namePos] pink leash before moving to make her exit."
 							+ " [candi.speechNoEffects(I gotta, like, watch the front desk, or else the chief's gonna take Brandi away from me!)]"
 						+ "</p>"
@@ -1494,7 +1494,7 @@ public class EnforcerHQDialogue {
 			return "<p>"
 					+ "You wonder just how gullible this 'Chief of Dominion Operations' really is, and, pushing your luck, you continue bluffing, "
 					+ UtilText.parsePlayerSpeech("You know, I pride myself on the fact that 'The She-wolf's Den' is only known only amongst the most important and influential people in Dominion."
-							+ " You see, it takes people of that refinement to really appreciate the fact that I hire only the most beautiful and skillful of wolf-girls.")
+							+ " You see, it takes people of that refinement to really appreciate the fact that I hire only the most beautiful and skilful of wolf-girls.")
 					+ "</p>"
 					+ "<p>"
 					+ "You struggle not to laugh as you see [brax.namePos] eyes glazing over with lust. "

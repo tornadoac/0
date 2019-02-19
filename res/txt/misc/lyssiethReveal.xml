@@ -65,7 +65,7 @@
 		[elizabeth.speech(Good. Now, there's something you need to know,)] Elizabeth continues, blushing a little as she awkwardly tries to explain, [elizabeth.speech(Her Highness, well, she likes to... That is, she respects humans a lot, and, erm... Well, she likes to take on the form of a human. You are absolutely not to judge her on that, nor are you to judge the manner in which she derives entertainment!)]
 	</p>
 	<p>
-		[pc.speech(Ok, I'm not judging,)] you reply, [pc.speech(but what do you mean, 'entertainment'?)]
+		[pc.speech(OK, I'm not judging,)] you reply, [pc.speech(but what do you mean, 'entertainment'?)]
 	</p>
 	<p>
 		Elizabeth flinches as you ask this, before replying [elizabeth.speech(Well, Her Highness likes to act out a certain fantasy, in which she's, erm... what did she call it... a 'chief executive officer'?)]
@@ -122,7 +122,7 @@
 		[lyssieth.speech(Very well, show [pc.herHim] in,)] Lyssieth replies.
 	</p>
 	<p>
-		[siren.speech(Yes, mother,)] [siren.name] responds, before addressing you as she walks over to the mahogany door, [siren.speech(Right this way, [pc.name], and don't even <i>think</i> of telling on me, ok?!)]
+		[siren.speech(Yes, mother,)] [siren.name] responds, before addressing you as she walks over to the mahogany door, [siren.speech(Right this way, [pc.name], and don't even <i>think</i> of telling on me, OK?!)]
 	</p>
 	]]>
 	</htmlContent>
@@ -217,7 +217,7 @@
 		With a final, defeated sigh, she looks down at her ruined chair, and lets out a very sad chuckle, [lyssieth.speech(Now look what I've done...)]
 	</p>
 	<p>
-		[siren.speech(Mom? Are you ok?)] [siren.name] asks in a quivering voice, and you glance over to see that she looks to be on the verge of tears.
+		[siren.speech(Mom? Are you OK?)] [siren.name] asks in a quivering voice, and you glance over to see that she looks to be on the verge of tears.
 	</p>
 	<p>
 		[lyssieth.speech(Yes, I'm sorry, my darling,)] Lyssieth sighs, smiling at her daughter, before looking back down at you. You see that the colour of her eyes has shifted back to a calm green, and, once again tucking a loose strand of her wavy dark-brown hair back behind her ear, she gives you an apologetic smile. [lyssieth.speech(And I'm especially sorry to you, [pc.name]. I should have known that this day would come, and that I must choose to betray Lilith. You should not have had to endure the consequence of my indecision. Please, do stand up.)]
@@ -261,7 +261,7 @@
 	
 	<htmlContent tag="OFFICE_TELEPORT"><![CDATA[
 	<p>
-		[pc.speech(Ok, let's go,)] you say, [pc.speech(I can't wait to get to the bottom of all this.)]
+		[pc.speech(OK, let's go,)] you say, [pc.speech(I can't wait to get to the bottom of all this.)]
 	</p>
 	<p>
 		Doing as you're asked, you and [siren.name] step forwards to either side of Lyssieth, who quickly reaches out and pulls each of you into a one-armed hug. As you and her daughter are pressed in against her huge breasts, the elder lilin lets out a soft laugh, [lyssieth.speech(This feels cozy! Now, let me just disable mother's spells... And... Let's go!)]
@@ -659,7 +659,7 @@
 		[lyssieth.speech(I will not allow such a lazy individual to stay in contact with my daughter!)] Lyssieth angrily joins in.
 	</p>
 	<p>
-		Sensing that your comfortable life would be ruined if you don't relent, you hold up your [pc.hands] and capitulate, [pc.speech(Ok, ok! I'll join in with your plan, just don't kick me out!)]
+		Sensing that your comfortable life would be ruined if you don't relent, you hold up your [pc.hands] and capitulate, [pc.speech(OK, OK! I'll join in with your plan, just don't kick me out!)]
 	</p>
 	]]>
 	</htmlContent>
@@ -769,9 +769,9 @@
 	<p>
 		#IF pc.hasStatusEffect(SE_FETISH_PURE_VIRGIN)
 		#THEN
-			There's absolutely no way that you're going to risk losing your precious virginity, and, disentangling yourself from Lyssieth's clutches, you say, [pc.speech(I'm not going to have sex, ok? I'm saving myself for someone special, so can't we do this another way?)]
+			There's absolutely no way that you're going to risk losing your precious virginity, and, disentangling yourself from Lyssieth's clutches, you say, [pc.speech(I'm not going to have sex, OK? I'm saving myself for someone special, so can't we do this another way?)]
 		#ELSE
-			You really don't want to have sex with Lyssieth, and so, disentangling yourself from her clutches, you say, [pc.speech(I don't want to have sex, ok? Can't we do this another way?)]
+			You really don't want to have sex with Lyssieth, and so, disentangling yourself from her clutches, you say, [pc.speech(I don't want to have sex, OK? Can't we do this another way?)]
 		#ENDIF
 	</p>
 	<p>
@@ -781,7 +781,7 @@
 		[pc.speech(Well, that's a relief,)] you say, happy to discover that you're not going to be forced to have sex with Lilaya's mom. [pc.speech(Shall we get this done, then?)]
 	</p>
 	<p>
-		[lyssieth.speech(Ok...)] Lyssieth says, still pouting for a moment, before letting out a long, deep sigh and closing her eyes. [lyssieth.speech(Sit down and relax. This will be done in a flash...)]
+		[lyssieth.speech(OK...)] Lyssieth says, still pouting for a moment, before letting out a long, deep sigh and closing her eyes. [lyssieth.speech(Sit down and relax. This will be done in a flash...)]
 	</p>
 	<p>
 		Doing as instructed, you sit down on one of the chairs before Lyssieth's desk, and, closing your eyes, you try to relax. As you let out a sigh of your own, you start to feel a strange warmth pulsating all around you, and before you know what's happening, you're slipping out of conciousness...
@@ -793,9 +793,9 @@
 	<p>
 		#IF pc.hasStatusEffect(SE_FETISH_PURE_VIRGIN)
 		#THEN
-			There's absolutely no way that you're going to risk losing your precious virginity, and, disentangling yourself from Lyssieth's clutches, you say, [pc.speech(Let's do it without sex, ok? I'm saving myself for someone special...)]
+			There's absolutely no way that you're going to risk losing your precious virginity, and, disentangling yourself from Lyssieth's clutches, you say, [pc.speech(Let's do it without sex, OK? I'm saving myself for someone special...)]
 		#ELSE
-			You really don't want to have sex with Lyssieth, and so, disentangling yourself from her clutches, you say, [pc.speech(Let's do it without sex, ok?)]
+			You really don't want to have sex with Lyssieth, and so, disentangling yourself from her clutches, you say, [pc.speech(Let's do it without sex, OK?)]
 		#ENDIF
 	</p>
 	<p>
@@ -805,7 +805,7 @@
 		[pc.speech(Good,)] you say, happy to discover that you're not going to be forced to have sex with Lilaya's mom. [pc.speech(Shall we get this done, then?)]
 	</p>
 	<p>
-		[lyssieth.speech(Ok...)] Lyssieth says, still pouting for a moment, before letting out a long, deep sigh and closing her eyes. [lyssieth.speech(Sit down and relax. This will be done in a flash...)]
+		[lyssieth.speech(OK...)] Lyssieth says, still pouting for a moment, before letting out a long, deep sigh and closing her eyes. [lyssieth.speech(Sit down and relax. This will be done in a flash...)]
 	</p>
 	<p>
 		Doing as instructed, you sit down on one of the chairs before Lyssieth's desk, and, closing your eyes, you try to relax. As you let out a sigh of your own, you start to feel a strange warmth pulsating all around you, and before you know what's happening, you're slipping out of conciousness...
@@ -884,7 +884,7 @@
 	
 	<htmlContent tag="POWER_EXPLANATION"><![CDATA[
 	<p>
-		[lyssieth.speech([pc.Name]? Are you ok? [pc.Name]?)] you hear Lyssieth calling from somewhere far away. [lyssieth.speech([pc.Name]! Wake up!)]
+		[lyssieth.speech([pc.Name]? Are you OK? [pc.Name]?)] you hear Lyssieth calling from somewhere far away. [lyssieth.speech([pc.Name]! Wake up!)]
 	</p>
 	<p>
 		Her voice suddenly increases in volume, and you open your eyes to discover that you're lying on the floor, with your head resting on Lyssieth's lap. [lyssieth.speech(Thank goodness! You're alright!)] She exclaims, relived to see that you've regained consciousness.
@@ -899,7 +899,7 @@
 		[pc.speech(Thanks,)] you say, breathing a sigh of relief as you feel your splitting headache quickly fading away.
 	</p>
 	<p>
-		[lyssieth.speech(I'm sorry for not anticipating this,)] Lyssieth says, [lyssieth.speech(You just lie here on my lap until you feel better, ok?)]
+		[lyssieth.speech(I'm sorry for not anticipating this,)] Lyssieth says, [lyssieth.speech(You just lie here on my lap until you feel better, OK?)]
 	</p>
 	]]>
 	</htmlContent>
@@ -952,7 +952,7 @@
 		#ENDIF)]
 	</p>
 	<p>
-		[pc.speech(Ok, I'll be sure to return,)] you say, heading over to the door of Lyssieth's office.
+		[pc.speech(OK, I'll be sure to return,)] you say, heading over to the door of Lyssieth's office.
 	</p>
 	<p>
 		[lyssieth.speech(I wish I could do more to help you, but with Lilith keeping a close watch on my movements, I can't do much,)] Lyssieth says, [lyssieth.speech(I doubt you've heard of them, as the general population is kept from owning any type of long-range communication device, but I'll give Lilaya a resonance stone. She can use it to contact me at any time, so if you want to visit me without walking all the way down here, just let Lilaya know, and I'll quickly teleport to her lab and bring you back. Anyway, goodbye for now!)]
@@ -1011,7 +1011,7 @@
 		#ENDIF)]
 	</p>
 	<p>
-		[pc.speech(Ok, I'll be sure to return,)] you say, heading over to the door of Lyssieth's office.
+		[pc.speech(OK, I'll be sure to return,)] you say, heading over to the door of Lyssieth's office.
 	</p>
 	<p>
 		[lyssieth.speech(I wish I could do more to help you, but with Lilith keeping a close watch on my movements, I can't do much,)] Lyssieth says, [lyssieth.speech(I doubt you've heard of them, as the general population is kept from owning any type of long-range communication device, but I'll give Lilaya a resonance stone. She can use it to contact me at any time, so if you want to visit me without walking all the way down here, just let Lilaya know, and I'll quickly teleport to her lab and bring you back. Anyway, goodbye for now!)]
@@ -1027,7 +1027,7 @@
 		Finally getting a moment to yourself, the revelation that this world is in fact your own has time to sink in. Although Lilaya has the same soul, and bears resemblance to your aunt in many ways, you realise that you're never going to see Lily again. Walking over to the nearest sofa, you collapse down onto it and rest your head in your hands.
 	</p>
 	<p>
-		You aren't sure for how long you sit there for, thinking about things, but before you know it, you hear the door to Lyssieth's office open, before the familiar voice of [siren.name] calls out, [siren.speech(Oh, [pc.name], you're still here? Hey, are you ok?)]
+		You aren't sure for how long you sit there for, thinking about things, but before you know it, you hear the door to Lyssieth's office open, before the familiar voice of [siren.name] calls out, [siren.speech(Oh, [pc.name], you're still here? Hey, are you OK?)]
 	</p>
 	<p>
 		Sitting back upright, you reply, [pc.speech(Yeah, just a lot to think about, I suppose.)]
@@ -1063,7 +1063,7 @@
 		[siren.speech(If you can teleport like mom can, then once you've been there once, you can just return there in an instant,)] [siren.name] says, [siren.speech(But otherwise, no, it's all walking.)]
 	</p>
 	<p>
-		[pc.speech(Ok,)] you say, taking a picture of the map with your phone for quick reference, [pc.speech(I'm sure I'll be back soon, bye, [siren.name].)]
+		[pc.speech(OK,)] you say, taking a picture of the map with your phone for quick reference, [pc.speech(I'm sure I'll be back soon, bye, [siren.name].)]
 	</p>
 	<p>
 		[siren.speech(Bye, [pc.name], oh, and you're obviously free to come and go from our palace as you please, but just listen to the maids if they tell you some areas are off-limits,)] [siren.name] says, before letting out a laugh and leaning back in her chair, [siren.speech(The next time we meet, I shall surely best you in a duel!)]

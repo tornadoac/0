@@ -349,13 +349,13 @@
 	<htmlContent tag="OUTSIDE_LICKING_RELUCTANT"><![CDATA[
 	<p>
 		Not seeing any alternative, you hesitantly resolve to do as the maid commands.
-		 [pc.speech(Ok...)]
+		 [pc.speech(OK...)]
 		 you mumble, dropping your face down towards her feet.
 	</p>
 	<p>
-		[amber.speech('Ok'?!)]
+		[amber.speech('OK'?!)]
 		 the succubus angrily shouts.
-		 [amber.speech(Don't you <i>dare</i> 'ok' me again! 'Yes, Mistress Amber!' is the correct response! Let's try it again, shall we?!)]
+		 [amber.speech(Don't you <i>dare</i> 'OK' me again! 'Yes, Mistress Amber!' is the correct response! Let's try it again, shall we?!)]
 	</p>
 	<p>
 		You let out a humiliated whimper as you do as you're told, and address Amber in the proper manner,
@@ -1269,7 +1269,7 @@
 	<p>
 		Although you've come out on top after your fight with Amber, you're suddenly left feeling extremely awkward at having reduced the normally sadistic maid to a lust-filled wreck.
 		 Leaning down towards her, you reach out and shake her arm.
-		 [pc.speech(A-Amber? Are you ok? I think I went too far...)]
+		 [pc.speech(A-Amber? Are you OK? I think I went too far...)]
 	</p>
 	<p>
 		Amber's eyes lock on to yours, and beneath her lustful glare, you detect a glimmer of her usual sadistic self.
@@ -1306,7 +1306,7 @@
 	<htmlContent tag="AFTER_AMBER_SEX_VICTORY"><![CDATA[
 	<p>
 		Amber steps back, letting out a heavy sigh as she catches her breath.
-		 [amber.speech(Fuck... T-That was... Eugh! Y-You're going to forget this ever happened, ok?!)]
+		 [amber.speech(Fuck... T-That was... Eugh! Y-You're going to forget this ever happened, OK?!)]
 		 Shaking her head, she quickly gathers her things and gets her maid's uniform back in order.
 	</p>
 	<p>

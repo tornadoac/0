@@ -9,7 +9,7 @@ public enum OccupationTag {
 
 	/**Jobs that can only be selected by the player in character creation.*/
 	PLAYER_ONLY,
-	
+
 	/**Jobs that are either illegal or sleazy.*/
 	LOWLIFE,
 
@@ -18,7 +18,7 @@ public enum OccupationTag {
 
 	/**Work hours are from 21:00-05:00.*/
 	NIGHT_SHIFT,
-	
+
 	/**Prevents the Occupation from being selected as a starting job.*/
 	HAS_PREREQUISITES;
 }

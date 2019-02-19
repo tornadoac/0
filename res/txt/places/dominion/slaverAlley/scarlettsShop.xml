@@ -48,7 +48,7 @@
 		[scarlett.speech(Didn't I tell you to fuck off already?)] the rude harpy calls out, sitting up in her chair as you approach.
 	</p>
 	<p>
-		[pc.speech(Look, I just need to know if you've got a slave for sale going by the name of 'Arthur', ok?)]
+		[pc.speech(Look, I just need to know if you've got a slave for sale going by the name of 'Arthur', OK?)]
 	</p>
 	<p>
 		As you mention the name 'Arthur', Scarlett stands up from behind her desk, and her cheeks flush red as she starts to shout and curse, [scarlett.speech(If I hear that fucking name one more time, I swear I'm going to kill someone! Are you working with them?! Huh?! Those fucking cunts who fucked me over?! You've got five fucking seconds to start explaining!)]
@@ -76,10 +76,10 @@
 
 	<htmlContent tag="SCARLETT_IS_A_SUPER_BITCH"><![CDATA[
 	<p>
-		Deciding to just agree with the insufferable harpy for now, you respond, [pc.speech(Fine, I'll do it, but you'd better keep your end of the bargain here. When I get back, you're going to tell me exactly what's happened to Arthur, ok?)]
+		Deciding to just agree with the insufferable harpy for now, you respond, [pc.speech(Fine, I'll do it, but you'd better keep your end of the bargain here. When I get back, you're going to tell me exactly what's happened to Arthur, OK?)]
 	</p>
 	<p>
-		[scarlett.speech(Just fuck off and do it already! Fuck, you're a real asshole to try and talk to, you know?!)] Scarlett shouts, looking just as infuriated as you feel right now. [scarlett.speech(Don't bother coming back here until you've taken Alexa's punishment, ok? And don't let her go easy on you, I'm gonna enjoy hearing what she did to you when you get back!)]
+		[scarlett.speech(Just fuck off and do it already! Fuck, you're a real asshole to try and talk to, you know?!)] Scarlett shouts, looking just as infuriated as you feel right now. [scarlett.speech(Don't bother coming back here until you've taken Alexa's punishment, OK? And don't let her go easy on you, I'm gonna enjoy hearing what she did to you when you get back!)]
 	</p>
 	<p>
 		Not wanting to waste any more time talking to her, you turn your back on Scarlett and walk out of the shop. As the door swings shut behind you, you find yourself wondering if you've ever met anyone as annoying as that harpy is. You seriously hope that this matriarch, 'Alexa', is nothing like Scarlett, and as you set off in the direction of the Harpy Nests, you wonder how many more hurdles you'll be presented with before finally finding Arthur...
@@ -222,7 +222,7 @@
 		You lean down and place [pc.a_hand] on Scarlett's shoulder, smiling reassuringly at her as she snaps back round to look up at you.
 	</p>
 	<p>
-		[pc.speech(Calm down, Scarlett,)] you say in the softest tone you can manage, [pc.speech(it's going to be ok. Just take a deep breath and try to relax.)]
+		[pc.speech(Calm down, Scarlett,)] you say in the softest tone you can manage, [pc.speech(it's going to be OK. Just take a deep breath and try to relax.)]
 	</p>
 	<p>
 		Her face flushes bright red, and for a moment you think that she's about to turn her anger on you, but she simply glares up into your [pc.eyes] without saying a word. She sharply yanks her shoulder back, wriggling out of your grip as she sits back on her knees. You decide against providing more physical reassurance, and step back, smiling down at the angry little harpy with as much warmth as you can muster.

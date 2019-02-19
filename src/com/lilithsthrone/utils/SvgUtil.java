@@ -125,5 +125,4 @@ public class SvgUtil {
 
 		return s;
 	}
-
 }

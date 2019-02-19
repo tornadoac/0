@@ -39,19 +39,19 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class ReindeerOverseer extends NPC {
-	
+
 	public ReindeerOverseer() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
-	
+
 	public ReindeerOverseer(Gender gender) {
 		this(gender, false);
 	}
-	
+
 	public ReindeerOverseer(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, isImported);
 	}
-	
+
 	public ReindeerOverseer(Gender gender, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -59,19 +59,19 @@ public class ReindeerOverseer extends NPC {
 				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_STREET, false);
 
 		if(!isImported) {
-			
+
 			this.setRandomLocation(WorldType.DOMINION, PlaceType.DOMINION_STREET, true);
-			
+
 			// RACE & NAME:
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			Subspecies subspecies = Subspecies.REINDEER_MORPH;
-				
+
 			if(gender.isFeminine()) {
 				RaceStage stage = CharacterUtils.getRaceStageFromPreferences(Main.getProperties().getSubspeciesFeminineFurryPreferencesMap().get(subspecies), gender, subspecies);
 				setBody(gender, subspecies, stage);
-				
+
 			} else {
 				RaceStage stage = CharacterUtils.getRaceStageFromPreferences(Main.getProperties().getSubspeciesMasculineFurryPreferencesMap().get(subspecies), gender, subspecies);
 				setBody(gender, subspecies, stage);
@@ -79,34 +79,34 @@ public class ReindeerOverseer extends NPC {
 
 			setName(Name.getRandomTriplet(subspecies.getRace()));
 			this.setPlayerKnowsName(false);
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			this.setHistory(Occupation.REINDEER_OVERSEER);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMISATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 
 			equipClothing(true, true, true, true);
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			dailyReset(); // Give items for sale.
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -121,21 +121,21 @@ public class ReindeerOverseer extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		return (UtilText.parse(this,
 				"[npc.Name] is an overseer of one of the many groups of reindeer-morphs which are working throughout Dominion to keep the streets shovelled clear of snow."));
 	}
-	
+
 	@Override
 	public void dailyReset() {
-		
+
 		if(!this.isSlave()) {
 			if(Main.game.getCurrentWeather()!=Weather.SNOW && Main.game.getSeason()!=Season.WINTER) {
 				Main.game.getDialogueFlags().values.remove(DialogueFlagValue.hasSnowedThisWinter);
@@ -143,18 +143,18 @@ public class ReindeerOverseer extends NPC {
 					this.setLocation(WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
 				}
 			}
-			
+
 			clearNonEquippedInventory();
-			
+
 			if(this.getLocationPlace().getPlaceType()==PlaceType.DOMINION_STREET && !this.getLocation().equals(Main.game.getPlayer().getLocation())) {
 				this.moveToAdjacentMatchingCellType(true);
 				Main.game.getDialogueFlags().dailyReindeerReset(this.getId());
 			}
-			
+
 			for (int i = 0; i < 10 + (Util.random.nextInt(6)); i++) {
 				this.addItem(AbstractItemType.generateItem(ItemType.PRESENT), false);
 			}
-			
+
 			for (AbstractItemType item : ItemType.getAllItems()) {
 				if(item!=null && item.getItemTags().contains(ItemTag.REINDEER_GIFT)) {
 					for (int i = 0; i < 3 + (Util.random.nextInt(6)); i++) {
@@ -162,7 +162,7 @@ public class ReindeerOverseer extends NPC {
 					}
 				}
 			}
-			
+
 			for (AbstractClothingType clothing : ClothingType.getAllClothing()) {
 				if(clothing!=null && clothing.getItemTags().contains(ItemTag.REINDEER_GIFT)) {
 					for (int i = 0; i < 1 + (Util.random.nextInt(2)); i++) {
@@ -173,9 +173,9 @@ public class ReindeerOverseer extends NPC {
 		}
 
 	}
-	
+
 	// Trading:
-	
+
 	@Override
 	public String getTraderDescription() {
 		return UtilText.parse(this,
@@ -196,22 +196,22 @@ public class ReindeerOverseer extends NPC {
 	public boolean willBuy(AbstractCoreItem item) {
 		return false;
 	}
-	
+
 	// Sex:
-	
+
 	@Override
 	public void endSex() {
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return ReindeerOverseerDialogue.ENCOUNTER_START;

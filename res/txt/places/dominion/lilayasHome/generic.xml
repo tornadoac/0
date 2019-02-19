@@ -2,7 +2,7 @@
 <dialogue>
 
 	<!-- ROSE -->
-	
+
 	<htmlContent tag="ROSE_TALK_LILAYA"><![CDATA[
 	<p>
 		[pc.speech(What can you tell me about Lilaya?)] you ask, wanting to know more about Rose's mistress.
@@ -15,7 +15,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ROSE_TALK_SLAVE"><![CDATA[
 	<p>
 		Not really sure about the best way to approach the subject, you decide to just ask your question outright and hope that it doesn't cause Rose any offence, [pc.speech(If you don't mind me asking, how did you end up as a slave?)]
@@ -34,7 +34,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ROSE_TALK_WORLD"><![CDATA[
 	<p>
 		Wondering if Rose is able to give you any interesting information about Dominion, you ask, [pc.speech(What can you tell me about this world?)]
@@ -53,7 +53,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ROSE_TALK_DUTIES"><![CDATA[
 	<p>
 		Being curious about the sort of work Rose is expected to carry out, you ask her, [pc.speech(So, what sort of things do you have to do for Lilaya?)]
@@ -72,7 +72,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ROSE_TALK_MOTHERS_MILK"><![CDATA[
 	<p>
 		Wanting to help Lilaya to get her pregnancy over with as soon as possible, you produce a bottle of 'Mother's milk' from your inventory, before handing it over to Rose with the words, [pc.speech(Could you please give this to Lilaya? As you no doubt know, I got her pregnant, and I'd like to help her get it over with as soon as possible.)]
@@ -85,5 +85,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

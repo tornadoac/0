@@ -21,7 +21,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PlayerSelfFingerCrotchNipple {
-	
+
 	public static final SexAction PLAYER_PINCH_NIPPLE_CROTCH = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -29,14 +29,14 @@ public class PlayerSelfFingerCrotchNipple {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.NIPPLE_CROTCH)),
 			SexParticipantType.SELF) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.getSexPace(Main.game.getPlayer())!=SexPace.SUB_RESISTING
 					&& Sex.getCharacterPerformingAction().isPlayer()
 					&& Sex.getCharacterPerformingAction().getLegConfiguration().isBipedalPositionedCrotchBoobs();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Pinch crotch-nipples";
@@ -59,7 +59,7 @@ public class PlayerSelfFingerCrotchNipple {
 						?"Your [pc.crotchNipples] are just begging for some attention, and you whine in delight as you reach down to start pinching them."
 						:UtilText.parse(Sex.getCharacterTargetedForSexAction(this),
 								"Your [pc.crotchNipples] are just begging for some attention, and you reach down and start to pinch at them, whining in delight as [npc.name] smirks at you.")));
-			
+
 			switch (Main.game.getPlayer().getBreastCrotchStoredMilk()) {
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(" A small trickle of [pc.crotchMilk] leaks out onto your fingertips.");
@@ -88,14 +88,14 @@ public class PlayerSelfFingerCrotchNipple {
 
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Main.game.getPlayer().incrementBreastCrotchStoredMilk(-10);
 		}
-		
+
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_NIPPLE_CROTCH_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -126,7 +126,7 @@ public class PlayerSelfFingerCrotchNipple {
 					"Your fingertips tease over your [pc.crotchBoobs], circling around your [pc.crotchNipples] before greedily sinking inside.",
 					"You moan and squeal as you start eagerly fingering your nipple-cunts.",
 					"With a lewd cry, you sink your digits into your inviting nipple-cunts, panting heavily as you start eagerly fingering yourself."));
-			
+
 			switch (Main.game.getPlayer().getBreastCrotchStoredMilk()) {
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(" A small trickle of [pc.crotchMilk] leaks out around your fingertips.");
@@ -161,7 +161,7 @@ public class PlayerSelfFingerCrotchNipple {
 			return Main.game.getPlayer().incrementBreastCrotchStoredMilk(-10);
 		}
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_NIPPLE_CROTCH_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -174,13 +174,13 @@ public class PlayerSelfFingerCrotchNipple {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer())
 					&& Sex.getCharacterPerformingAction().getLegConfiguration().isBipedalPositionedCrotchBoobs();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle nipple fingering (self)";
@@ -199,9 +199,9 @@ public class PlayerSelfFingerCrotchNipple {
 					"Curling your [pc.fingers] up inside your [pc.crotchNipple], you let out a little whimper as you start pumping your digits in and out of your [pc.crotchBoob+].",
 					"Focusing on pleasuring your fuckable [pc.crotchBoobs], you start gently pumping your [pc.fingers] in and out of one of your [pc.crotchNipples+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_NIPPLE_CROTCH_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -214,13 +214,13 @@ public class PlayerSelfFingerCrotchNipple {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer())
 					&& Sex.getCharacterPerformingAction().getLegConfiguration().isBipedalPositionedCrotchBoobs();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Nipple fingering (self)";
@@ -239,9 +239,9 @@ public class PlayerSelfFingerCrotchNipple {
 					"Curling your [pc.fingers] up inside your fuckable [pc.crotchNipple], you let out [pc.a_moan] as you start pumping your digits in and out of your [pc.crotchBoob+].",
 					"Focusing on pleasuring your [pc.crotchBoobs+], you start pumping your [pc.fingers] in and out of one of your [pc.crotchNipples+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_NIPPLE_CROTCH_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -254,13 +254,13 @@ public class PlayerSelfFingerCrotchNipple {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer())
 					&& Sex.getCharacterPerformingAction().getLegConfiguration().isBipedalPositionedCrotchBoobs();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Rough nipple-fingering (self)";
@@ -281,7 +281,7 @@ public class PlayerSelfFingerCrotchNipple {
 		}
 
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_FINGER_NIPPLE_CROTCH_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -294,13 +294,13 @@ public class PlayerSelfFingerCrotchNipple {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer())
 					&& Sex.getCharacterPerformingAction().getLegConfiguration().isBipedalPositionedCrotchBoobs();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Nipple-fingering (self)";
@@ -319,9 +319,9 @@ public class PlayerSelfFingerCrotchNipple {
 					"Curling your [pc.fingers] up inside your fuckable [pc.crotchNipple], you let out [pc.a_moan] as you start pumping your digits in and out of your [pc.crotchBoob+].",
 					"Focusing on pleasuring your [pc.crotchBoobs+], you start pumping your [pc.fingers] in and out of one of your [pc.crotchNipples+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_FINGER_NIPPLE_CROTCH_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -334,13 +334,13 @@ public class PlayerSelfFingerCrotchNipple {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer())
 					&& Sex.getCharacterPerformingAction().getLegConfiguration().isBipedalPositionedCrotchBoobs();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager nipple-fingering (self)";
@@ -361,7 +361,7 @@ public class PlayerSelfFingerCrotchNipple {
 		}
 
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_NIPPLE_CROTCH_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -373,7 +373,7 @@ public class PlayerSelfFingerCrotchNipple {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop fingering nipples (self)";

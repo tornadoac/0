@@ -147,7 +147,7 @@
 			[npc.Name] roughly pulls up [npc2.name]'s T-shirt.
 		]]></NPCOtherNPCRough>
 	</displacementText>
-	
+
 	<replacementText type="PULLS_DOWN">
 		<playerSelf><![CDATA[
 			You pull your T-shirt back down, covering your torso.
@@ -174,5 +174,5 @@
 			[npc.Name] roughly pulls down [npc2.name]'s T-shirt.
 		]]></NPCOtherNPCRough>
 	</replacementText>
-	
+
 </clothing>

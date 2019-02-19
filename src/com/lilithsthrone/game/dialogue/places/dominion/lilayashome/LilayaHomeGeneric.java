@@ -917,7 +917,7 @@ public class LilayaHomeGeneric {
 		@Override
 		public String getContent() {
 			return "<p>"
-						+ "[pc.speech(Ok, I'll find Lyssieth and see if I can convince her to meet with you,)]"
+						+ "[pc.speech(OK, I'll find Lyssieth and see if I can convince her to meet with you,)]"
 						+ " you say,"
 						+ " [pc.speech(but if I'm to keep this from Lilaya, I'll need to know why.)]"
 					+ "</p>"
@@ -967,7 +967,7 @@ public class LilayaHomeGeneric {
 							+ " I'll need a little time to build up to it, however, so until then please don't mention anything about this to her.)]"
 					+ "</p>"
 					+ "<p>"
-						+ "[pc.speech(Ok, but I won't bring Lyssieth here until you've told Lilaya,)]"
+						+ "[pc.speech(OK, but I won't bring Lyssieth here until you've told Lilaya,)]"
 						+ " you firmly state."
 					+ "</p>"
 					+ "<p>"
@@ -1255,7 +1255,7 @@ public class LilayaHomeGeneric {
 						+ "[lilaya.speech(Well, whatever the result is, we can always undo it, right?"
 							+ " I want to be the one who uses it, as I'll be able to sense if anything starts to go wrong, and you can't be the test subject, Arthur, as you'll need to be the one to fix any unexpected effects...)]"
 						+ " Lilaya muses, before both she and Arthur turn towards you."
-						+ " [lilaya.speech([pc.Name]! You're ok letting us test this on you, aren't you? I promise that I won't apply the full effect, so there's really nothing to worry about!)]"
+						+ " [lilaya.speech([pc.Name]! You're OK letting us test this on you, aren't you? I promise that I won't apply the full effect, so there's really nothing to worry about!)]"
 					+ "</p>";
 		}
 
@@ -1336,7 +1336,7 @@ public class LilayaHomeGeneric {
 			
 			UtilText.nodeContentSB.append("<p>"
 						+ "Reassured by the fact Lilaya and Arthur are both highly-competent arcane researchers, you step forwards."
-						+ " [pc.speech(Ok, ok... But this had better not be permanent. Seeing as I'm "+Main.game.getPlayer().getSexualOrientation().getName()+", you'll probably need to set the watch to something other than that...)]"
+						+ " [pc.speech(OK, OK... But this had better not be permanent. Seeing as I'm "+Main.game.getPlayer().getSexualOrientation().getName()+", you'll probably need to set the watch to something other than that...)]"
 					+ "</p>"
 					+ "<p>"
 						+ "[arthur.speech(Don't worry, this process is completely reversible,)]"
@@ -1344,7 +1344,7 @@ public class LilayaHomeGeneric {
 			
 			switch(orientationTarget(Main.game.getPlayer())) {
 				case AMBIPHILIC:
-					UtilText.nodeContentSB.append(" [arthur.speech(Ok, Lilaya, enchant the watch to try and change [pc.name] into being ambiphilic.)]"
+					UtilText.nodeContentSB.append(" [arthur.speech(OK, Lilaya, enchant the watch to try and change [pc.name] into being ambiphilic.)]"
 							+ "</p>"
 							+ "<p>"
 								+ "Holding the watch by the chain in one hand, Lilaya reaches up with her other, and, with a little flash of lilac, enchants the watch as Arthur instructs."
@@ -1366,7 +1366,7 @@ public class LilayaHomeGeneric {
 							+ "</p></i>");
 					break;
 				case ANDROPHILIC:
-					UtilText.nodeContentSB.append(" [arthur.speech(Ok, Lilaya, enchant the watch to try and change [pc.name] into being androphilic.)]"
+					UtilText.nodeContentSB.append(" [arthur.speech(OK, Lilaya, enchant the watch to try and change [pc.name] into being androphilic.)]"
 							+ "</p>"
 							+ "<p>"
 								+ "Holding the watch by the chain in one hand, Lilaya reaches up with her other, and, with a little flash of turquoise, enchants the watch as Arthur instructs."
@@ -1392,7 +1392,7 @@ public class LilayaHomeGeneric {
 							+ "</p></i>");
 					break;
 				case GYNEPHILIC:
-					UtilText.nodeContentSB.append(" [arthur.speech(Ok, Lilaya, enchant the watch to try and change [pc.name] into being gynephilic.)]"
+					UtilText.nodeContentSB.append(" [arthur.speech(OK, Lilaya, enchant the watch to try and change [pc.name] into being gynephilic.)]"
 							+ "</p>"
 							+ "<p>"
 								+ "Holding the watch by the chain in one hand, Lilaya reaches up with her other, and, with a little flash of scarlet, enchants the watch as Arthur instructs."
@@ -1456,7 +1456,7 @@ public class LilayaHomeGeneric {
 					+ " [pc.speech(It was so real! We were... well...)]"
 				+ "</p>"
 				+ "<p>"
-					+ "[lilaya.speech(Good, you're ok,)]"
+					+ "[lilaya.speech(Good, you're OK,)]"
 					+ " Lilaya says, releasing you and stepping back."
 					+ " [lilaya.speech(I stopped the test before the change in orientation became permanent, and, more importantly, before a surge of corruptive arcane energy seeped into your mind.)]"
 				+ "</p>"

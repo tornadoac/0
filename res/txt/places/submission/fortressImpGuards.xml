@@ -18,7 +18,7 @@
 	
 	<htmlContent tag="ENTRANCE_PACIFIED_DEMON"><![CDATA[
 	<p>
-		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc.speech(Oh, 'ey, it's the [pc.race] again... Y-Yer can come an' go as yer please, ok? J-Just don' cause any trouble... Please...)]
+		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc.speech(Oh, 'ey, it's the [pc.race] again... Y-Yer can come an' go as yer please, OK? J-Just don' cause any trouble... Please...)]
 	</p>
 	<p>
 		The other alpha-imp hastily steps behind [npc2.her] superior, using [npc.herHim] as a shield as [npc2.she] adds, [npc2.speech(W-We're just followin' orders, we didn't mean ta get in yer way!)]
@@ -326,7 +326,7 @@
 	
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
-		Seeing the two imps pathetically sprawled out on the floor before you makes you feel immensely guilty about what you've just done. Dropping down onto your knees beside them, you ask, [pc.speech(Are you ok? I didn't mean to... I think I went a little too far...)]
+		Seeing the two imps pathetically sprawled out on the floor before you makes you feel immensely guilty about what you've just done. Dropping down onto your knees beside them, you ask, [pc.speech(Are you OK? I didn't mean to... I think I went a little too far...)]
 	</p>
 	<p>
 		[npc.speech(Eh?!)] the imp leader exclaims, caught off-guard by your sudden change in attitude. [npc.speech(What yer sayin'?)]
@@ -450,7 +450,7 @@
 		[npc2.speech(This 'un was a good fuck,)] [npc2.name] says to [npc2.her] superior.
 	</p>
 	<p>
-		[npc.speech(Eh, [pc.sheIs] ok I guess. Got a decent future as some imp's cum-dump, I'd wager,)] the leader says dismissively in response. [npc.speech(We'll just throw [pc.herHim] down 'ere. Our roamin' gangs can 'ave a turn when they catch [pc.herHim].)]
+		[npc.speech(Eh, [pc.sheIs] OK I guess. Got a decent future as some imp's cum-dump, I'd wager,)] the leader says dismissively in response. [npc.speech(We'll just throw [pc.herHim] down 'ere. Our roamin' gangs can 'ave a turn when they catch [pc.herHim].)]
 	</p>
 	<p>
 		Before you know it, you've been dragged far away from the fortress's gatehouse, and are being unceremoniously hurled to the floor. Threatening you never to return, the imps then return to their guard duty, leaving you alone to catch your breath...

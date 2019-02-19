@@ -163,7 +163,7 @@
 		 [pc.speech(Bye!)]
 	</p>
 	<p>
-		[zaranix.speech(Goodbye! Oh, and don't let Amber be too harsh on you, ok?)]
+		[zaranix.speech(Goodbye! Oh, and don't let Amber be too harsh on you, OK?)]
 		 Zaranix waves, before turning his back on you and returning to his experiments.
 	</p>
 	<p>
@@ -397,7 +397,7 @@
 		 [pc.speech(Bye!)]
 	</p>
 	<p>
-		[zaranix.speech(Goodbye! Oh, and don't let Amber be too harsh on you, ok?)]
+		[zaranix.speech(Goodbye! Oh, and don't let Amber be too harsh on you, OK?)]
 		 Zaranix waves, before turning his back on you and returning to his experiments.
 	</p>
 	<p>

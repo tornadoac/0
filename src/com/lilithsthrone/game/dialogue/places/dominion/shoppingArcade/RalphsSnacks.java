@@ -232,7 +232,7 @@ public class RalphsSnacks {
 								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL_RALPH))),
 						null,
 						null, Ralph.AFTER_SEX, "<p>"
-							+ UtilText.parsePlayerSpeech("Ok, I'll do it,") + " you say, looking up at Ralph to see his smile grow even wider." + "</p>" + "<p>"
+							+ UtilText.parsePlayerSpeech("OK, I'll do it,") + " you say, looking up at Ralph to see his smile grow even wider." + "</p>" + "<p>"
 							+ "He leans in, and you half-expect him to try and kiss you, but instead, he simply grabs your " + Main.game.getPlayer().getArmNameSingular() + " and starts to drag you back to his desk."
 							+ " As he walks, he starts instructing you on what's about to happen."
 						+ "</p>"

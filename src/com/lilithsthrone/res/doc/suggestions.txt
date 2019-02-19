@@ -156,7 +156,7 @@ Before the sex system is frozen, you should probably implement a system for rest
 	I would like the idea of merging the gender and the furry preference menus, so we can choose the gender ratio of each furry race individually instead of just having a global one.
 
 For example:
-Back Hair - Pony tail, Front Hair - Parted  (Center)
+Back Hair - Pony tail, Front Hair - Parted  (Centre)
 Back Hair - Long straight, Front Hair - Side Swept (Left)
 Back Hair - Pig tails, Front Hair - Bangs
 Back Hair - Top bun, Front Hair - Long Bangs (Cover left eye)
