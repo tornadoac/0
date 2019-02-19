@@ -58,7 +58,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class RacialBody {
-	
+
 	public static AbstractRacialBody HUMAN = new AbstractRacialBody(
 			Util.newHashMapOfValues(
 				new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(5f, 15f)),
@@ -132,7 +132,7 @@ public class RacialBody {
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE));
 		}
-		
+
 		@Override
 		public SexualOrientation getSexualOrientation(Gender gender) {
 			return SexualOrientationPreference.getSexualOrientationFromUserPreferences(0, 1, 0);
@@ -165,7 +165,7 @@ public class RacialBody {
 			Util.newArrayListOfValues(HornType.CURLED, HornType.SPIRAL, HornType.SWEPT_BACK, HornType.CURVED, HornType.STRAIGHT), PenisType.DEMON_COMMON, 10,
 			PenisGirth.THREE_THICK, TesticleSize.FOUR_HUGE, 4,
 			CumProduction.SIX_EXTREME,
-			Util.newArrayListOfValues(TailType.DEMON_COMMON, TailType.DEMON_HAIR_TIP, TailType.DEMON_HORSE), 
+			Util.newArrayListOfValues(TailType.DEMON_COMMON, TailType.DEMON_HAIR_TIP, TailType.DEMON_HORSE),
 			TentacleType.NONE,
 			VaginaType.DEMON_COMMON,
 			Wetness.SEVEN_DROOLING,
@@ -182,13 +182,13 @@ public class RacialBody {
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH));
 		}
-		
+
 		@Override
 		public SexualOrientation getSexualOrientation(Gender gender) {
 			return SexualOrientationPreference.getSexualOrientationFromUserPreferences(0, 1, 0);
 		}
 	};
-	
+
 	public static AbstractRacialBody COW_MORPH = new AbstractRacialBody(
 			Util.newHashMapOfValues(
 					new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(20f, 50f)),
@@ -204,7 +204,7 @@ public class RacialBody {
 			CupSize.H, 2, Lactation.FOUR_LARGE_AMOUNT, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE,  OrificePlasticity.THREE_RESILIENT, NippleSize.FOUR_MASSIVE, NippleShape.NORMAL, AreolaeSize.THREE_LARGE, 4,
 			195, 30, BodySize.FOUR_HUGE.getMedianValue(), Muscle.THREE_MUSCULAR.getMedianValue(),
 			185, 70, BodySize.THREE_LARGE.getMedianValue(), Muscle.TWO_TONED.getMedianValue(),
-			EarType.COW_MORPH, 
+			EarType.COW_MORPH,
 			EyeType.COW_MORPH,
 			FaceType.COW_MORPH, LipSize.ONE_AVERAGE, LipSize.TWO_FULL,
 			HairType.COW_MORPH, HairLength.TWO_SHORT, HairLength.THREE_SHOULDER_LENGTH,
@@ -221,7 +221,7 @@ public class RacialBody {
 			Util.newArrayListOfValues(WingType.NONE), WingSize.ZERO_TINY, WingSize.ZERO_TINY,
 			GenitalArrangement.NORMAL) {
 	};
-	
+
 	public static AbstractRacialBody DOG_MORPH = new AbstractRacialBody(
 			Util.newHashMapOfValues(
 					new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(20f, 30f)),
@@ -264,7 +264,7 @@ public class RacialBody {
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE));
 		}
 	};
-	
+
 	public static AbstractRacialBody FOX_MORPH = new AbstractRacialBody(
 			Util.newHashMapOfValues(
 					new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(22f, 28f)),
@@ -297,7 +297,7 @@ public class RacialBody {
 			Util.newArrayListOfValues(WingType.NONE), WingSize.ZERO_TINY, WingSize.ZERO_TINY,
 			GenitalArrangement.NORMAL) {
 	};
-	
+
 	public static AbstractRacialBody WOLF_MORPH = new AbstractRacialBody(
 			Util.newHashMapOfValues(
 					new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(20f, 40f)),
@@ -431,42 +431,42 @@ public class RacialBody {
 	};
 
 	public static AbstractRacialBody ALLIGATOR_MORPH = new AbstractRacialBody(Util.newHashMapOfValues(
-	            new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(20f, 40f)),
-	            new Value<Attribute, AttributeRange>(Attribute.MAJOR_ARCANE, new AttributeRange(0f, 0f)),
-	            new Value<Attribute, AttributeRange>(Attribute.MAJOR_CORRUPTION, new AttributeRange(20f, 30f))),
-		    AntennaType.NONE,
-		    ArmType.ALLIGATOR_MORPH, 1,
-		    AssType.ALLIGATOR_MORPH, AssSize.TWO_SMALL, AssSize.TWO_SMALL, Wetness.ZERO_DRY, Capacity.ONE_EXTREMELY_TIGHT, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT,
-		    BreastType.ALLIGATOR_MORPH, BreastShape.getNonUdderBreastShapes(),
-		    CupSize.FLAT, 1, Lactation.ZERO_NONE, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT, NippleSize.ZERO_TINY, NippleShape.NORMAL, AreolaeSize.ZERO_TINY, 1,
-		    CupSize.AA, 1, Lactation.ZERO_NONE, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT, NippleSize.TWO_BIG, NippleShape.NORMAL, AreolaeSize.TWO_BIG, 1,
-		    BreastType.NONE, BreastShape.getNonUdderBreastShapes(),
-		    CupSize.FLAT, 1, Lactation.ZERO_NONE, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT, NippleSize.ZERO_TINY, NippleShape.NORMAL, AreolaeSize.ZERO_TINY, 1,
-		    185, 25, BodySize.THREE_LARGE.getMedianValue(), Muscle.THREE_MUSCULAR.getMedianValue(),
-		    178, 95, BodySize.TWO_AVERAGE.getMedianValue(), Muscle.TWO_TONED.getMedianValue(),
-		    EarType.ALLIGATOR_MORPH,
-		    EyeType.ALLIGATOR_MORPH,
-		    FaceType.ALLIGATOR_MORPH, LipSize.ONE_AVERAGE, LipSize.ONE_AVERAGE,
-		    HairType.ALLIGATOR_MORPH, HairLength.ZERO_BALD, HairLength.ZERO_BALD,
-		    LegType.ALLIGATOR_MORPH, LegConfiguration.BIPEDAL,
-		    SkinType.ALLIGATOR_MORPH,
+				new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(20f, 40f)),
+				new Value<Attribute, AttributeRange>(Attribute.MAJOR_ARCANE, new AttributeRange(0f, 0f)),
+				new Value<Attribute, AttributeRange>(Attribute.MAJOR_CORRUPTION, new AttributeRange(20f, 30f))),
+			AntennaType.NONE,
+			ArmType.ALLIGATOR_MORPH, 1,
+			AssType.ALLIGATOR_MORPH, AssSize.TWO_SMALL, AssSize.TWO_SMALL, Wetness.ZERO_DRY, Capacity.ONE_EXTREMELY_TIGHT, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT,
+			BreastType.ALLIGATOR_MORPH, BreastShape.getNonUdderBreastShapes(),
+			CupSize.FLAT, 1, Lactation.ZERO_NONE, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT, NippleSize.ZERO_TINY, NippleShape.NORMAL, AreolaeSize.ZERO_TINY, 1,
+			CupSize.AA, 1, Lactation.ZERO_NONE, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT, NippleSize.TWO_BIG, NippleShape.NORMAL, AreolaeSize.TWO_BIG, 1,
+			BreastType.NONE, BreastShape.getNonUdderBreastShapes(),
+			CupSize.FLAT, 1, Lactation.ZERO_NONE, Capacity.ZERO_IMPENETRABLE, OrificeElasticity.THREE_FLEXIBLE, OrificePlasticity.THREE_RESILIENT, NippleSize.ZERO_TINY, NippleShape.NORMAL, AreolaeSize.ZERO_TINY, 1,
+			185, 25, BodySize.THREE_LARGE.getMedianValue(), Muscle.THREE_MUSCULAR.getMedianValue(),
+			178, 95, BodySize.TWO_AVERAGE.getMedianValue(), Muscle.TWO_TONED.getMedianValue(),
+			EarType.ALLIGATOR_MORPH,
+			EyeType.ALLIGATOR_MORPH,
+			FaceType.ALLIGATOR_MORPH, LipSize.ONE_AVERAGE, LipSize.ONE_AVERAGE,
+			HairType.ALLIGATOR_MORPH, HairLength.ZERO_BALD, HairLength.ZERO_BALD,
+			LegType.ALLIGATOR_MORPH, LegConfiguration.BIPEDAL,
+			SkinType.ALLIGATOR_MORPH,
 			BodyMaterial.FLESH,
 			HornLength.ZERO_TINY, HornLength.ZERO_TINY,
-		    Util.newArrayListOfValues(HornType.NONE), PenisType.ALLIGATOR_MORPH, 7,
-		    PenisGirth.THREE_THICK, TesticleSize.FOUR_HUGE, 2,
-		    CumProduction.FIVE_HUGE, Util.newArrayListOfValues(TailType.ALLIGATOR_MORPH), TentacleType.NONE,
+			Util.newArrayListOfValues(HornType.NONE), PenisType.ALLIGATOR_MORPH, 7,
+			PenisGirth.THREE_THICK, TesticleSize.FOUR_HUGE, 2,
+			CumProduction.FIVE_HUGE, Util.newArrayListOfValues(TailType.ALLIGATOR_MORPH), TentacleType.NONE,
 			VaginaType.ALLIGATOR_MORPH,
 			Wetness.SEVEN_DROOLING,
-		    Capacity.ONE_EXTREMELY_TIGHT, ClitorisSize.ZERO_AVERAGE, OrificeElasticity.SEVEN_ELASTIC, OrificePlasticity.ZERO_RUBBERY,
-		    Util.newArrayListOfValues(WingType.NONE), WingSize.ZERO_TINY, WingSize.ZERO_TINY,
-		    GenitalArrangement.CLOACA) {
-		
+			Capacity.ONE_EXTREMELY_TIGHT, ClitorisSize.ZERO_AVERAGE, OrificeElasticity.SEVEN_ELASTIC, OrificePlasticity.ZERO_RUBBERY,
+			Util.newArrayListOfValues(WingType.NONE), WingSize.ZERO_TINY, WingSize.ZERO_TINY,
+			GenitalArrangement.CLOACA) {
+
 		@Override
 		public boolean isHairTypeLinkedToFaceType() {
 			return true;
 		}
 	};
-	
+
 	public static AbstractRacialBody SQUIRREL_MORPH = new AbstractRacialBody(Util.newHashMapOfValues(
 				new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(5f, 15f)),
 				new Value<Attribute, AttributeRange>(Attribute.MAJOR_ARCANE, new AttributeRange(0f, 0f)),
@@ -614,7 +614,7 @@ public class RacialBody {
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE));
 		}
 	};
-	
+
 	public static AbstractRacialBody HARPY = new AbstractRacialBody(Util.newHashMapOfValues(
 				new Value<Attribute, AttributeRange>(Attribute.MAJOR_PHYSIQUE, new AttributeRange(0f, 15f)),
 				new Value<Attribute, AttributeRange>(Attribute.MAJOR_ARCANE, new AttributeRange(0f, 0f)),
@@ -655,13 +655,13 @@ public class RacialBody {
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE));
 		}
-		
+
 		@Override
 		public SexualOrientation getSexualOrientation(Gender gender) {
 			return SexualOrientationPreference.getSexualOrientationFromUserPreferences(95, 5, 0);
 		}
 	};
-	
+
 	public static AbstractRacialBody valueOfRace(Race race) {
 		switch (race) {
 			case NONE:

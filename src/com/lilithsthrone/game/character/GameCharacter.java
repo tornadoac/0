@@ -2003,7 +2003,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 				for(int i=0; i<((Element) slaveryElement.getElementsByTagName("slavePermissionSettings").item(0)).getElementsByTagName("permission").getLength(); i++){
 					Element e = ((Element)slaveryElement.getElementsByTagName("permission").item(i));
-					SlavePermission slavePermission =  SlavePermission.valueOf(e.getAttribute("type"));
+					SlavePermission slavePermission = SlavePermission.valueOf(e.getAttribute("type"));
 
 					NodeList settingElements = e.getElementsByTagName("setting");
 					for(int j=0; j<settingElements.getLength(); j++){
@@ -2347,7 +2347,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 		// ************** Artwork **************//
 
-		// Initialize artworks (name and femininity must be set at this point)
+		// Initialise artworks (name and femininity must be set at this point)
 		character.loadImages();
 
 		if (character.hasArtwork() && Main.getProperties().hasValue(PropertyValue.artwork)) {
@@ -6132,7 +6132,7 @@ public abstract class GameCharacter implements XMLSaving {
 										"Please stop! Don't do this!");
 								break;
 							default:
-								returnedLine =  UtilText.returnStringAtRandom(
+								returnedLine = UtilText.returnStringAtRandom(
 										"Fuck!",
 										"Yeah!",
 										"Oh yeah!");
@@ -6152,7 +6152,7 @@ public abstract class GameCharacter implements XMLSaving {
 	/**
 	 * @return A <b>non-formatted</b> String of this character's speech related to having their asshole used. Returns null if no penetration found.
 	 */
-	public String getDirtyTalkAssPenetrated(GameCharacter target,  boolean isPlayerDom){
+	public String getDirtyTalkAssPenetrated(GameCharacter target, boolean isPlayerDom){
 		String returnedLine = "";
 
 		if(Sex.getFirstContactingSexAreaPenetration(this, SexAreaOrifice.ANUS) != null) {

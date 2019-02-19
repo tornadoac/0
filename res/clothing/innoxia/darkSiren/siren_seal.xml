@@ -15,19 +15,19 @@
 		<imageName>siren_seal.svg</imageName>
 		<imageEquippedName/>
 		<enchantmentLimit>10</enchantmentLimit>
-		<effects> 
-              <effect itemEffectType="CLOTHING" limit="0" potency="MINOR_BOOST" primaryModifier="CLOTHING_SEALING" secondaryModifier="ARCANE_BOOST" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
+		<effects>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MINOR_BOOST" primaryModifier="CLOTHING_SEALING" secondaryModifier="ARCANE_BOOST" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
 		</effects>
-		
+
 		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
@@ -39,9 +39,9 @@
 				<concealedSlots/>
 			</blockedParts>
 		</blockedPartsList>
-		
+
 		<incompatibleSlots/>
-		
+
 		<primaryColours>
 			<colour>CLOTHING_WHITE</colour>
 		</primaryColours>
@@ -52,32 +52,32 @@
 		<secondaryColoursDye values="ALL"/>
 		<tertiaryColour/>
 		<tertiaryColoursDye/>
-	
+
 		<itemTags/>
 	</coreAttributes>
 
   <replacementText type="REMOVE_OR_EQUIP">
-    <self>
-      <![CDATA[[npc.Name] [npc.verb(hook)] the eyepatch's straps around [npc.her] [npc.ears], before positioning the pad over [npc.her] [npc.eye].]]>
-    </self>
-    <other>
-      <![CDATA[[npc.Name] [npc.verb(hook)] the eyepatch's straps around [npc2.namePos] [npc2.ears], before positioning the pad over [npc2.her] [npc2.eye].]]>
-    </other>
-    <otherRough>
-      <![CDATA[[npc.Name] roughly [npc.verb(hook)] the eyepatch's straps around [npc2.namePos] [npc2.ears], before firmly positioning the pad over [npc2.her] [npc2.eye].]]>
-    </otherRough>
+	<self>
+	  <![CDATA[[npc.Name] [npc.verb(hook)] the eyepatch's straps around [npc.her] [npc.ears], before positioning the pad over [npc.her] [npc.eye].]]>
+	</self>
+	<other>
+	  <![CDATA[[npc.Name] [npc.verb(hook)] the eyepatch's straps around [npc2.namePos] [npc2.ears], before positioning the pad over [npc2.her] [npc2.eye].]]>
+	</other>
+	<otherRough>
+	  <![CDATA[[npc.Name] roughly [npc.verb(hook)] the eyepatch's straps around [npc2.namePos] [npc2.ears], before firmly positioning the pad over [npc2.her] [npc2.eye].]]>
+	</otherRough>
   </replacementText>
 
   <displacementText type="REMOVE_OR_EQUIP">
-    <self>
-      <![CDATA[[npc.Name] [npc.verb(unloop)] the eyepatch's straps from around [npc.her] [npc.ears], before taking it off.]]>
-    </self>
-    <other>
-      <![CDATA[[npc.Name] [npc.verb(unloop)] the eyepatch's straps from around [npc2.namePos] [npc2.ears], before taking it off.]]>
-    </other>
-    <otherRough>
-      <![CDATA[[npc.Name] roughly [npc.verb(tug)] the eyepatch's straps off of [npc2.namePos] [npc2.ears], before taking it off.]]>
-    </otherRough>
+	<self>
+	  <![CDATA[[npc.Name] [npc.verb(unloop)] the eyepatch's straps from around [npc.her] [npc.ears], before taking it off.]]>
+	</self>
+	<other>
+	  <![CDATA[[npc.Name] [npc.verb(unloop)] the eyepatch's straps from around [npc2.namePos] [npc2.ears], before taking it off.]]>
+	</other>
+	<otherRough>
+	  <![CDATA[[npc.Name] roughly [npc.verb(tug)] the eyepatch's straps off of [npc2.namePos] [npc2.ears], before taking it off.]]>
+	</otherRough>
   </displacementText>
-	
+
 </clothing>

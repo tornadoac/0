@@ -470,7 +470,7 @@
 	Need udders/crotch boobs TF & genital configuration support
 
 	Suggestion: Second generation elementals / children of elementals as a race that exists independently out in the wild.
-		They could fill the role of stuff like Yuki Ona and other "wild" elemental spirits
+		They could fill the role of stuff like Yuki Onna and other "wild" elemental spirits
 
 	tight choker: breaks if blowjob cock is big enough
 
@@ -587,7 +587,7 @@
 
 	IMPS
 	Imp fortress dialogue out in Submission has no p tags
-		ok, it seems the female fort is the only one where the guards actually tried to fight
+		OK, it seems the female fort is the only one where the guards actually tried to fight
 
 	NPCs use vaginal tease vs you when you have no vagina
 		I also noticed the very effective not effective thing not popping up correctly with the fetishes
@@ -674,13 +674,13 @@
 
 	so just a heads up, performing anal in missionary seems broken again, the option for it is gone even if both participants are well exposed
 
-	found a bug, all submission residents arent engaging after player loss
+	found a bug, all submission residents aren't engaging after player loss
 
 	fetish removal potions not working?
 
-	I’m not sure if it’s intentional, but I assume Subspecies NPC’s that want to transform you into their own subspecies is a little broken, they get as far as your body,
-	 but refuse to transform your arms and legs/head etc, and can’t transform the specific parts of you that make you that subspecies.
-	  It just turns out as an endless loop of "You already have these features so nothing happens" but clearly the NPC isn’t done transforming you.
+	I'm not sure if it's intentional, but I assume Subspecies NPC's that want to transform you into their own subspecies is a little broken, they get as far as your body,
+	 but refuse to transform your arms and legs/head etc, and can't transform the specific parts of you that make you that subspecies.
+	  It just turns out as an endless loop of "You already have these features so nothing happens" but clearly the NPC isn't done transforming you.
 
 	Prostitutes don't seem to respond at all to arcane storms, perhaps they should offer their services for free or try to rape you depending on their attitude
 
@@ -713,7 +713,7 @@
 	Update TFGS and fen
 
 	Whenever I have "Forced TF" set to 100% NPCs never force transform like they did in earlier versions when you submit or  become defeated.
-	 I was wondering if this was a bug,  or you changed things around in the game and I’m not aware of the changes
+	 I was wondering if this was a bug,  or you changed things around in the game and I'm not aware of the changes
 
 	If you remove scarlets slave collar when she is in slave room she attacks you and game bugs out
 
@@ -1312,7 +1312,7 @@ my character is a guy, so this is super confusing lol
 	All-in-all, the colour changes for Slimes seem to be a bit of a mess at the moment.
 
 	Don't forget about the bug where lilaya always recognizes you are a futa even when you are 8inchhes or below
-		Also don’t forget about the sheath cock issue
+		Also don't forget about the sheath cock issue
 		Perhaps the solution there would be that if a cock is sheathed it allows you to have a cock up to 16 before you are recognized
 		Where people will recognize you as female but say they always knew you were futa if your cock size is above 8 inches
 
@@ -2018,7 +2018,7 @@ It'd be even better if this could be extended to potions as well, allowing us to
 
 	NPC changed appearance between encounters. I met a dark alley succubus with blue skin, and when I returned to the same succubus later, she had Ivory skin.
 
-	in the character creation screen I can’t give my pc facial hair "Feminine characters cannot grow facial hair." despite having feminine beards enabled.
+	in the character creation screen I can't give my pc facial hair "Feminine characters cannot grow facial hair." despite having feminine beards enabled.
 
 	"Grace lets out a desperate squeal as you readily push your tongue deep into her slightly loose pussy.
 		A desperate squeal bursts out from between Grace's delicate lips as she eagerly pumps her throbbing cock in and out of your mouth."
@@ -2661,7 +2661,7 @@ When starting as non-virgin ambiphilic character, description always says that y
 
 	Having arcane essence and flames only visible from the inventory screen now makes it a bit of a pain to tell how much is left when purchasing fetishes.
 
-	java.lang.IllegalAccessError: Update to static final field com.lilithsthrone.game.sex.sexActions.SexActionInterface.$SWITCH_TABLE$com$lilithsthrone$game$sex$PenetrationType attempted from a different method ($SWITCH_TABLE$com$lilithsthrone$game$sex$PenetrationType) than the initializer method
+	java.lang.IllegalAccessError: Update to static final field com.lilithsthrone.game.sex.sexActions.SexActionInterface.$SWITCH_TABLE$com$lilithsthrone$game$sex$PenetrationType attempted from a different method ($SWITCH_TABLE$com$lilithsthrone$game$sex$PenetrationType) than the initialiser method
 at com.lilithsthrone.game.sex.sexActions.SexActionInterface.$SWITCH_TABLE$com$lilithsthrone$game$sex$PenetrationType(SexActionInterface.java:29)
 at com.lilithsthrone.game.sex.sexActions.SexActionInterface.isPhysicallyPossible(SexActionInterface.java:661)
 at com.lilithsthrone.game.sex.sexActions.SexActionInterface.toResponse(SexActionInterface.java:220)
@@ -2675,11 +2675,11 @@ at javafx.web/com.sun.webkit.dom.EventListenerImpl.fwkHandleEvent(Unknown Source
 
 	Also, it is kinda strange to see horse/harpy/etc morphs wearing socks.
 
-	traits unselect when you load game, although I don't know why. You can reselect them in the character screen, but you have to do it again everytime you load game.
+	traits unselect when you load game, although I don't know why. You can reselect them in the character screen, but you have to do it again every time you load game.
 
 	I was playing as a futa succubus and I notice in the tfs in the smartphone that you can tf your cock to be blunt where there is no way to make it that way threw regular tfs.
 
-	According to sex dialogue I am able to suck my own wang. Some line bugs are messing up to where it says im performing actions on myself
+	According to sex dialogue I am able to suck my own wang. Some line bugs are messing up to where it says i'm performing actions on myself
 
 	cum on self
 
@@ -5101,7 +5101,7 @@ So basically, the transformer fetish actually reduces the cost of enchantments b
 
 	I'll add several peaceful ways to resolve conflict (pay them, allow them to fuck you, run away, intimidate them, etc.) as soon as I can! ^^
 
-	newly grown vaginas should appear with average stats in regards to tightness, wetness, ect. Instead of the absolute minimum values
+	newly grown vaginas should appear with average stats in regards to tightness, wetness, etc. Instead of the absolute minimum values
 
 	'floppy' and 'size' ear modifiers to my todo list, so that you'll be able to get long, floppy ears
 
@@ -5113,8 +5113,8 @@ So basically, the transformer fetish actually reduces the cost of enchantments b
 	>Penis - Unknown!
 	>The horse-girl's equine cock is quickly lubricated by the horse-girl's precum.
 
-	I will definitely add more options for the inital encounter of NPCs. I'll add several peaceful ways to resolve conflict (pay them, allow them to fuck you, run away, intimidate them, etc.) as soon as I can! ^^
-		A good idee for the "run away" action that the NPC could so iguess is; if you fought a particular NPC multiple times (say 5 times) and won those all in a row, the NPC would recognize you and atempt to flee.
+	I will definitely add more options for the initial encounter of NPCs. I'll add several peaceful ways to resolve conflict (pay them, allow them to fuck you, run away, intimidate them, etc.) as soon as I can! ^^
+		A good idea for the "run away" action that the NPC could so i guess is; if you fought a particular NPC multiple times (say 5 times) and won those all in a row, the NPC would recognize you and attempt to flee.
 		 You can then give the player a option to a)Let them go or b)stop them from fleeing. This could be tied into the Sadist perk as a added bonus, and maybe your speed/stamina stat would determine if you catch him/her or not.
 
 	If you lose your character's virginity to their/someone's else tail, any kind of it - vaginal, anal or oral - then in your character's description (phone→selfie) you will have this sentence:
@@ -5155,7 +5155,7 @@ It lacks something before the period.
 	Ummm... I'm in a scene where both arousal bars just got frozen. >.>
 	It started after I used the Suck Clit command in the scene. Gonna try another and see if the issue repeats.
 	No repeat. Let me see if it's tied to Denial fetish.
-	X ive seen times where it looks like the other persons bar froze because i was raping them, but never my own bar
+	X i've seen times where it looks like the other persons bar froze because i was raping them, but never my own bar
 	My scene was not a rape one, but the NPC had the Denial fetish. After I used the Suck clit option, the NPC's bar froze, then when my char got to climax, that bar froze as well. o_O
 	And NPC's seem to be unable to remove your bra if you remove your panties at the same time. Not sure if it's just related to the maid set or not. o_O
 	I also notice that if you're wearing the maid's dress, the NPC you're in scene with will get the blocked stripes on the legs slot.
@@ -5222,7 +5222,7 @@ It lacks something before the period.
 	personality for named NPCs
 
 	are content toggle settings supposed to influence the fetishes NPCs can spawn with?
-		Cause they currently don't seem to do so and it seems like they should. IE non con and incest fetishes probably shouldnt be in the NPC spawn list if those fetishes are toggled off.
+		Cause they currently don't seem to do so and it seems like they should. IE non con and incest fetishes probably shouldn't be in the NPC spawn list if those fetishes are toggled off.
 
 	Add items used to event log
 
@@ -5242,7 +5242,7 @@ It lacks something before the period.
 	Even if you have thin or normal lips, most of the sex actions describe them as plump or full.
 
 	[Need to make it so if there's only one partner, possibility is certain]
-		And the game's not recognizing that my character is already preggo. It still shows only as High probabillity
+		And the game's not recognizing that my character is already preggo. It still shows only as High probability
 
 	Also some of the clothing has to be manually removed by going into inventory as the npc's or you cant do it themselves mostly seems to affect undies layer clothing
 
@@ -5274,7 +5274,7 @@ It lacks something before the period.
 
 	Ralph does nothing if ask for discount too early x_x
 	Okay he did it after blowing him to at least 30
-	maybe the if statement that displays the 'big discount' button is borked? Or maybe it doesnt have one. At any rate it should only pop up when it'll actually succeed/do something
+	maybe the if statement that displays the 'big discount' button is borked? Or maybe it doesn't have one. At any rate it should only pop up when it'll actually succeed/do something
 
 	I'll be adding more orgasm options (including NPC using ass/pussy-to-mouth) both this and next week! :3
 
@@ -5282,7 +5282,7 @@ It lacks something before the period.
 
 	I'll also add that condom-force-feeding action for NPCs at some point soon, thanks for the suggestion!
 
-	I dropped stolen panties (with almost full inventiory) and game just closed. Fucking hell.
+	I dropped stolen panties (with almost full inventory) and game just closed. Fucking hell.
 
 	Despite putting in the settings, a 0-spawn rate for males, when I come across my kids in alleyways, most of them appear as males.
 

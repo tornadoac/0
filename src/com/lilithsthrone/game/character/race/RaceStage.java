@@ -76,7 +76,7 @@ public enum RaceStage {
 			return false;
 		}
 	},
-	
+
 	/**Some minor animal-morph parts.<br/>
 	 * When used in GameCharacter's setBody() method, will grant <b>only</b> hair, ears, eyes, tail, horns, antenna, and wings (no genitalia).<br/>
 	 * <i>"Not furry"</i> by most standards.*/
@@ -365,7 +365,7 @@ public enum RaceStage {
 	public String getName() {
 		return name;
 	}
-	
+
 	public Colour getColour() {
 		return colour;
 	}

@@ -16,25 +16,25 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class MiscDialogue {
-	
+
 	private static StringBuilder descriptionSB = new StringBuilder();
-	
+
 	public static final DialogueNode STATUS_EFFECTS = new DialogueNode("Important status effect updates", "", true) {
 
 		@Override
 		public String getContent() {
 			descriptionSB.setLength(0);
-			
+
 			for(Entry<StatusEffect, String> e : Main.game.getPlayer().getStatusEffectDescriptions().entrySet()){
 				descriptionSB.append("<p>"
 										+"<h6 style='text-align:center;'>"+Util.capitaliseSentence(e.getKey().getName(Main.game.getPlayer()))+"</h6>"
 										+ e.getValue()
 									+"</p>");
 			}
-			
+
 			return descriptionSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
@@ -48,7 +48,7 @@ public class MiscDialogue {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public DialogueNodeType getDialogueNodeType() {
 			return DialogueNodeType.STATUS_EFFECT_MESSAGE;

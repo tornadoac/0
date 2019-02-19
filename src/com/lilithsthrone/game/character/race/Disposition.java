@@ -9,7 +9,7 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum Disposition {
 
-	CIVILIZED("civilized", Colour.CLOTHING_GREEN),
+	CIVILIZED("civilised", Colour.CLOTHING_GREEN),
 	NEUTRAL("neutral", Colour.CLOTHING_BLUE),
 	UNPREDICTABLE("unpredictable", Colour.CLOTHING_ORANGE),
 	SAVAGE("savage", Colour.CLOTHING_RED);
