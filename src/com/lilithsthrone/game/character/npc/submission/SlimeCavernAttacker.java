@@ -80,7 +80,7 @@ public class SlimeCavernAttacker extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			
@@ -138,11 +138,11 @@ public class SlimeCavernAttacker extends NPC {
 	public String getDescription() {
 		if(this.isSlave()) {
 			return (UtilText.parse(this,
-					"[npc.NamePos] days of getting high on mushrooms and attacking innocent travellers in the Bat Caverns are now over."
-							+ " Having been enslaved as punishment for [npc.her] lawless behaviour, [npc.sheIs] now a slave, and is no more than [npc.her] owner's property."));
+					"[npc.NamePos] days of getting high on mushrooms and attacking innocent travelers in the Bat Caverns are now over."
+							+ " Having been enslaved as punishment for [npc.her] lawless behavior, [npc.sheIs] now a slave, and is no more than [npc.her] owner's property."));
 		} else {
 			return (UtilText.parse(this,
-					"[npc.Name] is a resident of the bat caverns, and loves nothing more than getting high on mushrooms, attacking innocent travellers, and having sex."));
+					"[npc.Name] is a resident of the bat caverns, and loves nothing more than getting high on mushrooms, attacking innocent travelers, and having sex."));
 		}
 	}
 	

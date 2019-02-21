@@ -87,7 +87,7 @@ public class SlaveDialogue {
 						+ "</p>"
 						+ "<p>"
 							+ "Forcing the item of clothing onto [npc.herHim], you step back, looking down at a face filled with fear."
-							+ " The "+enslavementClothing.getName()+"'s arcane enchantment recognises [npc.name] as being a criminal, and, with a purple flash,"
+							+ " The "+enslavementClothing.getName()+"'s arcane enchantment recognizes [npc.name] as being a criminal, and, with a purple flash,"
 								+ " <b>[npc.sheIs] teleported to the 'Slave Administration' building in Slaver Alley, where [npc.she]'ll be waiting for you to pick them up</b>."
 						+ "</p>"
 						+ "<p>"
@@ -105,7 +105,7 @@ public class SlaveDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "Despite [npc.her] words, you force the item of clothing onto [npc.name], before stepping back and waiting to see if anything happens."
-								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment recognises [npc.name] as already being a slave,"
+								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment recognizes [npc.name] as already being a slave,"
 										+ " evidenced by glowing green lettering that's projected into the air, which reads:<br/>"
 								+ "<i>[style.boldGreen(Target already enslaved!)]</i>"
 							+ "</p>");
@@ -119,7 +119,7 @@ public class SlaveDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "Despite [npc.her] words, you force the item of clothing onto [npc.name], before stepping back and waiting to see if anything happens."
-								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognise [npc.name] as being a criminal,"
+								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognize [npc.name] as being a criminal,"
 										+ " evidenced by glowing pink lettering that's projected into the air, which reads:<br/>"
 								+ "<i>[style.boldPink(Demonic target! Cannot enslave!)]</i>"
 							+ "</p>");
@@ -132,7 +132,7 @@ public class SlaveDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "Despite [npc.her] words, you force the item of clothing onto [npc.name], before stepping back and waiting to see if anything happens."
-								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognise [npc.name] as being a criminal,"
+								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognize [npc.name] as being a criminal,"
 										+ " evidenced by glowing red lettering that's projected into the air, which reads:<br/>"
 								+ "<i>[style.boldRed(Invalid target! Cannot enslave!)]</i>"
 							+ "</p>");
@@ -374,7 +374,7 @@ public class SlaveDialogue {
 						switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 							case DISOBEDIENT:
 								UtilText.nodeContentSB.append(" a huge smile breaking out across [npc.her] face as [npc.she] joyously calls out,"
-										+ " [npc.speech(Hi, [npc.pcName]! Oh, I'm so happy to see you again! I've been on my best behaviour!)]");
+										+ " [npc.speech(Hi, [npc.pcName]! Oh, I'm so happy to see you again! I've been on my best behavior!)]");
 								break;
 							case NEUTRAL:
 								UtilText.nodeContentSB.append(" a huge smile breaking out across [npc.her] face as [npc.she] joyously calls out,"
@@ -403,9 +403,9 @@ public class SlaveDialogue {
 			if(index == 0) {
 				return "Characters";
 			} else if(index == 1) {
-				return UtilText.parse("[style.colourSex(Sex)]");
+				return UtilText.parse("[style.colorSex(Sex)]");
 			} else if(index == 2) {
-				return UtilText.parse("[style.colourCompanion(Manage)]");
+				return UtilText.parse("[style.colorCompanion(Manage)]");
 			}
 			
 			return null;
@@ -1178,7 +1178,7 @@ public class SlaveDialogue {
 							UtilText.nodeContentSB.append(" No matter how hard you try, however, your attempts at conversation are met with incredibly rude remarks."
 									+ "</p>"
 									+ "<p>"
-									+ "Realising that you're not going to get anywhere like this, you give up on trying to talk to [npc.name]."
+									+ "Realizing that you're not going to get anywhere like this, you give up on trying to talk to [npc.name]."
 									+ " As you turn away, [npc.she] scowls."
 									+ " [npc.speech(Can you please just fuck off now?!)]");
 							break;
@@ -1186,7 +1186,7 @@ public class SlaveDialogue {
 							UtilText.nodeContentSB.append(" No matter how hard you try, however, your attempts at conversation are met with short, dismissive remarks."
 									+ "</p>"
 									+ "<p>"
-									+ "Realising that you're not going to get anywhere like this, you give up on trying to talk to [npc.name]."
+									+ "Realizing that you're not going to get anywhere like this, you give up on trying to talk to [npc.name]."
 									+ " As you turn away, [npc.she] scowls."
 									+ " [npc.speech(Are you finished with me, [npc.pcName]?)]");
 							break;
@@ -1194,7 +1194,7 @@ public class SlaveDialogue {
 							UtilText.nodeContentSB.append(" No matter how hard you try, however, your attempts at conversation are met with short, dismissive remarks."
 									+ "</p>"
 									+ "<p>"
-									+ "Realising that you're not going to get anywhere like this, you give up on trying to talk to [npc.name]."
+									+ "Realizing that you're not going to get anywhere like this, you give up on trying to talk to [npc.name]."
 									+ " As you turn away, [npc.she] asks,"
 									+ " [npc.speech(Is there anything else I can do for you, [npc.pcName]?)]");
 							break;
@@ -1202,7 +1202,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, your attempt at making small talk is doing more harm than good!</i>"
 							+ "</p>");
 					break;
@@ -1239,7 +1239,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, your attempt at making small talk is helping to get [npc.herHim] to like you more!</i>"
 							+ "</p>");
 					break;
@@ -1278,7 +1278,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, your attempt at making small talk is greatly helping to get [npc.herHim] to like you more!</i>"
 							+ "</p>");
 					break;
@@ -1314,7 +1314,7 @@ public class SlaveDialogue {
 			
 			switch(Main.game.getActiveNPC().getSlaveJob()) {
 				case CLEANING:
-					UtilText.nodeContentSB.append("Wanting to encourage [npc.name] to do [npc.her] best while working as your "+Util.capitaliseSentence(SlaveJob.CLEANING.getName(Main.game.getActiveNPC()))+", you ask [npc.her] how [npc.sheIs] finding it.");
+					UtilText.nodeContentSB.append("Wanting to encourage [npc.name] to do [npc.her] best while working as your "+Util.capitalizeSentence(SlaveJob.CLEANING.getName(Main.game.getActiveNPC()))+", you ask [npc.her] how [npc.sheIs] finding it.");
 					break;
 				case IDLE:
 					UtilText.nodeContentSB.append("Although [npc.name] hasn't been assigned to a job, you ask [npc.her] how [npc.sheIs] finding life as your slave.");
@@ -1376,7 +1376,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, showing your interest in [npc.her] work has only had a minor effect!</i>"
 							+ "</p>");
 					break;
@@ -1407,7 +1407,7 @@ public class SlaveDialogue {
 									+ "</p>"
 									+ "<p>"
 										+ "From [npc.her] reaction, it's quite clear that [npc.name] has fully accepted [npc.her] place as your slave."
-										+ " [npc.Her] answer seemed a little cold, however, and you realise that while [npc.she] doesn't hate you, [npc.she] doesn't exactly love you either."
+										+ " [npc.Her] answer seemed a little cold, however, and you realize that while [npc.she] doesn't hate you, [npc.she] doesn't exactly love you either."
 										+ " Before you can make a comment, [npc.she] continues,"
 										+ " [npc.speech(What more can I do for you, [npc.pcName]?)]");
 							break;
@@ -1415,7 +1415,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, showing your interest in [npc.her] work has had a noticeable effect!</i>"
 							+ "</p>");
 					break;
@@ -1458,7 +1458,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, showing your interest in [npc.her] work has had a significant effect!</i>"
 							+ "</p>");
 					break;
@@ -1533,7 +1533,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, your attempt at forcing physical contact is doing more harm than good!</i>"
 							+ "</p>");
 					break;
@@ -1576,7 +1576,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, giving [npc.herHim] a reassuring hug has had a positive affect on how [npc.she] sees you! However, being treated in such a familiar manner has had a slightly negative impact on [npc.her] obedience...</i>"
 							+ "</p>");
 					break;
@@ -1628,7 +1628,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, giving [npc.herHim] a reassuring hug has had a hugely positive affect on how [npc.she] sees you! However, being treated in such a familiar manner has had a slightly negative impact on [npc.her] obedience...</i>"
 							+ "</p>");
 					break;
@@ -1677,7 +1677,7 @@ public class SlaveDialogue {
 							break;
 						case NEUTRAL:
 							UtilText.nodeContentSB.append(
-									"Shocked by your actions, it takes [npc.name] a moment to respond, and with an uncomfortable whine, [npc.she] steps back, apologising,"
+									"Shocked by your actions, it takes [npc.name] a moment to respond, and with an uncomfortable whine, [npc.she] steps back, apologizing,"
 									+ " [npc.speech(Sorry, [npc.pcName], but, could you not do that?)]"
 								+ "</p>");
 							break;
@@ -1693,7 +1693,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, your attempt at forcing physical contact is doing more harm than good!</i>"
 							+ "</p>");
 					break;
@@ -1733,7 +1733,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, giving [npc.herHim] such intimate physical attention has made [npc.her] like you a lot more! However, being treated in such a familiar manner has had a slightly negative impact on [npc.her] obedience...</i>"
 							+ "</p>");
 					break;
@@ -1773,7 +1773,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "<i>Due to the fact that [npc.name]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, giving [npc.herHim] such intimate physical attention has made [npc.her] like you a lot more! However, being treated in such a familiar manner has had a slightly negative impact on [npc.her] obedience...</i>"
 							+ "</p>");
 					break;
@@ -1836,7 +1836,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "<i>Despite the fact that [npc.she]"
-									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+									+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 									+ " you, [npc.name] is happy to have been given a gift!</i>"
 							+ "</p>");
 					break;
@@ -1931,7 +1931,7 @@ public class SlaveDialogue {
 						switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 							case DISOBEDIENT:
 								UtilText.nodeContentSB.append(
-											"[npc.She] lets out an angry scowl as [npc.she] hears your order, but, realising that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
+											"[npc.She] lets out an angry scowl as [npc.she] hears your order, but, realizing that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
 											+ " As [npc.she] takes [npc.her] clothes off, [npc.she] snarls,"
 											+ " [npc.speech(Fucking "+(Main.game.getPlayer().isFeminine()?"bitch":"bastard")+"! Go on! Take a good look at your <i>property</i>, you sick fuck!)]"
 										+ "</p>"
@@ -2065,7 +2065,7 @@ public class SlaveDialogue {
 						switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 							case DISOBEDIENT:
 								UtilText.nodeContentSB.append(
-											"[npc.She] lets out an angry scowl as [npc.she] hears your order, but, realising that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
+											"[npc.She] lets out an angry scowl as [npc.she] hears your order, but, realizing that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
 											+ " As [npc.she] takes [npc.her] clothes off, [npc.she] snarls,"
 											+ " [npc.speech(Fucking "+(Main.game.getPlayer().isFeminine()?"bitch":"bastard")+"! Go on! Take a good look at your <i>property</i>, you sick fuck!)]"
 										+ "</p>"
@@ -2105,7 +2105,7 @@ public class SlaveDialogue {
 						switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 							case DISOBEDIENT:
 								UtilText.nodeContentSB.append(
-											"[npc.She] lets out a flustered cry as [npc.she] hears your order, but, realising that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
+											"[npc.She] lets out a flustered cry as [npc.she] hears your order, but, realizing that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
 											+ " As [npc.she] takes [npc.her] clothes off, [npc.she] whines,"
 											+ " [npc.speech(Do I really have to? It's kind of degrading being forced to do this...)]"
 										+ "</p>"
@@ -2145,7 +2145,7 @@ public class SlaveDialogue {
 						switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 							case DISOBEDIENT:
 								UtilText.nodeContentSB.append(
-											"[npc.She] lets out a sad little cry as [npc.she] hears your order, but, realising that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
+											"[npc.She] lets out a sad little cry as [npc.she] hears your order, but, realizing that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
 											+ " As [npc.she] takes [npc.her] clothes off, [npc.she] whines,"
 											+ " [npc.speech(You know, it's kind of degrading being forced to do this... I thought you liked me...)]"
 										+ "</p>"
@@ -2185,7 +2185,7 @@ public class SlaveDialogue {
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "<i>It makes no difference that [npc.name]"
-								+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+								+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 								+ " you, as being forced to strip and present [npc.herself] to you like a piece of meat has a hugely negative impact on [npc.her] affection towards you, while simultaneously increasing [npc.her] obedience!</i>"
 						+ "</p>");
 			}
@@ -2297,7 +2297,7 @@ public class SlaveDialogue {
 					switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 						case DISOBEDIENT:
 							UtilText.nodeContentSB.append(
-									"[npc.She] lets out a flustered cry as [npc.she] hears your order, but, realising that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
+									"[npc.She] lets out a flustered cry as [npc.she] hears your order, but, realizing that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
 									+ " As [npc.she] takes [npc.her] clothes off, [npc.she] whines,"
 									+ " [npc.speech(Do I really have to? It's kind of degrading being forced to do this...)]"
 								+ "</p>"
@@ -2349,7 +2349,7 @@ public class SlaveDialogue {
 					switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 						case DISOBEDIENT:
 							UtilText.nodeContentSB.append(
-									"[npc.She] lets out a sad little cry as [npc.she] hears your order, but, realising that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
+									"[npc.She] lets out a sad little cry as [npc.she] hears your order, but, realizing that [npc.she] really doesn't have any choice in the matter, begrudgingly moves to obey."
 									+ " As [npc.she] takes [npc.her] clothes off, [npc.she] whines,"
 									+ " [npc.speech(You know, it's kind of degrading being forced to do this... I thought you liked me...)]"
 								+ "</p>"
@@ -2409,7 +2409,7 @@ public class SlaveDialogue {
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "<i>It makes no difference that [npc.name]"
-								+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColour().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
+								+ " <span style='"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getColor().toWebHexString()+"'>"+Main.game.getActiveNPC().getAffectionLevel(Main.game.getPlayer()).getDescriptor()+"</span>"
 								+ " you, as being forced to present [npc.herself] for a disciplinary spanking has a hugely negative impact on [npc.her] affection towards you, while simultaneously increasing [npc.her] obedience!</i>"
 						+ "</p>");
 			}
@@ -2698,7 +2698,7 @@ public class SlaveDialogue {
 			if(!Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
-							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realises that you've finished."
+							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 						+ "</p>");
 				
 			} else {
@@ -2706,12 +2706,12 @@ public class SlaveDialogue {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
 								+ "As you step back from [npc.name], [npc.she] sinks to the floor, totally worn out from [npc.her] orgasm"+(Sex.getNumberOfOrgasms(Sex.getActivePartner()) > 1?"s":"")+"."
-								+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realise that you gave [npc.herHim] exactly what [npc.she] wanted."
+								+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realize that you gave [npc.herHim] exactly what [npc.she] wanted."
 							+ "</p>");
 				} else {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
-								+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realises that you've finished."
+								+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realizes that you've finished."
 								+ " [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started."
 							+ "</p>"
 							+ "<p>"
@@ -2772,7 +2772,7 @@ public class SlaveDialogue {
 						null,
 						null), SLAVE_USES_YOU_POST_SEX, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away."
-							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 						+ "</p>");
 				
 			} else if (index == 2) {
@@ -2786,7 +2786,7 @@ public class SlaveDialogue {
 								null,
 								ResponseTag.START_PACE_PLAYER_SUB_EAGER), SLAVE_USES_YOU_POST_SEX, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 						+ "</p>");
 				
 			} else if (index == 3 && Main.game.isNonConEnabled()) {
@@ -2801,7 +2801,7 @@ public class SlaveDialogue {
 								ResponseTag.START_PACE_PLAYER_SUB_RESISTING), SLAVE_USES_YOU_POST_SEX, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 							+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-							+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+							+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 						+ "</p>");
 				
 			} else {
@@ -2877,7 +2877,7 @@ public class SlaveDialogue {
 					+ "</p>"
 					+ "<p>"
 						+ "As [npc.she] moves to start having sex with you, members of the surrounding crowd, including a pair of Enforcers, step forwards to watch."
-						+ " With no help coming your way, you realise that you're at the mercy of your supposed 'slave'..."
+						+ " With no help coming your way, you realize that you're at the mercy of your supposed 'slave'..."
 					+ "</p>");
 		}
 
@@ -2895,7 +2895,7 @@ public class SlaveDialogue {
 						SLAVE_USES_YOU_POST_SEX_STREETS,
 						"<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away."
-							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 						+ "</p>");
 				
 			} else if (index == 2) {
@@ -2910,7 +2910,7 @@ public class SlaveDialogue {
 								ResponseTag.START_PACE_PLAYER_SUB_EAGER),
 						SLAVE_USES_YOU_POST_SEX_STREETS, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 						+ "</p>");
 				
 			} else if (index == 3 && Main.game.isNonConEnabled()) {
@@ -2926,7 +2926,7 @@ public class SlaveDialogue {
 						SLAVE_USES_YOU_POST_SEX_STREETS, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 							+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-							+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+							+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 						+ "</p>");
 				
 			} else {
@@ -3042,7 +3042,7 @@ public class SlaveDialogue {
 						SLAVE_USES_YOU_POST_SEX_ALLEYWAY,
 						"<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away."
-							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 						+ "</p>");
 				
 			} else if (index == 2) {
@@ -3057,7 +3057,7 @@ public class SlaveDialogue {
 								ResponseTag.START_PACE_PLAYER_SUB_EAGER),
 						SLAVE_USES_YOU_POST_SEX_ALLEYWAY, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+							+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 						+ "</p>");
 				
 			} else if (index == 3 && Main.game.isNonConEnabled()) {
@@ -3073,7 +3073,7 @@ public class SlaveDialogue {
 						SLAVE_USES_YOU_POST_SEX_ALLEYWAY, "<p>"
 							+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 							+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-							+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+							+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 						+ "</p>");
 				
 			} else {

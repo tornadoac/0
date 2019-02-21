@@ -126,7 +126,7 @@ Also note that the "data" directory (that stores settings and save games) may be
 
 ### Common issues
 
-#### The Main class isn't recognised and unresolved symbol errors for Java
+#### The Main class isn't recognized and unresolved symbol errors for Java
 
 The importer sometimes fails to set the correct JDK for your project.
 1. Open the "Project Structure" dialogue (the default keybind is Ctrl + Shift + Alt + S or search for it with Ctrl + Shift + A)

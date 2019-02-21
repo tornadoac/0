@@ -16,12 +16,12 @@ import com.lilithsthrone.game.character.body.FluidGirlCum;
 import com.lilithsthrone.game.character.body.FluidInterface;
 import com.lilithsthrone.game.character.body.FluidMilk;
 import com.lilithsthrone.game.character.body.types.FluidType;
-import com.lilithsthrone.game.character.body.valueEnums.FluidFlavour;
+import com.lilithsthrone.game.character.body.valueEnums.FluidFlavor;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Vector2i;
 import com.lilithsthrone.utils.XMLSaving;
@@ -310,19 +310,19 @@ public class MilkingRoom implements XMLSaving {
 	public String getRoomDescription() {
 		StringBuilder milkyMilknessSB = new StringBuilder();
 		
-		milkyMilknessSB.append(getFluidEntries(this.getMilkFluidsStored(), Colour.MILK, "Milk Stored"));
-		milkyMilknessSB.append(getFluidEntries(this.getCumFluidsStored(), Colour.CUM, "Cum Stored"));
-		milkyMilknessSB.append(getFluidEntries(this.getGirlcumFluidsStored(), Colour.GIRLCUM, "Girlcum Stored"));
+		milkyMilknessSB.append(getFluidEntries(this.getMilkFluidsStored(), Color.MILK, "Milk Stored"));
+		milkyMilknessSB.append(getFluidEntries(this.getCumFluidsStored(), Color.CUM, "Cum Stored"));
+		milkyMilknessSB.append(getFluidEntries(this.getGirlcumFluidsStored(), Color.GIRLCUM, "Girlcum Stored"));
 		
 		return milkyMilknessSB.toString();
 	}
 	
-	private String getFluidEntries(List<FluidStored> fluids, Colour colour, String title) {
+	private String getFluidEntries(List<FluidStored> fluids, Color color, String title) {
 		StringBuilder milkyMilknessSB = new StringBuilder();
 		
 		boolean fluidsFound = false;
 
-		milkyMilknessSB.append("<div class='container-full-width' style='margin-bottom:2px; text-align:center;'><b style='color:"+colour.toWebHexString()+";'>"+title+"</b>");
+		milkyMilknessSB.append("<div class='container-full-width' style='margin-bottom:2px; text-align:center;'><b style='color:"+color.toWebHexString()+";'>"+title+"</b>");
 		
 			for(FluidStored fluid : fluids) {
 				
@@ -344,40 +344,40 @@ public class MilkingRoom implements XMLSaving {
 				
 				fluidsFound = true;
 				
-				milkyMilknessSB.append("<div class='container-full-width' style='margin-top:2px; background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>");
+				milkyMilknessSB.append("<div class='container-full-width' style='margin-top:2px; background:"+Color.BACKGROUND_ALT.toWebHexString()+";'>");
 				
 					milkyMilknessSB.append(
 							"<div class='container-half-width' style='margin:0; padding:2px; width:15%; background:transparent;'>"
-								+ "[style.colourExcellent("+fluid.getMillilitres()+"ml)]"
+								+ "[style.colorExcellent("+fluid.getMillilitres()+"ml)]"
 							+ "</div>");
 				
 					milkyMilknessSB.append(
 							"<div class='container-half-width' style='margin:0; padding:2px; width:25%; background:transparent;'>"
 								+ (fluid.getFluidCharacter()==null
-									?"[style.colourDisabled(Unknown's)]"
-									:UtilText.parse(fluid.getFluidCharacter(), "<span style='color:"+fluid.getFluidCharacter().getFemininity().getColour().toWebHexString()+";'>[npc.NamePos]</span>"))
+									?"[style.colorDisabled(Unknown's)]"
+									:UtilText.parse(fluid.getFluidCharacter(), "<span style='color:"+fluid.getFluidCharacter().getFemininity().getColor().toWebHexString()+";'>[npc.NamePos]</span>"))
 								+ "<br/>"
-								+ "<span style='color:"+type.getRace().getColour().toWebHexString()+";'>"
-									+Util.capitaliseSentence(type.getRace().getName(fluid.getFluid().isBestial(fluid.getFluidCharacter())))+" "+type.getName(fluid.getFluidCharacter()) //TODO this will change if the character ttransforms...
+								+ "<span style='color:"+type.getRace().getColor().toWebHexString()+";'>"
+									+Util.capitalizeSentence(type.getRace().getName(fluid.getFluid().isBestial(fluid.getFluidCharacter())))+" "+type.getName(fluid.getFluidCharacter()) //TODO this will change if the character transforms...
 								+"</span>"
 							+ "</div>");
 	
 					milkyMilknessSB.append("<div class='container-half-width' style='margin:0; padding:2px; width:35%; background:transparent;'>");
-					FluidFlavour flavour = fluid.getFluid().getFlavour();
-					milkyMilknessSB.append("<span style='color:"+flavour.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(flavour.getName())+"-flavoured</span>.<br/>");
+					FluidFlavor flavor = fluid.getFluid().getFlavor();
+					milkyMilknessSB.append("<span style='color:"+flavor.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(flavor.getName())+"-flavored</span>.<br/>");
 						if(!fluid.getFluid().getFluidModifiers().isEmpty()) {
 							int i=0;
 							for(FluidModifier mod : fluid.getFluid().getFluidModifiers()) {
 								if(i>0) {
 									milkyMilknessSB.append(", ");
 								}
-								milkyMilknessSB.append(Util.capitaliseSentence(mod.getName()));
+								milkyMilknessSB.append(Util.capitalizeSentence(mod.getName()));
 								i++;
 							}
 							milkyMilknessSB.append(".");
 							
 						} else {
-							milkyMilknessSB.append("[style.colourDisabled(No Modifiers)]");
+							milkyMilknessSB.append("[style.colorDisabled(No Modifiers)]");
 						}
 					milkyMilknessSB.append("</div>");
 	
@@ -414,7 +414,7 @@ public class MilkingRoom implements XMLSaving {
 			}
 			
 			if(!fluidsFound) {
-				milkyMilknessSB.append("<div class='container-full-width' style='margin-bottom:2px; text-align:center; background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>[style.colourDisabled(None...)]</div>");
+				milkyMilknessSB.append("<div class='container-full-width' style='margin-bottom:2px; text-align:center; background:"+Color.BACKGROUND_ALT.toWebHexString()+";'>[style.colorDisabled(None...)]</div>");
 			}
 
 		milkyMilknessSB.append("</div>");

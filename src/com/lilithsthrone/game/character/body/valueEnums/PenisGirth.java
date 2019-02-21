@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.2.1
@@ -9,20 +9,20 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum PenisGirth {
 
-	ZERO_SLENDER(0, "slender", Colour.GENERIC_SIZE_ONE),
-	ONE_THIN(1, "thin", Colour.GENERIC_SIZE_TWO),
-	TWO_AVERAGE(2, "averagely-girthed", Colour.GENERIC_SIZE_THREE),
-	THREE_THICK(3, "thick", Colour.GENERIC_SIZE_FOUR),
-	FOUR_FAT(4, "fat", Colour.GENERIC_SIZE_FIVE);
+	ZERO_SLENDER(0, "slender", Color.GENERIC_SIZE_ONE),
+	ONE_THIN(1, "thin", Color.GENERIC_SIZE_TWO),
+	TWO_AVERAGE(2, "averagely-girthed", Color.GENERIC_SIZE_THREE),
+	THREE_THICK(3, "thick", Color.GENERIC_SIZE_FOUR),
+	FOUR_FAT(4, "fat", Color.GENERIC_SIZE_FIVE);
 	
 	private int value;
 	private String descriptor;
-	private Colour colour;
+	private Color color;
 
-	private PenisGirth(int value, String descriptor, Colour colour) {
+	private PenisGirth(int value, String descriptor, Color color) {
 		this.value = value;
 		this.descriptor = descriptor;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public int getValue() {
@@ -50,7 +50,7 @@ public enum PenisGirth {
 		return largest;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

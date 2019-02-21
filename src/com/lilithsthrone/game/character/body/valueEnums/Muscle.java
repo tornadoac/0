@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.83
@@ -10,21 +10,21 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum Muscle {
 	
-	ZERO_SOFT("soft", 0, 20, Colour.MUSCLE_ZERO),
-	ONE_LIGHTLY_MUSCLED("lightly muscled", 20, 40, Colour.MUSCLE_ONE),
-	TWO_TONED("toned", 40, 60, Colour.MUSCLE_TWO),
-	THREE_MUSCULAR("muscular", 60, 80, Colour.MUSCLE_THREE),
-	FOUR_RIPPED("ripped", 80, 100, Colour.MUSCLE_FOUR);
+	ZERO_SOFT("soft", 0, 20, Color.MUSCLE_ZERO),
+	ONE_LIGHTLY_MUSCLED("lightly muscled", 20, 40, Color.MUSCLE_ONE),
+	TWO_TONED("toned", 40, 60, Color.MUSCLE_TWO),
+	THREE_MUSCULAR("muscular", 60, 80, Color.MUSCLE_THREE),
+	FOUR_RIPPED("ripped", 80, 100, Color.MUSCLE_FOUR);
 
 	private String name;
 	private int minimumMuscle, maximumMuscle;
-	private Colour colour;
+	private Color color;
 
-	private Muscle(String name, int minimumMuscle, int maximumMuscle, Colour colour) {
+	private Muscle(String name, int minimumMuscle, int maximumMuscle, Color color) {
 		this.name = name;
 		this.minimumMuscle = minimumMuscle;
 		this.maximumMuscle = maximumMuscle;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public int getMinimumValue() {
@@ -56,7 +56,7 @@ public enum Muscle {
 		}
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

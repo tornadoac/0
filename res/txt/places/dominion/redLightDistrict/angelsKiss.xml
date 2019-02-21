@@ -7,7 +7,7 @@
 	</p>
 	<p>
 		A golden chandelier dangles from the high ceiling above you, bathing the entire entrance hall in a soft white light.
-		 To your right, a long, mahogany counter runs in parallel to the wall, which, much like the other three that surround you, is half-panelled in dark wood, with the top half being covered in a finely detailed light-blue and white floral wallpaper.
+		 To your right, a long, mahogany counter runs in parallel to the wall, which, much like the other three that surround you, is half-paneled in dark wood, with the top half being covered in a finely detailed light-blue and white floral wallpaper.
 		 Underfoot, a rich burgundy carpet runs down the middle of the hall, with spaces on either side displaying polished oak boards.
 	</p>
 	<p>
@@ -16,7 +16,7 @@
 	</p>
 	<p>
 		Wearing a long, purple plunge dress, the blonde-haired, blue-eyed woman that approaches is nothing short of breath-takingly beautiful.
-		 As she steps forwards, her full, red lips turn up into a delightful smile, and she lowers her head a little as she apologises,
+		 As she steps forwards, her full, red lips turn up into a delightful smile, and she lowers her head a little as she apologizes,
 		 [angel.speech(I'm so sorry that I kept you waiting, and welcome to my establishment!
 			 My name is Angel, and if there's any administrative business you need taken care of, you've come to the right place!)]
 	</p>
@@ -28,7 +28,7 @@
 		[angel.speech(Oh! And we're still operating as a brothel too!
 		 We might not have as wide of a selection as some of our competitors, but my two girls are among the very best in all of Dominion!)]
 		 Angel wrings her hands and glances back the way she came as she continues,
-		 [angel.speech(I'm sorry that I'm not able to provide you with the level of comfort that this establishment was once known for, but ever since the Enforcers designated this as the red-light district's administrative centre, I've been buried beneath a pile of paperwork.
+		 [angel.speech(I'm sorry that I'm not able to provide you with the level of comfort that this establishment was once known for, but ever since the Enforcers designated this as the red-light district's administrative center, I've been buried beneath a pile of paperwork.
 		 I really need to get back to it right away, so if you're here to apply for a prostitution license, please follow me back to my office.
 		 Oh, and if you're here for Bunny or Loppy, you can find them upstairs.)]
 	</p>
@@ -44,7 +44,7 @@
 	<p>
 		Once again, you find yourself standing in the entrance hall of the brothel 'Angel's Kiss'.
 		 A golden chandelier dangles from the high ceiling above you, bathing the entire entrance hall in a soft white light.
-		 To your right, a long, mahogany counter runs in parallel to the wall, which, much like the other three that surround you, is half-panelled in dark wood, with the top half being covered in a finely detailed light-blue floral wallpaper.
+		 To your right, a long, mahogany counter runs in parallel to the wall, which, much like the other three that surround you, is half-paneled in dark wood, with the top half being covered in a finely detailed light-blue floral wallpaper.
 		 Underfoot, a rich burgundy carpet runs down the middle of the hall, with spaces on either side displaying polished oak boards.
 	</p>
 	]]>
@@ -66,8 +66,8 @@
 	
 	<htmlContent tag="CORRIDOR"><![CDATA[
 	<p>
-		The corridors of Angel's Kiss bear the same decor as the entrance hall.
-		 The walls are half-panelled in dark wood, with the top half being covered in a finely detailed light-blue floral wallpaper.
+		The corridors of Angel's Kiss bear the same décor as the entrance hall.
+		 The walls are half-paneled in dark wood, with the top half being covered in a finely detailed light-blue floral wallpaper.
 		 Underfoot, a rich burgundy carpet runs down the middle of the hall, with spaces on either side displaying polished oak boards.
 		 The odd painting, cabinet, or doorway breaks up the monotony of your surroundings, which are illuminated by the soft white glow given off from the many light fixtures set into the high ceiling above.
 	</p>
@@ -216,7 +216,7 @@
 	
 	<htmlContent tag="SELL_SELF_DECLINE"><![CDATA[
 	<p>
-		Deciding that you don't want to take this client, you step forwards and apologise,
+		Deciding that you don't want to take this client, you step forwards and apologize,
 		 [pc.speech(I'm so sorry, there must have been a mistake. I'm actually coming to the end of my shift now... I'm sure one of the girls down the corridor will love to have some fun with you though!)]
 	</p>
 	]]>
@@ -342,7 +342,7 @@
 		 [loppy.speech(Ah... [npc.pcName]... that was great!)]
 	</p>
 	<p>
-		[npc.She] doesn't sound completely honest, and, seeing as you didn't bring [npc.herHim] to an orgasm, you realise that [npc.she]'s just being professionally courteous.
+		[npc.She] doesn't sound completely honest, and, seeing as you didn't bring [npc.herHim] to an orgasm, you realize that [npc.she]'s just being professionally courteous.
 		 Not being too concerned with this fact, you turn away and start to gather your things.
 		 As you head towards the door to make your exit, [npc.name] calls out after you,
 		 [npc.speech(Please come back again!)]
@@ -377,8 +377,8 @@
 		[pc.speech(You work here with your sister?)] you ask.
 	</p>
 	<p>
-		[bunny.speech(Yeah, she's down the other end of the corridor. We used to share a room, back when this place was the busiest brothel in all Dominion, but ever since those Enforcers made Angel run this place as an admin centre, people started to stop coming here. Better not to get involved with anything the Enforcers have a hand in, right?)]
-		 Bunny suddenly realises what she's saying, and splutters,
+		[bunny.speech(Yeah, she's down the other end of the corridor. We used to share a room, back when this place was the busiest brothel in all Dominion, but ever since those Enforcers made Angel run this place as an admin center, people started to stop coming here. Better not to get involved with anything the Enforcers have a hand in, right?)]
+		 Bunny suddenly realizes what she's saying, and splutters,
 		 [bunny.speech(W-Wait, there's nothing wrong with this place, it's just people are kind of wary, y'know? Anyway, I started talking about boring stuff again... So yeah, Loppy's my older sister, and, getting down to business, it's gonna be one-thousand five-hundred flames to have some fun with either of us. Angel sets the prices, so there's no haggling, ok?)]
 	</p>
 	<p>
@@ -445,7 +445,7 @@
 	<p>
 		You can instantly tell that they're related, as they have very similar facial features.
 		 Loppy's hair and fur is a slighter darker shade of brown than her sister's, and her eyes are brown whereas Bunny's are green, but apart from that, and the fact that her rabbit-like ears are floppy instead of upright, the two sisters are almost identical to one another.
-		 As you're marvelling at how alike they look, Loppy grins at you and exclaims,
+		 As you're marveling at how alike they look, Loppy grins at you and exclaims,
 		 [loppy.speech(Hey there, [pc.name]! Bunny's told me all about your naughty plan... Fucking us both at the same time? This is going to be good!)]
 	</p>
 	<p>
@@ -503,7 +503,7 @@
 		 [bunny.speech(Ah... [pc.name]... that was great!)]
 	</p>
 	<p>
-		She doesn't sound completely honest, and, seeing as you didn't bring Bunny to an orgasm, you realise that she's just being professionally courteous.
+		She doesn't sound completely honest, and, seeing as you didn't bring Bunny to an orgasm, you realize that she's just being professionally courteous.
 		 Not being too concerned with this fact, you turn away and start to gather your things.
 		 As you head towards the door to make your exit, Bunny calls out after you,
 		 [bunny.speech(Please come back again!)]
@@ -514,7 +514,7 @@
 	<htmlContent tag="BEDROOM_BUNNY_AFTER_THREESOME"><![CDATA[
 	<p>
 		The two sisters collapse down onto the bed in front of you, panting and sighing with exhaustion.
-		 As they realise that you've finished with them, Loppy is the first to make a move, and, turning over to lie on her back, she props herself up on her elbows and calls out,
+		 As they realize that you've finished with them, Loppy is the first to make a move, and, turning over to lie on her back, she props herself up on her elbows and calls out,
 		 [pc.speech([pc.Name], that was amazing!
 		 My sis and I haven't had this much fun in forever!)]
 	</p>
@@ -553,7 +553,7 @@
 		 [loppy.speech(Angel said the cleaners wouldn't be here until for another three hours... Wait... Y-You're not a customer are you?)]
 	</p>
 	<p>
-		The rabbit-girl's cheeks start to turn red as she realises her mistake, and, rushing forwards, she frantically apologises,
+		The rabbit-girl's cheeks start to turn red as she realizes her mistake, and, rushing forwards, she frantically apologizes,
 		 [loppy.speech(Oh no, oh no, oh no! I'm so, so sorry!
 		 I didn't mean any offence, it's just that we haven't had any real customers for so long!
 		 I-I'm Loppy, at your service!)]
@@ -571,7 +571,7 @@
 		 We actually used to share a room, but ever since Angel got mixed up in Enforcer business, all the customers stopped coming, and all of the other girls moved out to the other brothels...)]
 	</p>
 	<p>
-		Suddenly realising that she's not doing the best job of advertising her services, Loppy quickly changes the subject,
+		Suddenly realizing that she's not doing the best job of advertising her services, Loppy quickly changes the subject,
 		 [loppy.speech(Anyway! Enough of that!
 		 If you're looking for a good time, you definitely came to the right place!
 		 Oh, and I'd better warn you right now, I've got a nice tight pussy for you to fuck, but I'm also packing a little extra equipment downstairs...)]
@@ -672,7 +672,7 @@
 	<p>
 		You can instantly tell that they're related, as they have identical facial features.
 		 Bunny's hair and fur is a slighter lighter shade of brown than her sister's, and her eyes are green whereas Loppy's are brown, but apart from that, and the fact that her rabbit-like ears are upright instead of floppy, the two sisters are almost identical to one another.
-		 As you're marvelling at how alike they look, Bunny lets out an excited squeal,
+		 As you're marveling at how alike they look, Bunny lets out an excited squeal,
 		 [bunny.speech(Hey there, [pc.name]! Loppy's told me what you've got in mind! I love being fucked alongside my sis' here! Let's get started!)]
 	</p>
 	<p>
@@ -717,7 +717,7 @@
 		 [loppy.speech(Ah... [pc.name]... that was great!)]
 	</p>
 	<p>
-		She doesn't sound completely honest, and, seeing as you didn't bring Loppy to an orgasm, you realise that she's just being professionally courteous.
+		She doesn't sound completely honest, and, seeing as you didn't bring Loppy to an orgasm, you realize that she's just being professionally courteous.
 		 Not being too concerned with this fact, you turn away and start to gather your things.
 		 As you head towards the door to make your exit, Loppy calls out after you,
 		 [loppy.speech(Please come back again!)]
@@ -728,7 +728,7 @@
 	<htmlContent tag="BEDROOM_LOPPY_AFTER_THREESOME"><![CDATA[
 	<p>
 		The two sisters collapse down onto the bed in front of you, panting and sighing with exhaustion.
-		 As they realise that you've finished with them, Loppy is the first to make a move, and, turning over to lie on her back, she props herself up on her elbows and calls out,
+		 As they realize that you've finished with them, Loppy is the first to make a move, and, turning over to lie on her back, she props herself up on her elbows and calls out,
 		 [pc.speech([pc.Name], that was amazing!
 		 My sis and I haven't had this much fun in forever!)]
 	</p>
@@ -948,7 +948,7 @@
 		 [pc.speech(I'll take you up on your offer.)]
 	</p>
 	<p>
-		A huge smile breaks out over Angel's face, and, first taking the money, she then reaches over to grab a pink-coloured piece of paper.
+		A huge smile breaks out over Angel's face, and, first taking the money, she then reaches over to grab a pink-colored piece of paper.
 		 Placing it down before her, she starts filling it out.
 		 [angel.speech(Ok, so here's your enhanced license... I'll need you to sign here... and here...)]
 	</p>

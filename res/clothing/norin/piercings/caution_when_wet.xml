@@ -42,18 +42,18 @@
     
     <incompatibleSlots/> <!-- slot(s) not compatible -->
 
-    <!-- colourList presets: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColourListPresets.java -->
-    <!-- Colour values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/Colour.java -->
-    <primaryColours values="ALL_METAL"/>
-    <primaryColoursDye values="ALL_METAL"/>
-    <secondaryColours>
-      <colour>CLOTHING_ORANGE_BRIGHT</colour>
-    </secondaryColours>
-    <secondaryColoursDye values="ALL"/>
-    <tertiaryColours>
-      <colour>CLOTHING_YELLOW</colour>
-    </tertiaryColours>
-    <tertiaryColoursDye values ="ALL"/>
+    <!-- colorList presets: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColorListPresets.java -->
+    <!-- Color values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/Color.java -->
+    <primaryColors values="ALL_METAL"/>
+    <primaryColorsDye values="ALL_METAL"/>
+    <secondaryColors>
+      <color>CLOTHING_ORANGE_BRIGHT</color>
+    </secondaryColors>
+    <secondaryColorsDye values="ALL"/>
+    <tertiaryColors>
+      <color>CLOTHING_YELLOW</color>
+    </tertiaryColors>
+    <tertiaryColorsDye values ="ALL"/>
     
     <itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
       <tag>SOLD_BY_KATE</tag>

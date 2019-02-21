@@ -39,18 +39,18 @@
 
     <incompatibleSlots/>
 
-    <primaryColours>
-		<colour>CLOTHING_WHITE</colour>
-    </primaryColours>
-    <primaryColoursDye values="ALL"/>
-    <secondaryColours>
-		<colour>CLOTHING_RED_DARK</colour>
-    </secondaryColours>
-    <secondaryColoursDye values="ALL"/>
-    <tertiaryColours>
-		<colour>CLOTHING_WHITE</colour>
-    </tertiaryColours>
-    <tertiaryColoursDye values="ALL"/>
+    <primaryColors>
+		<color>CLOTHING_WHITE</color>
+    </primaryColors>
+    <primaryColorsDye values="ALL"/>
+    <secondaryColors>
+		<color>CLOTHING_RED_DARK</color>
+    </secondaryColors>
+    <secondaryColorsDye values="ALL"/>
+    <tertiaryColors>
+		<color>CLOTHING_WHITE</color>
+    </tertiaryColors>
+    <tertiaryColorsDye values="ALL"/>
 
     <itemTags>
       <tag>SOLD_BY_FINCH</tag>

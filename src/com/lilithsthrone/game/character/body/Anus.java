@@ -109,7 +109,7 @@ public class Anus implements BodyPartInterface {
 	
 	public String setAssBleached(GameCharacter owner, boolean bleached) {
 		if(this.bleached == bleached) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.bleached = bleached;
@@ -147,7 +147,7 @@ public class Anus implements BodyPartInterface {
 		String transformation = "";
 		
 		if(getAssHair() == assHair) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 			
 		} else {
 			if(owner.isPlayer()) {

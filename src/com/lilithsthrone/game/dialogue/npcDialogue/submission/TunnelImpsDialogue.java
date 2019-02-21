@@ -29,7 +29,7 @@ import com.lilithsthrone.game.settings.ForcedTFTendency;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -244,7 +244,7 @@ public class TunnelImpsDialogue {
 				if (index == 1) {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Spit",
-								"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+								"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 									+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 								null);
 					} else {
@@ -417,7 +417,7 @@ public class TunnelImpsDialogue {
 				if (index == 1) {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Spit",
-									"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+									"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 										+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 								null);
 					} else {
@@ -507,7 +507,7 @@ public class TunnelImpsDialogue {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Spit (both)",
 								UtilText.parse(getMainCompanion(),
-									"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+									"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 										+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid, or to tell [npc.name] to do the same!"),
 								null);
 						
@@ -613,7 +613,7 @@ public class TunnelImpsDialogue {
 				if (index == 1) {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Spit",
-								"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+								"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 									+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 								null);
 					} else {
@@ -1388,7 +1388,7 @@ public class TunnelImpsDialogue {
 						+ "</p>"
 						+ "<p>"
 							+ "Forcing the item of clothing onto [npc.herHim], you step back, looking down at a face filled with fear."
-							+ " The "+enslavementClothing.getName()+"'s arcane enchantment recognises [npc.name] as being a criminal, and, with a purple flash,"
+							+ " The "+enslavementClothing.getName()+"'s arcane enchantment recognizes [npc.name] as being a criminal, and, with a purple flash,"
 								+ " <b>[npc.sheIs] teleported to the 'Slave Administration' building in Slaver Alley, where [npc.she]'ll be waiting for you to pick them up</b>."
 						+ "</p>"
 						+ "<p>"
@@ -1406,7 +1406,7 @@ public class TunnelImpsDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "Despite [npc.her] words, you force the item of clothing onto [npc.name], before stepping back and waiting to see if anything happens."
-								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment recognises [npc.name] as already being a slave,"
+								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment recognizes [npc.name] as already being a slave,"
 										+ " evidenced by glowing green lettering that's projected into the air, which reads:<br/>"
 								+ "<i>[style.boldGreen(Target already enslaved!)]</i>"
 							+ "</p>");
@@ -1420,7 +1420,7 @@ public class TunnelImpsDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "Despite [npc.her] words, you force the item of clothing onto [npc.name], before stepping back and waiting to see if anything happens."
-								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognise [npc.name] as being a criminal,"
+								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognize [npc.name] as being a criminal,"
 										+ " evidenced by glowing pink lettering that's projected into the air, which reads:<br/>"
 								+ "<i>[style.boldPink(Demonic target! Cannot enslave!)]</i>"
 							+ "</p>");
@@ -1433,7 +1433,7 @@ public class TunnelImpsDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "Despite [npc.her] words, you force the item of clothing onto [npc.name], before stepping back and waiting to see if anything happens."
-								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognise [npc.name] as being a criminal,"
+								+ " True to [npc.her] words, however, the "+enslavementClothing.getName()+"'s arcane enchantment doesn't recognize [npc.name] as being a criminal,"
 										+ " evidenced by glowing red lettering that's projected into the air, which reads:<br/>"
 								+ "<i>[style.boldRed(Invalid target! Cannot enslave!)]</i>"
 							+ "</p>");

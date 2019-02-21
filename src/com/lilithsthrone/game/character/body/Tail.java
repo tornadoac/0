@@ -66,10 +66,10 @@ public class Tail implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if(type == TailType.NONE) {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already [npc.verb(lack)] a tail, so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.verb(lack)] a tail, so nothing happens...)]</p>");
 				
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already [npc.has] the [npc.tail] of [npc.a_tailRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the [npc.tail] of [npc.a_tailRace], so nothing happens...)]</p>");
 			}
 		}
 		
@@ -127,7 +127,7 @@ public class Tail implements BodyPartInterface {
 								?" A furry, cat-like tail sprouts from just above your ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until it's almost as long as one of your legs.")
 									+(type==TailType.CAT_MORPH_SHORT
 										?""
-										: " You quickly realise that you have a decent amount of control over it, and you can twist it almost anywhere you please.")
+										: " You quickly realize that you have a decent amount of control over it, and you can twist it almost anywhere you please.")
 									+(type==TailType.CAT_MORPH_TUFTED
 										?" At the end of the tail there is a bunch of fur giving it a tuft."
 										:"")
@@ -136,7 +136,7 @@ public class Tail implements BodyPartInterface {
 								:" [pc.TailCount] furry, cat-like tails sprout from just above your ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until they're each almost as long as one of your legs.")
 									+(type==TailType.CAT_MORPH_SHORT
 										?""
-										: " You quickly realise that you have a decent amount of control over them, and you can twist them almost anywhere you please.")
+										: " You quickly realize that you have a decent amount of control over them, and you can twist them almost anywhere you please.")
 									+(type==TailType.CAT_MORPH_TUFTED
 										?" At the end of the tails there is a bunch of fur giving it a tuft."
 										:"")
@@ -147,12 +147,12 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, cat-like tail sprouts from just above [npc.her] ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until it's almost as long as one of [npc.her] legs.")
-									+(type==TailType.CAT_MORPH_SHORT?"": " [npc.She] quickly realises that [npc.she] has a decent amount of control over it, and can twist it almost anywhere [npc.she] pleases.")
+									+(type==TailType.CAT_MORPH_SHORT?"": " [npc.She] quickly realizes that [npc.she] has a decent amount of control over it, and can twist it almost anywhere [npc.she] pleases.")
 									+(type==TailType.CAT_MORPH_TUFTED?" At the end of the tail there is a bunch of fur giving it a tuft.":"")
 									+ "</br>"
 									+ "[npc.Name] now has a [style.boldCatMorph(cat-like tail)]"
 								:" [npc.TailCount] furry, cat-like tails sprout from just above [npc.her] ass"+(type==TailType.CAT_MORPH_SHORT?".":", rapidly growing in size until they're each almost as long as one of [npc.her] legs.")
-									+(type==TailType.CAT_MORPH_SHORT?"":  " [npc.She] quickly realises that [npc.she] has a decent amount of control over them, and can twist them almost anywhere [npc.she] pleases.")
+									+(type==TailType.CAT_MORPH_SHORT?"":  " [npc.She] quickly realizes that [npc.she] has a decent amount of control over them, and can twist them almost anywhere [npc.she] pleases.")
 									+(type==TailType.CAT_MORPH_TUFTED?" At the end of the tails there is a bunch of fur giving it a tuft.":"")
 									+ "</br>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldCatMorph(cat-like tails)]")
@@ -164,11 +164,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A demonic, spaded tail sprouts from just above [npc.her] ass, rapidly growing in size until it's slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
 									+ "<br/>"
 									+ "[npc.Name] now has a [style.boldDemon(demonic tail)]"
 								:" [npc.TailCount] demonic, spaded tails sprout from just above [npc.her] ass, rapidly growing in size until they're slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldDemon(demonic tails)]")
 							);
@@ -176,11 +176,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A demonic, spaded tail sprouts from just above [npc.her] ass, rapidly growing in size until it's slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
 									+ "<br/>"
 									+ "[npc.Name] now has an [style.boldImp(impish tail)]"
 								:" [npc.TailCount] demonic, spaded tails sprout from just above [npc.her] ass, rapidly growing in size until they're slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldImp(impish tails)]")
 							);
@@ -192,12 +192,12 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A demonic, spaded tail sprouts from just above [npc.her] ass, rapidly growing in size until it's slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
 									+ "<br/>"
 									+ "[npc.Name] now [npc.has] a [style.boldDemon(demonic tail)], covered in [npc.tailFullDescription(true)] and tipped with "
 										+owner.getCovering(BodyCoveringType.HAIR_DEMON).getFullDescription(owner, true)+".</p>"
 								:" [npc.TailCount] demonic, spaded tails sprout from just above [npc.her] ass, rapidly growing in size until they're slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
 									+ "<br/>"
 									+ "[npc.Name] now [npc.has] [npc.tailCount] [style.boldDemon(demonic tails)], covered in [npc.tailFullDescription(true)] and tipped with "
 										+owner.getCovering(BodyCoveringType.HAIR_DEMON).getFullDescription(owner, true)+".</p>")
@@ -206,12 +206,12 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A demonic, spaded tail sprouts from just above [npc.her] ass, rapidly growing in size until it's slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly  [npc.verb(realise)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
+									+ " [npc.She] quickly  [npc.verb(realize)] that [npc.she] [npc.has] complete control over where it goes, allowing [npc.herHim] to use it like a third limb."
 									+ "<br/>"
 									+ "[npc.Name] now [npc.has] an [style.boldImp(impish tail)], covered in [npc.tailFullDescription(true)] and tipped with "
 										+owner.getCovering(BodyCoveringType.HAIR_DEMON).getFullDescription(owner, true)+".</p>"
 								:" [npc.TailCount] demonic, spaded tails sprout from just above [npc.her] ass, rapidly growing in size until they're slightly longer than one of [npc.her] [npc.legs]."
-									+ " [npc.She] quickly [npc.verb(realise)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
+									+ " [npc.She] quickly [npc.verb(realize)] that [npc.she] [npc.has] complete control over where they go, allowing [npc.herHim] to use them like extra limbs."
 									+ "<br/>"
 									+ "[npc.Name] now [npc.has] [npc.tailCount] [style.boldImp(impish tails)], covered in [npc.tailFullDescription(true)] and tipped with "
 										+owner.getCovering(BodyCoveringType.HAIR_DEMON).getFullDescription(owner, true)+".</p>")
@@ -236,11 +236,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, dog-like tail sprouts from just above your ass, rapidly growing in size until it's about half the length of one of your legs."
-									+ " You quickly realise that you have little control over it, and it wags with a mind of its own whenever you get excited."
+									+ " You quickly realize that you have little control over it, and it wags with a mind of its own whenever you get excited."
 									+ "<br/>"
 									+ "You now have a [style.boldDogMorph("+(type==TailType.DOG_MORPH_STUBBY?"stubby, ":"")+"dog-like tail)]"
 								:" [pc.TailCount] furry, dog-like tails sprout from just above your ass, rapidly growing in size until they're each about half the length of one of your legs."
-									+ " You quickly realise that you have little control over them, and they wag with a mind of their own whenever you get excited."
+									+ " You quickly realize that you have little control over them, and they wag with a mind of their own whenever you get excited."
 									+ "<br/>"
 									+ "You now have [pc.tailCount] [style.boldDogMorph("+(type==TailType.DOG_MORPH_STUBBY?"stubby, ":"")+"dog-like tails)]")
 							);
@@ -248,11 +248,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, dog-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's about half the length of one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has little control over it, and it wags with a mind of its own whenever [npc.she] gets excited."
+									+ " [npc.She] quickly realizes that [npc.she] has little control over it, and it wags with a mind of its own whenever [npc.she] gets excited."
 									+ "<br/>"
 									+ "[npc.Name] now has a [style.boldDogMorph("+(type==TailType.DOG_MORPH_STUBBY?"stubby, ":"")+"dog-like tail)]"
 								:" [npc.TailCount] furry, dog-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about half the length of one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has little control over them, and they wag with a mind of their own whenever [npc.she] gets excited."
+									+ " [npc.She] quickly realizes that [npc.she] has little control over them, and they wag with a mind of their own whenever [npc.she] gets excited."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldDogMorph("+(type==TailType.DOG_MORPH_STUBBY?"stubby, ":"")+"dog-like tails)]")
 							);
@@ -263,11 +263,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A bushy, fox-like tail sprouts from just above your ass, rapidly growing in size until it's about half the length of one of your legs."
-									+ " You quickly realise that you have a decent amount of control over it, and it retains heat more easily than other kinds of tails."
+									+ " You quickly realize that you have a decent amount of control over it, and it retains heat more easily than other kinds of tails."
 									+ "</br>"
 									+ "You now have a [style.boldFoxMorph(fox-like tail)]"
 								:" [pc.TailCount] bushy, fox-like tails sprout from just above your ass, rapidly growing in size until they're each about half the length of one of your legs."
-									+ " You quickly realise that you have a decent amount of control over them, and they retain heat more easily than other kinds of tails."
+									+ " You quickly realize that you have a decent amount of control over them, and they retain heat more easily than other kinds of tails."
 									+ "</br>"
 									+ "You now have [pc.tailCount] [style.boldFoxMorph(fox-like tails)]")
 							);
@@ -275,11 +275,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A bushy, fox-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's about half the length of one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over it, and it retains heat more easily than other kinds of tails."
+									+ " [npc.She] quickly realizes that [npc.she] has a decent amount of control over it, and it retains heat more easily than other kinds of tails."
 									+ "</br>"
 									+ "[npc.Name] now has a [style.boldFoxMorph(fox-like tail)]"
 								:" [npc.TailCount] bushy, fox-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about half the length of one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over them, and they retain heat more easily than other kinds of tails."
+									+ " [npc.She] quickly realizes that [npc.she] has a decent amount of control over them, and they retain heat more easily than other kinds of tails."
 									+ "</br>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldFoxMorph(fox-like tails)]")
 							);
@@ -444,11 +444,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, wolf-like tail sprouts from just above your ass, rapidly growing in size until it's about half the length of one of your legs."
-									+ " You quickly realise that you have limited control over it, and it takes a lot of effort to stop it from betraying your emotions."
+									+ " You quickly realize that you have limited control over it, and it takes a lot of effort to stop it from betraying your emotions."
 									+ "<br/>"
 									+ "You now have a [style.boldWolfMorph(wolf-like tail)]"
 								:" [pc.TailCount] furry, wolf-like tails sprout from just above your ass, rapidly growing in size until they're each about half the length of one of your legs."
-									+ " You quickly realise that you have limited control over them, and it takes a lot of effort to stop them from betraying your emotions."
+									+ " You quickly realize that you have limited control over them, and it takes a lot of effort to stop them from betraying your emotions."
 									+ "<br/>"
 									+ "You now have [pc.tailCount] [style.boldWolfMorph(wolf-like tails)]")
 							);
@@ -456,11 +456,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, wolf-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's about half the length of one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has limited control over it, and it takes a lot of effort to stop it from betraying [npc.her] emotions."
+									+ " [npc.She] quickly realizes that [npc.she] has limited control over it, and it takes a lot of effort to stop it from betraying [npc.her] emotions."
 									+ "<br/>"
 									+ "[npc.Name] now has a [style.boldWolfMorph(wolf-like tail)]"
 								:" [npc.TailCount] furry, wolf-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about half the length of one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has limited control over them, and it takes a lot of effort to stop them from betraying [npc.her] emotions."
+									+ " [npc.She] quickly realizes that [npc.she] has limited control over them, and it takes a lot of effort to stop them from betraying [npc.her] emotions."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldWolfMorph(wolf-like tails)]")
 							);
@@ -498,11 +498,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, squirrel-like tail sprouts from just above your ass, rapidly growing in size until it's almost as long as your body."
-									+ " You quickly realise that you have a reasonable amount of control over it, and can use it to help balance you out while moving quickly."
+									+ " You quickly realize that you have a reasonable amount of control over it, and can use it to help balance you out while moving quickly."
 									+ "<br/>"
 									+ "You now have a [style.boldSquirrelMorph(squirrel-like tail)]"
 								:" [pc.TailCount] furry, squirrel-like tails sprout from just above your ass, rapidly growing in size until they're each almost as long as your body."
-									+ " You quickly realise that you have a reasonable amount of control over them, and can use them to help balance you out while moving quickly."
+									+ " You quickly realize that you have a reasonable amount of control over them, and can use them to help balance you out while moving quickly."
 									+ "<br/>"
 									+ "You now have [pc.tailCount] [style.boldSquirrelMorph(squirrel-like tails)]")
 							);
@@ -510,11 +510,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, squirrel-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's almost as long as [npc.her] body."
-									+ " [npc.She] quickly realises that [npc.she] has a reasonable amount of control over it, and can use it to help balance [npc.herHim] out while moving quickly."
+									+ " [npc.She] quickly realizes that [npc.she] has a reasonable amount of control over it, and can use it to help balance [npc.herHim] out while moving quickly."
 									+ "<br/>"
 									+ "[npc.Name] now has a [style.boldSquirrelMorph(squirrel-like tail)]"
 								:" [npc.TailCount] furry, squirrel-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each almost as long as [npc.her] body."
-									+ " [npc.She] quickly realises that [npc.she] has a reasonable amount of control over them, and can use them to help balance [npc.herHim] out while moving quickly."
+									+ " [npc.She] quickly realizes that [npc.she] has a reasonable amount of control over them, and can use them to help balance [npc.herHim] out while moving quickly."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldSquirrelMorph(squirrel-like tails)]")
 							);
@@ -525,11 +525,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A thick, rat-like tail sprouts from just above your ass, rapidly growing in size until it's almost as long as one of your legs."
-									+ " You quickly realise that you have a decent amount of control over it, and you can twist it almost anywhere you please."
+									+ " You quickly realize that you have a decent amount of control over it, and you can twist it almost anywhere you please."
 									+ "<br/>"
 									+ "You now have a [style.boldRatMorph(rat-like tail)]"
 								:" [pc.TailCount] thick, rat-like tails sprout from just above your ass, rapidly growing in size until they're each almost as long as one of your legs."
-									+ " You quickly realise that you have a decent amount of control over them, and you can twist them almost anywhere you please."
+									+ " You quickly realize that you have a decent amount of control over them, and you can twist them almost anywhere you please."
 									+ "<br/>"
 									+ "You now have [pc.tailCount] [style.boldRatMorph(rat-like tails)]")
 							);
@@ -537,11 +537,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A thick, rat-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's almost as long as one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over it, and can twist it almost anywhere [npc.she] pleases."
+									+ " [npc.She] quickly realizes that [npc.she] has a decent amount of control over it, and can twist it almost anywhere [npc.she] pleases."
 									+ "<br/>"
 									+ "[npc.Name] now has a [style.boldRatMorph(rat-like tail)]"
 								:" [npc.TailCount] thick, rat-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each almost as long as one of [npc.her] legs."
-									+ " [npc.She] quickly realises that [npc.she] has a decent amount of control over them, and can twist them almost anywhere [npc.she] pleases."
+									+ " [npc.She] quickly realizes that [npc.she] has a decent amount of control over them, and can twist them almost anywhere [npc.she] pleases."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldRatMorph(rat-like tails)]")
 							);
@@ -552,11 +552,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, round, rabbit-like tail sprouts from just above your ass, rapidly growing in size until it's about as large as a bowling ball."
-									+ " You quickly realise that you have no control over it whatsoever, what with it being no more than just a ball of downy fluff."
+									+ " You quickly realize that you have no control over it whatsoever, what with it being no more than just a ball of downy fluff."
 									+ "<br/>"
 									+ "You now have a [style.boldRabbitMorph(rabbit-like tail)]"
 								:" [pc.TailCount] furry, round, rabbit-like tails sprout from just above your ass, rapidly growing in size until they're each about as large as a bowling ball."
-									+ " You quickly realise that you have no control over them whatsoever, what with them being no more than just balls of downy fluff."
+									+ " You quickly realize that you have no control over them whatsoever, what with them being no more than just balls of downy fluff."
 									+ "<br/>"
 									+ "You now have [pc.tailCount] [style.boldRabbitMorph(rabbit-like tails)]")
 							);
@@ -564,11 +564,11 @@ public class Tail implements BodyPartInterface {
 					UtilText.transformationContentSB.append(
 							(owner.getTailCount()==1
 								?" A furry, round, rabbit-like tail sprouts from just above [npc.her] ass, rapidly growing in size until it's about as large as a bowling ball."
-									+ " [npc.She] quickly realises that [npc.she] has no control over it whatsoever, what with it being no more than just a ball of downy fluff."
+									+ " [npc.She] quickly realizes that [npc.she] has no control over it whatsoever, what with it being no more than just a ball of downy fluff."
 									+ "<br/>"
 									+ "[npc.Name] now has a [style.boldRabbitMorph(rabbit-like tail)]"
 								:" [npc.TailCount] furry, round, rabbit-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about as large as a bowling ball."
-									+ " [npc.She] quickly realises that [npc.she] has no control over them whatsoever, what with them being no more than just balls of downy fluff."
+									+ " [npc.She] quickly realizes that [npc.she] has no control over them whatsoever, what with them being no more than just balls of downy fluff."
 									+ "<br/>"
 									+ "[npc.Name] now has [npc.tailCount] [style.boldRabbitMorph(rabbit-like tails)]")
 							);
@@ -602,14 +602,14 @@ public class Tail implements BodyPartInterface {
 		tailCount = Math.max(1, Math.min(tailCount, MAXIMUM_COUNT));
 		
 		if(owner.getTailCount() == tailCount) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		boolean removingTails = owner.getTailCount() > tailCount;
 		this.tailCount = tailCount;
 		
 		if (owner.getTailType() == TailType.NONE) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		if(removingTails) {

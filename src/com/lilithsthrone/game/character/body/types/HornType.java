@@ -46,7 +46,7 @@ public class HornType {
 			Util.newArrayListOfValues("curved", "bovine", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into slightly-curved horns."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(curved horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], curved #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], curved #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 
 	public static final AbstractHornType BOVINE_STRAIGHT = new AbstractHornType(
@@ -60,7 +60,7 @@ public class HornType {
 			Util.newArrayListOfValues("straight", "bovine", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into sleek, straight horns."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(straight horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], straight #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], straight #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 
 	// Reindeer:
@@ -76,7 +76,7 @@ public class HornType {
 			Util.newArrayListOfValues("multi-branched", "reindeer"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into branching, multi-pronged antlers."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(reindeer-like antlers)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], multi-branched #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], multi-branched #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
 	// Horse:
@@ -92,7 +92,7 @@ public class HornType {
 			Util.newArrayListOfValues("straight", "twirling", "unicorn"),
 			"A hard nub suddenly pushes out from the middle of [npc.her] forehead, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] it quickly grow out into a straight, twirling unicorn's horn."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(unicorn horn)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], unicorn's #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], unicorn's #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 
 	// Demons:
@@ -108,7 +108,7 @@ public class HornType {
 			Util.newArrayListOfValues("curled", "demonic", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into circular-curling horns."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(curled horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], circular-curling #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], circular-curling #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
 	public static final AbstractHornType SPIRAL = new AbstractHornType(
@@ -122,7 +122,7 @@ public class HornType {
 			Util.newArrayListOfValues("spiral", "demonic", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into twisted, spiralling horns."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(spiral horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], spiralling #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], spiralling #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
 	public static final AbstractHornType CURVED = new AbstractHornType(
@@ -136,7 +136,7 @@ public class HornType {
 			Util.newArrayListOfValues("curved", "demonic", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into slightly-curved horns."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(curved horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], curved #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], curved #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
 	public static final AbstractHornType SWEPT_BACK = new AbstractHornType(
@@ -150,7 +150,7 @@ public class HornType {
 			Util.newArrayListOfValues("swept-back", "demonic", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them curve and sweep back over [npc.her] head."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(swept-back horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], swept-back #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], swept-back #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
 	public static final AbstractHornType STRAIGHT = new AbstractHornType(
@@ -164,7 +164,7 @@ public class HornType {
 			Util.newArrayListOfValues("straight", "demonic", "smooth"),
 			"Hard nubs suddenly push out from the sides of [npc.her] head, and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.feel] them quickly grow out into sleek, straight horns."
 					+ "<br/>[npc.Name] now [npc.has] [npc.hornsDeterminer] [style.boldTfGeneric(straight horns)].",
-			"[npc.HornsDeterminer] [npc.hornColour(true)], straight #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
+			"[npc.HornsDeterminer] [npc.hornColor(true)], straight #IFnpc.getTotalHorns()==1#THEN[npc.horn]#ELSE[npc.horns]#ENDIF grows out of the #IFnpc.getHornsPerRow()==1#THENmiddle#ELSEupper sides#ENDIF of [npc.her] forehead.") {
 	};
 	
 	private static List<AbstractHornType> allHornTypes;

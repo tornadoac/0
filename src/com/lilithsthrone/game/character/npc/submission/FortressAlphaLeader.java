@@ -81,7 +81,7 @@ import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.game.sex.sexActions.submission.FortressAlphaLeaderSA;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -177,27 +177,27 @@ public class FortressAlphaLeader extends NPC {
 		
 		// Coverings:
 
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Colour.EYE_PURPLE));
-		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Colour.SKIN_PALE), true);
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_PURPLE));
+		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_PALE), true);
 		
-		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Colour.HORN_WHITE), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_WHITE), false);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Colour.COVERING_BLACK), true);
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMinimumValue());
 		this.setHairStyle(HairStyle.SIDECUT);
 		
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Colour.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.FOUR_NATURAL);
 		this.setPubicHair(BodyHair.FOUR_NATURAL);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 //
-		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_BLACK));
-		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_BLACK));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_BLACK));
-		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_BLACK));
-		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_BLACK));
+		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_BLACK));
+		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_BLACK));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_BLACK));
+		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_BLACK));
+		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
 		
 		// Face:
 		this.setFaceVirgin(false);
@@ -249,33 +249,33 @@ public class FortressAlphaLeader extends NPC {
 		
 		this.unequipAllClothingIntoVoid(true);
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_SARASHI, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_leg_distressed_jeans"), Colour.CLOTHING_BLACK, Colour.CLOTHING_GREY, Colour.CLOTHING_BRASS, false), true, this);
-		AbstractClothing jacket = AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_WOMENS_LEATHER_JACKET, Colour.CLOTHING_BLACK, false);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_SARASHI, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_leg_distressed_jeans"), Color.CLOTHING_BLACK, Color.CLOTHING_GREY, Color.CLOTHING_BRASS, false), true, this);
+		AbstractClothing jacket = AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_WOMENS_LEATHER_JACKET, Color.CLOTHING_BLACK, false);
 		this.equipClothingFromNowhere(jacket, true, this);
 		this.isAbleToBeDisplaced(jacket, DisplacementType.UNZIPS, true, true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_foot_goth_boots_fem"), false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_FINGERLESS_GLOVES, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_FINGERLESS_GLOVES, Color.CLOTHING_BLACK, false), true, this);
 		
 		if(addAccessories) {
 			this.setPiercedEar(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedLip(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_LIP_RINGS, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_LIP_RINGS, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedNavel(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedNipples(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NIPPLE_BARS, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NIPPLE_BARS, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedNose(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedPenis(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_PENIS_RING, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_PENIS_RING, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedTongue(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_TONGUE_BAR, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_TONGUE_BAR, Color.CLOTHING_SILVER, false), true, this);
 			this.setPiercedVagina(true);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_VAGINA_BARBELL_RING, Colour.CLOTHING_SILVER, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_VAGINA_BARBELL_RING, Color.CLOTHING_SILVER, false), true, this);
 		}
 		
 		if(addWeapons) {
@@ -288,19 +288,19 @@ public class FortressAlphaLeader extends NPC {
 			
 			Tattoo tat = new Tattoo(
 					TattooType.TRIBAL,
-					Colour.CLOTHING_BLACK,
-					Colour.CLOTHING_BLACK,
-					Colour.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
 					false,
-					new TattooWriting("Choke on it, bitch!", Colour.CLOTHING_BLACK, false, TattooWritingStyle.ITALICISED),
+					new TattooWriting("Choke on it, bitch!", Color.CLOTHING_BLACK, false, TattooWritingStyle.ITALICIZED),
 					null);
 			this.addTattoo(InventorySlot.GROIN, tat);
 			
 			tat = new Tattoo(
 					TattooType.TRIBAL,
-					Colour.CLOTHING_BLACK,
-					Colour.CLOTHING_BLACK,
-					Colour.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
 					false,
 					null,
 					null);
@@ -308,9 +308,9 @@ public class FortressAlphaLeader extends NPC {
 
 			tat = new Tattoo(
 					TattooType.TRIBAL,
-					Colour.CLOTHING_BLACK,
-					Colour.CLOTHING_BLACK,
-					Colour.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
+					Color.CLOTHING_BLACK,
 					false,
 					null,
 					null);
@@ -343,7 +343,7 @@ public class FortressAlphaLeader extends NPC {
 	}
 	
 	public boolean isAbleToEquipGag(GameCharacter target) {
-		AbstractClothing ringGag = AbstractClothingType.generateClothing(ClothingType.BDSM_RINGGAG, Colour.CLOTHING_GOLD, Colour.CLOTHING_WHITE, Colour.CLOTHING_GOLD, null);
+		AbstractClothing ringGag = AbstractClothingType.generateClothing(ClothingType.BDSM_RINGGAG, Color.CLOTHING_GOLD, Color.CLOTHING_WHITE, Color.CLOTHING_GOLD, null);
 		return target.isAbleToEquip(ringGag, true, this) && (target.getClothingInSlot(InventorySlot.MOUTH)==null || !target.getClothingInSlot(InventorySlot.MOUTH).getName().contains(UtilText.parse(this,"[npc.Name]")));	
 	}
 	

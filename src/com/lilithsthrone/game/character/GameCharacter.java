@@ -158,7 +158,7 @@ import com.lilithsthrone.rendering.Artwork;
 import com.lilithsthrone.rendering.CachedImage;
 import com.lilithsthrone.rendering.ImageCache;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Vector2i;
 import com.lilithsthrone.utils.XMLSaving;
@@ -517,7 +517,7 @@ public abstract class GameCharacter implements XMLSaving {
 		mana = getAttributeValue(Attribute.MANA_MAXIMUM);
 		setLust(getRestingLust());
 
-		//Companion initialisation
+		//Companion initialization
 		elementalID = "";
 		companions = new ArrayList<>();
 		setMaxCompanions(1);
@@ -530,7 +530,7 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 
 		this.resetPerksMap();
-//		PerkManager.initialisePerks(this);
+//		PerkManager.initializePerks(this);
 	}
 
 	protected void initAttributes() {
@@ -2347,7 +2347,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 		// ************** Artwork **************//
 
-		// Initialise artworks (name and femininity must be set at this point)
+		// Initialize artworks (name and femininity must be set at this point)
 		character.loadImages();
 
 		if (character.hasArtwork() && Main.getProperties().hasValue(PropertyValue.artwork)) {
@@ -2383,7 +2383,7 @@ public abstract class GameCharacter implements XMLSaving {
 		// ************** Version Overrides **************//
 
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10") && !character.isPlayer()) {
-			PerkManager.initialisePerks(character);
+			PerkManager.initializePerks(character);
 
 			// All non-unique characters are muggers or prostitutes as of version 0.2.10:
 			if(!character.isUnique() && character.getHistory()!=Occupation.NPC_PROSTITUTE) {
@@ -2452,11 +2452,11 @@ public abstract class GameCharacter implements XMLSaving {
 
 			// Reload the character's images
 			loadImages(true);
-			Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colourGood(Images imported)]",
+			Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colorGood(Images imported)]",
 					imageFiles.size() + (imageFiles.size() > 1 ? " images were" : " image was") + " added"), false);
 		} catch (IOException e1) {
 			e1.printStackTrace();
-			Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colourBad(Image import failed)]",
+			Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colorBad(Image import failed)]",
 					"See error.log for details"), false);
 		}
 	}
@@ -2553,7 +2553,7 @@ public abstract class GameCharacter implements XMLSaving {
 								+ "<div class='full-width-container' style='width:100%; margin:0;'>"
 								+ "<img id='CHARACTER_IMAGE' style='"+(revealed ? "" : "-webkit-filter: brightness(0%);")+" width:100%;' src='"+imageString+"'/>"//file:/
 								+ "<div class='overlay no-pointer no-highlight' style='text-align:center;'>" // Add overlay div to stop javaFX's insane image drag+drop
-								+ (revealed ? "" : "<p style='margin-top:50%; font-weight:bold; color:"+Colour.BASE_GREY.toWebHexString()+";'>Unlocked through sex!</p>")
+								+ (revealed ? "" : "<p style='margin-top:50%; font-weight:bold; color:"+Color.BASE_GREY.toWebHexString()+";'>Unlocked through sex!</p>")
 								+ "</div>"
 								+ "<div class='title-button' id='ARTWORK_ADD' style='background:transparent; left:auto; right:28px;'>"+SVGImages.SVG_IMAGE_PROVIDER.getAddIcon()+"</div>"
 								+ "<div class='title-button' id='ARTWORK_INFO' style='background:transparent; left:auto; right:4px;'>"+SVGImages.SVG_IMAGE_PROVIDER.getInformationIcon()+"</div>"
@@ -2573,7 +2573,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 		infoScreenSB.append(
 				"<h6>"
-					+Util.capitaliseSentence(this.isPlayerKnowsName()
+					+Util.capitalizeSentence(this.isPlayerKnowsName()
 						?this.getNameIgnoresPlayerKnowledge() + " " + this.getSurname()
 						:this.getName())
 //					+UtilText.parse(this,
@@ -2648,7 +2648,7 @@ public abstract class GameCharacter implements XMLSaving {
 					+ "<h6>Personality</h6>"
 					+ "<p>");
 			for(PersonalityTrait trait : PersonalityTrait.values()) {
-				infoScreenSB.append("<b>"+trait.getName()+":</b> <i style='color:"+trait.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(trait.getNameFromWeight(this, this.getPersonality().get(trait)))+"</i><br/>"
+				infoScreenSB.append("<b>"+trait.getName()+":</b> <i style='color:"+trait.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(trait.getNameFromWeight(this, this.getPersonality().get(trait)))+"</i><br/>"
 						+trait.getDescriptionFromWeight(this, this.getPersonality().get(trait))+"<br/>");
 			}
 			infoScreenSB.append("</p>");
@@ -2706,7 +2706,7 @@ public abstract class GameCharacter implements XMLSaving {
 	public String getName(String determiner) {
 		if (Character.isUpperCase(getName().charAt(0)) || determiner.isEmpty()) { //|| getName().equals(this.getGenericName())
 			if(determiner!=null && !determiner.isEmpty() && Character.isUpperCase(determiner.charAt(0))) {
-				return Util.capitaliseSentence(getName());
+				return Util.capitalizeSentence(getName());
 			}
 			return getName();
 
@@ -2716,7 +2716,7 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 			return (determiner.equalsIgnoreCase("a") || determiner.equalsIgnoreCase("an")
 						?(Character.isUpperCase(determiner.charAt(0))
-								?Util.capitaliseSentence(UtilText.generateSingularDeterminer(getName()))
+								?Util.capitalizeSentence(UtilText.generateSingularDeterminer(getName()))
 								:UtilText.generateSingularDeterminer(getName()))
 						:determiner)
 					+ " " + getName();
@@ -2796,36 +2796,36 @@ public abstract class GameCharacter implements XMLSaving {
 		target.setAreaKnownByCharacter(area, this, known);
 	}
 
-	public Colour getSpeechGlowColour() {
+	public Color getSpeechGlowColor() {
 		return null;
 	}
 
-	public String getSpeechColour() {
+	public String getSpeechColor() {
 		if(this.isPlayer()) {
 			switch(Femininity.valueOf(getFemininityValue())) {
 				case ANDROGYNOUS:
-					return Colour.ANDROGYNOUS.toWebHexString();
+					return Color.ANDROGYNOUS.toWebHexString();
 				case FEMININE:
-					return Colour.FEMININE.toWebHexString();
+					return Color.FEMININE.toWebHexString();
 				case FEMININE_STRONG:
-					return Colour.FEMININE_PLUS.toWebHexString();
+					return Color.FEMININE_PLUS.toWebHexString();
 				case MASCULINE:
-					return Colour.MASCULINE.toWebHexString();
+					return Color.MASCULINE.toWebHexString();
 				case MASCULINE_STRONG:
-					return Colour.MASCULINE_PLUS.toWebHexString();
+					return Color.MASCULINE_PLUS.toWebHexString();
 			}
 		} else {
 			switch(Femininity.valueOf(getFemininityValue())) {
 				case ANDROGYNOUS:
-					return Colour.ANDROGYNOUS_NPC.toWebHexString();
+					return Color.ANDROGYNOUS_NPC.toWebHexString();
 				case FEMININE:
-					return Colour.FEMININE_NPC.toWebHexString();
+					return Color.FEMININE_NPC.toWebHexString();
 				case FEMININE_STRONG:
-					return Colour.FEMININE_PLUS_NPC.toWebHexString();
+					return Color.FEMININE_PLUS_NPC.toWebHexString();
 				case MASCULINE:
-					return Colour.MASCULINE_NPC.toWebHexString();
+					return Color.MASCULINE_NPC.toWebHexString();
 				case MASCULINE_STRONG:
-					return Colour.MASCULINE_PLUS_NPC.toWebHexString();
+					return Color.MASCULINE_PLUS_NPC.toWebHexString();
 			}
 		}
 		return null;
@@ -3341,7 +3341,7 @@ public abstract class GameCharacter implements XMLSaving {
 					+ "</p>"
 					+ (teacherPerkGain
 						?"<p style='text-align:center'>"
-							+ "<i>Obedience gain was [style.colourExcellent(tripled)], as "+(this.getOwner().isPlayer()?"you have":this.getOwner().getName()+" has ")+" the '"+Perk.JOB_TEACHER.getName(this.getOwner())+"' trait.</i>"
+							+ "<i>Obedience gain was [style.colorExcellent(tripled)], as "+(this.getOwner().isPlayer()?"you have":this.getOwner().getName()+" has ")+" the '"+Perk.JOB_TEACHER.getName(this.getOwner())+"' trait.</i>"
 						+ "</p>"
 						:""));
 	}
@@ -4355,11 +4355,11 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 
 		if(this.isPlayer()) {
-			return "<div class='container-full-width' style='text-align:center;'>You [style.colourGood(gained)] <b style='color:" + Colour.GENERIC_EXPERIENCE.toWebHexString() + ";'>" + xpIncrement + " xp</b>!</div>";
+			return "<div class='container-full-width' style='text-align:center;'>You [style.colorGood(gained)] <b style='color:" + Color.GENERIC_EXPERIENCE.toWebHexString() + ";'>" + xpIncrement + " xp</b>!</div>";
 
 		} else {
 			return "<div class='container-full-width' style='text-align:center;'>"+UtilText.parse(this, "[npc.Name]")
-				+" [style.colourGood(gained)] <b style='color:" + Colour.GENERIC_EXPERIENCE.toWebHexString() + ";'>" + xpIncrement + " xp</b>!</div>";
+				+" [style.colorGood(gained)] <b style='color:" + Color.GENERIC_EXPERIENCE.toWebHexString() + ";'>" + xpIncrement + " xp</b>!</div>";
 		}
 	}
 
@@ -4570,14 +4570,14 @@ public abstract class GameCharacter implements XMLSaving {
 		if(isPlayer()) {
 			if(potionAttributes.get(att)<0) {
 				return "<p style='text-align:center;'>"
-							+ "You now have [style.boldBad("+potionAttributes.get(att)+")] <b style='color:"+att.getColour().toWebHexString()+";'>"+att.getName()+"</b>"
-							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColour().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
+							+ "You now have [style.boldBad("+potionAttributes.get(att)+")] <b style='color:"+att.getColor().toWebHexString()+";'>"+att.getName()+"</b>"
+							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColor().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
 							+" for as long as you can maintain your potion effects!"
 						+ "</p>";
 			} else {
 				return "<p style='text-align:center;'>"
-							+ "You now have [style.boldGood(+"+potionAttributes.get(att)+")] <b style='color:"+att.getColour().toWebHexString()+";'>"+att.getName()+"</b>"
-							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColour().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
+							+ "You now have [style.boldGood(+"+potionAttributes.get(att)+")] <b style='color:"+att.getColor().toWebHexString()+";'>"+att.getName()+"</b>"
+							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColor().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
 							+" for as long as you can maintain your potion effects!"
 						+ "</p>";
 			}
@@ -4585,15 +4585,15 @@ public abstract class GameCharacter implements XMLSaving {
 			if(potionAttributes.get(att)<0) {
 				return "<p style='text-align:center;'>"
 							+ UtilText.parse(this,
-							"[npc.Name] now has [style.boldBad("+potionAttributes.get(att)+")] <b style='color:"+att.getColour().toWebHexString()+";'>"+att.getName()+"</b>"
-							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColour().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
+							"[npc.Name] now has [style.boldBad("+potionAttributes.get(att)+")] <b style='color:"+att.getColor().toWebHexString()+";'>"+att.getName()+"</b>"
+							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColor().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
 							+" for as long as [npc.she] can maintain [npc.her] potion effects!")
 						+ "</p>";
 			} else {
 				return "<p style='text-align:center;'>"
 							+ UtilText.parse(this,
-							"[npc.Name] now has [style.boldGood(+"+potionAttributes.get(att)+")] <b style='color:"+att.getColour().toWebHexString()+";'>"+att.getName()+"</b>"
-							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColour().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
+							"[npc.Name] now has [style.boldGood(+"+potionAttributes.get(att)+")] <b style='color:"+att.getColor().toWebHexString()+";'>"+att.getName()+"</b>"
+							+(this.hasTrait(Perk.JOB_CHEF, true)?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_CHEF.getColor().toWebHexString()+";'>"+Perk.JOB_CHEF.getName(this)+"</b>)":"")
 							+" for as long as [npc.she] can maintain [npc.her] potion effects!")
 						+ "</p>";
 			}
@@ -4691,7 +4691,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 		updateAttributeListeners();
 
-		PerkManager.initialisePerks(this);
+		PerkManager.initializePerks(this);
 
 	}
 
@@ -4793,7 +4793,7 @@ public abstract class GameCharacter implements XMLSaving {
 			applyPerkGainEffects(perk);
 		}
 		return "<p style='text-align:center;'><b>"
-					+ UtilText.parse(this, "[npc.Name] [style.colourGood(gained)] the special perk, [style.colourExcellent("+perk.getName(this)+")]!")
+					+ UtilText.parse(this, "[npc.Name] [style.colorGood(gained)] the special perk, [style.colorExcellent("+perk.getName(this)+")]!")
 				+ "</b></p>";
 	}
 
@@ -4859,7 +4859,7 @@ public abstract class GameCharacter implements XMLSaving {
 				return "";
 			}
 			return "<p style='text-align:center;'>"
-						+ UtilText.parse(this, "[style.colourDisabled(Nothing happens, as [npc.name] already [npc.has] the "+fetish.getName(this)+" fetish...)]")
+						+ UtilText.parse(this, "[style.colorDisabled(Nothing happens, as [npc.name] already [npc.has] the "+fetish.getName(this)+" fetish...)]")
 					+"</p>";
 		}
 
@@ -4902,7 +4902,7 @@ public abstract class GameCharacter implements XMLSaving {
 				return "";
 			}
 			return "<p style='text-align:center;'>"
-						+UtilText.parse(this, "[style.colourDisabled(Nothing happens, as [npc.name] already [npc.verb(lack)] the "+fetish.getName(this)+" fetish...)]")
+						+UtilText.parse(this, "[style.colorDisabled(Nothing happens, as [npc.name] already [npc.verb(lack)] the "+fetish.getName(this)+" fetish...)]")
 					+"</p>";
 		}
 
@@ -4981,14 +4981,14 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 			if(this.hasFetish(fetish)) {
 				return "<p style='text-align:center;'>"
-							+ UtilText.parse(this, "[style.colourDisabled(As [npc.she] [npc.has] the "+fetish.getName(this)+" fetish, [npc.her] love of it can't decrease...)]")
+							+ UtilText.parse(this, "[style.colorDisabled(As [npc.she] [npc.has] the "+fetish.getName(this)+" fetish, [npc.her] love of it can't decrease...)]")
 						+"</p>";
 			}
 			return "<p style='text-align:center;'>"
 					+ (shortDescription
-							?UtilText.parse(this, "[npc.Name] now <b style='color:"+desire.getColour().toWebHexString()+";'>"+desire.getNameAsVerb()+"</b> [style.boldLust("+fetish.getShortDescriptor()+")]!")
+							?UtilText.parse(this, "[npc.Name] now <b style='color:"+desire.getColor().toWebHexString()+";'>"+desire.getNameAsVerb()+"</b> [style.boldLust("+fetish.getShortDescriptor()+")]!")
 							:UtilText.parse(this, "A warm wave of arcane energy rises up within [npc.name], and as [npc.she] [npc.verb(feel)] its influential power seeping into [npc.her] mind,"
-								+ " [npc.she] [npc.verb(realise)] that [npc.she] now <b style='color:"+desire.getColour().toWebHexString()+";'>"+desire.getNameAsVerb()+"</b> [style.boldLust("+fetish.getShortDescriptor()+")]!"))
+								+ " [npc.she] [npc.verb(realize)] that [npc.she] now <b style='color:"+desire.getColor().toWebHexString()+";'>"+desire.getNameAsVerb()+"</b> [style.boldLust("+fetish.getShortDescriptor()+")]!"))
 				+"</p>";
 
 		} else {
@@ -4996,7 +4996,7 @@ public abstract class GameCharacter implements XMLSaving {
 				return "";
 			}
 			return "<p style='text-align:center;'>"
-						+UtilText.parse(this, "[style.colourDisabled(Nothing happens, as [npc.she] already "+desire.getNameAsPlayerVerb()+" "+fetish.getShortDescriptor()+"...)]")
+						+UtilText.parse(this, "[style.colorDisabled(Nothing happens, as [npc.she] already "+desire.getNameAsPlayerVerb()+" "+fetish.getShortDescriptor()+"...)]")
 					+"</p>";
 		}
 	}
@@ -5091,7 +5091,7 @@ public abstract class GameCharacter implements XMLSaving {
 				String clothingEffectDescription = ie.applyEffect(this, this, turnTime);
 				if (this.isPlayer() && !clothingEffectDescription.isEmpty()) {
 					statusEffectDescriptions.put(StatusEffect.CLOTHING_EFFECT, statusEffectDescriptions.computeIfAbsent(StatusEffect.CLOTHING_EFFECT, x -> "")
-							+ "<p style='margin:0 auto;padding:0 auto;color:"+c.getRarity().getColour().toWebHexString()+";'><b>"+ Util.capitaliseSentence(c.getName())+":</b></p>"
+							+ "<p style='margin:0 auto;padding:0 auto;color:"+c.getRarity().getColor().toWebHexString()+";'><b>"+ Util.capitalizeSentence(c.getName())+":</b></p>"
 							+ clothingEffectDescription);
 				}
 			}
@@ -5103,7 +5103,7 @@ public abstract class GameCharacter implements XMLSaving {
 				String tattooEffectDescription = ie.applyEffect(this, this, turnTime);
 				if (this.isPlayer() && !tattooEffectDescription.isEmpty()) {
 					statusEffectDescriptions.put(StatusEffect.CLOTHING_EFFECT, statusEffectDescriptions.computeIfAbsent(StatusEffect.CLOTHING_EFFECT, x -> "")
-							+ "<p style='margin:0 auto;padding:0 auto;'><b>"+ Util.capitaliseSentence(tattoo.getName())+":</b></p>"
+							+ "<p style='margin:0 auto;padding:0 auto;'><b>"+ Util.capitalizeSentence(tattoo.getName())+":</b></p>"
 							+ tattooEffectDescription);
 				}
 			}
@@ -5318,7 +5318,7 @@ public abstract class GameCharacter implements XMLSaving {
 			if(this.isFeminine()) {
 				return UtilText.parse(this,
 						UtilText.returnStringAtRandom(
-								"[npc.Name] puts on a smouldering look, and as her eyes meet yours, you hear an extremely lewd moan echoing around in your head, [npc.thought(~Aaah!~ "
+								"[npc.Name] puts on a smoldering look, and as her eyes meet yours, you hear an extremely lewd moan echoing around in your head, [npc.thought(~Aaah!~ "
 										+(this.hasVagina()
 												?"You're making me so wet!"
 												:this.hasPenis()
@@ -5367,7 +5367,7 @@ public abstract class GameCharacter implements XMLSaving {
 						"[npc.Name] slowly runs [npc.her] hands down between [npc.her] thighs, "
 								+ "[npc.speech(You know you want it!)]",
 						"[npc.Name] blows a kiss at you, before winking suggestively in your direction.",
-						"Biting [npc.her] lip and putting on [npc.her] most smouldering look, [npc.name] runs [npc.her] hands slowly up [npc.her] inner thighs.",
+						"Biting [npc.her] lip and putting on [npc.her] most smoldering look, [npc.name] runs [npc.her] hands slowly up [npc.her] inner thighs.",
 						"As [npc.name] gives you [npc.her] most innocent look, [npc.she] blows you a little kiss.",
 						"Turning around, [npc.name] lets out a playful giggle as [npc.she] gives [npc.her] [npc.ass+] a slap.",
 						"[npc.Name] slowly runs [npc.her] [npc.hands] up the length of [npc.her] body, before pouting at you."));
@@ -5376,7 +5376,7 @@ public abstract class GameCharacter implements XMLSaving {
 				description = UtilText.parse(this, Combat.getTargetedCombatant(this),
 						UtilText.returnStringAtRandom(
 						"[npc.Name] blows a kiss at [npc2.name], before winking suggestively in [npc2.her] direction.",
-						"Biting [npc.her] lip and putting on [npc.her] most smouldering look, [npc.name] runs [npc.her] hands slowly up [npc.her] inner thighs.",
+						"Biting [npc.her] lip and putting on [npc.her] most smoldering look, [npc.name] runs [npc.her] hands slowly up [npc.her] inner thighs.",
 						"As [npc.name] gives [npc2.name] [npc.her] most innocent look, [npc.she] blows [npc2.herHim] a little kiss.",
 						"Turning around, [npc.name] lets out a playful giggle as [npc.she] gives [npc.her] [npc.ass+] a slap.",
 						"[npc.Name] slowly runs [npc.her] [npc.hands] up the length of [npc.her] body, before pouting at [npc2.name]."));
@@ -5534,7 +5534,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 
 	/**
-	 * Get the overriding behaviour of this character when using a <b>generic</b> orgasm action in sex. (This does <b>not</b> affect custom orgasm scenes!)
+	 * Get the overriding behavior of this character when using a <b>generic</b> orgasm action in sex. (This does <b>not</b> affect custom orgasm scenes!)
 	 * @param sexAction The sex action being used to orgasm.
 	 * @param target The area targeted for orgasm.
 	 * @param applyExtraEffects True if extra effects should be applied, false if not.
@@ -9926,7 +9926,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 							} else if (characterBeingRevealed.getBreastRawSizeValue() <= CupSize.JJ.getMeasurement()) {
 								if(this.getBreastSize().getMeasurement() >= characterBeingRevealed.getBreastSize().getMeasurement()) {
-									sb.append("[npc2.Name] [npc2.verb(put)] on a patronising smile as [npc.namePos] [pc.breastSize] breasts are revealed, "
+									sb.append("[npc2.Name] [npc2.verb(put)] on a patronizing smile as [npc.namePos] [pc.breastSize] breasts are revealed, "
 											+ "[npc2.speech(Aww... They're pretty cute!)]");
 
 								} else {
@@ -9944,7 +9944,7 @@ public abstract class GameCharacter implements XMLSaving {
 								sb.append("");
 
 							} else if (characterBeingRevealed.getBreastRawSizeValue() <= CupSize.C.getMeasurement()) {
-								sb.append("In a very patronising voice, [npc2.name] [npc2.verb(react)] to [npc.namePos] breasts being revealed, "
+								sb.append("In a very patronizing voice, [npc2.name] [npc2.verb(react)] to [npc.namePos] breasts being revealed, "
 										+ "[npc2.speech(Aww, you trying to become a girl?)]");
 
 							} else if (characterBeingRevealed.getBreastRawSizeValue() <= CupSize.JJ.getMeasurement()) {
@@ -10239,7 +10239,7 @@ public abstract class GameCharacter implements XMLSaving {
 											"[npc2.Name] lets out a derisive laugh as [npc2.she] sees your tiny [npc.cock], "));
 									if(characterBeingRevealed.getAppearsAsGender()!=characterBeingRevealed.getGender()) {
 										sb.append(UtilText.returnStringAtRandom(
-												"[npc2.speech(Aww, that's so cute! I didn't realise you were [npc.a_gender]!)]",
+												"[npc2.speech(Aww, that's so cute! I didn't realize you were [npc.a_gender]!)]",
 												"[npc2.speech(Wait, you're [npc.a_gender]?! What a pathetic little clitty dick you've got!)]"));
 									} else {
 										sb.append(UtilText.returnStringAtRandom(
@@ -10265,7 +10265,7 @@ public abstract class GameCharacter implements XMLSaving {
 											"[npc2.Name] lets out a derisive grunt as [npc2.she] sees that you've got a tiny [npc.cock] between your [npc.legs], "));
 									if(characterBeingRevealed.getAppearsAsGender()!=characterBeingRevealed.getGender()) {
 										sb.append(UtilText.returnStringAtRandom(
-												"[npc2.speech(Is that pathetic little thing your cock?! I didn't realise you were [npc.a_gender]!)]",
+												"[npc2.speech(Is that pathetic little thing your cock?! I didn't realize you were [npc.a_gender]!)]",
 												"[npc2.speech(Wait, you're [npc.a_gender]?! What a pathetic excuse for a cock you've got!)]"));
 									} else {
 										sb.append(UtilText.returnStringAtRandom(
@@ -10293,7 +10293,7 @@ public abstract class GameCharacter implements XMLSaving {
 										"[npc2.Name] lets out a startled [npc2.moan] as [npc2.she] sees your [npc.cockSize] [npc.cock], "));
 								if(characterBeingRevealed.getAppearsAsGender()!=characterBeingRevealed.getGender()) {
 									sb.append(UtilText.returnStringAtRandom(
-											"[npc2.speech(Hey! I didn't realise you were [npc.a_gender]! Well, whatever...)]",
+											"[npc2.speech(Hey! I didn't realize you were [npc.a_gender]! Well, whatever...)]",
 											"[npc2.speech(Wait, you're [npc.a_gender]?! Well, whatever...)]"));
 								} else {
 									sb.append(UtilText.returnStringAtRandom(
@@ -10555,7 +10555,7 @@ public abstract class GameCharacter implements XMLSaving {
 			if(reactingPace!=SexPace.SUB_RESISTING) {
 				if(isFeminine()) {
 					if (!Sex.isDom(this)) {
-						sb.append("[npc2.Name] looks confused for a moment before letting out a patronising sigh, "
+						sb.append("[npc2.Name] looks confused for a moment before letting out a patronizing sigh, "
 								+ "[npc2.speech(Awww... You're like a little doll down there! That's so cute!)]");
 					} else {
 						sb.append("[npc2.Name] looks confused for a moment before breaking out into a mocking laugh, "
@@ -10564,7 +10564,7 @@ public abstract class GameCharacter implements XMLSaving {
 				// Masculine NPC:
 				} else {
 					if(!Sex.isDom(this)) {
-						sb.append("[npc2.Name] looks confused for a moment before letting out a patronising sneer, "
+						sb.append("[npc2.Name] looks confused for a moment before letting out a patronizing sneer, "
 								+ "[npc2.speech(Awww... You're like a little doll down there! That's so cute!)]");
 					} else {
 						sb.append("[npc2.Name] looks confused for a moment before breaking out into a mocking laugh, "
@@ -11642,7 +11642,7 @@ public abstract class GameCharacter implements XMLSaving {
 		if(characterPenetrating.isPlayer()) {
 			return UtilText.parse(this,
 					"<p style='text-align:center;'>"
-						+ "<b style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
+						+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
 					+ "</p>"
 					+ "<p>"
 						+ "You can't quite believe what you're doing to yourself."
@@ -11669,13 +11669,13 @@ public abstract class GameCharacter implements XMLSaving {
 							+ "All I'm good for now is being a worthless fuck-toy...)]"
 					+ "</p>"
 					+ "<p>"
-						+ "With a shuddering sigh, you decide to resign yourself to the fact that now you're nothing more than a <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColour().toWebHexString()+";'>broken virgin</b>..."
+						+ "With a shuddering sigh, you decide to resign yourself to the fact that now you're nothing more than a <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 					+ "</p>");
 
 		} else {
 			return UtilText.parse(this,
 					"<p style='text-align:center;'>"
-						+ "<b style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
+						+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
 					+ "</p>"
 					+ "<p>"
 						+ "You can't believe what's happening."
@@ -11703,7 +11703,7 @@ public abstract class GameCharacter implements XMLSaving {
 					+ "</p>"
 					+ "<p>"
 					+ "You're vaguely aware of [npc.name] [npc.moaning] somewhere in the background, completely oblivious to how hard you've been hit by the loss of your virginity."
-					+ " With a shuddering sigh, you decide to resign yourself to the fact that now you're nothing more than a <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColour().toWebHexString()+";'>broken virgin</b>..."
+					+ " With a shuddering sigh, you decide to resign yourself to the fact that now you're nothing more than a <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 					+ "</p>");
 		}
 	}
@@ -11747,7 +11747,7 @@ public abstract class GameCharacter implements XMLSaving {
 				StringBuilderSB.append(
 						"<p>"
 							+ "With tears welling up in your [pc.eyes], you let out another painful wail as you draw"+(isTail?" your [pc.tail]":"")+" back, before thrusting deep inside yourself once again."
-							+ " This time, the pain isn't as extreme as before, and you realise that you're starting to get used to the feeling of using your own ass."
+							+ " This time, the pain isn't as extreme as before, and you realize that you're starting to get used to the feeling of using your own ass."
 						+ "</p>");
 			}
 
@@ -11798,7 +11798,7 @@ public abstract class GameCharacter implements XMLSaving {
 				StringBuilderSB.append(
 						"<p>"
 							+ "With tears welling up in your [pc.eyes], you let out another painful wail as [npc.name] draws"+(isTail?" [npc.her] [npc.tail]":"")+" back, before thrusting deep inside you once again."
-							+ " This time, the pain isn't as extreme as before, and you realise that you're starting to get used to the feeling of being fucked in the ass."
+							+ " This time, the pain isn't as extreme as before, and you realize that you're starting to get used to the feeling of being fucked in the ass."
 						+ "</p>");
 			}
 
@@ -11862,7 +11862,7 @@ public abstract class GameCharacter implements XMLSaving {
 				StringBuilderSB.append(
 						"<p>"
 							+ "Instinctively trying to clench your legs together, you let out another painful wail as you draw"+(isTail?" your [pc.tail]":"")+" back, before thrusting deep inside yourself once again."
-							+ " This time, the pain isn't as extreme as before, and you realise that the initial hurt was due to your hymen being torn."
+							+ " This time, the pain isn't as extreme as before, and you realize that the initial hurt was due to your hymen being torn."
 						+ "</p>");
 			}
 
@@ -11923,7 +11923,7 @@ public abstract class GameCharacter implements XMLSaving {
 				StringBuilderSB.append(
 						"<p>"
 							+ "Trying desperately to clench your legs together, you let out another painful wail as [npc.name] draws"+(isTail?" [npc.her] [npc.tail]":"")+" back, before thrusting deep inside you once again."
-							+ " This time, the pain isn't as extreme as before, and you realise that the initial hurt was due to your hymen being torn."
+							+ " This time, the pain isn't as extreme as before, and you realize that the initial hurt was due to your hymen being torn."
 						+ "</p>");
 			}
 
@@ -12341,7 +12341,7 @@ public abstract class GameCharacter implements XMLSaving {
 			fluidIngestionSB.append(UtilText.parse(this,
 					"<p>"
 						+ "Due to the psychoactive properties of "+(charactersFluid==null?"":(charactersFluid.equals(this)?"[npc.her]":UtilText.parse(charactersFluid, "[npc.namePos]")))+" "+fluid.getName(charactersFluid)
-							+", [npc.name] [npc.verb(start)] <span style='color:"+Colour.PSYCHOACTIVE.toWebHexString()+";'>tripping out</span>!"
+							+", [npc.name] [npc.verb(start)] <span style='color:"+Color.PSYCHOACTIVE.toWebHexString()+";'>tripping out</span>!"
 					+ "</p>"));
 		}
 
@@ -12350,8 +12350,8 @@ public abstract class GameCharacter implements XMLSaving {
 			fluidIngestionSB.append(UtilText.parse(this,
 					"<p>"
 						+ "Due to the addictive properties of "+(charactersFluid==null?"":(charactersFluid.equals(this)?"[npc.her]":UtilText.parse(charactersFluid, "[npc.namePos]")))+" "+fluid.getName(charactersFluid)
-							+", [npc.name] [npc.verb(find)] [npc.herself] [style.colourArcane(craving)]"
-							+ " <span style='color:"+fluid.getType().getRace().getColour().toWebHexString()+";'>"+fluid.getType().getRace().getName(fluid.isBestial(charactersFluid))+"</span> "+fluid.getName(charactersFluid)+"!"
+							+", [npc.name] [npc.verb(find)] [npc.herself] [style.colorArcane(craving)]"
+							+ " <span style='color:"+fluid.getType().getRace().getColor().toWebHexString()+";'>"+fluid.getType().getRace().getName(fluid.isBestial(charactersFluid))+"</span> "+fluid.getName(charactersFluid)+"!"
 					+ "</p>"));
 
 		} else if(this.getAddiction(fluid.getType()) != null) {
@@ -12359,7 +12359,7 @@ public abstract class GameCharacter implements XMLSaving {
 			setLastTimeSatisfiedAddiction(fluid.getType(), Main.game.getMinutesPassed());
 				fluidIngestionSB.append(UtilText.parse(this, charactersFluid,
 						"<p>"
-							+ "[npc.NamePos] [style.colourArcane(craving)] for <span style='color:"+fluid.getType().getRace().getColour().toWebHexString()+";'>"
+							+ "[npc.NamePos] [style.colorArcane(craving)] for <span style='color:"+fluid.getType().getRace().getColor().toWebHexString()+";'>"
 								+fluid.getType().getRace().getName(fluid.isBestial(charactersFluid))
 							+"</span> "+fluid.getName(charactersFluid)
 								+" has been satisfied!"
@@ -12388,13 +12388,13 @@ public abstract class GameCharacter implements XMLSaving {
 //			if(isPlayer()) {
 //				fluidIngestionSB.append("<p>"
 //							+ "Due to the psychoactive properties of the "+fluid.getName(null)
-//								+", you start <span style='color:"+Colour.PSYCHOACTIVE.toWebHexString()+";'>tripping out</span>!"
+//								+", you start <span style='color:"+Color.PSYCHOACTIVE.toWebHexString()+";'>tripping out</span>!"
 //						+ "</p>");
 //			} else {
 //				fluidIngestionSB.append(UtilText.parse(this,
 //						"<p>"
 //						+ "Due to the psychoactive properties of the "+fluid.getName(null)
-//							+", [npc.name] starts <span style='color:"+Colour.PSYCHOACTIVE.toWebHexString()+";'>tripping out</span>!"
+//							+", [npc.name] starts <span style='color:"+Color.PSYCHOACTIVE.toWebHexString()+";'>tripping out</span>!"
 //					+ "</p>"));
 //			}
 //		}
@@ -12404,13 +12404,13 @@ public abstract class GameCharacter implements XMLSaving {
 //			if(isPlayer()) {
 //				fluidIngestionSB.append("<p>"
 //							+ "Due to the addictive properties of the "+fluid.getName(null)
-//								+", you find yourself [style.colourArcane(craving)] <span style='color:"+fluid.getRace().getColour().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+"!"
+//								+", you find yourself [style.colorArcane(craving)] <span style='color:"+fluid.getRace().getColor().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+"!"
 //						+ "</p>");
 //			} else {
 //				fluidIngestionSB.append(UtilText.parse(this,
 //						"<p>"
-//							+ "Due to the addictive properties of the "+fluid.getName(null)+", [npc.name] finds [npc.herself] [style.colourArcane(craving)]"
-//									+ " <span style='color:"+fluid.getRace().getColour().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+"!"
+//							+ "Due to the addictive properties of the "+fluid.getName(null)+", [npc.name] finds [npc.herself] [style.colorArcane(craving)]"
+//									+ " <span style='color:"+fluid.getRace().getColor().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+"!"
 //						+ "</p>"));
 //			}
 //
@@ -12419,12 +12419,12 @@ public abstract class GameCharacter implements XMLSaving {
 //			if(isPlayer()) {
 //				fluidIngestionSB.append(
 //						"<p>"
-//							+ "Your [style.colourArcane(craving)] for <span style='color:"+fluid.getRace().getColour().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+" has been satisfied!"
+//							+ "Your [style.colorArcane(craving)] for <span style='color:"+fluid.getRace().getColor().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+" has been satisfied!"
 //						+ "</p>");
 //			} else {
 //				fluidIngestionSB.append(UtilText.parse(this,
 //						"<p>"
-//							+ "[npc.NamePos] [style.colourArcane(craving)] for <span style='color:"+fluid.getRace().getColour().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+" has been satisfied!"
+//							+ "[npc.NamePos] [style.colorArcane(craving)] for <span style='color:"+fluid.getRace().getColor().toWebHexString()+";'>"+fluid.getDescriptor(null)+"</span> "+fluid.getName(null)+" has been satisfied!"
 //						+ "</p>"));
 //			}
 //		}
@@ -12780,8 +12780,8 @@ public abstract class GameCharacter implements XMLSaving {
 
 				return (UtilText.parse(this,
 						"<p>"
-							+ "Due to [npc.namePos] <b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>masochist fetish</b>, incoming damage is reduced by 25%, but in turn, [npc.she] [npc.verb(take)]"
-							+ " <b>"+(manaLoss)+"</b> <b style='color:" + Attribute.DAMAGE_LUST.getColour().toWebHexString() + ";'>lust damage</b> as [npc.she] [npc.verb(struggle)] to control [npc.her] arousal!"
+							+ "Due to [npc.namePos] <b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>masochist fetish</b>, incoming damage is reduced by 25%, but in turn, [npc.she] [npc.verb(take)]"
+							+ " <b>"+(manaLoss)+"</b> <b style='color:" + Attribute.DAMAGE_LUST.getColor().toWebHexString() + ";'>lust damage</b> as [npc.she] [npc.verb(struggle)] to control [npc.her] arousal!"
 						+ "</p>"))
 						+incrementLust(manaLoss, false);
 
@@ -12801,7 +12801,7 @@ public abstract class GameCharacter implements XMLSaving {
 				return (UtilText.parse(attacker,
 						"<p>"
 							+ "Due to [npc.her] [style.boldFetish(sadist fetish)], [npc.name] [npc.verb(take)]"
-							+ " <b>"+(manaLoss)+"</b>"+ " <b style='color:" + Attribute.DAMAGE_LUST.getColour().toWebHexString() + ";'>lust damage</b> as [npc.she] [npc.verb(get)] aroused by inflicting damage!"
+							+ " <b>"+(manaLoss)+"</b>"+ " <b style='color:" + Attribute.DAMAGE_LUST.getColor().toWebHexString() + ";'>lust damage</b> as [npc.she] [npc.verb(get)] aroused by inflicting damage!"
 						+ "</p>"))
 						+attacker.incrementLust(manaLoss, false);
 
@@ -12936,12 +12936,12 @@ public abstract class GameCharacter implements XMLSaving {
 		if(this.isPlayer()) {
 			return "<p style='text-align:center;'>"
 						+ "You "+(increment>0?"gained":"lost")+" [style.boldDmgLust("+increment+" lust)], and are now feeling"
-								+ " <b style='color:"+this.getLustLevel().getColour().toWebHexString()+";'>"+this.getLustLevel().getName()+"</b>."
+								+ " <b style='color:"+this.getLustLevel().getColor().toWebHexString()+";'>"+this.getLustLevel().getName()+"</b>."
 					+ "</p>";
 		} else {
 			return "<p style='text-align:center;'>"
 					+ UtilText.parse(this, "[npc.Name] "+(increment>0?"gained":"lost")+" [style.boldDmgLust("+increment+" lust)], and is now feeling"
-							+ " <b style='color:"+this.getLustLevel().getColour().toWebHexString()+";'>"+this.getLustLevel().getName()+"</b>.")
+							+ " <b style='color:"+this.getLustLevel().getColor().toWebHexString()+";'>"+this.getLustLevel().getName()+"</b>.")
 				+ "</p>";
 		}
 	}
@@ -12958,8 +12958,8 @@ public abstract class GameCharacter implements XMLSaving {
 			sb.append(UtilText.parse(this,
 						"<p>"
 							+ "<b>[npc.Name] [npc.verb(take)]"
-								+ " <b>" + (increment*2) + "</b> <b style='color:" + Colour.ATTRIBUTE_HEALTH.toWebHexString() + ";'>energy damage</b>"
-								+ " and <b>"+increment+"</b> <b style='color:" + Colour.ATTRIBUTE_MANA.toWebHexString() + ";'>aura damage</b>"
+								+ " <b>" + (increment*2) + "</b> <b style='color:" + Color.ATTRIBUTE_HEALTH.toWebHexString() + ";'>energy damage</b>"
+								+ " and <b>"+increment+"</b> <b style='color:" + Color.ATTRIBUTE_MANA.toWebHexString() + ";'>aura damage</b>"
 								+ " as [npc.she] [npc.verb(struggle)] to control [npc.her] burning desire for sex!</b>"
 						+ "</p>"));
 
@@ -13639,14 +13639,14 @@ public abstract class GameCharacter implements XMLSaving {
 				return "<p style='text-align:center;'>"
 							+ "You drop your " + item.getName() + " on the floor."
 							+ "<br/>"
-							+ "<span style='color:" + Colour.GENERIC_TERRIBLE.toWebHexString() + ";'>The " + item.getName() + " will be lost if you leave this location!</span>"
+							+ "<span style='color:" + Color.GENERIC_TERRIBLE.toWebHexString() + ";'>The " + item.getName() + " will be lost if you leave this location!</span>"
 						+ "</p>";
 			} else {
 				return UtilText.parse(this,
 					"<p style='text-align:center;'>"
 						+ "[npc.Name] drops [npc.her] " + item.getName() + " on the floor."
 						+ "<br/>"
-						+ "<span style='color:" + Colour.GENERIC_TERRIBLE.toWebHexString() + ";'>The " + item.getName() + " will be lost if you leave this location!</span>"
+						+ "<span style='color:" + Color.GENERIC_TERRIBLE.toWebHexString() + ";'>The " + item.getName() + " will be lost if you leave this location!</span>"
 					+ "</p>");
 			}
 
@@ -13655,45 +13655,45 @@ public abstract class GameCharacter implements XMLSaving {
 				return "<p style='text-align:center;'>"
 							+ "You drop your " + item.getName() + " on the floor."
 							+ "<br/>"
-							+ "<span style='color:" + Colour.GENERIC_EXCELLENT.toWebHexString() + ";'>The " + item.getName() + " will be stored safely in this location!</span>"
+							+ "<span style='color:" + Color.GENERIC_EXCELLENT.toWebHexString() + ";'>The " + item.getName() + " will be stored safely in this location!</span>"
 						+ "</p>";
 			} else {
 				return UtilText.parse(this,
 					"<p style='text-align:center;'>"
 						+ "[npc.Name] drops [npc.her] " + item.getName() + " on the floor."
 						+ "<br/>"
-						+ "<span style='color:" + Colour.GENERIC_EXCELLENT.toWebHexString() + ";'>The " + item.getName() + " will be stored safely in this location!</span>"
+						+ "<span style='color:" + Color.GENERIC_EXCELLENT.toWebHexString() + ";'>The " + item.getName() + " will be stored safely in this location!</span>"
 					+ "</p>");
 			}
 		}
 	}
 
 	public String addedItemToInventoryText(AbstractCoreItem item) {
-		String returnString = "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Item added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + item.getName() + "</b>";
+		String returnString = "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Item added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + item.getName() + "</b>";
 
 		if(item instanceof AbstractItem) {
-			returnString = "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Item added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + ((AbstractItem)item).getDisplayName(true) + "</b>";
+			returnString = "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Item added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + ((AbstractItem)item).getDisplayName(true) + "</b>";
 
 		} else if(item instanceof AbstractClothing) {
-			returnString = "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Clothing added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + ((AbstractClothing)item).getDisplayName(true) + "</b>";
+			returnString = "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Clothing added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + ((AbstractClothing)item).getDisplayName(true) + "</b>";
 
 		} else if(item instanceof AbstractWeapon) {
-			returnString = "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Weapon added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + ((AbstractWeapon)item).getDisplayName(true) + "</b>";
+			returnString = "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Weapon added to "+(this.isPlayer()?"":"[npc.namePos] ")+"inventory:</b> <b>" + ((AbstractWeapon)item).getDisplayName(true) + "</b>";
 		}
 
 		return UtilText.parse(this, returnString);
 	}
 
 	public String addedItemToInventoryText(AbstractItemType item) {
-		return "<p style='text-align:center;'>" + "<span style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>You add the " + item.getName(false) + " to your inventory.</span>" + "</p>";
+		return "<p style='text-align:center;'>" + "<span style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>You add the " + item.getName(false) + " to your inventory.</span>" + "</p>";
 	}
 
 	public String removedItemFromInventoryText(AbstractItemType item) {
-		return "<p style='text-align:center;'>" + "<span style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>You have lost the " + item.getName(false) + ".</span>" + "</p>";
+		return "<p style='text-align:center;'>" + "<span style='color:" + Color.GENERIC_BAD.toWebHexString() + ";'>You have lost the " + item.getName(false) + ".</span>" + "</p>";
 	}
 
 	public String inventoryFullText() {
-		return "<p style='text-align:center;'>" + "<b style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>Your inventory is full!</b>" + "</p>";
+		return "<p style='text-align:center;'>" + "<b style='color:" + Color.GENERIC_BAD.toWebHexString() + ";'>Your inventory is full!</b>" + "</p>";
 	}
 
 	/**
@@ -13769,9 +13769,9 @@ public abstract class GameCharacter implements XMLSaving {
 		inventory.incrementMoney(money);
 
 		if(money>0) {
-			return "<div class='container-full-width' style='text-align:center;'>"+UtilText.parse(this, "[npc.Name]")+" [style.colourGood(gained)] " + UtilText.formatAsMoney(money) + "!</div>";
+			return "<div class='container-full-width' style='text-align:center;'>"+UtilText.parse(this, "[npc.Name]")+" [style.colorGood(gained)] " + UtilText.formatAsMoney(money) + "!</div>";
 		} else {
-			return "<div class='container-full-width' style='text-align:center;'>"+UtilText.parse(this, "[npc.Name]")+" [style.colourBad(lost)] " + UtilText.formatAsMoney(moneyLoss) + "!</div>";
+			return "<div class='container-full-width' style='text-align:center;'>"+UtilText.parse(this, "[npc.Name]")+" [style.colorBad(lost)] " + UtilText.formatAsMoney(moneyLoss) + "!</div>";
 		}
 	}
 
@@ -13805,10 +13805,10 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 
 		if(increment>0) {
-			return "You gained "+UtilText.formatAsEssences(increment, "b", false)+" <b style='color:"+essence.getColour().toWebHexString()+";'>"+essence.getName()+" essence"+(increment>1?"s":"")+"</b>!"
+			return "You gained "+UtilText.formatAsEssences(increment, "b", false)+" <b style='color:"+essence.getColor().toWebHexString()+";'>"+essence.getName()+" essence"+(increment>1?"s":"")+"</b>!"
 						+ additional;
 		} else {
-			return "You lost "+UtilText.formatAsEssences(-increment, "b", false)+" <b style='color:"+essence.getColour().toWebHexString()+";'>"+essence.getName()+" essence"+(increment<-1?"s":"")+"</b>!";
+			return "You lost "+UtilText.formatAsEssences(-increment, "b", false)+" <b style='color:"+essence.getColor().toWebHexString()+";'>"+essence.getName()+" essence"+(increment<-1?"s":"")+"</b>!";
 		}
 	}
 
@@ -14034,7 +14034,7 @@ public abstract class GameCharacter implements XMLSaving {
 	public String useItem(AbstractItem item, GameCharacter target, boolean removingFromFloor, boolean onlyReturnEffects) {
 		if(ItemType.getAllItems().contains(item.getItemType()) && isPlayer()) {
 			if(Main.getProperties().addItemDiscovered(item.getItemType())) {
-				Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(item.getItemType().getName(false), item.getRarity().getColour()), true);
+				Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(item.getItemType().getName(false), item.getRarity().getColor()), true);
 			}
 		}
 
@@ -14549,7 +14549,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 			if (isPlayer() && Main.game.isInNewWorld()) {
 				if (Main.getProperties().addClothingDiscovered(newClothing.getClothingType())) {
-					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColour()), true);
+					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColor()), true);
 				}
 			}
 		}
@@ -14602,7 +14602,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 			if (isPlayer() && Main.game.isInNewWorld()) {
 				if (Main.getProperties().addClothingDiscovered(newClothing.getClothingType())) {
-					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColour()), true);
+					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColor()), true);
 				}
 			}
 		}
@@ -14627,7 +14627,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 			if (isPlayer() && Main.game.isInNewWorld()) {
 				if (Main.getProperties().addClothingDiscovered(newClothing.getClothingType())) {
-					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColour()), true);
+					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColor()), true);
 				}
 			}
 		}
@@ -15292,8 +15292,8 @@ public abstract class GameCharacter implements XMLSaving {
 		return calculateGenderAppearance(false).gender;
 	}
 
-	public String getAppearsAsGenderDescription(boolean colouredGender) {
-		return UtilText.parse(this, calculateGenderAppearance(colouredGender).description);
+	public String getAppearsAsGenderDescription(boolean coloredGender) {
+		return UtilText.parse(this, calculateGenderAppearance(coloredGender).description);
 	}
 
 	public boolean isPenisBulgeVisible() {
@@ -15312,7 +15312,7 @@ public abstract class GameCharacter implements XMLSaving {
 						: getTesticleSize().getValue()>=TesticleSize.FOUR_HUGE.getValue());
 	}
 
-	private GenderAppearance calculateGenderAppearance(boolean colouredGender) {
+	private GenderAppearance calculateGenderAppearance(boolean coloredGender) {
 		boolean visibleVagina = isCoverableAreaVisible(CoverableArea.VAGINA) && hasVagina();
 		boolean visiblePenis = isCoverableAreaVisible(CoverableArea.PENIS) && hasPenis();
 
@@ -15322,8 +15322,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis and vagina:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, as well as the fact that you have [pc.breastSize] breasts, everyone can tell that you're [pc.a_gender("+colouredGender+")] on first glance."
-							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, as well as the fact that [npc.she] has [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_gender("+colouredGender+")] on first glance.",
+							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, as well as the fact that you have [pc.breastSize] breasts, everyone can tell that you're [pc.a_gender("+coloredGender+")] on first glance."
+							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, as well as the fact that [npc.she] has [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_gender("+coloredGender+")] on first glance.",
 							Gender.F_P_V_B_FUTANARI);
 
 				} else if(visibleVagina) {
@@ -15331,15 +15331,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.F_P_V_B_FUTANARI);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.F_P_V_B_FUTANARI);
 					}
 
@@ -15347,16 +15347,16 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.F_V_B_FEMALE);
 
 					} else {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.F_V_B_FEMALE);
 					}
 
@@ -15364,8 +15364,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to your exposed [pc.penis] and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-							:"Due to [npc.her] exposed [npc.penis] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+							?"Due to your exposed [pc.penis] and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+							:"Due to [npc.her] exposed [npc.penis] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 							Gender.F_P_B_SHEMALE);
 
 				} else {
@@ -15373,15 +15373,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your feminine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your feminine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.F_P_B_SHEMALE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your feminine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your feminine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.F_P_B_SHEMALE);
 					}
 
@@ -15389,31 +15389,31 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your [pc.penis] is concealed, so, due to your feminine appearance and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] feminine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Your [pc.penis] is concealed, so, due to your feminine appearance and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] feminine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.F_V_B_FEMALE);
 
 					} else if(hasVagina()) {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your feminine appearance and [pc.breastSize] breasts leads everyone to correctly assume that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"Due to [npc.her] feminine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"Your feminine appearance and [pc.breastSize] breasts leads everyone to correctly assume that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"Due to [npc.her] feminine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.F_V_B_FEMALE);
 
 					} else {
 						if(isCoverableAreaVisible(CoverableArea.VAGINA) && isCoverableAreaVisible(CoverableArea.PENIS)) {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is exposed, so, due to your feminine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] feminine appearance and [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is exposed, so, due to your feminine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] feminine appearance and [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.F_B_DOLL);
 
 						} else {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is concealed, so, due to your feminine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] feminine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is concealed, so, due to your feminine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] feminine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.F_V_B_FEMALE);
 						}
 					}
@@ -15425,8 +15425,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis and vagina:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, everyone can tell that you're [pc.a_gender("+colouredGender+")] on first glance."
-							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, everyone can tell that [npc.sheIs] [npc.a_gender("+colouredGender+")] on first glance.",
+							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, everyone can tell that you're [pc.a_gender("+coloredGender+")] on first glance."
+							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, everyone can tell that [npc.sheIs] [npc.a_gender("+coloredGender+")] on first glance.",
 							Gender.F_P_V_FUTANARI);
 
 				} else if(visibleVagina) {
@@ -15434,15 +15434,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.F_P_V_FUTANARI);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.F_P_V_FUTANARI);
 					}
 
@@ -15450,16 +15450,16 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina], and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina], and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.F_V_FEMALE);
 
 					} else {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina], everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina], everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.F_V_FEMALE);
 					}
 
@@ -15467,8 +15467,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to your exposed [pc.penis], everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-							:"Due to [npc.her] exposed [npc.penis], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+							?"Due to your exposed [pc.penis], everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+							:"Due to [npc.her] exposed [npc.penis], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 							Gender.F_P_TRAP);
 
 				} else {
@@ -15476,15 +15476,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your feminine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your feminine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.F_P_TRAP);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your feminine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your feminine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] feminine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.F_P_TRAP);
 					}
 
@@ -15492,31 +15492,31 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your [pc.penis] is concealed, so, due to your feminine appearance, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] feminine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Your [pc.penis] is concealed, so, due to your feminine appearance, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] feminine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.F_V_FEMALE);
 
 					} else if(hasVagina()) {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your feminine appearance leads everyone to correctly assume that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"Due to [npc.her] feminine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"Your feminine appearance leads everyone to correctly assume that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"Due to [npc.her] feminine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.F_V_FEMALE);
 
 					} else {
 						if(isCoverableAreaVisible(CoverableArea.VAGINA) && isCoverableAreaVisible(CoverableArea.PENIS)) {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is exposed, so, due to your feminine appearance, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] feminine appearance, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is exposed, so, due to your feminine appearance, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] feminine appearance, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.F_DOLL);
 
 						} else {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is concealed, so, due to your feminine appearance, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] feminine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is concealed, so, due to your feminine appearance, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] feminine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.F_V_FEMALE);
 						}
 					}
@@ -15530,8 +15530,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis and vagina:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, as well as the fact that you have [pc.breastSize] breasts, everyone can tell that you're [pc.a_gender("+colouredGender+")] on first glance."
-							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, as well as the fact that [npc.she] has [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_gender("+colouredGender+")] on first glance.",
+							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, as well as the fact that you have [pc.breastSize] breasts, everyone can tell that you're [pc.a_gender("+coloredGender+")] on first glance."
+							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, as well as the fact that [npc.she] has [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_gender("+coloredGender+")] on first glance.",
 							Gender.N_P_V_B_HERMAPHRODITE);
 
 				} else if(visibleVagina) {
@@ -15539,15 +15539,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.N_P_V_B_HERMAPHRODITE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.N_P_V_B_HERMAPHRODITE);
 					}
 
@@ -15555,16 +15555,16 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.N_V_B_TOMBOY);
 
 					} else {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.N_V_B_TOMBOY);
 					}
 
@@ -15572,8 +15572,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to your exposed [pc.penis] and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-							:"Due to [npc.her] exposed [npc.penis] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+							?"Due to your exposed [pc.penis] and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+							:"Due to [npc.her] exposed [npc.penis] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 							Gender.N_P_B_SHEMALE);
 
 				} else {
@@ -15581,15 +15581,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your androgynous appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your androgynous appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.N_P_B_SHEMALE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your androgynous appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your androgynous appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.N_P_B_SHEMALE);
 					}
 
@@ -15597,31 +15597,31 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your [pc.penis] is concealed, so, due to your androgynous appearance and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Your [pc.penis] is concealed, so, due to your androgynous appearance and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.N_V_B_TOMBOY);
 
 					} else if(hasVagina()) {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your androgynous appearance and [pc.breastSize] breasts leads everyone to correctly assume that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"Due to [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"Your androgynous appearance and [pc.breastSize] breasts leads everyone to correctly assume that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"Due to [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.N_V_B_TOMBOY);
 
 					} else {
 						if(isCoverableAreaVisible(CoverableArea.VAGINA) && isCoverableAreaVisible(CoverableArea.PENIS)) {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is exposed, so, due to your androgynous appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is exposed, so, due to your androgynous appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.N_B_DOLL);
 
 						} else {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is concealed, so, due to your androgynous appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is concealed, so, due to your androgynous appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] androgynous appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.N_V_B_TOMBOY);
 						}
 					}
@@ -15633,8 +15633,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis and vagina:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, everyone can tell that you're [pc.a_gender("+colouredGender+")] on first glance."
-							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, everyone can tell that [npc.sheIs] [npc.a_gender("+colouredGender+")] on first glance.",
+							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, everyone can tell that you're [pc.a_gender("+coloredGender+")] on first glance."
+							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, everyone can tell that [npc.sheIs] [npc.a_gender("+coloredGender+")] on first glance.",
 							Gender.N_P_V_HERMAPHRODITE);
 
 				} else if(visibleVagina) {
@@ -15642,15 +15642,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.N_P_V_HERMAPHRODITE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.N_P_V_HERMAPHRODITE);
 					}
 
@@ -15658,16 +15658,16 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina], and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina], and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.N_V_TOMBOY);
 
 					} else {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina], everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina], everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.N_V_TOMBOY);
 					}
 
@@ -15675,8 +15675,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to your exposed [pc.penis], everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-							:"Due to [npc.her] exposed [npc.penis], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+							?"Due to your exposed [pc.penis], everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+							:"Due to [npc.her] exposed [npc.penis], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 							Gender.N_P_TRAP);
 
 				} else {
@@ -15684,15 +15684,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your androgynous appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your androgynous appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.N_P_TRAP);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your androgynous appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your androgynous appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] androgynous appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.N_P_TRAP);
 					}
 
@@ -15700,31 +15700,31 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your [pc.penis] is concealed, so, due to your androgynous appearance, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] androgynous appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Your [pc.penis] is concealed, so, due to your androgynous appearance, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] androgynous appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.N_V_TOMBOY);
 
 					} else if(hasVagina()) {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your androgynous appearance leads everyone to correctly assume that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"Due to [npc.her] androgynous appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"Your androgynous appearance leads everyone to correctly assume that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"Due to [npc.her] androgynous appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.N_V_TOMBOY);
 
 					} else {
 						if(isCoverableAreaVisible(CoverableArea.VAGINA) && isCoverableAreaVisible(CoverableArea.PENIS)) {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is exposed, so, due to your androgynous appearance, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]"
-									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] androgynous appearance, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is exposed, so, due to your androgynous appearance, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]"
+									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] androgynous appearance, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.N_NEUTER);
 
 						} else {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is concealed, so, due to your androgynous appearance, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] androgynous appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is concealed, so, due to your androgynous appearance, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] androgynous appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.N_V_TOMBOY);
 						}
 					}
@@ -15738,8 +15738,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis and vagina:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, as well as the fact that you have [pc.breastSize] breasts, everyone can tell that you're [pc.a_gender("+colouredGender+")] on first glance."
-							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, as well as the fact that [npc.she] has [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_gender("+colouredGender+")] on first glance.",
+							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, as well as the fact that you have [pc.breastSize] breasts, everyone can tell that you're [pc.a_gender("+coloredGender+")] on first glance."
+							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, as well as the fact that [npc.she] has [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_gender("+coloredGender+")] on first glance.",
 							Gender.M_P_V_B_HERMAPHRODITE);
 
 				} else if(visibleVagina) {
@@ -15747,15 +15747,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.M_P_V_B_HERMAPHRODITE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina] and [pc.breastSize] breasts, reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.M_P_V_B_HERMAPHRODITE);
 					}
 
@@ -15763,16 +15763,16 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume female, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.M_V_B_BUTCH);
 
 					} else {
 						// Correctly assume female:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina] and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.M_V_B_BUTCH);
 					}
 
@@ -15780,8 +15780,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to your exposed [pc.penis] and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-							:"Due to [npc.her] exposed [npc.penis] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+							?"Due to your exposed [pc.penis] and [pc.breastSize] breasts, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+							:"Due to [npc.her] exposed [npc.penis] and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 							Gender.M_P_B_BUSTYBOY);
 
 				} else {
@@ -15789,15 +15789,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your masculine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your masculine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.M_P_B_BUSTYBOY);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your masculine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your masculine appearance and [pc.breastSize] breasts, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance and [npc.breastSize] breasts, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.M_P_B_BUSTYBOY);
 					}
 
@@ -15805,31 +15805,31 @@ public abstract class GameCharacter implements XMLSaving {
 						// Correctly assume busty boy:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your [pc.penis] is concealed, so, due to your masculine appearance and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] masculine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Your [pc.penis] is concealed, so, due to your masculine appearance and [pc.breastSize] breasts, everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] masculine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.M_P_B_BUSTYBOY);
 
 					} else if(hasVagina()) {
 						// Assume bustyboy:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your masculine appearance and [pc.breastSize] breasts leads everyone to assume that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"Due to [npc.her] masculine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"Your masculine appearance and [pc.breastSize] breasts leads everyone to assume that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"Due to [npc.her] masculine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.M_P_B_BUSTYBOY);
 
 					} else {
 						if(isCoverableAreaVisible(CoverableArea.VAGINA) && isCoverableAreaVisible(CoverableArea.PENIS)) {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is exposed, so, due to your masculine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] masculine appearance and [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is exposed, so, due to your masculine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] masculine appearance and [npc.breastSize] breasts, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.M_B_MANNEQUIN);
 
 						} else {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is concealed, so, due to your masculine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] masculine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is concealed, so, due to your masculine appearance and [pc.breastSize] breasts, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] masculine appearance and [npc.breastSize] breasts, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.M_V_B_BUTCH);
 						}
 					}
@@ -15841,8 +15841,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis and vagina:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, everyone can tell that you're [pc.a_gender("+colouredGender+")] on first glance."
-							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, everyone can tell that [npc.sheIs] [npc.a_gender("+colouredGender+")] on first glance.",
+							?"Due to the fact that both your [pc.vagina] and [pc.penis] are exposed, everyone can tell that you're [pc.a_gender("+coloredGender+")] on first glance."
+							:"Due to the fact that both [npc.her] [npc.vagina] and [npc.penis] are exposed, everyone can tell that [npc.sheIs] [npc.a_gender("+coloredGender+")] on first glance.",
 							Gender.M_P_V_HERMAPHRODITE);
 
 				} else if(visibleVagina) {
@@ -15850,15 +15850,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.M_P_V_HERMAPHRODITE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your exposed [pc.vagina], reveals to everyone that you're [pc.a_gender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] exposed [npc.vagina], reveals to everyone that [npc.sheIs] [npc.a_gender("+coloredGender+")].",
 								Gender.M_P_V_HERMAPHRODITE);
 					}
 
@@ -15866,16 +15866,16 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume cuntboy, as penis is not visible:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina], and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina], and the fact that your [pc.penis] remains concealed, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.M_V_CUNTBOY);
 
 					} else {
 						// Correctly assume cuntboy:
 						return new GenderAppearance(
 								isPlayer()
-								?"Due to your exposed [pc.vagina], everyone correctly assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Due to your exposed [pc.vagina], everyone correctly assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] exposed [npc.vagina], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.M_V_CUNTBOY);
 					}
 
@@ -15883,8 +15883,8 @@ public abstract class GameCharacter implements XMLSaving {
 					// Exposed penis:
 					return new GenderAppearance(
 							isPlayer()
-							?"Due to your exposed [pc.penis], everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-							:"Due to [npc.her] exposed [npc.penis], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+							?"Due to your exposed [pc.penis], everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+							:"Due to [npc.her] exposed [npc.penis], everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 							Gender.M_P_MALE);
 
 				} else {
@@ -15892,15 +15892,15 @@ public abstract class GameCharacter implements XMLSaving {
 					if(isPenisBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.cockSize] bulge between your legs, combined with your masculine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.cockSize] bulge between your legs, combined with your masculine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.cockSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.M_P_MALE);
 
 					} else if (isTesticleBulgeVisible()) {
 						return new GenderAppearance(
 								isPlayer()
-								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your masculine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"The [pc.ballSize] bulge of your [pc.balls] between your legs, combined with your masculine appearance, leads everyone to believe that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"The [npc.ballSize] bulge between [npc.her] legs, combined with [npc.her] masculine appearance, leads everyone to believe that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.M_P_MALE);
 					}
 
@@ -15908,31 +15908,31 @@ public abstract class GameCharacter implements XMLSaving {
 						// Assume male:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your [pc.penis] is concealed, so, due to your masculine appearance, everyone assumes that you're [pc.a_appearsAsGender("+colouredGender+")] on first glance."
-								:"Due to [npc.her] masculine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")] on first glance.",
+								?"Your [pc.penis] is concealed, so, due to your masculine appearance, everyone assumes that you're [pc.a_appearsAsGender("+coloredGender+")] on first glance."
+								:"Due to [npc.her] masculine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")] on first glance.",
 								Gender.M_P_MALE);
 
 					} else if(hasVagina()) {
 						// Assume male:
 						return new GenderAppearance(
 								isPlayer()
-								?"Your masculine appearance leads everyone to assume that you're [pc.a_appearsAsGender("+colouredGender+")]."
-								:"Due to [npc.her] masculine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+								?"Your masculine appearance leads everyone to assume that you're [pc.a_appearsAsGender("+coloredGender+")]."
+								:"Due to [npc.her] masculine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 								Gender.M_P_MALE);
 
 					} else {
 						if(isCoverableAreaVisible(CoverableArea.VAGINA) && isCoverableAreaVisible(CoverableArea.PENIS)) {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is exposed, so, due to your masculine appearance, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] masculine appearance, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is exposed, so, due to your masculine appearance, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] genderless mound being exposed, combined with [npc.her] masculine appearance, everyone can tell that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.M_MANNEQUIN);
 
 						} else {
 							return new GenderAppearance(
 									isPlayer()
-									?"Your genderless mound is concealed, so, due to your masculine appearance, strangers treat you as [pc.a_appearsAsGender("+colouredGender+")]."
-									:	"Due to [npc.her] masculine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+colouredGender+")].",
+									?"Your genderless mound is concealed, so, due to your masculine appearance, strangers treat you as [pc.a_appearsAsGender("+coloredGender+")]."
+									:	"Due to [npc.her] masculine appearance, everyone assumes that [npc.sheIs] [npc.a_appearsAsGender("+coloredGender+")].",
 									Gender.M_P_MALE);
 						}
 					}
@@ -16086,7 +16086,7 @@ public abstract class GameCharacter implements XMLSaving {
 	public String postTransformationCalculation() {
 		return postTransformationCalculation(true);
 	}
-	public String postTransformationCalculation(boolean displayColourDiscovered) {
+	public String postTransformationCalculation(boolean displayColorDiscovered) {
 		StringBuilder postTFSB = new StringBuilder();
 		// If this is the first time getting this covering type:
 		for(BodyPartInterface bp : this.getAllBodyParts()) {
@@ -16104,42 +16104,42 @@ public abstract class GameCharacter implements XMLSaving {
 						case HORN:
 							bctName = "horn";
 						break;
-						// For orifices & penis, make sure the colour is the same as skin:
+						// For orifices & penis, make sure the color is the same as skin:
 						case ANUS:
-							this.body.updateAnusColouring();
+							this.body.updateAnusColoring();
 							bctName = bct.getName(this);
 							break;
 						case MOUTH:
-							this.body.updateMouthColouring();
+							this.body.updateMouthColoring();
 							bctName = bct.getName(this);
 							break;
 						case NIPPLES:
-							this.body.updateNippleColouring();
+							this.body.updateNippleColoring();
 							bctName = bct.getName(this);
 							break;
 						case NIPPLES_CROTCH:
-							this.body.updateNippleCrotchColouring();
+							this.body.updateNippleCrotchColoring();
 							bctName = bct.getName(this);
 							break;
 						case PENIS:
-							this.body.updatePenisColouring();
+							this.body.updatePenisColoring();
 							bctName = bct.getName(this);
 							break;
 						case VAGINA:
-							this.body.updateVaginaColouring();
+							this.body.updateVaginaColoring();
 							bctName = bct.getName(this);
 							break;
 						default:
 							break;
 					}
 
-					if(displayColourDiscovered) {
+					if(displayColorDiscovered) {
 						if(isPlayer()) {
 							postTFSB.append(
-									"<b>You have discovered that your natural "+bctName+" colour is "+getCovering(bct).getColourDescriptor(this, true, false)+"!</b>");
+									"<b>You have discovered that your natural "+bctName+" color is "+getCovering(bct).getColorDescriptor(this, true, false)+"!</b>");
 						} else {
 							postTFSB.append(UtilText.parse(this,
-									"<b>[npc.Name] has discovered that [npc.her] natural "+bctName+" colour is "+getCovering(bct).getColourDescriptor(this, true, false)+"!</b>"));
+									"<b>[npc.Name] has discovered that [npc.her] natural "+bctName+" color is "+getCovering(bct).getColorDescriptor(this, true, false)+"!</b>"));
 						}
 					}
 				}
@@ -16324,15 +16324,15 @@ public abstract class GameCharacter implements XMLSaving {
 				loadImages();
 				if(isPlayer()) {
 						return "<p>"
-									+ "You feel your body subtly shifting to become <b style='color:" + Colour.FEMININE.toWebHexString() + ";'>more feminine</b>.<br/>"
-									+ "You now have <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColour().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
+									+ "You feel your body subtly shifting to become <b style='color:" + Color.FEMININE.toWebHexString() + ";'>more feminine</b>.<br/>"
+									+ "You now have <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColor().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
 							+ "</p>"
 							+beardLoss;
 				} else {
 					return UtilText.parse(this,
 							"<p>"
-								+ "[npc.NamePos] body subtly shifts to become <b style='color:" + Colour.FEMININE.toWebHexString() + ";'>more feminine</b>.<br/>"
-								+ "[npc.She] now has <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColour().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
+								+ "[npc.NamePos] body subtly shifts to become <b style='color:" + Color.FEMININE.toWebHexString() + ";'>more feminine</b>.<br/>"
+								+ "[npc.She] now has <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColor().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
 							+ "</p>"
 							+beardLoss);
 				}
@@ -16342,15 +16342,15 @@ public abstract class GameCharacter implements XMLSaving {
 				loadImages();
 				if(isPlayer()) {
 					return "<p>"
-								+ "You feel your body subtly shifting to become <b style='color:" + Colour.MASCULINE.toWebHexString() + ";'>more masculine</b>.<br/>"
-								+ "You have <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColour().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
+								+ "You feel your body subtly shifting to become <b style='color:" + Color.MASCULINE.toWebHexString() + ";'>more masculine</b>.<br/>"
+								+ "You have <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColor().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
 							+ "</p>"
 							+beardLoss;
 				} else {
 					return UtilText.parse(this,
 							"<p>"
-								+ "[npc.NamePos] body subtly shifts to become <b style='color:" + Colour.MASCULINE.toWebHexString() + ";'>more masculine</b>.<br/>"
-								+ "[npc.She] now has <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColour().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
+								+ "[npc.NamePos] body subtly shifts to become <b style='color:" + Color.MASCULINE.toWebHexString() + ";'>more masculine</b>.<br/>"
+								+ "[npc.She] now has <b style='color:"+ Femininity.valueOf(getFemininityValue()).getColor().toWebHexString() + ";'>" + Femininity.getFemininityName(getFemininityValue(), true) + "</b> body."
 							+ "</p>"
 							+beardLoss);
 				}
@@ -16359,11 +16359,11 @@ public abstract class GameCharacter implements XMLSaving {
 
 		if(isPlayer()) {
 			return "<p class='center'>"
-					+ "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Your femininity doesn't change...</span>"
+					+ "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>Your femininity doesn't change...</span>"
 				+ "</p>";
 		} else {
 			return "<p class='center'>"
-					+ UtilText.parse(this, "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] femininity doesn't change...</span>")
+					+ UtilText.parse(this, "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] femininity doesn't change...</span>")
 				+ "</p>";
 		}
 	}
@@ -16387,15 +16387,15 @@ public abstract class GameCharacter implements XMLSaving {
 			if (body.setBodySize(bodySize)) {
 				if(isPlayer()) {
 					return "<p class='center'>"
-								+ "You feel your body shifting and expanding as <b style='color:" + Colour.BODY_SIZE_THREE.toWebHexString() + ";'>you grow larger</b>.<br/>"
-								+ "You now have <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColour().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true)+ "</b>, "
+								+ "You feel your body shifting and expanding as <b style='color:" + Color.BODY_SIZE_THREE.toWebHexString() + ";'>you grow larger</b>.<br/>"
+								+ "You now have <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColor().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true)+ "</b>, "
 									+ Muscle.valueOf(getMuscleValue()).getName(false) + " body, giving you "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 							+ "</p>";
 				} else {
 					return UtilText.parse(this,
 							"<p class='center'>"
-								+ "[npc.NamePos] body shifts and expands as <b style='color:" + Colour.BODY_SIZE_THREE.toWebHexString() + ";'>[npc.she] grows larger</b>.<br/>"
-								+ "[npc.She] now has <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColour().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true) + "</b>, "
+								+ "[npc.NamePos] body shifts and expands as <b style='color:" + Color.BODY_SIZE_THREE.toWebHexString() + ";'>[npc.she] grows larger</b>.<br/>"
+								+ "[npc.She] now has <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColor().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true) + "</b>, "
 										+ Muscle.valueOf(getMuscleValue()).getName(false) + " body, giving [npc.herHim] "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 							+ "</p>");
 				}
@@ -16404,15 +16404,15 @@ public abstract class GameCharacter implements XMLSaving {
 			if (body.setBodySize(bodySize)) {
 				if(isPlayer()) {
 					return "<p class='center'>"
-							+ "You feel your body shifting and narrowing down as <b style='color:" + Colour.BODY_SIZE_ONE.toWebHexString() + ";'>you get slimmer</b>.<br/>"
-							+ "You now have <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColour().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true) + "</b>, "
+							+ "You feel your body shifting and narrowing down as <b style='color:" + Color.BODY_SIZE_ONE.toWebHexString() + ";'>you get slimmer</b>.<br/>"
+							+ "You now have <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColor().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true) + "</b>, "
 									+ Muscle.valueOf(getMuscleValue()).getName(false) + " body, giving you "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 						+ "</p>";
 				} else {
 					return UtilText.parse(this,
 							"<p class='center'>"
-								+ "[npc.NamePos] body shifts and narrows down as <b style='color:" + Colour.BODY_SIZE_ONE.toWebHexString() + ";'>[npc.she] gets slimmer</b>.<br/>"
-								+ "[npc.She] now has <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColour().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true) + "</b>, "
+								+ "[npc.NamePos] body shifts and narrows down as <b style='color:" + Color.BODY_SIZE_ONE.toWebHexString() + ";'>[npc.she] gets slimmer</b>.<br/>"
+								+ "[npc.She] now has <b style='color:"+ BodySize.valueOf(getBodySizeValue()).getColor().toWebHexString() + ";'>" + BodySize.valueOf(getBodySizeValue()).getName(true) + "</b>, "
 										+ Muscle.valueOf(getMuscleValue()).getName(false) + " body, giving [npc.herHim] "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 							+ "</p>");
 				}
@@ -16421,11 +16421,11 @@ public abstract class GameCharacter implements XMLSaving {
 
 		if(isPlayer()) {
 			return "<p class='center'>"
-					+ "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Your body's size doesn't change...</span>"
+					+ "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>Your body's size doesn't change...</span>"
 				+ "</p>";
 		} else {
 			return "<p class='center'>"
-					+ UtilText.parse(this, "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] body doesn't change...</span>")
+					+ UtilText.parse(this, "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] body doesn't change...</span>")
 				+ "</p>";
 		}
 	}
@@ -16449,15 +16449,15 @@ public abstract class GameCharacter implements XMLSaving {
 			if (body.setMuscle(muscle)) {
 				if(isPlayer()) {
 					return "<p class='center'>"
-								+ "You feel your body shifting as <b style='color:" + Colour.MUSCLE_THREE.toWebHexString() + ";'>you get more muscular</b>.<br/>"
-								+ "You now have <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColour().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
+								+ "You feel your body shifting as <b style='color:" + Color.MUSCLE_THREE.toWebHexString() + ";'>you get more muscular</b>.<br/>"
+								+ "You now have <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColor().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
 										+ BodySize.valueOf(getBodySizeValue()).getName(false) + " body, giving you "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 							+ "</p>";
 				} else {
 					return UtilText.parse(this,
 							"<p class='center'>"
-								+ "[npc.NamePos] body shifts as <b style='color:" + Colour.MUSCLE_THREE.toWebHexString() + ";'>[npc.she] gets more muscular</b>.<br/>"
-								+ "[npc.She] now has <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColour().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
+								+ "[npc.NamePos] body shifts as <b style='color:" + Color.MUSCLE_THREE.toWebHexString() + ";'>[npc.she] gets more muscular</b>.<br/>"
+								+ "[npc.She] now has <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColor().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
 										+ BodySize.valueOf(getBodySizeValue()).getName(false) + " body, giving [npc.her] "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 							+ "</p>");
 				}
@@ -16466,15 +16466,15 @@ public abstract class GameCharacter implements XMLSaving {
 			if (body.setMuscle(muscle)) {
 				if(isPlayer()) {
 					return "<p class='center'>"
-							+ "You feel your body shifting as <b style='color:" + Colour.MUSCLE_ONE.toWebHexString() + ";'>you lose some of your muscle</b>.<br/>"
-							+ "You now have <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColour().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
+							+ "You feel your body shifting as <b style='color:" + Color.MUSCLE_ONE.toWebHexString() + ";'>you lose some of your muscle</b>.<br/>"
+							+ "You now have <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColor().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
 									+ BodySize.valueOf(getBodySizeValue()).getName(false) + " body, giving you "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 						+ "</p>";
 				} else {
 					return UtilText.parse(this,
 							"<p class='center'>"
-								+ "[npc.NamePos] body shifts as <b style='color:" + Colour.MUSCLE_ONE.toWebHexString() + ";'>[npc.she] loses some of [npc.her] muscle</b>.<br/>"
-								+ "[npc.She] now has <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColour().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
+								+ "[npc.NamePos] body shifts as <b style='color:" + Color.MUSCLE_ONE.toWebHexString() + ";'>[npc.she] loses some of [npc.her] muscle</b>.<br/>"
+								+ "[npc.She] now has <b style='color:"+ Muscle.valueOf(getMuscleValue()).getColor().toWebHexString() + ";'>" + Muscle.valueOf(getMuscleValue()).getName(true) + "</b>, "
 										+ BodySize.valueOf(getBodySizeValue()).getName(false) + " body, giving [npc.her] "+BodyShape.valueOf(Muscle.valueOf(getMuscleValue()), BodySize.valueOf(getBodySizeValue())).getName(true)+" appearance."
 							+ "</p>");
 				}
@@ -16483,11 +16483,11 @@ public abstract class GameCharacter implements XMLSaving {
 
 		if(isPlayer()) {
 			return "<p class='center'>"
-					+ "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Your body's muscles don't change...</span>"
+					+ "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>Your body's muscles don't change...</span>"
 				+ "</p>";
 		} else {
 			return "<p class='center'>"
-					+ UtilText.parse(this, "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] muscles don't change...</span>")
+					+ UtilText.parse(this, "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] muscles don't change...</span>")
 				+ "</p>";
 		}
 	}
@@ -16553,13 +16553,13 @@ public abstract class GameCharacter implements XMLSaving {
 			if (body.setHeight(height)) {
 				return isPlayer()
 						? "<p class='center'>"
-							+ "The world around you seems slightly further away than it used to be, but after a moment you realise that you've just <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>grown taller</b>."
+							+ "The world around you seems slightly further away than it used to be, but after a moment you realize that you've just <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>grown taller</b>."
 							+ "<br/>"
 							+ "You are now <b>" + getHeightValue() + "cm</b> tall."
 						+ "</p>"
 						: UtilText.parse(this,
 							"<p class='center'>"
-								+ "[npc.She] sways from side to side a little, [npc.her] balance suddenly thrown off by the fact that [npc.sheIs] just <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>grown taller</b>."
+								+ "[npc.She] sways from side to side a little, [npc.her] balance suddenly thrown off by the fact that [npc.sheIs] just <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>grown taller</b>."
 							+ "</p>");
 			}
 
@@ -16567,24 +16567,24 @@ public abstract class GameCharacter implements XMLSaving {
 			if (body.setHeight(height)) {
 				return isPlayer()
 						? "<p class='center'>"
-							+ "The world around you suddenly seems slightly closer than it used to be, but after a moment you realise that you've just <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>become shorter</b>."
+							+ "The world around you suddenly seems slightly closer than it used to be, but after a moment you realize that you've just <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>become shorter</b>."
 							+ "<br/>"
 							+ "You are now <b>" + getHeightValue() + "cm</b> tall."
 						+ "</p>"
 						: UtilText.parse(this,
 							"<p class='center'>"
-								+ "[npc.She] shrinks down, <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>becoming noticeably shorter</b>."
+								+ "[npc.She] shrinks down, <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>becoming noticeably shorter</b>."
 							+ "</p>");
 			}
 		}
 
 		if(isPlayer()) {
 			return "<p class='center'>"
-					+ "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Your height doesn't change...</span>"
+					+ "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>Your height doesn't change...</span>"
 				+ "</p>";
 		} else {
 			return "<p class='center'>"
-					+ UtilText.parse(this, "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] height doesn't change...</span>")
+					+ UtilText.parse(this, "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>[npc.NamePos] height doesn't change...</span>")
 				+ "</p>";
 		}
 	}
@@ -16637,7 +16637,7 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	public String setPubicHair(BodyHair pubicHair) {
 		if(getPubicHair() == pubicHair) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 
 		} else {
 			UtilText.transformationContentSB.setLength(0);
@@ -16735,12 +16735,12 @@ public abstract class GameCharacter implements XMLSaving {
 			body.setPiercedStomach(true);
 			if(isPlayer()) {
 				return "<p>"
-							+ "Your navel is now <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>pierced</b>."
+							+ "Your navel is now <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>pierced</b>."
 						+ "</p>";
 			}else {
 				return UtilText.parse(this,
 						"<p>"
-							+ "[npc.Her] navel is now <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>pierced</b>."
+							+ "[npc.Her] navel is now <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>pierced</b>."
 						+ "</p>");
 			}
 
@@ -16756,20 +16756,20 @@ public abstract class GameCharacter implements XMLSaving {
 
 			if(isPlayer()) {
 				return "<p>"
-							+ "Your navel is <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>no longer pierced</b>."
+							+ "Your navel is <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>no longer pierced</b>."
 						+ "</p>"
 						+piercingUnequip;
 			}else {
 				return UtilText.parse(this,
 						"<p>"
-							+ "[npc.Her] navel is <b style='color:" + Colour.TRANSFORMATION_GENERIC.toWebHexString() + ";'>no longer pierced</b>."
+							+ "[npc.Her] navel is <b style='color:" + Color.TRANSFORMATION_GENERIC.toWebHexString() + ";'>no longer pierced</b>."
 						+ "</p>"
 						+piercingUnequip);
 			}
 
 		} else {
 			return "<p>"
-						+ "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Nothing seems to happen.</span>"
+						+ "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>Nothing seems to happen.</span>"
 					+ "</p>";
 		}
 	}
@@ -16884,7 +16884,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "You are [style.boldGrow(now wearing)] "+nailPolish.getColourDescriptor(this, true, false)+" nail polish."
+							+ "You are [style.boldGrow(now wearing)] "+nailPolish.getColorDescriptor(this, true, false)+" nail polish."
 						+ "</p>";
 			}
 
@@ -16895,7 +16895,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			} else {
 				return UtilText.parse(this,"<p>"
-							+ "[npc.Name] is [style.boldGrow(now wearing)] "+nailPolish.getColourDescriptor(this, true, false)+" nail polish."
+							+ "[npc.Name] is [style.boldGrow(now wearing)] "+nailPolish.getColorDescriptor(this, true, false)+" nail polish."
 						+ "</p>");
 			}
 		}
@@ -17138,7 +17138,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 		if(this.getBodyMaterial()==type || this.getSubspeciesOverride()==Subspecies.LILIN || this.getSubspeciesOverride()==Subspecies.ELDER_LILIN) {
 			return "<p>"
-						+ "[style.colourDisabled(Nothing happens...)]"
+						+ "[style.colorDisabled(Nothing happens...)]"
 					+ "</p>";
 		}
 
@@ -17154,7 +17154,7 @@ public abstract class GameCharacter implements XMLSaving {
 					case MAKEUP_NAIL_POLISH_FEET:
 					case MAKEUP_NAIL_POLISH_HANDS:
 						 // Slimes can't wear makeup:
-						body.getCoverings().put(bct, new Covering(bct, CoveringPattern.NONE, CoveringModifier.SMOOTH, Colour.COVERING_NONE, false, Colour.COVERING_NONE, false));
+						body.getCoverings().put(bct, new Covering(bct, CoveringPattern.NONE, CoveringModifier.SMOOTH, Color.COVERING_NONE, false, Color.COVERING_NONE, false));
 						break;
 					case SLIME:
 					case SLIME_EYE:
@@ -17176,12 +17176,12 @@ public abstract class GameCharacter implements XMLSaving {
 			this.setVaginaWetness(Wetness.SEVEN_DROOLING.getValue());
 			this.setAssWetness(Wetness.SEVEN_DROOLING.getValue());
 
-			String colourBasic = this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName();
+			String colorBasic = this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName();
 			try {
-				if(this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().isRainbow()) {
-					colourBasic = "rainbow-coloured";
+				if(this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().isRainbow()) {
+					colorBasic = "rainbow-colored";
 				} else {
-					colourBasic = this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName().split(" ")[1];
+					colorBasic = this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName().split(" ")[1];
 				}
 			} catch(Exception ex) {
 			}
@@ -17191,12 +17191,12 @@ public abstract class GameCharacter implements XMLSaving {
 							+ "Despite the fact that there's no sudden change in the weather, you feel as though the air around you is rapidly getting warmer and warmer,"
 								+ " and within the space of just a few seconds, it's as though you're standing in the middle of a sauna."
 							+ " Droplets of sweat quickly begin to bead on your [pc.skin], forming little little rivulets of cool, "
-								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName()+" liquid, which quickly run down over your burning body to drip onto the floor beneath you."
+								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName()+" liquid, which quickly run down over your burning body to drip onto the floor beneath you."
 						+ "</p>"
 						+ "<p>"
 							+ "Despite your body's best efforts at cooling you down, you still find yourself getting hotter and hotter, and, with a heavy sigh, you feel your [pc.legs] collapse out from under you as the heavy heat beats you down."
-							+ " Lifting [pc.a_hand] to your face to wipe the sweat from your [pc.eyes], your heat-addled mind suddenly realises that something's very wrong,"
-							+ " [pc.thought(Wait... Why is my sweat "+colourBasic+"?!"
+							+ " Lifting [pc.a_hand] to your face to wipe the sweat from your [pc.eyes], your heat-addled mind suddenly realizes that something's very wrong,"
+							+ " [pc.thought(Wait... Why is my sweat "+colorBasic+"?!"
 									+ " And why is there so much of it?!)]"
 						+ "</p>"
 						+ "<p>"
@@ -17205,23 +17205,23 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>"
 						+ "<p>"
 							+ "Thrashing around in a frenzied state of panic, your efforts to escape this mysterious goo prove to be completely fruitless, and within a matter of seconds your entire body is covered in slime."
-							+ " What's more, you suddenly realise that you've gotten a lot smaller, and, looking down, you see that your [pc.legs] have completely melted away to form more of the goo that's quickly overtaking you."
+							+ " What's more, you suddenly realize that you've gotten a lot smaller, and, looking down, you see that your [pc.legs] have completely melted away to form more of the goo that's quickly overtaking you."
 							+ " Your struggles only seem to speed this alarming process up, and after just a minute more, your [pc.arms] have suffered the same fate as your [pc.legs], having melted away into yet more of the "
-								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName()+" liquid."
+								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName()+" liquid."
 						+ "</p>"
 						+ "<p>"
 							+ "As the rest of your body proceeds to turn into slime, the intense heat that started this whole process starts to fade away, quickly being replaced by the sense of a still, calm coolness all around you."
 							+ " Sinking down into the ever-increasing quantity of slime that's enveloping you, you're aware of the fact that the final solid parts of your body have now condensed down into a small sphere,"
 								+ " which is what's now housing your senses and consciousness."
 							+ " As this final stage of your transformation presents itself, you find yourself remarkably relaxed, considering that your entire being is now just a little core floating around in a sea of "
-								+colourBasic+"."
+								+colorBasic+"."
 						+ "</p>"
 						+ "<p>"
 							+ "The calm coolness that's surrounding you steadily starts to come under your control, and, having now undergone your complete transformation into a slime core,"
 								+ " you find that you can manipulate the liquid surrounding you in any way you like."
 							+ " Quickly reforming a slimy version of your old body around yourself, you discover that you can project your senses into the areas where they used to reside."
 							+ " Your vision travels up out of your core and into your slimy eyes, finally allowing you escape the world of "
-								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName()+" goo and see clearly out into your surroundings once again."
+								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName()+" goo and see clearly out into your surroundings once again."
 							+ " Similarly, you restore your senses of hearing, taste, touch, and smell to their original homes, leaving you as very much the person you were before this alarming transformation, albeit now being composed entirely of slime."
 						+ "</p>"
 						+ "<p>"
@@ -17237,12 +17237,12 @@ public abstract class GameCharacter implements XMLSaving {
 						"<p>"
 							+ "[npc.NamePos] cheeks instantly flush, and [npc.she] starts panting and sighing as though [npc.sheIs] suffering from an intense heat stroke."
 							+ " Droplets of sweat quickly begin to bead on [npc.her] [npc.skin], forming little little rivulets of cool, "
-								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName()+" liquid, which quickly run down over [npc.her] burning body to drip onto the floor beneath [npc.herHim]."
+								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName()+" liquid, which quickly run down over [npc.her] burning body to drip onto the floor beneath [npc.herHim]."
 						+ "</p>"
 						+ "<p>"
 							+ "Despite [npc.her] body's best efforts at cooling [npc.her] down, [npc.she] lets out a heavy sigh, and [npc.her] [npc.legs] collapse out from under [npc.herHim] as [npc.sheIs] beaten down by the intense heat [npc.sheIs] feeling."
-							+ " Lifting [npc.a_hand] to [npc.her] face to wipe the sweat from [npc.her] [npc.eyes], [npc.her] heat-addled mind suddenly realises that something's very wrong, and [npc.she] exclaims,"
-							+ " [npc.speech(Wait... Why is my sweat "+colourBasic+"?!"
+							+ " Lifting [npc.a_hand] to [npc.her] face to wipe the sweat from [npc.her] [npc.eyes], [npc.her] heat-addled mind suddenly realizes that something's very wrong, and [npc.she] exclaims,"
+							+ " [npc.speech(Wait... Why is my sweat "+colorBasic+"?!"
 									+ " What's happening?!)]"
 						+ "</p>"
 						+ "<p>"
@@ -17251,18 +17251,18 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>"
 						+ "<p>"
 							+ "Thrashing around in a frenzied state of panic, [npc.her] efforts to escape this mysterious goo prove to be completely fruitless, and within a matter of seconds [npc.her] entire body is covered in slime."
-							+ " What's more, [npc.she] suddenly realises that [npc.sheIs] gotten a lot smaller, and, looking down,"
+							+ " What's more, [npc.she] suddenly realizes that [npc.sheIs] gotten a lot smaller, and, looking down,"
 								+ " [npc.she] sees that [npc.her] [npc.legs] have completely melted away to form more of the goo that's quickly overtaking [npc.herHim]."
 							+ " [npc.Her] struggles only seem to speed this alarming process up, and after just a minute more, [npc.her] [npc.arms] have suffered the same fate as [npc.her] [npc.legs], having melted away into yet more of the "
-								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName()+" liquid."
+								+this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName()+" liquid."
 						+ "</p>"
 						+ "<p>"
 							+ "As [npc.name] proceeds to turn into a slime, the final solid parts of [npc.her] body condense down into a small sphere, which is what now houses [npc.her] senses and consciousness."
-							+ " Transformed into a little core that's now floating around in a sea of " +colourBasic+", [npc.name] soon finds that [npc.she] can manipulate the liquid surrounding [npc.herHim] in any way [npc.she] likes."
+							+ " Transformed into a little core that's now floating around in a sea of " +colorBasic+", [npc.name] soon finds that [npc.she] can manipulate the liquid surrounding [npc.herHim] in any way [npc.she] likes."
 						+"</p>"
 						+ "<p>"
 							+ "Quickly reforming a slimy version of [npc.her] old body around [npc.herself], [npc.she] discovers that [npc.she] can project [npc.her] senses into the areas where they used to reside."
-							+ " [npc.Her] slimy eyes slowly blink as [npc.she] escapes the world of "+this.getCovering(BodyCoveringType.SLIME).getPrimaryColour().getName()+" goo and sees clearly out into [npc.her] surroundings once again."
+							+ " [npc.Her] slimy eyes slowly blink as [npc.she] escapes the world of "+this.getCovering(BodyCoveringType.SLIME).getPrimaryColor().getName()+" goo and sees clearly out into [npc.her] surroundings once again."
 							+ " Similarly, [npc.she] restores [npc.her] senses of hearing, taste, touch, and smell to their original homes, leaving [npc.herHim] as very much the person [npc.she] was before this alarming transformation,"
 								+ " albeit now being composed entirely of slime."
 						+ "</p>"
@@ -17359,7 +17359,7 @@ public abstract class GameCharacter implements XMLSaving {
 					this.getBody().calculateRace(this);
 					tfDescription = UtilText.parse(this,
 							"<p>"
-								+ "[npc.NamePos] body parts all shift back into their [style.colourDemon(demonic counterparts)] as [npc.her] body returns to being made of flesh."
+								+ "[npc.NamePos] body parts all shift back into their [style.colorDemon(demonic counterparts)] as [npc.her] body returns to being made of flesh."
 							+ "</p>");
 				}
 
@@ -17466,7 +17466,7 @@ public abstract class GameCharacter implements XMLSaving {
 					this.getBody().calculateRace(this);
 					tfDescription = UtilText.parse(this,
 							"<p>"
-								+ "[npc.NamePos] body parts all shift back into their [style.colourDemon(half-demonic counterparts)] as [npc.her] body returns to being made of flesh."
+								+ "[npc.NamePos] body parts all shift back into their [style.colorDemon(half-demonic counterparts)] as [npc.her] body returns to being made of flesh."
 							+ "</p>");
 				}
 
@@ -17539,7 +17539,7 @@ public abstract class GameCharacter implements XMLSaving {
 					this.getBody().calculateRace(this);
 					tfDescription = UtilText.parse(this,
 							"<p>"
-								+ "[npc.NamePos] [style.colourDemon(demonic)] body parts all shift into [style.colourHuman(human counterparts)] as [npc.her] body returns to being made of flesh."
+								+ "[npc.NamePos] [style.colorDemon(demonic)] body parts all shift into [style.colorHuman(human counterparts)] as [npc.her] body returns to being made of flesh."
 							+ "</p>");
 				}
 			}
@@ -17841,12 +17841,12 @@ public abstract class GameCharacter implements XMLSaving {
 	public String getMilkName() {
 		return body.getBreast().getMilk().getName(this);
 	}
-	// Flavour:
-	public FluidFlavour getMilkFlavour() {
-		return body.getBreast().getMilk().getFlavour();
+	// Flavor:
+	public FluidFlavor getMilkFlavor() {
+		return body.getBreast().getMilk().getFlavor();
 	}
-	public String setMilkFlavour(FluidFlavour flavour) {
-		return body.getBreast().getMilk().setFlavour(this, flavour);
+	public String setMilkFlavor(FluidFlavor flavor) {
+		return body.getBreast().getMilk().setFlavor(this, flavor);
 	}
 	// Modifiers:
 	public boolean hasMilkModifier(FluidModifier fluidModifier) {
@@ -18156,12 +18156,12 @@ public abstract class GameCharacter implements XMLSaving {
 	public String getMilkCrotchName() {
 		return body.getBreastCrotch().getMilk().getName(this);
 	}
-	// Flavour:
-	public FluidFlavour getMilkCrotchFlavour() {
-		return body.getBreastCrotch().getMilk().getFlavour();
+	// Flavor:
+	public FluidFlavor getMilkCrotchFlavor() {
+		return body.getBreastCrotch().getMilk().getFlavor();
 	}
-	public String setMilkCrotchFlavour(FluidFlavour flavour) {
-		return body.getBreastCrotch().getMilk().setFlavour(this, flavour);
+	public String setMilkCrotchFlavor(FluidFlavor flavor) {
+		return body.getBreastCrotch().getMilk().setFlavor(this, flavor);
 	}
 	// Modifiers:
 	public boolean hasMilkCrotchModifier(FluidModifier fluidModifier) {
@@ -18275,7 +18275,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "You are [style.boldGrow(now wearing)] "+eyeLiner.getColourDescriptor(this, true, false)+" eye liner."
+							+ "You are [style.boldGrow(now wearing)] "+eyeLiner.getColorDescriptor(this, true, false)+" eye liner."
 						+ "</p>";
 			}
 
@@ -18286,7 +18286,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			} else {
 				return UtilText.parse(this,"<p>"
-							+ "[npc.Name] is [style.boldGrow(now wearing)] "+eyeLiner.getColourDescriptor(this, true, false)+" eye liner."
+							+ "[npc.Name] is [style.boldGrow(now wearing)] "+eyeLiner.getColorDescriptor(this, true, false)+" eye liner."
 						+ "</p>");
 			}
 		}
@@ -18305,7 +18305,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "You are [style.boldGrow(now wearing)] "+eyeShadow.getColourDescriptor(this, true, false)+" eye shadow."
+							+ "You are [style.boldGrow(now wearing)] "+eyeShadow.getColorDescriptor(this, true, false)+" eye shadow."
 						+ "</p>";
 			}
 
@@ -18316,7 +18316,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			} else {
 				return UtilText.parse(this,"<p>"
-							+ "[npc.Name] is [style.boldGrow(now wearing)] "+eyeShadow.getColourDescriptor(this, true, false)+" eye shadow."
+							+ "[npc.Name] is [style.boldGrow(now wearing)] "+eyeShadow.getColorDescriptor(this, true, false)+" eye shadow."
 						+ "</p>");
 			}
 		}
@@ -18447,7 +18447,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "You are [style.boldGrow(now wearing)] "+lipstick.getColourDescriptor(this, true, false)+" lipstick."
+							+ "You are [style.boldGrow(now wearing)] "+lipstick.getColorDescriptor(this, true, false)+" lipstick."
 						+ "</p>";
 			}
 
@@ -18458,7 +18458,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			} else {
 				return UtilText.parse(this,"<p>"
-							+ "[npc.Name] is [style.boldGrow(now wearing)] "+lipstick.getColourDescriptor(this, true, false)+" lipstick."
+							+ "[npc.Name] is [style.boldGrow(now wearing)] "+lipstick.getColorDescriptor(this, true, false)+" lipstick."
 						+ "</p>");
 			}
 		}
@@ -18477,7 +18477,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "You are [style.boldGrow(now wearing)] "+blusher.getColourDescriptor(this, true, false)+" blusher."
+							+ "You are [style.boldGrow(now wearing)] "+blusher.getColorDescriptor(this, true, false)+" blusher."
 						+ "</p>";
 			}
 
@@ -18488,7 +18488,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			} else {
 				return UtilText.parse(this,"<p>"
-							+ "[npc.Name] is [style.boldGrow(now wearing)] "+blusher.getColourDescriptor(this, true, false)+" blusher."
+							+ "[npc.Name] is [style.boldGrow(now wearing)] "+blusher.getColorDescriptor(this, true, false)+" blusher."
 						+ "</p>");
 			}
 		}
@@ -18723,14 +18723,14 @@ public abstract class GameCharacter implements XMLSaving {
 
 			if (isPlayer()) {
 				return "<p>"
-							+ "You let out a little gasp as your [pc.hair] "+(getHairType().isDefaultPlural()?"change":"changes")+" colour.<br/>"
+							+ "You let out a little gasp as your [pc.hair] "+(getHairType().isDefaultPlural()?"change":"changes")+" color.<br/>"
 							+ "You now have [style.boldTfGeneric([pc.hairFullDescription])]."
 						+ "</p>"
 						+ postTransformationCalculation();
 			} else {
 				return UtilText.parse(this,
 						"<p>"
-							+ "[npc.Name] lets out a little gasp as [npc.her] [npc.hair] "+(getHairType().isDefaultPlural()?"change":"changes")+" colour.<br/>"
+							+ "[npc.Name] lets out a little gasp as [npc.her] [npc.hair] "+(getHairType().isDefaultPlural()?"change":"changes")+" color.<br/>"
 							+ "[npc.She] now has [style.boldTfGeneric([npc.hairFullDescription])]."
 						+ "</p>"
 						+ postTransformationCalculation());
@@ -18739,7 +18739,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 		body.updateCoverings(false, false, updateBodyHair, false);
 
-		return "<p>" + "<span style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>Nothing seems to happen.</span>" + "</p>";
+		return "<p>" + "<span style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>Nothing seems to happen.</span>" + "</p>";
 	}
 
 	// ------------------------------ Horns: ------------------------------ //
@@ -18875,7 +18875,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "You are [style.boldGrow(now wearing)] "+nailPolish.getColourDescriptor(this, true, false)+" toenail polish."
+							+ "You are [style.boldGrow(now wearing)] "+nailPolish.getColorDescriptor(this, true, false)+" toenail polish."
 						+ "</p>";
 			}
 
@@ -18886,7 +18886,7 @@ public abstract class GameCharacter implements XMLSaving {
 						+ "</p>");
 			} else {
 				return UtilText.parse(this,"<p>"
-							+ "[npc.Name] is [style.boldGrow(now wearing)] "+nailPolish.getColourDescriptor(this, true, false)+" toenail polish."
+							+ "[npc.Name] is [style.boldGrow(now wearing)] "+nailPolish.getColorDescriptor(this, true, false)+" toenail polish."
 						+ "</p>");
 			}
 		}
@@ -18963,31 +18963,31 @@ public abstract class GameCharacter implements XMLSaving {
 		if(body.getPenis().getType()==PenisType.NONE) {
 			for(AbstractClothing c : this.getClothingCurrentlyEquipped()) {
 				if(c.getItemTags().contains(ItemTag.DILDO_TINY)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoTiny;
 
 				} else if(c.getItemTags().contains(ItemTag.DILDO_AVERAGE)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoAverage;
 
 				} else if(c.getItemTags().contains(ItemTag.DILDO_LARGE)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoLarge;
 
 				} else if(c.getItemTags().contains(ItemTag.DILDO_HUGE)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoHuge;
 
 				} else if(c.getItemTags().contains(ItemTag.DILDO_ENORMOUS)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoEnormous;
 
 				} else if(c.getItemTags().contains(ItemTag.DILDO_GIGANTIC)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoGigantic;
 
 				} else if(c.getItemTags().contains(ItemTag.DILDO_STALLION)) {
-					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColour(), false, c.getColour(), false));
+					this.body.getCoverings().put(BodyCoveringType.DILDO, new Covering(BodyCoveringType.DILDO, CoveringPattern.NONE, c.getColor(), false, c.getColor(), false));
 					return Dildo.dildoStallion;
 
 				}
@@ -19479,12 +19479,12 @@ public abstract class GameCharacter implements XMLSaving {
 	public String getCumName() {
 		return getCurrentPenis().getTesticle().getCum().getName(this);
 	}
-	// Flavour:
-	public FluidFlavour getCumFlavour() {
-		return getCurrentPenis().getTesticle().getCum().getFlavour();
+	// Flavor:
+	public FluidFlavor getCumFlavor() {
+		return getCurrentPenis().getTesticle().getCum().getFlavor();
 	}
-	public String setCumFlavour(FluidFlavour flavour) {
-		return getCurrentPenis().getTesticle().getCum().setFlavour(this, flavour);
+	public String setCumFlavor(FluidFlavor flavor) {
+		return getCurrentPenis().getTesticle().getCum().setFlavor(this, flavor);
 	}
 	// Modifiers:
 	public List<FluidModifier> getCumModifiers() {
@@ -19667,9 +19667,9 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 
 	/**
-	 * @return Formatted description of skin colour change.
+	 * @return Formatted description of skin color change.
 	 */
-	public String setSkinCovering(Covering covering, boolean updateAllSkinColours) {
+	public String setSkinCovering(Covering covering, boolean updateAllSkinColors) {
 
 		if(!this.getBodyMaterial().isAbleToWearMakeup()) {
 			switch(covering.getType()) {
@@ -19680,7 +19680,7 @@ public abstract class GameCharacter implements XMLSaving {
 				case MAKEUP_NAIL_POLISH_FEET:
 				case MAKEUP_NAIL_POLISH_HANDS:
 					return "<p>"
-								+ "[style.colourDisabled(Makeup cannot be applied to "+this.getBodyMaterial().getName()+"...)]"
+								+ "[style.colorDisabled(Makeup cannot be applied to "+this.getBodyMaterial().getName()+"...)]"
 							+ "</p>";
 				default:
 					break;
@@ -19693,7 +19693,7 @@ public abstract class GameCharacter implements XMLSaving {
 
 			body.getCoverings().put(coveringType, covering);
 
-			body.updateCoverings(false, false, false, updateAllSkinColours);
+			body.updateCoverings(false, false, false, updateAllSkinColors);
 
 			List<String> affectedParts = new ArrayList<>();
 			for (BodyPartInterface part : body.getAllBodyParts()) {
@@ -19706,7 +19706,7 @@ public abstract class GameCharacter implements XMLSaving {
 				if (isPlayer()) {
 					return "<p>"
 								+ "The " + coveringType.getName(this) + " on your " + Util.stringsToStringList(affectedParts, false) + " suddenly start" + (coveringType.isDefaultPlural() ? "" : "s") + " to itch, and you let out a startled cry as "
-								+ (coveringType.isDefaultPlural() ? "they begin" : "it begins") + " to change colour.<br/>"
+								+ (coveringType.isDefaultPlural() ? "they begin" : "it begins") + " to change color.<br/>"
 								+ "You now have "+covering.getFullDescription(this, true)+"."
 							+ "</p>"
 							+ postTransformationCalculation();
@@ -19714,7 +19714,7 @@ public abstract class GameCharacter implements XMLSaving {
 					return UtilText.parse(this,
 							"<p>"
 								+ "[npc.Name] feels the " + coveringType.getName(this) + " on [npc.her] " + Util.stringsToStringList(affectedParts, false) + " suddenly start to itch, and [npc.she] lets out a startled cry as "
-								+ (coveringType.isDefaultPlural() ? "they begin" : "it begins") + " to change colour.<br/>"
+								+ (coveringType.isDefaultPlural() ? "they begin" : "it begins") + " to change color.<br/>"
 								+ "[npc.She] now has "+covering.getFullDescription(this, true)+"."
 							+ "</p>"
 							+ postTransformationCalculation());
@@ -19724,10 +19724,10 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 
 		} else {
-			body.updateCoverings(false, false, false, updateAllSkinColours);
+			body.updateCoverings(false, false, false, updateAllSkinColors);
 		}
 
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	// ------------------------------ Tail: ------------------------------ //
@@ -20031,12 +20031,12 @@ public abstract class GameCharacter implements XMLSaving {
 	public String getGirlcumName() {
 		return body.getVagina().getGirlcum().getName(this);
 	}
-	// Flavour:
-	public FluidFlavour getGirlcumFlavour() {
-		return body.getVagina().getGirlcum().getFlavour();
+	// Flavor:
+	public FluidFlavor getGirlcumFlavor() {
+		return body.getVagina().getGirlcum().getFlavor();
 	}
-	public String setGirlcumFlavour(FluidFlavour flavour) {
-		return body.getVagina().getGirlcum().setFlavour(this, flavour);
+	public String setGirlcumFlavor(FluidFlavor flavor) {
+		return body.getVagina().getGirlcum().setFlavor(this, flavor);
 	}
 	// Modifiers:
 	public boolean hasGirlcumModifier(FluidModifier fluidModifier) {

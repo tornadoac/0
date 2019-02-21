@@ -63,9 +63,9 @@ public class Ear implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.ears] of [pc.a_earRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.ears] of [pc.a_earRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.ears] of [npc.a_earRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.ears] of [npc.a_earRace], so nothing happens...)]</p>");
 			}
 		}
 		
@@ -91,13 +91,13 @@ public class Ear implements BodyPartInterface {
 			case HUMAN:
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
-								" The hot itching feeling passes after a few moments, leaving you with normal-looking human ears, covered in [pc.earFullDescriptionColour]."
+								" The hot itching feeling passes after a few moments, leaving you with normal-looking human ears, covered in [pc.earFullDescriptionColor]."
 								+ "<br/>"
 								+ "You now have [style.boldHuman(human ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
-								" The hot itching feeling passes after a few moments, leaving [npc.herHim] with normal-looking human ears, covered in [npc.earFullDescriptionColour]."
+								" The hot itching feeling passes after a few moments, leaving [npc.herHim] with normal-looking human ears, covered in [npc.earFullDescriptionColor]."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldHuman(human ears)]."
 							+ "</p>");
@@ -106,13 +106,13 @@ public class Ear implements BodyPartInterface {
 			case DEMON_COMMON:
 				if (!owner.isShortStature()) {
 					UtilText.transformationContentSB.append(
-							" They quickly shift into delicate, humanoid ears, with long, pointed tips, covered in [npc.earFullDescriptionColour]."
+							" They quickly shift into delicate, humanoid ears, with long, pointed tips, covered in [npc.earFullDescriptionColor]."
 							+ "<br/>"
 							+ "[npc.Name] now [npc.has] [style.boldDemon(pointed, demonic ears)]."
 						+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
-							" They quickly shift into delicate, humanoid ears, with long, pointed tips, covered in [npc.earFullDescriptionColour]."
+							" They quickly shift into delicate, humanoid ears, with long, pointed tips, covered in [npc.earFullDescriptionColor]."
 							+ "<br/>"
 							+ "[npc.Name] now [npc.has] [style.boldImp(pointed, impish ears)]."
 						+ "</p>");
@@ -122,14 +122,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new dog-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new dog-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldDogMorph(anthropomorphic, "+(type==EarType.DOG_MORPH_POINTED?"pointed, ":(type==EarType.DOG_MORPH_FOLDED?"folded, ":"floppy, "))+"dog-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new dog-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new dog-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldDogMorph(anthropomorphic, "+(type==EarType.DOG_MORPH_POINTED?"pointed, ":(type==EarType.DOG_MORPH_FOLDED?"folded, ":"floppy, "))+"dog-like ears)]."
 							+ "</p>");
@@ -139,14 +139,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new fox-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new fox-like ears back and forth."
 								+ "</br>"
 								+ "You now have [style.boldFoxMorph(anthropomorphic, fox-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new fox-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new fox-like ears back and forth."
 								+ "</br>"
 								+ "[npc.Name] now has [style.boldFoxMorph(anthropomorphic, fox-like ears)]."
 							+ "</p>");
@@ -156,14 +156,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into massive, upright points, only stopping once they're as large as the rest of your head, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new fox-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new fox-like ears back and forth."
 								+ "</br>"
 								+ "You now have [style.boldFoxMorph(large, anthropomorphic, fox-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into massive, upright points, only stopping once they're as large as the rest of [npc.his] head, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new fox-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new fox-like ears back and forth."
 								+ "</br>"
 								+ "[npc.Name] now has [style.boldFoxMorph(large, anthropomorphic, fox-like ears)]."
 							+ "</p>");
@@ -173,14 +173,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new wolf-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new wolf-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldWolfMorph(anthropomorphic, wolf-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new wolf-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new wolf-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldWolfMorph(anthropomorphic, wolf-like ears)]."
 							+ "</p>");
@@ -190,14 +190,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new cat-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new cat-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldCatMorph(anthropomorphic, cat-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new cat-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new cat-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldCatMorph(anthropomorphic, cat-like ears)]."
 							+ "</p>");
@@ -207,14 +207,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright points, and shift to sit higher up on your head than a normal pair of human ears would, topped off with a small patch of sensitive fur."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new cat-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new cat-like ears back and forth."
 								+ "</br>"
 								+ "You now have [style.boldCatMorph(anthropomorphic, cat-like ears with ear tufts)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would, topped off with a small patch of sensitive fur."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new cat-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new cat-like ears back and forth."
 								+ "</br>"
 								+ "[npc.Name] now has [style.boldCatMorph(anthropomorphic, cat-like ears with ear tufts)]."
 							+ "</p>");
@@ -224,14 +224,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly take on a distinctly bovine shape by growing out and narrowing down into long, slightly-folded ovals."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you're able to twitch your new cow-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you're able to twitch your new cow-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldCowMorph(anthropomorphic, cow-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly take on a distinctly bovine shape by growing out and narrowing down into long, slightly-folded ovals."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new cow-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new cow-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldCowMorph(anthropomorphic, cow-like ears)]."
 							+ "</p>");
@@ -241,14 +241,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright ovals, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new squirrel-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new squirrel-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldSquirrelMorph(anthropomorphic, squirrel-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright ovals, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new squirrel-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new squirrel-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldSquirrelMorph(anthropomorphic, squirrel-like ears)]."
 							+ "</p>");
@@ -258,14 +258,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new rabbit-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new rabbit-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldRabbitMorph(anthropomorphic, upright, rabbit-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rabbit-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rabbit-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldRabbitMorph(anthropomorphic, upright, rabbit-like ears)]."
 							+ "</p>");
@@ -275,14 +275,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up than a normal pair of human ears would, before suddenly collapsing and flopping down on either side of your head."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new rabbit-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new rabbit-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldRabbitMorph(anthropomorphic, floppy, rabbit-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up than a normal pair of human ears would, before suddenly collapsing and flopping down on either side of [npc.her] head."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rabbit-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rabbit-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldRabbitMorph(anthropomorphic, floppy, rabbit-like ears)]."
 							+ "</p>");
@@ -292,14 +292,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright ovals, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new rat-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new rat-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldRatMorph(anthropomorphic, rat-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into small, upright ovals, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rat-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rat-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldRatMorph(anthropomorphic, rat-like ears)]."
 							+ "</p>");
@@ -309,14 +309,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new bat-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new bat-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldBatMorph(anthropomorphic, bat-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into large, upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new bat-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new bat-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldBatMorph(anthropomorphic, bat-like ears)]."
 							+ "</p>");
@@ -326,14 +326,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly shrink down into little nubs as most of the external cartilage shifts down into the sides of your head."
-								+ " A layer of [pc.earFullDescriptionColour] grow to cover your now-fully-internal ears, and as the transformation finishes, you're left with the ears of an alligator-morph."
+								+ " A layer of [pc.earFullDescriptionColor] grow to cover your now-fully-internal ears, and as the transformation finishes, you're left with the ears of an alligator-morph."
 								+ "<br/>"
 								+ "You now have [style.boldGatorMorph(internal, scale-covered alligator ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly shrink down into little nubs as most of the external cartilage shifts down into the sides of [npc.her] head."
-								+ " A layer of [npc.earFullDescriptionColour] grow to cover [npc.her] now-fully-internal ears, and as the transformation finishes, [npc.sheIs] left with the ears of an alligator-morph."
+								+ " A layer of [npc.earFullDescriptionColor] grow to cover [npc.her] now-fully-internal ears, and as the transformation finishes, [npc.sheIs] left with the ears of an alligator-morph."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldGatorMorph(internal, scale-covered alligator ears)]."
 							+ "</p>");
@@ -343,14 +343,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into sturdy little upright points, and shift to sit higher up on your head than a normal pair of human ears would."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new horse-like ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you can easily twitch your new horse-like ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldHorseMorph(anthropomorphic, horse-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly grow into sturdy little upright points, and shift to sit higher up on [npc.her] head than a normal pair of human ears would."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new horse-like ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new horse-like ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldHorseMorph(anthropomorphic, horse-like ears)]."
 							+ "</p>");
@@ -360,14 +360,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly take on a distinctly reindeer-like shape by growing out and narrowing down into long, slightly-folded ovals."
-								+ " A layer of [pc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, you discover that you're able to twitch your new rangiferine ears back and forth."
+								+ " A layer of [pc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, you discover that you're able to twitch your new rangiferine ears back and forth."
 								+ "<br/>"
 								+ "You now have [style.boldReindeerMorph(anthropomorphic, reindeer-like ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly take on a distinctly reindeer-like shape by growing out and narrowing down into long, slightly-folded ovals."
-								+ " A layer of [npc.earFullDescriptionColour] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rangiferine ears back and forth."
+								+ " A layer of [npc.earFullDescriptionColor] grows to cover them, and as the transformation finishes, [npc.she] experimentally twitches [npc.her] new rangiferine ears back and forth."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldReindeerMorph(anthropomorphic, reindeer-like ears)]."
 							+ "</p>");
@@ -377,14 +377,14 @@ public class Ear implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" They quickly shrink down into little nubs as most of the external cartilage shifts down into the sides of your head."
-								+ " A layer of [pc.earFullDescriptionColour] grow to cover your now-fully-internal ears, and as the transformation finishes, you discover that you've now got a pair of beautifully-feathered harpy ears."
+								+ " A layer of [pc.earFullDescriptionColor] grow to cover your now-fully-internal ears, and as the transformation finishes, you discover that you've now got a pair of beautifully-feathered harpy ears."
 								+ "<br/>"
 								+ "You now have [style.boldHarpy(internal, feather-covered harpy ears)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" They quickly shrink down into little nubs as most of the external cartilage shifts down into the sides of [npc.her] head."
-								+ " A layer of [npc.earFullDescriptionColour] grow to cover [npc.her] now-fully-internal ears, and as the transformation finishes, [npc.sheIs] left with a pair of beautifully-feathered harpy ears."
+								+ " A layer of [npc.earFullDescriptionColor] grow to cover [npc.her] now-fully-internal ears, and as the transformation finishes, [npc.sheIs] left with a pair of beautifully-feathered harpy ears."
 								+ "<br/>"
 								+ "[npc.Name] now has [style.boldHarpy(internal, feather-covered harpy ears)]."
 							+ "</p>");
@@ -406,7 +406,7 @@ public class Ear implements BodyPartInterface {
 	
 	public String setPierced(GameCharacter owner, boolean pierced) {
 		if(this.pierced == pierced) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.pierced = pierced;

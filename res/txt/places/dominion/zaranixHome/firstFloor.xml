@@ -19,7 +19,7 @@
 	
 	<htmlContent tag="CORRIDOR_KELLY_NOT_SUBDUED"><![CDATA[
 	<p>
-		[style.italicsBad(You can hear the faint sound of humming coming from further down the corridor, and you realise that one of Zaranix's maids must be busy cleaning down there!
+		[style.italicsBad(You can hear the faint sound of humming coming from further down the corridor, and you realize that one of Zaranix's maids must be busy cleaning down there!
 		 If you wanted to avoid confrontation, it would be best to look for another route to take.)]
 	</p>
 	]]>
@@ -50,7 +50,7 @@
 		 [kelly.speech(Wait a moment... I would have been told if guests were expected...)]
 	</p>
 	<p>
-		The realisation that you're an intruder suddenly dawns on her, and she gasps,
+		The realization that you're an intruder suddenly dawns on her, and she gasps,
 		 [kelly.speech(Eek! That must mean you're a thief! Thief! Thief!)]
 	</p>
 	<p>
@@ -62,7 +62,7 @@
 	<htmlContent tag="CORRIDOR_MAID_KELLY_ENCOUNTER_REPEAT"><![CDATA[
 	<p>
 		As you walk down the corridor, an ivory-skinned succubus, wearing a light pink maid's uniform, suddenly stands up from behind a cabinet.
-		 You instantly recognise her as Kelly, and, once again, she doesn't notice you at first, and continues to swipe her little feather-duster over the top of the wooden furniture, happily humming away as she works.
+		 You instantly recognize her as Kelly, and, once again, she doesn't notice you at first, and continues to swipe her little feather-duster over the top of the wooden furniture, happily humming away as she works.
 	</p>
 	<p>
 		Before you have a chance to take any action, she looks up and catches sight of you.
@@ -238,7 +238,7 @@
 	<p>
 		Turning back towards you, the incubus continues,
 		 [zaranix.speech(Today's your lucky day I suppose... You'll be getting what you're after.
-			 I may have wealth and a modicum of power in this city, but having never been recognised by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has.
+			 I may have wealth and a modicum of power in this city, but having never been recognized by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has.
 			 And it's not just any demon! Hah! Lyssieth's precious little half-demon herself!)]
 	</p>
 	<p>

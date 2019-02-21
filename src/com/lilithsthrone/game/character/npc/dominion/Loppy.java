@@ -49,7 +49,7 @@ import com.lilithsthrone.game.inventory.clothing.ClothingType;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -126,29 +126,29 @@ public class Loppy extends NPC {
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
 
 		// Coverings:
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Colour.EYE_BROWN));
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_RABBIT, Colour.EYE_BROWN));
-		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Colour.SKIN_LIGHT), true);
-		this.setSkinCovering(new Covering(BodyCoveringType.RABBIT_FUR, Colour.COVERING_BROWN_DARK), true);
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Color.EYE_BROWN));
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_RABBIT, Color.EYE_BROWN));
+		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
+		this.setSkinCovering(new Covering(BodyCoveringType.RABBIT_FUR, Color.COVERING_BROWN_DARK), true);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_HUMAN, Colour.COVERING_BROWN_DARK), true);
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_RABBIT_FUR, Colour.COVERING_BROWN_DARK), true);
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_HUMAN, Color.COVERING_BROWN_DARK), true);
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_RABBIT_FUR, Color.COVERING_BROWN_DARK), true);
 		this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
 		this.setHairStyle(HairStyle.WAVY);
 
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Colour.COVERING_BLACK), false);
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_RABBIT_FUR, Colour.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Color.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_RABBIT_FUR, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.ZERO_NONE);
 		this.setPubicHair(BodyHair.ZERO_NONE);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_PURPLE));
-		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_PURPLE));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_PURPLE));
-		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_PURPLE));
+		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_PURPLE));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_PURPLE));
+		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 		this.setFaceVirgin(false);
@@ -203,14 +203,14 @@ public class Loppy extends NPC {
 
 		this.unequipAllClothingIntoVoid(true);
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.STOMACH_LOWBACK_BODY, Colour.CLOTHING_PURPLE, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TIGHTS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Colour.CLOTHING_PURPLE, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_COLLAR_BOWTIE, Colour.CLOTHING_PURPLE, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.STOMACH_LOWBACK_BODY, Color.CLOTHING_PURPLE, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TIGHTS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Color.CLOTHING_PURPLE, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_COLLAR_BOWTIE, Color.CLOTHING_PURPLE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_SUIT_CUFFS, false), true, this);
 		
 		this.setPiercedEar(true);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Colour.CLOTHING_SILVER, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_SILVER, false), true, this);
 
 	}
 	

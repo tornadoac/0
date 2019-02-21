@@ -57,9 +57,9 @@ public class Antenna implements BodyPartInterface {
 	public String setType(GameCharacter owner, AntennaType type) {
 		if (type == getType()) {
 			if(type == AntennaType.NONE) {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already [npc.verb(lack)] antennae, so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.verb(lack)] antennae, so nothing happens...)]</p>");
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already [npc.has] the [npc.antennae] of [npc.a_antennaRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the [npc.antennae] of [npc.a_antennaRace], so nothing happens...)]</p>");
 			}
 		}
 		
@@ -104,13 +104,13 @@ public class Antenna implements BodyPartInterface {
 		rows = Math.max(1, Math.min(rows, 3));
 		
 		if(owner.getAntennaRows() == rows) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.rows = rows;
 		
 		if (owner.getAntennaType() == AntennaType.NONE) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		if(owner.getAntennaRows() > rows) {

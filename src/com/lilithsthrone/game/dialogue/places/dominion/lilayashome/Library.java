@@ -17,7 +17,7 @@ import com.lilithsthrone.game.occupantManagement.SlaveJob;
 import com.lilithsthrone.game.occupantManagement.SlavePermissionSetting;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.RenderingEngine;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.world.Cell;
 import com.lilithsthrone.world.WorldType;
 
@@ -46,7 +46,7 @@ public class Library {
 					+ " Much of the room is taken up by free-standing book cases, although there's a little space on one side of the room, where a couple of comfortable leather-bound chairs flank an ornate fireplace."
 				+ "</p>"
 				+ "<p>" //TODO
-					+ "Walking down one of the aisles, you see a great deal of organisation has gone into the design of the room, and upon closer inspection, you see that the shelves are immaculately clean;"
+					+ "Walking down one of the aisles, you see a great deal of organization has gone into the design of the room, and upon closer inspection, you see that the shelves are immaculately clean;"
 					+ " evidence that a lot of care goes into its maintenance."
 					+ " As you walk, you scan the titles printed onto the spines of the books, but there's not really much that catches your eye."
 					+ " Only a few shelves really look to be of any interest, and you wonder if you should take some time to do a spot of reading."
@@ -67,7 +67,7 @@ public class Library {
 				for(NPC slave : charactersPresent) {
 					UtilText.nodeContentSB.append(UtilText.parse(slave,
 							"<p>"
-								+ "Having been assigned to work as a "+(SlaveJob.LIBRARY.getName(slave))+", <b style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>[npc.name]</b> is present in this area."));
+								+ "Having been assigned to work as a "+(SlaveJob.LIBRARY.getName(slave))+", <b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>[npc.name]</b> is present in this area."));
 					
 					if(slave.hasSlavePermissionSetting(SlavePermissionSetting.GENERAL_CRAWLING)) {
 						UtilText.nodeContentSB.append(UtilText.parse(slave,
@@ -95,7 +95,7 @@ public class Library {
 							break;
 						case POSITIVE_ONE_AGREEABLE: case POSITIVE_TWO_OBEDIENT:
 							UtilText.nodeContentSB.append(UtilText.parse(slave,
-										" is currently reorganising one of the shelves."
+										" is currently reorganizing one of the shelves."
 									+ "</p>"));
 							break;
 						case POSITIVE_THREE_DISCIPLINED: case POSITIVE_FOUR_DUTIFUL: case POSITIVE_FIVE_SUBSERVIENT:
@@ -290,11 +290,11 @@ public class Library {
 						+ "For one, it seems as though arcane power is found all throughout this world, and although it's mostly concentrated in people's arcane auras, you discover that there are some places out in the wilderness"
 							+ " where the arcane condenses into little micro-storms of activity."
 						+ " These places allow even the most novice of arcane users to harness its power, but for the most part, a person can only use arcane spells if they train their aura to become strong enough."
-						+ " This training process appears to take several years, and you realise how fortunate you are to have an aura with demon-like strength."
+						+ " This training process appears to take several years, and you realize how fortunate you are to have an aura with demon-like strength."
 					+ "</p>"
 					+ "<p>"
 						+ "After reading through these technical aspects of the arcane, you move on to the nature of the arcane itself."
-						+ " You realise that this section is what must have given the book its title; 'Arcane Arousal'."
+						+ " You realize that this section is what must have given the book its title; 'Arcane Arousal'."
 						+ " It appears as though the arcane is some kind of primal force that feeds on a person's sexual energy."
 						+ " Although a person may normally be able to easily resist their aura's influence, when they get fatigued, their own aura will amplify their sexual desires, causing them to become obsessed with sex."
 						+ " This is the power that's behind the arcane storms that often erupt over Dominion, and you once again reflect on how lucky you are to have an aura powerful enough to cancel out the storm's potent effects."
@@ -303,7 +303,7 @@ public class Library {
 						+ "Finally, you skim over the book's last few chapters, which define 'arcane essences'."
 						+ " These essences are described as being physical, gaseous manifestations of arcane power, and are able to be infused into clothing and items of food in order to create enchanted items and potions."
 						+ " People who have a very high level of arcane power are able to absorb arcane essences from out of the aura of people orgasming or being defeated in combat near them,"
-							+ " with lilin even being able to passively absorb essences in a radius of several thousand metres."
+							+ " with lilin even being able to passively absorb essences in a radius of several thousand meters."
 						+ " This does <i>not</i> diminish the aura of the orgasming person, but it does cause their aura to strengthen, preventing additional essence absorption for a few hours."
 					+ "</p>"
 					+ "<p>"
@@ -345,7 +345,7 @@ public class Library {
 					+ "<p>"
 						+ "Your question is half-answered as you turn the next few pages."
 						+ " It seems as though Lilith's offspring, referred to as lilin, act as regional rulers, and are unquestionably loyal to their mother."
-						+ " Each Lilin appears to be an immensely powerful demon in her own right, and you realise that with an army of these subordinates ruling over her domain, Lilith's power base is incredibly secure."
+						+ " Each Lilin appears to be an immensely powerful demon in her own right, and you realize that with an army of these subordinates ruling over her domain, Lilith's power base is incredibly secure."
 					+ "</p>"
 					+ "<p>"
 						+ "Apparently, all of the lilin in the world were once common races, who were corrupted by Lilith into their new forms."
@@ -359,34 +359,34 @@ public class Library {
 					+ "</p>"
 					+ "<p>"
 						+ "Apparently, although many Lilin end up giving birth to hundreds, if not thousands, of demons, it's incredibly rare for a lilin to publicly acknowledge any of her demonic children as her own."
-						+ " Recognised half-demons seem to be almost unheard of, with just a handful of mentions throughout the entire book."
+						+ " Recognized half-demons seem to be almost unheard of, with just a handful of mentions throughout the entire book."
 					+ "</p>"
 					+ "<p style='text-align:center;'>"
-						+ "In the book's centre-fold, there's a table which shows how demonic breeding works:<br/><br/>"
+						+ "In the book's center-fold, there's a table which shows how demonic breeding works:<br/><br/>"
 						+ "<table style='margin: 0px auto;'>"
-						+ "<tr style='font-weight:bold; text-align:left; color:"+Colour.MASCULINE.toWebHexString()+";'>"
+						+ "<tr style='font-weight:bold; text-align:left; color:"+Color.MASCULINE.toWebHexString()+";'>"
 							+ "<td>[style.boldFeminine(Mother)]/[style.boldMasculine(Father)]</td><td>Lilin</td><td>Demon</td><td>Half-demon</td><td>Human half-demon</td><td>Non-demon</td><td>Human</td><td>Imp</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Lilin</td><td>[style.boldtfGreater(Ln)]</td><td>[style.boldtfLesser(Dn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Lilin</td><td>[style.boldtfGreater(Ln)]</td><td>[style.boldtfLesser(Dn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Demon</td><td>[style.boldtfLesser(Dn)]</td><td>[style.boldtfLesser(Dn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Demon</td><td>[style.boldtfLesser(Dn)]</td><td>[style.boldtfLesser(Dn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Half-demon</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Half-demon</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Human half-demon</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Human half-demon</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldtfPartial(Hhdn)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Non-demon</td><td>[style.boldtfMinor(Hdn)]</td</td><td>[style.boldtfMinor(Hdn)]</td</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldtfGeneric(Nd)]</td><td>[style.boldtfGeneric(Nd)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Non-demon</td><td>[style.boldtfMinor(Hdn)]</td</td><td>[style.boldtfMinor(Hdn)]</td</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldtfGeneric(Nd)]</td><td>[style.boldtfGeneric(Nd)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Human</td><td>[style.boldtfPartial(Hhdn)]</td</td><td>[style.boldtfPartial(Hhdn)]</td</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldtfGeneric(Nd)]</td><td>[style.boldHuman(Hn)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Human</td><td>[style.boldtfPartial(Hhdn)]</td</td><td>[style.boldtfPartial(Hhdn)]</td</td><td>[style.boldtfMinor(Hdn)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldtfGeneric(Nd)]</td><td>[style.boldHuman(Hn)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "<tr>"
-							+ "<td style='font-weight:bold; color:"+Colour.FEMININE.toWebHexString()+";'>Imp</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td>"
+							+ "<td style='font-weight:bold; color:"+Color.FEMININE.toWebHexString()+";'>Imp</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td><td>[style.boldBad(Ip)]</td>"
 						+ "</tr>"
 						+ "</table>"
 						+ "<br/><br/>"
@@ -405,7 +405,7 @@ public class Library {
 							+ " who will often insult them with terms such as 'imp-breeder', 'imp-factory', 'imp-fucker', or other such profanities."
 					+ "</p>"
 					+ "<p>"
-						+ "Your eyes widen as you read that Lilaya is one of only two recorded human half-demons in history to be publicly recognised by their lilin mother (who, in Lilaya's case, is the elder lilin, Lyssieth)."
+						+ "Your eyes widen as you read that Lilaya is one of only two recorded human half-demons in history to be publicly recognized by their lilin mother (who, in Lilaya's case, is the elder lilin, Lyssieth)."
 						+ (Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressDemonBossEncountered)
 								?" The other half-demon mentioned is Lilaya's sister, [siren.name]."
 								:" The other half-demon to be mentioned is someone by the name of [siren.name], who is another of Lyssieth's daughters.")
@@ -490,7 +490,7 @@ public class Library {
 					+ "<p>"
 						+ "After reaching full maturity within a matter of hours, the vast majority of children will immediately leave their parents in order to strike out for themselves and become fully independent."
 						+ " Despite this almost-immediate separation, a parent will always share special maternal or paternal bonds with their children, and, whether due to the arcane or some natural intuition,"
-							+ " a parent and child, as well as siblings, will always recognise each other at first sight."
+							+ " a parent and child, as well as siblings, will always recognize each other at first sight."
 					+ "</p>";
 		}
 
@@ -627,7 +627,7 @@ public class Library {
 		public String getContent() {
 			return "<p>"
 						+ "As you walk down one of the library's many aisles, you notice that the air feels somehow fresher than normal."
-						+ " Realising that it must be an arcane enchantment of some sort, you take a closer look at some of the shelves around you."
+						+ " Realizing that it must be an arcane enchantment of some sort, you take a closer look at some of the shelves around you."
 					+ "</p>"
 					+ "<p>"
 						+ "At first glance, they look to be crafted from blocks of sod, but upon closer inspection, you see that it's actually masterfully-engraved pieces of wood."

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.combat.Attack;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -16,7 +16,7 @@ public enum Race {
 
 	NONE("none",
 			"none",
-			Colour.RACE_HUMAN,
+			Color.RACE_HUMAN,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(Attack.MAIN),
 			0.5f,
@@ -31,7 +31,7 @@ public enum Race {
 	// HUMAN:
 	HUMAN("human",
 			"human",
-			Colour.RACE_HUMAN,
+			Color.RACE_HUMAN,
 
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(Attack.MAIN),
@@ -49,7 +49,7 @@ public enum Race {
 	// ANGEL:
 	ANGEL("angel",
 			"angel",
-			Colour.CLOTHING_WHITE,
+			Color.CLOTHING_WHITE,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -67,7 +67,7 @@ public enum Race {
 	// DEMON:
 	DEMON("demon",
 			"demonic-horse",
-			Colour.RACE_DEMON,
+			Color.RACE_DEMON,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.SPECIAL_ATTACK,
@@ -86,7 +86,7 @@ public enum Race {
 	// BOVINES:
 	COW_MORPH("cow-morph",
 			"cow",
-			Colour.RACE_COW_MORPH,
+			Color.RACE_COW_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -104,7 +104,7 @@ public enum Race {
 	// CANINES:
 	DOG_MORPH("dog-morph",
 			"dog",
-			Colour.RACE_DOG_MORPH,
+			Color.RACE_DOG_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(Attack.MAIN),
 			0.5f,
@@ -119,7 +119,7 @@ public enum Race {
 
 	WOLF_MORPH("wolf-morph",
 			"wolf",
-			Colour.RACE_WOLF_MORPH,
+			Color.RACE_WOLF_MORPH,
 			Disposition.SAVAGE,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -136,7 +136,7 @@ public enum Race {
 
 	FOX_MORPH("fox-morph",
 			"fox",
-			Colour.RACE_FOX_MORPH,
+			Color.RACE_FOX_MORPH,
 			Disposition.UNPREDICTABLE,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -155,7 +155,7 @@ public enum Race {
 	// FELINES:
 	CAT_MORPH("cat-morph",
 			"cat",
-			Colour.RACE_CAT_MORPH,
+			Color.RACE_CAT_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.SEDUCTION,
@@ -173,7 +173,7 @@ public enum Race {
 	// EQUINE:
 	HORSE_MORPH("horse-morph",
 			"horse",
-			Colour.RACE_HORSE_MORPH,
+			Color.RACE_HORSE_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -190,7 +190,7 @@ public enum Race {
 
 	 REINDEER_MORPH("reindeer-morph",
 			"reindeer",
-			Colour.RACE_REINDEER_MORPH,
+			Color.RACE_REINDEER_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -208,7 +208,7 @@ public enum Race {
 
 	SQUIRREL_MORPH("squirrel-morph",
 			"squirrel",
-			Colour.RACE_SQUIRREL_MORPH,
+			Color.RACE_SQUIRREL_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN),
@@ -224,7 +224,7 @@ public enum Race {
 
 	RAT_MORPH("rat-morph",
 			"rat",
-			Colour.RACE_RAT_MORPH,
+			Color.RACE_RAT_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -241,7 +241,7 @@ public enum Race {
 
 	RABBIT_MORPH("rabbit-morph",
 			"rabbit",
-			Colour.RACE_RABBIT_MORPH,
+			Color.RACE_RABBIT_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.SEDUCTION,
@@ -258,7 +258,7 @@ public enum Race {
 
 	BAT_MORPH("bat-morph",
 			"bat",
-			Colour.RACE_BAT_MORPH,
+			Color.RACE_BAT_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -275,7 +275,7 @@ public enum Race {
 
 	ALLIGATOR_MORPH("alligator-morph",
 			"alligator",
-			Colour.RACE_ALLIGATOR_MORPH,
+			Color.RACE_ALLIGATOR_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -293,7 +293,7 @@ public enum Race {
 	// SLIME:
 	SLIME("slime",
 			"slime",
-			Colour.RACE_SLIME,
+			Color.RACE_SLIME,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(Attack.SEDUCTION),
 			0.5f,
@@ -309,7 +309,7 @@ public enum Race {
 	// AVIAN:
 	HARPY("harpy",
 			"avian",
-			Colour.RACE_HARPY,
+			Color.RACE_HARPY,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.SEDUCTION,
@@ -333,7 +333,7 @@ public enum Race {
 //			"earth elementals",
 //			"earth elementals",
 //
-//			Colour.SPELL_SCHOOL_EARTH,
+//			Color.SPELL_SCHOOL_EARTH,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -354,7 +354,7 @@ public enum Race {
 //			"water elementals",
 //			"water elementals",
 //
-//			Colour.SPELL_SCHOOL_WATER,
+//			Color.SPELL_SCHOOL_WATER,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -375,7 +375,7 @@ public enum Race {
 //			"air elementals",
 //			"air elementals",
 //
-//			Colour.SPELL_SCHOOL_AIR,
+//			Color.SPELL_SCHOOL_AIR,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -396,7 +396,7 @@ public enum Race {
 //			"fire elementals",
 //			"fire elementals",
 //
-//			Colour.SPELL_SCHOOL_FIRE,
+//			Color.SPELL_SCHOOL_FIRE,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -418,7 +418,7 @@ public enum Race {
 //			"arcane elementals",
 //			"arcane elementals",
 //
-//			Colour.SPELL_SCHOOL_ARCANE,
+//			Color.SPELL_SCHOOL_ARCANE,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.SEDUCTION,
@@ -434,7 +434,7 @@ public enum Race {
 
 	ELEMENTAL("elemental",
 			"elemental",
-			Colour.SPELL_SCHOOL_ARCANE,
+			Color.SPELL_SCHOOL_ARCANE,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -560,7 +560,7 @@ public enum Race {
 	 *
 	 * "<p>Centaurs are an unpredictable monster race that is rarely seen in Dominion."
 	 * +
-	 * " Centaurs are usually quite civilised, but they can get extremely territorial, and as a result they don't feel comfortable living in Dominion."
+	 * " Centaurs are usually quite civilized, but they can get extremely territorial, and as a result they don't feel comfortable living in Dominion."
 	 * +
 	 * " Outside of Dominion, centaurs group up to form herds of up to fifty individuals, although they are rarely all together at once,"
 	 * + " instead wandering their territory in search of intruders.</p>"
@@ -575,7 +575,7 @@ public enum Race {
 	 * +
 	 * "<p>Centaurs are very aggressive towards intruders, and will attack anyone they consider to be encroaching on their territory."
 	 * +
-	 * " When outside of their territory, they are quite civilised, and will prefer to avoid conflict where possible.</p>"
+	 * " When outside of their territory, they are quite civilized, and will prefer to avoid conflict where possible.</p>"
 	 *
 	 * +
 	 * "<p>Male centaurs will try and impregnate anything they can catch on their territory, while the females will only want to breed with their herd's leaders."
@@ -615,7 +615,7 @@ public enum Race {
 	 * " Slime queens represent a threat to all races, and as a result Lilith's enforcers have driven them out of Dominion.</p>"
 	 *
 	 * +
-	 * "<p>A slime queen looks like a group of slimes all huddling together, with a particularly attractive individual at the centre."
+	 * "<p>A slime queen looks like a group of slimes all huddling together, with a particularly attractive individual at the center."
 	 * +
 	 * " This is an illusion however, and a closer inspection will reveal all the slimes are linked together into one slime queen."
 	 * +
@@ -870,7 +870,7 @@ public enum Race {
 	 *
 	 * "Wasp morphs reproduce by willing being filled with eggs from their queen by use of her ovipositor."
 	 * +
-	 * " The queen fertilises her eggs by selecting members of the colony to fuck."
+	 * " The queen fertilizes her eggs by selecting members of the colony to fuck."
 	 * +
 	 * " If anyone is foolish enough to trespass into the colonies' hive, the queen will invariably forcefully transform the trespasser into a wasp morph drone."
 	 * ,
@@ -900,7 +900,7 @@ public enum Race {
 	 * " They typically do not know any magic, and will prefer fighting using brute force or seduction."
 	 * ,
 	 *
-	 * " Lizard morphs breed by laying eggs, that can be fertilised by any race."
+	 * " Lizard morphs breed by laying eggs, that can be fertilized by any race."
 	 * +
 	 * " Once the eggs hatch, the new Lizard morphs will rapidly reach full maturity and leave to make their own way in Dominion."
 	 * ,
@@ -911,10 +911,10 @@ public enum Race {
 	 * "Lamias are a monster found everywhere except Dominion." +
 	 * " Lamias are typically very solitary, and the only time they gather is for reproduction."
 	 * +
-	 * " They are very dangerous and aggressive, and will attack travellers unprovoked."
+	 * " They are very dangerous and aggressive, and will attack travelers unprovoked."
 	 * +
 	 * " Lamias are known for using hypnotism to force their prey to do whatever they want."
-	 * + " Due to this behaviour, Lamias have been forced out of Dominion.",
+	 * + " Due to this behavior, Lamias have been forced out of Dominion.",
 	 *
 	 * "Lamias are humanoid/animal monsters, having a normal-looking Lizard morph upper body, but instead of legs and a tail they possess the lower body of a snake."
 	 * ,
@@ -1053,7 +1053,7 @@ public enum Race {
 	 *
 	 * "Male Arachne will fuck anything they catch, and will keep females bound in their webs for days, continually breeding them before growing bored and dumping them in the wilderness."
 	 * +
-	 * " Females will deposit their eggs in whoever they catch, using their prey's cum to fertilise them beforehand."
+	 * " Females will deposit their eggs in whoever they catch, using their prey's cum to fertilize them beforehand."
 	 * ,
 	 *
 	 * RacialBody.ARACHNE, Genus.ARACHNID, Disposition.SAVAGE,
@@ -1076,7 +1076,7 @@ public enum Race {
 	 * +
 	 * " Wyverns have a crest instead of hair, and they have a long, lizard-like tail."
 	 * +
-	 * " Scale colour differs from Wyvern to Wyvern, but is usually a shade of red or green."
+	 * " Scale color differs from Wyvern to Wyvern, but is usually a shade of red or green."
 	 * + " Females have small breasts." + " Males have a lizard-like cock.",
 	 *
 	 * "Wyverns are not overly aggressive, but will take action against anyone who insults them."
@@ -1084,10 +1084,10 @@ public enum Race {
 	 * " They typically know a small amount of magic, and will prefer fighting using brute force and spells."
 	 * ,
 	 *
-	 * "Wyverns breed by laying eggs that can be fertilised by any race." +
-	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilised by what they consider inferior races."
+	 * "Wyverns breed by laying eggs that can be fertilized by any race." +
+	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilized by what they consider inferior races."
 	 * +
-	 * " Once fertilised eggs hatch, the new Wyverns will rapidly reach full maturity and leave to make their own way in Dominion."
+	 * " Once fertilized eggs hatch, the new Wyverns will rapidly reach full maturity and leave to make their own way in Dominion."
 	 * ,
 	 *
 	 * RacialBody.WYVERN, Genus.DRAGON, Disposition.CIVILIZED,
@@ -1102,7 +1102,7 @@ public enum Race {
 	 * +
 	 * " Dragons are considered the single most dangerous race, as they are extremely strong, tough and intelligent."
 	 * +
-	 * " They inhabit buildings in the ruins, and will seek to rob travellers and accumulate a hoard of wealth."
+	 * " They inhabit buildings in the ruins, and will seek to rob travelers and accumulate a hoard of wealth."
 	 * +
 	 * " Dragons will take a person prisoner, using them to breed and turning them into their submissive partner."
 	 * +
@@ -1114,7 +1114,7 @@ public enum Race {
 	 * + " Their feet and hands have claws on the end of their digits." +
 	 * " Dragons have a crest instead of hair, and they have a long, lizard-like tail."
 	 * +
-	 * " Scale colour differs from Dragon to Dragon, but is usually a shade of red or green."
+	 * " Scale color differs from Dragon to Dragon, but is usually a shade of red or green."
 	 * + " Females have huge breasts." +
 	 * " Males have a gigantic lizard-like cock.",
 	 *
@@ -1123,10 +1123,10 @@ public enum Race {
 	 * " They typically know a large amount of magic, and will prefer fighting using brute force and spells."
 	 * ,
 	 *
-	 * "Dragons breed by laying eggs that can be fertilised by any race." +
-	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilised by what they consider inferior races."
+	 * "Dragons breed by laying eggs that can be fertilized by any race." +
+	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilized by what they consider inferior races."
 	 * +
-	 * " Once fertilised eggs hatch, the new Dragons will rapidly reach full maturity and leave to make their own way in the ruins."
+	 * " Once fertilized eggs hatch, the new Dragons will rapidly reach full maturity and leave to make their own way in the ruins."
 	 * ,
 	 *
 	 * RacialBody.DRAGON, Genus.DRAGON, Disposition.UNPREDICTABLE,
@@ -1146,7 +1146,7 @@ public enum Race {
 	 * ,
 	 *
 	 * "Lilin are humanoid, with a human-like face and body." +
-	 * " Their skin will range in colour from dark red to a light lilac." +
+	 * " Their skin will range in color from dark red to a light lilac." +
 	 * " Lilin can change the appearance of their bodies at will, but they will commonly have one or two pairs of horns and a thin spaded tail."
 	 * +
 	 * " When in succubus form, many Lilin like to morph their legs into black leather reaching up to their thighs, forming their feet into high heels."
@@ -1186,7 +1186,7 @@ public enum Race {
 
 	private String name;
 	private String nameBestial;
-	private Colour colour;
+	private Color color;
 	private Disposition disposition;
 	private List<Attack> preferredAttacks;
 	private int numberOfOffspringLow;
@@ -1200,7 +1200,7 @@ public enum Race {
 	private Race(String name,
 			String nameBestial,
 
-			Colour colour,
+			Color color,
 			Disposition disposition,
 			List<Attack> preferredAttacks,
 			float chanceForMaleOffspring,
@@ -1217,7 +1217,7 @@ public enum Race {
 		this.name = name;
 		this.nameBestial = nameBestial;
 
-		this.colour = colour;
+		this.color = color;
 		this.disposition = disposition;
 
 		this.preferredAttacks = preferredAttacks;
@@ -1259,8 +1259,8 @@ public enum Race {
 		return numberOfOffspringHigh;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public boolean isAffectedByFurryPreference() {

@@ -54,7 +54,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMKneeling;
 import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.Cell;
@@ -1323,8 +1323,8 @@ public class ImpCitadelDialogue {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistAcceptedTF, true);
 					}
 					@Override
-					public Colour getHighlightColour() {
-						return Colour.TRANSFORMATION_GENERIC;
+					public Color getHighlightColor() {
+						return Color.TRANSFORMATION_GENERIC;
 					}
 				};
 
@@ -1387,8 +1387,8 @@ public class ImpCitadelDialogue {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistAcceptedTF, true);
 					}
 					@Override
-					public Colour getHighlightColour() {
-						return Colour.TRANSFORMATION_GENERIC;
+					public Color getHighlightColor() {
+						return Color.TRANSFORMATION_GENERIC;
 					}
 				};
 
@@ -1475,8 +1475,8 @@ public class ImpCitadelDialogue {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistAcceptedTF, true);
 					}
 					@Override
-					public Colour getHighlightColour() {
-						return Colour.TRANSFORMATION_GENERIC;
+					public Color getHighlightColor() {
+						return Color.TRANSFORMATION_GENERIC;
 					}
 				};
 				
@@ -1727,17 +1727,17 @@ public class ImpCitadelDialogue {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().incrementMoney(15000));
 						
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(
-										AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_darkSiren_siren_amulet"), Colour.CLOTHING_RED_VERY_DARK, Colour.CLOTHING_BLACK_STEEL, Colour.CLOTHING_PURPLE_DARK, false),
+										AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_darkSiren_siren_amulet"), Color.CLOTHING_RED_VERY_DARK, Color.CLOTHING_BLACK_STEEL, Color.CLOTHING_PURPLE_DARK, false),
 										false));
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(
-								AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_darkSiren_siren_cloak"), Colour.CLOTHING_BLACK, Colour.CLOTHING_RED_VERY_DARK, Colour.CLOTHING_STEEL, false),
+								AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_darkSiren_siren_cloak"), Color.CLOTHING_BLACK, Color.CLOTHING_RED_VERY_DARK, Color.CLOTHING_STEEL, false),
 								false));
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(
-								AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_darkSiren_siren_seal"), Colour.CLOTHING_BLACK, Colour.CLOTHING_BLACK, Colour.CLOTHING_BLACK, false),
+								AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_darkSiren_siren_seal"), Color.CLOTHING_BLACK, Color.CLOTHING_BLACK, Color.CLOTHING_BLACK, false),
 								false));
 
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addWeapon(
-								AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_scythe_scythe"), DamageType.PHYSICAL, Colour.CLOTHING_BLACK_STEEL, Colour.CLOTHING_RED_DARK),
+								AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_scythe_scythe"), DamageType.PHYSICAL, Color.CLOTHING_BLACK_STEEL, Color.CLOTHING_RED_DARK),
 								false));
 					}
 				};
@@ -2382,9 +2382,9 @@ public class ImpCitadelDialogue {
 						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "PRISONER_STRIPPED_END"+getOwnerDialogueIdEnding(), getAllCharacters()));
 						
 						// Equip collar and wrist restraints
-						Colour c = Colour.CLOTHING_PINK_HOT;
+						Color c = Color.CLOTHING_PINK_HOT;
 						if(isPrisonerFemale()) {
-							c = Colour.CLOTHING_BLACK;
+							c = Color.CLOTHING_BLACK;
 						}
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_CHOKER, c, false), true, getOwner()));
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_WRIST_RESTRAINTS, c, false), true, getOwner()));
@@ -2432,9 +2432,9 @@ public class ImpCitadelDialogue {
 						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "PRISONER_STRIPPED_COMPANION_END"+getOwnerDialogueIdEnding(), getAllCharacters()));
 
 						// Equip collar and wrist restraints
-						Colour c = Colour.CLOTHING_PINK_LIGHT;
+						Color c = Color.CLOTHING_PINK_LIGHT;
 						if(isPrisonerFemale()) {
-							c = Colour.CLOTHING_BROWN_DARK;
+							c = Color.CLOTHING_BROWN_DARK;
 						}
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_CHOKER, c, false), true, getOwner()));
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_WRIST_RESTRAINTS, c, false), true, getOwner()));

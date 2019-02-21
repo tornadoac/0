@@ -27,7 +27,7 @@ public class MiscDialogue {
 
 			for(Entry<StatusEffect, String> e : Main.game.getPlayer().getStatusEffectDescriptions().entrySet()){
 				descriptionSB.append("<p>"
-										+"<h6 style='text-align:center;'>"+Util.capitaliseSentence(e.getKey().getName(Main.game.getPlayer()))+"</h6>"
+										+"<h6 style='text-align:center;'>"+Util.capitalizeSentence(e.getKey().getName(Main.game.getPlayer()))+"</h6>"
 										+ e.getValue()
 									+"</p>");
 			}

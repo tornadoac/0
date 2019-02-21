@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.List;
 import java.util.Map;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.places.PlaceType;
@@ -19,7 +19,7 @@ public enum WorldType {
 	// Dominion:
 	
 	WORLD_MAP("Lilith's Realm",
-			Colour.BASE_TAN,
+			Color.BASE_TAN,
 			1,
 			"/com/lilithsthrone/res/map/world_map.png",
 			null,
@@ -62,7 +62,7 @@ public enum WorldType {
 					)),
 	
 	DOMINION("Dominion",
-			Colour.BASE_PURPLE,
+			Color.BASE_PURPLE,
 			1,
 			"/com/lilithsthrone/res/map/dominion/dominion.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -108,7 +108,7 @@ public enum WorldType {
 
 	// Empty:
 	EMPTY("City",
-			Colour.BASE_BROWN,
+			Color.BASE_BROWN,
 			1,
 			"/com/lilithsthrone/res/map/empty.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -119,7 +119,7 @@ public enum WorldType {
 					new Value<>(new Color(0x0080ff), PlaceType.GENERIC_MUSEUM))),
 
 	MUSEUM("Museum",
-			Colour.BASE_BROWN,
+			Color.BASE_BROWN,
 			1,
 			"/com/lilithsthrone/res/map/prologue/museum.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -139,7 +139,7 @@ public enum WorldType {
 	},
 
 	MUSEUM_LOST("Museum",
-			Colour.BASE_BROWN,
+			Color.BASE_BROWN,
 			1,
 			"/com/lilithsthrone/res/map/prologue/museum_lost.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -155,7 +155,7 @@ public enum WorldType {
 	},
 	
 	LILAYAS_HOUSE_GROUND_FLOOR("Lilaya's Home",
-			Colour.BASE_BLUE_LIGHT,
+			Color.BASE_BLUE_LIGHT,
 			1,
 			"/com/lilithsthrone/res/map/dominion/lilayasHome/lilayas_home_ground_floor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -179,7 +179,7 @@ public enum WorldType {
 	},
 	
 	LILAYAS_HOUSE_FIRST_FLOOR("Lilaya's Home",
-			Colour.BASE_BLUE_LIGHT,
+			Color.BASE_BLUE_LIGHT,
 			1,
 			"/com/lilithsthrone/res/map/dominion/lilayasHome/lilayas_home_first_floor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -199,7 +199,7 @@ public enum WorldType {
 	},
 	
 	ZARANIX_HOUSE_FIRST_FLOOR("Zaranix's Home",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			1,
 			"/com/lilithsthrone/res/map/dominion/zaranixHome/first_floor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -212,7 +212,7 @@ public enum WorldType {
 					new Value<>(new Color(0x8000ff), PlaceType.ZARANIX_FF_MAID))),
 	
 	ZARANIX_HOUSE_GROUND_FLOOR("Zaranix's Home",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			1,
 			"/com/lilithsthrone/res/map/dominion/zaranixHome/ground_floor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -229,7 +229,7 @@ public enum WorldType {
 					new Value<>(new Color(0xff8000), PlaceType.ZARANIX_GF_GARDEN_ENTRY))),
 
 	HARPY_NEST("Harpy Nests",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			1,
 			"/com/lilithsthrone/res/map/dominion/harpyNests/harpyNests.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -246,7 +246,7 @@ public enum WorldType {
 					new Value<>(new Color(0xff9100), PlaceType.HARPY_NESTS_ALEXAS_NEST))),
 	
 	SLAVER_ALLEY("Slaver Alley",
-			Colour.BASE_RED,
+			Color.BASE_RED,
 			1,
 			"/com/lilithsthrone/res/map/dominion/slaverAlley/slaverAlley.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -274,7 +274,7 @@ public enum WorldType {
 					new Value<>(new Color(0x00ff00), PlaceType.SLAVER_ALLEY_PUBLIC_STOCKS))),
 	
 	SHOPPING_ARCADE("Shopping Arcade",
-			Colour.BASE_YELLOW,
+			Color.BASE_YELLOW,
 			1,
 			"/com/lilithsthrone/res/map/dominion/shoppingArcade/shoppingArcade.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -298,7 +298,7 @@ public enum WorldType {
 	},
 	
 	SUPPLIER_DEN("Supplier Depot",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			1,
 			"/com/lilithsthrone/res/map/dominion/shoppingArcade/supplierDen.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -310,7 +310,7 @@ public enum WorldType {
 					new Value<>(new Color(0x00ff00), PlaceType.SUPPLIER_DEPOT_OFFICE))),
 	
 	ENFORCER_HQ("Enforcer HQ",
-			Colour.BASE_BLUE,
+			Color.BASE_BLUE,
 			1,
 			"/com/lilithsthrone/res/map/dominion/enforcerHQ/enforcerHQ.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -324,7 +324,7 @@ public enum WorldType {
 					new Value<>(new Color(0xff8000), PlaceType.ENFORCER_HQ_BRAXS_OFFICE))),
 
 	ANGELS_KISS_GROUND_FLOOR("Angel's Kiss",
-			Colour.BASE_MAGENTA,
+			Color.BASE_MAGENTA,
 			1,
 			"/com/lilithsthrone/res/map/dominion/angelsKiss/angelsKissGroundFloor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -337,7 +337,7 @@ public enum WorldType {
 					new Value<>(new Color(0xff00ff), PlaceType.ANGELS_KISS_BEDROOM))),
 	
 	ANGELS_KISS_FIRST_FLOOR("Angel's Kiss",
-			Colour.BASE_MAGENTA,
+			Color.BASE_MAGENTA,
 			1,
 			"/com/lilithsthrone/res/map/dominion/angelsKiss/angelsKissFirstFloor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -351,7 +351,7 @@ public enum WorldType {
 	
 
 	NIGHTLIFE_CLUB("The Watering Hole",
-			Colour.BASE_BLUE,
+			Color.BASE_BLUE,
 			1,
 			"/com/lilithsthrone/res/map/dominion/nightLife/wateringHole.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -377,7 +377,7 @@ public enum WorldType {
 	// Other:
 
 	SUBMISSION("Submission",
-			Colour.BASE_GREEN,
+			Color.BASE_GREEN,
 			1,
 			"/com/lilithsthrone/res/map/submission/submission.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -412,7 +412,7 @@ public enum WorldType {
 
 
 	LYSSIETH_PALACE("Lyssieth's Palace",
-			Colour.BASE_PURPLE,
+			Color.BASE_PURPLE,
 			1,
 			"/com/lilithsthrone/res/map/submission/lyssiethsPalace/groundFloor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -433,7 +433,7 @@ public enum WorldType {
 					)),
 	
 	IMP_FORTRESS_ALPHA("Imp Fortress",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			1,
 			"/com/lilithsthrone/res/map/submission/impFortress/fortress1Map.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -449,7 +449,7 @@ public enum WorldType {
 	},
 
 	IMP_FORTRESS_DEMON("Imp Citadel",
-			Colour.BASE_PURPLE,
+			Color.BASE_PURPLE,
 			1,
 			"/com/lilithsthrone/res/map/submission/impFortress/fortress2Map.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -471,7 +471,7 @@ public enum WorldType {
 	},
 
 	IMP_FORTRESS_FEMALES("Imp Fortress",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			1,
 			"/com/lilithsthrone/res/map/submission/impFortress/fortress3Map.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -487,7 +487,7 @@ public enum WorldType {
 	},
 
 	IMP_FORTRESS_MALES("Imp Fortress",
-			Colour.BASE_BLUE,
+			Color.BASE_BLUE,
 			1,
 			"/com/lilithsthrone/res/map/submission/impFortress/fortress4Map.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -503,7 +503,7 @@ public enum WorldType {
 	},
 
 	BAT_CAVERNS("Bat Caverns",
-			Colour.BASE_BLACK,
+			Color.BASE_BLACK,
 			1,
 			"/com/lilithsthrone/res/map/submission/batCaverns/batCaverns.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -522,7 +522,7 @@ public enum WorldType {
 					new Value<>(new Color(0xff80ff), PlaceType.BAT_CAVERN_SLIME_QUEEN_LAIR))),
 
 	SLIME_QUEENS_LAIR_GROUND_FLOOR("Slime Queen's Tower",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			1,
 			"/com/lilithsthrone/res/map/submission/slimeQueensLair/slimeQueensLairGroundFloor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -542,7 +542,7 @@ public enum WorldType {
 					new Value<>(new Color(0xffff00), PlaceType.SLIME_QUEENS_LAIR_SLIME_QUEEN))),
 
 	SLIME_QUEENS_LAIR_FIRST_FLOOR("Slime Queen's Tower",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			1,
 			"/com/lilithsthrone/res/map/submission/slimeQueensLair/slimeQueensLairFirstFloor.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -559,7 +559,7 @@ public enum WorldType {
 					new Value<>(new Color(0xffff00), PlaceType.SLIME_QUEENS_LAIR_SLIME_QUEEN))),
 
 	GAMBLING_DEN("Gambling Den",
-			Colour.BASE_GOLD,
+			Color.BASE_GOLD,
 			1,
 			"/com/lilithsthrone/res/map/submission/gamblingDen/gamblingDen.png",
 			PlaceType.WORLD_MAP_DOMINION,
@@ -585,7 +585,7 @@ public enum WorldType {
 	
 	JUNGLE(6,
 			"jungle",
-			Colour.BASE_GREEN_LIME,
+			Color.BASE_GREEN_LIME,
 			240,
 			PlaceType.WORLD_MAP_DOMINION,
 			PlaceType.JUNGLE_PATH,
@@ -599,7 +599,7 @@ public enum WorldType {
 
 	private final String name;
 	private final String fileLocation;
-	private Colour colour;
+	private Color color;
 	private int worldSize;
 	private int timeToTransition;
 	
@@ -615,7 +615,7 @@ public enum WorldType {
 
 	WorldType(int worldSize,
 			String name,
-			Colour colour,
+			Color color,
 			int timeToTransition,
 			PlaceType globalMapLocation,
 			PlaceType standardPlace,
@@ -625,7 +625,7 @@ public enum WorldType {
 		this.worldSize=worldSize;
 		
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.timeToTransition=timeToTransition;
 		this.moveCost = 5;
 
@@ -643,13 +643,13 @@ public enum WorldType {
 	}
 	
 	WorldType(String name,
-			Colour colour,
+			Color color,
 			int timeToTransition,
 			String fileLocation,
 			PlaceType globalMapLocation,
 			Map<Color, PlaceType> placesMap) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.timeToTransition=timeToTransition;
 		moveCost = 5;
 
@@ -673,8 +673,8 @@ public enum WorldType {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public int getTimeToTransition() {

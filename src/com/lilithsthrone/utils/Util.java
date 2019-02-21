@@ -128,19 +128,19 @@ public class Util {
 				g = (first.getGreen() + second.getGreen())/2,
 					b = (first.getBlue() + second.getBlue())/2;
 		
-		return newColour(r*255, g*255, b*255);
+		return newColor(r*255, g*255, b*255);
 	}
 	
-	public static String toWebHexString(Color colour) {
-		return colour.toString().substring(2, 8);
+	public static String toWebHexString(Color color) {
+		return color.toString().substring(2, 8);
 	}
 	
-	public static Color newColour(double r, double g, double b) {
+	public static Color newColor(double r, double g, double b) {
 		return Color.color(r / 255, g / 255, b / 255);
 	}
 
-	public static Color newColour(int hex) {
-		return newColour((hex & 0xFF0000) >> 16, (hex & 0xFF00) >> 8, (hex & 0xFF));
+	public static Color newColor(int hex) {
+		return newColor((hex & 0xFF0000) >> 16, (hex & 0xFF00) >> 8, (hex & 0xFF));
 	}
 	
 	/**
@@ -583,16 +583,16 @@ public class Util {
 		return name != null? name : code.getName();
 	}
 
-	public static int conversionCentimetresToInches(int cm) {
+	public static int conversionCentimetersToInches(int cm) {
 		// System.out.println(cm + " -> "+(int)(cm/2.54f));
 		return Math.round(cm / 2.54f);
 	}
 
-	public static int conversionInchesToCentimetres(int inches) {
+	public static int conversionInchesToCentimeters(int inches) {
 		return Math.round(inches * 2.54f);
 	}
 
-	public static String centimetresToMetresAndCentimetres(int cm) {
+	public static String centimetersToMetersAndCentimeters(int cm) {
 		return ((cm / 100) + ((cm % 100) != 0 ? ("." + cm % 100) + "m." : "m"));
 	}
 
@@ -608,7 +608,7 @@ public class Util {
 		return ((((pounds) / 14) == 0 ? "" : (pounds) / 14) + (((pounds) / 12) > 0 ? "st." : "") + (((pounds) % 14) == 0 ? "" : " ") + (((pounds) % 14) != 0 ? ((pounds) % 14) + "lb" : ""));
 	}
 
-	public static String capitaliseSentence(String sentence) {
+	public static String capitalizeSentence(String sentence) {
 		if(sentence==null || sentence.isEmpty()) {
 			return sentence;
 		}
@@ -899,35 +899,35 @@ public class Util {
 	    return choices.split(splitter)[random.nextInt(choices.length() - choices.replace(splitter, "").length() + 1)];
 	};
 	
-	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalise) {
+	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalize) {
 		return Util.toStringList(subspecies,
 				(Subspecies o) -> 
-				"<span style='color:"+o.getColour(null).toWebHexString()+";'>"
-					+(capitalise
-							?Util.capitaliseSentence(o.getNamePlural(null))
+				"<span style='color:"+o.getColor(null).toWebHexString()+";'>"
+					+(capitalize
+							?Util.capitalizeSentence(o.getNamePlural(null))
 							:o.getNamePlural(null))
 					+"</span>",
 				"and");
 	}
 
-	public static String clothesToStringList(Collection<AbstractClothing> clothingSet, boolean capitalise) {
-		return Util.toStringList(clothingSet, (AbstractClothing o) -> (capitalise?Util.capitaliseSentence(o.getClothingType().getName()):o.getClothingType().getName()), "and");
+	public static String clothesToStringList(Collection<AbstractClothing> clothingSet, boolean capitalize) {
+		return Util.toStringList(clothingSet, (AbstractClothing o) -> (capitalize?Util.capitalizeSentence(o.getClothingType().getName()):o.getClothingType().getName()), "and");
 	}
 
 	public static String setToStringListCoverableArea(Set<CoverableArea> coverableAreaSet) {
-		return Util.toStringList(coverableAreaSet, (CoverableArea o) -> Util.capitaliseSentence(o.getName()), "and");
+		return Util.toStringList(coverableAreaSet, (CoverableArea o) -> Util.capitalizeSentence(o.getName()), "and");
 	}
 
-	public static String stringsToStringList(List<String> list, boolean capitalise) {
-		return Util.toStringList(list, (String o) -> capitalise?Util.capitaliseSentence(o):o, "and");
+	public static String stringsToStringList(List<String> list, boolean capitalize) {
+		return Util.toStringList(list, (String o) -> capitalize?Util.capitalizeSentence(o):o, "and");
 	}
 
-	public static String stringsToStringChoice(List<String> list, boolean capitalise) {
-		return Util.toStringList(list, (String o) -> capitalise?Util.capitaliseSentence(o):o, "or");
+	public static String stringsToStringChoice(List<String> list, boolean capitalize) {
+		return Util.toStringList(list, (String o) -> capitalize?Util.capitalizeSentence(o):o, "or");
 	}
 
-	public static String colourSetToStringList(Set<Colour> colourSet) {
-		return Util.toStringList(colourSet, Colour::getName, "and");
+	public static String colorSetToStringList(Set<Color> colorSet) {
+		return Util.toStringList(colorSet, Color::getName, "and");
 	}
 
 	public static String coverableAreaListToStringList(List<CoverableArea> coverableAreaCollection) {

@@ -67,7 +67,7 @@ public class BatCaverns {
 			if(index==1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the cavern's dark depths. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the cavern's dark depths. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);
@@ -103,7 +103,7 @@ public class BatCaverns {
 			if(index==1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the bioluminescent forest. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the bioluminescent forest. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);
@@ -134,7 +134,7 @@ public class BatCaverns {
 			if(index==1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the sides of the river. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the sides of the river. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);
@@ -165,7 +165,7 @@ public class BatCaverns {
 			if(index==1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the bridge's surroundings. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the bridge's surroundings. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);
@@ -196,7 +196,7 @@ public class BatCaverns {
 			if(index==1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the sides of the river. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the sides of the river. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);
@@ -242,7 +242,7 @@ public class BatCaverns {
 			if(index==1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the sides of the lake. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the sides of the lake. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);

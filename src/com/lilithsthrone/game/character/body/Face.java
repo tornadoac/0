@@ -110,9 +110,9 @@ public class Face implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if (owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.face] of [pc.a_faceRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.face] of [pc.a_faceRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.face] of [npc.a_faceRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.face] of [npc.a_faceRace], so nothing happens...)]</p>");
 			}
 			
 		} else {
@@ -404,7 +404,7 @@ public class Face implements BodyPartInterface {
 
 	public String setPiercedNose(GameCharacter owner, boolean piercedNose) {
 		if(owner.isPiercedNose() == piercedNose) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.piercedNose = piercedNose;
@@ -456,14 +456,14 @@ public class Face implements BodyPartInterface {
 		
 		if(owner.getFemininityValue()>=Femininity.ANDROGYNOUS.getMinimumFemininity() && facialHair!=BodyHair.ZERO_NONE && !Main.getProperties().hasValue(PropertyValue.feminineBeardsContent)) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You're too feminine to be able to grow a beard...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You're too feminine to be able to grow a beard...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.sheIs] too feminine to be able to grow a beard...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.sheIs] too feminine to be able to grow a beard...)]</p>");
 			}
 		}
 		
 		if(getFacialHair() == facialHair) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 			
 		} else {
 			UtilText.transformationContentSB.setLength(0);

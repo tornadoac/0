@@ -27,7 +27,7 @@ import com.lilithsthrone.game.inventory.clothing.ClothingType;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.BaseColour;
+import com.lilithsthrone.utils.BaseColor;
 import com.lilithsthrone.utils.Vector2i;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -84,7 +84,7 @@ public class SubmissionGenericPlaces {
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "TUNNEL"));
 
 			boolean pacified = true;
-			BaseColour colour = Main.game.getPlayer().getLocationPlace().getPlaceType().getColour();
+			BaseColor color = Main.game.getPlayer().getLocationPlace().getPlaceType().getColor();
 			switch(Main.game.getPlayer().getLocationPlace().getPlaceType()) {
 				case SUBMISSION_IMP_TUNNELS_ALPHA:
 					pacified = Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressAlphaDefeated);
@@ -103,7 +103,7 @@ public class SubmissionGenericPlaces {
 			}
 			if(!pacified) {
 				UtilText.nodeContentSB.append(
-						"<span color:"+colour.toWebHexString()+";>"
+						"<span color:"+color.toWebHexString()+";>"
 						+ UtilText.parseFromXMLFile("places/submission/submissionPlaces", "TUNNEL_IMP_CONTROL")
 						+"</span>");
 			}
@@ -120,7 +120,7 @@ public class SubmissionGenericPlaces {
 			if(index == 1) {
 				return new ResponseEffectsOnly(
 						"Explore",
-						"Explore the tunnels. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+						"Explore the tunnels. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 							@Override
 							public void effects() {
 								DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);

@@ -44,7 +44,7 @@ import com.lilithsthrone.game.sex.sexActions.SexActionCategory;
 import com.lilithsthrone.game.sex.sexActions.SexActionPriority;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -104,7 +104,7 @@ public class SALyssiethSpecials {
 		@Override
 		public String getActionDescription() {
 			return "Allow Lyssieth to push you down onto your back over her desk, and let her fuck you.<br/>"
-								+ "[style.italicsFeminine(Lyssieth will feminise you and give you a demonic vagina!)]<br/>"
+								+ "[style.italicsFeminine(Lyssieth will feminize you and give you a demonic vagina!)]<br/>"
 								+ (Main.game.getPlayer().hasPenis()
 										?"[style.italicsTfSexual(Lyssieth will also temporarily remove your cock!)]"
 										:"");
@@ -176,7 +176,7 @@ public class SALyssiethSpecials {
 		@Override
 		public String getActionDescription() {
 			return "Allow Lyssieth to push you down onto your back over her desk, and request that she use your ass.<br/>"
-								+ "[style.italicsFeminine(Lyssieth will feminise you!)]<br/>"
+								+ "[style.italicsFeminine(Lyssieth will feminize you!)]<br/>"
 								+ (Main.game.getPlayer().hasPenis()
 										?"[style.italicsFeminine(Lyssieth will sissify your cock!)]"
 										:"");
@@ -267,7 +267,7 @@ public class SALyssiethSpecials {
 			return "You never agreed to let Lyssieth fuck you. Push her down onto her desk and fuck her instead.<br/>"
 								+ (!Main.game.getPlayer().isFeminine()
 										?"[style.italicsMasculine(Lyssieth will make you more masculine!)]"
-										:"[style.italicsDisabled(This will have no extra feminising effect.)]")
+										:"[style.italicsDisabled(This will have no extra feminizing effect.)]")
 								+ (!Main.game.getPlayer().hasPenis()
 										?"[style.italicsTfSexual(Lyssieth will give you a cock with which to fuck her!)]"
 										:"");
@@ -355,7 +355,7 @@ public class SALyssiethSpecials {
 		@Override
 		public String getActionDescription() {
 			return "Allow Lyssieth to get down on her hands and knees, and kneel down behind her to fuck her in the doggy-style position.<br/>"
-								+ "[style.italicsDisabled(This will have no extra feminising effect.)]<br/>"
+								+ "[style.italicsDisabled(This will have no extra feminizing effect.)]<br/>"
 								+ (!Main.game.getPlayer().hasPenis() || Main.game.getPlayer().getPenisType().getRace()!=Race.DEMON
 										?"[style.italicsTfSexual(Lyssieth will give you a demonic cock!)]"
 										:"");
@@ -420,7 +420,7 @@ public class SALyssiethSpecials {
 		@Override
 		public String getActionDescription() {
 			return "Ask Lyssieth to service you with her mouth instead.<br/>"
-							+ "[style.italicsDisabled(This will have no extra feminising effect.)]";
+							+ "[style.italicsDisabled(This will have no extra feminizing effect.)]";
 		}
 
 		@Override
@@ -485,13 +485,13 @@ public class SALyssiethSpecials {
 		public String getActionDescription() {
 			if(Main.game.getNpc(Lyssieth.class).getForeplayPreference(Main.game.getPlayer()).getTargetedSexArea()==SexAreaOrifice.ANUS) {
 				return "Ask Lyssieth to carry on fucking your ass instead.<br/>"
-							+ "[style.italicsFeminine(Lyssieth will fully feminise you!)]"//TODO
+							+ "[style.italicsFeminine(Lyssieth will fully feminize you!)]"//TODO
 							+ (Main.game.getPlayer().hasPenis()
 									?"<br/>[style.italicsTfSexual(Lyssieth will also fully sissify your cock!)]"
 									:"");
 			}
 			return "Ask Lyssieth to carry on fucking your pussy instead.<br/>"
-						+ "[style.italicsFeminine(Lyssieth will fully feminise you!)]";
+						+ "[style.italicsFeminine(Lyssieth will fully feminize you!)]";
 		}
 
 		@Override
@@ -524,28 +524,28 @@ public class SALyssiethSpecials {
 				}
 				if(Main.game.getPlayer().hasVagina()) {
 					// Add anal-only vagina sticker:
-					AbstractClothing pastie = AbstractClothingType.generateClothing("innoxia_vagina_sticker_anal_only", Colour.CLOTHING_PINK_LIGHT, Colour.CLOTHING_PINK_HOT, Colour.CLOTHING_PURPLE_VERY_DARK, false);
+					AbstractClothing pastie = AbstractClothingType.generateClothing("innoxia_vagina_sticker_anal_only", Color.CLOTHING_PINK_LIGHT, Color.CLOTHING_PINK_HOT, Color.CLOTHING_PURPLE_VERY_DARK, false);
 					pastie.getEffects().clear();
 					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_SEALING, TFModifier.ARCANE_BOOST, TFPotency.DRAIN, 0));
 					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BODY_PART, TFModifier.TF_MOD_FETISH_ANAL_RECEIVING, TFPotency.MAJOR_BOOST, 0));
 					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BODY_PART, TFModifier.TF_MOD_FETISH_VAGINAL_RECEIVING, TFPotency.MAJOR_DRAIN, 0));
-					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOUR, TFModifier.TF_MOD_FETISH_SUBMISSIVE, TFPotency.BOOST, 0));
-					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOUR, TFModifier.TF_MOD_FETISH_DOMINANT, TFPotency.DRAIN, 0));
+					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOR, TFModifier.TF_MOD_FETISH_SUBMISSIVE, TFPotency.BOOST, 0));
+					pastie.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOR, TFModifier.TF_MOD_FETISH_DOMINANT, TFPotency.DRAIN, 0));
 					pastie.setName("Lyssieth's buttslut pastie");
 					Main.game.getPlayer().equipClothingFromNowhere(pastie, true, Main.game.getNpc(Lyssieth.class));
 				}
 				if(Main.game.getPlayer().hasPenis()) {
 					// Add chastity cage:
-					AbstractClothing cage = AbstractClothingType.generateClothing("innoxia_bdsm_ornate_chastity_cage", Colour.CLOTHING_PINK_LIGHT, Colour.CLOTHING_PINK_HOT, Colour.CLOTHING_GOLD, false);
+					AbstractClothing cage = AbstractClothingType.generateClothing("innoxia_bdsm_ornate_chastity_cage", Color.CLOTHING_PINK_LIGHT, Color.CLOTHING_PINK_HOT, Color.CLOTHING_GOLD, false);
 					cage.getEffects().clear();
 					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_SEALING, TFModifier.ARCANE_BOOST, TFPotency.DRAIN, 0));
 					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BODY_PART, TFModifier.TF_MOD_FETISH_PENIS_RECEIVING, TFPotency.MAJOR_BOOST, 0));
 					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BODY_PART, TFModifier.TF_MOD_FETISH_PENIS_GIVING, TFPotency.MAJOR_DRAIN, 0));
-					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOUR, TFModifier.TF_MOD_FETISH_CUM_ADDICT, TFPotency.BOOST, 0));
-					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOUR, TFModifier.TF_MOD_FETISH_CUM_STUD, TFPotency.DRAIN, 0));
+					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOR, TFModifier.TF_MOD_FETISH_CUM_ADDICT, TFPotency.BOOST, 0));
+					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOR, TFModifier.TF_MOD_FETISH_CUM_STUD, TFPotency.DRAIN, 0));
 					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE, TFPotency.MAJOR_DRAIN, 1));
 					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.MAJOR_DRAIN, 0));
-					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOUR, TFModifier.TF_MOD_FETISH_DENIAL_SELF, TFPotency.MAJOR_BOOST, 0));
+					cage.addEffect(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.TF_MOD_FETISH_BEHAVIOR, TFModifier.TF_MOD_FETISH_DENIAL_SELF, TFPotency.MAJOR_BOOST, 0));
 					
 					cage.setName("Lyssieth's sissy cage");
 					Main.game.getPlayer().equipClothingFromNowhere(cage, true, Main.game.getNpc(Lyssieth.class));
@@ -594,7 +594,7 @@ public class SALyssiethSpecials {
 		@Override
 		public String getActionDescription() {
 			return "Allow Lyssieth to push you down onto your back over her desk, and let her give you a demonic pussy for her to fuck.<br/>"
-								+ "[style.italicsFeminine(Lyssieth will feminise you into a futa succubus!)]<br/>"
+								+ "[style.italicsFeminine(Lyssieth will feminize you into a futa succubus!)]<br/>"
 								+ (!Main.game.getPlayer().hasVagina()
 										?"[style.italicsTfSexual(Lyssieth will give you a demonic vagina!)]"
 										:"");
@@ -663,7 +663,7 @@ public class SALyssiethSpecials {
 		@Override
 		public String getActionDescription() {
 			return "Allow Lyssieth to push you down onto your back over her desk, and request that she use your ass.<br/>"
-						+ "[style.italicsFeminine(Lyssieth will feminise you!)]";
+						+ "[style.italicsFeminine(Lyssieth will feminize you!)]";
 		}
 
 		@Override
@@ -749,7 +749,7 @@ public class SALyssiethSpecials {
 			return "There's no way you're going to let Lyssieth fuck you. Wrestle her into the 'mating press' position and give Lilaya a new sister or two.<br/>"
 								+ (!Main.game.getPlayer().isFeminine()
 										?"[style.italicsMasculine(Lyssieth will turn you into her ideal incubus!)]"
-										:"[style.italicsDisabled(This will have no extra feminising effect.)]");
+										:"[style.italicsDisabled(This will have no extra feminizing effect.)]");
 		}
 
 		@Override

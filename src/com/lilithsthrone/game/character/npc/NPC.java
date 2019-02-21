@@ -81,7 +81,7 @@ import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.game.sex.sexActions.SexActionInterface;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.utils.XMLSaving;
@@ -201,7 +201,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	 * <b>-</b> Areolae size.<br/>
 	 * <b>-</b> Nipple settings (capacity, wetness, plasticity, elasticity, modifiers).<br/>
 	 * <b>-</b> Milk production.<br/>
-	 * <b>-</b> Milk modifiers & flavour.<br/>
+	 * <b>-</b> Milk modifiers & flavor.<br/>
 	 * <br/>
 	 * <b>Arms:</b><br/>
 	 * <b>-</b> Arm count.<br/>
@@ -219,7 +219,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	 * <b>-</b> Testicle size.<br/>
 	 * <b>-</b> Testicle count.<br/>
 	 * <b>-</b> Cum production.<br/>
-	 * <b>-</b> Cum modifiers & flavour.<br/>
+	 * <b>-</b> Cum modifiers & flavor.<br/>
 	 * <b>-</b> Penis modifiers.<br/>
 	 * <b>-</b> Penis urethra settings (capacity, wetness, plasticity, elasticity, modifiers).<br/>
 	 * <br/>
@@ -228,7 +228,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	 * <b>-</b> Clit size.<br/>
 	 * <b>-</b> Labia size.<br/>
 	 * <b>-</b> Squirter.<br/>
-	 * <b>-</b> Girlcum modifiers & flavour.<br/>
+	 * <b>-</b> Girlcum modifiers & flavor.<br/>
 	 * <b>-</b> Vagina settings (capacity, wetness, plasticity, elasticity, modifiers).<br/>
 	 * <b>-</b> Vagina urethra settings (capacity, wetness, plasticity, elasticity, modifiers).<br/>
 	 * <br/>
@@ -373,9 +373,9 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			tileSB.append(
 					UtilText.parse(this,
 							"<p style='text-align:center;'>"
-							+ "<b style='color:"+Femininity.valueOf(this.getFemininityValue()).getColour().toWebHexString()+";'>[npc.A_femininity]</b>"
-							+ " <b style='color:"+this.getRaceStage().getColour().toWebHexString()+";'>[npc.raceStage]</b>"
-							+ " <b style='color:"+this.getRace().getColour().toWebHexString()+";'>[npc.race]</b> <b>is "+(inHiding?"[style.boldBad(hiding)] in":"prowling")+" this area!</b></p>"
+							+ "<b style='color:"+Femininity.valueOf(this.getFemininityValue()).getColor().toWebHexString()+";'>[npc.A_femininity]</b>"
+							+ " <b style='color:"+this.getRaceStage().getColor().toWebHexString()+";'>[npc.raceStage]</b>"
+							+ " <b style='color:"+this.getRace().getColor().toWebHexString()+";'>[npc.race]</b> <b>is "+(inHiding?"[style.boldBad(hiding)] in":"prowling")+" this area!</b></p>"
 
 							+ "<p style='text-align:center;'>"));
 		} else {
@@ -390,7 +390,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		// Combat:
 		if(this.getFoughtPlayerCount()>0) {
 			tileSB.append(
-					UtilText.parse(this,"You have <b style='color:"+Colour.GENERIC_COMBAT.toWebHexString()+";'>fought</b> [npc.herHim] <b>"));
+					UtilText.parse(this,"You have <b style='color:"+Color.GENERIC_COMBAT.toWebHexString()+";'>fought</b> [npc.herHim] <b>"));
 
 					if(this.getFoughtPlayerCount()==1) {
 						tileSB.append("once.");
@@ -402,7 +402,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 
 			tileSB.append("</b>"
 							+ "<br/>"
-							+ "You have <b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>won</b> <b>");
+							+ "You have <b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>won</b> <b>");
 
 					if(this.getLostCombatCount()==1) {
 						tileSB.append("once.");
@@ -414,7 +414,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 
 			tileSB.append("</b>"
 					+ "<br/>"
-					+ "You have <b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>lost</b> <b>");
+					+ "You have <b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>lost</b> <b>");
 					if(this.getWonCombatCount()==1) {
 						tileSB.append("once.");
 					} else if(this.getWonCombatCount()==2) {
@@ -431,7 +431,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 
 			tileSB.append(
 					UtilText.parse(this,
-							"You have had <b style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>submissive sex</b> with [npc.herHim]<b> "));
+							"You have had <b style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>submissive sex</b> with [npc.herHim]<b> "));
 
 					if(this.getSexAsDomCount(Main.game.getPlayer())==1) {
 						tileSB.append("once.");
@@ -445,7 +445,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					UtilText.parse(this,
 							"</b>"
 							+ "<br/>"
-							+ "You have had <b style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>dominant sex</b> with  [npc.herHim]<b> "));
+							+ "You have had <b style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>dominant sex</b> with  [npc.herHim]<b> "));
 
 					if(this.getSexAsSubCount(Main.game.getPlayer())==1) {
 						tileSB.append("once.");
@@ -558,7 +558,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 							&& !target.hasStatusEffect(StatusEffect.ARCANE_CLOUD)
 							&& !target.hasStatusEffect(StatusEffect.ARCANE_CLOUD_ARCANE_LIGHTNING)
 							&& !target.hasStatusEffect(StatusEffect.ARCANE_CLOUD_ARCANE_THUNDER)
-							&& !target.hasStatusEffect(StatusEffect.ARCANE_CLOUD_LOCALISED_STORM)) {
+							&& !target.hasStatusEffect(StatusEffect.ARCANE_CLOUD_LOCALIZED_STORM)) {
 						weightedSpellMap.put(spell, 1);
 					}
 					break;
@@ -723,7 +723,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	}
 
 	/**
-	 * Handles the behaviour when the player escapes from this enemy in combat.
+	 * Handles the behavior when the player escapes from this enemy in combat.
 	 */
 	public void applyEscapeCombatEffects() {
 	};
@@ -1083,8 +1083,8 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	}
 
 	public String getPreferredBodyDescription(String tag) {
-		return "<"+tag+" style='color:"+getPreferredBody().getGender().getColour().toWebHexString()+";'>"+getPreferredBody().getGender().getName()+"</"+tag+">"
-				+ " <"+tag+" style='color:"+getPreferredBody().getRace().getColour().toWebHexString()+";'>"+getPreferredBody().getRace().getName(false)+"</"+tag+">";
+		return "<"+tag+" style='color:"+getPreferredBody().getGender().getColor().toWebHexString()+";'>"+getPreferredBody().getGender().getName()+"</"+tag+">"
+				+ " <"+tag+" style='color:"+getPreferredBody().getRace().getColor().toWebHexString()+";'>"+getPreferredBody().getRace().getName(false)+"</"+tag+">";
 	}
 
 	public Body getPreferredBody() {
@@ -1870,7 +1870,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	public Value<String, AbstractItem> generateFetishPotion(Boolean pairedFetishesOnly) {
 
 		ItemEffect selectedEffect = null; // this will be the ultimately selected effect, or null if none available
-		String selectedEffectString ; // this will be a flavour text string paired with the effect
+		String selectedEffectString ; // this will be a flavor text string paired with the effect
 
 		Map<ItemEffect, Integer> possibleEffects = new HashMap<>();
 
@@ -1928,7 +1928,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 
 		}
 
-		// map of top -> bottom paired fetishes; NPCs with a paired fetish will greatly favour
+		// map of top -> bottom paired fetishes; NPCs with a paired fetish will greatly favor
 		// giving the player it's pair, and remove that fetish if there is a match
 		Map<Fetish, Fetish> pairedFetishMap = new HashMap<>();
 
@@ -2344,9 +2344,9 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 			return null;
 		}
 
-		// Let's figure out what flavour text string to pair with our selected effect
+		// Let's figure out what flavor text string to pair with our selected effect
 
-		// I'm VERY uncertain that you'll like any of this flavour text at all, so please feel free to modify as you see fit
+		// I'm VERY uncertain that you'll like any of this flavor text at all, so please feel free to modify as you see fit
 		// Some of it I do like, but mostly I just wanted to be sure there were unique placeholder values for every current fetish
 
 		// Also, simply removing/commenting out an entry will cause the fetish in question to go to the default, if you'd like
@@ -2387,7 +2387,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_STRUTTER, "You've got legs that don't quit -- you really ought to use them");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_STRUTTER, "Maybe focus a bit more on what's above your waist -- or at least around the hips?");
 
-		// Behavioural
+		// Behavioral
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DOMINANT, "Don't you think you deserve to be the one in charge?");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_DOMINANT, "You're really not as intimidating as you think.");
 
@@ -2427,7 +2427,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL, "The only thing better than coming is telling your partner they can't, right?");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL, "If they're willing to fuck you, at least let them come once in a while.");
 
-		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL_SELF, "Where's the fun in coming right away? Wouldn't you rather savour the experience?");
+		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL_SELF, "Where's the fun in coming right away? Wouldn't you rather savor the experience?");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_DENIAL_SELF, "What's the point if you aren't getting off?");
 
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_VOYEURIST, "Sometimes it's just fun to watch, isn't it?");
@@ -2437,7 +2437,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_EXHIBITIONIST, "Not everyone wants to see what you've got to offer.");
 
 
-		// Behavioural unpaired
+		// Behavioral unpaired
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_BIMBO, "I think it's time you embraced your inner braindead slut.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_BIMBO, "Maybe have just a little self respect?");
 
@@ -2450,7 +2450,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_INCEST, "You know it wouldn't be a taboo if it wasn't at least a little bit fun.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_INCEST, "You what? Gross.");
 
-		// Behavioural transformative
+		// Behavioral transformative
 		fetishAddFlavorText.put(TFModifier.TF_MOD_FETISH_TRANSFORMATION_GIVING, "You strike me as someone who should be an agent of change.");
 		fetishRemoveFlavorText.put(TFModifier.TF_MOD_FETISH_TRANSFORMATION_GIVING, "You should really just let people be who they are.");
 
@@ -2578,7 +2578,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 	public void endSex() {
 	}
 
-	public boolean getSexBehaviourDeniesRequests(SexType sexTypeRequest) {
+	public boolean getSexBehaviorDeniesRequests(SexType sexTypeRequest) {
 
 		boolean keenToPerform = false;
 
@@ -3061,7 +3061,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 
 		// ************************ Finally, set preferences from the resulting lists. ************************ //
 
-		//TODO Further prioritise genital interactions?
+		//TODO Further prioritize genital interactions?
 
 		// If cannot switch position, only return preferences that are actually available:
 		if(!Sex.isPositionChangingAllowed(this)) {

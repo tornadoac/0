@@ -383,7 +383,7 @@ public class DoggyStyle {
 				UtilText.nodeContentSB.append(" As your [pc.balls+] tense up");
 				switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
 					case ZERO_NONE:
-						UtilText.nodeContentSB.append(", you realise that you're not able to produce even one drop of cum.");
+						UtilText.nodeContentSB.append(", you realize that you're not able to produce even one drop of cum.");
 						break;
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(", you feel a small trickle of [pc.cum+] squirting");
@@ -530,7 +530,7 @@ public class DoggyStyle {
 
 			switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
 				case ZERO_NONE:
-					UtilText.nodeContentSB.append(", you realise that you aren't able to produce even one drop of cum, somewhat lessening the impact of your dominant display.");
+					UtilText.nodeContentSB.append(", you realize that you aren't able to produce even one drop of cum, somewhat lessening the impact of your dominant display.");
 					break;
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(", a small trickle of [pc.cum+] squirts");
@@ -655,7 +655,7 @@ public class DoggyStyle {
 
 			switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
 				case ZERO_NONE:
-					UtilText.nodeContentSB.append(", you realise that you aren't able to produce even one drop of cum, somewhat lessening the impact of your dominant display.");
+					UtilText.nodeContentSB.append(", you realize that you aren't able to produce even one drop of cum, somewhat lessening the impact of your dominant display.");
 					break;
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(", a small trickle of [pc.cum+] squirts deep into [npc.namePos] [npc.pussy], and you let out [pc.a_moan+] as you tell [npc.herHim] what a bitch [npc.she] is.");

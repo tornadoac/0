@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * Arbitrary measurements in increments of 1, going from 0 to 7.
@@ -11,31 +11,31 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum Wetness {
 
-	ZERO_DRY("dry", 0, 101, Colour.GENERIC_SIZE_ONE),
+	ZERO_DRY("dry", 0, 101, Color.GENERIC_SIZE_ONE),
 	
-	ONE_SLIGHTLY_MOIST("slightly moist", 1, 100, Colour.GENERIC_SIZE_TWO),
+	ONE_SLIGHTLY_MOIST("slightly moist", 1, 100, Color.GENERIC_SIZE_TWO),
 	
-	TWO_MOIST("moist", 2, 50, Colour.GENERIC_SIZE_THREE),
+	TWO_MOIST("moist", 2, 50, Color.GENERIC_SIZE_THREE),
 	
-	THREE_WET("wet", 3, 25, Colour.GENERIC_SIZE_FOUR),
+	THREE_WET("wet", 3, 25, Color.GENERIC_SIZE_FOUR),
 	
-	FOUR_SLIMY("slimy", 4, 0, Colour.GENERIC_SIZE_FIVE),
+	FOUR_SLIMY("slimy", 4, 0, Color.GENERIC_SIZE_FIVE),
 	
-	FIVE_SLOPPY("sloppy", 5, 0, Colour.GENERIC_SIZE_SIX),
+	FIVE_SLOPPY("sloppy", 5, 0, Color.GENERIC_SIZE_SIX),
 	
-	SIX_SOPPING_WET("sopping wet", 6, 0, Colour.GENERIC_SIZE_SEVEN),
+	SIX_SOPPING_WET("sopping wet", 6, 0, Color.GENERIC_SIZE_SEVEN),
 	
-	SEVEN_DROOLING("drooling", 7, 0, Colour.GENERIC_SIZE_EIGHT);
+	SEVEN_DROOLING("drooling", 7, 0, Color.GENERIC_SIZE_EIGHT);
 	
 	private int wetness, arousalNeededToGetVaginaWet;
 	private String descriptor;
-	private Colour colour;
+	private Color color;
 
-	private Wetness(String descriptor, int wetness, int arousalNeededToGetVaginaWet, Colour colour) {
+	private Wetness(String descriptor, int wetness, int arousalNeededToGetVaginaWet, Color color) {
 		this.descriptor = descriptor;
 		this.wetness = wetness;
 		this.arousalNeededToGetVaginaWet = arousalNeededToGetVaginaWet;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public static Wetness valueOf(int wetness) {
@@ -63,7 +63,7 @@ public enum Wetness {
 		return arousalNeededToGetVaginaWet;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

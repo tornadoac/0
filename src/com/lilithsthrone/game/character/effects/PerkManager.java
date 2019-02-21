@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.npc.misc.Elemental;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * Singleton enforced by Enum. Because everyone loves Enums.
@@ -34,7 +34,7 @@ public enum PerkManager {
 	private PerkManager() {
 		perkTree = new HashMap<>();
 		
-		// Initialise perkTree:
+		// Initialize perkTree:
 		for(int i = 0; i<ROWS; i++) {
 			perkTree.put(i, new HashMap<>());
 			for(PerkCategory category : PerkCategory.values()) {
@@ -143,7 +143,7 @@ public enum PerkManager {
 		// NPC version of the perk tree:
 		NPCPerkTree = new HashMap<>();
 		
-		// Initialise NPCPerkTree:
+		// Initialize NPCPerkTree:
 		for(int i = 0; i<ROWS; i++) {
 			NPCPerkTree.put(i, new HashMap<>());
 			for(PerkCategory category : PerkCategory.values()) {
@@ -247,7 +247,7 @@ public enum PerkManager {
 		// Elemental version of the perk tree:
 		elementalPerkTree = new HashMap<>();
 		
-		// Initialise NPCPerkTree:
+		// Initialize NPCPerkTree:
 		for(int i = 0; i<ROWS; i++) {
 			elementalPerkTree.put(i, new HashMap<>());
 			for(PerkCategory category : PerkCategory.values()) {
@@ -440,7 +440,7 @@ public enum PerkManager {
 		}
 	}
 	
-	public static int getInitialPerkCount(GameCharacter character) { //TODO Calculate this from the initialisePerks() method - this current methodology is terrible.
+	public static int getInitialPerkCount(GameCharacter character) { //TODO Calculate this from the initializePerks() method - this current methodology is terrible.
 		if(character.isPlayer()) {
 			return 2;
 		} else  if(character instanceof Elemental) {
@@ -450,7 +450,7 @@ public enum PerkManager {
 		}
 	}
 	
-	public static void initialisePerks(GameCharacter character) { //TODO Until getInitialPerkCount() is fixed, remember to reset the int values.
+	public static void initializePerks(GameCharacter character) { //TODO Until getInitialPerkCount() is fixed, remember to reset the int values.
 		if(character.isPlayer()) {
 			character.addPerk(Perk.PHYSICAL_BASE);
 			character.addPerk(Perk.ARCANE_BASE);	
@@ -512,15 +512,15 @@ public enum PerkManager {
 			for(TreeEntry<PerkCategory, Perk> siblingEntry : entry.getSiblingLinks()) {
 				float siblingX = getX(character, siblingEntry.getRow(), siblingEntry) + siblingDifference(entry.getCategory(), siblingEntry.getCategory());
 				lineSB.append("<div style='width:100%; height:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events:none;'>"
-						+ "<svg width='100%' height='100%'><line x1='"+siblingX+"%' y1='50%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineSiblingColour(character, entry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
+						+ "<svg width='100%' height='100%'><line x1='"+siblingX+"%' y1='50%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineSiblingColor(character, entry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
 			}
 			for(TreeEntry<PerkCategory, Perk> parentEntry : entry.getParentLinks()) {
 				float parentX = getX(character, parentEntry.getRow(), parentEntry);
-				String colour = getPerkLineParentColour(character, entry).toWebHexString();
+				String color = getPerkLineParentColor(character, entry).toWebHexString();
 						
 				if(Math.abs(entryX-parentX)>0.01f) {
 					lineSB.append("<div style='width:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events: none;'>"
-							+ "<svg style='padding:0; margin:0;' width='100%'><line x1='"+entryX+"%' y1='0' x2='"+parentX+"%' y2='0' stroke='"+colour+"' stroke-width='4px'/></svg></div>");
+							+ "<svg style='padding:0; margin:0;' width='100%'><line x1='"+entryX+"%' y1='0' x2='"+parentX+"%' y2='0' stroke='"+color+"' stroke-width='4px'/></svg></div>");
 				}
 			}
 		}
@@ -593,18 +593,18 @@ public enum PerkManager {
 		float entryX = getX(character, perkEntry.getRow(), perkEntry);
 		if(!perkEntry.getParentLinks().isEmpty()) {
 			entrySB.append("<div style='width:100%; height:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events:none;'>"
-					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='0%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineParentColour(character, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
+					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='0%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineParentColor(character, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
 		}
 		if(!perkEntry.getChildLinks().isEmpty()) {
 			entrySB.append("<div style='width:100%; height:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events:none;'>"
-					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='100%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineChildColour(character, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
+					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='100%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineChildColor(character, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
 		}
 		
 		entrySB.append("<div class='square-button"+(perkEntry.getEntry().isEquippableTrait()?"":" round")+(disabled?" disabled":"")+"' style='width:16%; margin:16px "+getMargin(size)+"%; "+
 							(isPerkOwned(character, perkEntry)
 									?character.hasTraitActivated(perkEntry.getEntry())
-										?"border-color:"+Colour.TRAIT.toWebHexString()+";"
-										:"border-color:"+perkEntry.getEntry().getPerkCategory().getColour().toWebHexString()+";"
+										?"border-color:"+Color.TRAIT.toWebHexString()+";"
+										:"border-color:"+perkEntry.getEntry().getPerkCategory().getColor().toWebHexString()+";"
 									:"")+"' id='"+perkEntry.getRow()+"_"+perkEntry.getEntry()+"'>"
 				+ "<div class='square-button-content'>"+perkEntry.getEntry().getSVGString()+"</div>"
 				+ (disabled
@@ -666,7 +666,7 @@ public enum PerkManager {
 		return false;
 	}
 	
-	private Colour getPerkLineParentColour(GameCharacter character, TreeEntry<PerkCategory, Perk> entry) {
+	private Color getPerkLineParentColor(GameCharacter character, TreeEntry<PerkCategory, Perk> entry) {
 		boolean parentOwned = false;
 		for(TreeEntry<PerkCategory, Perk> parent : entry.getParentLinks()) {
 			if(character.hasPerkInTree(parent.getRow(), parent.getEntry())) {
@@ -676,13 +676,13 @@ public enum PerkManager {
 		}
 		
 		return isPerkOwned(character, entry) && parentOwned
-				?entry.getEntry().getPerkCategory().getColour()
+				?entry.getEntry().getPerkCategory().getColor()
 				:isPerkAvailable(character, entry)
-					?Colour.BASE_GREY
-					:Colour.TEXT_GREY_DARK;
+					?Color.BASE_GREY
+					:Color.TEXT_GREY_DARK;
 	}
 	
-	private Colour getPerkLineChildColour(GameCharacter character, TreeEntry<PerkCategory, Perk> entry) {
+	private Color getPerkLineChildColor(GameCharacter character, TreeEntry<PerkCategory, Perk> entry) {
 		boolean childOwned = false;
 		boolean childAvailable = false;
 		for(TreeEntry<PerkCategory, Perk> child : entry.getChildLinks()) {
@@ -695,13 +695,13 @@ public enum PerkManager {
 		}
 		
 		return isPerkOwned(character, entry) && childOwned
-				?entry.getEntry().getPerkCategory().getColour()
+				?entry.getEntry().getPerkCategory().getColor()
 				:childAvailable
-					?Colour.BASE_GREY
-					:Colour.TEXT_GREY_DARK;
+					?Color.BASE_GREY
+					:Color.TEXT_GREY_DARK;
 	}
 	
-	private Colour getPerkLineSiblingColour(GameCharacter character, TreeEntry<PerkCategory, Perk> entry) {
+	private Color getPerkLineSiblingColor(GameCharacter character, TreeEntry<PerkCategory, Perk> entry) {
 		boolean siblingOwned = false;
 		boolean siblingAvailable = false;
 		for(TreeEntry<PerkCategory, Perk> sibling : entry.getSiblingLinks()) {
@@ -714,10 +714,10 @@ public enum PerkManager {
 		}
 		
 		return isPerkOwned(character, entry) && siblingOwned
-				?entry.getEntry().getPerkCategory().getColour()
+				?entry.getEntry().getPerkCategory().getColor()
 				:siblingAvailable
-					?Colour.BASE_GREY
-					:Colour.TEXT_GREY_DARK;
+					?Color.BASE_GREY
+					:Color.TEXT_GREY_DARK;
 	}
 	
 	public int getPerkRow(GameCharacter character, Perk perk) {

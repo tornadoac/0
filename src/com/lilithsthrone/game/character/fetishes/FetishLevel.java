@@ -3,7 +3,7 @@ package com.lilithsthrone.game.character.fetishes;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -14,15 +14,15 @@ import com.lilithsthrone.utils.Util;
  */
 public enum FetishLevel {
 	
-	ZERO_NO_EXPERIENCE("inexperienced", "I", "", "overlay1", 0, 0, 10, Colour.DESIRE_STAGE_ZERO),
+	ZERO_NO_EXPERIENCE("inexperienced", "I", "", "overlay1", 0, 0, 10, Color.DESIRE_STAGE_ZERO),
 	
-	ONE_AMATEUR("amateur", "II", "", "overlay2", 0.5f, 10, 50, Colour.DESIRE_STAGE_ONE),
+	ONE_AMATEUR("amateur", "II", "", "overlay2", 0.5f, 10, 50, Color.DESIRE_STAGE_ONE),
 	
-	TWO_EXPERIENCED("experienced", "III", "", "overlay3", 1f, 50, 100, Colour.DESIRE_STAGE_TWO),
+	TWO_EXPERIENCED("experienced", "III", "", "overlay3", 1f, 50, 100, Color.DESIRE_STAGE_TWO),
 	
-	THREE_EXPERT("expert", "IV", "", "overlay4", 2f, 100, 200, Colour.DESIRE_STAGE_THREE),
+	THREE_EXPERT("expert", "IV", "", "overlay4", 2f, 100, 200, Color.DESIRE_STAGE_THREE),
 	
-	FOUR_MASTERFUL("masterful", "V", "", "overlay5", 2.5f, 200, 200, Colour.DESIRE_STAGE_FOUR);
+	FOUR_MASTERFUL("masterful", "V", "", "overlay5", 2.5f, 200, 200, Color.DESIRE_STAGE_FOUR);
 	
 	private String name;
 	private String numeral;
@@ -31,16 +31,16 @@ public enum FetishLevel {
 	private float bonusArousalIncrease;
 	private int minimumExperience;
 	private int maximumExperience;
-	private Colour colour;
+	private Color color;
 	
-	private FetishLevel(String name, String numeral, String description, String pathName, float bonusArousalIncrease, int minimumExperience, int maximumExperience, Colour colour) {
+	private FetishLevel(String name, String numeral, String description, String pathName, float bonusArousalIncrease, int minimumExperience, int maximumExperience, Color color) {
 		this.name = name;
 		this.numeral = numeral;
 		this.description = description;
 		this.bonusArousalIncrease = bonusArousalIncrease;
 		this.minimumExperience = minimumExperience;
 		this.maximumExperience = maximumExperience;
-		this.colour = colour;
+		this.color = color;
 		
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/fetishes/" + pathName + ".svg");
@@ -49,7 +49,7 @@ public enum FetishLevel {
 			}
 			SVGImageOverlay = Util.inputStreamToString(is);
 			
-			SVGImageOverlay = SvgUtil.colourReplacement(this.toString(), Colour.BASE_PINK, SVGImageOverlay);
+			SVGImageOverlay = SvgUtil.colorReplacement(this.toString(), Color.BASE_PINK, SVGImageOverlay);
 
 			is.close();
 
@@ -90,8 +90,8 @@ public enum FetishLevel {
 		return maximumExperience;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public static FetishLevel getFetishLevelFromValue(int value){

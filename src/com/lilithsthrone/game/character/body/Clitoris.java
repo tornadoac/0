@@ -72,7 +72,7 @@ public class Clitoris implements BodyPartInterface {
 	
 	public String setClitorisSize(GameCharacter owner, int clitSize) {
 		if(!owner.hasVagina()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		int oldSize = this.clitSize;
@@ -81,9 +81,9 @@ public class Clitoris implements BodyPartInterface {
 		
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The size of your clit doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The size of your clit doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The size of [npc.namePos] clit doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] clit doesn't change...)]</p>");
 			}
 		} else if (sizeChange > 0) {
 			if (owner.isPlayer()) {
@@ -139,7 +139,7 @@ public class Clitoris implements BodyPartInterface {
 		}
 		
 		if(!owner.hasVagina()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		int girthChange = 0;
@@ -162,7 +162,7 @@ public class Clitoris implements BodyPartInterface {
 		}
 		
 		if(girthChange == 0) {
-			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The girth of [npc.namePos] [npc.clit] doesn't change...)]</p>");
+			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The girth of [npc.namePos] [npc.clit] doesn't change...)]</p>");
 		}
 		
 		if (girthChange > 0) {
@@ -193,14 +193,14 @@ public class Clitoris implements BodyPartInterface {
 
 	public String addClitorisModifier(GameCharacter owner, PenetrationModifier modifier) {
 		if(hasClitorisModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		if(!owner.hasVagina()) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You don't have a clitoris, so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You don't have a clitoris, so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] doesn't have a clitoris, so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] doesn't have a clitoris, so nothing happens...)]</p>");
 			}
 		}
 		
@@ -332,12 +332,12 @@ public class Clitoris implements BodyPartInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	public String removeClitorisModifier(GameCharacter owner, PenetrationModifier modifier) {
 		if(!hasClitorisModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		clitModifiers.remove(modifier);
@@ -470,7 +470,7 @@ public class Clitoris implements BodyPartInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	@Override

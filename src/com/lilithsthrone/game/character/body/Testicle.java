@@ -10,7 +10,7 @@ import com.lilithsthrone.game.character.body.valueEnums.FluidRegeneration;
 import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -102,7 +102,7 @@ public class Testicle implements BodyPartInterface {
 
 	public String setTesticleSize(GameCharacter owner, int testicleSize) {
 		if(owner!=null && !owner.hasPenisIgnoreDildo()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		int oldSize = this.testicleSize;
@@ -115,9 +115,9 @@ public class Testicle implements BodyPartInterface {
 		
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The size of your [pc.balls] doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The size of your [pc.balls] doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The size of [npc.namePos] [npc.balls] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.balls] doesn't change...)]</p>");
 			}
 			
 		} else if (sizeChange > 0) {
@@ -151,7 +151,7 @@ public class Testicle implements BodyPartInterface {
 		testicleCount = Math.max(MIN_TESTICLE_COUNT, Math.min(testicleCount, MAX_TESTICLE_COUNT));
 		
 		if(owner.getTesticleCount() == testicleCount || !owner.hasPenisIgnoreDildo()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		boolean removingTesticles = this.testicleCount > testicleCount;
@@ -201,7 +201,7 @@ public class Testicle implements BodyPartInterface {
 		}
 		
 		if(owner.isInternalTesticles() == internal || !owner.hasPenisIgnoreDildo()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 
 		this.internal = internal;
@@ -263,9 +263,9 @@ public class Testicle implements BodyPartInterface {
 		
 		if (cumChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The amount of [pc.cum] that you're able to produce doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The amount of [pc.cum] that you're able to produce doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The amount of [npc.cum] that [npc.name] is able to produce doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The amount of [npc.cum] that [npc.name] is able to produce doesn't change...)]</p>");
 			}
 		}
 		
@@ -283,7 +283,7 @@ public class Testicle implements BodyPartInterface {
 			return UtilText.parse(owner,
 					"<p>"
 						+ "[npc.Name] [npc.verb(feel)] a strange sucking sensation taking place deep within [npc.her] [npc.balls],"
-							+ " and [npc.she] can't help but let out a shocked gasp as [npc.she] [npc.verb(realise)] that [npc.sheIs] feeling [npc.her] [npc.cum] production [style.boldShrink(drying up)].<br/>"
+							+ " and [npc.she] can't help but let out a shocked gasp as [npc.she] [npc.verb(realize)] that [npc.sheIs] feeling [npc.her] [npc.cum] production [style.boldShrink(drying up)].<br/>"
 						+ "[npc.SheIsFull] now able to produce [style.boldSex(" + cumDescriptor + " [npc.cum])]!"
 					+ "</p>");
 		}
@@ -314,7 +314,7 @@ public class Testicle implements BodyPartInterface {
 		if (cumChange <= 0) {
 			return "";
 		} else {
-			return UtilText.parse(owner, "<p style='text-align:center;'><i style='color:"+Colour.CUM.toWebHexString()+";'>"
+			return UtilText.parse(owner, "<p style='text-align:center;'><i style='color:"+Color.CUM.toWebHexString()+";'>"
 					+ UtilText.returnStringAtRandom(
 							cumChange+"ml of [npc.cum+] squirts out of [npc.her] [npc.cock+].",
 							cumChange+"ml of [npc.cum+] shoots out of [npc.her] [npc.cock+].",
@@ -351,9 +351,9 @@ public class Testicle implements BodyPartInterface {
 		
 		if (regenerationChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your rate of [pc.cum] regeneration doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your rate of [pc.cum] regeneration doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.namePos] rate of [npc.cum] regeneration doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.namePos] rate of [npc.cum] regeneration doesn't change...)]</p>");
 			}
 		}
 		
@@ -371,7 +371,7 @@ public class Testicle implements BodyPartInterface {
 			return UtilText.parse(owner,
 					"<p>"
 						+ "[npc.Name] [npc.verb(feel)] strange sucking sensation taking place deep within [npc.her] [npc.balls],"
-							+ " and [npc.she] can't help but let out a shocked gasp as [npc.she] [npc.verb(realise)] that [npc.sheIs] feeling [npc.her] [npc.cum] regeneration [style.boldShrink(decreasing)].<br/>"
+							+ " and [npc.she] can't help but let out a shocked gasp as [npc.she] [npc.verb(realize)] that [npc.sheIs] feeling [npc.her] [npc.cum] regeneration [style.boldShrink(decreasing)].<br/>"
 						+ "[npc.Her] rate of [npc.cum] regeneration is now [style.boldSex(" + regenerationDescriptor + ")]!"
 					+ "</p>");
 		}
@@ -398,9 +398,9 @@ public class Testicle implements BodyPartInterface {
 		
 		if (expulsionChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your rate of [pc.cum] expulsion doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your rate of [pc.cum] expulsion doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.namePos] rate of [npc.cum] expulsion doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.namePos] rate of [npc.cum] expulsion doesn't change...)]</p>");
 			}
 		}
 		

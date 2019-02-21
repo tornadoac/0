@@ -16,7 +16,7 @@ import com.lilithsthrone.game.combat.Spell;
 import com.lilithsthrone.game.combat.SpellSchool;
 import com.lilithsthrone.game.combat.SpellUpgrade;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -35,7 +35,7 @@ public enum Perk {
 			"Misc",
 			PerkCategory.JOB,
 			"perks/jobs/prostitute",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			Util.newHashMapOfValues(),
 			null) {
 		@Override
@@ -49,7 +49,7 @@ public enum Perk {
 			"A life of servitude",
 			PerkCategory.JOB,
 			"perks/jobs/slave",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 10),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 10)),
@@ -65,7 +65,7 @@ public enum Perk {
 			"The oldest profession",
 			PerkCategory.JOB,
 			"perks/jobs/prostitute",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 25),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 25)),
@@ -81,7 +81,7 @@ public enum Perk {
 			"Outlaw",
 			PerkCategory.JOB,
 			"perks/jobs/mugger",
-			Colour.BASE_CRIMSON,
+			Color.BASE_CRIMSON,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 15),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 15)),
@@ -99,7 +99,7 @@ public enum Perk {
 			"NEET",
 			PerkCategory.JOB,
 			"perks/jobs/unemployed",
-			Colour.BASE_RED,
+			Color.BASE_RED,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 2),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 5),
@@ -118,7 +118,7 @@ public enum Perk {
 			"The Salaryman",
 			PerkCategory.JOB,
 			"perks/jobs/officeWorker",
-			Colour.BASE_BROWN,
+			Color.BASE_BROWN,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.CRITICAL_DAMAGE, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(+25%)] all slave income")) {
@@ -142,7 +142,7 @@ public enum Perk {
 			"Student Discount",
 			PerkCategory.JOB,
 			"perks/jobs/student",
-			Colour.BASE_YELLOW,
+			Color.BASE_YELLOW,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 10)),
 			Util.newArrayListOfValues("[style.boldExcellent(25%)] discount in all stores")) {
@@ -158,7 +158,7 @@ public enum Perk {
 			"Arcane Composition",
 			PerkCategory.JOB,
 			"perks/jobs/musician",
-			Colour.BASE_GREY,
+			Color.BASE_GREY,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 25)),
 			Util.newArrayListOfValues("[style.boldExcellent(Double)] length of all spell effects")) {
@@ -174,7 +174,7 @@ public enum Perk {
 			"In Control",
 			PerkCategory.JOB,
 			"perks/jobs/teacher",
-			Colour.BASE_BLUE_LIGHT,
+			Color.BASE_BLUE_LIGHT,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.SPELL_COST_MODIFIER, 10)),
 			Util.newArrayListOfValues("[style.boldExcellent(Triple)] all slave obedience gains")) {
@@ -190,7 +190,7 @@ public enum Perk {
 			"Meditations",
 			PerkCategory.JOB,
 			"perks/jobs/writer",
-			Colour.BASE_PURPLE,
+			Color.BASE_PURPLE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 25)),
 			Util.newArrayListOfValues("[style.boldExcellent(+25%)] to all experience gains")) {
@@ -206,7 +206,7 @@ public enum Perk {
 			"Fine Taste",
 			PerkCategory.JOB,
 			"perks/jobs/chef",
-			Colour.BASE_ORANGE,
+			Color.BASE_ORANGE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Double)] all potions effects' strength and length")) {
@@ -221,7 +221,7 @@ public enum Perk {
 			"Controlled Aggression",
 			PerkCategory.JOB,
 			"perks/jobs/soldier",
-			Colour.BASE_GREEN,
+			Color.BASE_GREEN,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5),
 					new Value<Attribute, Integer>(Attribute.HEALTH_MAXIMUM, 20),
@@ -240,7 +240,7 @@ public enum Perk {
 			"Ten-Second Barrier",
 			PerkCategory.JOB,
 			"perks/jobs/athlete",
-			Colour.BASE_TEAL,
+			Color.BASE_TEAL,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 10)),
 			Util.newArrayListOfValues("All non-zero escape chances in combat are boosted to [style.boldExcellent(100%)]")) {
@@ -255,7 +255,7 @@ public enum Perk {
 			"Housekeeper",
 			PerkCategory.JOB,
 			"perks/jobs/maid",
-			Colour.BASE_PINK_LIGHT,
+			Color.BASE_PINK_LIGHT,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 5),
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5)),
@@ -274,7 +274,7 @@ public enum Perk {
 			"Legacy of Jeeves",
 			PerkCategory.JOB,
 			"perks/jobs/butler",
-			Colour.BASE_BLUE_STEEL,
+			Color.BASE_BLUE_STEEL,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 25),
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5)),
@@ -295,7 +295,7 @@ public enum Perk {
 			"natural fitness",
 			PerkCategory.PHYSICAL,
 			"perks/attStrength5",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5)),
 			null) {
 
@@ -310,7 +310,7 @@ public enum Perk {
 			"physically fit I",
 			PerkCategory.PHYSICAL,
 			"perks/attStrength1",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 1)),
 			null) {
 
@@ -325,7 +325,7 @@ public enum Perk {
 			"physically fit III",
 			PerkCategory.PHYSICAL,
 			"perks/attStrength3",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 3)),
 			null) {
 
@@ -340,7 +340,7 @@ public enum Perk {
 			"physically fit V",
 			PerkCategory.PHYSICAL,
 			"perks/attStrength5",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5)),
 			null) {
 
@@ -355,7 +355,7 @@ public enum Perk {
 			"striker V",
 			PerkCategory.PHYSICAL,
 			"UIElements/swordIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 5)),
 			null) {
 
@@ -370,7 +370,7 @@ public enum Perk {
 			"defender V",
 			PerkCategory.PHYSICAL,
 			"UIElements/shieldIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 5)),
 			null) {
 
@@ -385,7 +385,7 @@ public enum Perk {
 			"spell power V",
 			PerkCategory.ARCANE,
 			"perks/arcane_power_3",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 5)), null) {
 
 		@Override
@@ -399,7 +399,7 @@ public enum Perk {
 			"spell efficiency V",
 			PerkCategory.ARCANE,
 			"perks/arcane_power_3",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.SPELL_COST_MODIFIER, 5)), null) {
 
 		@Override
@@ -413,7 +413,7 @@ public enum Perk {
 			"aura reserves X",
 			PerkCategory.ARCANE,
 			"UIElements/shieldIcon",
-			Colour.ATTRIBUTE_MANA,
+			Color.ATTRIBUTE_MANA,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 10)),
 			null) {
 
@@ -428,7 +428,7 @@ public enum Perk {
 			"energy reserves X",
 			PerkCategory.ARCANE,
 			"UIElements/shieldIcon",
-			Colour.ATTRIBUTE_HEALTH,
+			Color.ATTRIBUTE_HEALTH,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.HEALTH_MAXIMUM, 10)),
 			null) {
 
@@ -443,7 +443,7 @@ public enum Perk {
 			"elementalist V",
 			PerkCategory.BOTH,
 			"perks/elementalist5",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 5),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 5),
@@ -461,7 +461,7 @@ public enum Perk {
 			"natural arcane power",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence5",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 40)),
 			null) {
 
@@ -476,7 +476,7 @@ public enum Perk {
 			"natural arcane power",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence1",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 1)),
 			null) {
 
@@ -491,7 +491,7 @@ public enum Perk {
 			"arcane affinity I",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence1",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 1)),
 			null) {
 
@@ -506,7 +506,7 @@ public enum Perk {
 			"arcane affinity III",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence3",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 3)),
 			null) {
 
@@ -521,7 +521,7 @@ public enum Perk {
 			"arcane affinity V",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence5",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 5)),
 			null) {
 
@@ -536,7 +536,7 @@ public enum Perk {
 			"seductive I",
 			PerkCategory.ARCANE,
 			"perks/attSeduction1",
-			Colour.BASE_PINK_LIGHT,
+			Color.BASE_PINK_LIGHT,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 1)), null) {
 
 		@Override
@@ -553,7 +553,7 @@ public enum Perk {
 			"seductive III",
 			PerkCategory.ARCANE,
 			"perks/attSeduction3",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 3)), null) {
 
 		@Override
@@ -570,7 +570,7 @@ public enum Perk {
 			"seductive V",
 			PerkCategory.ARCANE,
 			"perks/attSeduction5",
-			Colour.BASE_PINK_DEEP,
+			Color.BASE_PINK_DEEP,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 5)), null) {
 
 		@Override
@@ -587,7 +587,7 @@ public enum Perk {
 			"seductive V",
 			PerkCategory.ARCANE,
 			"perks/attSeduction5",
-			Colour.BASE_PINK_DEEP,
+			Color.BASE_PINK_DEEP,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 5)), null) {
 
 		@Override
@@ -604,7 +604,7 @@ public enum Perk {
 			"arcane combatant",
 			PerkCategory.ARCANE,
 			"perks/physical_brawler",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 15),
 					new Value<Attribute, Integer>(Attribute.SPELL_COST_MODIFIER, 15)), null) {
 
@@ -619,7 +619,7 @@ public enum Perk {
 			"resilient aura",
 			PerkCategory.ARCANE,
 			"perks/fitness_runner",
-			Colour.ATTRIBUTE_MANA,
+			Color.ATTRIBUTE_MANA,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 25)),
 			null) {
 
@@ -634,7 +634,7 @@ public enum Perk {
 			"indomitable aura",
 			PerkCategory.ARCANE,
 			"perks/fitness_runner_2",
-			Colour.ATTRIBUTE_MANA,
+			Color.ATTRIBUTE_MANA,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			null) {
 
@@ -649,7 +649,7 @@ public enum Perk {
 			"brawler",
 			PerkCategory.PHYSICAL,
 			"perks/physical_brawler",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_UNARMED, 15),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 15),
@@ -667,10 +667,10 @@ public enum Perk {
 			"observant",
 			PerkCategory.PHYSICAL,
 			"perks/misc_observant",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.CRITICAL_CHANCE, 5)),
 			Util.newArrayListOfValues(
-					"<span style='color:"+ Colour.GENERIC_SEX.toWebHexString()+ ";'>Gender detection</span>")) {
+					"<span style='color:"+ Color.GENERIC_SEX.toWebHexString()+ ";'>Gender detection</span>")) {
 		@Override
 		public String applyPerkGained(GameCharacter character) {
 			return UtilText.parsePlayerThought("");
@@ -699,9 +699,9 @@ public enum Perk {
 			"arcane precision",
 			PerkCategory.PHYSICAL,
 			"perks/physical_accurate",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.CRITICAL_CHANCE, 5)),
-			Util.newArrayListOfValues("<span style='color:"+ Colour.GENERIC_COMBAT.toWebHexString()+ ";'>Critical</span> spells apply <b style='color:"+Colour.ATTRIBUTE_LUST.toWebHexString()+";'>Arcane weakness</b>")) {
+			Util.newArrayListOfValues("<span style='color:"+ Color.GENERIC_COMBAT.toWebHexString()+ ";'>Critical</span> spells apply <b style='color:"+Color.ATTRIBUTE_LUST.toWebHexString()+";'>Arcane weakness</b>")) {
 		@Override
 		public String applyPerkGained(GameCharacter character) {
 			return UtilText.parsePlayerThought("");
@@ -725,9 +725,9 @@ public enum Perk {
 //			"arcane telepathy",
 //			PerkCategory.ARCANE,
 //			"perks/misc_observant",
-//			Colour.GENERIC_ARCANE,
+//			Color.GENERIC_ARCANE,
 //			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 5)),
-//			Util.newArrayListOfValues("<span style='color:"+ Colour.GENERIC_SEX.toWebHexString()+ ";'>Telepathic seduction</span>")) {
+//			Util.newArrayListOfValues("<span style='color:"+ Color.GENERIC_SEX.toWebHexString()+ ";'>Telepathic seduction</span>")) {
 //		@Override
 //		public String applyPerkGained(GameCharacter character) {
 //			return UtilText.parsePlayerThought("");
@@ -753,7 +753,7 @@ public enum Perk {
 //			"arcane power",
 //			PerkCategory.ARCANE,
 //			"perks/arcane_power_1",
-//			Colour.ATTRIBUTE_ARCANE,
+//			Color.ATTRIBUTE_ARCANE,
 //			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 5)), null) {
 //
 //		@Override
@@ -769,7 +769,7 @@ public enum Perk {
 //			"arcane conduit",
 //			PerkCategory.ARCANE,
 //			"perks/arcane_power_2",
-//			Colour.ATTRIBUTE_ARCANE,
+//			Color.ATTRIBUTE_ARCANE,
 //			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 10)), null) {
 //
 //		@Override
@@ -785,7 +785,7 @@ public enum Perk {
 //			"arcane mastery",
 //			PerkCategory.ARCANE,
 //			"perks/arcane_power_3",
-//			Colour.ATTRIBUTE_ARCANE,
+//			Color.ATTRIBUTE_ARCANE,
 //			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 15)), null) {
 //
 //		@Override
@@ -802,7 +802,7 @@ public enum Perk {
 			"firebrand",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence3",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 5)), null) {
 
 		@Override
@@ -818,7 +818,7 @@ public enum Perk {
 			"incendiary",
 			PerkCategory.ARCANE,
 			"perks/arcane_fire_1",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 10), new Value<Attribute, Integer>(Attribute.RESISTANCE_FIRE, 10)), null) {
 
 		@Override
@@ -834,7 +834,7 @@ public enum Perk {
 			"frosty",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence3",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 5)), null) {
 
 		@Override
@@ -850,7 +850,7 @@ public enum Perk {
 			"ice cold",
 			PerkCategory.ARCANE,
 			"perks/arcane_ice_1",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 10), new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 10)), null) {
 
 		@Override
@@ -866,7 +866,7 @@ public enum Perk {
 			"venomous",
 			PerkCategory.ARCANE,
 			"perks/attIntelligence3",
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 5)), null) {
 
 		@Override
@@ -882,7 +882,7 @@ public enum Perk {
 			"toxic",
 			PerkCategory.ARCANE,
 			"perks/arcane_poison_1",
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 10), new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 10)), null) {
 
 		@Override
@@ -900,9 +900,9 @@ public enum Perk {
 			"runner",
 			PerkCategory.PHYSICAL,
 			"perks/fitness_runner",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 3)),
-			Util.newArrayListOfValues("<span style='color:"+ Colour.ATTRIBUTE_PHYSIQUE.toWebHexString()+ ";'>Improved escape chance</span>")) {
+			Util.newArrayListOfValues("<span style='color:"+ Color.ATTRIBUTE_PHYSIQUE.toWebHexString()+ ";'>Improved escape chance</span>")) {
 
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -917,9 +917,9 @@ public enum Perk {
 			"cardio champion",
 			PerkCategory.PHYSICAL,
 			"perks/fitness_runner_2",
-			Colour.ATTRIBUTE_PHYSIQUE,
+			Color.ATTRIBUTE_PHYSIQUE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5)),
-			Util.newArrayListOfValues("<span style='color:"+ Colour.ATTRIBUTE_PHYSIQUE.toWebHexString()+ ";'>Improved escape chance</span>")) {
+			Util.newArrayListOfValues("<span style='color:"+ Color.ATTRIBUTE_PHYSIQUE.toWebHexString()+ ";'>Improved escape chance</span>")) {
 		@Override
 		public String getName(GameCharacter character) {
 			if (character.isFeminine())
@@ -941,9 +941,9 @@ public enum Perk {
 			"ladykiller",
 			PerkCategory.ARCANE,
 			"perks/fitness_female_attraction",
-			Colour.FEMININE,
-			null, Util.newArrayListOfValues("+10% <span style='color:" + Attribute.DAMAGE_LUST.getColour().toWebHexString() + ";'>lust damage</span>"
-					+ " vs <span style='color:" + Colour.FEMININE.toWebHexString()+ ";'>feminine opponents</span>")) {
+			Color.FEMININE,
+			null, Util.newArrayListOfValues("+10% <span style='color:" + Attribute.DAMAGE_LUST.getColor().toWebHexString() + ";'>lust damage</span>"
+					+ " vs <span style='color:" + Color.FEMININE.toWebHexString()+ ";'>feminine opponents</span>")) {
 		@Override
 		public String applyPerkGained(GameCharacter character) {
 			return UtilText.parsePlayerThought("");
@@ -968,9 +968,9 @@ public enum Perk {
 			"minx",
 			PerkCategory.ARCANE,
 			"perks/fitness_male_attraction",
-			Colour.MASCULINE,
-			null, Util.newArrayListOfValues("+10% <span style='color:" + Attribute.DAMAGE_LUST.getColour().toWebHexString() + ";'>lust damage</span>"
-					+ " vs <span style='color:" + Colour.MASCULINE.toWebHexString()+ ";'>masculine opponents</span>")) {
+			Color.MASCULINE,
+			null, Util.newArrayListOfValues("+10% <span style='color:" + Attribute.DAMAGE_LUST.getColor().toWebHexString() + ";'>lust damage</span>"
+					+ " vs <span style='color:" + Color.MASCULINE.toWebHexString()+ ";'>masculine opponents</span>")) {
 		@Override
 		public String applyPerkGained(GameCharacter character) {
 			return UtilText.parsePlayerThought("");
@@ -996,10 +996,10 @@ public enum Perk {
 			"nymphomaniac",
 			PerkCategory.ARCANE,
 			"perks/fitness_nymphomaniac",
-			Colour.GENERIC_SEX,
+			Color.GENERIC_SEX,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, -25)),
-			Util.newArrayListOfValues("Doubles <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString()+ ";'>arcane essence gain</span> from each orgasm")) {
+			Util.newArrayListOfValues("Doubles <span style='color:" + Color.GENERIC_ARCANE.toWebHexString()+ ";'>arcane essence gain</span> from each orgasm")) {
 
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -1015,9 +1015,9 @@ public enum Perk {
 			"arcane weaver",
 			PerkCategory.ARCANE,
 			"perks/arcaneWeaver",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 1)),
-			Util.newArrayListOfValues("<span style='color:"+ Colour.GENERIC_GOOD.toWebHexString()+ ";'>Halves cost of all clothing enchantments</span>")) {
+			Util.newArrayListOfValues("<span style='color:"+ Color.GENERIC_GOOD.toWebHexString()+ ";'>Halves cost of all clothing enchantments</span>")) {
 
 		@Override
 		public boolean isAlwaysAvailable() {
@@ -1039,7 +1039,7 @@ public enum Perk {
 			"barren",
 			PerkCategory.PHYSICAL,
 			"perks/barren",
-			Colour.GENERIC_SEX,
+			Color.GENERIC_SEX,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.FERTILITY, -100)), null) {
 
 		@Override
@@ -1062,7 +1062,7 @@ public enum Perk {
 			"firing blanks",
 			PerkCategory.PHYSICAL,
 			"perks/firing_blanks",
-			Colour.GENERIC_SEX,
+			Color.GENERIC_SEX,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.VIRILITY, -100)), null) {
 
 		@Override
@@ -1085,9 +1085,9 @@ public enum Perk {
 			"broodmother",
 			PerkCategory.PHYSICAL,
 			"fetishes/fetish_broodmother",
-			Colour.GENERIC_SEX,
+			Color.GENERIC_SEX,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.FERTILITY, 10)),
-			Util.newArrayListOfValues("2x <span style='color:"+ Colour.GENERIC_SEX.toWebHexString()+ ";'>Maximum offspring in mothered litters</span>")) {
+			Util.newArrayListOfValues("2x <span style='color:"+ Color.GENERIC_SEX.toWebHexString()+ ";'>Maximum offspring in mothered litters</span>")) {
 
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -1116,9 +1116,9 @@ public enum Perk {
 			"seeder",
 			PerkCategory.PHYSICAL,
 			"fetishes/fetish_seeder",
-			Colour.GENERIC_SEX,
+			Color.GENERIC_SEX,
 			Util.newHashMapOfValues(new Value<Attribute, Integer>(Attribute.VIRILITY, 10)),
-			Util.newArrayListOfValues("2x <span style='color:"+ Colour.GENERIC_SEX.toWebHexString()+ ";'>Maximum offspring in fathered litters</span>")) {
+			Util.newArrayListOfValues("2x <span style='color:"+ Color.GENERIC_SEX.toWebHexString()+ ";'>Maximum offspring in fathered litters</span>")) {
 
 		@Override
 		public boolean isAlwaysAvailable() {
@@ -1145,11 +1145,11 @@ public enum Perk {
 			"chuuni",
 			PerkCategory.ARCANE,
 			"perks/misc_chuuni",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 20),
 					new Value<Attribute, Integer>(Attribute.SPELL_COST_MODIFIER, 20)),
-			Util.newArrayListOfValues("<span style='color:"+ Colour.GENERIC_BAD.toWebHexString()+ ";'>Embarrassing spell dialogue</span>")) {
+			Util.newArrayListOfValues("<span style='color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Embarrassing spell dialogue</span>")) {
 
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -1166,7 +1166,7 @@ public enum Perk {
 			"Lirecea's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin1",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Unlocks)] [style.boldLightBlue(aquatic transformations)] if a [style.boldDemon(demon)]")) {
@@ -1191,7 +1191,7 @@ public enum Perk {
 			"Lovienne's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin2",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Unlocks)] [style.boldHuman(human transformations)] if a [style.boldDemon(demon)]")) { //TODO
@@ -1216,7 +1216,7 @@ public enum Perk {
 			"Lasielle's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin3",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Unlocks)] [style.boldHuman(human transformations)] if a [style.boldDemon(demon)]")) { //TODO
@@ -1241,7 +1241,7 @@ public enum Perk {
 			"Lyssieth's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin4",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues(
@@ -1268,7 +1268,7 @@ public enum Perk {
 			"Lunette's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin5",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Unlocks)] [style.boldHuman(human transformations)] if a [style.boldDemon(demon)]")) { //TODO
@@ -1293,7 +1293,7 @@ public enum Perk {
 			"Lyxias's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin6",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Unlocks)] [style.boldHuman(human transformations)] if a [style.boldDemon(demon)]")) { //TODO
@@ -1318,7 +1318,7 @@ public enum Perk {
 			"Lisophia's Power",
 			PerkCategory.ARCANE,
 			"perks/lilin7",
-			Colour.ATTRIBUTE_ARCANE,
+			Color.ATTRIBUTE_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MANA_MAXIMUM, 50)),
 			Util.newArrayListOfValues("[style.boldExcellent(Unlocks)] [style.boldHuman(human transformations)] if a [style.boldDemon(demon)]")) { //TODO
@@ -1345,7 +1345,7 @@ public enum Perk {
 			"Bound to Earth",
 			PerkCategory.JOB,
 			"combat/spell/elemental_earth",
-			Colour.SPELL_SCHOOL_EARTH,
+			Color.SPELL_SCHOOL_EARTH,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 50),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 50),
@@ -1363,7 +1363,7 @@ public enum Perk {
 			"Bound to Fire",
 			PerkCategory.JOB,
 			"combat/spell/elemental_fire",
-			Colour.SPELL_SCHOOL_FIRE,
+			Color.SPELL_SCHOOL_FIRE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 10),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 50),
@@ -1381,7 +1381,7 @@ public enum Perk {
 			"Bound to Water",
 			PerkCategory.JOB,
 			"combat/spell/elemental_water",
-			Colour.SPELL_SCHOOL_WATER,
+			Color.SPELL_SCHOOL_WATER,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 20),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 50),
@@ -1399,7 +1399,7 @@ public enum Perk {
 			"Bound to Air",
 			PerkCategory.JOB,
 			"combat/spell/elemental_air",
-			Colour.SPELL_SCHOOL_AIR,
+			Color.SPELL_SCHOOL_AIR,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 50),
@@ -1417,7 +1417,7 @@ public enum Perk {
 			"Bound to Arcane",
 			PerkCategory.JOB,
 			"combat/spell/elemental_arcane",
-			Colour.SPELL_SCHOOL_AIR,
+			Color.SPELL_SCHOOL_AIR,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_PHYSIQUE, 5),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 50),
@@ -1437,7 +1437,7 @@ public enum Perk {
 			"elemental",
 			PerkCategory.BOTH,
 			"perks/elemental/core",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_ARCANE, 50),
 					new Value<Attribute, Integer>(Attribute.DAMAGE_SPELLS, 25),
@@ -1455,7 +1455,7 @@ public enum Perk {
 			"elemental",
 			PerkCategory.BOTH,
 			"perks/elemental/coreCorruption",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.MAJOR_CORRUPTION, 100)
 					), null) {
@@ -1474,7 +1474,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FIREBALL,
@@ -1488,8 +1488,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -1508,7 +1508,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FIREBALL,
@@ -1522,8 +1522,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1542,7 +1542,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FIREBALL,
@@ -1556,8 +1556,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1576,7 +1576,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FIREBALL,
@@ -1590,8 +1590,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1610,7 +1610,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FLASH,
@@ -1624,8 +1624,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -1644,7 +1644,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FLASH,
@@ -1658,8 +1658,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1678,7 +1678,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FLASH,
@@ -1692,8 +1692,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1712,7 +1712,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.FLASH,
@@ -1726,8 +1726,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1746,7 +1746,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.CLOAK_OF_FLAMES,
@@ -1760,8 +1760,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -1780,7 +1780,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.CLOAK_OF_FLAMES,
@@ -1794,8 +1794,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1814,7 +1814,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.CLOAK_OF_FLAMES,
@@ -1828,8 +1828,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1848,7 +1848,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_FIRE,
 			null,
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.CLOAK_OF_FLAMES,
@@ -1862,8 +1862,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -1882,7 +1882,7 @@ public enum Perk {
 			"ignition",
 			PerkCategory.ARCANE_FIRE,
 			"perks/elemental/fire1",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 1),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_FIRE, 1)),
@@ -1899,7 +1899,7 @@ public enum Perk {
 			"ablaze",
 			PerkCategory.ARCANE_FIRE,
 			"perks/elemental/fire2",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 3),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_FIRE, 3)),
@@ -1917,7 +1917,7 @@ public enum Perk {
 			"conflagration",
 			PerkCategory.ARCANE_FIRE,
 			"perks/elemental/fire3",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 6),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_FIRE, 6)),
@@ -1934,7 +1934,7 @@ public enum Perk {
 			"incineration",
 			PerkCategory.ARCANE_FIRE,
 			"perks/elemental/fire4",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_FIRE, 20),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_FIRE, 20),
@@ -1954,7 +1954,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SLAM,
@@ -1968,8 +1968,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -1988,7 +1988,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SLAM,
@@ -2002,8 +2002,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2022,7 +2022,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SLAM,
@@ -2036,8 +2036,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2056,7 +2056,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SLAM,
@@ -2070,8 +2070,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2090,7 +2090,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEKENETIC_SHOWER,
@@ -2104,8 +2104,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -2124,7 +2124,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEKENETIC_SHOWER,
@@ -2138,8 +2138,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2158,7 +2158,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEKENETIC_SHOWER,
@@ -2172,8 +2172,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2192,7 +2192,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEKENETIC_SHOWER,
@@ -2206,8 +2206,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2226,7 +2226,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.STONE_SHELL,
@@ -2240,8 +2240,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -2260,7 +2260,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.STONE_SHELL,
@@ -2274,8 +2274,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2294,7 +2294,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.STONE_SHELL,
@@ -2308,8 +2308,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2328,7 +2328,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_EARTH,
 			null,
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.STONE_SHELL,
@@ -2342,8 +2342,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2362,7 +2362,7 @@ public enum Perk {
 			"impact",
 			PerkCategory.PHYSICAL_EARTH,
 			"perks/elemental/earth1",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 1),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 1)),
@@ -2379,7 +2379,7 @@ public enum Perk {
 			"building pressure",
 			PerkCategory.PHYSICAL_EARTH,
 			"perks/elemental/earth2",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 3),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 3)),
@@ -2397,7 +2397,7 @@ public enum Perk {
 			"seismic activity",
 			PerkCategory.PHYSICAL_EARTH,
 			"perks/elemental/earth3",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 6),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 6)),
@@ -2411,10 +2411,10 @@ public enum Perk {
 	
 	ELEMENTAL_EARTH_BOOST_ULTIMATE(20,
 			false,
-			"epicentre",
+			"epicenter",
 			PerkCategory.PHYSICAL_EARTH,
 			"perks/elemental/earth4",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_PHYSICAL, 20),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 20),
@@ -2434,7 +2434,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ICE_SHARD,
@@ -2448,8 +2448,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -2468,7 +2468,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ICE_SHARD,
@@ -2482,8 +2482,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2502,7 +2502,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ICE_SHARD,
@@ -2516,8 +2516,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2536,7 +2536,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ICE_SHARD,
@@ -2550,8 +2550,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2570,7 +2570,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.RAIN_CLOUD,
@@ -2584,8 +2584,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -2604,7 +2604,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.RAIN_CLOUD,
@@ -2618,8 +2618,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2638,7 +2638,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.RAIN_CLOUD,
@@ -2652,8 +2652,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2672,7 +2672,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.RAIN_CLOUD,
@@ -2686,8 +2686,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2706,7 +2706,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SOOTHING_WATERS,
@@ -2720,8 +2720,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -2740,7 +2740,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SOOTHING_WATERS,
@@ -2754,8 +2754,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2774,7 +2774,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SOOTHING_WATERS,
@@ -2788,8 +2788,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2808,7 +2808,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.PHYSICAL_WATER,
 			null,
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.SOOTHING_WATERS,
@@ -2822,8 +2822,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2842,7 +2842,7 @@ public enum Perk {
 			"chill",
 			PerkCategory.PHYSICAL_WATER,
 			"perks/elemental/water1",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 1),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 1)),
@@ -2859,7 +2859,7 @@ public enum Perk {
 			"frost",
 			PerkCategory.PHYSICAL_WATER,
 			"perks/elemental/water2",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 3),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 3)),
@@ -2877,7 +2877,7 @@ public enum Perk {
 			"freeze",
 			PerkCategory.PHYSICAL_WATER,
 			"perks/elemental/water3",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 6),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 6)),
@@ -2894,7 +2894,7 @@ public enum Perk {
 			"ice-age",
 			PerkCategory.PHYSICAL_WATER,
 			"perks/elemental/water4",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_ICE, 20),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 20),
@@ -2914,7 +2914,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.POISON_VAPOURS,
@@ -2928,8 +2928,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -2948,7 +2948,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.POISON_VAPOURS,
@@ -2962,8 +2962,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -2982,7 +2982,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.POISON_VAPOURS,
@@ -2996,8 +2996,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3016,7 +3016,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.POISON_VAPOURS,
@@ -3030,8 +3030,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3050,7 +3050,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.VACUUM,
@@ -3064,8 +3064,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -3084,7 +3084,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.VACUUM,
@@ -3098,8 +3098,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3118,7 +3118,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.VACUUM,
@@ -3132,8 +3132,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3152,7 +3152,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.VACUUM,
@@ -3166,8 +3166,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3186,7 +3186,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.PROTECTIVE_GUSTS,
@@ -3200,8 +3200,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -3220,7 +3220,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.PROTECTIVE_GUSTS,
@@ -3234,8 +3234,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3254,7 +3254,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.PROTECTIVE_GUSTS,
@@ -3268,8 +3268,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3288,7 +3288,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.ARCANE_AIR,
 			null,
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.PROTECTIVE_GUSTS,
@@ -3302,8 +3302,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3322,7 +3322,7 @@ public enum Perk {
 			"breeze",
 			PerkCategory.ARCANE_AIR,
 			"perks/elemental/air1",
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 1),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 1)),
@@ -3339,7 +3339,7 @@ public enum Perk {
 			"gale",
 			PerkCategory.ARCANE_AIR,
 			"perks/elemental/air2",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 3),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 3)),
@@ -3357,7 +3357,7 @@ public enum Perk {
 			"storm",
 			PerkCategory.ARCANE_AIR,
 			"perks/elemental/air3",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 6),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 6)),
@@ -3374,7 +3374,7 @@ public enum Perk {
 			"supercell",
 			PerkCategory.ARCANE_AIR,
 			"perks/elemental/air4",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_POISON, 20),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 20),
@@ -3395,7 +3395,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_AROUSAL,
@@ -3409,8 +3409,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -3429,7 +3429,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_AROUSAL,
@@ -3443,8 +3443,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3463,7 +3463,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_AROUSAL,
@@ -3477,8 +3477,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3497,7 +3497,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_AROUSAL,
@@ -3511,8 +3511,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3531,7 +3531,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEPATHIC_COMMUNICATION,
@@ -3545,8 +3545,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -3565,7 +3565,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEPATHIC_COMMUNICATION,
@@ -3579,8 +3579,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3599,7 +3599,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEPATHIC_COMMUNICATION,
@@ -3613,8 +3613,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3633,7 +3633,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.TELEPATHIC_COMMUNICATION,
@@ -3647,8 +3647,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3667,7 +3667,7 @@ public enum Perk {
 			"Spell",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_CLOUD,
@@ -3681,8 +3681,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " when bound to <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
+			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
 		
 		@Override
@@ -3701,7 +3701,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_CLOUD,
@@ -3715,8 +3715,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3735,7 +3735,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_CLOUD,
@@ -3749,8 +3749,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3769,7 +3769,7 @@ public enum Perk {
 			"Upgrade",
 			PerkCategory.BOTH,
 			null,
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
 			Spell.ARCANE_CLOUD,
@@ -3783,8 +3783,8 @@ public enum Perk {
 
 		@Override
 		public List<String> getExtraEffects() {
-			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Colour.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
-					+ " with <span style='color:"+ getSchool().getColour().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
+			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
+					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
 		
 		@Override
@@ -3803,7 +3803,7 @@ public enum Perk {
 			"arousal",
 			PerkCategory.BOTH,
 			"perks/elemental/arcane1",
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 1),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 1)),
@@ -3820,7 +3820,7 @@ public enum Perk {
 			"passion",
 			PerkCategory.BOTH,
 			"perks/elemental/arcane2",
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 3),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 3)),
@@ -3838,7 +3838,7 @@ public enum Perk {
 			"infatuation",
 			PerkCategory.BOTH,
 			"perks/elemental/arcane3",
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 6),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 6)),
@@ -3855,7 +3855,7 @@ public enum Perk {
 			"nympholepsy",
 			PerkCategory.BOTH,
 			"perks/elemental/arcane4",
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 20),
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, 20),
@@ -3873,7 +3873,7 @@ public enum Perk {
 
 	private int renderingPriority;
 	protected String name;
-	private Colour colour;
+	private Color color;
 	private boolean equippableTrait;
 	
 	private Spell spell;
@@ -3909,7 +3909,7 @@ public enum Perk {
 			String name,
 			PerkCategory perkCategory,
 			String pathName,
-			Colour colour,
+			Color color,
 			HashMap<Attribute, Integer> attributeModifiers,
 			List<String> extraEffects) {
 		this(renderingPriority,
@@ -3917,7 +3917,7 @@ public enum Perk {
 				name,
 				perkCategory,
 				pathName,
-				colour,
+				color,
 				attributeModifiers,
 				extraEffects,
 				null,
@@ -3930,7 +3930,7 @@ public enum Perk {
 			String name,
 			PerkCategory perkCategory,
 			String pathName,
-			Colour colour,
+			Color color,
 			HashMap<Attribute, Integer> attributeModifiers,
 			List<String> extraEffects,
 			Spell spell,
@@ -3939,7 +3939,7 @@ public enum Perk {
 
 		this.renderingPriority = renderingPriority;
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		
 		this.equippableTrait = major;
 		
@@ -3961,7 +3961,7 @@ public enum Perk {
 				}
 				SVGString = Util.inputStreamToString(is);
 				
-				SVGString = SvgUtil.colourReplacement(this.toString(), colour, SVGString);
+				SVGString = SvgUtil.colorReplacement(this.toString(), color, SVGString);
 	
 				is.close();
 	
@@ -3975,7 +3975,7 @@ public enum Perk {
 		if (attributeModifiers != null) {
 			for (Entry<Attribute, Integer> e : attributeModifiers.entrySet()) {
 				modifiersList.add("<b>"+ (e.getValue() > 0 ? "+" : "")+ e.getValue()+ "</b>"
-						+ " <b style='color: "+ e.getKey().getColour().toWebHexString()+ ";'>"+ Util.capitaliseSentence(e.getKey().getAbbreviatedName())+ "</b>");
+						+ " <b style='color: "+ e.getKey().getColor().toWebHexString()+ ";'>"+ Util.capitalizeSentence(e.getKey().getAbbreviatedName())+ "</b>");
 			}
 		}
 		
@@ -4001,8 +4001,8 @@ public enum Perk {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public boolean isEquippableTrait() {

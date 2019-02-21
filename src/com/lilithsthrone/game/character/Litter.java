@@ -24,7 +24,7 @@ import com.lilithsthrone.game.character.npc.misc.GenericMaleNPC;
 import com.lilithsthrone.game.character.persona.Relationship;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.XMLSaving;
 
@@ -344,14 +344,14 @@ public class Litter implements XMLSaving {
 		List<String> entries = new ArrayList<>();
 
 		for(Entry<String, Integer> entry : sons.entrySet()) {
-			entries.add("<b>"+Util.intToString(entry.getValue())+"</b> <b style='color:"+ Colour.MASCULINE.toWebHexString()+ ";'>"
+			entries.add("<b>"+Util.intToString(entry.getValue())+"</b> <b style='color:"+ Color.MASCULINE.toWebHexString()+ ";'>"
 						+(entry.getValue() > 1
 							? entry.getKey().split("\\|")[1]
 							: entry.getKey().split("\\|")[0])
 						+"</b>");
 		}
 		for(Entry<String, Integer> entry : daughters.entrySet()) {
-			entries.add("<b>"+Util.intToString(entry.getValue())+"</b> <b style='color:"+ Colour.FEMININE.toWebHexString()+ ";'>"
+			entries.add("<b>"+Util.intToString(entry.getValue())+"</b> <b style='color:"+ Color.FEMININE.toWebHexString()+ ";'>"
 						+(entry.getValue() > 1
 							? entry.getKey().split("\\|")[1]
 							: entry.getKey().split("\\|")[0])

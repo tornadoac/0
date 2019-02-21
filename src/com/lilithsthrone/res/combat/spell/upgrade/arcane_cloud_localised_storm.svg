@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
     <defs>
-        <linearGradient id="localisedStorm2">
+        <linearGradient id="localizedStorm2">
             <stop offset="0" stop-color="#ff02cc"/>
             <stop offset="1" stop-color="#c8009f"/>
         </linearGradient>
-        <linearGradient id="localisedStorm1">
+        <linearGradient id="localizedStorm1">
             <stop offset="0" stop-color="#ff81e6"/>
             <stop offset="1" stop-color="#ff3cd7"/>
         </linearGradient>
-        <linearGradient id="localisedStorm3">
+        <linearGradient id="localizedStorm3">
             <stop offset="0" stop-color="#eb3adf"/>
             <stop offset="1" stop-color="#789098"/>
         </linearGradient>
-        <linearGradient id="linearGradient4159-2" x1="121.071" x2="121.786" y1="164.929" y2="104.571" gradientTransform="matrix(.81 0 0 .81 36.268 -5.642)" gradientUnits="userSpaceOnUse" xlink:href="#localisedStorm3"/>
-        <linearGradient id="linearGradient4171" x1="178.214" x2="177.5" y1="74.214" y2="122.071" gradientTransform="matrix(.81 0 0 .81 36.268 -5.642)" gradientUnits="userSpaceOnUse" xlink:href="#localisedStorm4"/>
-        <linearGradient id="localisedStorm4">
+        <linearGradient id="linearGradient4159-2" x1="121.071" x2="121.786" y1="164.929" y2="104.571" gradientTransform="matrix(.81 0 0 .81 36.268 -5.642)" gradientUnits="userSpaceOnUse" xlink:href="#localizedStorm3"/>
+        <linearGradient id="linearGradient4171" x1="178.214" x2="177.5" y1="74.214" y2="122.071" gradientTransform="matrix(.81 0 0 .81 36.268 -5.642)" gradientUnits="userSpaceOnUse" xlink:href="#localizedStorm4"/>
+        <linearGradient id="localizedStorm4">
             <stop offset="0" stop-color="#45565a"/>
             <stop offset="1" stop-color="#ae1dca" stop-opacity=".98"/>
         </linearGradient>
-        <linearGradient id="linearGradient4211" x1="130.562" x2="137.633" y1="177.966" y2="118.114" gradientTransform="matrix(.78626 0 0 .71118 12.659 54.878)" gradientUnits="userSpaceOnUse" xlink:href="#localisedStorm2"/>
-        <linearGradient id="linearGradient4211-3" x1="130.562" x2="137.633" y1="177.966" y2="118.114" gradientTransform="matrix(.60102 0 0 .45178 92.801 79.94)" gradientUnits="userSpaceOnUse" xlink:href="#localisedStorm1"/>
-        <linearGradient id="linearGradient4211-3-7" x1="130.562" x2="137.633" y1="177.966" y2="118.114" gradientTransform="matrix(.60102 0 0 .45178 -5.592 80.477)" gradientUnits="userSpaceOnUse" xlink:href="#localisedStorm1"/>
+        <linearGradient id="linearGradient4211" x1="130.562" x2="137.633" y1="177.966" y2="118.114" gradientTransform="matrix(.78626 0 0 .71118 12.659 54.878)" gradientUnits="userSpaceOnUse" xlink:href="#localizedStorm2"/>
+        <linearGradient id="linearGradient4211-3" x1="130.562" x2="137.633" y1="177.966" y2="118.114" gradientTransform="matrix(.60102 0 0 .45178 92.801 79.94)" gradientUnits="userSpaceOnUse" xlink:href="#localizedStorm1"/>
+        <linearGradient id="linearGradient4211-3-7" x1="130.562" x2="137.633" y1="177.966" y2="118.114" gradientTransform="matrix(.60102 0 0 .45178 -5.592 80.477)" gradientUnits="userSpaceOnUse" xlink:href="#localizedStorm1"/>
     </defs>
     <g fill-rule="evenodd">
         <path fill="url(#linearGradient4211-3-7)" d="M72.183 122.261l27.556.02-24.336 26.655H91.87l-37.322 33.66 14.655-25.638-11.81-.154z"/>

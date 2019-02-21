@@ -69,9 +69,9 @@ public class OrificeNipples implements OrificeInterface {
 		
 		if (capacityChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The capacity of your [pc.nipples] doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The capacity of your [pc.nipples] doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The capacity of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The capacity of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
 			}
 		}
 		
@@ -171,9 +171,9 @@ public class OrificeNipples implements OrificeInterface {
 		
 		if (elasticityChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The elasticity of your [pc.nipples] doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The elasticity of your [pc.nipples] doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The elasticity of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The elasticity of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
 			}
 		}
 		
@@ -216,14 +216,14 @@ public class OrificeNipples implements OrificeInterface {
 	@Override
 	public String setPlasticity(GameCharacter owner, int plasticity) {
 		int oldPlasticity = this.plasticity;
-		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOULDABLE.getValue()));
+		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOLDABLE.getValue()));
 		int plasticityChange = this.plasticity - oldPlasticity;
 		
 		if (plasticityChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your [pc.nipples]'s plasticity doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your [pc.nipples]'s plasticity doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The plasticity of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The plasticity of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
 			}
 		}
 		
@@ -231,13 +231,13 @@ public class OrificeNipples implements OrificeInterface {
 		if (plasticityChange > 0) {
 			if (owner.isPlayer()) {
 				return "<p>"
-							+ "You let out a little gasp as you feel a strange moulding sensation pulsating deep within your [pc.breasts] as your [pc.nipples]' [style.boldGrow(plasticity increases)].<br/>"
+							+ "You let out a little gasp as you feel a strange molding sensation pulsating deep within your [pc.breasts] as your [pc.nipples]' [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " [pc.nipples])]!"
 						+ "</p>";
 			} else {
 				return UtilText.parse(owner, 
 						"<p>"
-							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange moulding sensation pulsating deep within [npc.her] [npc.breasts] as [npc.her] [npc.nipples]' [style.boldGrow(plasticity increases)].<br/>"
+							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange molding sensation pulsating deep within [npc.her] [npc.breasts] as [npc.her] [npc.nipples]' [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " [npc.nipples])]!"
 						+ "</p>");
 			}
@@ -276,7 +276,7 @@ public class OrificeNipples implements OrificeInterface {
 	@Override
 	public String addOrificeModifier(GameCharacter owner, OrificeModifier modifier) {
 		if(hasOrificeModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		orificeModifiers.add(modifier);
@@ -348,13 +348,13 @@ public class OrificeNipples implements OrificeInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	@Override
 	public String removeOrificeModifier(GameCharacter owner, OrificeModifier modifier) {
 		if(!hasOrificeModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		orificeModifiers.remove(modifier);
@@ -418,7 +418,7 @@ public class OrificeNipples implements OrificeInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	public Set<OrificeModifier> getOrificeModifiers() {

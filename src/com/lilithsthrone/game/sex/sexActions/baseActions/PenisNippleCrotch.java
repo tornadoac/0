@@ -193,7 +193,7 @@ public class PenisNippleCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getNippleTitle(Sex.getCharacterTargetedForSexAction(this)))+" tease";
+			return Util.capitalizeSentence(getNippleTitle(Sex.getCharacterTargetedForSexAction(this)))+" tease";
 		}
 
 		@Override
@@ -559,7 +559,7 @@ public class PenisNippleCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getNippleTitle(Sex.getCharacterTargetedForSexAction(this)))+"-fuck";
+			return Util.capitalizeSentence(getNippleTitle(Sex.getCharacterTargetedForSexAction(this)))+"-fuck";
 		}
 
 		@Override
@@ -641,7 +641,7 @@ public class PenisNippleCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getNippleTitle(Sex.getCharacterTargetedForSexAction(this)))+"-fuck";
+			return Util.capitalizeSentence(getNippleTitle(Sex.getCharacterTargetedForSexAction(this)))+"-fuck";
 		}
 
 		@Override
@@ -1049,7 +1049,7 @@ public class PenisNippleCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getNippleTitle(Sex.getCharacterPerformingAction()))+"-fucked";
+			return Util.capitalizeSentence(getNippleTitle(Sex.getCharacterPerformingAction()))+"-fucked";
 		}
 
 		@Override
@@ -1125,7 +1125,7 @@ public class PenisNippleCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getNippleTitle(Sex.getCharacterPerformingAction()))+"-fucked";
+			return Util.capitalizeSentence(getNippleTitle(Sex.getCharacterPerformingAction()))+"-fucked";
 		}
 
 		@Override
@@ -1298,7 +1298,7 @@ public class PenisNippleCrotch {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-							" [npc2.Name] [npc2.verb(let)] out a relieved sigh, which soon turns into [npc2.a_sob+] as [npc2.she] realises that [npc.nameIsFull]n't finished with [npc2.herHim] just yet.",
+							" [npc2.Name] [npc2.verb(let)] out a relieved sigh, which soon turns into [npc2.a_sob+] as [npc2.she] realizes that [npc.nameIsFull]n't finished with [npc2.herHim] just yet.",
 
 							" With [npc2.a_sob+], [npc2.name] [npc2.verb(continue)] to protest and struggle against [npc.name] as [npc.she] [npc.verb(hold)] [npc2.herHim] firmly in place."));
 					break;
@@ -1324,7 +1324,7 @@ public class PenisNippleCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getNippleTitle(Sex.getCharacterPerformingAction()))+" control";
+			return Util.capitalizeSentence(getNippleTitle(Sex.getCharacterPerformingAction()))+" control";
 		}
 
 		@Override

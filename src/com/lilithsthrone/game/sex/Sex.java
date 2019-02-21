@@ -65,13 +65,13 @@ import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.game.sex.sexActions.SexActionUtility;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.PartnerTalk;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.BaseColour;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.BaseColor;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
 /**
- * Singleton enforced by Enum Call initialiseCombat() before using.
+ * Singleton enforced by Enum Call initializeCombat() before using.
  * Then call startSex(), which returns the starting DialogueNode.
  * 
  * Lasciate ogni speranza, voi ch'entrate.
@@ -83,7 +83,7 @@ import com.lilithsthrone.utils.Util.Value;
 public class Sex {
 
 	/*
-	 * How it works: Call initialiseSex(GameCharacter partner, boolean
+	 * How it works: Call initializeSex(GameCharacter partner, boolean
 	 * isDom(Main.game.getPlayer())) first. This sets starting arousal values based on player and
 	 * partner composure. (0 composure starts you at 50 arousal)
 	 *
@@ -101,7 +101,7 @@ public class Sex {
 		Tail
 		Horns
 		Hip size
-		Skin/fur colour
+		Skin/fur color
 		Pregnancy
 		Breasts
 			Race
@@ -223,13 +223,13 @@ public class Sex {
 	public Sex() {
 	}
 
-	public DialogueNode initialiseSex(
+	public DialogueNode initializeSex(
 			boolean consensual,
 			boolean subHasEqualControl,
 			SexManagerInterface sexManager,
 			DialogueNode postSexDialogue,
 			String sexStartDescription) {
-		return initialiseSex(consensual,
+		return initializeSex(consensual,
 				subHasEqualControl,
 				sexManager,
 				new ArrayList<>(),
@@ -238,7 +238,7 @@ public class Sex {
 				sexStartDescription,
 				new ArrayList<>());
 	}
-	public DialogueNode initialiseSex(
+	public DialogueNode initializeSex(
 			boolean consensual,
 			boolean subHasEqualControl,
 			SexManagerInterface sexManager,
@@ -246,7 +246,7 @@ public class Sex {
 			List<GameCharacter> submissiveSpectators,
 			DialogueNode postSexDialogue,
 			String sexStartDescription) {
-		return initialiseSex(consensual,
+		return initializeSex(consensual,
 				subHasEqualControl,
 				sexManager,
 				dominantSpectators,
@@ -256,7 +256,7 @@ public class Sex {
 				new ArrayList<>());
 	}
 	
-	public DialogueNode initialiseSex(
+	public DialogueNode initializeSex(
 			boolean consensual,
 			boolean subHasEqualControl,
 			SexManagerInterface sexManager,
@@ -480,7 +480,7 @@ public class Sex {
 			sexSB.append(Sex.getInitialSexManager().getPublicSexStartingDescription());
 		}
 
-		sexSB.append("<p style='text-align:center;'><b>Starting Position:</b> <b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>"+sexManager.getPosition().getName()+"</b><br/>"
+		sexSB.append("<p style='text-align:center;'><b>Starting Position:</b> <b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>"+sexManager.getPosition().getName()+"</b><br/>"
 				+"<i><b>"+sexManager.getPosition().getDescription()+"</b></i></p>");
 		
 		sexSB.append(calculateWetAreas(true));
@@ -650,7 +650,7 @@ public class Sex {
 
 						participant.setAssStretchedCapacity(participant.getAssRawCapacityValue());
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your asshole quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your asshole quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
 
 					} else {
 
@@ -659,7 +659,7 @@ public class Sex {
 								(participant.getAssStretchedCapacity()-participant.getAssRawCapacityValue())*participant.getAssPlasticity().getCapacityIncreaseModifier(),
 								false);
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your " + participant.getAssPlasticity().getDescriptor() + " asshole has been stretched from its ordeal, and is currently "
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your " + participant.getAssPlasticity().getDescriptor() + " asshole has been stretched from its ordeal, and is currently "
 								+ Capacity.getCapacityFromValue(participant.getAssStretchedCapacity()).getDescriptor() + "!");
 
 						if(participant.getAssPlasticity().getCapacityIncreaseModifier()>0) {
@@ -675,7 +675,7 @@ public class Sex {
 
 						participant.setVaginaStretchedCapacity(participant.getVaginaRawCapacityValue());
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your vagina quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your vagina quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
 
 					} else {
 						// Increment core capacity by the Elasticity's capacityIncreaseModifier:
@@ -683,7 +683,7 @@ public class Sex {
 								(participant.getVaginaStretchedCapacity()-participant.getVaginaRawCapacityValue())*participant.getVaginaPlasticity().getCapacityIncreaseModifier(),
 								false);
 						
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your " + participant.getVaginaPlasticity().getDescriptor() + " pussy has been stretched from its ordeal, and is currently "
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your " + participant.getVaginaPlasticity().getDescriptor() + " pussy has been stretched from its ordeal, and is currently "
 								+ Capacity.getCapacityFromValue(participant.getVaginaStretchedCapacity()).getDescriptor() + "!");
 
 						if(participant.getVaginaPlasticity().getCapacityIncreaseModifier()>0) {
@@ -699,7 +699,7 @@ public class Sex {
 
 						participant.setNippleStretchedCapacity(participant.getNippleRawCapacityValue());
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your [pc.nipples+] quickly recover from their ordeal, and instantly return to their original size!</b></p>");
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your [pc.nipples+] quickly recover from their ordeal, and instantly return to their original size!</b></p>");
 
 					} else {
 						// Increment core capacity by the Elasticity's capacityIncreaseModifier:
@@ -707,7 +707,7 @@ public class Sex {
 								(participant.getNippleStretchedCapacity()-participant.getNippleRawCapacityValue())*participant.getNipplePlasticity().getCapacityIncreaseModifier(),
 								false);
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your " + participant.getNipplePlasticity().getDescriptor() + " nipple-cunts have been stretched from their ordeal, and are currently "
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your " + participant.getNipplePlasticity().getDescriptor() + " nipple-cunts have been stretched from their ordeal, and are currently "
 								+ Capacity.getCapacityFromValue(participant.getNippleStretchedCapacity()).getDescriptor() + "!");
 
 						if(participant.getNipplePlasticity().getCapacityIncreaseModifier()>0) {
@@ -723,7 +723,7 @@ public class Sex {
 
 						participant.setPenisStretchedCapacity(participant.getPenisRawCapacityValue());
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your cock's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your cock's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
 
 					} else {
 
@@ -732,7 +732,7 @@ public class Sex {
 								(participant.getPenisStretchedCapacity()-participant.getPenisRawCapacityValue())*participant.getUrethraPlasticity().getCapacityIncreaseModifier(),
 								false);
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your cock's " + participant.getUrethraPlasticity().getDescriptor() + " urethra has been stretched from its ordeal, and is currently "
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your cock's " + participant.getUrethraPlasticity().getDescriptor() + " urethra has been stretched from its ordeal, and is currently "
 								+ Capacity.getCapacityFromValue(participant.getPenisStretchedCapacity()).getDescriptor() + "!");
 
 						if(participant.getUrethraPlasticity().getCapacityIncreaseModifier()>0) {
@@ -748,7 +748,7 @@ public class Sex {
 
 						participant.setVaginaUrethraStretchedCapacity(participant.getVaginaUrethraRawCapacityValue());
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your pussy's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your pussy's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>");
 
 					} else {
 
@@ -757,7 +757,7 @@ public class Sex {
 								(participant.getVaginaUrethraStretchedCapacity()-participant.getVaginaUrethraRawCapacityValue())*participant.getVaginaUrethraPlasticity().getCapacityIncreaseModifier(),
 								false);
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>Your pussy's " + participant.getVaginaUrethraPlasticity().getDescriptor() + " urethra has been stretched from its ordeal, and is currently "
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>Your pussy's " + participant.getVaginaUrethraPlasticity().getDescriptor() + " urethra has been stretched from its ordeal, and is currently "
 								+ Capacity.getCapacityFromValue(participant.getVaginaUrethraStretchedCapacity()).getDescriptor() + "!");
 
 						if(participant.getVaginaUrethraPlasticity().getCapacityIncreaseModifier()>0) {
@@ -776,7 +776,7 @@ public class Sex {
 						// Special case for throat, as you aren't stretching it out, merely getting more experienced at sucking cock:
 						participant.setFaceStretchedCapacity(participant.getFaceRawCapacityValue());
 
-						endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"
+						endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>"
 										+ "Thanks to the oral experience you gained during sex,"
 										+ " you feel as though you could comfortably suck " + PenisSize.getPenisSizeFromInt((int)participant.getFaceRawCapacityValue()).getDescriptor() + " cocks the next time!"
 									+ "</b></p>");
@@ -800,9 +800,9 @@ public class Sex {
 									endSexSB.append(
 											UtilText.parse(Sex.getActivePartner(),
 											"<p>"
-												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialise around your body,"
+												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialize around your body,"
 													+ " just like the one you saw in Lilaya's lab when she ran her tests on you."
-												+ " Quickly realising that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
+												+ " Quickly realizing that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
 												+ " Just as you think that it can't get any brighter, your aura suddenly leaps back into your body, and you find yourself sharply inhaling as you feel it gaining strength."
 											+ "</p>"
 											+ "<p>"
@@ -814,9 +814,9 @@ public class Sex {
 													:"")));
 								} else {
 									endSexSB.append("<p>"
-												+ "As you stop masturbating, you suddenly become aware of a strange, shimmering pink glow that's started to materialise around your body,"
+												+ "As you stop masturbating, you suddenly become aware of a strange, shimmering pink glow that's started to materialize around your body,"
 													+ " just like the one you saw in Lilaya's lab when she ran her tests on you."
-												+ " Quickly realising that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
+												+ " Quickly realizing that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
 												+ " Just as you think that it can't get any brighter, your aura suddenly leaps back into your body, and you find yourself sharply inhaling as you feel it gaining strength."
 											+ "</p>"
 											+ "<p>"
@@ -832,9 +832,9 @@ public class Sex {
 									endSexSB.append(
 											UtilText.parse(Sex.getActivePartner(),
 											"<p>"
-												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialise around your body,"
+												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialize around your body,"
 													+ " just like the one you saw in Lilaya's lab when she ran her tests on you."
-												+ " Quickly realising that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
+												+ " Quickly realizing that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
 												+ " Just as you think that it can't get any brighter, your aura suddenly leaps back into your body, and you find yourself sharply inhaling as you feel it gaining strength."
 											+ "</p>"
 											+ "<p>"
@@ -843,9 +843,9 @@ public class Sex {
 											+ "</p>"));
 								} else {
 									endSexSB.append("<p>"
-												+ "As you stop masturbating, you suddenly become aware of a strange, shimmering pink glow that's started to materialise around your body,"
+												+ "As you stop masturbating, you suddenly become aware of a strange, shimmering pink glow that's started to materialize around your body,"
 													+ " just like the one you saw in Lilaya's lab when she ran her tests on you."
-												+ " Quickly realising that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
+												+ " Quickly realizing that you're somehow able to see your own arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
 												+ " Just as you think that it can't get any brighter, your aura suddenly leaps back into your body, and you find yourself sharply inhaling as you feel it gaining strength."
 											+ "</p>"
 											+ "<p>"
@@ -878,7 +878,7 @@ public class Sex {
 						participant.setAssStretchedCapacity(participant.getAssRawCapacityValue());
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] asshole quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] asshole quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
 		
 					} else {
 		
@@ -888,7 +888,7 @@ public class Sex {
 								false);
 		
 						endSexSB.append(UtilText.parse(participant,
-										"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] "
+										"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] "
 												+ participant.getAssElasticity().getDescriptor() + " asshole has been stretched from its ordeal, and is currently "
 												+ Capacity.getCapacityFromValue(participant.getAssStretchedCapacity()).getDescriptor() + "!"));
 		
@@ -906,7 +906,7 @@ public class Sex {
 						participant.setVaginaStretchedCapacity(participant.getVaginaRawCapacityValue());
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
 		
 					} else {
 		
@@ -916,7 +916,7 @@ public class Sex {
 								false);
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] " + participant.getVaginaPlasticity().getDescriptor() + " pussy has been stretched from its ordeal, and is currently "
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] " + participant.getVaginaPlasticity().getDescriptor() + " pussy has been stretched from its ordeal, and is currently "
 								+ Capacity.getCapacityFromValue(participant.getVaginaStretchedCapacity()).getDescriptor() + "!"));
 		
 						if(participant.getVaginaPlasticity().getCapacityIncreaseModifier()>0) {
@@ -933,7 +933,7 @@ public class Sex {
 						participant.setNippleStretchedCapacity(participant.getNippleRawCapacityValue());
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] [npc.nipples+] quickly recover from their ordeal, and instantly return to their original size!</b></p>"));
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] [npc.nipples+] quickly recover from their ordeal, and instantly return to their original size!</b></p>"));
 		
 					} else {
 		
@@ -943,7 +943,7 @@ public class Sex {
 								false);
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] "
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] "
 										+ participant.getNipplePlasticity().getDescriptor() + " nipple-cunts have been stretched from their ordeal, and are currently "
 										+ Capacity.getCapacityFromValue(participant.getNippleStretchedCapacity()).getDescriptor() + "!"));
 		
@@ -961,7 +961,7 @@ public class Sex {
 						participant.setPenisStretchedCapacity(participant.getPenisRawCapacityValue());
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] cock's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] cock's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
 		
 					} else {
 		
@@ -971,7 +971,7 @@ public class Sex {
 								false);
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] cock's "
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] cock's "
 										+ participant.getUrethraPlasticity().getDescriptor() + " urethra has been stretched from its ordeal, and is currently "
 										+ Capacity.getCapacityFromValue(participant.getPenisStretchedCapacity()).getDescriptor() + "!"));
 		
@@ -989,7 +989,7 @@ public class Sex {
 						participant.setVaginaUrethraStretchedCapacity(participant.getVaginaUrethraRawCapacityValue());
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina's urethra quickly recovers from its ordeal, and instantly returns to its original size!</b></p>"));
 		
 					} else {
 		
@@ -999,7 +999,7 @@ public class Sex {
 								false);
 		
 						endSexSB.append(UtilText.parse(participant,
-								"<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina's "
+								"<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>[npc.NamePos] vagina's "
 										+ participant.getVaginaUrethraPlasticity().getDescriptor() + " urethra has been stretched from its ordeal, and is currently "
 										+ Capacity.getCapacityFromValue(participant.getVaginaUrethraStretchedCapacity()).getDescriptor() + "!"));
 		
@@ -1019,7 +1019,7 @@ public class Sex {
 					// Special case for throat, as you aren't stretching it out, merely getting more experienced at sucking cock:
 					participant.setFaceStretchedCapacity(participant.getFaceRawCapacityValue());
 		
-					endSexSB.append("<p><b style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>From [npc.namePos] newfound oral experience, [npc.she] is now experienced enough to comfortably suck "
+					endSexSB.append("<p><b style='color:" + Color.GENERIC_ARCANE.toWebHexString() + ";'>From [npc.namePos] newfound oral experience, [npc.she] is now experienced enough to comfortably suck "
 							+ PenisSize.getPenisSizeFromInt((int)Main.game.getPlayer().getFaceRawCapacityValue()).getDescriptor() + " cocks!</b></p>");
 				}
 				
@@ -1043,9 +1043,9 @@ public class Sex {
 									endSexSB.append(
 											UtilText.parse(participant,
 											"<p>"
-												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialise around [npc.her] body,"
+												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialize around [npc.her] body,"
 													+ " just like the one you saw in Lilaya's lab when she ran her tests on you."
-												+ " Quickly realising that you're somehow able to see [npc.namePos] arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
+												+ " Quickly realizing that you're somehow able to see [npc.namePos] arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
 												+ " Just as you think that it can't get any brighter, [npc.her] aura suddenly leaps back into [npc.her] body, but as it does so, a single shard breaks off and flies towards you."
 												+ " Unable to dodge in time, you find yourself sharply inhaling as the small piece of [npc.namePos] aura shoots into your chest."
 											+ "</p>"
@@ -1059,9 +1059,9 @@ public class Sex {
 									endSexSB.append(
 											UtilText.parse(participant,
 											"<p>"
-												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialise around [npc.her] body,"
+												+ "As you disentangle yourself from [npc.name], you suddenly become aware of a strange, shimmering pink glow that's started to materialize around [npc.her] body,"
 													+ " just like the one you saw in Lilaya's lab when she ran her tests on you."
-												+ " Quickly realising that you're somehow able to see [npc.namePos] arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
+												+ " Quickly realizing that you're somehow able to see [npc.namePos] arcane aura, you watch, fascinated, as it rapidly increases in luminosity."
 												+ " Just as you think that it can't get any brighter, [npc.her] aura suddenly leaps back into [npc.her] body, but as it does so, a single shard breaks off and flies towards you."
 												+ " Unable to dodge in time, you find yourself sharply inhaling as the small piece of [npc.namePos] aura shoots into your chest."
 											+ "</p>"
@@ -1123,24 +1123,24 @@ public class Sex {
 	// Text formatting:
 	
 	private static String formatInitialPenetration(String description) {
-		return "<p style='text-align:center;'><i style='color:" + BaseColour.PINK_DEEP.toWebHexString() + "; padding:0; margin:0;'>"+description+"</i></p>";
+		return "<p style='text-align:center;'><i style='color:" + BaseColor.PINK_DEEP.toWebHexString() + "; padding:0; margin:0;'>"+description+"</i></p>";
 	}
 	
 	public static String formatPenetration(String rawInput){
-		return "<p style='text-align:center; color:"+BaseColour.VIOLET.toWebHexString()+"; padding:0; margin:0;'><i>"+rawInput+"</i></p>";
+		return "<p style='text-align:center; color:"+BaseColor.VIOLET.toWebHexString()+"; padding:0; margin:0;'><i>"+rawInput+"</i></p>";
 	}
 	
 	private static String formatStopPenetration(String rawInput){
-		return "<p style='text-align:center; color:"+BaseColour.PINK.toWebHexString()+"; padding:0; margin:0;'><i>"+rawInput+"</i></p>";
+		return "<p style='text-align:center; color:"+BaseColor.PINK.toWebHexString()+"; padding:0; margin:0;'><i>"+rawInput+"</i></p>";
 	}
 	
 	private static String formatCoverableAreaBecomingExposed(String description) {
-		return "<p style='text-align:center; padding:0; margin:0;'><i style='color:" + BaseColour.PURPLE_LIGHT.toWebHexString() + ";'>"+description+"</i></p>";
+		return "<p style='text-align:center; padding:0; margin:0;'><i style='color:" + BaseColor.PURPLE_LIGHT.toWebHexString() + ";'>"+description+"</i></p>";
 	}
 	
 	private static String formatCoverableAreaGettingWet(String description) {
 		return UtilText.parse(Sex.getActivePartner(),
-				"<p style='text-align:center; padding:0; margin:0;'><i style='color:" + BaseColour.LILAC_LIGHT.toWebHexString() + ";'>"+description+"</i></p>");
+				"<p style='text-align:center; padding:0; margin:0;'><i style='color:" + BaseColor.LILAC_LIGHT.toWebHexString() + ";'>"+description+"</i></p>");
 	}
 
 	public static final DialogueNode SEX_DIALOGUE = new DialogueNode("", "", true) {
@@ -1404,7 +1404,7 @@ public class Sex {
 							
 							sexSB.append("<br/>"
 									+ "<p>"
-										+ "<span style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>&gt; "+UtilText.parse(character, "[npc.Name]")+": "+(Util.capitaliseSentence(sexActionPartner.getActionTitle()))+"</span>"
+										+ "<span style='color:"+Color.TEXT_GREY.toWebHexString()+";'>&gt; "+UtilText.parse(character, "[npc.Name]")+": "+(Util.capitalizeSentence(sexActionPartner.getActionTitle()))+"</span>"
 										+ "</br>"
 										+ sexActionPartner.getDescription()
 									+ "</p>");
@@ -1781,7 +1781,7 @@ public class Sex {
 									normalPriority.add(sexAction);
 									break;
 								case HIGH:
-									// High priority positioning actions are added to normal priority so that when there is a favourite positioning action, it doesn't exclude all other normal actions.
+									// High priority positioning actions are added to normal priority so that when there is a favorite positioning action, it doesn't exclude all other normal actions.
 									// High priority is checked in SexManagerDefault's getPartnerSexAction() method, under the section 'Priority 3'
 									if(sexAction.getActionType()==SexActionType.POSITIONING) {
 										normalPriority.add(sexAction);
@@ -2109,7 +2109,7 @@ public class Sex {
 				if(Main.game.getPlayer().getPenisRawOrgasmCumQuantity()>0) {
 					stringBuilderForAppendingDescriptions.append(Main.game.getPlayer().addItem(
 							AbstractItemType.generateFilledCondom(
-									Main.game.getPlayer().getClothingInSlot(InventorySlot.PENIS).getColour(), Main.game.getPlayer(), Main.game.getPlayer().getCum(), Main.game.getPlayer().getPenisRawOrgasmCumQuantity()),
+									Main.game.getPlayer().getClothingInSlot(InventorySlot.PENIS).getColor(), Main.game.getPlayer(), Main.game.getPlayer().getCum(), Main.game.getPlayer().getPenisRawOrgasmCumQuantity()),
 							false, true));
 				}
 				Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PENIS), true, Main.game.getPlayer());
@@ -2163,7 +2163,7 @@ public class Sex {
 				if(Sex.getCharacterPerformingAction().getPenisRawOrgasmCumQuantity()>0) {
 					stringBuilderForAppendingDescriptions.append(Main.game.getPlayer().addItem(
 							AbstractItemType.generateFilledCondom(
-									Sex.getCharacterPerformingAction().getClothingInSlot(InventorySlot.PENIS).getColour(),
+									Sex.getCharacterPerformingAction().getClothingInSlot(InventorySlot.PENIS).getColor(),
 									Sex.getCharacterPerformingAction(), Sex.getCharacterPerformingAction().getCum(), Sex.getCharacterPerformingAction().getPenisRawOrgasmCumQuantity()),
 							false, true));
 				}
@@ -2258,7 +2258,7 @@ public class Sex {
 			SexPace finalPace = Sex.getSexPace(entry.getKey());
 			if(entry.getValue() != finalPace && !entry.getKey().isPlayer()) {
 				stringBuilderForAppendingDescriptions.append("<p style='text-align:center;'>"
-						+ "<b style='color:"+finalPace.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(finalPace.getName())+" Pace</b><br/>");
+						+ "<b style='color:"+finalPace.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(finalPace.getName())+" Pace</b><br/>");
 				switch(finalPace) {
 					case DOM_GENTLE:
 						stringBuilderForAppendingDescriptions.append(UtilText.parse(entry.getKey(),
@@ -2483,7 +2483,7 @@ public class Sex {
 		
 		if(!lubricationTransferred.isEmpty()) {
 			lubeSB.append(formatCoverableAreaGettingWet(
-					Util.capitaliseSentence(Util.stringsToStringList(lubricationTransferred, false))+" quickly lubricate"+(lubricationTransferred.size()>1 || !lastLubricationPlural?"s ":" ")
+					Util.capitalizeSentence(Util.stringsToStringList(lubricationTransferred, false))+" quickly lubricate"+(lubricationTransferred.size()>1 || !lastLubricationPlural?"s ":" ")
 						+(targetCharacter.isPlayer()?"your ":targetCharacter.getName("the")+"'s ")+targetArea.getName(targetCharacter)+"."));
 		}
 		
@@ -2503,7 +2503,7 @@ public class Sex {
 		
 		if(!lubricationTransferred.isEmpty()) {
 			lubeSB.append(formatCoverableAreaGettingWet(
-					Util.capitaliseSentence(Util.stringsToStringList(lubricationTransferred, false))+" quickly lubricate"+(lubricationTransferred.size()>1 || !lastLubricationPlural?"s ":" ")
+					Util.capitalizeSentence(Util.stringsToStringList(lubricationTransferred, false))+" quickly lubricate"+(lubricationTransferred.size()>1 || !lastLubricationPlural?"s ":" ")
 						+(character.isPlayer()?"your ":character.getName("the")+"'s ")+characterArea.getName(character)+"."));
 		}
 		
@@ -3758,7 +3758,7 @@ public class Sex {
 		}
 		
 		sexSB.append(
-				"<p style='text-align:center;'><b>New position:</b> <b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>"+Sex.sexManager.getPosition().getName()+"</b><br/>"
+				"<p style='text-align:center;'><b>New position:</b> <b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>"+Sex.sexManager.getPosition().getName()+"</b><br/>"
 				+"<i><b>"+Sex.sexManager.getPosition().getDescription()+"</b></i></p>");
 	}
 	

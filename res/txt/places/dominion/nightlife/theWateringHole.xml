@@ -3,10 +3,10 @@
 
 	<htmlContent tag="OUTSIDE_NIGHT"><![CDATA[
 	<p>
-		You find yourself walking through the area of Dominion known as 'Nightlife', which is currently fully living up to its name. The bright colours of neon signs join with the soft glow of lampposts to illuminate the street before you, which is packed with crowds of revellers. Many of these people are quite clearly drunk, and noisily shout and make lewd comments at those around them as they stagger between the many clubs and bars that fill this area.
+		You find yourself walking through the area of Dominion known as 'Nightlife', which is currently fully living up to its name. The bright colors of neon signs join with the soft glow of lampposts to illuminate the street before you, which is packed with crowds of revelers. Many of these people are quite clearly drunk, and noisily shout and make lewd comments at those around them as they stagger between the many clubs and bars that fill this area.
 	</p>
 	<p>
-		Every now and then, you pass couples, and sometimes even groups, who have given in to their alcohol-fuelled lust and are publicly having sex with one another. The enforcers who patrol this area don't seem to care one bit about these lewd displays, and sometimes even to stop to watch the exhibitionists going at it.
+		Every now and then, you pass couples, and sometimes even groups, who have given in to their alcohol-fueled lust and are publicly having sex with one another. The enforcers who patrol this area don't seem to care one bit about these lewd displays, and sometimes even to stop to watch the exhibitionists going at it.
 	</p>
 	<p>
 		Looking past these crowds to the establishments which have attracted them, you see all sorts of different bars and clubs open for business. The vast majority of them, however, seem to either be completely full, or to have huge queues trailing out into the streets.
@@ -19,7 +19,7 @@
 
 	<htmlContent tag="OUTSIDE_NIGHT_STORM"><![CDATA[
 	<p>
-		You find yourself walking through the area of Dominion known as 'Nightlife', which is currently deserted due to the ongoing arcane storm. The bright colours of neon signs join with the soft glow of lampposts to illuminate the empty street before you.
+		You find yourself walking through the area of Dominion known as 'Nightlife', which is currently deserted due to the ongoing arcane storm. The bright colors of neon signs join with the soft glow of lampposts to illuminate the empty street before you.
 	</p>
 	<p>
 		While all the bars and clubs that fill this area are still open for business, the vast majority of them seem to already be completely full. The only place which looks to still have some room left is the nightclub, 'The Watering Hole'.
@@ -116,7 +116,7 @@
 		Stepping through the double doors, you enter the club proper, which you discover to be absolutely packed with people of all different races. The chatter, laughter, and shouting from the crowd is joined by loud, bassy background music, making it very hard to make out what anyone's saying unless you're standing right beside them.
 	</p>
 	<p>
-		Just like the entrance hall, the main interior looks to have an African theme to it, and although the lights are very dim, you can clearly see zebra-stripes, leopard-spots, and savannah-style trees painted onto the walls. The floor beneath your feet is covered in light wooden boards, which, combined with the light blue colour of the high ceiling, gives the club a spacious feel to it.
+		Just like the entrance hall, the main interior looks to have an African theme to it, and although the lights are very dim, you can clearly see zebra-stripes, leopard-spots, and savannah-style trees painted onto the walls. The floor beneath your feet is covered in light wooden boards, which, combined with the light blue color of the high ceiling, gives the club a spacious feel to it.
 	</p>
 	<p>
 		Although you can't directly see it through the crowds in front of you, a wooden sign hanging from the ceiling on the far side of the club's huge interior tells you where the bar is. You wonder if you should go straight there and get a drink, or try to find someone to flirt with first...
@@ -142,7 +142,7 @@
 		Stepping through the double doors, you enter the club proper, which you discover to be absolutely packed with people of all different races. The chatter, laughter, and shouting from the crowd is joined by loud, bassy background music, making it very hard to make out what anyone's saying unless you're standing right beside them.
 	</p>
 	<p>
-		Just like the entrance hall, the main interior looks to have an African theme to it, and although the lights are very dim, you can clearly see zebra-stripes, leopard-spots, and savannah-style trees painted onto the walls. The floor beneath your feet is covered in light wooden boards, which, combined with the light blue colour of the high ceiling, gives the club a spacious feel to it.
+		Just like the entrance hall, the main interior looks to have an African theme to it, and although the lights are very dim, you can clearly see zebra-stripes, leopard-spots, and savannah-style trees painted onto the walls. The floor beneath your feet is covered in light wooden boards, which, combined with the light blue color of the high ceiling, gives the club a spacious feel to it.
 	</p>
 	<p>
 		Although you can't directly see it through the crowds in front of you, a wooden sign hanging from the ceiling on the far side of the club's huge interior tells you where the bar is. You wonder if you should go straight there and get a drink, or try to find someone to flirt with first...
@@ -155,7 +155,7 @@
 		The interior of 'The Watering Hole' is absolutely packed with people of all different races. The chatter, laughter, and shouting from the crowd is joined by loud, bassy background music, making it very hard to make out what anyone's saying unless you're standing right beside them.
 	</p>
 	<p>
-		Just like the entrance hall, the main interior looks to have an African theme to it, and although the lights are very dim, you can clearly see zebra-stripes, leopard-spots, and savannah-style trees painted onto the walls. The floor beneath your feet is covered in light wooden boards, which, combined with the light blue colour of the high ceiling, gives the club a spacious feel to it.
+		Just like the entrance hall, the main interior looks to have an African theme to it, and although the lights are very dim, you can clearly see zebra-stripes, leopard-spots, and savannah-style trees painted onto the walls. The floor beneath your feet is covered in light wooden boards, which, combined with the light blue color of the high ceiling, gives the club a spacious feel to it.
 	</p>
 	]]>
 	</htmlContent>
@@ -201,7 +201,7 @@
 
 	<htmlContent tag="WATERING_HOLE_FIND_CONTACT"><![CDATA[
 	<p>
-		Before long, you catch sight of [npc.a_raceFull(true)] standing all alone, and as you approach, you see that it's [npc.name]; just the person you were looking for! Walking up to [npc.herHim], you say hello, and [npc.she] happily smiles at you as [npc.she] recognises you from before.
+		Before long, you catch sight of [npc.a_raceFull(true)] standing all alone, and as you approach, you see that it's [npc.name]; just the person you were looking for! Walking up to [npc.herHim], you say hello, and [npc.she] happily smiles at you as [npc.she] recognizes you from before.
 		#IF npc.isNeurotic()
 		#THEN [npc.speech(O-Oh, [pc.name]! Hi! H-How are you doing? I came here with a friend, but they left me standing alone again...)]
 		#ELSE
@@ -219,7 +219,7 @@
 
 	<htmlContent tag="WATERING_HOLE_PARTNER_LEAVES"><![CDATA[
 	<p>
-		Completely fed up with your rude behaviour, [npc.name]
+		Completely fed up with your rude behavior, [npc.name]
 		#IF npc.isNeurotic()
 		#THEN lets out a sigh, before casting [npc.her] [npc.eyes] to the floor and stuttering, [npc.speech(Y-You're not very nice. I-I'm going to go and find my friend. B-Bye...)]
 		#ELSE
@@ -559,7 +559,7 @@
 
 	<htmlContent tag="WATERING_HOLE_SEATING_AFTER_SEX"><![CDATA[
 	<p>
-		Disentangling yourselves from one another, the two of you let out a synchronised, deeply-satisfied sigh. Collapsing down on the sofa next to you, [npc.name] grins as [npc.she] leans forwards and plants a quick kiss on your lips. [npc.speech(~Mmm~ That was fantastic...)]
+		Disentangling yourselves from one another, the two of you let out a synchronized, deeply-satisfied sigh. Collapsing down on the sofa next to you, [npc.name] grins as [npc.she] leans forwards and plants a quick kiss on your lips. [npc.speech(~Mmm~ That was fantastic...)]
 	</p>
 	<p>
 		After spending a few minutes to get [npc.her] things in order, [npc.name] turns to you and smiles.
@@ -577,7 +577,7 @@
 
 	<htmlContent tag="WATERING_HOLE_SEATING_AFTER_SEX_NO_ORGASM"><![CDATA[
 	<p>
-		Disentangling yourselves from one another, the two of you let out a synchronised sigh. Collapsing down on the sofa next to you, [npc.name] crosses [npc.her] [npc.arms] and lets out a frustrated huff, [npc.speech(You could have let me cum, you know...)]
+		Disentangling yourselves from one another, the two of you let out a synchronized sigh. Collapsing down on the sofa next to you, [npc.name] crosses [npc.her] [npc.arms] and lets out a frustrated huff, [npc.speech(You could have let me cum, you know...)]
 	</p>
 	<p>
 		After spending a few minutes to get [npc.her] things in order, [npc.name] turns to you and smiles.
@@ -814,7 +814,7 @@
 			</p>
 		#ELSE
 			<p>
-				As Kalahari moves towards you to say hello, you realise that there's something wrong in the way she's moving, and, looking down at her stomach, you see that her belly is visibly swollen. Seeing what it is you're looking at, the happy lioness lets out a laugh, before stepping forwards and leaning heavily down on the counter-top. [npc.speech(Hey, [pc.name]! You've noticed I'm pregnant already, huh?)]
+				As Kalahari moves towards you to say hello, you realize that there's something wrong in the way she's moving, and, looking down at her stomach, you see that her belly is visibly swollen. Seeing what it is you're looking at, the happy lioness lets out a laugh, before stepping forwards and leaning heavily down on the counter-top. [npc.speech(Hey, [pc.name]! You've noticed I'm pregnant already, huh?)]
 			</p>
 			<p>
 				[pc.speech(Yeah,)] you reply, smiling back at Kalahari.
@@ -965,7 +965,7 @@
 
 	<htmlContent tag="WATERING_HOLE_KALAHARI_BREAK_GROPE"><![CDATA[
 	<p>
-		With Kalahari's big [kalahari.eyeColour] eyes filled with burning desire, you press forwards against her, placing one [pc.hand] on her thigh, and #IFpc.getArmRows()==1#THENthe other#ELSEanother#ENDIF on her [kalahari.breasts+].
+		With Kalahari's big [kalahari.eyeColor] eyes filled with burning desire, you press forwards against her, placing one [pc.hand] on her thigh, and #IFpc.getArmRows()==1#THENthe other#ELSEanother#ENDIF on her [kalahari.breasts+].
 	</p>
 	<p>
 		[kalahari.speech(~Mmm~ Want to take a peek?)] Kalahari giggles, her voice dripping with lust. Answering in the affirmative, you grin as Kalahari pulls her tube top up, allowing her [kalahari.breasts+] to bounce free.
@@ -1093,7 +1093,7 @@
 		In one corner of the club, there's a seating area which is quite unlike the others. Most of the frontage is blocked off by a dark glass wall, and the single opening is guarded by a pair of muscular lion bouncers. Looking through this opening reveals the interior to be furnished with numerous semi-circular booths, each one housing a polished black marble table and a long, curved leather sofa.
 	</p>
 	<p>
-		As you approach, one of the bouncers recognises you from before. [genericMale.speech(You're Kalahari's friend, right?)]
+		As you approach, one of the bouncers recognizes you from before. [genericMale.speech(You're Kalahari's friend, right?)]
 	</p>
 	<p>
 		[pc.speech(Yeah, that's me,)] you reply.
@@ -1277,7 +1277,7 @@
 
 	<htmlContent tag="WATERING_HOLE_DANCE_FLOOR"><![CDATA[
 	<p>
-		The middle of the club is taken up by a large dance floor, which is currently occupied by a huge crowd of revellers. It's from here that the bassy background music originates, and, looking up towards the ceiling, you see a series of arcane-powered loudspeakers, which are clearly responsible for blaring out the generic club music.
+		The middle of the club is taken up by a large dance floor, which is currently occupied by a huge crowd of revelers. It's from here that the bassy background music originates, and, looking up towards the ceiling, you see a series of arcane-powered loudspeakers, which are clearly responsible for blaring out the generic club music.
 	</p>
 	<p>
 		Despite the huge amount of people dancing in front of you, there's still some space left. You could walk forwards and start to dance if you really wanted to.
@@ -1287,7 +1287,7 @@
 
 	<htmlContent tag="WATERING_HOLE_DANCE_FLOOR_DANCE_SOLO"><![CDATA[
 	<p>
-		Stepping forwards onto the dance floor, you allow yourself to get into the flow of the music, and, moving your body from side to side, start dancing with the revellers around you.
+		Stepping forwards onto the dance floor, you allow yourself to get into the flow of the music, and, moving your body from side to side, start dancing with the revelers around you.
 	</p>
 	<p>
 		Although fun at first, you can't help but think that this would be a lot more enjoyable if you had someone to dance with. With such thoughts creeping up at the back of your mind, you start to lose your enthusiasm, and return to the edge of dance floor once more.
@@ -1378,7 +1378,7 @@
 
 	<htmlContent tag="WATERING_HOLE_TOILETS"><![CDATA[
 	<p>
-		The club's toilets are far larger and cleaner than those of a typical nightclub, with at least twenty individual stalls running down one wall. Opposite the stalls, sinks and mirrors provide a place for the club's revellers to clean themselves.
+		The club's toilets are far larger and cleaner than those of a typical nightclub, with at least twenty individual stalls running down one wall. Opposite the stalls, sinks and mirrors provide a place for the club's revelers to clean themselves.
 	</p>
 	<p>
 		As you walk past one of the open stalls, you see that someone's cut glory holes in the walls to either side, and obscene writing is scrawled beside each one. From the splatters of cum on the floor, you can tell that this stall sees regular use...
@@ -1864,7 +1864,7 @@
 	<htmlContent tag="WATERING_HOLE_DOM_PARTNER_CHANGE_LOCATION_TOILETS"><![CDATA[
 	<p>
 		#IF npc.isTrusting()
-		#THEN [npc.speech(Sorry, [pc.name], I need to use the toilet,)] [npc.name] apologises. [npc.speech(I'll only be a moment, so you're OK waiting for me over there, right?)]
+		#THEN [npc.speech(Sorry, [pc.name], I need to use the toilet,)] [npc.name] apologizes. [npc.speech(I'll only be a moment, so you're OK waiting for me over there, right?)]
 		#ELSE
 			#IF npc.isSelfish()
 			#THEN [npc.speech(Come on, [pc.babe]! Watching your hot body all night's got me all fired up. The bouncers don't give a shit about people fucking in the toilets, so let's go do it in there,)] [npc.name] crudely states, before grabbing your [pc.hand] and pulling you along behind [npc.herHim] as [npc.she] sets off towards the toilets. [npc.speech(I hope you're better than the last fuck I had here!)]
@@ -2077,7 +2077,7 @@
 		[npc.speech(Eugh, you ungrateful [pc.bitch]!)] [npc.name] snaps, before turning towards the barmaid that stepped forwards to take [npc.her] order. [npc.speech(Forget it, I'm not ordering anything. Go sever someone else.)]
 	</p>
 	<p>
-		You step back from [npc.name], frowning at [npc.herHim] in response to [npc.her] uncalled-for insult. Before you can say anything regarding the matter, [npc.she] moves back up beside you and apologises, [npc.speech(Sorry, [pc.babe]. I shouldn't have said that. Anyway, no harm done, right?)]
+		You step back from [npc.name], frowning at [npc.herHim] in response to [npc.her] uncalled-for insult. Before you can say anything regarding the matter, [npc.she] moves back up beside you and apologizes, [npc.speech(Sorry, [pc.babe]. I shouldn't have said that. Anyway, no harm done, right?)]
 	</p>
 	<p>
 		[pc.speech(I suppose,)] you reply, wondering if you should ditch this rude [npc.race]...
@@ -2264,7 +2264,7 @@
 	</p>
 	<p>
 		#IF npc.isTrusting()
-		#THEN [npc.speech(Sorry! I got a little carried away,)] [npc.name] sheepishly apologises, releasing [npc.her] grip on your [pc.hips] and stepping back to give you some space.
+		#THEN [npc.speech(Sorry! I got a little carried away,)] [npc.name] sheepishly apologizes, releasing [npc.her] grip on your [pc.hips] and stepping back to give you some space.
 		#ELSE
 			#IF npc.isSelfish()
 			#THEN [npc.speech(Aww, don't be like that, [pc.babe],)] [npc.name] says, keeping [npc.her] tight grip on your [pc.ass+]. Completely shocked by [npc.her] refusal to listen, you end up pushing [npc.herHim] back once again, this time with a considerable amount of force. Thankfully, [npc.name] has to let go of you in order to steady [npc.herself], and you furiously shout at [npc.herHim] not to try anything like that again.
@@ -2353,7 +2353,7 @@
 	<htmlContent tag="WATERING_HOLE_DOM_PARTNER_BAR_KISS_DECLINE"><![CDATA[
 	<p>
 		#IF npc.isTrusting()
-		#THEN Not wanting to be kissed by [npc.name], you pull back from [npc.herHim] and tell [npc.herHim] to keep [npc.her] distance. Immediately doing as you ask, [npc.she] apologises, [npc.speech(Sorry, [pc.name]! I got a little carried away, and misjudged the mood.)]
+		#THEN Not wanting to be kissed by [npc.name], you pull back from [npc.herHim] and tell [npc.herHim] to keep [npc.her] distance. Immediately doing as you ask, [npc.she] apologizes, [npc.speech(Sorry, [pc.name]! I got a little carried away, and misjudged the mood.)]
 		#ELSE
 			#IF npc.isSelfish()
 			#THEN Not wanting to be kissed by [npc.name], you pull back from [npc.herHim] and tell [npc.herHim] to keep [npc.her] distance. Reluctantly doing as you ask, [npc.she] steps to one side and gives your [pc.ass+] a playful smack, before grinning lustfully at you. [npc.speech(Come on, [pc.name]! You can't fool yourself! You know you want me...)]
@@ -2413,7 +2413,7 @@
 
 	<htmlContent tag="WATERING_HOLE_DOM_PARTNER_DANCE_ACCEPT"><![CDATA[
 	<p>
-		Happy to have some fun dancing with [npc.name], you allow [npc.herHim] to lead you out onto the dance floor. Quickly finding yourselves in the middle of the noisy crowd of revellers, [npc.name] turns to face you, and, flashing you a smile, starts to dance to the music. You follow [npc.namePos] lead, and, dancing alongside one another, the two of you laugh and share smiles as you join the exuberant crowd in making the most of your evening.
+		Happy to have some fun dancing with [npc.name], you allow [npc.herHim] to lead you out onto the dance floor. Quickly finding yourselves in the middle of the noisy crowd of revelers, [npc.name] turns to face you, and, flashing you a smile, starts to dance to the music. You follow [npc.namePos] lead, and, dancing alongside one another, the two of you laugh and share smiles as you join the exuberant crowd in making the most of your evening.
 	</p>
 	<p>
 		After a short while, the heat and energy of the crowd starts to get a little too much for both of you, and, taking hold of your [pc.hand] once more, [npc.name] leads you back out to the edge of the dance floor, where [npc.she] turns and smiles at you. [npc.speech(That was fun! I think I need a breather now, though.)]
@@ -2612,7 +2612,7 @@
 
 	<htmlContent tag="WATERING_HOLE_DOM_PARTNER_SIT_DOWN_FOOTSIE"><![CDATA[
 	<p>
-		[npc.Name] throws you a playful smile, but before you can ask [npc.herHim] what's on [npc.her] mind, you suddenly feel [npc.her] [npc.foot] rubbing against your [pc.leg]. Your partner playfully laughs as [npc.she] starts to lift [npc.her] [npc.foot] up towards your groin, and you realise that unless you say something, [npc.sheIs] going to press it right into your crotch!
+		[npc.Name] throws you a playful smile, but before you can ask [npc.herHim] what's on [npc.her] mind, you suddenly feel [npc.her] [npc.foot] rubbing against your [pc.leg]. Your partner playfully laughs as [npc.she] starts to lift [npc.her] [npc.foot] up towards your groin, and you realize that unless you say something, [npc.sheIs] going to press it right into your crotch!
 	</p>
 	]]>
 	</htmlContent>
@@ -2667,7 +2667,7 @@
 		Not wanting [npc.namePos] [npc.feet] anywhere near your groin, you quickly shuffle away from [npc.her] touch, before angrily frowning at [npc.herHim]. [pc.speech(Hey! Cut that out!)]
 	</p>
 	<p>
-		[npc.speech(Ah, sorry, [pc.name],)] [npc.name] apologises. [npc.speech(I thought you might like that sort of thing...)]
+		[npc.speech(Ah, sorry, [pc.name],)] [npc.name] apologizes. [npc.speech(I thought you might like that sort of thing...)]
 	</p>
 	<p>
 		You quickly inform [npc.name] that you definitely don't, and, after a few moments of heavy silence between the two of you, [npc.she] seems ready to try something else...
@@ -2735,7 +2735,7 @@
 	<htmlContent tag="WATERING_HOLE_DOM_PARTNER_SIT_DOWN_KISS_DECLINE"><![CDATA[
 	<p>
 		#IF npc.isTrusting()
-		#THEN Not wanting to be kissed by [npc.name], you pull back from [npc.herHim] and tell [npc.herHim] to keep [npc.her] distance. Immediately doing as you ask, [npc.she] apologises, [npc.speech(Sorry, [pc.name]! I got a little carried away, and misjudged the mood.)]
+		#THEN Not wanting to be kissed by [npc.name], you pull back from [npc.herHim] and tell [npc.herHim] to keep [npc.her] distance. Immediately doing as you ask, [npc.she] apologizes, [npc.speech(Sorry, [pc.name]! I got a little carried away, and misjudged the mood.)]
 		#ELSE Not wanting to be kissed by [npc.name], you pull back from [npc.herHim] and tell [npc.herHim] to keep [npc.her] distance. Reluctantly doing as you ask, [npc.she] sighs, [npc.speech(Sure thing, [pc.name]. Perhaps you'll be up for some real fun later on tonight...)]
 		#ENDIF
 	</p>
@@ -2942,13 +2942,13 @@
 		It doesn't take too long to get back to [npc.her] home, which turns out to be an apartment in one of the well-kept buildings lining Dominion's main boulevards. After stepping inside, the two of you make your way up a staircase to the second floor, where [npc.name] produces a key and unlocks the door to [npc.her] apartment.
 	</p>
 	<p>
-		From [npc.her] home's expensive decor, as well as it's prime location in one of the most desirable parts of Dominion, you can tell that [npc.name] is very well off. You don't have too much time to appreciate your surroundings, however, because as soon as the door closes behind you, your partner wraps [npc.her] [npc.arms] around you, before pulling you into a passionate kiss.
+		From [npc.her] home's expensive décor, as well as it's prime location in one of the most desirable parts of Dominion, you can tell that [npc.name] is very well off. You don't have too much time to appreciate your surroundings, however, because as soon as the door closes behind you, your partner wraps [npc.her] [npc.arms] around you, before pulling you into a passionate kiss.
 	</p>
 	<p>
 		After a moment of making out with one another, [npc.name] takes hold of your [pc.hand] once more, before pulling you along towards one of [npc.her] apartment's interior doors. [npc.speech(Come on, [pc.name], my bedroom's right this way!)]
 	</p>
 	<p>
-		You realise that this is the last chance you'll have to change your mind, so if you were having second thoughts, now's the time to let [npc.name] know...
+		You realize that this is the last chance you'll have to change your mind, so if you were having second thoughts, now's the time to let [npc.name] know...
 	</p>
 	]]>
 	</htmlContent>
@@ -3058,7 +3058,7 @@
 		[npc.speech(Oh, well, I didn't expect that,)] [npc.name] responds, sounding more than a little surprised.
 	</p>
 	<p>
-		Before [npc.she] can say anything else, you turn your back on [npc.herHim] and take your leave. Travelling down the stairs and out into the street beyond, you let out a satisfied sigh before setting off on your way...
+		Before [npc.she] can say anything else, you turn your back on [npc.herHim] and take your leave. Traveling down the stairs and out into the street beyond, you let out a satisfied sigh before setting off on your way...
 	</p>
 	]]>
 	</htmlContent>

@@ -85,19 +85,19 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours>
-			<colour>CLOTHING_BLUE</colour>
-			<colour>CLOTHING_BLUE_LIGHT</colour>
-			<colour>CLOTHING_PINK_LIGHT</colour>
-			<colour>CLOTHING_GREY</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_WHITE"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours>
-			<colour>CLOTHING_BRASS</colour>
-		</tertiaryColours>
-		<tertiaryColoursDye values="ALL_WITH_METALS"/>
+		<primaryColors>
+			<color>CLOTHING_BLUE</color>
+			<color>CLOTHING_BLUE_LIGHT</color>
+			<color>CLOTHING_PINK_LIGHT</color>
+			<color>CLOTHING_GREY</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_WHITE"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors>
+			<color>CLOTHING_BRASS</color>
+		</tertiaryColors>
+		<tertiaryColorsDye values="ALL_WITH_METALS"/>
 		
 		<itemTags>
 			<tag>SOLD_BY_NYAN</tag>

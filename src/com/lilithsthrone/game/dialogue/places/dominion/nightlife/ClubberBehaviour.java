@@ -7,7 +7,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @version 0.2.10
  * @author Innoxia
  */
-public enum ClubberBehaviour {
+public enum ClubberBehavior {
 
 	INTRODUCTION() {
 		@Override

@@ -54,16 +54,16 @@
 
 		<incompatibleSlots/>
 
-		<primaryColours>
-			<colour>CLOTHING_BLACK</colour>
-			<colour>CLOTHING_WHITE</colour>
-			<colour>CLOTHING_BLUE_DARK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours/>
-		<secondaryColoursDye/>
-		<tertiaryColours/>
-		<tertiaryColoursDye/>
+		<primaryColors>
+			<color>CLOTHING_BLACK</color>
+			<color>CLOTHING_WHITE</color>
+			<color>CLOTHING_BLUE_DARK</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors/>
+		<secondaryColorsDye/>
+		<tertiaryColors/>
+		<tertiaryColorsDye/>
 
 		<itemTags>
 			<tag>REINDEER_GIFT</tag>

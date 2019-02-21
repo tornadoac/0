@@ -51,12 +51,12 @@
               <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_WEAPON" timer="0"/>
 		</effects>
 		
-		<primaryColours>
-			<colour>CLOTHING_BRASS</colour>
-		</primaryColours> 
-		<primaryColoursDye values="ALL_METAL"/>
-		<secondaryColours/> 
-		<secondaryColoursDye/>
+		<primaryColors>
+			<color>CLOTHING_BRASS</color>
+		</primaryColors> 
+		<primaryColorsDye values="ALL_METAL"/>
+		<secondaryColors/> 
+		<secondaryColorsDye/>
 		
 		<itemTags> 
 			<tag>SOLD_BY_VICKY</tag>

@@ -543,7 +543,7 @@ public class PenisBreastsCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getPaizuriTitle(Sex.getCharacterTargetedForSexAction(this)));
+			return Util.capitalizeSentence(getPaizuriTitle(Sex.getCharacterTargetedForSexAction(this)));
 		}
 
 		@Override
@@ -678,7 +678,7 @@ public class PenisBreastsCrotch {
 		
 		@Override
 		public String getActionTitle() {
-			return Util.capitaliseSentence(getPaizuriTitle(Sex.getCharacterTargetedForSexAction(this)));
+			return Util.capitalizeSentence(getPaizuriTitle(Sex.getCharacterTargetedForSexAction(this)));
 		}
 
 		@Override

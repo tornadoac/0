@@ -65,7 +65,7 @@ import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.sex.sexActions.dominion.SALilayaSpecials;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -150,29 +150,29 @@ public class Lilaya extends NPC {
 		
 		// Coverings:
 
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Colour.EYE_YELLOW));
-		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Colour.SKIN_RED), true);
-		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Main.game.getPlayer().getCovering(BodyCoveringType.HUMAN).getPrimaryColour()), true);
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_YELLOW));
+		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
+		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Main.game.getPlayer().getCovering(BodyCoveringType.HUMAN).getPrimaryColor()), true);
 		
-		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Colour.HORN_DARK_GREY), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Colour.COVERING_BLACK), true);
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMaximumValue());
 		this.setHairStyle(HairStyle.LOOSE);
 		
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Colour.COVERING_BLACK), false);
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Colour.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.FOUR_NATURAL);
 		this.setPubicHair(BodyHair.FIVE_UNKEMPT);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_AMBER));
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_AMBER));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_BLACK));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_BLACK));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_AMBER));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_AMBER));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_BLACK));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
 		
 		// Face:
 		this.setFaceVirgin(false);
@@ -225,18 +225,18 @@ public class Lilaya extends NPC {
 		
 		this.unequipAllClothingIntoVoid(true);
 
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_PENCIL_SKIRT, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_torso_feminine_short_sleeve_shirt"), Colour.CLOTHING_WHITE, Colour.CLOTHING_GREY, Colour.CLOTHING_GREY, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_PENCIL_SKIRT, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_torso_feminine_short_sleeve_shirt"), Color.CLOTHING_WHITE, Color.CLOTHING_GREY, Color.CLOTHING_GREY, false), true, this);
 		
-		AbstractClothing labCoat = AbstractClothingType.generateClothing(ClothingType.SCIENTIST_TORSO_OVER_LAB_COAT, Colour.CLOTHING_WHITE, false);
+		AbstractClothing labCoat = AbstractClothingType.generateClothing(ClothingType.SCIENTIST_TORSO_OVER_LAB_COAT, Color.CLOTHING_WHITE, false);
 		this.equipClothingFromNowhere(labCoat, true, this);
 		this.isAbleToBeDisplaced(labCoat, DisplacementType.UNBUTTONS, true, true, this);
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Colour.CLOTHING_BLACK_STEEL, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Color.CLOTHING_BLACK_STEEL, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Color.CLOTHING_BLACK, false), true, this);
 		
 
 	}
@@ -258,7 +258,7 @@ public class Lilaya extends NPC {
 
 	@Override
 	public String getArtworkFolderName() {
-		switch(this.getCovering(BodyCoveringType.HUMAN).getPrimaryColour()) {
+		switch(this.getCovering(BodyCoveringType.HUMAN).getPrimaryColor()) {
 			case SKIN_PORCELAIN:
 			case SKIN_PALE:
 				return "LilayaPale";
@@ -276,8 +276,8 @@ public class Lilaya extends NPC {
 	}
 
 	@Override
-	public String setSkinCovering(Covering covering, boolean updateAllSkinColours) {
-		String returnValue = super.setSkinCovering(covering, updateAllSkinColours);
+	public String setSkinCovering(Covering covering, boolean updateAllSkinColors) {
+		String returnValue = super.setSkinCovering(covering, updateAllSkinColors);
 		if (covering.getType() == BodyCoveringType.HUMAN) {
 			// Reload images when the skin changes
 			loadImages();
@@ -286,7 +286,7 @@ public class Lilaya extends NPC {
 	}
 	
 	@Override
-	public String getSpeechColour() {
+	public String getSpeechColor() {
 		return "#ff66a3";
 	}
 	

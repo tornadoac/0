@@ -163,7 +163,7 @@ public class Cowgirl {
 		switch(Sex.getSexPace(Sex.getActivePartner())) {
 			case SUB_RESISTING:
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-						" [npc.Name] lets out a relieved sigh, which soon turns into [npc.a_sob+] as [npc.she] realises that you haven't finished with [npc.herHim] just yet.",
+						" [npc.Name] lets out a relieved sigh, which soon turns into [npc.a_sob+] as [npc.she] realizes that you haven't finished with [npc.herHim] just yet.",
 						" With [npc.a_sob+], [npc.name] continues to protest and struggle against you as you hold [npc.herHim] firmly in place."));
 				break;
 			default:
@@ -271,7 +271,7 @@ public class Cowgirl {
 		switch(Sex.getSexPace(Sex.getActivePartner())) {
 			case SUB_RESISTING:
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-						" [npc.Name] lets out a relieved sigh, which soon turns into [npc.a_sob+] as [npc.she] realises that you haven't finished with [npc.herHim] just yet.",
+						" [npc.Name] lets out a relieved sigh, which soon turns into [npc.a_sob+] as [npc.she] realizes that you haven't finished with [npc.herHim] just yet.",
 						" With [npc.a_sob+], [npc.name] continues to protest and struggle against you as you hold [npc.herHim] firmly in place."));
 				break;
 			default:
@@ -432,7 +432,7 @@ public class Cowgirl {
 		switch(Sex.getSexPace(Main.game.getPlayer())) {
 			case SUB_RESISTING:
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-						" You let out a relieved sigh, which soon turns into [pc.a_sob+] as you realise that [npc.she] isn't finished with you yet.",
+						" You let out a relieved sigh, which soon turns into [pc.a_sob+] as you realize that [npc.she] isn't finished with you yet.",
 						" With [pc.a_sob+], you continue to protest and struggle against [npc.herHim] as [npc.she] holds you firmly in place."));
 				break;
 			default:
@@ -540,7 +540,7 @@ public class Cowgirl {
 		switch(Sex.getSexPace(Main.game.getPlayer())) {
 			case SUB_RESISTING:
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-						" You let out a relieved sigh, which soon turns into [pc.a_sob+] as you realise that [npc.she] isn't finished with you yet.",
+						" You let out a relieved sigh, which soon turns into [pc.a_sob+] as you realize that [npc.she] isn't finished with you yet.",
 						" With [pc.a_sob+], you continue to protest and struggle against [npc.herHim] as [npc.she] holds you firmly in place."));
 				break;
 			default:

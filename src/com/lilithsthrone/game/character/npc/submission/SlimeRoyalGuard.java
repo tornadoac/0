@@ -60,7 +60,7 @@ import com.lilithsthrone.game.inventory.clothing.ClothingType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -150,16 +150,16 @@ public class SlimeRoyalGuard extends NPC {
 		this.setBodySize(BodySize.FOUR_HUGE.getMedianValue());
 		
 		// Coverings:
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Colour.SLIME_PURPLE), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Colour.SLIME_PINK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_SCLERA, Colour.SLIME_PINK_LIGHT), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PUPILS, Colour.SLIME_PURPLE), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_ANUS, CoveringPattern.ORIFICE_ANUS, Colour.SLIME_PURPLE_DARK, false, Colour.SLIME_PURPLE_DARK, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_HAIR, Colour.SLIME_PURPLE_DARK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_MOUTH, CoveringPattern.ORIFICE_MOUTH, Colour.SLIME_PURPLE_DARK, false, Colour.SLIME_PURPLE_DARK, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Colour.SLIME_PURPLE_DARK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Colour.SLIME_PURPLE_DARK, false, Colour.SLIME_PURPLE_DARK, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Colour.SLIME_PURPLE_DARK, false, Colour.SLIME_PURPLE_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Color.SLIME_PURPLE), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Color.SLIME_PINK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_SCLERA, Color.SLIME_PINK_LIGHT), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PUPILS, Color.SLIME_PURPLE), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_ANUS, CoveringPattern.ORIFICE_ANUS, Color.SLIME_PURPLE_DARK, false, Color.SLIME_PURPLE_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_HAIR, Color.SLIME_PURPLE_DARK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_MOUTH, CoveringPattern.ORIFICE_MOUTH, Color.SLIME_PURPLE_DARK, false, Color.SLIME_PURPLE_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Color.SLIME_PURPLE_DARK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Color.SLIME_PURPLE_DARK, false, Color.SLIME_PURPLE_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Color.SLIME_PURPLE_DARK, false, Color.SLIME_PURPLE_DARK, true), false);
 		
 		this.setHairLength(HairLength.TWO_SHORT.getMedianValue());
 		this.setHairStyle(HairStyle.SLICKED_BACK);
@@ -169,12 +169,12 @@ public class SlimeRoyalGuard extends NPC {
 		this.setPubicHair(BodyHair.ZERO_NONE);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_RED));
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_RED));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_RED));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_RED));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 		this.setFaceVirgin(true);
@@ -229,12 +229,12 @@ public class SlimeRoyalGuard extends NPC {
 		
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_ZWEIHANDER, DamageType.PHYSICAL));
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_CROTCHLESS_CHAPS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_WORK_BOOTS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.STOMACH_SARASHI, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_WRAPS, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_CROTCHLESS_CHAPS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_WORK_BOOTS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.STOMACH_SARASHI, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_WRAPS, Color.CLOTHING_BLACK, false), true, this);
 
 	}
 	

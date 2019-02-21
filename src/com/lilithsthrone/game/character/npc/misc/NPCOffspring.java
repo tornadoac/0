@@ -205,7 +205,7 @@ public class NPCOffspring extends NPC {
 						+(this.getMother().isPlayer()
 							?" you gave birth to [npc.herHim]."
 							:" [npc.she] was born.")
-						+ " You first encountered [npc.herHim] prowling the alleyways of Dominion, and, through some arcane-influenced instinct, you both recognised your relationship at first sight."));
+						+ " You first encountered [npc.herHim] prowling the alleyways of Dominion, and, through some arcane-influenced instinct, you both recognized your relationship at first sight."));
 	}
 	
 	@Override

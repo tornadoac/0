@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.character.attributes;
 
 import com.lilithsthrone.game.character.effects.StatusEffect;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.65
@@ -10,42 +10,42 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum PhysiqueLevel {
 	
-	ZERO_WEAK("frail", 0, 5, Colour.PHYSIQUE_STAGE_ZERO) {
+	ZERO_WEAK("frail", 0, 5, Color.PHYSIQUE_STAGE_ZERO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_0;
 		}
 	},
 	
-	ONE_AVERAGE("average", 5, 15, Colour.PHYSIQUE_STAGE_ONE) {
+	ONE_AVERAGE("average", 5, 15, Color.PHYSIQUE_STAGE_ONE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_1;
 		}
 	},
 	
-	TWO_STRONG("fit", 15, 35, Colour.PHYSIQUE_STAGE_TWO) {
+	TWO_STRONG("fit", 15, 35, Color.PHYSIQUE_STAGE_TWO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_2;
 		}
 	},
 	
-	THREE_POWERFUL("powerful", 35, 65, Colour.PHYSIQUE_STAGE_THREE) {
+	THREE_POWERFUL("powerful", 35, 65, Color.PHYSIQUE_STAGE_THREE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_3;
 		}
 	},
 	
-	FOUR_MIGHTY("mighty", 65, 95, Colour.PHYSIQUE_STAGE_FOUR) {
+	FOUR_MIGHTY("mighty", 65, 95, Color.PHYSIQUE_STAGE_FOUR) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_4;
 		}
 	},
 	
-	FIVE_HERCULEAN("herculean", 95, 100, Colour.PHYSIQUE_STAGE_FIVE) {
+	FIVE_HERCULEAN("herculean", 95, 100, Color.PHYSIQUE_STAGE_FIVE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_5;
@@ -54,13 +54,13 @@ public enum PhysiqueLevel {
 	
 	private String name;
 	private int minimumValue, maximumValue;
-	private Colour colour;
+	private Color color;
 
-	private PhysiqueLevel(String name, int minimumValue, int maximumValue, Colour colour) {
+	private PhysiqueLevel(String name, int minimumValue, int maximumValue, Color color) {
 		this.name = name;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 	}
 	
 	public abstract StatusEffect getRelatedStatusEffect();
@@ -77,8 +77,8 @@ public enum PhysiqueLevel {
 		return maximumValue;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public static PhysiqueLevel getPhysiqueLevelFromValue(float value){

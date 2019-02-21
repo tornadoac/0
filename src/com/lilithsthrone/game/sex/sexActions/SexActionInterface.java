@@ -34,7 +34,7 @@ import com.lilithsthrone.game.sex.SexParticipantType;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.GenericActions;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -765,8 +765,8 @@ public interface SexActionInterface {
 					Main.game.updateResponses();
 				}
 				@Override
-				public Colour getHighlightColour() {
-					return Colour.BASE_PURPLE_LIGHT;
+				public Color getHighlightColor() {
+					return Color.BASE_PURPLE_LIGHT;
 				}
 				@Override
 				public SexPace getSexPace() {
@@ -838,15 +838,15 @@ public interface SexActionInterface {
 						for(Fetish f : fetishesRequired){
 							if(Main.game.getPlayer().hasFetish(f)) {
 								SB.append("<br/>"
-										+"<span style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>Associated Fetish</span>"
-										+ " (<span style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>owned</span>): "
-										+ Util.capitaliseSentence(f.getName(Main.game.getPlayer())));
+										+"<span style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>Associated Fetish</span>"
+										+ " (<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>owned</span>): "
+										+ Util.capitalizeSentence(f.getName(Main.game.getPlayer())));
 								
 							} else {
 								SB.append("<br/>"
-										+"<span style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>Associated Fetish</span>"
-										+ " (<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>not owned</span>): "
-										+ Util.capitaliseSentence(f.getName(Main.game.getPlayer())));
+										+"<span style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>Associated Fetish</span>"
+										+ " (<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>not owned</span>): "
+										+ Util.capitalizeSentence(f.getName(Main.game.getPlayer())));
 							}
 						}
 					}
@@ -854,14 +854,14 @@ public interface SexActionInterface {
 					if(corruptionBypass!=null) {
 						if(isCorruptionWithinRange()) {
 							SB.append("<br/>"
-									+"<span style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Associated Corruption</span>"
-									+ " (<span style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>within range</span>): "
-									+ Util.capitaliseSentence(corruptionBypass.getName()));
+									+"<span style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Associated Corruption</span>"
+									+ " (<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>within range</span>): "
+									+ Util.capitalizeSentence(corruptionBypass.getName()));
 						} else {
 							SB.append("<br/>"
-									+"<span style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Associated Corruption</span>"
-									+ " (<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>out of range</span>): "
-									+ Util.capitaliseSentence(corruptionBypass.getName()));
+									+"<span style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Associated Corruption</span>"
+									+ " (<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>out of range</span>): "
+									+ Util.capitalizeSentence(corruptionBypass.getName()));
 						}
 					}
 
@@ -869,12 +869,12 @@ public interface SexActionInterface {
 						if(Sex.getCharacterTargetedForSexAction(SexActionInterface.this).isSizeDifferenceShorterThan(Sex.getCharacterPerformingAction())
 								|| Sex.getCharacterTargetedForSexAction(SexActionInterface.this).isSizeDifferenceTallerThan(Sex.getCharacterPerformingAction())) {
 							SB.append("<br/>"
-									+"<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Size-difference is blocking swap!</span>");
+									+"<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Size-difference is blocking swap!</span>");
 						}
 					}
 					
 //					SB.append("<br/>"
-//							+"<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Requires no penetration</span>");
+//							+"<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Requires no penetration</span>");
 					
 					return SB.toString();
 				}

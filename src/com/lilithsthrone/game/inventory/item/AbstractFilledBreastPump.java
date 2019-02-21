@@ -14,7 +14,7 @@ import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.XMLSaving;
@@ -30,31 +30,31 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 	private FluidMilk milk;
 	private int millilitresStored;
 	
-	public AbstractFilledBreastPump(AbstractItemType itemType, Colour colour, GameCharacter milkProvidor, FluidMilk milk, int millilitresStored) {
+	public AbstractFilledBreastPump(AbstractItemType itemType, Color color, GameCharacter milkProvidor, FluidMilk milk, int millilitresStored) {
 		super(itemType);
 		
 		this.milkProvidor = milkProvidor.getId();
 		this.milk = new FluidMilk(milk.getType());
-		this.milk.setFlavour(milkProvidor, milk.getFlavour());
+		this.milk.setFlavor(milkProvidor, milk.getFlavor());
 		for(FluidModifier fm : milk.getFluidModifiers()) {
 			this.milk.addFluidModifier(milkProvidor, fm);
 		}
-		this.colourShade = colour;
-		SVGString = getSVGString(itemType.getPathName(), colour);
+		this.colorShade = color;
+		SVGString = getSVGString(itemType.getPathName(), color);
 		this.millilitresStored = millilitresStored;
 	}
 	
-	public AbstractFilledBreastPump(AbstractItemType itemType, Colour colour, String milkProvidorId, FluidMilk milk, int millilitresStored) {
+	public AbstractFilledBreastPump(AbstractItemType itemType, Color color, String milkProvidorId, FluidMilk milk, int millilitresStored) {
 		super(itemType);
 		
 		this.milkProvidor = milkProvidorId;
 		this.milk = new FluidMilk(milk.getType());
-		this.milk.setFlavour(null, milk.getFlavour());
+		this.milk.setFlavor(null, milk.getFlavor());
 		for(FluidModifier fm : milk.getFluidModifiers()) {
 			this.milk.addFluidModifier(null, fm);
 		}
-		this.colourShade = colour;
-		SVGString = getSVGString(itemType.getPathName(), colour);
+		this.colorShade = color;
+		SVGString = getSVGString(itemType.getPathName(), color);
 		this.millilitresStored = millilitresStored;
 	}
 	
@@ -83,7 +83,7 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 		parentElement.appendChild(element);
 		
 		CharacterUtils.addAttribute(doc, element, "id", this.getItemType().getId());
-		CharacterUtils.addAttribute(doc, element, "colour", String.valueOf(this.getColour()));
+		CharacterUtils.addAttribute(doc, element, "color", String.valueOf(this.getColor()));
 		CharacterUtils.addAttribute(doc, element, "milkProvidor", this.getMilkProvidorId());
 		CharacterUtils.addAttribute(doc, element, "millilitresStored", String.valueOf(this.getMillilitresStored()));
 		
@@ -103,7 +103,7 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 	public static AbstractFilledBreastPump loadFromXML(Element parentElement, Document doc) {
 		return new AbstractFilledBreastPump(
 				ItemType.getIdToItemMap().get(parentElement.getAttribute("id")),
-				Colour.valueOf(parentElement.getAttribute("colour")),
+				Color.valueOf(parentElement.getAttribute("color")),
 				parentElement.getAttribute("milkProvidor"),
 				((Element) parentElement.getElementsByTagName("milk").item(0)==null
 					?new FluidMilk(FluidType.MILK_HUMAN)
@@ -113,12 +113,12 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 					:Integer.valueOf(parentElement.getAttribute("millilitresStored"))));
 	}
 	
-	private String getSVGString(String pathName, Colour colour) {
+	private String getSVGString(String pathName, Color color) {
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/" + pathName + ".svg");
 			String s = Util.inputStreamToString(is);
 			
-			s = SvgUtil.colourReplacement(String.valueOf(this.hashCode()), colour, s);
+			s = SvgUtil.colorReplacement(String.valueOf(this.hashCode()), color, s);
 			
 			is.close();
 			

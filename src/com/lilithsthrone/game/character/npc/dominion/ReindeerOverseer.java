@@ -88,7 +88,7 @@ public class ReindeerOverseer extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			
@@ -130,7 +130,7 @@ public class ReindeerOverseer extends NPC {
 	@Override
 	public String getDescription() {
 		return (UtilText.parse(this,
-				"[npc.Name] is an overseer of one of the many groups of reindeer-morphs which are working throughout Dominion to keep the streets shovelled clear of snow."));
+				"[npc.Name] is an overseer of one of the many groups of reindeer-morphs which are working throughout Dominion to keep the streets shoveled clear of snow."));
 	}
 	
 	@Override

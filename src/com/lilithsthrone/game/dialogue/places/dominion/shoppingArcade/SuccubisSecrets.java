@@ -34,7 +34,7 @@ import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.sex.managers.universal.SMChair;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -98,7 +98,7 @@ public class SuccubisSecrets {
 			if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.kateIntroduced)) {
 				return "<p>"
 							+ "You find yourself standing, once again, in the quiet corner of the Shopping Arcade, where the dark, shut-up beauty salon 'Succubi's Secrets' is located."
-							+ " You notice that everyone around you is completely ignoring the uninviting facade, and you smile to yourself as you realise that's exactly what its lazy owner wants."
+							+ " You notice that everyone around you is completely ignoring the uninviting façade, and you smile to yourself as you realize that's exactly what its lazy owner wants."
 							+ " Now that you're here, you wonder if you should pay Kate another visit..."
 						+ "</p>";
 				
@@ -158,7 +158,7 @@ public class SuccubisSecrets {
 						+ " finishing the look and convincing you that you're in the right place."
 					+ "</p>"
 					+ "<p>"
-						+ "As you stand in the doorway, taking in your new surroundings, you realise that the most striking feature of all is that the place is completely deserted."
+						+ "As you stand in the doorway, taking in your new surroundings, you realize that the most striking feature of all is that the place is completely deserted."
 						+ " Or, at least, that's how it appears at first glance."
 						+ " As you look around for any sign of life, you notice that the furthest leather chair has been turned so that its back is to you."
 						+ " A pair of slender, feminine legs, propped up on a low table, can just about be seen, and you decide to go and greet what must be this shop's owner."
@@ -199,7 +199,7 @@ public class SuccubisSecrets {
 						+ "[pc.speech(Excuse me?)]"
 					+ "</p>"
 					+ "<p>"
-						+ "Her eyes instantly snap open, and as she lets out an annoyed huff, you realise that she was merely pretending to be asleep this whole time."
+						+ "Her eyes instantly snap open, and as she lets out an annoyed huff, you realize that she was merely pretending to be asleep this whole time."
 						+ " [kate.speech(Am I really that rusty?! You didn't want to fuck me at all, not one little bit?"
 							+ " Y'know, that's one downside of not having any customers. I haven't had sex in, like, three whole days! And then, when someone finally arrives, they don't even want to have any fun!)]"
 					+ "</p>";
@@ -216,7 +216,7 @@ public class SuccubisSecrets {
 						null,
 						null, Kate.AFTER_SEX, "<p>"
 						+ "As the horny demon finishes speaking, she sits up, spreading her legs and pulling up her skirt as she gives you a clear view of her spaded tail pushing deep into her hungry pussy."
-						+ " You notice little vibrations running down her tail's length, and you realise that her demonic pussy is eagerly massaging and squeezing down on the intruding object."
+						+ " You notice little vibrations running down her tail's length, and you realize that her demonic pussy is eagerly massaging and squeezing down on the intruding object."
 						+ " She glances up at you with big, innocent eyes, and begs, "
 						+ UtilText.parseSpeech("Pleeeease! It's just not the same when I have to do it myself...",
 							Main.game.getNpc(Kate.class))
@@ -289,7 +289,7 @@ public class SuccubisSecrets {
 						null,
 						null, Kate.AFTER_SEX, "<p>"
 						+ "As the horny demon finishes speaking, she sits up, spreading her legs and pulling up her skirt as she gives you a clear view of her spaded tail pushing deep into her hungry pussy."
-						+ " You notice little vibrations running down her tail's length, and you realise that her demonic pussy is eagerly massaging and squeezing down on the intruding object."
+						+ " You notice little vibrations running down her tail's length, and you realize that her demonic pussy is eagerly massaging and squeezing down on the intruding object."
 						+ " She glances up at you with big, innocent eyes, and begs, "
 						+ UtilText.parseSpeech("Pleeeease! It's just not the same when I have to do it myself...",
 							Main.game.getNpc(Kate.class))
@@ -330,7 +330,7 @@ public class SuccubisSecrets {
 			return ("<p>"
 						+ "You're a little bit taken aback at how thirsty this horny demon is, and as she finishes speaking, she sits up,"
 							+ " spreading her legs and pulling up her skirt as she gives you a clear view of her spaded tail pushing deep into her hungry pussy."
-						+ " You notice little vibrations running down her tail's length, and you realise that her demonic pussy is eagerly massaging and squeezing down on the intruding object."
+						+ " You notice little vibrations running down her tail's length, and you realize that her demonic pussy is eagerly massaging and squeezing down on the intruding object."
 						+ " Before you're tempted to do something that you may regret, you turn your head and avert your eyes from the lewd display."
 						+ "</p>"
 						+"<p>"
@@ -410,15 +410,15 @@ public class SuccubisSecrets {
 			if(Main.game.getNpc(Kate.class).isVisiblyPregnant() && !Main.game.getDialogueFlags().values.contains(DialogueFlagValue.reactedToKatePregnancy)) {
 				return "<p>"
 						+ "With the knowledge that appearances can be deceiving, you stride over to the door and push it open."
-						+ " As a big flake of peeling paint breaks off and falls to the floor, you step inside, marvelling once again at how radically different the interior is."
+						+ " As a big flake of peeling paint breaks off and falls to the floor, you step inside, marveling once again at how radically different the interior is."
 						+ "</p>"
 						+ "<p>"
-						+ "Letting your vision wander down the line of modern, comfortable leather chairs, you spot Kate sleeping in her favourite spot."
-						+ " You feel your eyes going wide as you see her [kate.hands] resting on her swollen belly, and you realise that [style.boldSex(you've ended up getting Kate pregnant!)]"
+						+ "Letting your vision wander down the line of modern, comfortable leather chairs, you spot Kate sleeping in her favorite spot."
+						+ " You feel your eyes going wide as you see her [kate.hands] resting on her swollen belly, and you realize that [style.boldSex(you've ended up getting Kate pregnant!)]"
 						+ "</p>"
 						+ "<p>"
 						+ "Despite trying your best to stay quiet, the echo of your footfalls on the clean marble floor causes her to wake from her slumber."
-						+ " As you approach and sit down next to her, she opens one eye, smiling as she recognises you as the father of her children."
+						+ " As you approach and sit down next to her, she opens one eye, smiling as she recognizes you as the father of her children."
 						+ " With a yawn, she slowly sits up, still cradling her round tummy as she grins at you."
 						+ "</p>"
 						+ "<p>"
@@ -449,16 +449,16 @@ public class SuccubisSecrets {
 			} else {
 				return "<p>"
 						+ "You make your way over to the boarded-up beauty salon; 'Succubi's Secrets'."
-						+ " You notice that everyone around you is completely ignoring the uninviting facade, and you smile to yourself as you realise that's exactly what its lazy owner wants."
+						+ " You notice that everyone around you is completely ignoring the uninviting façade, and you smile to yourself as you realize that's exactly what its lazy owner wants."
 						+ "</p>"
 						+ "<p>"
 						+ "With the knowledge that appearances can be deceiving, you stride over to the door and push it open."
-						+ " As a big flake of peeling paint breaks off and falls to the floor, you step inside, marvelling once again at how radically different the interior is."
+						+ " As a big flake of peeling paint breaks off and falls to the floor, you step inside, marveling once again at how radically different the interior is."
 						+ "</p>"
 						+ "<p>"
-						+ "Letting your vision wander down the line of modern, comfortable leather chairs, you spot Kate sleeping in her favourite spot."
+						+ "Letting your vision wander down the line of modern, comfortable leather chairs, you spot Kate sleeping in her favorite spot."
 						+ " Despite trying your best to stay quiet, the echo of your footfalls on the clean marble floor causes her to wake from her slumber."
-						+ " As you sit down next to her, she opens one eye, smiling as she recognises you."
+						+ " As you sit down next to her, she opens one eye, smiling as she recognizes you."
 						+ " With a yawn, she hands you a nearby brochure."
 						+ " As you thank her, she mutters something about being happy to see you again, but before you can respond, her snores start to fill the empty shop once more..."
 						+ "</p>"
@@ -509,7 +509,7 @@ public class SuccubisSecrets {
 	
 	private static Response getMainResponse(int index) {
 		if(index == 1){
-			return new ResponseTrade("Trade with Kate", "There's a separate leaflet tucked into the back of the brochure. It informs you that Kate is a registered distributor for a large jewellery firm.", Main.game.getNpc(Kate.class)){
+			return new ResponseTrade("Trade with Kate", "There's a separate leaflet tucked into the back of the brochure. It informs you that Kate is a registered distributor for a large jewelry firm.", Main.game.getNpc(Kate.class)){
 				@Override
 				public void effects() {
 					if(Main.game.getNpc(Kate.class).isVisiblyPregnant() && !Main.game.getDialogueFlags().values.contains(DialogueFlagValue.reactedToKatePregnancy))
@@ -523,7 +523,7 @@ public class SuccubisSecrets {
 				
 			} else {
 				return new Response("Makeup",
-						"Kate offers a wide range of different cosmetic services, and several pages of the brochure are devoted to images displaying different styles and colours of lipstick, nail polish, and other forms of makeup.",
+						"Kate offers a wide range of different cosmetic services, and several pages of the brochure are devoted to images displaying different styles and colors of lipstick, nail polish, and other forms of makeup.",
 						SHOP_BEAUTY_SALON_COSMETICS){
 					@Override
 					public void effects() {
@@ -560,8 +560,8 @@ public class SuccubisSecrets {
 
 		}  else if (index == 5) {
 				return new Response("Eyes",
-						"There's a special page near the front of the brochure, advertising Kate's ability to recolour a person's eyes."
-						+ " Just like skin recolourings, this is quite demanding on her aura, and is therefore very expensive.", SHOP_BEAUTY_SALON_EYES){
+						"There's a special page near the front of the brochure, advertising Kate's ability to recolor a person's eyes."
+						+ " Just like skin recolorings, this is quite demanding on her aura, and is therefore very expensive.", SHOP_BEAUTY_SALON_EYES){
 					@Override
 					public void effects() {
 						if(Main.game.getNpc(Kate.class).isVisiblyPregnant() && !Main.game.getDialogueFlags().values.contains(DialogueFlagValue.reactedToKatePregnancy)) {
@@ -572,9 +572,9 @@ public class SuccubisSecrets {
 
 		} else if (index == 6) {
 			return new Response("Coverings",
-					"There's a special page in the middle of the brochure, advertising Kate's special ability to harness the arcane in order to recolour a person's skin or fur."
+					"There's a special page in the middle of the brochure, advertising Kate's special ability to harness the arcane in order to recolor a person's skin or fur."
 					+ " Apparently, this is quite demanding on her aura, and is therefore very expensive.",
-					SHOP_BEAUTY_SALON_SKIN_COLOUR){
+					SHOP_BEAUTY_SALON_SKIN_COLOR){
 				@Override
 				public void effects() {
 					
@@ -702,14 +702,14 @@ public class SuccubisSecrets {
 		public String getHeaderContent() {
 			
 			return "<p>"
-						+ "There's a large section near the front of the brochure which shows all the different hair colours that are on offer."
+						+ "There's a large section near the front of the brochure which shows all the different hair colors that are on offer."
 						+ " A picture of a surprisingly energetic Kate is located in the bottom-right of the double-page spread."
 						+ " She's holding her arms out to one side, drawing attention to a series of pictures, each showing a different length of hair."
 						+ " A little speech bubble, drawn coming out of her mouth, reads; [kate.speech(Just let me know how long you want it!)]"
 					+ "</p>"
 					+ "<p>"
-						+ "Just beneath this, a small paragraph informs you that Kate uses a special arcane power to change her client's hair colouring."
-						+ " It seems to be trying to emphasise the fact that this isn't a temporary dye, and will permanently change your natural colouring."
+						+ "Just beneath this, a small paragraph informs you that Kate uses a special arcane power to change her client's hair coloring."
+						+ " It seems to be trying to emphasise the fact that this isn't a temporary dye, and will permanently change your natural coloring."
 					+ "</p>"
 					+ "<h6 style='text-align:center;'>"
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
@@ -719,7 +719,7 @@ public class SuccubisSecrets {
 					+CharacterModificationUtils.getKatesDivHairStyles(true, "Hair Style", "Hair style availability is determined by your hair length.")
 					
 					+CharacterModificationUtils.getKatesDivCoveringsNew(true, Main.game.getPlayer().getCovering(Main.game.getPlayer().getHairCovering()).getType(),
-							"[pc.Hair] Colour", "All hair recolourings are permanent, so if you want to change your colour again at a later time, you'll have to visit Kate again.", true, true)
+							"[pc.Hair] Color", "All hair recolorings are permanent, so if you want to change your color again at a later time, you'll have to visit Kate again.", true, true)
 					;
 		}
 		
@@ -738,13 +738,13 @@ public class SuccubisSecrets {
 			return true;
 		}
 	};
-	public static final DialogueNode SHOP_BEAUTY_SALON_SKIN_COLOUR = new DialogueNode("Succubi's Secrets", "-", true) {
+	public static final DialogueNode SHOP_BEAUTY_SALON_SKIN_COLOR = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getHeaderContent() {
 			UtilText.nodeContentSB.setLength(0);
 			UtilText.nodeContentSB.append("<p>"
-									+ "In the middle of the brochure, there's a double-page spread advertising Kate's special ability to harness the arcane in order to recolour a person's skin or fur."
+									+ "In the middle of the brochure, there's a double-page spread advertising Kate's special ability to harness the arcane in order to recolor a person's skin or fur."
 									+ " Your eyes widen as you see how much she charges for it, but as you read a paragraph describing how it's extremely demanding on her aura, you understand the high price."
 								+ "</p>"
 								+ "<h6 style='text-align:center;'>"
@@ -754,7 +754,7 @@ public class SuccubisSecrets {
 			for(Entry<BodyCoveringType, List<String>> entry : CoveringsNamesMap.entrySet()){
 				BodyCoveringType bct = entry.getKey();
 				
-				String title = Util.capitaliseSentence(bct.getName(Main.game.getPlayer()));
+				String title = Util.capitalizeSentence(bct.getName(Main.game.getPlayer()));
 				String description = "This is the "+bct.getName(Main.game.getPlayer())+" that's currently covering your "+Util.stringsToStringList(entry.getValue(), false)+".";
 				
 				if(bct == BodyCoveringType.SLIME) {
@@ -763,26 +763,26 @@ public class SuccubisSecrets {
 					
 				} else if(bct == BodyCoveringType.ANUS) {
 					title = "Anus";
-					description = "This is the skin that's currently covering your anal rim. The secondary colour determines what your anus's inner-walls look like.";
+					description = "This is the skin that's currently covering your anal rim. The secondary color determines what your anus's inner-walls look like.";
 					
 				} else if(bct == BodyCoveringType.VAGINA) {
 					title = "Vagina";
-					description = "This is the skin that's currently covering your labia. The secondary colour determines what your vagina's inner-walls look like.";
+					description = "This is the skin that's currently covering your labia. The secondary color determines what your vagina's inner-walls look like.";
 					
 				} else if(bct == BodyCoveringType.PENIS) {
 					title = "Penis";
-					description = "This is the skin that's currently covering your penis. The secondary colour determines what the inside of your urethra looks like (if it's fuckable).";
+					description = "This is the skin that's currently covering your penis. The secondary color determines what the inside of your urethra looks like (if it's fuckable).";
 					
 				} else if(bct == BodyCoveringType.NIPPLES) {
 					title = "Nipples";
-					description = "This is the skin that's currently covering your nipples and areolae. The secondary colour determines what your nipples' inner-walls look like (if they are fuckable).";
+					description = "This is the skin that's currently covering your nipples and areolae. The secondary color determines what your nipples' inner-walls look like (if they are fuckable).";
 					
 				} else if(bct == BodyCoveringType.MOUTH) {
 					title = "Lips & Throat";
 					if(Main.game.getPlayer().getFaceType() == FaceType.HARPY) {
-						description = "This is the colour of your beak. The secondary colour determines what the insides of your mouth and throat look like.";
+						description = "This is the color of your beak. The secondary color determines what the insides of your mouth and throat look like.";
 					} else {
-						description = "This is the skin that's currently covering your lips. The secondary colour determines what the insides of your mouth and throat look like.";
+						description = "This is the skin that's currently covering your lips. The secondary color determines what the insides of your mouth and throat look like.";
 					}
 					
 				} else if(bct == BodyCoveringType.TONGUE) {
@@ -837,17 +837,17 @@ public class SuccubisSecrets {
 			
 
 			return "<p>"
-						+ "There's a page near the front of the brochure which displays all the different eye colourings that Kate has on offer."
-						+ " It looks like she's able to colour each iris and pupil individually."
+						+ "There's a page near the front of the brochure which displays all the different eye colorings that Kate has on offer."
+						+ " It looks like she's able to color each iris and pupil individually."
 					+ "</p>"
 					+ "<h6 style='text-align:center;'>"
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, Main.game.getPlayer().getEyeCovering(), "Irises", "The iris is the coloured part of the eye that's responsible for controlling the diameter and size of the pupil.", true, true)
+							true, Main.game.getPlayer().getEyeCovering(), "Irises", "The iris is the colored part of the eye that's responsible for controlling the diameter and size of the pupil.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.EYE_PUPILS, "Pupils", "The pupil is a hole located in the centre of the iris that allows light to strike the retina.", true, true)
+							true, BodyCoveringType.EYE_PUPILS, "Pupils", "The pupil is a hole located in the center of the iris that allows light to strike the retina.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.EYE_SCLERA, "Sclerae", "The sclera is the (typically white) part of the eye that surrounds the iris.", true, true);
@@ -880,21 +880,21 @@ public class SuccubisSecrets {
 				+ "<h6 style='text-align:center;'>"
 					+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 				+ "</h6>"
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.EAR, "Ear Piercing", "Ears are the most common area of the body that are pierced, and enable the equipping of earrings and other ear-related jewellery.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.EAR, "Ear Piercing", "Ears are the most common area of the body that are pierced, and enable the equipping of earrings and other ear-related jewelry.")
 
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NOSE, "Nose Piercing", "Having a nose piercing allows you to equip jewellery such as nose rings or studs.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NOSE, "Nose Piercing", "Having a nose piercing allows you to equip jewelry such as nose rings or studs.")
 				
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.LIP, "Lip Piercing", "Lip piercings allow you to wear lip rings.")
 				
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NAVEL, "Navel Piercing", "Getting your navel (belly button) pierced allows you to equip navel-related jewellery.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NAVEL, "Navel Piercing", "Getting your navel (belly button) pierced allows you to equip navel-related jewelry.")
 				
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.TONGUE, "Tongue Piercing", "Getting a tongue piercing will allow you to equip tongue bars.")
 				
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NIPPLE, "Nipple Piercing", "Nipple piercings will allow you to equip nipple bars.")
 				
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.PENIS, "Penis Piercing", "Having a penis piercing will allow you to equip penis-related jewellery.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.PENIS, "Penis Piercing", "Having a penis piercing will allow you to equip penis-related jewelry.")
 				
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.VAGINA, "Vagina Piercing", "Having a vagina piercing will allow you to equip vagina-related jewellery.");
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.VAGINA, "Vagina Piercing", "Having a vagina piercing will allow you to equip vagina-related jewelry.");
 		
 		}
 
@@ -926,12 +926,12 @@ public class SuccubisSecrets {
 			UtilText.nodeContentSB.setLength(0);
 			
 			UtilText.nodeContentSB.append("<p>"
-						+ "Kate also offers some other miscellaneous services, such as anal bleaching and body hair colouring."
+						+ "Kate also offers some other miscellaneous services, such as anal bleaching and body hair coloring."
 					+ "</p>"
 					+ "<h6 style='text-align:center;'>"
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
-					+CharacterModificationUtils.getKatesDivAnalBleaching("Anal bleaching", "Anal bleaching is the process of lightening the colour of the skin around the anus, to make it more uniform with the surrounding area.")
+					+CharacterModificationUtils.getKatesDivAnalBleaching("Anal bleaching", "Anal bleaching is the process of lightening the color of the skin around the anus, to make it more uniform with the surrounding area.")
 
 //					+(Main.game.isFacialHairEnabled() || Main.game.isBodyHairEnabled() || Main.game.isPubicHairEnabled()
 //							?CharacterModificationUtils.getKatesDivCoveringsNew(
@@ -999,16 +999,16 @@ public class SuccubisSecrets {
 			
 			return "<p>"
 						+ "You ask Kate about the different types of makeup she's able to apply, and, after reluctantly getting up out of her chair, she informs you that all of her cosmetics are enchanted to be permanent,"
-						+ " so if you want to remove or change them at a later time, you'll have to come back and use her services again. If you choose to set a cosmetic's colour to 'None', then glow will also be removed."
+						+ " so if you want to remove or change them at a later time, you'll have to come back and use her services again. If you choose to set a cosmetic's color to 'None', then glow will also be removed."
 					+ "</p>"
 					+ "<h6 style='text-align:center;'>"
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to colour the cheeks so as to provide a more youthful appearance, and to emphasise the cheekbones.", true, true)
+							true, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to color the cheeks so as to provide a more youthful appearance, and to emphasise the cheekbones.", true, true)
 					
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_LIPSTICK, "Lipstick", "Lipstick is used to provide colour, texture, and protection to the wearer's lips.", true, true)
+							true, BodyCoveringType.MAKEUP_LIPSTICK, "Lipstick", "Lipstick is used to provide color, texture, and protection to the wearer's lips.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.MAKEUP_EYE_LINER, "Eyeliner", "Eyeliner is applied around the contours of the eyes to help to define shape or highlight different features.", true, true)
@@ -1017,10 +1017,10 @@ public class SuccubisSecrets {
 							true, BodyCoveringType.MAKEUP_EYE_SHADOW, "Eye shadow", "Eye shadow is used to make the wearer's eyes stand out or look more attractive.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, "Nail polish", "Nail polish is used to colour and protect the nails on your [pc.hands].", true, true)
+							true, BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, "Nail polish", "Nail polish is used to color and protect the nails on your [pc.hands].", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, "Toenail polish", "Toenail polish is used to colour and protect the nails on your [pc.feet].", true, true);
+							true, BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, "Toenail polish", "Toenail polish is used to color and protect the nails on your [pc.feet].", true, true);
 			
 		}
 
@@ -1071,8 +1071,8 @@ public class SuccubisSecrets {
 					@Override
 					public String getTitle() {
 						return "Confirmations: "+(Main.getProperties().hasValue(PropertyValue.tattooRemovalConfirmations)
-									?"<span style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>ON</span>"
-									:"<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>OFF</span>");
+									?"<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>ON</span>"
+									:"<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>OFF</span>");
 					}
 					
 					@Override
@@ -1098,7 +1098,7 @@ public class SuccubisSecrets {
 
 		@Override
 		public String getLabel() {
-			return "Succubi's Secrets - "+Util.capitaliseSentence(CharacterModificationUtils.tattooInventorySlot.getName()) +" Tattoo";
+			return "Succubi's Secrets - "+Util.capitalizeSentence(CharacterModificationUtils.tattooInventorySlot.getName()) +" Tattoo";
 		}
 		
 		@Override
@@ -1115,12 +1115,12 @@ public class SuccubisSecrets {
 			int value = CharacterModificationUtils.tattoo.getValue();
 			if (index == 1) {
 				if(Main.game.getPlayer().getMoney()<value) {
-					return new Response("Apply ("+UtilText.formatAsMoneyUncoloured(value, "span")+")", "You don't have enough money to get a tattoo!", null);
+					return new Response("Apply ("+UtilText.formatAsMoneyUncolored(value, "span")+")", "You don't have enough money to get a tattoo!", null);
 					
 				} else if(CharacterModificationUtils.tattoo.getType().equals(TattooType.NONE)
 						&& CharacterModificationUtils.tattoo.getWriting().getText().isEmpty()
 						&& CharacterModificationUtils.tattoo.getCounter().getType()==TattooCounterType.NONE) {
-					return new Response("Apply ("+UtilText.formatAsMoneyUncoloured(value, "span")+")", "You need to select a tattoo type, add some writing, or add a counter in order to make a tattoo!", null);
+					return new Response("Apply ("+UtilText.formatAsMoneyUncolored(value, "span")+")", "You need to select a tattoo type, add some writing, or add a counter in order to make a tattoo!", null);
 					
 				} else {
 					return new Response("Apply ("+UtilText.formatAsMoney(value, "span")+")", "Tell Kate that you'd like her to give you this tattoo.", SHOP_BEAUTY_SALON_TATTOOS) {

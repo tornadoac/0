@@ -35,7 +35,7 @@ import com.lilithsthrone.game.sex.managers.dominion.SMStocks;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -77,7 +77,7 @@ public class SlaverAlleyDialogue {
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_FEMALES, true);
 			slave.resetInventory(true);
-			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_GOLD, false), true, Main.game.getNpc(Finch.class));
+			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Color.CLOTHING_GOLD, false), true, Main.game.getNpc(Finch.class));
 			Main.game.getNpc(Finch.class).addSlave(slave);
 			slave.setPlayerKnowsName(true);
 			
@@ -100,7 +100,7 @@ public class SlaverAlleyDialogue {
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_MALES, true);
 			slave.resetInventory(true);
-			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
+			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Color.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
 			Main.game.getNpc(Finch.class).addSlave(slave);
 			slave.setPlayerKnowsName(true);
 			
@@ -121,7 +121,7 @@ public class SlaverAlleyDialogue {
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_ANAL, true);
 			slave.resetInventory(true);
-			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
+			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Color.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
 			if(i==0) {
 				slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_buttPlugs_butt_plug"), false), true, Main.game.getNpc(Finch.class));
 			} else if(i==1) {
@@ -154,7 +154,7 @@ public class SlaverAlleyDialogue {
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_VAGINAL, true);
 			slave.resetInventory(true);
-			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
+			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Color.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
 			Main.game.getNpc(Finch.class).addSlave(slave);
 			slave.setPlayerKnowsName(true);
 			
@@ -178,7 +178,7 @@ public class SlaverAlleyDialogue {
 			
 			slave.setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_STALL_ORAL, true);
 			slave.resetInventory(true);
-			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
+			slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, Color.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Finch.class));
 			if(Math.random()<0.5f) {
 				slave.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_RINGGAG, false), true, Main.game.getNpc(Finch.class));
 			}
@@ -296,7 +296,7 @@ public class SlaverAlleyDialogue {
 			
 			if (Main.game.isDayTime()) {
 				UtilText.nodeContentSB.append(
-							" Colourful canvas awnings have been unfurled from the sides of the surrounding buildings, and, looking up through the gap in the middle, you see a faint pink crackle;"
+							" Colorful canvas awnings have been unfurled from the sides of the surrounding buildings, and, looking up through the gap in the middle, you see a faint pink crackle;"
 									+ " evidence of the shield that protects Slaver Alley from arcane storms."
 						+ "</p>");
 			} else {
@@ -644,13 +644,13 @@ public class SlaverAlleyDialogue {
 								+ "Slave"
 							+ "</div>"
 							+ "<div style='float:left; width:17%; font-weight:bold; margin:0; padding:0; text-align:center;'>"
-								+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+								+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 							+"</div>"
 							+ "<div style='float:left; width:17%; font-weight:bold; margin:0; padding:0; text-align:center;'>"
-								+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Value</b>"
+								+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Value</b>"
 							+"</div>"
 							+ "<div style='float:left; width:17%; font-weight:bold; margin:0; padding:0; text-align:center;'>"
-								+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Starting Bid</b>"
+								+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Starting Bid</b>"
 							+"</div>"
 							+ "<div style='float:left; width:9%; font-weight:bold; margin:0; padding:0; text-align:center;'>"
 								+ "Bid"
@@ -674,16 +674,16 @@ public class SlaverAlleyDialogue {
 					boolean alternateBackground = i%2==0;
 					
 					UtilText.nodeContentSB.append(UtilText.parse(slave,
-							"<div class='container-full-width inner' style='margin-bottom:0;"+(alternateBackground?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
+							"<div class='container-full-width inner' style='margin-bottom:0;"+(alternateBackground?"background:"+Color.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
 								+ "<div style='width:40%; float:left; margin:0; padding:0; text-align:center;'>"
-									+ "<b style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>"+slave.getName()+"</b> - "
-									+ "<span style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(slave.getGender().getName())+"</span> "
-									+ "<span style='color:"+slave.getRace().getColour().toWebHexString()+";'>"
-										+Util.capitaliseSentence((slave.isFeminine()?slave.getSubspecies().getSingularFemaleName(slave):slave.getSubspecies().getSingularMaleName(slave)))
+									+ "<b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>"+slave.getName()+"</b> - "
+									+ "<span style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>"+Util.capitalizeSentence(slave.getGender().getName())+"</span> "
+									+ "<span style='color:"+slave.getRace().getColor().toWebHexString()+";'>"
+										+Util.capitalizeSentence((slave.isFeminine()?slave.getSubspecies().getSingularFemaleName(slave):slave.getSubspecies().getSingularMaleName(slave)))
 									+"</span>"
 								+ "</div>"
 								+ "<div style='float:left; width:17%; margin:0; padding:0; text-align:center;'>"
-									+ "<b style='color:"+slave.getObedience().getColour().toWebHexString()+";'>"+slave.getObedienceValue()+ "</b>"
+									+ "<b style='color:"+slave.getObedience().getColor().toWebHexString()+";'>"+slave.getObedienceValue()+ "</b>"
 								+"</div>"
 								+ "<div style='float:left; width:17%; margin:0; padding:0; text-align:center;'>"
 									+ UtilText.formatAsMoney(slave.getValueAsSlave(), "span")
@@ -827,7 +827,7 @@ public class SlaverAlleyDialogue {
 								+ " [maleNPC.speech(Going once... Going twice... Sold! To the "+currentRivalBidder.getName(false)+" near the back!)]"
 							+ "</p>"
 							+"<p>"
-								+ "As the "+currentRivalBidder.getName(false)+" walks towards the stage to finalise their purchase of [npc.name], you hear them mutter, "
+								+ "As the "+currentRivalBidder.getName(false)+" walks towards the stage to finalize their purchase of [npc.name], you hear them mutter, "
 								+ UtilText.parseNPCSpeech(currentRivalBidder.getRandomSuccessfulBiddingComment(), (currentRivalBidder.getGender().isFeminine()?Femininity.FEMININE:Femininity.MASCULINE_STRONG))
 							+ "</p>");
 				}
@@ -884,7 +884,7 @@ public class SlaverAlleyDialogue {
 							}
 						};
 					} else {
-						return new Response("Bid "+UtilText.formatAsMoneyUncoloured(biddingPrice+100, "span"), "You can't afford a bid of "+(biddingPrice+100)+" flames, so you'll have to let this slave go to someone else.", null);
+						return new Response("Bid "+UtilText.formatAsMoneyUncolored(biddingPrice+100, "span"), "You can't afford a bid of "+(biddingPrice+100)+" flames, so you'll have to let this slave go to someone else.", null);
 					}
 					
 				} else if(index==2) {
@@ -918,7 +918,7 @@ public class SlaverAlleyDialogue {
 					+ baseName
 				+ "</td>"
 				+ "<td>"
-					+ "<div class='saveLoadButton' id='import_slave_" + baseName + "' style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Import</div>"
+					+ "<div class='saveLoadButton' id='import_slave_" + baseName + "' style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>Import</div>"
 				+ "</td>"
 				+ "</tr>";
 	}
@@ -951,19 +951,19 @@ public class SlaverAlleyDialogue {
 			for(NPC npc : charactersPresent) {
 				UtilText.nodeContentSB.append(UtilText.parse(npc, 
 						"<p>"
-							+ "[npc.Name]," + (npc.getOwner().isPlayer()?" <b style=color:"+Colour.GENERIC_ARCANE.toWebHexString()+";>who is your slave</b>, and is":"")
-							+ " <span style='color:"+npc.getGender().getColour().toWebHexString()+";'>[npc.a_gender]</span>"
-									+ " <span style='color:"+npc.getRace().getColour().toWebHexString()+";'>[npc.race]</span>, has been marked as available for"));
+							+ "[npc.Name]," + (npc.getOwner().isPlayer()?" <b style=color:"+Color.GENERIC_ARCANE.toWebHexString()+";>who is your slave</b>, and is":"")
+							+ " <span style='color:"+npc.getGender().getColor().toWebHexString()+";'>[npc.a_gender]</span>"
+									+ " <span style='color:"+npc.getRace().getColor().toWebHexString()+";'>[npc.race]</span>, has been marked as available for"));
 				
 				sexAvailability.clear();
 				if(npc.getSlaveJobSettings().contains(SlaveJobSetting.SEX_ORAL)) {
-					sexAvailability.add(" <b style='color:"+Colour.BASE_PINK_LIGHT.toWebHexString()+";'>oral</b>");
+					sexAvailability.add(" <b style='color:"+Color.BASE_PINK_LIGHT.toWebHexString()+";'>oral</b>");
 				}
 				if(npc.getSlaveJobSettings().contains(SlaveJobSetting.SEX_VAGINAL)) {
-					sexAvailability.add(" <b style='color:"+Colour.BASE_PINK.toWebHexString()+";'>vaginal</b>");
+					sexAvailability.add(" <b style='color:"+Color.BASE_PINK.toWebHexString()+";'>vaginal</b>");
 				}
 				if(npc.getSlaveJobSettings().contains(SlaveJobSetting.SEX_ANAL)) {
-					sexAvailability.add(" <b style='color:"+Colour.BASE_PINK_DEEP.toWebHexString()+";'>anal</b>");
+					sexAvailability.add(" <b style='color:"+Color.BASE_PINK_DEEP.toWebHexString()+";'>anal</b>");
 				}
 				
 				if(!sexAvailability.isEmpty()) {
@@ -1085,7 +1085,7 @@ public class SlaverAlleyDialogue {
 						+ " The only other piece of furniture to be seen is a long, black-marble desk, behind which the black-haired cat-boy, [finch.name], is grinning at you with mischievous eyes."
 					+ "</p>"
 					+ "<p>"
-						+ "[finch.speech(Ah, if it isn't my <i>favourite</i> customer, [pc.name]!)]"
+						+ "[finch.speech(Ah, if it isn't my <i>favorite</i> customer, [pc.name]!)]"
 						+ " he shouts, beckoning you over to the desk."
 						+ " [finch.speech(What can I help you with today?)]"
 					+ "</p>"
@@ -1203,7 +1203,7 @@ public class SlaverAlleyDialogue {
 						
 					} else if(Main.game.getPlayer().getQuest(QuestLine.SIDE_SLAVERY) == Quest.SIDE_SLAVER_RECOMMENDATION_OBTAINED) {
 						if(Main.game.getPlayer().getMoney() >= slaverLicenseCost) {
-							return new Response("Present letter (<span style='color:" + Colour.CURRENCY_GOLD.toWebHexString() + ";'>" + UtilText.getCurrencySymbol() + "</span> "+slaverLicenseCost+")",
+							return new Response("Present letter (<span style='color:" + Color.CURRENCY_GOLD.toWebHexString() + ";'>" + UtilText.getCurrencySymbol() + "</span> "+slaverLicenseCost+")",
 									"Show Finch the letter of recommendation you obtained from Lilaya, and then pay "+slaverLicenseCost+" flames to obtain a slaver license.", SLAVERY_ADMINISTRATION_SLAVER_LICENSE_OBTAINED) {
 								@Override
 								public void effects() {
@@ -1258,7 +1258,7 @@ public class SlaverAlleyDialogue {
 							+ " And if you had that, you wouldn't be asking, would you?)]"
 					+ "</p>"
 					+ "<p>"
-						+ "[finch.Name] grins up at you, and you can't help but notice the slightly threatening look in his [finch.eyeColour] cat-like eyes."
+						+ "[finch.Name] grins up at you, and you can't help but notice the slightly threatening look in his [finch.eyeColor] cat-like eyes."
 						+ " You thank him for the information and step away from the desk, determined to go and ask for a letter of recommendation from Lilaya, the one person you know that can help you out."
 					+ "</p>";
 		}
@@ -1283,7 +1283,7 @@ public class SlaverAlleyDialogue {
 					+ "</p>"
 					+ "<p>"
 						+ "[pc.speech(Is something wrong?)]"
-						+ " you ask, noticing that all the colour has drained from his face."
+						+ " you ask, noticing that all the color has drained from his face."
 					+ "</p>"
 					+ "<p>"
 						+ "[finch.speech(Your aunt is <i>Lilaya</i>?)]"
@@ -1297,7 +1297,7 @@ public class SlaverAlleyDialogue {
 					+ "</p>"
 					+ "<p>"
 						+ "[finch.Name] pulls out a large stack of forms from under his desk, and as he starts filling them out, he replies,"
-						+ " [finch.speech(Of course! Everyone's heard of Lilaya. After all, she's the only half-demon to ever have been recognised by her Lilin mother, right?"
+						+ " [finch.speech(Of course! Everyone's heard of Lilaya. After all, she's the only half-demon to ever have been recognized by her Lilin mother, right?"
 							+ " Anyway, it will take me about fifteen minutes to fill out these forms, so you can wait on one of the benches if you'd like.)]"
 					+ "</p>"
 					+ "<p>"
@@ -1373,7 +1373,7 @@ public class SlaverAlleyDialogue {
 						+ " [finch.speech(That's all there really is to it. With this license, you're able to buy and sell slaves in any manner you like."
 							+ " The only restriction is on enslavement, which, as I said, can only be done to those who are willing, or those who are wanted by the Enforcers."
 							+ " Oh, and on that last note, don't even bother trying to enslave any demons you run into, as there's absolutely no way an enforcer would sign off on an enslavement order for a demon."
-							+ " For all they know, the demon in question could be a lilin's favoured daughter, and before they know it, they'd be the one ending up in my cells!)]"
+							+ " For all they know, the demon in question could be a lilin's favored daughter, and before they know it, they'd be the one ending up in my cells!)]"
 					+ "</p>"
 					+ "<p>"
 						+ "Thanking him for explaining things to you, you take your new slaver license from [finch.name], who has some final words,"

@@ -56,7 +56,7 @@ import com.lilithsthrone.game.sex.managers.dominion.zaranix.SMZaranixCockSucking
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -135,25 +135,25 @@ public class Zaranix extends NPC {
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
 		
 		// Coverings:
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Colour.EYE_ORANGE));
-		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Colour.SKIN_PURPLE), true);
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_ORANGE));
+		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_PURPLE), true);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Colour.COVERING_BLACK), true);
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.TWO_SHORT);
 		this.setHairStyle(HairStyle.NONE);
 
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Colour.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.FOUR_NATURAL);
 		this.setAssHair(BodyHair.FOUR_NATURAL);
 		this.setPubicHair(BodyHair.FOUR_NATURAL);
 		this.setFacialHair(BodyHair.THREE_TRIMMED);
 
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_RED));
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_RED));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_RED));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_RED));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 		this.setFaceVirgin(true);
@@ -190,11 +190,11 @@ public class Zaranix extends NPC {
 
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_EPIC, DamageType.PHYSICAL));
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TROUSERS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OXFORD_SHIRT, Colour.CLOTHING_GREY, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TROUSERS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OXFORD_SHIRT, Color.CLOTHING_GREY, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Color.CLOTHING_BLACK, false), true, this);
 
 	}
 	
@@ -204,7 +204,7 @@ public class Zaranix extends NPC {
 	}
 	
 	@Override
-	public String getSpeechColour() {
+	public String getSpeechColor() {
 		if(this.isFeminine()) {
 			return "#EB82ED";
 		} else {
@@ -292,7 +292,7 @@ public class Zaranix extends NPC {
 						+ " [arthur.speech(Bloody hell! Well, you're certainly letting me go easily! Not that I should be complaining...)]"
 					+ "</p>"
 					+ "<p>"
-						+ "[zaranix.speech(If it were anyone else, I'd have refused to let you go, but I just realised who this [pc.race] is,)]"
+						+ "[zaranix.speech(If it were anyone else, I'd have refused to let you go, but I just realized who this [pc.race] is,)]"
 						+ " Zaranix says, stepping back and collapsing down into a nearby chair."
 						+ " [zaranix.speech(<i>[pc.SheIs]</i> the [pc.race] who's moved in with Lilaya... Yes, I know who you are. I may not get out much, but I still keep my ear close to the grapevine.)]"
 					+ "</p>"
@@ -306,7 +306,7 @@ public class Zaranix extends NPC {
 					+ "<p>"
 						+ "[zaranix.speech(Be quiet Arthur!)]"
 						+ " Zaranix shouts,"
-						+ " [zaranix.speech(I may have wealth and a modicum of power in this city, but having never been recognised by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has."
+						+ " [zaranix.speech(I may have wealth and a modicum of power in this city, but having never been recognized by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has."
 							+ " And it's not just any demon! Hah! Lyssieth's precious little half-demon herself!"
 							+ " So go on! Get out of here Arthur!)]"
 					+ "</p>"
@@ -368,7 +368,7 @@ public class Zaranix extends NPC {
 							+ " [pc.speech(Sorry [zaranix.name] for all this trouble... Perhaps you'd like me to do something for you...)]"
 						+ "</p>"
 						+ "<p>"
-							+ "[zaranix.Name] looks up at you, a big grin spreading across [zaranix.her] face as [zaranix.she] realises what it is you want."
+							+ "[zaranix.Name] looks up at you, a big grin spreading across [zaranix.her] face as [zaranix.she] realizes what it is you want."
 							+ " Standing up, [zaranix.she] steps over towards you, before running [zaranix.her] hands over your [pc.hips] and around to give your [pc.ass+] a firm squeeze."
 							+ " You can tell by the hungry look in [zaranix.her] eyes that your arcane aura is filling [zaranix.her] mind with lust, and, to confirm your suspicions, the [zaranix.race] leans forwards, before [zaranix.moaning],"
 							+ " [zaranix.speech(There is one thing you can do... I want to hear you call out my name as I fuck you!)]"
@@ -415,7 +415,7 @@ public class Zaranix extends NPC {
 					"<p>"
 						+ "Smirking down at the [npc.race] one last time, you turn around and take your leave."
 						+ " Retracing your steps through [npc.her] house, you soon find yourself back out in the streets of Demon Home."
-						+ " Now that Arthur's been rescued, you realise that you should probably head over to Lilaya's house to find out what your next step will be."
+						+ " Now that Arthur's been rescued, you realize that you should probably head over to Lilaya's house to find out what your next step will be."
 					+ "</p>");
 			
 			return UtilText.parse(Main.game.getNpc(Zaranix.class), UtilText.nodeContentSB.toString());
@@ -455,7 +455,7 @@ public class Zaranix extends NPC {
 						+ " [zaranix.speech(Come on! Drink up! Arthur assures me that this particular concoction will transform you the perfect little cock-sucker, and I can't wait to be judge of that myself!)]"
 					+ "</p>"
 					+ "<p>"
-						+ "You still have a little energy left, and as you feel the first few drops of the potion seeping into your mouth, you realise that you could spit it out and try to throw the bottle to the floor."
+						+ "You still have a little energy left, and as you feel the first few drops of the potion seeping into your mouth, you realize that you could spit it out and try to throw the bottle to the floor."
 						+ " Then again, maybe it's best to just do as the demon says..."
 					+ "</p>";
 		}
@@ -465,7 +465,7 @@ public class Zaranix extends NPC {
 			if(index==1) {
 				if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 					return new Response("Spit",
-							"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+							"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 								+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 							null);
 				} else {
@@ -482,13 +482,13 @@ public class Zaranix extends NPC {
 						Main.game.getTextEndStringBuilder().append(
 								"<p>"
 									+ "A desperate, overwhelming need to have Zaranix's huge demonic cock thrusting deep down your throat causes you to let out an incredibly lewd moan."
-									+ "<br/><b style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>You have gained the "+Fetish.FETISH_ORAL_GIVING.getName(Main.game.getPlayer())+" fetish!</b>"
+									+ "<br/><b style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>You have gained the "+Fetish.FETISH_ORAL_GIVING.getName(Main.game.getPlayer())+" fetish!</b>"
 								+ "</p>");
 						Main.game.getPlayer().addFetish(Fetish.FETISH_CUM_ADDICT);
 						Main.game.getTextEndStringBuilder().append(
 								"<p>"
 									+ "You can't help but lick your huge new cock-sucking lips as you imagine the incubus giving you your delicious reward; a huge load of salty, demonic cum...."
-									+ "<br/><b style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>You have gained the "+Fetish.FETISH_CUM_ADDICT.getName(Main.game.getPlayer())+" fetish!</b>"
+									+ "<br/><b style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>You have gained the "+Fetish.FETISH_CUM_ADDICT.getName(Main.game.getPlayer())+" fetish!</b>"
 								+ "</p>");
 					}
 				};
@@ -529,7 +529,7 @@ public class Zaranix extends NPC {
 						+ "</p>"
 						+ "<p>"
 							+ "You're far too exhausted from your fight to put up much of a resistance, and as the horny incubus forces your mouth ever closer to the huge bulge in his groin,"
-								+ " you realise that he's not going to let you go until he's satisfied..."
+								+ " you realize that he's not going to let you go until he's satisfied..."
 						+ "</p>");
 			} else {
 				return null;

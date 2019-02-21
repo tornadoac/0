@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.race;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -9,24 +9,24 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum Disposition {
 
-	CIVILIZED("civilised", Colour.CLOTHING_GREEN),
-	NEUTRAL("neutral", Colour.CLOTHING_BLUE),
-	UNPREDICTABLE("unpredictable", Colour.CLOTHING_ORANGE),
-	SAVAGE("savage", Colour.CLOTHING_RED);
+	CIVILIZED("civilized", Color.CLOTHING_GREEN),
+	NEUTRAL("neutral", Color.CLOTHING_BLUE),
+	UNPREDICTABLE("unpredictable", Color.CLOTHING_ORANGE),
+	SAVAGE("savage", Color.CLOTHING_RED);
 
 	private String name;
-	private Colour colour;
+	private Color color;
 
-	private Disposition(String name, Colour colour) {
+	private Disposition(String name, Color color) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

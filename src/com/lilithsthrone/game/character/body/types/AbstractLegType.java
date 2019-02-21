@@ -280,7 +280,7 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 		String bestialRaceNameDeterminer = UtilText.generateSingularDeterminer(bestialRaceName);
 		StringBuilder bestialStringBuilder = new StringBuilder();
 		String bestialRaceNameWithDeterminer = bestialRaceNameDeterminer+" "+bestialRaceName;
-		String raceColorString = this.getRace().getColour().toWebHexString();
+		String raceColorString = this.getRace().getColor().toWebHexString();
 		boolean feral = true;
 		
 		switch(legConfiguration) {
@@ -430,7 +430,7 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 		bestialStringBuilder.append("</i></p>");
 		
 		if(feral) {
-			bestialStringBuilder.append("<p><i>Feeling as though it's only natural, [npc.she] [style.colourGood(no longer [npc.verb(get)] embarrassed)] about having [npc.her] [style.italicsBestial(animalistic genitals"
+			bestialStringBuilder.append("<p><i>Feeling as though it's only natural, [npc.she] [style.colorGood(no longer [npc.verb(get)] embarrassed)] about having [npc.her] [style.italicsBestial(animalistic genitals"
 					+(legConfiguration.isBipedalPositionedCrotchBoobs()?(body.getBreastCrotch().getShape()==BreastShape.UDDERS?" or udders":" or crotch-boobs"):"")
 					+ ")] on display!</i></p>");
 		}
@@ -438,24 +438,24 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 		if(legConfiguration.getLandSpeedModifier()>0) {
 			bestialStringBuilder.append("<p><i>"
 										+ "[npc.Her] new lower body is not as well-adapted to movement on land as a usual biped,"
-											+ " and as a result, [style.colourTerrible([npc.she] [npc.verb(move)] slower than usual)] [style.colourEarth(while on land)]!"
+											+ " and as a result, [style.colorTerrible([npc.she] [npc.verb(move)] slower than usual)] [style.colorEarth(while on land)]!"
 									+ "</i></p>");
 		} else if(legConfiguration.getLandSpeedModifier()<0) {
 			bestialStringBuilder.append("<p><i>"
 										+ "[npc.Her] new lower body is capable of speeds greater than that attainable by a usual biped,"
-											+ " and as a result, [style.colourExcellent([npc.she] [npc.verb(move)] faster than usual)] [style.colourEarth(while on land)]!"
+											+ " and as a result, [style.colorExcellent([npc.she] [npc.verb(move)] faster than usual)] [style.colorEarth(while on land)]!"
 									+ "</i></p>");
 		}
 		
 		if(legConfiguration.getWaterSpeedModifier()>0) {
 			bestialStringBuilder.append("<p><i>"
 										+ "[npc.SheIsFull] now a lot less capable at moving in water than a usual biped,"
-											+ " and as a result, [style.colourTerrible([npc.she] [npc.verb(move)] slower than usual)] [style.colourWater(while in water)]!"
+											+ " and as a result, [style.colorTerrible([npc.she] [npc.verb(move)] slower than usual)] [style.colorWater(while in water)]!"
 									+ "</i></p>");
 		} else if(legConfiguration.getWaterSpeedModifier()<0) {
 			bestialStringBuilder.append("<p><i>"
 										+ "[npc.SheIsFull] now in possession of a body that's well-suited to moving in water,"
-											+ " and as a result, [style.colourExcellent([npc.she] [npc.verb(move)] faster than usual)] [style.colourWater(while in water)]!"
+											+ " and as a result, [style.colorExcellent([npc.she] [npc.verb(move)] faster than usual)] [style.colorWater(while in water)]!"
 									+ "</i></p>");
 		}
 		return bestialStringBuilder.toString();

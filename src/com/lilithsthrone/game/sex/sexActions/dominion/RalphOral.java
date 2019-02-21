@@ -24,7 +24,7 @@ import com.lilithsthrone.game.sex.sexActions.SexActionLimitation;
 import com.lilithsthrone.game.sex.sexActions.SexActionPriority;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -294,7 +294,7 @@ public class RalphOral {
 			if(SexFlags.customerAtCounter)
 				UtilText.nodeContentSB.append("<br/>"
 						+ "The loud squelching sounds, combined with the creaking of floorboards as you rocked back and forth deep-throating the huge horse-cock, ended up making quite a bit of noise."
-						+ " You hear Ralph offering a part of your discount to the customer who just overheard your zealous display, and you let out a muffled sigh as you realise that you forgot they were there.");
+						+ " You hear Ralph offering a part of your discount to the customer who just overheard your zealous display, and you let out a muffled sigh as you realize that you forgot they were there.");
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -325,7 +325,7 @@ public class RalphOral {
 
 		@Override
 		public String getActionDescription() {
-			return "Ask Ralph if there's a way to earn an even bigger discount. <i style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>This is an offer for Ralph to fuck your pussy!</i>";
+			return "Ask Ralph if there's a way to earn an even bigger discount. <i style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>This is an offer for Ralph to fuck your pussy!</i>";
 		}
 
 		@Override
@@ -390,7 +390,7 @@ public class RalphOral {
 
 		@Override
 		public String getActionDescription() {
-			return "Ask Ralph if there's a way to earn an even bigger discount. <i style='color:"+Colour.GENERIC_SEX.toWebHexString()+";'>This is an offer for Ralph to fuck your ass!</i>";
+			return "Ask Ralph if there's a way to earn an even bigger discount. <i style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>This is an offer for Ralph to fuck your ass!</i>";
 		}
 
 		@Override
@@ -617,9 +617,9 @@ public class RalphOral {
 		@Override
 		public String getDescription() {
 			return "Ralph suddenly stops the gentle bucking of his hips, and before you have time to wonder what's wrong, you hear him greeting a customer."
-					+ " You hear the customer's heavy steps as they move up to just the other side of the counter, and you realise that if you don't stay quiet, they're going to find out that you're under here!"
+					+ " You hear the customer's heavy steps as they move up to just the other side of the counter, and you realize that if you don't stay quiet, they're going to find out that you're under here!"
 					+ "<br/><br/>"
-					+ "<b>There is</b> <b style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>a customer</b> <b>on the other side of the counter!</b>";
+					+ "<b>There is</b> <b style='color:" + Color.GENERIC_BAD.toWebHexString() + ";'>a customer</b> <b>on the other side of the counter!</b>";
 		}
 
 		@Override
@@ -659,9 +659,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("You feel Ralph's cock slide back a little as he bends down towards you, ");
@@ -715,9 +715,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("You feel Ralph's grip move down to grope and squeeze your "+Main.game.getPlayer().getAssSize().getDescriptor()+" ass as he groans down to you, ");
@@ -776,9 +776,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("You feel Ralph's grip move down to grope and squeeze your "+Main.game.getPlayer().getAssSize().getDescriptor()+" ass as he groans down to you, ");
@@ -846,9 +846,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("You hear Ralph let out an impatient grunt as he bends down towards you, "
@@ -899,9 +899,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("You hear Ralph let out a very annoyed grunt as he bends down towards you, "
@@ -910,7 +910,7 @@ public class RalphOral {
 					+ "Before you have any time to respond, he suddenly pushes his hips forwards."
 					+ " His hard shaft quickly pushes your head back against the counter behind you, and before you know what's happening, the flared head of his equine member is rubbing forcefully over your face."
 					+ " With a quick reposition and another determined thrust, you feel your lips parting as Ralph rams his eager horse-cock past your lips and into your mouth."
-					+ " As you realise that this is, in fact, happening, you finally start to do what you agreed to, and begin sucking Ralph's cock.");
+					+ " As you realize that this is, in fact, happening, you finally start to do what you agreed to, and begin sucking Ralph's cock.");
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -948,9 +948,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("Ralph remains all but motionless, watching over the shop as you diligently continue sucking his cock."
@@ -992,7 +992,7 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			UtilText.nodeContentSB.append("The constant pounding between your legs starts to slow down, and you turn your head slightly as you look back to see what's wrong."
-					+ " As Ralph smiles back at you, you notice that his chest is heaving, and you realise that he's simply slowed down for a moment to catch his breath."
+					+ " As Ralph smiles back at you, you notice that his chest is heaving, and you realize that he's simply slowed down for a moment to catch his breath."
 					+ " Sinking his cock fully into your greedy little cunt, he squeezes and gropes your "+Main.game.getPlayer().getAssSize().getDescriptor()+" ass, and you rest your head back in your arms,"
 							+ " moaning and sighing as you both take a moment to recover."
 					+ "<br/><br/>"
@@ -1035,7 +1035,7 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			UtilText.nodeContentSB.append("The constant pounding of your rear entrance starts to slow down, and you turn your head slightly as you look back to see what's wrong."
-					+ " As Ralph smiles back at you, you notice that his chest is heaving, and you realise that he's simply slowed down for a moment to catch his breath."
+					+ " As Ralph smiles back at you, you notice that his chest is heaving, and you realize that he's simply slowed down for a moment to catch his breath."
 					+ " Sinking his cock fully into your greedy asshole, he squeezes and gropes your "+Main.game.getPlayer().getAssSize().getDescriptor()+" ass, and you rest your head back in your arms,"
 							+ " groaning and sighing as you both take a moment to recover."
 					+ "<br/><br/>"
@@ -1078,9 +1078,9 @@ public class RalphOral {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(SexFlags.customerAtCounter)
-				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+				UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 						+ "<br/><br/>"
-						+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+						+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 								+ "<br/><br/>");
 			
 			UtilText.nodeContentSB.append("A little ringing noise echoes in your ears, signalling that the only customer in the shop has just left, leaving you alone with Ralph for the moment."
@@ -1136,7 +1136,7 @@ public class RalphOral {
 					+ "Despite his usual polite and friendly temperament, he sounds quite angry as he scolds you, and you feel a little bad for putting the reputation of his shop on the line."
 					+ " Then again, he was the one to suggest this, so it's not as though you're entirely the one at fault here..."
 					+ "<br/><br/>"
-					+ "<b>You will now earn a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"+(SexFlags.ralphDiscount>0?SexFlags.ralphDiscount-5:0)+"%</b> <b>discount.</b>";
+					+ "<b>You will now earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+(SexFlags.ralphDiscount>0?SexFlags.ralphDiscount-5:0)+"%</b> <b>discount.</b>";
 		}
 
 		@Override
@@ -1191,12 +1191,12 @@ public class RalphOral {
 						+ "Despite his usual polite and friendly temperament, he sounds quite angry as he scolds you, and you feel a little bad for putting the reputation of his shop on the line."
 						+ " Then again, he was the one to suggest this, so it's not as though you're entirely the one at fault here..."
 						+ "<br/><br/>"
-						+ "<b>You will now earn a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"+(SexFlags.ralphDiscount>0?SexFlags.ralphDiscount-5:0)+"%</b> <b>discount.</b>"
+						+ "<b>You will now earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+(SexFlags.ralphDiscount>0?SexFlags.ralphDiscount-5:0)+"%</b> <b>discount.</b>"
 						+ "<br/><br/>");
 			}
 				
 			UtilText.nodeContentSB.append("Ralph steps back, and, not even bothering to pull his trousers up, walks off to the front of the shop."
-					+ " As you hear him locking the front door and pulling down the shop's blinds, you realise that the last customer must have left some time ago."
+					+ " As you hear him locking the front door and pulling down the shop's blinds, you realize that the last customer must have left some time ago."
 					+ " Wanting to see what's going on, you shuffle your way out from beneath the counter and try to stand up."
 					+ "<br/><br/>"
 					+ "Almost instantly, a huge jolt of cramp shoots up through your legs, and you let out a little cry as you bend over and grab the edge of the counter."
@@ -1221,7 +1221,7 @@ public class RalphOral {
 					+ " His wide, flared head slowly pushes its way into you, and you pant and squirm as your folds lewdly spread around his animalistic horse-cock."
 					+ " With a quick step forwards, Ralph suddenly rams his impatient member deep into your hungry snatch, and you gasp and moan as he starts fucking you on the shop's counter-top."
 					+ "<br/><br/>"
-					+ "<b>You will now earn a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"
+					+ "<b>You will now earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"
 							+(SexFlags.ralphDiscount+(Sex.getActivePartner().isWearingCondom()||Main.game.getPlayer().isVisiblyPregnant()?20:25)-(SexFlags.alertedCustomer?5:0))
 					+"%</b> <b>discount.</b>");
 			
@@ -1288,18 +1288,18 @@ public class RalphOral {
 						+ "Despite his usual polite and friendly temperament, he sounds quite angry as he scolds you, and you feel a little bad for putting the reputation of his shop on the line."
 						+ " Then again, he was the one to suggest this, so it's not as though you're entirely the one at fault here..."
 						+ "<br/><br/>"
-						+ "<b>You will now earn a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"+(SexFlags.ralphDiscount>0?SexFlags.ralphDiscount-5:0)+"%</b> <b>discount.</b>"
+						+ "<b>You will now earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+(SexFlags.ralphDiscount>0?SexFlags.ralphDiscount-5:0)+"%</b> <b>discount.</b>"
 						+ "<br/><br/>");
 			}
 			
 			UtilText.nodeContentSB.append("Ralph steps back, and, not even bothering to pull his trousers up, walks off to the front of the shop."
-					+ " As you hear him locking the front door and pulling down the shop's blinds, you realise that the last customer must have left some time ago."
+					+ " As you hear him locking the front door and pulling down the shop's blinds, you realize that the last customer must have left some time ago."
 					+ " Before you have time to get out from under the counter, however, the imposing figure of Ralph moves back into view, blocking your way."
 					+ "<br/><br/>"
 					+ UtilText.parseSpeech("So you want a bigger discount, huh?! And how exactly do you intend to earn it?", Main.game.getNpc(Ralph.class))
 					+" He asks, crossing his arms and frowning down at you."
 					+ "<br/><br/>"
-					+ "You realise that although he was perfectly happy with having you suck his cock, he's going to need some convincing if you're to get him to use your other hole."
+					+ "You realize that although he was perfectly happy with having you suck his cock, he's going to need some convincing if you're to get him to use your other hole."
 					+ " Shifting aside your clothing, you awkwardly shuffle around on the spot, bending over to present your "+Main.game.getPlayer().getAssCapacity().getDescriptor()+" asshole."
 					+ " You hear Ralph struggling to suppress an eager groan, and as you shake your "+Main.game.getPlayer().getHipSize().getDescriptor()+" hips from side to side, he breaks his composure."
 					+ "<br/><br/>"
@@ -1313,7 +1313,7 @@ public class RalphOral {
 					+ " You feel the wide, flared head rubbing all over your slutty hole, and as he starts to slowly push his animalistic horse-cock into you, you begin to squirm and squeal."
 					+ " With a quick step forwards, Ralph suddenly rams his impatient member deep into your hungry back door, and you let out an ear-splitting cry as he starts fucking you on the shop's counter-top."
 					+ "<br/><br/>"
-					+ "<b>You will now earn a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"
+					+ "<b>You will now earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"
 						+(SexFlags.ralphDiscount+20-(SexFlags.alertedCustomer?5:0))
 						+"%</b> <b>discount.</b>");
 			
@@ -1584,7 +1584,7 @@ public class RalphOral {
 				UtilText.nodeContentSB.append(" As your "+Main.game.getPlayer().getTesticleSize().getDescriptor()+" balls tense up");
 				switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
 					case ZERO_NONE:
-						UtilText.nodeContentSB.append(", you realise that you're not able to produce even one drop of cum.");
+						UtilText.nodeContentSB.append(", you realize that you're not able to produce even one drop of cum.");
 						break;
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(", you feel a small trickle of your [pc.cum] squirting");
@@ -1693,7 +1693,7 @@ public class RalphOral {
 			if(SexFlags.customerAtCounter) {
 				UtilText.nodeContentSB.append("<br/><br/>"
 						+ "As you start to come down from your climax, you hear Ralph offering a part of your discount to the customer who just overheard your not-so-quiet orgasm"
-						+ ", and you let out a defeated sigh as you realise that you forgot they were there.");
+						+ ", and you let out a defeated sigh as you realize that you forgot they were there.");
 			}
 			
 			return UtilText.parse(Sex.getActivePartner(), UtilText.nodeContentSB.toString());
@@ -1860,12 +1860,12 @@ public class RalphOral {
 								+ " Ralph just seems to want to get rid of them as soon as possible, and forgets to knock off the portion of your discount he just gave away!"
 								+ " The reason for his oversight is soon made clear..."
 								+ "<br/><br/>"
-								+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+								+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 										+ "<br/><br/>");
 					else
-						UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realise that by staying quiet, they didn't find out that you were here!"
+						UtilText.nodeContentSB.append("Ralph quickly finishes up with the customer, and as you hear them start to walk away, you realize that by staying quiet, they didn't find out that you were here!"
 								+ "<br/><br/>"
-								+ "<b>There are now</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+								+ "<b>There are now</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 										+ "<br/><br/>");
 				}
 				
@@ -1899,13 +1899,13 @@ public class RalphOral {
 			if(((Ralph)Main.game.getNpc(Ralph.class)).isDiscountActive() && (SexFlags.ralphDiscount<Main.game.getDialogueFlags().ralphDiscount)){
 				UtilText.nodeContentSB.append(
 						"<br/><br/>"
-						+ "<b style='color:" + Colour.TEXT_GREY.toWebHexString() + ";'>You have earned a "+SexFlags.ralphDiscount+"% discount for the next three days!</b>"
+						+ "<b style='color:" + Color.TEXT_GREY.toWebHexString() + ";'>You have earned a "+SexFlags.ralphDiscount+"% discount for the next three days!</b>"
 						+ "<br/><br/>"
-						+ "<b>Because Ralph was already giving you the bigger discount of </b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"
+						+ "<b>Because Ralph was already giving you the bigger discount of </b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"
 							+Main.game.getDialogueFlags().ralphDiscount+"%</b><b>, he instead agrees to refresh that for the next three days!</b>");
 				
 			} else {
-				UtilText.nodeContentSB.append("<br/><br/><b>You have earned a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"+SexFlags.ralphDiscount+"%</b> <b>discount for the next three days!</b>");
+				UtilText.nodeContentSB.append("<br/><br/><b>You have earned a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+SexFlags.ralphDiscount+"%</b> <b>discount for the next three days!</b>");
 			}
 			
 			return UtilText.nodeContentSB.toString();

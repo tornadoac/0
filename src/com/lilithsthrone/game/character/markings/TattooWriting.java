@@ -9,8 +9,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import com.lilithsthrone.game.character.CharacterUtils;
-import com.lilithsthrone.utils.Colour;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.Color;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.XMLSaving;
 
 /**
@@ -21,20 +21,20 @@ import com.lilithsthrone.utils.XMLSaving;
 public class TattooWriting implements XMLSaving {
 	
 	private String text;
-	private Colour colour;
+	private Color color;
 	private boolean glow;
 	private List<TattooWritingStyle> styles;
 	
-	public TattooWriting(String text, Colour colour, boolean glow, TattooWritingStyle... styles) {
+	public TattooWriting(String text, Color color, boolean glow, TattooWritingStyle... styles) {
 		this.text = text;
-		this.colour = colour;
+		this.color = color;
 		this.glow = glow;
 		this.styles = new ArrayList<>();
 		Collections.addAll(this.styles, styles);
 	}
 	
-	public static List<Colour> getAvailableColours() {
-		return ColourListPresets.ALL.getPresetColourList();
+	public static List<Color> getAvailableColors() {
+		return ColorListPresets.ALL.getPresetColorList();
 	}
 	
 	@Override
@@ -42,7 +42,7 @@ public class TattooWriting implements XMLSaving {
 		if(super.equals(o)) {
 			return (o instanceof TattooWriting)
 					&& ((TattooWriting)o).getText().equals(this.getText())
-					&& ((TattooWriting)o).getColour().equals(this.getColour())
+					&& ((TattooWriting)o).getColor().equals(this.getColor())
 					&& ((TattooWriting)o).isGlow()==glow
 					&& ((TattooWriting)o).getStyles().equals(this.getStyles());
 		} else {
@@ -54,7 +54,7 @@ public class TattooWriting implements XMLSaving {
 	public int hashCode() {
 		int result = super.hashCode();
 		result = 31 * result + getText().hashCode();
-		result = 31 * result + getColour().hashCode();
+		result = 31 * result + getColor().hashCode();
 		result = 31 * result + (isGlow() ? 1 : 0);
 		result = 31 * result + getStyles().hashCode();
 		return result;
@@ -64,7 +64,7 @@ public class TattooWriting implements XMLSaving {
 		Element element = doc.createElement("tattooWriting");
 		parentElement.appendChild(element);
 		
-		CharacterUtils.addAttribute(doc, element, "colour", this.getColour().toString());
+		CharacterUtils.addAttribute(doc, element, "color", this.getColor().toString());
 		CharacterUtils.addAttribute(doc, element, "glow", String.valueOf(this.isGlow()));
 		
 		element.appendChild(doc.createCDATASection(this.getText().trim()));
@@ -97,7 +97,7 @@ public class TattooWriting implements XMLSaving {
 			String text = parentElement.getTextContent();
 			
 			TattooWriting tw = new TattooWriting(text.trim(),
-					Colour.valueOf(parentElement.getAttribute("colour")),
+					Color.valueOf(parentElement.getAttribute("color")),
 					Boolean.valueOf(parentElement.getAttribute("glow")));
 			
 			tw.styles = importedStyles;
@@ -118,8 +118,8 @@ public class TattooWriting implements XMLSaving {
 		return text;
 	}
 	
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public boolean isGlow() {
@@ -138,8 +138,8 @@ public class TattooWriting implements XMLSaving {
 		this.styles.remove(style);
 	}
 	
-	public void setColour(Colour colour) {
-		this.colour = colour;
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	public void setGlow(boolean glow) {

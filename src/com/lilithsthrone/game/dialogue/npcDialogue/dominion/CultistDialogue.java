@@ -20,7 +20,7 @@ import com.lilithsthrone.game.sex.managers.dominion.cultist.SMAltarMissionarySea
 import com.lilithsthrone.game.sex.managers.dominion.cultist.SMCultistKneeling;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -115,8 +115,8 @@ public class CultistDialogue {
 					+ "<p>"
 						+ "The hustle and bustle of the busy street is soon left behind as [npc.name] hurriedly pulls you down a couple of dark and dingy passageways."
 						+ " Thankfully, her chapel doesn't seem to be too far into the maze of alleyways, and after just a minute, you find yourself stepping out into a tidy little courtyard."
-						+ " A life-sized statue of a breathtakingly beautiful demon, who you assume to be Lilith, stands in the centre."
-						+ " Past this statue, you see your destination taking the form of a small, one-story building, with a pillared facade and red-tiled roof."
+						+ " A life-sized statue of a breathtakingly beautiful demon, who you assume to be Lilith, stands in the center."
+						+ " Past this statue, you see your destination taking the form of a small, one-story building, with a pillared façade and red-tiled roof."
 					+ "</p>"
 					+ "<p>"
 						+ "It's towards this building that [npc.name] pulls you, and after quickly crossing the small courtyard, you find yourself stepping through the doorway."
@@ -169,7 +169,7 @@ public class CultistDialogue {
 						+ "</p>"
 						+ (!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)
 								?"<p>"
-									+ "You look up to see her happy smile turn into a puzzled frown as she realises that you're not able to get access to your mouth."
+									+ "You look up to see her happy smile turn into a puzzled frown as she realizes that you're not able to get access to your mouth."
 									+ " Reaching down to your jinxed clothing, she focuses her arcane energy into removing the jinx."
 									+ " [npc.speech(There you go! Now you can suck cock to your heart's content!)]"
 								+ "</p>"
@@ -213,12 +213,12 @@ public class CultistDialogue {
 							+ "</p>"
 							+ "<p>"
 								+ "You slowly trace your fingers over your pussy, drawing [npc.namePos] eyes down between your [pc.legs+]."
-								+ " She smiles as she realises what you're suggesting, and eagerly grabs your [pc.arm] once again, before pushing you down onto your back on top of the chapel's altar."
+								+ " She smiles as she realizes what you're suggesting, and eagerly grabs your [pc.arm] once again, before pushing you down onto your back on top of the chapel's altar."
 								+ " [npc.speech(What better way to praise Lilith than by filling an eager slut's womb with my seed?! Your belly's going to be nice and swollen with imps soon enough!)]"
 							+ "</p>"
 							+ (!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)
 									?"<p>"
-										+ "You look up to see her happy smile turn into a puzzled frown as she realises that she's not able to get access to your pussy."
+										+ "You look up to see her happy smile turn into a puzzled frown as she realizes that she's not able to get access to your pussy."
 										+ " Reaching down to your jinxed clothing, she focuses her arcane energy into removing the jinx."
 										+ " [npc.speech(There we go! Now it's time for your special gift!)]"
 									+ "</p>"
@@ -263,12 +263,12 @@ public class CultistDialogue {
 						+ "</p>"
 						+ "<p>"
 							+ "You slowly turn to one side, tracing your fingers over your ass in order to draw [npc.namePos] eyes down to your rear end."
-							+ " She smiles as she realises what you're suggesting, and eagerly grabs your [pc.arm] once again, before pushing you down onto your back on top of the chapel's altar."
+							+ " She smiles as she realizes what you're suggesting, and eagerly grabs your [pc.arm] once again, before pushing you down onto your back on top of the chapel's altar."
 							+ " [npc.speech(What better way to praise Lilith than by filling some slut's ass with my seed?!)]"
 						+ "</p>"
 						+ (!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true)
 								?"<p>"
-									+ "You look up to see her happy smile turn into a puzzled frown as she realises that she's not able to get access to your asshole."
+									+ "You look up to see her happy smile turn into a puzzled frown as she realizes that she's not able to get access to your asshole."
 									+ " Reaching down to your jinxed clothing, she focuses her arcane energy into removing the jinx."
 									+ " [npc.speech(There we go! Now it's time for your special gift!)]"
 								+ "</p>"
@@ -339,7 +339,7 @@ public class CultistDialogue {
 			return "<p>"
 						+ "Leaving [npc.name] panting and exhausted on the altar, you turn to make your exit."
 						+ " As you're walking towards the door, you notice that there's a spare Witch's outfit neatly folded on one of the empty benches."
-						+ " There's even a spare broomstick lying beside it, and you wonder if you should help yourself to these rare items as way of compensation for [npc.namePos] behaviour..."
+						+ " There's even a spare broomstick lying beside it, and you wonder if you should help yourself to these rare items as way of compensation for [npc.namePos] behavior..."
 					+ "</p>"
 					+ "<p>"
 						+ "<i>Open your inventory to view the items.</i>"
@@ -409,16 +409,16 @@ public class CultistDialogue {
 				return new Response("Leave", "Turn around and head for the door.", ENCOUNTER_CHAPEL_LEAVING){
 					@Override
 					public void effects(){
-						Colour colour = Colour.CLOTHING_BLACK;
-						if(Main.game.getActiveNPC().getClothingInSlot(InventorySlot.TORSO_UNDER) != null && Main.game.getActiveNPC().getClothingInSlot(InventorySlot.TORSO_UNDER).getColour() == Colour.CLOTHING_WHITE) {
-							 colour = Colour.CLOTHING_WHITE;
+						Color color = Color.CLOTHING_BLACK;
+						if(Main.game.getActiveNPC().getClothingInSlot(InventorySlot.TORSO_UNDER) != null && Main.game.getActiveNPC().getClothingInSlot(InventorySlot.TORSO_UNDER).getColor() == Color.CLOTHING_WHITE) {
+							 color = Color.CLOTHING_WHITE;
 						}
 						
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", colour, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", colour, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", colour, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", colour, Colour.CLOTHING_GOLD, colour, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", colour, Colour.CLOTHING_GOLD, colour, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", color, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", color, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", color, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", color, Color.CLOTHING_GOLD, color, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", color, Color.CLOTHING_GOLD, color, false));
 						Main.game.getPlayerCell().getInventory().addWeapon(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 					}
 				};
@@ -461,16 +461,16 @@ public class CultistDialogue {
 						null, ENCOUNTER_CHAPEL_POST_DOM_SEALED_SEX, "<p>"
 							+ "As you pick up [npc.namePos] broomstick, you feel a powerful surge of arcane energy flowing into your body."
 							+ " Without even needing to be told, you instantly know exactly how to harness the spells within this powerful weapon."
-							+" As you gain knowledge of the spell 'Witch's Seal', you realise that you have the opportunity to give [npc.name] a taste of her own medicine..."
+							+" As you gain knowledge of the spell 'Witch's Seal', you realize that you have the opportunity to give [npc.name] a taste of her own medicine..."
 						+ "</p>"
 						+ "<p>"
-							+ "Stepping towards the horny witch, you thrust out with the broomstick, channelling your energy into casting the powerful immobilising spell."
+							+ "Stepping towards the horny witch, you thrust out with the broomstick, channeling your energy into casting the powerful immobilizing spell."
 							+ " A jolt of purple energy shoots out and strikes [npc.name], and as a ghostly purple pentagram flashes beneath her body, she suddenly stops moving."
 						+ "</p>"
 						+ "<p>"
 							+ "Dropping the broomstick to the floor, you step forwards between her legs and make sure that she's ok."
 							+ " Thankfully, as you take a closer look, you see that she's still breathing, and her eyes flick up to gaze into yours as you stand over her vulnerable form."
-							+ " The Witch's Seal appears to have completely immobilised her, but as you reach out and lift one of her legs, you discover that the spell still allows you to move her around."
+							+ " The Witch's Seal appears to have completely immobilized her, but as you reach out and lift one of her legs, you discover that the spell still allows you to move her around."
 						+ "</p>"
 						+ "<p>"
 							+ "Grinning down at your new fuck-doll, you push her thighs apart to fully expose her groin, and prepare to have some fun..."
@@ -531,7 +531,7 @@ public class CultistDialogue {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index == 1) {
-				return new ResponseSex("Witch's Toy", "You're completely immobilised, and can do nothing as the witch prepares to use you as her toy.",
+				return new ResponseSex("Witch's Toy", "You're completely immobilized, and can do nothing as the witch prepares to use you as her toy.",
 						false, false,
 						new SMAltarMissionarySealed(
 								Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotBipeds.MISSIONARY_ALTAR_SEALED_STANDING_BETWEEN_LEGS)),
@@ -544,7 +544,7 @@ public class CultistDialogue {
 						null,
 						null, ENCOUNTER_CHAPEL_POST_ORAL_SEX, (!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true) || !Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true)
 							?"<p>"
-								+ "You look up to see [npc.namePos] grin turn into a puzzled frown as she realises that she's not able to get access to your groin."
+								+ "You look up to see [npc.namePos] grin turn into a puzzled frown as she realizes that she's not able to get access to your groin."
 								+ " Reaching down to your jinxed clothing, she focuses her arcane energy into removing the jinx."
 								+ " [npc.speech(There we go! Now let's both find out how much you love being my fuck-toy!)]"
 							+ "</p>"
@@ -756,11 +756,11 @@ public class CultistDialogue {
 				return new Response("Leave", "Turn around and head for the door.", ENCOUNTER_CHAPEL_LEAVING){
 					@Override
 					public void effects(){
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", Colour.CLOTHING_BLACK, Colour.CLOTHING_GOLD, Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", Colour.CLOTHING_BLACK, Colour.CLOTHING_GOLD, Colour.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", Color.CLOTHING_BLACK, Color.CLOTHING_GOLD, Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", Color.CLOTHING_BLACK, Color.CLOTHING_GOLD, Color.CLOTHING_BLACK, false));
 						Main.game.getPlayerCell().getInventory().addWeapon(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 					}
 				};
@@ -796,11 +796,11 @@ public class CultistDialogue {
 				return new Response("Leave", "Turn around and head for the door.", ENCOUNTER_CHAPEL_LEAVING){
 					@Override
 					public void effects(){
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", Colour.CLOTHING_BLACK, Colour.CLOTHING_GOLD, Colour.CLOTHING_BLACK, false));
-						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", Colour.CLOTHING_BLACK, Colour.CLOTHING_GOLD, Colour.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", Color.CLOTHING_BLACK, Color.CLOTHING_GOLD, Color.CLOTHING_BLACK, false));
+						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", Color.CLOTHING_BLACK, Color.CLOTHING_GOLD, Color.CLOTHING_BLACK, false));
 						Main.game.getPlayerCell().getInventory().addWeapon(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 					}
 				};

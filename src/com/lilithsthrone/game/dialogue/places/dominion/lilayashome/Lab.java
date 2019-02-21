@@ -39,7 +39,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMChair;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -266,11 +266,11 @@ public class Lab {
 						Main.game.getNpc(Lilaya.class).resetInventory(false);
 						
 						Main.game.getNpc(Lilaya.class).equipClothingFromNowhere(
-								AbstractClothingType.generateClothing(ClothingType.KIMONO_HAIR_KANZASHI, Colour.CLOTHING_PINK, Colour.CLOTHING_PINK_LIGHT, Colour.CLOTHING_PURPLE, false), true, Main.game.getNpc(Lilaya.class));
+								AbstractClothingType.generateClothing(ClothingType.KIMONO_HAIR_KANZASHI, Color.CLOTHING_PINK, Color.CLOTHING_PINK_LIGHT, Color.CLOTHING_PURPLE, false), true, Main.game.getNpc(Lilaya.class));
 						Main.game.getNpc(Lilaya.class).equipClothingFromNowhere(
-								AbstractClothingType.generateClothing(ClothingType.KIMONO_DRESS, Colour.CLOTHING_PINK_LIGHT, Colour.CLOTHING_PURPLE, Colour.CLOTHING_PINK, false), true, Main.game.getNpc(Lilaya.class));
-						Main.game.getNpc(Lilaya.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.KIMONO_GETA, Colour.CLOTHING_PINK_LIGHT, Colour.CLOTHING_PINK, null, false), true, Main.game.getNpc(Lilaya.class));
-						Main.game.getNpc(Lilaya.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Colour.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Lilaya.class));
+								AbstractClothingType.generateClothing(ClothingType.KIMONO_DRESS, Color.CLOTHING_PINK_LIGHT, Color.CLOTHING_PURPLE, Color.CLOTHING_PINK, false), true, Main.game.getNpc(Lilaya.class));
+						Main.game.getNpc(Lilaya.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.KIMONO_GETA, Color.CLOTHING_PINK_LIGHT, Color.CLOTHING_PINK, null, false), true, Main.game.getNpc(Lilaya.class));
+						Main.game.getNpc(Lilaya.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Color.CLOTHING_BLACK_STEEL, false), true, Main.game.getNpc(Lilaya.class));
 					}
 				});
 			}
@@ -356,8 +356,8 @@ public class Lab {
 							"Tell Lilaya that you'll help her convince Lyssieth to turn her into a full demon.<br/>[style.italicsDemon(This will end with Lilaya being permanently transformed into a demon!)]",
 							LAB_DEMON_TF_AGREE){
 						@Override
-						public Colour getHighlightColour() {
-							return Colour.RACE_DEMON;
+						public Color getHighlightColor() {
+							return Color.RACE_DEMON;
 						}
 						@Override
 						public void effects() {
@@ -382,7 +382,7 @@ public class Lab {
 					
 			} else if(Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_I_ARTHURS_TALE) {
 				if(index == 1) {
-					return new Response("Agree", "Knowing how fierce your [lilaya.relation(pc)] can get when she's in one of these moods, you realise that you don't really have much of a choice...", LAB_ARTHURS_TALE){
+					return new Response("Agree", "Knowing how fierce your [lilaya.relation(pc)] can get when she's in one of these moods, you realize that you don't really have much of a choice...", LAB_ARTHURS_TALE){
 						@Override
 						public void effects() {
 							setEntryFlags();
@@ -425,8 +425,8 @@ public class Lab {
 								"Tell Lilaya that you'll help her convince her mother to turn her into a full demon.<br/>[style.italicsDemon(This will end with Lilaya being permanently transformed into a full demon!)]",
 								LAB_DEMON_TF_AGREE) {
 							@Override
-							public Colour getHighlightColour() {
-								return Colour.RACE_DEMON;
+							public Color getHighlightColor() {
+								return Color.RACE_DEMON;
 							}
 							@Override
 							public void effects() {
@@ -992,7 +992,7 @@ public class Lab {
 							+ "<p>"
 								+ "Once again, you find yourself surrounded by the shimmering pink outline of your arcane aura."
 								+ " This time, however, you see a strange ball of energy orbiting your body, which looks to be the same sort of size as the shard of energy that you remember shooting into you."
-								+ " Looking up at Lilaya, you see that her cheeks have completely drained of colour, and she's looking down at you with an extremely worried expression on her face."
+								+ " Looking up at Lilaya, you see that her cheeks have completely drained of color, and she's looking down at you with an extremely worried expression on her face."
 							+ "</p>");
 					
 				} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.essenceBottledDiscovered)) {
@@ -1021,7 +1021,7 @@ public class Lab {
 							+ "<p>"
 								+ "Once again, you find yourself surrounded by the shimmering pink outline of your arcane aura."
 								+ " This time, however, you see a strange ball of energy orbiting your body, which looks to be the same sort of size as the shard of energy that you remember shooting into you."
-								+ " Looking up at Lilaya, you see that her cheeks have completely drained of colour, and she's looking down at you with an extremely worried expression on her face."
+								+ " Looking up at Lilaya, you see that her cheeks have completely drained of color, and she's looking down at you with an extremely worried expression on her face."
 							+ "</p>");
 					
 				} else {
@@ -1052,7 +1052,7 @@ public class Lab {
 							+ "<p>"
 								+ "Once again, you find yourself surrounded by the shimmering pink outline of your arcane aura."
 								+ " This time, however, you see a strange ball of energy orbiting your body, which looks to be the same sort of size as the shard of energy that you remember shooting into you."
-								+ " Looking up at Lilaya, you see that her cheeks have completely drained of colour, and she's looking down at you with an extremely worried expression on her face."
+								+ " Looking up at Lilaya, you see that her cheeks have completely drained of color, and she's looking down at you with an extremely worried expression on her face."
 							+ "</p>");
 				}
 				
@@ -1083,7 +1083,7 @@ public class Lab {
 							+ "<p>"
 								+ "Once again, you find yourself surrounded by the shimmering pink outline of your arcane aura."
 								+ " This time, however, you see a strange ball of energy orbiting your body, which looks to be the same sort of size as the shard of energy that you remember shooting into you."
-								+ " Looking up at Lilaya, you see that her cheeks have completely drained of colour, and she's looking down at you with an extremely worried expression on her face."
+								+ " Looking up at Lilaya, you see that her cheeks have completely drained of color, and she's looking down at you with an extremely worried expression on her face."
 							+ "</p>");
 					
 				} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.essenceBottledDiscovered)) {
@@ -1112,7 +1112,7 @@ public class Lab {
 							+ "<p>"
 								+ "Once again, you find yourself surrounded by the shimmering pink outline of your arcane aura."
 								+ " This time, however, you see a strange ball of energy orbiting your body, which looks to be the same sort of size as the shard of energy that you remember shooting into you."
-								+ " Looking up at Lilaya, you see that her cheeks have completely drained of colour, and she's looking down at you with an extremely worried expression on her face."
+								+ " Looking up at Lilaya, you see that her cheeks have completely drained of color, and she's looking down at you with an extremely worried expression on her face."
 							+ "</p>");
 				}
 			}
@@ -1176,7 +1176,7 @@ public class Lab {
 						+ "<p>"
 							+ "Lilaya flicks a switch on one of the instruments, and the shimmering pink aura instantly vanishes from sight."
 							+ " Stepping forwards, she takes you by the [pc.arm] once more, and quickly leads you over to another corner of the lab, where a long, sturdy table is covered in all sorts of alchemical-looking apparatus."
-							+ " Large glass bottles filled with brightly coloured liquids bubble away without any apparent source of heat, and all manner of strange looking ingredients lie scattered over the table's surface."
+							+ " Large glass bottles filled with brightly colored liquids bubble away without any apparent source of heat, and all manner of strange looking ingredients lie scattered over the table's surface."
 							+ " Coming to a halt in front of the workspace, Lilaya turns to face you. [lilaya.speech(Right, I can explain as we go...)]"
 						+ "</p>");
 			
@@ -1209,7 +1209,7 @@ public class Lab {
 						+ "<p>"
 							+ "Lilaya flicks a switch on one of the instruments, and the shimmering pink aura instantly vanishes from sight."
 							+ " Stepping forwards, she takes you by the [pc.arm] once more, and quickly leads you over to another corner of the lab, where a long, sturdy table is covered in all sorts of alchemical-looking apparatus."
-							+ " Large glass bottles filled with brightly coloured liquids bubble away without any apparent source of heat, and all manner of strange looking ingredients lie scattered over the table's surface."
+							+ " Large glass bottles filled with brightly colored liquids bubble away without any apparent source of heat, and all manner of strange looking ingredients lie scattered over the table's surface."
 							+ " Coming to a halt in front of the workspace, Lilaya turns to face you. [lilaya.speech(Right, I can explain as we go...)]"
 						+ "</p>");
 				
@@ -1253,7 +1253,7 @@ public class Lab {
 						+ "<p>"
 							+ "Lilaya flicks a switch on one of the instruments, and the shimmering pink aura instantly vanishes from sight."
 							+ " Stepping forwards, she takes you by the [pc.arm] once more, and quickly leads you over to another corner of the lab, where a long, sturdy table is covered in all sorts of alchemical-looking apparatus."
-							+ " Large glass bottles filled with brightly coloured liquids bubble away without any apparent source of heat, and all manner of strange looking ingredients lie scattered over the table's surface."
+							+ " Large glass bottles filled with brightly colored liquids bubble away without any apparent source of heat, and all manner of strange looking ingredients lie scattered over the table's surface."
 							+ " Coming to a halt in front of the workspace, Lilaya turns to face you. [lilaya.speech(Right, I can explain as we go...)]"
 						+ "</p>");
 			}
@@ -1302,8 +1302,8 @@ public class Lab {
 				+ "</p>"
 				+ "<p>"
 					+ "Lilaya closes her eyes and lets out a deep breath, and you gasp as you suddenly see four little balls of purple energy orbiting her body."
-					+ " As you watch, two of the orbs suddenly shoot down into the bottle of Feline's Fancy, and with a bright pink flash and a wisp of odourless smoke, both the bottle and the little green gem disappear."
-					+ " In its place, a curious little bottle of red liquid has materialised out of thin-air."
+					+ " As you watch, two of the orbs suddenly shoot down into the bottle of Feline's Fancy, and with a bright pink flash and a wisp of odorless smoke, both the bottle and the little green gem disappear."
+					+ " In its place, a curious little bottle of red liquid has materialized out of thin-air."
 				+ "</p>"
 				+ "<p>"
 					+ "[lilaya.speech(You have to sort of feel how much essence you want to pour into the enchantment. The more you put in, the better the resulting item!)]"
@@ -1439,7 +1439,7 @@ public class Lab {
 								
 								Main.game.getTextEndStringBuilder().append(
 										"<p style='text-align:center;'>"
-											+ "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Item added to inventory:</b> <b>" + (TFEssence.essenceToItem(TFEssence.ARCANE)).getDisplayName(true) + "</b>"
+											+ "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Item added to inventory:</b> <b>" + (TFEssence.essenceToItem(TFEssence.ARCANE)).getDisplayName(true) + "</b>"
 										+ "</p>"
 										+ "<p>"
 											+ "You now have <b>"+count+" "+(count>1?TFEssence.essenceToItem(TFEssence.ARCANE).getNamePlural(true):TFEssence.essenceToItem(TFEssence.ARCANE).getName(true))+"</b> in your inventory."
@@ -1470,7 +1470,7 @@ public class Lab {
 											+ "Grabbing another vial, you set about repeating the process several times..."
 										+ "</p>"
 										+ "<p style='text-align:center;'>"
-											+ "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Items added to inventory:</b> <b>5x</b> <b>" + TFEssence.essenceToItem(TFEssence.ARCANE).getDisplayName(true) + "</b>"
+											+ "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Items added to inventory:</b> <b>5x</b> <b>" + TFEssence.essenceToItem(TFEssence.ARCANE).getDisplayName(true) + "</b>"
 										+ "</p>"
 										+ "<p>"
 											+ "You now have <b>"+count+" "+(count>1?TFEssence.essenceToItem(TFEssence.ARCANE).getNamePlural(true):TFEssence.essenceToItem(TFEssence.ARCANE).getName(true))+"</b> in your inventory."
@@ -1501,7 +1501,7 @@ public class Lab {
 											+ "Grabbing another vial, you set about repeating the process several times..."
 										+ "</p>"
 										+ "<p style='text-align:center;'>"
-											+ "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Items added to inventory:</b> <b>25x</b> <b>" + TFEssence.essenceToItem(TFEssence.ARCANE).getDisplayName(true) + "</b>"
+											+ "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Items added to inventory:</b> <b>25x</b> <b>" + TFEssence.essenceToItem(TFEssence.ARCANE).getDisplayName(true) + "</b>"
 										+ "</p>"
 										+ "<p>"
 											+ "You now have <b>"+count+" "+(count>1?TFEssence.essenceToItem(TFEssence.ARCANE).getNamePlural(true):TFEssence.essenceToItem(TFEssence.ARCANE).getName(true))+"</b> in your inventory."
@@ -1532,7 +1532,7 @@ public class Lab {
 											+ "Grabbing another vial, you set about repeating the process several times..."
 										+ "</p>"
 										+ "<p style='text-align:center;'>"
-											+ "<b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>Items added to inventory:</b> <b>"+Main.game.getPlayer().getEssenceCount(TFEssence.ARCANE)+"x</b> <b>"
+											+ "<b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>Items added to inventory:</b> <b>"+Main.game.getPlayer().getEssenceCount(TFEssence.ARCANE)+"x</b> <b>"
 												+ TFEssence.essenceToItem(TFEssence.ARCANE).getDisplayName(true) + "</b>"
 										+ "</p>"
 										+ "<p>"
@@ -1570,8 +1570,8 @@ public class Lab {
 		public String getContent() {
 			return "<p>"
 					+ "You pull out the little cork from the top of one of the glass vials, and, closing your [pc.eyes], you concentrate on extracting the "+TFEssence.ARCANE.getName()+" essence."
-					+ " Suddenly, you feel a strange little tugging sensation, and, opening your [pc.eyes], you see a "+TFEssence.ARCANE.getColour().getName()+", swirling glow within the vial in your [pc.hand]."
-					+ " Pushing the cork stopper back in the top, you smile as you realise that you've successfully extracted an essence; something that only a Lilin should be able to do!"
+					+ " Suddenly, you feel a strange little tugging sensation, and, opening your [pc.eyes], you see a "+TFEssence.ARCANE.getColor().getName()+", swirling glow within the vial in your [pc.hand]."
+					+ " Pushing the cork stopper back in the top, you smile as you realize that you've successfully extracted an essence; something that only a Lilin should be able to do!"
 				+ "</p>";
 		}
 
@@ -1597,7 +1597,7 @@ public class Lab {
 					+ "You answer in the affirmative, and Lilaya pushes her glasses up to the bridge of her nose, before crossing her arms and sighing,"
 					+ " [lilaya.speech(It shouldn't be anything to worry about."
 					+ " There must have been a chain of events in our world's past that led to the year being counted slightly differently to yours."
-					+ " Or maybe you time-travelled when you were teleported into this world!)]"
+					+ " Or maybe you time-traveled when you were teleported into this world!)]"
 					+ " As she starts thinking out loud, you can hear the growing excitement in her voice,"
 					+ " [lilaya.speech(In fact, it's pretty incredible that your world even uses the same calendar system as ours!"
 					+ " And, thinking about it even more, why do we even speak the same language?"
@@ -1607,7 +1607,7 @@ public class Lab {
 					+ "You start to chat with Lilaya about the peculiarities of these shared features between your worlds."
 					+ " The more you start to delve into it, however, the more surprised you are at the lack of historical knowledge that Lilaya has."
 					+ " [lilaya.speech(Well, the only history that anyone really knows about is stuff concerning Lilith."
-					+ " She's been ruling this world since before any trace of civilisation even existed, so I guess all of our customs come from her direct influence."
+					+ " She's been ruling this world since before any trace of civilization even existed, so I guess all of our customs come from her direct influence."
 					+ " I don't think anybody other than Lilith herself really knows much about this world's history."
 					+ " Maybe mommy-)]"
 				+ "</p>"
@@ -1882,7 +1882,7 @@ public class Lab {
 					+ "<p>"
 					+ "You look up to see Lilaya's face turned up into a scowl as she continues, "
 					+ UtilText.parseSpeech("If you ever want to find a way to go back home, you're going to have to get the help of Arthur... <i>that bastard!</i>", Main.game.getNpc(Lilaya.class))
-					+ " she spits, before realising how angry she's become. Lilaya closes her eyes for a moment and takes a deep breath, calming herself down before continuing, "
+					+ " she spits, before realizing how angry she's become. Lilaya closes her eyes for a moment and takes a deep breath, calming herself down before continuing, "
 					+ UtilText.parseSpeech("He and I used to work together, and with the exception of Lilith herself, he probably understands more about the arcane than anyone currently living."
 							+ " His apartment's over in Demon Home, but despite the name, people of all races live there. He's actually just a human, which makes his knowledge of the arcane all the more impressive."
 							+ " Here's his address... So if you want his help, you're going to have to convince him to stop being such a <i>selfish bastard!</i> He'll need access to my research,"
@@ -1893,7 +1893,7 @@ public class Lab {
 					+ "You're quite taken aback at Lilaya's apparent hatred for Arthur."
 					+ " You assume, seeing as he shares the same name, that he's this world's version of your [lilaya.relation(pc)] Lily's colleague from the museum."
 					+ " Back there, they were close friends, and you wonder what's happened in this reality to cause Lilaya to dislike him so much."
-					+ " Seeing how angry she's gotten just at the thought of him, you decide that it would be wise not to press the matter further, and instead you just agree to convince Arthur to apologise."
+					+ " Seeing how angry she's gotten just at the thought of him, you decide that it would be wise not to press the matter further, and instead you just agree to convince Arthur to apologize."
 					+ "</p>"
 
 					+ "<p>"
@@ -2014,7 +2014,7 @@ public class Lab {
 			return "<p>"
 						+ "You part your lips slightly, allowing Lilaya to slip her finger into your mouth."
 						+ " As she slowly starts sliding her digit back and forth past your lips, you notice a faint, salty taste hitting your tongue."
-						+ " As a second finger pushes its way in to join the first, you realise that this is the same hand she was using to finger Rose."
+						+ " As a second finger pushes its way in to join the first, you realize that this is the same hand she was using to finger Rose."
 						+ " Before you can object, you suddenly notice that she's slipped her free hand down to your groin, and as she gives you an experimental squeeze, you find yourself bucking back against her touch."
 					+ "</p>"
 
@@ -2141,7 +2141,7 @@ public class Lab {
 						+ "</p>"
 						+ "<p>"
 							+ "[pc.speech(Erm... Well, no...)]"
-							+ " you mumble, realising that you hadn't thought about the logistics of owning slaves."
+							+ " you mumble, realizing that you hadn't thought about the logistics of owning slaves."
 						+ "</p>"
 						+ "<p>"
 							+ "[lilaya.speech(I thought not,)] Lilaya responds."
@@ -2277,8 +2277,8 @@ public class Lab {
 								+ UtilText.parseSpeech("D-Don't worry about it! I-I mean... I still like you too... It's just that Rose and I have this special sort of relationship, y-you see?", lilaya)
 							+ "</p>"
 							+ "<p>"
-								+ "For a moment, you're not quite sure what she's talking about, but then you realise that she completely misinterpreted what you were saying."
-								+ " She seems to have thought that you were apologising about interrupting her and Rose, and you see that she isn't even thinking twice about you having sex with other people."
+								+ "For a moment, you're not quite sure what she's talking about, but then you realize that she completely misinterpreted what you were saying."
+								+ " She seems to have thought that you were apologizing about interrupting her and Rose, and you see that she isn't even thinking twice about you having sex with other people."
 								+ " After all, you suppose, she's quite happy to carry on pursuing her relationship with Rose, and it puts your mind at ease knowing that whatever you've got going with Lilaya isn't an exclusive deal."
 							+ "</p>");
 						
@@ -2308,8 +2308,8 @@ public class Lab {
 								+ UtilText.parseSpeech("D-Don't worry about it! I-I mean... I still like you too... It's just that Rose and I have this special sort of relationship, y-you see?", lilaya)
 							+ "</p>"
 							+ "<p>"
-								+ "For a moment, you're not quite sure what she's talking about, but then you realise that she completely misinterpreted what you were saying."
-								+ " She seems to have thought that you were apologising about interrupting her and Rose, and you see that she isn't even thinking twice about you having sex with other people."
+								+ "For a moment, you're not quite sure what she's talking about, but then you realize that she completely misinterpreted what you were saying."
+								+ " She seems to have thought that you were apologizing about interrupting her and Rose, and you see that she isn't even thinking twice about you having sex with other people."
 								+ " After all, you suppose, she's quite happy to carry on pursuing her relationship with Rose, and it puts your mind at ease knowing that whatever you've got going with Lilaya isn't an exclusive deal."
 							+ "</p>");
 				}
@@ -2334,7 +2334,7 @@ public class Lab {
 							+ " starts walking back over towards you."
 					+ "</p>"
 					+ "<p>"
-						+ "[lilaya.speech(So, I'm guessing you've already realised that the arcane has a big influence on pregnancy speed around here,)]"
+						+ "[lilaya.speech(So, I'm guessing you've already realized that the arcane has a big influence on pregnancy speed around here,)]"
 						+ " she laughs, stroking your belly once more before stepping back and tinkering with some small dials on the instrument she's just retrieved. "
 						+ UtilText.parseSpeech("I've actually done a fair bit of research on the arcane's influence on pregnancies, so I know that without its presence, pregnancies should really be taking about nine months...", lilaya)
 					+ "</p>"
@@ -2831,7 +2831,7 @@ public class Lab {
 							+ "You glance across worriedly at Lilaya as she says this, but she squeezes your hand in hers and reassures you, "
 							+ "[lilaya.speech(Don't worry, it doesn't hurt or anything!"
 									+ " Now, after I've helped you lay your eggs, you're probably going to get aggressive if I hang around for too long, so I'll leave as quickly as possible."
-									+ " Oh, and don't worry about your behaviour, I understand that your maternal instinct is going to get pretty intense.)]"
+									+ " Oh, and don't worry about your behavior, I understand that your maternal instinct is going to get pretty intense.)]"
 						+ "</p>"
 						+ "<p>"
 							+ "You fidget about uncomfortably a little, but Lilaya makes a soothing shushing noise as she pushes you down into the middle of your bed, before shuffling around to sit behind you. "
@@ -2912,7 +2912,7 @@ public class Lab {
 					+ "<p>"
 						+ "[pc.speech(I-I did it,)]"
 						+ " you sigh, looking down at the egg you've just laid."
-						+ " It looks to be about the same size as an emu's egg, and as you marvel at its pale pink colouring and smooth shell, you feel yourself subconsciously reaching out to pick it up and cradle in your arms."
+						+ " It looks to be about the same size as an emu's egg, and as you marvel at its pale pink coloring and smooth shell, you feel yourself subconsciously reaching out to pick it up and cradle in your arms."
 					+ "</p>"
 						
 					+ "<p>"
@@ -3081,7 +3081,7 @@ public class Lab {
 						+ "<i>"
 						+ "Hey [pc.name], congratulations! Everything went perfectly!<br/>"
 						+ "I hope you don't mind, but I collected a lot of data about your aura while we were doing this!"
-						+ " I had to start analysing it straight away, and you were fast asleep anyway, so I hope you don't mind me leaving you there to rest."
+						+ " I had to start analyzing it straight away, and you were fast asleep anyway, so I hope you don't mind me leaving you there to rest."
 						+ "<br/><br/>"
 						+ "If you need anything, or perhaps if you'd like some more \"tests\", then you know where to find me!"
 						+ "<br/><br/>"
@@ -3180,7 +3180,7 @@ public class Lab {
 						+ "[lilaya.speech(I honestly can't believe how thick you are sometimes, Arthur. But then again, it is to be expected of someone who'd go behind their lover's back to fuck-)]"
 					+ "</p>"
 					+ "<p>"
-						+ "[arthur.speech(How many times do I have to apologise?)]"
+						+ "[arthur.speech(How many times do I have to apologize?)]"
 					+ "</p>"
 					+ "<p>"
 						+ "[lilaya.speech(Oh, I'm sorry, I thought <i>I</i> was talking."

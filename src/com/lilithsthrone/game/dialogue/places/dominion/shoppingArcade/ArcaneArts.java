@@ -74,7 +74,7 @@ public class ArcaneArts {
 					+ "</p>"
 					+ "<p>"
 						+ "As the door swings shut behind you, Vicky's yellow eyes lock onto yours, and her mouth turns up into an unsettling predatory grin."
-						+ " Even though she's only a few metres away, and you're the only person in the shop, she doesn't utter a single word of greeting, and you find that the shop's already-gloomy atmosphere has quickly become extremely oppressive."
+						+ " Even though she's only a few meters away, and you're the only person in the shop, she doesn't utter a single word of greeting, and you find that the shop's already-gloomy atmosphere has quickly become extremely oppressive."
 						+ " As you step forwards to say hello, the wolf-girl suddenly cuts you off, "
 						+ "[vicky.speech(If you aren't here to waste my time, I keep the good stuff under the counter here. Want to take a look again?)]"
 					+ "</p>"
@@ -89,7 +89,7 @@ public class ArcaneArts {
 					+ "</p>"
 					+ "<p>"
 						+ "As the door swings shut behind you, the wolf-girl's yellow eyes lock onto yours, and her mouth turns up into an unsettling predatory grin."
-						+ " Even though she's only a few metres away, and you're the only person in the shop, she doesn't utter a single word of greeting, and you find that the shop's already-gloomy atmosphere has quickly become extremely oppressive."
+						+ " Even though she's only a few meters away, and you're the only person in the shop, she doesn't utter a single word of greeting, and you find that the shop's already-gloomy atmosphere has quickly become extremely oppressive."
 						+ " You glance around, seeing that there are only odd trinkets and pieces of 'enchanted' junk littering the messy shelves."
 					+ "</p>"
 					+ "<p>"
@@ -235,7 +235,7 @@ public class ArcaneArts {
 					+ "<p>"
 						+ "You allow your voice to trail off as a low, rumbling growl starts to fill the room."
 						+ " Vicky narrows her eyes a little, continuing to emit a menacing snarl as she allows her gaze to wander up and down your body."
-						+ " Feeling more than a little concerned with the wolf-girl's behaviour, you take a step back, preparing yourself in case she decides to attack."
+						+ " Feeling more than a little concerned with the wolf-girl's behavior, you take a step back, preparing yourself in case she decides to attack."
 					+ "</p>"
 					+ "<p>"
 						+ "[vicky.speech(Don't worry, I don't bite,)]"
@@ -250,7 +250,7 @@ public class ArcaneArts {
 							+ " It's quite <i>frustrating</i> when people don't collect their orders immediately.)]"
 					+ "</p>"
 					+ "<p>"
-						+ "Without warning, Vicky suddenly grabs hold of the desk, and in one swift, alarming manoeuvre, vaults over the counter-top and pounces towards you."
+						+ "Without warning, Vicky suddenly grabs hold of the desk, and in one swift, alarming maneuver, vaults over the counter-top and pounces towards you."
 						+ " Caught with your back against the wall, you suddenly find yourself face-to-face with the aggressive wolf-girl."
 						+ " Showing a complete lack of respect for your personal space, she roughly presses her body right up against yours, staring hungrily into your eyes as she growls,"
 						+ " [vicky.speech(It's so frustrating, in fact, that I'm going to need some <i>compensation</i>."
@@ -277,7 +277,7 @@ public class ArcaneArts {
 						}
 					};
 				} else {
-					return new Response("Pay ("+UtilText.formatAsMoneyUncoloured(100, "span")+")", "You don't have enough money to pay the fee!", null);	
+					return new Response("Pay ("+UtilText.formatAsMoneyUncolored(100, "span")+")", "You don't have enough money to pay the fee!", null);	
 				}
 				
 			} else if (index == 2) {

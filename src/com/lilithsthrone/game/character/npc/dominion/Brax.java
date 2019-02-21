@@ -88,7 +88,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMCowgirl;
 import com.lilithsthrone.game.sex.managers.universal.SMKneeling;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -128,7 +128,7 @@ public class Brax extends NPC {
 			this.setPiercedEar(true);
 			if(this.getClothingInSlot(InventorySlot.PIERCING_EAR)!=null) {
 				this.unequipClothingIntoVoid(this.getClothingInSlot(InventorySlot.PIERCING_EAR), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Colour.CLOTHING_GOLD, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Color.CLOTHING_GOLD, false), true, this);
 			}
 		}
 	}
@@ -166,26 +166,26 @@ public class Brax extends NPC {
 		this.setBodySize(BodySize.THREE_LARGE.getMedianValue());
 		
 		// Coverings:
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_LYCAN, Colour.EYE_YELLOW));
-		this.setSkinCovering(new Covering(BodyCoveringType.LYCAN_FUR, Colour.COVERING_GREY), true);
-		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Colour.SKIN_OLIVE), true);
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_LYCAN, Color.EYE_YELLOW));
+		this.setSkinCovering(new Covering(BodyCoveringType.LYCAN_FUR, Color.COVERING_GREY), true);
+		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_OLIVE), true);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_LYCAN_FUR, Colour.COVERING_GREY), true);
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_LYCAN_FUR, Color.COVERING_GREY), true);
 		this.setHairLength(HairLength.ZERO_BALD);
 		this.setHairStyle(HairStyle.LOOSE);
 
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_LYCAN_FUR, Colour.COVERING_BLACK), false);
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_LYCAN_FUR, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.FOUR_NATURAL);
 		this.setAssHair(BodyHair.FOUR_NATURAL);
 		this.setPubicHair(BodyHair.FOUR_NATURAL);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_RED));
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_RED));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_RED));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_RED));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 		this.setFaceVirgin(true);
@@ -236,56 +236,56 @@ public class Brax extends NPC {
 		if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.braxBeaten)) {
 			AbstractClothing collar = AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, false);
 			collar.setSealed(true);
-			collar.setColour(Colour.CLOTHING_SILVER);
+			collar.setColor(Color.CLOTHING_SILVER);
 			this.equipClothingFromNowhere(collar, true, this);
 		}
 		
 		if(isFeminine()) {
 			if(hasFetish(Fetish.FETISH_BIMBO)) {
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_CROTCHLESS_PANTIES, Colour.CLOTHING_PINK, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NIPPLE_TAPE_CROSSES, Colour.CLOTHING_PINK, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_FISHNET_TOP, Colour.CLOTHING_WHITE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_MICRO_SKIRT_PLEATED, Colour.CLOTHING_PINK, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_FISHNET_STOCKINGS, Colour.CLOTHING_WHITE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Colour.CLOTHING_BLACK, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_FISHNET_GLOVES, Colour.CLOTHING_WHITE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_GOLD, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Colour.CLOTHING_GOLD, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_CROTCHLESS_PANTIES, Color.CLOTHING_PINK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NIPPLE_TAPE_CROSSES, Color.CLOTHING_PINK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_FISHNET_TOP, Color.CLOTHING_WHITE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_MICRO_SKIRT_PLEATED, Color.CLOTHING_PINK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_FISHNET_STOCKINGS, Color.CLOTHING_WHITE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Color.CLOTHING_BLACK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_FISHNET_GLOVES, Color.CLOTHING_WHITE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Color.CLOTHING_GOLD, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Color.CLOTHING_GOLD, false), true, this);
 
 				this.setPiercedEar(true);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Colour.CLOTHING_GOLD, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Color.CLOTHING_GOLD, false), true, this);
 				this.setPiercedNose(true);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, Colour.CLOTHING_GOLD, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, Color.CLOTHING_GOLD, false), true, this);
 				this.setPiercedNavel(true);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Colour.CLOTHING_GOLD, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Color.CLOTHING_GOLD, false), true, this);
 				
 			} else {
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Colour.CLOTHING_WHITE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_PLUNGE_BRA, Colour.CLOTHING_WHITE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Colour.CLOTHING_PINK_LIGHT, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Colour.CLOTHING_PINK_LIGHT, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_KNEEHIGH_SOCKS, Colour.CLOTHING_WHITE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Colour.CLOTHING_PINK_LIGHT, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING,  Colour.CLOTHING_SILVER, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Color.CLOTHING_WHITE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_PLUNGE_BRA, Color.CLOTHING_WHITE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Color.CLOTHING_PINK_LIGHT, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Color.CLOTHING_PINK_LIGHT, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_KNEEHIGH_SOCKS, Color.CLOTHING_WHITE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Color.CLOTHING_BLACK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Color.CLOTHING_PINK_LIGHT, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING,  Color.CLOTHING_SILVER, false), true, this);
 			}
 			
 		} else {
 			
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BOXERS, Colour.CLOTHING_BLACK, false), true, this);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, this);
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_TRAINERS, Colour.CLOTHING_BLACK, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BOXERS, Color.CLOTHING_BLACK, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Color.CLOTHING_BLACK, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_TRAINERS, Color.CLOTHING_BLACK, false), true, this);
 			
 			if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.braxBeaten)) {
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Colour.CLOTHING_BLUE, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Colour.CLOTHING_BLUE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Color.CLOTHING_BLUE, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Color.CLOTHING_BLUE, false), true, this);
 				
 			} else {
 				this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_EPIC, DamageType.FIRE));
 				this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.OFFHAND_CHAOS_EPIC, DamageType.FIRE));
 				
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Colour.CLOTHING_BLACK, false), true, this);
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Colour.CLOTHING_BLACK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Color.CLOTHING_BLACK, false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Color.CLOTHING_BLACK, false), true, this);
 			}
 		}
 	}
@@ -309,11 +309,11 @@ public class Brax extends NPC {
 	@Override
 	public String getDescription() {
 		if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimbofiedBrax)) {
-			return "The one-time 'Chief of Dominion Operations', [brax.name] is now completely unrecognisable from [brax.her] former self."
+			return "The one-time 'Chief of Dominion Operations', [brax.name] is now completely unrecognizable from [brax.her] former self."
 					+ " With some help from Candi, she's been transformed into a brain-dead bimbo, who can only think about where the next cock is coming from.";
 			
-		} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminisedBrax)) {
-			return "The one-time 'Chief of Dominion Operations', [brax.name] is almost unrecognisable from [brax.her] former self."
+		} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminizedBrax)) {
+			return "The one-time 'Chief of Dominion Operations', [brax.name] is almost unrecognizable from [brax.her] former self."
 					+ " With some help from Candi, you've transformed [brax.herHim] into a wolf-girl."
 					+ " Where once [brax.she] was muscular and dominant, [brax.sheIs] now feminine and submissive, and meekly agrees to do anything that's asked of [brax.herHim].";
 			
@@ -343,7 +343,7 @@ public class Brax extends NPC {
 		if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimbofiedBrax)) {
 			return SexPace.SUB_EAGER;
 			
-		} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminisedBrax)) {
+		} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminizedBrax)) {
 			return SexPace.SUB_NORMAL;
 			
 		} else {
@@ -352,11 +352,11 @@ public class Brax extends NPC {
 	}
 
 	@Override
-	public String getSpeechColour() {
+	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimbofiedBrax)) {
 				return "#FF0AA5";
-			} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminisedBrax)) {
+			} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminizedBrax)) {
 				return "#C60AFF";
 			} else {
 				return "#1F35FF";
@@ -365,7 +365,7 @@ public class Brax extends NPC {
 		} else {
 			if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimbofiedBrax)) {
 				return "#E36DE1";
-			} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminisedBrax)) {
+			} else if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.feminizedBrax)) {
 				return "#D79EFF";
 			} else {
 				return "#ADB4FF";
@@ -460,7 +460,7 @@ public class Brax extends NPC {
 					+ "Contact address: <i>Scarlett's shop, Slaver Alley</i></p>"
 					+ "</p>"
 					+ "<p>"
-					+ "As you read it over a second time, you let out an annoyed tutting sound, realising that Arthur is a hard person to track down."
+					+ "As you read it over a second time, you let out an annoyed tutting sound, realizing that Arthur is a hard person to track down."
 					+ " It looks like you're going to have to make your way to Slaver Alley and see if you can find some way to buy Arthur's freedom from this 'Scarlett' person."
 					+ "</p>"
 					+ "<p>"
@@ -476,9 +476,9 @@ public class Brax extends NPC {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.braxBeaten);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Colour.CLOTHING_BLUE, false), false);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Colour.CLOTHING_BLUE, false), false);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_MINI_SKIRT, Colour.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Color.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Color.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_MINI_SKIRT, Color.CLOTHING_BLUE, false), false);
 					}
 				};
 				
@@ -490,9 +490,9 @@ public class Brax extends NPC {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.braxBeaten);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Colour.CLOTHING_BLUE, false), false);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Colour.CLOTHING_BLUE, false), false);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_MINI_SKIRT, Colour.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Color.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Color.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_MINI_SKIRT, Color.CLOTHING_BLUE, false), false);
 					}
 				};
 				
@@ -508,9 +508,9 @@ public class Brax extends NPC {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.braxBeaten);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Colour.CLOTHING_BLUE, false), false);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Colour.CLOTHING_BLUE, false), false);
-						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_MINI_SKIRT, Colour.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHIRT, Color.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_SHORTS, Color.CLOTHING_BLUE, false), false);
+						Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing(ClothingType.ENFORCER_MINI_SKIRT, Color.CLOTHING_BLUE, false), false);
 					}
 				};
 				
@@ -760,7 +760,7 @@ public class Brax extends NPC {
 			if(index==1) {
 				if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 					return new Response("Spit",
-							"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+							"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 								+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 							null);
 				} else {
@@ -858,9 +858,9 @@ public class Brax extends NPC {
 							Main.game.getPlayer().setVaginaWetness(Wetness.THREE_WET.getValue());
 						}
 						
-						Main.game.getPlayer().setEyeCovering(new Covering(BodyCoveringType.EYE_LYCAN, Colour.EYE_YELLOW));
-						Main.game.getPlayer().setHairCovering(new Covering(BodyCoveringType.HAIR_LYCAN_FUR, Colour.COVERING_BLACK), true);
-						Main.game.getPlayer().setSkinCovering(new Covering(BodyCoveringType.LYCAN_FUR, Colour.COVERING_WHITE), true);
+						Main.game.getPlayer().setEyeCovering(new Covering(BodyCoveringType.EYE_LYCAN, Color.EYE_YELLOW));
+						Main.game.getPlayer().setHairCovering(new Covering(BodyCoveringType.HAIR_LYCAN_FUR, Color.COVERING_BLACK), true);
+						Main.game.getPlayer().setSkinCovering(new Covering(BodyCoveringType.LYCAN_FUR, Color.COVERING_WHITE), true);
 						
 						if(Main.game.getPlayer().getBreastRawSizeValue()<CupSize.E.getMeasurement()) {
 							Main.game.getPlayer().setBreastSize(CupSize.E.getMeasurement());
@@ -913,7 +913,7 @@ public class Brax extends NPC {
 						null, AFTER_SUBMISSIVE_SEX, "<p>"
 							+ "Brax spins you around, and with a forceful shove, pushes you down to the ground."
 							+ " You land on all-fours, with your ass raised up towards the dominant wolf-boy."
-							+ " Hearing him let out a deep growl, you make a pitiful little whining noise in response as you realise that you're perfectly presented for Brax to take you, doggy-style."
+							+ " Hearing him let out a deep growl, you make a pitiful little whining noise in response as you realize that you're perfectly presented for Brax to take you, doggy-style."
 						+ "</p>"
 						+ "<p>"
 							+ " Your conqueror stands behind you, grinning, and you know that it's only going to be a matter of seconds before he fills you with his alpha cock..."
@@ -969,7 +969,7 @@ public class Brax extends NPC {
 							"<p>"
 								+ "As you see your new reflection, you let out a little gasp."
 								+ " Brax has transformed you into his perfect vision of a partial wolf-girl, and your yellow, predatory eyes open wide in shock as you feel the weight of your huge, E-cup tits that are now sitting on your chest."
-								+ " Wolf-like fur covers your pair of fluffy ears and long, shaggy tail, and as Brax steps up behind you, you see that it's the exact same bright white colour as his is."
+								+ " Wolf-like fur covers your pair of fluffy ears and long, shaggy tail, and as Brax steps up behind you, you see that it's the exact same bright white color as his is."
 							+ "</p>");
 					break;
 				case REDUCED:
@@ -978,7 +978,7 @@ public class Brax extends NPC {
 								+ "As you see your new reflection, you let out a little gasp."
 								+ " Brax has transformed you into his perfect vision of a lesser wolf-girl, and your yellow, predatory eyes open wide in shock as you feel the weight of "
 									+(Main.getProperties().multiBreasts!=0?"three pairs of":"your")+" huge, E-cup tits that are now sitting on your chest."
-								+ " Fur covers your wolf-like arms and legs, and as Brax steps up behind you, you see that it's the exact same bright white colour as his is."
+								+ " Fur covers your wolf-like arms and legs, and as Brax steps up behind you, you see that it's the exact same bright white color as his is."
 								+ " Your face and the skin covering your torso are the only parts of your that haven't transformed into anthropomorphic wolf-like counterparts,"
 									+ " and you experimentally twitch your pair of fluffy wolf-like ears, while swishing your long, shaggy tail back and forth against Brax's leg."
 							+ "</p>");
@@ -989,7 +989,7 @@ public class Brax extends NPC {
 							+ "As you see your new reflection, you let out a little gasp."
 							+ " Brax has transformed you into his perfect vision of a greater wolf-girl, and your yellow, predatory eyes open wide in shock as you feel the weight of "
 								+(Main.getProperties().multiBreasts!=0?"three pairs of":"your")+" huge, E-cup tits that are now sitting on your chest."
-							+ " Fur covers your entire body, and as Brax steps up behind you, you see that it's the exact same bright white colour as his is."
+							+ " Fur covers your entire body, and as Brax steps up behind you, you see that it's the exact same bright white color as his is."
 							+ " Your hands, feet and face have all transformed into anthropomorphic wolf-like counterparts, and a pair of fluffy wolf-like ears and a long, shaggy tail finish off your new look."
 						+ "</p>");
 					break;

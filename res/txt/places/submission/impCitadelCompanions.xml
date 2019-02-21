@@ -211,13 +211,13 @@
 		[pc.speech(Stand back, [npc.name], I'm sure I won't be too long,)] you tell your companion.
 	</p>
 	<p>
-		[npc.speech(Sure...)] [npc.she] hesitantly replies, before letting out a resigned sigh as [npc.she] realises what it is you're going to do. [npc.speech(If that's what you want to do, then fine, whatever.)]
+		[npc.speech(Sure...)] [npc.she] hesitantly replies, before letting out a resigned sigh as [npc.she] realizes what it is you're going to do. [npc.speech(If that's what you want to do, then fine, whatever.)]
 	</p>
 	<p>
 		Turning away from your companion and kneeling down beside [npc2.name], you offer your apologies, [pc.speech(I'm sorry, I think we went a little too far. Are you ok?)]
 	</p>
 	<p>
-		[npc2.speech(Yer a real [pc.insult], ain't yer?! Course we ain't ok!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at you. [npc2.speech(How yer gonna apologise, huh, [pc.insult]?!)]
+		[npc2.speech(Yer a real [pc.insult], ain't yer?! Course we ain't ok!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at you. [npc2.speech(How yer gonna apologize, huh, [pc.insult]?!)]
 	</p>
 	<p>
 		The commanding tone in [npc2.namePos] voice makes you let out an excited little whimper. [pc.speech(Well, how about you and your friends use me however you want!)]
@@ -252,19 +252,19 @@
 		As you look down at the defeated imps, you can't help but feel sorry for them. After all, they were just abandoned by their comrades, and even if they weren't on friendly terms with one another, that betrayal is sure to have upset them.
 	</p>
 	<p>
-		[pc.speech(Come on, [npc.name], let's apologise to these imps together,)] you tell your companion.
+		[pc.speech(Come on, [npc.name], let's apologize to these imps together,)] you tell your companion.
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
-		#THEN[npc.speech(Mmm, yeah, that sounds good to me, [pc.name],)] [npc.name] happily replies, realising what it is you want [npc.herHim] to do. [npc.speech(This'll be fun!)]
-		#ELSE[npc.speech([pc.Name]?! W-What the hell!)] [npc.name] protests, realising what it is you want [npc.herHim] to do. [npc.speech(D-Do I really have to?!)]
+		#THEN[npc.speech(Mmm, yeah, that sounds good to me, [pc.name],)] [npc.name] happily replies, realizing what it is you want [npc.herHim] to do. [npc.speech(This'll be fun!)]
+		#ELSE[npc.speech([pc.Name]?! W-What the hell!)] [npc.name] protests, realizing what it is you want [npc.herHim] to do. [npc.speech(D-Do I really have to?!)]
 		#ENDIF
 	</p>
 	<p>
 		Getting your companion to kneel down beside you in front of [npc2.name], you offer your apologies, [pc.speech(I'm sorry, I think we went a little too far. Are you ok?)]
 	</p>
 	<p>
-		[npc2.speech(Yer a real pair o' [pc.insultPlural], ain't yer?! Course we ain't ok!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at the two of you. [npc2.speech(How yer gonna apologise, huh, [pc.insultPlural]?!)]
+		[npc2.speech(Yer a real pair o' [pc.insultPlural], ain't yer?! Course we ain't ok!)] [npc2.she] snaps, pushing [npc2.herself] to [npc2.her] feet and scowling angrily at the two of you. [npc2.speech(How yer gonna apologize, huh, [pc.insultPlural]?!)]
 	</p>
 	<p>
 		The commanding tone in [npc2.namePos] voice makes you let out an excited little whimper. [pc.speech(Well, how about you and your friends use me and [npc.name] here however you want!)]
@@ -386,7 +386,7 @@
 		The imps let out a chorus of mocking laughter as you say this, and, ignoring your struggles, [npc2.name] sneers, [npc2.speech(Yer just playin' hard ta get! I bet this is another o' yer fetishes, ain't I right?!)]
 	</p>
 	<p>
-		You immediately answer in the negative, and continue to struggle and kick against the imps, but despite all this, they refuse to let you go, and you realise that they're not going stop until they've had their fun...
+		You immediately answer in the negative, and continue to struggle and kick against the imps, but despite all this, they refuse to let you go, and you realize that they're not going stop until they've had their fun...
 	</p>
 	]]>
 	</htmlContent>
@@ -451,14 +451,14 @@
 		#IF npc.isFeminine()
 		#THEN
 			<p>
-				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at the two of you with an evil glint in her bright [npc2.eyeColour] eyes. [npc2.speech(Watching you being beaten like that has really got me quite excited. You need to take responsibility for that, I think...)]
+				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at the two of you with an evil glint in her bright [npc2.eyeColor] eyes. [npc2.speech(Watching you being beaten like that has really got me quite excited. You need to take responsibility for that, I think...)]
 			</p>
 			<p>
 				As you continue to look up, [npc2.name] unbuttons her lab coat, and, pulling up the bottom of her virgin-killer sweater, she reveals the fact that she's not wearing any underwear. Just as she said, she appears to be quite aroused, for as she uses her slender fingers to spread her [npc2.vaginaCapacity] pussy, you see that she's already wet. [npc2.speech(So, what are you waiting for? Come and put those tongues of yours to use!)]
 			</p>
 		#ELSE
 			<p>
-				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at you with an evil glint in her bright [npc2.eyeColour] eyes. [npc2.speech(Watching you being beaten like that has really got me quite excited. You need to take responsibility for that, I think...)]
+				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at you with an evil glint in her bright [npc2.eyeColor] eyes. [npc2.speech(Watching you being beaten like that has really got me quite excited. You need to take responsibility for that, I think...)]
 			</p>
 			<p>
 				As you continue to look up, [npc2.name] unbuttons her lab coat, and, pulling up the bottom of her virgin-killer sweater, she reveals the fact that she's not wearing any underwear. Just as she said, she appears to be quite aroused, for as she uses her slender fingers to spread her [npc2.vaginaCapacity] pussy, you see that she's already wet. [npc2.speech(So, what are you waiting for? Come and put that tongue of yours to use! Oh, and you, [npc.race], you can just stay back and watch!)]
@@ -468,14 +468,14 @@
 		#IF npc.isFeminine()
 		#THEN
 			<p>
-				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at [npc.name] with an evil glint in her bright [npc2.eyeColour] eyes. [npc2.speech(Watching you being beaten like that has really got me quite excited. You need to take responsibility for that, I think...)]
+				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at [npc.name] with an evil glint in her bright [npc2.eyeColor] eyes. [npc2.speech(Watching you being beaten like that has really got me quite excited. You need to take responsibility for that, I think...)]
 			</p>
 			<p>
 				As you continue to look up, [npc2.name] unbuttons her lab coat, and, pulling up the bottom of her virgin-killer sweater, she reveals the fact that she's not wearing any underwear. Just as she said, she appears to be quite aroused, for as she uses her slender fingers to spread her [npc2.vaginaCapacity] pussy, you see that she's already wet. [npc2.speech(So, what are you waiting for, [npc.race]? Come and put that tongue of yours to use! Oh, and you, [pc.race], you can just stay back and watch!)]
 			</p>
 		#ELSE
 			<p>
-				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at the two of you with an evil glint in her [npc2.eyeColour] eyes. [npc2.speech(You're not quite the sort of people that I'd be willing to take advantage of, but I'm afraid that the same can't be said of these imps...)]
+				As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at the two of you with an evil glint in her [npc2.eyeColor] eyes. [npc2.speech(You're not quite the sort of people that I'd be willing to take advantage of, but I'm afraid that the same can't be said of these imps...)]
 			</p>
 			<p>
 				As [npc2.name] steps back, the imps that defeated you rush forwards, and, to the sound of the youko's cruel laughter, they start to push you and [npc.name] down into position, ready to have sex with you...
@@ -496,7 +496,7 @@
 		You start to reply, but the mischievous youko turns slightly to one side, before twirling her three tails to tickle and brush over your face. [npc2.speech(Hush now! It was a rhetorical question, you silly thing!)]
 	</p>
 	<p>
-		As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at you with an evil glint in her [npc2.eyeColour] eyes. [npc2.speech(As you're carrying those three keys, I can tell that you're the siren's guests. As that's the case, I suppose I have no choice but to let you go. What a shame...)]
+		As she withdraws her three black-furred tails, you look up to see [npc2.name] smirking down at you with an evil glint in her [npc2.eyeColor] eyes. [npc2.speech(As you're carrying those three keys, I can tell that you're the siren's guests. As that's the case, I suppose I have no choice but to let you go. What a shame...)]
 	</p>
 	<p>
 		Turning her back on you, [npc2.name] returns to her work, leaving you and [npc.name] to recover. Pushing yourself back up onto your [pc.feet], you wonder what you should do now...
@@ -600,7 +600,7 @@
 
 	<htmlContent tag="COURTYARD"><![CDATA[
 	<p>
-		The citadel's large stone courtyard has been levelled and carved to resemble smooth flagstones, and it makes a nice change to be walking over such an even surface compared to the uneven floor of the cavern.
+		The citadel's large stone courtyard has been leveled and carved to resemble smooth flagstones, and it makes a nice change to be walking over such an even surface compared to the uneven floor of the cavern.
 	</p>
 	<p>
 		The huge, stone archway of the main keep overlooks this area, and you wonder if you should approach its massive wooden doors now, or come back another time.
@@ -628,7 +628,7 @@
 
 	<htmlContent tag="CELLS_RUINS"><![CDATA[
 	<p>
-		The wooden door that once was fitted to the carved-out entranceway before you now lies splintered and broken at your feet. Peering inside the cell block, you see that past the first few metres of the entranceway, the entire structure has completely caved-in. You think how it was lucky there was nobody in there at the time of collapse.
+		The wooden door that once was fitted to the carved-out entranceway before you now lies splintered and broken at your feet. Peering inside the cell block, you see that past the first few meters of the entranceway, the entire structure has completely caved-in. You think how it was lucky there was nobody in there at the time of collapse.
 	</p>
 	<p>
 		With nothing more to be done here, you and [npc.name] turn around and prepare to head back out into the courtyard.
@@ -671,7 +671,7 @@
 
 	<htmlContent tag="LABORATORY_IMPS_DEFEATED"><![CDATA[
 	<p>
-		The door to the tower has been left wide open, and, stepping inside, you find yourself once more in the large, round room which resembles Lilaya's laboratory. Long wooden tables have been placed around the area, and upon them, glass beakers and tubes are filled with dull-coloured, spoiled liquids. It's quite clear that this laboratory was the origin of the transformative potions being carried by Submission's imp gangs, although you wonder just how many of those potions were produced before you shut this place down.
+		The door to the tower has been left wide open, and, stepping inside, you find yourself once more in the large, round room which resembles Lilaya's laboratory. Long wooden tables have been placed around the area, and upon them, glass beakers and tubes are filled with dull-colored, spoiled liquids. It's quite clear that this laboratory was the origin of the transformative potions being carried by Submission's imp gangs, although you wonder just how many of those potions were produced before you shut this place down.
 	</p>
 	<p>
 		There's absolutely no sign of [citadelArcanist.name], nor of any imps. Although she's been driven off, you can't help but shake the feeling that you haven't seen the last of [citadelArcanist.name]...
@@ -681,7 +681,7 @@
 
 	<htmlContent tag="LABORATORY_IMPS"><![CDATA[
 	<p>
-		The door to the tower has been left wide open, and, stepping inside, you find yourself in a large, round room. The interior reminds you of Lilaya's laboratory, and, while containing less equipment, this one looks to be far more productive. Long wooden tables have been placed around the area, and upon them, glass beakers and tubes are filled with bubbling, colourful liquids. It's quite clear that this laboratory is the origin of the transformative potions which are carried by Submission's imp gangs.
+		The door to the tower has been left wide open, and, stepping inside, you find yourself in a large, round room. The interior reminds you of Lilaya's laboratory, and, while containing less equipment, this one looks to be far more productive. Long wooden tables have been placed around the area, and upon them, glass beakers and tubes are filled with bubbling, colorful liquids. It's quite clear that this laboratory is the origin of the transformative potions which are carried by Submission's imp gangs.
 	</p>
 	<p>
 		There are several imps scattered around the place, busily watching the equipment and making sure that nothing's going wrong. Overseeing them, over on the far side of the room, you see what appears at first to be a lesser-fox-girl. She appears to be busily working on enchanting various items of food and drink into transformative potions, and, although you think she must have noticed your entry, she doesn't seem to be at all bothered by your presence.
@@ -691,7 +691,7 @@
 
 	<htmlContent tag="LABORATORY_IMPS_ARCANIST_MET"><![CDATA[
 	<p>
-		The door to the tower has been left wide open, and, stepping inside, you find yourself in a large, round room. The interior reminds you of Lilaya's laboratory, and, while containing less equipment, this one looks to be far more productive. Long wooden tables have been placed around the area, and upon them, glass beakers and tubes are filled with bubbling, colourful liquids. It's quite clear that this laboratory is the origin of the transformative potions which are carried by Submission's imp gangs.
+		The door to the tower has been left wide open, and, stepping inside, you find yourself in a large, round room. The interior reminds you of Lilaya's laboratory, and, while containing less equipment, this one looks to be far more productive. Long wooden tables have been placed around the area, and upon them, glass beakers and tubes are filled with bubbling, colorful liquids. It's quite clear that this laboratory is the origin of the transformative potions which are carried by Submission's imp gangs.
 	</p>
 	<p>
 		There are several imps scattered around the place, busily watching the equipment and making sure that nothing's going wrong. Overseeing them, over on the far side of the room, you once again see [citadelArcanist.name], the lesser-youko-girl. She appears to be busily working on enchanting various items of food and drink into transformative potions, and, although you think she must have noticed your entry, she doesn't seem to be at all bothered by your presence.
@@ -731,7 +731,7 @@
 		</p>
 	#ENDIF
 	<p>
-		[pc.speech(Excuse me?)] you say, annoyed by this youko's rude behaviour.
+		[pc.speech(Excuse me?)] you say, annoyed by this youko's rude behavior.
 	</p>
 	<p>
 		[citadelArcanist.speech(Oh, do settle down,)] [citadelArcanist.name] dismissively states with a wave of her hand.
@@ -749,7 +749,7 @@
 				#ELSE
 					#IF npc.isFeminine()
 					#THEN Before you can reply, she addresses [npc.name], [citadelArcanist.speech(Anyway, I must confess, I do find feminine foxes quite irresistible... Why don't you come over here and get down on your knees, and I'll graciously let you lick my pussy... Oh, and you can watch, [pc.race]...)]
-					#ELSE Before you can reply, she continues, [citadelArcanist.speech(Anyway, I must confess, I'm not too fond of masculinity... If you were to come back and visit after feminising yourselves, I'll graciously let you both lick my pussy...)]
+					#ELSE Before you can reply, she continues, [citadelArcanist.speech(Anyway, I must confess, I'm not too fond of masculinity... If you were to come back and visit after feminizing yourselves, I'll graciously let you both lick my pussy...)]
 					#ENDIF
 				#ENDIF
 			#ELSE
@@ -790,7 +790,7 @@
 				#ELSE
 					#IF npc.isFeminine()
 					#THEN Before you can reply, she addresses [npc.name], [citadelArcanist.speech(Anyway, I must confess, I do find feminine foxes quite irresistible... Why don't you come over here and get down on your knees, and I'll graciously let you lick my pussy... Oh, and you can watch, [pc.race]...)]
-					#ELSE Before you can reply, she continues, [citadelArcanist.speech(Anyway, I must confess, I'm not too fond of masculinity... If you were to come back and visit after feminising yourselves, I'll graciously let you both lick my pussy...)]
+					#ELSE Before you can reply, she continues, [citadelArcanist.speech(Anyway, I must confess, I'm not too fond of masculinity... If you were to come back and visit after feminizing yourselves, I'll graciously let you both lick my pussy...)]
 					#ENDIF
 				#ENDIF
 			#ELSE
@@ -826,7 +826,7 @@
 		#ELSE
 			#IF npc.isFeminine()
 			#THEN Before you can reply, she addresses [npc.name], [citadelArcanist.speech(Anyway, I must confess, I do find feminine foxes quite irresistible... Why don't you come over here and get down on your knees, and I'll graciously let you lick my pussy... Oh, and you can watch, [pc.race]...)]
-			#ELSE Before you can reply, she continues, [citadelArcanist.speech(Anyway, I must confess, I'm not too fond of masculinity... If you were to come back and visit after feminising yourselves, I'll graciously let you both lick my pussy...)]
+			#ELSE Before you can reply, she continues, [citadelArcanist.speech(Anyway, I must confess, I'm not too fond of masculinity... If you were to come back and visit after feminizing yourselves, I'll graciously let you both lick my pussy...)]
 			#ENDIF
 		#ENDIF
 	</p>
@@ -843,7 +843,7 @@
 		[citadelArcanist.speech(Suit yourself,)] [citadelArcanist.name] replies. [citadelArcanist.speech(Now shoo. I've got work to do.)]
 	</p>
 	<p>
-		Rolling your [pc.eyes] at this youko's rude, dismissive behaviour, you step away from her, and wonder what to do next...
+		Rolling your [pc.eyes] at this youko's rude, dismissive behavior, you step away from her, and wonder what to do next...
 	</p>
 	]]>
 	</htmlContent>
@@ -966,7 +966,7 @@
 		[citadelArcanist.speech(Eugh, fine, whatever,)] [citadelArcanist.name] replies. [citadelArcanist.speech(Now shoo. I've got more work to do.)]
 	</p>
 	<p>
-		Rolling your [pc.eyes] at this youko's rude, dismissive behaviour, you step away from her, and wonder what to do with your new body...
+		Rolling your [pc.eyes] at this youko's rude, dismissive behavior, you step away from her, and wonder what to do with your new body...
 	</p>
 	]]>
 	</htmlContent>
@@ -995,7 +995,7 @@
 	</p>
 	<p>
 		#IF !npc.getFetishDesire(FETISH_TRANSFORMATION_RECEIVING).isPositive()
-		#THEN [npc.speech(I-I really don't want to be a fox-girl!)] [npc.name] complains, but, realising that [npc.she] has no choice in the matter, [npc.she] reluctantly continues, [npc.speech(Fine... I'll drink it...)]
+		#THEN [npc.speech(I-I really don't want to be a fox-girl!)] [npc.name] complains, but, realizing that [npc.she] has no choice in the matter, [npc.she] reluctantly continues, [npc.speech(Fine... I'll drink it...)]
 		#ELSE [npc.speech(Ooh, being a fox-girl sounds like fun!)] [npc.name] happily replies. [npc.speech(Come on, give me the potion!)]
 		#ENDIF
 	</p>
@@ -1032,7 +1032,7 @@
 		[citadelArcanist.speech(Eugh, fine, whatever,)] [citadelArcanist.name] replies. [citadelArcanist.speech(Now shoo. I've got more work to do.)]
 	</p>
 	<p>
-		Rolling your [pc.eyes] at this youko's rude, dismissive behaviour, you and [npc.name] step away from her, and as you let her continue with her work, you can't help but gaze in awe at your companion's new body...
+		Rolling your [pc.eyes] at this youko's rude, dismissive behavior, you and [npc.name] step away from her, and as you let her continue with her work, you can't help but gaze in awe at your companion's new body...
 	</p>
 	]]>
 	</htmlContent>
@@ -1070,7 +1070,7 @@
 	</p>
 	<p>
 		#IF !npc.getFetishDesire(FETISH_TRANSFORMATION_RECEIVING).isPositive()
-		#THEN [npc.speech(I-I really don't want to be a fox-girl!)] [npc.name] complains, but, realising that [npc.she] has no choice in the matter, [npc.she] reluctantly continues, [npc.speech(Fine... I'll drink it as well...)]
+		#THEN [npc.speech(I-I really don't want to be a fox-girl!)] [npc.name] complains, but, realizing that [npc.she] has no choice in the matter, [npc.she] reluctantly continues, [npc.speech(Fine... I'll drink it as well...)]
 		#ELSE [npc.speech(Ooh, being a fox-girl sounds like fun!)] [npc.name] happily replies. [npc.speech(Come on, give me the potion!)]
 		#ENDIF
 	</p>
@@ -1120,7 +1120,7 @@
 		[citadelArcanist.speech(Eugh, fine, whatever,)] [citadelArcanist.name] replies. [citadelArcanist.speech(Now shoo. I've got more work to do.)]
 	</p>
 	<p>
-		Rolling your [pc.eyes] at this youko's rude, dismissive behaviour, you step away from her, and wonder what to do with your new body...
+		Rolling your [pc.eyes] at this youko's rude, dismissive behavior, you step away from her, and wonder what to do with your new body...
 	</p>
 	]]>
 	</htmlContent>
@@ -1157,10 +1157,10 @@
 		Having had her fun, [citadelArcanist.name] steps back and pushes you away from her, before taunting, [citadelArcanist.speech(Hehe! That sure was fun... For <i>me</i>, that is. You'll just have to go and find some dirty imp to finish you off!)]
 	</p>
 	<p>
-		You let out a frustrated whine as you realise that the cruel youko isn't at all interested in bringing you to orgasm. Letting out another giggle, she continues, [citadelArcanist.speech(Now, go on, shoo! I've got more work to do.)]
+		You let out a frustrated whine as you realize that the cruel youko isn't at all interested in bringing you to orgasm. Letting out another giggle, she continues, [citadelArcanist.speech(Now, go on, shoo! I've got more work to do.)]
 	</p>
 	<p>
-		Letting out a sigh in response to [citadelArcanist.namePos] rude, dismissive behaviour, you step away from her, and wonder what to do next...
+		Letting out a sigh in response to [citadelArcanist.namePos] rude, dismissive behavior, you step away from her, and wonder what to do next...
 	</p>
 	]]>
 	</htmlContent>
@@ -1177,10 +1177,10 @@
 		Having had her fun, [citadelArcanist.name] steps back and pushes you ad [npc.name] away from her, before taunting, [citadelArcanist.speech(Hehe! That sure was fun... For <i>me</i>, that is. You two'll just have to go and find some dirty imps to finish you off!)]
 	</p>
 	<p>
-		You let out a frustrated whine as you realise that the cruel youko isn't at all interested in bringing you or your companion to orgasm. Letting out another giggle, she continues, [citadelArcanist.speech(Now, go on, shoo! I've got more work to do.)]
+		You let out a frustrated whine as you realize that the cruel youko isn't at all interested in bringing you or your companion to orgasm. Letting out another giggle, she continues, [citadelArcanist.speech(Now, go on, shoo! I've got more work to do.)]
 	</p>
 	<p>
-		Letting out a sigh in response to [citadelArcanist.namePos] rude, dismissive behaviour, you step away from her, and wonder what to do next...
+		Letting out a sigh in response to [citadelArcanist.namePos] rude, dismissive behavior, you step away from her, and wonder what to do next...
 	</p>
 	]]>
 	</htmlContent>
@@ -1226,7 +1226,7 @@
 
 	<htmlContent tag="KEEP_DEFEATED"><![CDATA[
 	<p>
-		The siren's throne room is almost completely caved-in, and you find yourself thinking that it was a miracle how everyone was able to escape unharmed. The dias upon which her throne once stood is now buried under a mound of rubble and rock, but despite the ruinous state of this room, it looks like you'll be able to make your way around the piles of debris to reach the far side.
+		The siren's throne room is almost completely caved-in, and you find yourself thinking that it was a miracle how everyone was able to escape unharmed. The dais upon which her throne once stood is now buried under a mound of rubble and rock, but despite the ruinous state of this room, it looks like you'll be able to make your way around the piles of debris to reach the far side.
 	</p>
 	]]>
 	</htmlContent>
@@ -1265,22 +1265,22 @@
 		The impressive architecture doesn't hold your attention for too long, however, as waiting right there in front of you are the three demons from the imp fortresses. [impMalesLeader.Name] appears to be the most senior of them, as he's standing at the head, with [impAlphaLeader.name] to his right, and [impFemalesLeader.name] to his left. As the huge wooden gates swing shut behind you, he smirks and asks, [impMalesLeader.speech(What? You didn't expect us to let you walk right up to the dark siren, did you?)]
 	</p>
 	<p>
-		Looking past these demons, you see a raised dias, and upon the top, there sits a dark stone throne. Sitting upon this seat of power is the citadel's leader, the dark siren herself. Although the rest of this huge hall is well lit by the arcane lanterns, the figure sitting upon the throne itself is curiously shrouded in shadow.
+		Looking past these demons, you see a raised dais, and upon the top, there sits a dark stone throne. Sitting upon this seat of power is the citadel's leader, the dark siren herself. Although the rest of this huge hall is well lit by the arcane lanterns, the figure sitting upon the throne itself is curiously shrouded in shadow.
 		#IF pc.hasTraitActivated(PERK_CHUUNI)
 		#THEN Wanting this reclusive leader of the imp gangs to reveal herself, you call out your challenge, [pc.speech(So you're the one who presumes to call herself the 'dark siren', are you?! It's time for you to meet your end!)]
-		#ELSE Wanting this reclusive leader of the imp gangs to reveal herself, you call out, [pc.speech(So you're the one who's responsible for the imp gangs terrorising the tunnels of Submission! I've come to put a stop to all that, siren!)]
+		#ELSE Wanting this reclusive leader of the imp gangs to reveal herself, you call out, [pc.speech(So you're the one who's responsible for the imp gangs terrorizing the tunnels of Submission! I've come to put a stop to all that, siren!)]
 		#ENDIF
 
 	</p>
 	<p>
-		[siren.speech(Siren?)] a surprisingly small and high-pitched voice calls out from the shadows. [siren.speech(Do you not know whom you address? I, the unraveller of fates, destroyer of worlds, recognised daughter of Lyssieth herself! My name strikes fear into the hearts of demon and human alike! Cower in terror, you mere mortals, as I prepare to reveal my true identity!)]
+		[siren.speech(Siren?)] a surprisingly small and high-pitched voice calls out from the shadows. [siren.speech(Do you not know whom you address? I, the unraveler of fates, destroyer of worlds, recognized daughter of Lyssieth herself! My name strikes fear into the hearts of demon and human alike! Cower in terror, you mere mortals, as I prepare to reveal my true identity!)]
 	</p>
 	<p>
 		#IF pc.hasTraitActivated(PERK_CHUUNI)
 		#THEN You can't help but notice [npc.name] flinching at the siren's impressive introduction, but, as intimidating as she may be, you know that she's no match for your ultimate power!
 		#ELSE You can't help but notice [npc.name] flinching at the siren's cringe-worthy introduction, and, as she describes herself as the 'destroyer of worlds', you find yourself letting out a low groan as you share in the second-hand embarrassment.
 		#ENDIF
-		 Looking up at the raised dias, you see the leader of these demons standing up, and as she steps forwards into the light, you find yourself looking upon a rather surprising figure.
+		 Looking up at the raised dais, you see the leader of these demons standing up, and as she steps forwards into the light, you find yourself looking upon a rather surprising figure.
 	</p>
 	<p>
 		Not only is the siren a half-demon, just like Lilaya, she's also surprisingly small and fresh-faced. From her appearance, she definitely looks to be no older than eighteen or nineteen, and stands at a rather diminutive five feet tall. Unlike all the other succubi you've seen, she's completely lacking any curvaceous, womanly parts, as not only is she almost completely flat-chested, but she also has a small ass and only slightly girly hips.
@@ -1289,10 +1289,10 @@
 		As well as her diminutive physical qualities, the siren's choice of outfit is also not quite what you'd expected. She's wearing a Witch's dress, boots, and wide-brimmed hat, with a black, purple-trimmed cape to finish it off. An impressive pentagram-themed amulet is hanging around her neck, and, most curiously of all, she's got a square, white eyepatch over her right eye.
 	</p>
 	<p>
-		Far more alarming than anything else, however, is the huge, arcane-bladed scythe that she's holding in her right hand. Although it's taller than the siren by a good foot or so, and, besides the green, ethereal blade, appears to be made out of heavy metal, the small succubus shows no sign of struggling to wield it. Smirking down at you as she sees what it is you're looking at, the siren calls out, [siren.speech(Foolish mortals! Know now who it is who will deliver unto you the humiliation of crushing defeat! I, the dark siren, shatterer of dimensions, am none other than [siren.name], Lyssieth's favoured child! If you foolishly wish to face me in battle, then first you must vanquish my demon lieutenants! ~Mwhaha!~)]
+		Far more alarming than anything else, however, is the huge, arcane-bladed scythe that she's holding in her right hand. Although it's taller than the siren by a good foot or so, and, besides the green, ethereal blade, appears to be made out of heavy metal, the small succubus shows no sign of struggling to wield it. Smirking down at you as she sees what it is you're looking at, the siren calls out, [siren.speech(Foolish mortals! Know now who it is who will deliver unto you the humiliation of crushing defeat! I, the dark siren, shatterer of dimensions, am none other than [siren.name], Lyssieth's favored child! If you foolishly wish to face me in battle, then first you must vanquish my demon lieutenants! ~Mwhaha!~)]
 	</p>
 	<p>
-		As she says this, the three demons start to move forwards, and you realise that you and [npc.name] only have a moment in which to react before they attack the two of you!
+		As she says this, the three demons start to move forwards, and you realize that you and [npc.name] only have a moment in which to react before they attack the two of you!
 	</p>
 	]]>
 	</htmlContent>
@@ -1319,7 +1319,7 @@
 		 [siren.speech(You would dare to return to the hall of the most feared arcane user the world has ever witnessed? You foolish mortals! Prepare to be vanquished!)]
 	</p>
 	<p>
-		As the small half-succubus says this, the three demons start to move forwards, and you realise that you only have a moment in which to react before they attack you!
+		As the small half-succubus says this, the three demons start to move forwards, and you realize that you only have a moment in which to react before they attack you!
 	</p>
 	]]>
 	</htmlContent>
@@ -1338,7 +1338,7 @@
 		[impMalesLeader.speech(Mistress, w-we've failed you!)] [impMalesLeader.name] cries out, before collapsing to the floor beside [impAlphaLeader.name] and [impFemalesLeader.name].
 	</p>
 	<p>
-		Looking over at the siren's throne, you see [siren.name] stepping down from the raised dias as she laughs, [siren.speech(Fools! Now you both shall witness my vast astronomical powers! The very fabric of space and time bends to my will!)]
+		Looking over at the siren's throne, you see [siren.name] stepping down from the raised dais as she laughs, [siren.speech(Fools! Now you both shall witness my vast astronomical powers! The very fabric of space and time bends to my will!)]
 	</p>
 	<p>
 		Thrusting one foot forwards, [siren.name] strikes a heroic pose, and, lifting her huge scythe above her head with one arm, she effortlessly twirls it around in an impressive display of strength and finesse. Reaching up to grab the shaft with her other hand, she then swings it around into a low-ready position, before letting out another #IFpc.hasTraitActivated(PERK_CHUUNI)#THENspirited#ELSEridiculous#ENDIF laugh, [siren.speech(~Mwhaha!~ Prepare for your obliteration!)]
@@ -1356,7 +1356,7 @@
 		As impressive as [siren.namePos] speech was, you know that she's no match for your indomitable might. As it would be a waste of your precious time to be swatting these pathetic demons out of your way, you simply smirk at the half-succubus and call out, [pc.speech(Big words, from someone too terrified to fight me one-on-one! I honestly expected more from someone calling herself the 'dark siren', but I see that you're just another poser, hiding behind her minions!)]
 	</p>
 	<p>
-		[siren.speech(You dare speak to me in such a manner?! Have you no understanding of the arcane powers that I wield? You are nothing to me!)] [siren.name] replies, stepping down from her dias. While this forwards movement was undoubtedly intended to intimidate you, the loss of the extra height afforded to her by her raised platform causes her to end up being hidden behind her demon lieutenants. In a flustered attempt to resolve this issue, she calls out, [siren.speech(S-Stand aside, minions!)]
+		[siren.speech(You dare speak to me in such a manner?! Have you no understanding of the arcane powers that I wield? You are nothing to me!)] [siren.name] replies, stepping down from her dais. While this forwards movement was undoubtedly intended to intimidate you, the loss of the extra height afforded to her by her raised platform causes her to end up being hidden behind her demon lieutenants. In a flustered attempt to resolve this issue, she calls out, [siren.speech(S-Stand aside, minions!)]
 	</p>
 	<p>
 		As the demons do as they're commanded, you respond to the siren's last threat, [pc.speech(You think that I, [pc.master] of the arcane, vanquisher of demons, and future ruler of all Dominion, would consider one as weak as you to be a threat?! Foolish succubus! I'll give you one chance to surrender, as a symbol of my supreme mercy!)]
@@ -1368,7 +1368,7 @@
 		[pc.speech(I laugh at your idle threats! The cosmic forces of the universe itself obey my every command, and I need but a fraction of my immense power to defeat one such as you!)]
 	</p>
 	<p>
-		The three demon lieutenants flinch and groan as you and [siren.name] continue to hurl increasingly-outrageous challenges at one another. Knowing that there's surely no possibility of their reactions being from embarrassment, you realise that just the mere threat of unleashing your true power is terrifying them. Not wanting them to suffer too much, you tell [npc.name] to stand back, before smirking at [siren.name] as you deliver your ultimatum, [pc.speech(So, siren, dare you face me one-on-one and put your words to the test? Or are you just another poser, like the countless thousands that I've already vanquished?)]
+		The three demon lieutenants flinch and groan as you and [siren.name] continue to hurl increasingly-outrageous challenges at one another. Knowing that there's surely no possibility of their reactions being from embarrassment, you realize that just the mere threat of unleashing your true power is terrifying them. Not wanting them to suffer too much, you tell [npc.name] to stand back, before smirking at [siren.name] as you deliver your ultimatum, [pc.speech(So, siren, dare you face me one-on-one and put your words to the test? Or are you just another poser, like the countless thousands that I've already vanquished?)]
 	</p>
 	<p>
 		[siren.speech(You'll pay dearly for your insults! Of course I'll face you one-on-one!)] [siren.name] shouts. [siren.speech(Stand back, you three, and don't you dare interfere in our duel!)]
@@ -1393,7 +1393,7 @@
 		Producing the signet ring that Elizabeth, the captain of Lyssieth's guard, gave to you, you hold it up to the light to show to [siren.name]. As she sees what it is you're holding, her defiant expression suddenly breaks, and it almost looks and sounds as though she's about to burst into tears as she screams, [siren.speech(Give that back! M-Mother would never give that to someone like you! Y-You've stolen it! <i>Give it back!</i>)]
 	</p>
 	<p>
-		You shake your head in refusal, and, putting on your most antagonising smirk, you continue to hold the ring up in such a way that it would be easy to have it knocked from your [pc.hand]. Your provocative display causes [siren.namePos] emotions to get the better of her, and, not thinking clearly, she falls for your trick. Screaming once more to hand over her mother's ring, [npc.name] suddenly casts a weak version of the spell, 'slam', which you allow to hit your outstretched [pc.arm] and, causing you to drop the ring to the floor.
+		You shake your head in refusal, and, putting on your most antagonizing smirk, you continue to hold the ring up in such a way that it would be easy to have it knocked from your [pc.hand]. Your provocative display causes [siren.namePos] emotions to get the better of her, and, not thinking clearly, she falls for your trick. Screaming once more to hand over her mother's ring, [npc.name] suddenly casts a weak version of the spell, 'slam', which you allow to hit your outstretched [pc.arm] and, causing you to drop the ring to the floor.
 	</p>
 	<p>
 		Immediately, [siren.name] uses her telekinetic arcane power to pull the ring into her outstretched palm, and, letting out a triumphant laugh, she instantly puts it on. [siren.speech(~Mwhaha!~ Oh, you'll pay <i>dearly</i> for stealing mother's ring! Why, I'll... W-Wait... What is this?!)]
@@ -1578,7 +1578,7 @@
 			There's no hope of any escape from this situation, and as you wonder what to do next, the half-succubus officer in charge points at you and orders, [genericFemale.speech(Stop! You there, [pc.race], release [siren.name], right this instant!)]
 		</p>
 		<p>
-			Realising what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
+			Realizing what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
 		</p>
 	#ELSE
 		<p>
@@ -1597,7 +1597,7 @@
 			There's no hope of any escape from this situation, and as you wonder what to do next, the half-succubus officer in charge points at you and orders, [genericFemale.speech(Stop! You there, [pc.race], release [siren.name], right this instant!)]
 		</p>
 		<p>
-			Realising what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
+			Realizing what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
 		</p>
 	#ENDIF
 	]]>
@@ -1621,7 +1621,7 @@
 			There's no hope of any escape from this situation, and as you wonder what to do next, the half-succubus officer in charge points at you and orders, [genericFemale.speech(Stop! You there, [pc.race], release [siren.name], right this instant!)]
 		</p>
 		<p>
-			Realising what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
+			Realizing what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
 		</p>
 	#ELSE
 		<p>
@@ -1640,7 +1640,7 @@
 			There's no hope of any escape from this situation, and as you wonder what to do next, the half-succubus officer in charge points at you and orders, [genericFemale.speech(Stop! You there, [pc.race], release [siren.name], right this instant!)]
 		</p>
 		<p>
-			Realising what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
+			Realizing what you've just done, and that she's about to be taken away, [siren.name] blushes as she looks up into your eyes. [siren.speech(Y-You saved me... If it wasn't for you, w-well... Thank you!)]
 		</p>
 	#ENDIF
 	]]>
@@ -1648,7 +1648,7 @@
 
 	<htmlContent tag="KEEP_COLLAPSE_ESCAPE_COMBAT_HERO_END"><![CDATA[
 	<p>
-		Realising that you have no choice but to do as the officer says, you carefully let [npc.name] down to stand on her own two feet. Immediately, four of Lyssieth's guards step forwards, and, looping their arms under [siren.namePos], they march off in the direction of her mother's palace.
+		Realizing that you have no choice but to do as the officer says, you carefully let [npc.name] down to stand on her own two feet. Immediately, four of Lyssieth's guards step forwards, and, looping their arms under [siren.namePos], they march off in the direction of her mother's palace.
 	</p>
 	<p>
 		[genericFemale.speech(Now, you can explain to us exactly what's going on!)] the officer says, impatiently tapping her foot as she waits for your response.

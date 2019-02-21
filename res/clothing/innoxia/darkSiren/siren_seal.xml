@@ -42,16 +42,16 @@
 
 		<incompatibleSlots/>
 
-		<primaryColours>
-			<colour>CLOTHING_WHITE</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours>
-			<colour>CLOTHING_WHITE</colour>
-		</secondaryColours>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColour/>
-		<tertiaryColoursDye/>
+		<primaryColors>
+			<color>CLOTHING_WHITE</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors>
+			<color>CLOTHING_WHITE</color>
+		</secondaryColors>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColor/>
+		<tertiaryColorsDye/>
 
 		<itemTags/>
 	</coreAttributes>

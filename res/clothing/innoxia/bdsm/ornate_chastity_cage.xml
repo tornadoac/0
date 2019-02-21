@@ -46,14 +46,14 @@
 
     <incompatibleSlots/>
 
-    <primaryColours values="ALL_METAL"/>
-    <primaryColoursDye values="ALL"/>
-    <secondaryColours values="ALL_METAL"/>
-    <secondaryColoursDye values="ALL"/>
-    <tertiaryColours>
-		<colour>CLOTHING_BRASS</colour>
-    </tertiaryColours>
-    <tertiaryColoursDye values="ALL_WITH_METALS"/>
+    <primaryColors values="ALL_METAL"/>
+    <primaryColorsDye values="ALL"/>
+    <secondaryColors values="ALL_METAL"/>
+    <secondaryColorsDye values="ALL"/>
+    <tertiaryColors>
+		<color>CLOTHING_BRASS</color>
+    </tertiaryColors>
+    <tertiaryColorsDye values="ALL_WITH_METALS"/>
 
     <itemTags>
       <tag>SOLD_BY_FINCH</tag>

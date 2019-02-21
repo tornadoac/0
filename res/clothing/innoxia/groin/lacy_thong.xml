@@ -47,12 +47,12 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours values="LINGERIE"/>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours/>
-		<secondaryColoursDye/>
-		<tertiaryColours/>
-		<tertiaryColoursDye/>
+		<primaryColors values="LINGERIE"/>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors/>
+		<secondaryColorsDye/>
+		<tertiaryColors/>
+		<tertiaryColorsDye/>
 		
 		<itemTags> 
 			<tag>SOLD_BY_NYAN</tag>

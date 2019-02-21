@@ -47,18 +47,18 @@
 
 		<incompatibleSlots/>
 
-		<primaryColours>
-			<colour>CLOTHING_BLACK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours>
-			<colour>CLOTHING_PURPLE_VERY_DARK</colour>
-		</secondaryColours>
-		<secondaryColoursDye values="ALL_WITH_METALS"/>
-		<tertiaryColours>
-			<colour>CLOTHING_STEEL</colour>
-		</tertiaryColours>
-		<tertiaryColoursDye values="ALL_METAL"/>
+		<primaryColors>
+			<color>CLOTHING_BLACK</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors>
+			<color>CLOTHING_PURPLE_VERY_DARK</color>
+		</secondaryColors>
+		<secondaryColorsDye values="ALL_WITH_METALS"/>
+		<tertiaryColors>
+			<color>CLOTHING_STEEL</color>
+		</tertiaryColors>
+		<tertiaryColorsDye values="ALL_METAL"/>
 
 		<itemTags/>
 	</coreAttributes>

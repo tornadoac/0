@@ -41,7 +41,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMChair;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -128,22 +128,22 @@ public class NightlifeDistrict {
 				case NEGATIVE_FOUR_HATE:
 				case NEGATIVE_THREE_STRONG_DISLIKE:
 				case NEGATIVE_TWO_DISLIKE:
-					sb.append("[npc.Name] looks <i style='color:"+al.getColour().toWebHexString()+";'>angry and frustrated</i>, and will leave you if you continue to treat [npc.herHim] poorly.");
+					sb.append("[npc.Name] looks <i style='color:"+al.getColor().toWebHexString()+";'>angry and frustrated</i>, and will leave you if you continue to treat [npc.herHim] poorly.");
 					break;
 				case NEGATIVE_ONE_ANNOYED:
-					sb.append("[npc.Name] looks <i style='color:"+al.getColour().toWebHexString()+";'>mildly annoyed</i>, and is starting to have a bad time.");
+					sb.append("[npc.Name] looks <i style='color:"+al.getColor().toWebHexString()+";'>mildly annoyed</i>, and is starting to have a bad time.");
 					break;
 				case ZERO_NEUTRAL:
 				case POSITIVE_ONE_FRIENDLY:
-					sb.append("[npc.Name] looks <i style='color:"+al.getColour().toWebHexString()+";'>entertained</i>, and has no reason to leave you.");
+					sb.append("[npc.Name] looks <i style='color:"+al.getColor().toWebHexString()+";'>entertained</i>, and has no reason to leave you.");
 					break;
 				case POSITIVE_TWO_LIKE:
 				case POSITIVE_THREE_CARING:
-					sb.append("[npc.Name] looks like [npc.sheIs] <i style='color:"+al.getColour().toWebHexString()+";'>having a great time</i>.");
+					sb.append("[npc.Name] looks like [npc.sheIs] <i style='color:"+al.getColor().toWebHexString()+";'>having a great time</i>.");
 					break;
 				case POSITIVE_FOUR_LOVE:
 				case POSITIVE_FIVE_WORSHIP:
-					sb.append("[npc.NameIsFull] <i style='color:"+al.getColour().toWebHexString()+";'>desperate to have sex with you</i>.");
+					sb.append("[npc.NameIsFull] <i style='color:"+al.getColor().toWebHexString()+";'>desperate to have sex with you</i>.");
 					break;
 			}
 			
@@ -153,19 +153,19 @@ public class NightlifeDistrict {
 						case ZERO_SOBER:
 							break;
 						case ONE_TIPSY:
-							sb.append("[npc.Name] is currently <i style='color:"+Colour.ALCOHOL.toWebHexString()+";'>tipsy</i>.");
+							sb.append("[npc.Name] is currently <i style='color:"+Color.ALCOHOL.toWebHexString()+";'>tipsy</i>.");
 							break;
 						case TWO_MERRY:
-							sb.append("[npc.Name] is currently <i style='color:"+Colour.ALCOHOL.toWebHexString()+";'>merry</i>.");
+							sb.append("[npc.Name] is currently <i style='color:"+Color.ALCOHOL.toWebHexString()+";'>merry</i>.");
 							break;
 						case THREE_DRUNK:
-							sb.append("[npc.Name] is currently <i style='color:"+Colour.ALCOHOL.toWebHexString()+";'>drunk</i>.");
+							sb.append("[npc.Name] is currently <i style='color:"+Color.ALCOHOL.toWebHexString()+";'>drunk</i>.");
 							break;
 						case FOUR_HAMMERED:
-							sb.append("[npc.Name] is currently <i style='color:"+Colour.ALCOHOL.toWebHexString()+";'>hammered</i>. Giving [npc.herHim] any more alcohol would be a bad idea.");
+							sb.append("[npc.Name] is currently <i style='color:"+Color.ALCOHOL.toWebHexString()+";'>hammered</i>. Giving [npc.herHim] any more alcohol would be a bad idea.");
 							break;
 						case FIVE_WASTED:
-							sb.append("[npc.Name] is currently <i style='color:"+Colour.ALCOHOL.toWebHexString()+";'>wasted</i>."+(isPartnerSub()?" [npc.She] looks like [npc.sheIs] going to pass out.":""));
+							sb.append("[npc.Name] is currently <i style='color:"+Color.ALCOHOL.toWebHexString()+";'>wasted</i>."+(isPartnerSub()?" [npc.She] looks like [npc.sheIs] going to pass out.":""));
 							break;
 					}
 			}
@@ -698,7 +698,7 @@ public class NightlifeDistrict {
 						return new Response("Repeat search (as dom)", "You need to have already searched the club!", null);
 					} else {
 						return new Response("Repeat search (as dom)",
-								"Repeat your last search for someone to approach and start talking to. ("+Util.capitaliseSentence(clubberGender.getName())+" "+clubberSubspecies.getName(null)+")",
+								"Repeat your last search for someone to approach and start talking to. ("+Util.capitalizeSentence(clubberGender.getName())+" "+clubberSubspecies.getName(null)+")",
 								WATERING_HOLE_SEARCH_GENERATE) {
 							@Override
 							public void effects() {
@@ -738,13 +738,13 @@ public class NightlifeDistrict {
 						return new Response("Repeat search (as sub)", "You need to have already searched the club!", null);
 					} else {
 						return new Response("Repeat search (as sub)",
-								"Repeat your last search for someone to catch the eye of. ("+Util.capitaliseSentence(clubberGender.getName())+" "+clubberSubspecies.getName(null)+")",
+								"Repeat your last search for someone to catch the eye of. ("+Util.capitalizeSentence(clubberGender.getName())+" "+clubberSubspecies.getName(null)+")",
 								WATERING_HOLE_SEARCH_GENERATE_DOM) {
 							@Override
 							public void effects() {
 								isSearchingForASub = false;
 								spawnClubbers(false);
-								resetPreviousBehaviour(); 
+								resetPreviousBehavior(); 
 							}
 						};
 					}
@@ -902,13 +902,13 @@ public class NightlifeDistrict {
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(index==0) {
-				return "[style.colourFeminine(Feminine)]";
+				return "[style.colorFeminine(Feminine)]";
 				
 			} else if(index==1) {
-				return "[style.colourMasculine(Masculine)]";
+				return "[style.colorMasculine(Masculine)]";
 				
 			} else if(index==2) {
-				return "[style.colourAndrogynous(Androgynous)]";
+				return "[style.colorAndrogynous(Androgynous)]";
 				
 			}
 			return null;
@@ -925,11 +925,11 @@ public class NightlifeDistrict {
 						|| (responseTab==1 && gender.getType()==PronounType.MASCULINE)
 						|| (responseTab==2 && gender.getType()==PronounType.NEUTRAL)) {
 					if(count==index) {
-						return new Response(Util.capitaliseSentence(gender.getName()),
-								"Look for "+UtilText.generateSingularDeterminer(gender.getName())+" "+gender.getName()+" in amongst the crowds of revellers."
-									+ " ("+(gender.getGenderName().isHasBreasts()?"[style.colourGood(Breasts)]":"[style.colourBad(Breasts)]")+", "
-										+(gender.getGenderName().isHasPenis()?"[style.colourGood(Penis)]":"[style.colourBad(Penis)]")+", "
-										+(gender.getGenderName().isHasVagina()?"[style.colourGood(Vagina)]":"[style.colourBad(Vagina)]")+")",
+						return new Response(Util.capitalizeSentence(gender.getName()),
+								"Look for "+UtilText.generateSingularDeterminer(gender.getName())+" "+gender.getName()+" in amongst the crowds of revelers."
+									+ " ("+(gender.getGenderName().isHasBreasts()?"[style.colorGood(Breasts)]":"[style.colorBad(Breasts)]")+", "
+										+(gender.getGenderName().isHasPenis()?"[style.colorGood(Penis)]":"[style.colorBad(Penis)]")+", "
+										+(gender.getGenderName().isHasVagina()?"[style.colorGood(Vagina)]":"[style.colorBad(Vagina)]")+")",
 								WATERING_HOLE_SEARCH_RACE) {
 							@Override
 							public void effects() {
@@ -968,8 +968,8 @@ public class NightlifeDistrict {
 			if(pop!=null && !pop.getSpecies().isEmpty()) {
 				for(Subspecies subspecies : Main.game.getPlayer().getLocationPlace().getPlaceType().getPopulation().getSpecies().keySet()) {
 					if(count==index) {
-						return new Response(Util.capitaliseSentence(subspecies.getName(null)),
-								"Look for "+UtilText.generateSingularDeterminer(subspecies.getName(null))+" "+subspecies.getName(null)+" in amongst the crowds of revellers.",
+						return new Response(Util.capitalizeSentence(subspecies.getName(null)),
+								"Look for "+UtilText.generateSingularDeterminer(subspecies.getName(null))+" "+subspecies.getName(null)+" in amongst the crowds of revelers.",
 								(isSearchingForASub
 										?WATERING_HOLE_SEARCH_GENERATE
 										:WATERING_HOLE_SEARCH_GENERATE_DOM)) {
@@ -1043,7 +1043,7 @@ public class NightlifeDistrict {
 			for(GameCharacter character : getSavedClubbers(true)) {
 				if(count==index) {
 					return new Response(character.getName(),
-							UtilText.parse(character, "Look for [npc.name] in amongst the crowds of revellers. ([npc.She] is [npc.a_fullRace(true)].)"),
+							UtilText.parse(character, "Look for [npc.name] in amongst the crowds of revelers. ([npc.She] is [npc.a_fullRace(true)].)"),
 							WATERING_HOLE_FIND_CONTACT) {
 						@Override
 						public void effects() {
@@ -1674,7 +1674,7 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.INT_INGREDIENT_VANILLA_WATER;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response("Water ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
+						return new Response("Water ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
 						
 					} else {
 						return new Response("Water ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a bottle of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
@@ -1708,7 +1708,7 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.FIT_INGREDIENT_CANINE_CRUSH;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response("Beer ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
+						return new Response("Beer ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
 						
 					} else {
 						return new Response("Beer ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a bottle of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
@@ -1744,10 +1744,10 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.INT_INGREDIENT_FELINE_FANCY;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
 						
 					} else {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a glass of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a glass of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
 							@Override
 							public void effects() {
 								Main.game.getTextStartStringBuilder().append(UtilText.parse(
@@ -1780,10 +1780,10 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.STR_INGREDIENT_WOLF_WHISKEY;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
 						
 					} else {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a glass of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a glass of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
 							@Override
 							public void effects() {
 								Main.game.getTextStartStringBuilder().append(UtilText.parse(
@@ -1815,10 +1815,10 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.STR_INGREDIENT_BLACK_RATS_RUM;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
 						
 					} else {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a glass of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")", "Ask Kalahari for a glass of "+drink.getName(false)+"."+getDrinkEffects(drink), WATERING_HOLE_BAR_DRINK) {
 							@Override
 							public void effects() {
 								Main.game.getTextStartStringBuilder().append(UtilText.parse(
@@ -1919,7 +1919,7 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.INT_INGREDIENT_VANILLA_WATER;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response("Water ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
+						return new Response("Water ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
 						
 					} else {
 						return new Response("Water ("+UtilText.formatAsMoney(price, "span")+")",
@@ -1959,7 +1959,7 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.FIT_INGREDIENT_CANINE_CRUSH;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response("Beer ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
+						return new Response("Beer ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a bottle of "+drink.getName(false)+"!", null);
 						
 					} else {
 						return new Response("Beer ("+UtilText.formatAsMoney(price, "span")+")",
@@ -2000,10 +2000,10 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.INT_INGREDIENT_FELINE_FANCY;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
 						
 					} else {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")",
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")",
 								UtilText.parse(getClubbersPresent(), "Ask Kalahari for a glass of "+drink.getName(false)+" for [npc.name]."+getDrinkEffects(drink)),
 								WATERING_HOLE_BAR_DRINK) {
 							@Override
@@ -2041,10 +2041,10 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.STR_INGREDIENT_WOLF_WHISKEY;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
 						
 					} else {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")",
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")",
 								UtilText.parse(getClubbersPresent(), "Ask Kalahari for a glass of "+drink.getName(false)+" for [npc.name]."+getDrinkEffects(drink)),
 								WATERING_HOLE_BAR_DRINK) {
 							@Override
@@ -2082,10 +2082,10 @@ public class NightlifeDistrict {
 					AbstractItemType drink = ItemType.STR_INGREDIENT_BLACK_RATS_RUM;
 					int price = (int) (drink.getValue()*KALAHARI_SELL_MODIFIER);
 					if(Main.game.getPlayer().getMoney()<price) {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncoloured(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoneyUncolored(price, "span")+")", "You can't afford a glass of "+drink.getName(false)+"!", null);
 						
 					} else {
-						return new Response(Util.capitaliseSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")",
+						return new Response(Util.capitalizeSentence(drink.getName(false))+" ("+UtilText.formatAsMoney(price, "span")+")",
 								UtilText.parse(getClubbersPresent(), "Ask Kalahari for a glass of "+drink.getName(false)+" for [npc.name]."+getDrinkEffects(drink)),
 								WATERING_HOLE_BAR_DRINK) {
 							@Override
@@ -3793,13 +3793,13 @@ public class NightlifeDistrict {
 			for(GameCharacter character : getSavedClubbers(false)) {
 				if(count==index) {
 					return new Response(character.getName(),
-							UtilText.parse(character, "Look for [npc.name] in amongst the crowds of revellers. ([npc.She] is [npc.a_fullRace(true)].)"),
+							UtilText.parse(character, "Look for [npc.name] in amongst the crowds of revelers. ([npc.She] is [npc.a_fullRace(true)].)"),
 							WATERING_HOLE_FIND_CONTACT_DOM) {
 						@Override
 						public void effects() {
 							character.setLocation(WorldType.NIGHTLIFE_CLUB, Main.game.getPlayer().getLocation(), false);
 							character.setAffection(Main.game.getPlayer(), 5);
-							resetPreviousBehaviour(); 
+							resetPreviousBehavior(); 
 						}
 					};
 				}
@@ -3828,12 +3828,12 @@ public class NightlifeDistrict {
 		}
 	};
 
-	private static ClubberBehaviour currentBehaviour = ClubberBehaviour.INTRODUCTION;
+	private static ClubberBehavior currentBehavior = ClubberBehavior.INTRODUCTION;
 	private static int turnsAtPlace = 0;
 	private static boolean buyingDrinks = true;
 	
-	private static void resetPreviousBehaviour() {
-		currentBehaviour = ClubberBehaviour.INTRODUCTION;
+	private static void resetPreviousBehavior() {
+		currentBehavior = ClubberBehavior.INTRODUCTION;
 		turnsAtPlace = 0;
 		buyingDrinks = true;
 	}
@@ -3843,7 +3843,7 @@ public class NightlifeDistrict {
 	}
 	
 	private static boolean isWillingToMoveLocation() {
-		return turnsAtPlace>=2 || currentBehaviour == ClubberBehaviour.INTRODUCTION;
+		return turnsAtPlace>=2 || currentBehavior == ClubberBehavior.INTRODUCTION;
 	}
 	
 	private static boolean isPartnerOfferingDrinks() {
@@ -3876,224 +3876,224 @@ public class NightlifeDistrict {
 			Invites you home
 	 */
 	
-	private static ClubberBehaviour getClubberBehaviour() {
+	private static ClubberBehavior getClubberBehavior() {
 		
 		switch(getPartnerAgreeableness()) {
 			case AVERAGE: // Only goes to: Bar, dance floor, and seating area.
-				if(currentBehaviour!=ClubberBehaviour.BAR_DRINK
+				if(currentBehavior!=ClubberBehavior.BAR_DRINK
 					&& isPartnerOfferingDrinks()
-					&& (getCurrentPlaceType()==ClubberBehaviour.BAR_DRINK.getPlaceType() || isWillingToMoveLocation())) {
-					return ClubberBehaviour.BAR_DRINK;
+					&& (getCurrentPlaceType()==ClubberBehavior.BAR_DRINK.getPlaceType() || isWillingToMoveLocation())) {
+					return ClubberBehavior.BAR_DRINK;
 				}
 				
-				if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehaviour.SIT_DOWN_SEX.getPlaceType()) && likesSex(getPartner())) {
-					return ClubberBehaviour.SIT_DOWN_SEX;
+				if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehavior.SIT_DOWN_SEX.getPlaceType()) && likesSex(getPartner())) {
+					return ClubberBehavior.SIT_DOWN_SEX;
 				}
 				if(likesGroping(getPartner())) {
-					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehaviour.SIT_DOWN_FOOTSIE.getPlaceType())) {
-						if(currentBehaviour!=ClubberBehaviour.SIT_DOWN_FOOTSIE) {
-							return ClubberBehaviour.SIT_DOWN_FOOTSIE;
+					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehavior.SIT_DOWN_FOOTSIE.getPlaceType())) {
+						if(currentBehavior!=ClubberBehavior.SIT_DOWN_FOOTSIE) {
+							return ClubberBehavior.SIT_DOWN_FOOTSIE;
 						} else {
-							return ClubberBehaviour.SIT_DOWN_KISS;
+							return ClubberBehavior.SIT_DOWN_KISS;
 						}
 						
-					} else if(getCurrentPlaceType()==ClubberBehaviour.DANCE_GROPE.getPlaceType()) {
-						if(currentBehaviour!=ClubberBehaviour.DANCE_GROPE) {
-							return ClubberBehaviour.DANCE_GROPE;
+					} else if(getCurrentPlaceType()==ClubberBehavior.DANCE_GROPE.getPlaceType()) {
+						if(currentBehavior!=ClubberBehavior.DANCE_GROPE) {
+							return ClubberBehavior.DANCE_GROPE;
 						} else {
-							return ClubberBehaviour.DANCE_KISS;
+							return ClubberBehavior.DANCE_KISS;
 						}
 						
 					} else {
-						if(currentBehaviour!=ClubberBehaviour.BAR_GROPE) {
-							return ClubberBehaviour.BAR_GROPE;
+						if(currentBehavior!=ClubberBehavior.BAR_GROPE) {
+							return ClubberBehavior.BAR_GROPE;
 						} else {
-							return ClubberBehaviour.BAR_KISS;
+							return ClubberBehavior.BAR_KISS;
 						}
 					}
 				}
 				if(likesKiss(getPartner())) {
-					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehaviour.SIT_DOWN_KISS.getPlaceType())) {
-						if(currentBehaviour!=ClubberBehaviour.SIT_DOWN_KISS) {
-							return ClubberBehaviour.SIT_DOWN_KISS;
+					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehavior.SIT_DOWN_KISS.getPlaceType())) {
+						if(currentBehavior!=ClubberBehavior.SIT_DOWN_KISS) {
+							return ClubberBehavior.SIT_DOWN_KISS;
 						} else {
-							return ClubberBehaviour.SIT_DOWN_FLIRT;
+							return ClubberBehavior.SIT_DOWN_FLIRT;
 						}
 						
-					} else if(getCurrentPlaceType()==ClubberBehaviour.DANCE_GROPE.getPlaceType()) {
-						if(currentBehaviour!=ClubberBehaviour.DANCE_KISS) {
-							return ClubberBehaviour.DANCE_KISS;
+					} else if(getCurrentPlaceType()==ClubberBehavior.DANCE_GROPE.getPlaceType()) {
+						if(currentBehavior!=ClubberBehavior.DANCE_KISS) {
+							return ClubberBehavior.DANCE_KISS;
 						} else {
-							return ClubberBehaviour.DANCE;
+							return ClubberBehavior.DANCE;
 						}
 						
 					} else {
-						if(currentBehaviour!=ClubberBehaviour.BAR_KISS) {
-							return ClubberBehaviour.BAR_KISS;
+						if(currentBehavior!=ClubberBehavior.BAR_KISS) {
+							return ClubberBehavior.BAR_KISS;
 						} else {
-							return ClubberBehaviour.BAR_FLIRT;
+							return ClubberBehavior.BAR_FLIRT;
 						}
 					}
 				}
-				if(getCurrentPlaceType()==ClubberBehaviour.DANCE.getPlaceType() || !isWillingToMoveLocation()) { // If dancing, just move back to bar
-					if(currentBehaviour!=ClubberBehaviour.BAR_FLIRT) {
-						return ClubberBehaviour.BAR_FLIRT;
+				if(getCurrentPlaceType()==ClubberBehavior.DANCE.getPlaceType() || !isWillingToMoveLocation()) { // If dancing, just move back to bar
+					if(currentBehavior!=ClubberBehavior.BAR_FLIRT) {
+						return ClubberBehavior.BAR_FLIRT;
 					} else {
-						return ClubberBehaviour.BAR_TALK;
+						return ClubberBehavior.BAR_TALK;
 					}
 					
 				} else {
-					return ClubberBehaviour.DANCE;
+					return ClubberBehavior.DANCE;
 				}
 				
 			case HIGH: // Only goes to: Bar, seating area.
-				if(currentBehaviour!=ClubberBehaviour.BAR_DRINK
+				if(currentBehavior!=ClubberBehavior.BAR_DRINK
 					&& isPartnerOfferingDrinks()
-					&& (getCurrentPlaceType()==ClubberBehaviour.BAR_DRINK.getPlaceType() || isWillingToMoveLocation())) {
-					return ClubberBehaviour.BAR_DRINK;
+					&& (getCurrentPlaceType()==ClubberBehavior.BAR_DRINK.getPlaceType() || isWillingToMoveLocation())) {
+					return ClubberBehavior.BAR_DRINK;
 				}
 				
 				if(likesSex(getPartner())) {
-					if(getCurrentPlaceType()==ClubberBehaviour.SIT_DOWN_INVITE_HOME.getPlaceType()) {
-						return ClubberBehaviour.SIT_DOWN_INVITE_HOME;
+					if(getCurrentPlaceType()==ClubberBehavior.SIT_DOWN_INVITE_HOME.getPlaceType()) {
+						return ClubberBehavior.SIT_DOWN_INVITE_HOME;
 					} else {
-						return ClubberBehaviour.BAR_INVITE_HOME;
+						return ClubberBehavior.BAR_INVITE_HOME;
 					}
 				}
 				if(likesGroping(getPartner())) {
-					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehaviour.SIT_DOWN_FOOTSIE.getPlaceType())) {
-						if(currentBehaviour!=ClubberBehaviour.SIT_DOWN_FOOTSIE) {
-							return ClubberBehaviour.SIT_DOWN_FOOTSIE;
+					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehavior.SIT_DOWN_FOOTSIE.getPlaceType())) {
+						if(currentBehavior!=ClubberBehavior.SIT_DOWN_FOOTSIE) {
+							return ClubberBehavior.SIT_DOWN_FOOTSIE;
 						} else {
-							return ClubberBehaviour.SIT_DOWN_KISS;
+							return ClubberBehavior.SIT_DOWN_KISS;
 						}
 						
 					} else {
-						if(currentBehaviour!=ClubberBehaviour.BAR_GROPE) {
-							return ClubberBehaviour.BAR_GROPE;
+						if(currentBehavior!=ClubberBehavior.BAR_GROPE) {
+							return ClubberBehavior.BAR_GROPE;
 						} else {
-							return ClubberBehaviour.BAR_KISS;
+							return ClubberBehavior.BAR_KISS;
 						}
 					}
 				}
 				if(likesKiss(getPartner())) {
-					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehaviour.SIT_DOWN_KISS.getPlaceType())) {
-						if(currentBehaviour!=ClubberBehaviour.SIT_DOWN_KISS) {
-							return ClubberBehaviour.SIT_DOWN_KISS;
+					if((isWillingToMoveLocation() || getCurrentPlaceType()==ClubberBehavior.SIT_DOWN_KISS.getPlaceType())) {
+						if(currentBehavior!=ClubberBehavior.SIT_DOWN_KISS) {
+							return ClubberBehavior.SIT_DOWN_KISS;
 						} else {
-							return ClubberBehaviour.SIT_DOWN_FLIRT;
+							return ClubberBehavior.SIT_DOWN_FLIRT;
 						}
 						
 					} else {
-						if(currentBehaviour!=ClubberBehaviour.BAR_KISS) {
-							return ClubberBehaviour.BAR_KISS;
+						if(currentBehavior!=ClubberBehavior.BAR_KISS) {
+							return ClubberBehavior.BAR_KISS;
 						} else {
-							return ClubberBehaviour.BAR_FLIRT;
+							return ClubberBehavior.BAR_FLIRT;
 						}
 					}
 				}
-				if((getCurrentPlaceType()==ClubberBehaviour.BAR_FLIRT.getPlaceType() || isWillingToMoveLocation()) && isPartnerOfferingDrinks()) {
-					if(currentBehaviour!=ClubberBehaviour.BAR_FLIRT) {
-						return ClubberBehaviour.BAR_FLIRT;
+				if((getCurrentPlaceType()==ClubberBehavior.BAR_FLIRT.getPlaceType() || isWillingToMoveLocation()) && isPartnerOfferingDrinks()) {
+					if(currentBehavior!=ClubberBehavior.BAR_FLIRT) {
+						return ClubberBehavior.BAR_FLIRT;
 					} else {
-						return ClubberBehaviour.BAR_TALK;
+						return ClubberBehavior.BAR_TALK;
 					}
 					
 				} else {
-					if(currentBehaviour!=ClubberBehaviour.SIT_DOWN_FLIRT) {
-						return ClubberBehaviour.SIT_DOWN_FLIRT;
+					if(currentBehavior!=ClubberBehavior.SIT_DOWN_FLIRT) {
+						return ClubberBehavior.SIT_DOWN_FLIRT;
 					} else {
-						return ClubberBehaviour.SIT_DOWN_TALK;
+						return ClubberBehavior.SIT_DOWN_TALK;
 					}
 				}
 				
 			case LOW: // Only goes to: Bar, dance floor, and toilets.
-				if(currentBehaviour!=ClubberBehaviour.BAR_DRINK
+				if(currentBehavior!=ClubberBehavior.BAR_DRINK
 					&& isPartnerOfferingDrinks()
-					&& (getCurrentPlaceType()==ClubberBehaviour.BAR_DRINK.getPlaceType() || isWillingToMoveLocation())) {
-					return ClubberBehaviour.BAR_DRINK;
+					&& (getCurrentPlaceType()==ClubberBehavior.BAR_DRINK.getPlaceType() || isWillingToMoveLocation())) {
+					return ClubberBehavior.BAR_DRINK;
 				}
 				
 				if(isWillingToMoveLocation() && likesSex(getPartner())) {
-					return ClubberBehaviour.TOILETS;
+					return ClubberBehavior.TOILETS;
 					
 				}
 				if(!isWillingToMoveLocation()) {
-					if(getCurrentPlaceType()==ClubberBehaviour.DANCE_GROPE.getPlaceType()) {
-						if(currentBehaviour!=ClubberBehaviour.DANCE_GROPE) {
-							return ClubberBehaviour.DANCE_GROPE;
+					if(getCurrentPlaceType()==ClubberBehavior.DANCE_GROPE.getPlaceType()) {
+						if(currentBehavior!=ClubberBehavior.DANCE_GROPE) {
+							return ClubberBehavior.DANCE_GROPE;
 						} else {
-							return ClubberBehaviour.DANCE_KISS;
+							return ClubberBehavior.DANCE_KISS;
 						}
 					} else {
 						if(likesKiss(getPartner())) {
-							if(currentBehaviour!=ClubberBehaviour.BAR_GROPE) {
-								return ClubberBehaviour.BAR_GROPE;
+							if(currentBehavior!=ClubberBehavior.BAR_GROPE) {
+								return ClubberBehavior.BAR_GROPE;
 							} else {
-								return ClubberBehaviour.BAR_KISS;
+								return ClubberBehavior.BAR_KISS;
 							}
 						} else {
-							if(currentBehaviour!=ClubberBehaviour.BAR_FLIRT) {
-								return ClubberBehaviour.BAR_FLIRT;
+							if(currentBehavior!=ClubberBehavior.BAR_FLIRT) {
+								return ClubberBehavior.BAR_FLIRT;
 							} else {
-								return ClubberBehaviour.BAR_KISS;
+								return ClubberBehavior.BAR_KISS;
 							}
 						}
 					}
 					
 				} else {
-					if(getCurrentPlaceType()!=ClubberBehaviour.DANCE_GROPE.getPlaceType()) {
-						if(currentBehaviour!=ClubberBehaviour.DANCE_GROPE) {
-							return ClubberBehaviour.DANCE_GROPE;
+					if(getCurrentPlaceType()!=ClubberBehavior.DANCE_GROPE.getPlaceType()) {
+						if(currentBehavior!=ClubberBehavior.DANCE_GROPE) {
+							return ClubberBehavior.DANCE_GROPE;
 						} else {
-							return ClubberBehaviour.DANCE_KISS;
+							return ClubberBehavior.DANCE_KISS;
 						}
 					} else {
 						if(likesKiss(getPartner())) {
-							if(currentBehaviour!=ClubberBehaviour.BAR_GROPE) {
-								return ClubberBehaviour.BAR_GROPE;
+							if(currentBehavior!=ClubberBehavior.BAR_GROPE) {
+								return ClubberBehavior.BAR_GROPE;
 							} else {
-								return ClubberBehaviour.BAR_KISS;
+								return ClubberBehavior.BAR_KISS;
 							}
 						} else {
-							if(currentBehaviour!=ClubberBehaviour.BAR_FLIRT) {
-								return ClubberBehaviour.BAR_FLIRT;
+							if(currentBehavior!=ClubberBehavior.BAR_FLIRT) {
+								return ClubberBehavior.BAR_FLIRT;
 							} else {
-								return ClubberBehaviour.BAR_KISS;
+								return ClubberBehavior.BAR_KISS;
 							}
 						}
 					}
 				}
 		}
 		
-		return ClubberBehaviour.BAR_FLIRT;
+		return ClubberBehavior.BAR_FLIRT;
 	}
 	
-	private static void applyBehaviourEffects() {
-		ClubberBehaviour newBehaviour = getClubberBehaviour();
+	private static void applyBehaviorEffects() {
+		ClubberBehavior newBehavior = getClubberBehavior();
 
 		turnsAtPlace++;
 		
-		if(currentBehaviour.getPlaceType()!=newBehaviour.getPlaceType()) {
-			if(newBehaviour.getPlaceType()==PlaceType.WATERING_HOLE_BAR) {
+		if(currentBehavior.getPlaceType()!=newBehavior.getPlaceType()) {
+			if(newBehavior.getPlaceType()==PlaceType.WATERING_HOLE_BAR) {
 				Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_CHANGE_LOCATION_BAR", getClubbersPresent()));
 				
-			} else if(newBehaviour.getPlaceType()==PlaceType.WATERING_HOLE_DANCE_FLOOR) {
+			} else if(newBehavior.getPlaceType()==PlaceType.WATERING_HOLE_DANCE_FLOOR) {
 				Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_CHANGE_LOCATION_DANCE_FLOOR", getClubbersPresent()));
 				
-			} else if(newBehaviour.getPlaceType()==PlaceType.WATERING_HOLE_SEATING_AREA) {
+			} else if(newBehavior.getPlaceType()==PlaceType.WATERING_HOLE_SEATING_AREA) {
 				Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_CHANGE_LOCATION_SEATING_AREA", getClubbersPresent()));
 				
-			} else if(newBehaviour.getPlaceType()==PlaceType.WATERING_HOLE_TOILETS) {
+			} else if(newBehavior.getPlaceType()==PlaceType.WATERING_HOLE_TOILETS) {
 				Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_CHANGE_LOCATION_TOILETS", getClubbersPresent()));
 			}
 
 			turnsAtPlace=0;
 		}
 		
-		currentBehaviour = newBehaviour;
+		currentBehavior = newBehavior;
 		
-		Main.game.getPlayer().setLocation(WorldType.NIGHTLIFE_CLUB, currentBehaviour.getPlaceType());
+		Main.game.getPlayer().setLocation(WorldType.NIGHTLIFE_CLUB, currentBehavior.getPlaceType());
 	}
 	
 	public static final DialogueNode WATERING_HOLE_DOM_PARTNER = new DialogueNode("The Watering Hole", "", true) {
@@ -4107,9 +4107,9 @@ public class NightlifeDistrict {
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			
-			ClubberBehaviour behaviour = currentBehaviour;
+			ClubberBehavior behavior = currentBehavior;
 
-			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_"+behaviour.toString(), getClubbersPresent()));
+			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/nightlife/theWateringHole", "WATERING_HOLE_DOM_PARTNER_"+behavior.toString(), getClubbersPresent()));
 
 			UtilText.nodeContentSB.append(getClubberStatus(this.getMinutesPassed()));
 			
@@ -4122,9 +4122,9 @@ public class NightlifeDistrict {
 //				return getEndResponse(index, 0);
 //			}
 			
-			ClubberBehaviour behaviour = currentBehaviour;
+			ClubberBehavior behavior = currentBehavior;
 			
-			switch(behaviour) {
+			switch(behavior) {
 				case BAR_DRINK:
 					switch(getPartnerAgreeableness()) {
 						case AVERAGE:
@@ -4771,7 +4771,7 @@ public class NightlifeDistrict {
 				return new Response("Continue", UtilText.parse(getClubbersPresent(), "See what [npc.name] wants to do next..."), WATERING_HOLE_DOM_PARTNER) {
 					@Override
 					public void effects() {
-						applyBehaviourEffects();
+						applyBehaviorEffects();
 					}
 				};
 				

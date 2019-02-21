@@ -2,7 +2,7 @@ package com.lilithsthrone.rendering;
 
 import java.util.List;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.2.2
@@ -12,13 +12,13 @@ import com.lilithsthrone.utils.Colour;
 public class Artist {
 	
 	private String name;
-	private Colour colour;
+	private Color color;
 	private String folderName;
 	private List<ArtistWebsite> websites;
 	
-	public Artist(String name, Colour colour, String folderName, List<ArtistWebsite> websites) {
+	public Artist(String name, Color color, String folderName, List<ArtistWebsite> websites) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.folderName = folderName;
 		this.websites = websites;
 	}
@@ -27,8 +27,8 @@ public class Artist {
 		return name;
 	}
 	
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public String getFolderName() {

@@ -61,7 +61,7 @@ import com.lilithsthrone.game.inventory.enchanting.TFPotency;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -135,18 +135,18 @@ public class SlimeGuardFire extends NPC {
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
 		
 		// Coverings:
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Colour.SLIME_ORANGE), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Colour.SLIME_AMBER), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_SCLERA, Colour.SLIME_YELLOW), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PUPILS, Colour.SLIME_ORANGE), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_ANUS, CoveringPattern.ORIFICE_ANUS, Colour.SLIME_RED, false, Colour.SLIME_RED, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_HAIR, Colour.SLIME_RED), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_MOUTH, CoveringPattern.ORIFICE_MOUTH, Colour.SLIME_RED, false, Colour.SLIME_RED, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Colour.SLIME_RED), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Colour.SLIME_RED, false, Colour.SLIME_RED, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Colour.SLIME_RED, false, Colour.SLIME_RED, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Color.SLIME_ORANGE), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Color.SLIME_AMBER), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_SCLERA, Color.SLIME_YELLOW), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PUPILS, Color.SLIME_ORANGE), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_ANUS, CoveringPattern.ORIFICE_ANUS, Color.SLIME_RED, false, Color.SLIME_RED, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_HAIR, Color.SLIME_RED), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_MOUTH, CoveringPattern.ORIFICE_MOUTH, Color.SLIME_RED, false, Color.SLIME_RED, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Color.SLIME_RED), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Color.SLIME_RED, false, Color.SLIME_RED, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Color.SLIME_RED, false, Color.SLIME_RED, true), false);
 
-		this.setHairCovering(new Covering(BodyCoveringType.SLIME_HAIR, Colour.SLIME_RED), false);
+		this.setHairCovering(new Covering(BodyCoveringType.SLIME_HAIR, Color.SLIME_RED), false);
 		this.setHairLength(HairLength.TWO_SHORT.getMedianValue());
 		this.setHairStyle(HairStyle.MESSY);
 
@@ -155,12 +155,12 @@ public class SlimeGuardFire extends NPC {
 		this.setPubicHair(BodyHair.ZERO_NONE);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_RED));
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_RED));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_RED));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_RED));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 		this.setFaceVirgin(true);
@@ -218,7 +218,7 @@ public class SlimeGuardFire extends NPC {
 		
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(
 				ClothingType.FINGER_RING,
-				Colour.CLOTHING_COPPER,
+				Color.CLOTHING_COPPER,
 				Util.newArrayListOfValues(
 						new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_FIRE, TFPotency.MAJOR_BOOST, 0),
 						new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_FIRE, TFPotency.MAJOR_BOOST, 0),
@@ -228,15 +228,15 @@ public class SlimeGuardFire extends NPC {
 				true,
 				this);
 
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_SUN_STUD, Colour.CLOTHING_COPPER, false),
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_SUN_STUD, Color.CLOTHING_COPPER, false),
 				true,
 				this);
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_SUN, Colour.CLOTHING_COPPER, false),
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_SUN, Color.CLOTHING_COPPER, false),
 				true,
 				this);
 
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SUN_NECKLACE, Colour.CLOTHING_COPPER, false),
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_SUN_NECKLACE, Color.CLOTHING_COPPER, false),
 				true,
 				this);
 

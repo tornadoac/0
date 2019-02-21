@@ -4,8 +4,8 @@
 	<coreAttributes>
 		<value>200</value>
 		<determiner><![CDATA[a]]></determiner>
-		<name><![CDATA[jewelled butt plug]]></name>
-		<namePlural pluralByDefault="false"><![CDATA[jewelled butt plugs]]></namePlural>
+		<name><![CDATA[jeweled butt plug]]></name>
+		<namePlural pluralByDefault="false"><![CDATA[jeweled butt plugs]]></namePlural>
 		<description><![CDATA[A metal plug, designed to be inserted into someone's anus. The cap has a pretty gemstone fixed into it.]]></description>
 		<physicalResistance>1</physicalResistance>
 		<femininity>ANDROGYNOUS</femininity>
@@ -34,12 +34,12 @@
 		
 		<incompatibleSlots/>
 		
-		<primaryColours values="ALL_METAL"/>
-		<primaryColoursDye/>
-		<secondaryColours values="ALL"/>
-		<secondaryColoursDye/>
-		<tertiaryColours/>
-		<tertiaryColoursDye/>
+		<primaryColors values="ALL_METAL"/>
+		<primaryColorsDye/>
+		<secondaryColors values="ALL"/>
+		<secondaryColorsDye/>
+		<tertiaryColors/>
+		<tertiaryColorsDye/>
 	
 		<itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 			<tag>SOLD_BY_FINCH</tag>

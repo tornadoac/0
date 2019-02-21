@@ -172,7 +172,7 @@
 
 	<htmlContent tag="INTRO_SECOND_THOUGHTS_FEMALE"><![CDATA[
 	<p>
-		In a sudden moment of clarity, you realise that what you're about to do isn't a very good idea, and you step away from [prologueFemale.name]. [pc.speech(I'm sorry, but on second thoughts, I don't think this a good idea. Anyway, I'm sure the presentation will be starting soon...)]
+		In a sudden moment of clarity, you realize that what you're about to do isn't a very good idea, and you step away from [prologueFemale.name]. [pc.speech(I'm sorry, but on second thoughts, I don't think this a good idea. Anyway, I'm sure the presentation will be starting soon...)]
 	</p>
 	<p>
 		[prologueFemale.speech(Eugh... Fine...)] [prologueFemale.name] sighs, before collapsing down onto one of the leather sofas. [prologueFemale.speech(You go on ahead then, I need a moment to calm down.)]
@@ -182,7 +182,7 @@
 
 	<htmlContent tag="INTRO_SECOND_THOUGHTS_MALE"><![CDATA[
 	<p>
-		In a sudden moment of clarity, you realise that what you're about to do isn't a very good idea, and you step away from [prologueMale.name]. [pc.speech(I'm sorry, but on second thoughts, I don't think this a good idea. Anyway, I'm sure the presentation will be starting soon...)]
+		In a sudden moment of clarity, you realize that what you're about to do isn't a very good idea, and you step away from [prologueMale.name]. [pc.speech(I'm sorry, but on second thoughts, I don't think this a good idea. Anyway, I'm sure the presentation will be starting soon...)]
 	</p>
 	<p>
 		[prologueMale.speech(Eugh... Fine...)] [prologueMale.name] sighs, before collapsing down onto one of the leather sofas. [prologueMale.speech(You go on ahead then, I need a moment to calm down.)]
@@ -262,7 +262,7 @@
 
 	<htmlContent tag="INTRO_2"><![CDATA[
 	<p>
-		Having agreed to help Lily by finding Arthur, you set off into the museum. The steady hum of voices from the entrance hall quickly fades away into silence as you delve deep into the museum's deserted rooms and corridors. It's a lot larger in here than you anticipated, and before long you realise that you've become hopelessly lost. As you step into yet another cavernous hall lined with glass cabinets and ancient stonework, you thankfully see a map of the museum on the far side of the room. Muttering thanks to whoever put that there, you quickly make your way towards it, hoping to find a route out of here.
+		Having agreed to help Lily by finding Arthur, you set off into the museum. The steady hum of voices from the entrance hall quickly fades away into silence as you delve deep into the museum's deserted rooms and corridors. It's a lot larger in here than you anticipated, and before long you realize that you've become hopelessly lost. As you step into yet another cavernous hall lined with glass cabinets and ancient stonework, you thankfully see a map of the museum on the far side of the room. Muttering thanks to whoever put that there, you quickly make your way towards it, hoping to find a route out of here.
 	</p>
 	<p>
 		The sound of your footfalls echoing off the walls are suddenly interrupted as a seductive female voice sounds in your ear, [style.speechFeminineStrong(Looking for something?)]
@@ -388,7 +388,7 @@
 		#ENDIF
 	</p>
 	<p>
-		The cat-girl sits back up, still holding her paw-like hands over your mouth, and points up to the sky. The two horse-boys have completely immobilised you, and being unable to do anything about your current situation, you look up to see what the cat-girl is pointing at.
+		The cat-girl sits back up, still holding her paw-like hands over your mouth, and points up to the sky. The two horse-boys have completely immobilized you, and being unable to do anything about your current situation, you look up to see what the cat-girl is pointing at.
 	</p>
 	<p>
 		High above you, a roiling mass of dark black storm clouds are blotting out the evening sky. There's a strange pink tint around the edge of each one, and as the cat-girl stares down at you, you see a flash of the same pink tint glowing deep within her cat-like pupils. She seems content to simply hold you still, waiting for the storm to break, and seeing no way to gain your freedom, you take a moment to glance around and take in your surroundings.
@@ -410,7 +410,7 @@
 		[pc.speech(Aah!)]
 	</p>
 	<p>
-		Before you have the chance to strike back at her, she quickly pins your arms to the floor with her knees, and you suddenly feel a row of sharp claws pressing against your neck. You realise that you have no chance against that, and as you feel the little daggers gently pressing into your skin, you stop struggling.
+		Before you have the chance to strike back at her, she quickly pins your arms to the floor with her knees, and you suddenly feel a row of sharp claws pressing against your neck. You realize that you have no chance against that, and as you feel the little daggers gently pressing into your skin, you stop struggling.
 	</p>
 	<p>
 		Seeing that you've surrendered, she grins and leans down, her cat-like pupils dilating as she pushes your head to the ground and delivers a long, slow lick up your cheek.
@@ -420,7 +420,7 @@
 		#ENDIF
 	</p>
 	<p>
-		The cat-girl sits back, still holding her claws against your throat, and points up to the sky. As she does this, you see that the horse-boys have recovered and moved back to either side of you. The cat-girl has you pinned down and completely immobilised, and, being unable to do anything about your current situation, you look up to see what she's pointing at.
+		The cat-girl sits back, still holding her claws against your throat, and points up to the sky. As she does this, you see that the horse-boys have recovered and moved back to either side of you. The cat-girl has you pinned down and completely immobilized, and, being unable to do anything about your current situation, you look up to see what she's pointing at.
 	</p>
 	<p>
 		High above you, a roiling mass of dark black storm clouds are blotting out the evening sky. There's a strange pink tint around the edge of each one, and as the cat-girl stares down at you, you see a flash of the same pink tint glowing deep within her cat-like pupils. She seems content to simply hold you still, waiting for the storm to break, and seeing no way to gain your freedom, you take a moment to glance around and take in your surroundings.
@@ -443,7 +443,7 @@
 		#ENDIF
 	</p>
 	<p>
-		The cat-girl sits back up, still holding her paw-like hands over your mouth, and points up to the sky. The two horse-boys have completely immobilised you, and being unable to do anything about your current situation, you look up to see what the cat-girl is pointing at.
+		The cat-girl sits back up, still holding her paw-like hands over your mouth, and points up to the sky. The two horse-boys have completely immobilized you, and being unable to do anything about your current situation, you look up to see what the cat-girl is pointing at.
 	</p>
 	<p>
 		High above you, a roiling mass of dark black storm clouds are blotting out the evening sky. There's a strange pink tint around the edge of each one, and as the cat-girl stares down at you, you see a flash of the same pink tint glowing deep within her cat-like pupils. She seems content to simply hold you still, waiting for the storm to break, and seeing no way to gain your freedom, you take a moment to glance around and take in your surroundings.
@@ -453,7 +453,7 @@
 
 	<htmlContent tag="INTRO_NEW_WORLD_1_STRUGGLE_END"><![CDATA[
 	<p>
-		You're lying in the middle of a deserted street, and a series of old-fashioned street lamps are illuminating the area around you in a soft amber glow. You notice that the entire road is paved with clean, whitish-blue paving stones, and with the numerous wooden benches and small, leafy trees that are dotted about the place, you realise that this street is entirely pedestrianised. There's no sign of any cars or passersby that could come to your aid, and the imposing, neo-classical frontages of the surrounding buildings offer no hope of any help, as all their windows and curtains are tightly shut.
+		You're lying in the middle of a deserted street, and a series of old-fashioned street lamps are illuminating the area around you in a soft amber glow. You notice that the entire road is paved with clean, whitish-blue paving stones, and with the numerous wooden benches and small, leafy trees that are dotted about the place, you realize that this street is entirely pedestrianized. There's no sign of any cars or passersby that could come to your aid, and the imposing, neo-classical frontages of the surrounding buildings offer no hope of any help, as all their windows and curtains are tightly shut.
 	</p>
 	<p>
 		[pc.thought(How am I going to get out of this?!)]
@@ -481,19 +481,19 @@
 		The cat-girl quickly starts stuttering out excuses as you hear the mysterious woman walking closer, [style.speechFeminineStrong(L-look, w-we were only playing! Anyway, if [pc.she] didn't want to have some fun, why's [pc.she] outside just before a storm's about to break?!)]
 	</p>
 	<p>
-		[lilaya.speech(Well, it's really none of my business, but now that your little friends have run off, what's to stop <i>[pc.herHim]</i> from having a little fun with <i>you</i>?)] the woman replies, and this time, you're certain that you recognise her voice.
+		[lilaya.speech(Well, it's really none of my business, but now that your little friends have run off, what's to stop <i>[pc.herHim]</i> from having a little fun with <i>you</i>?)] the woman replies, and this time, you're certain that you recognize her voice.
 	</p>
 	<p>
 		You feel the cat-girl's grip loosening around your throat, and, taking advantage of the fact that she's been distracted, you pull your arms out from under her knees, grab her wrists and throw her off of you. Quickly jumping to your feet, you turn to face your tormentor, only to see her running off down a nearby alleyway.
 	</p>
 	<p>
-		[lilaya.speech(You're welcome...)] you hear your saviour say as she starts to walk off.
+		[lilaya.speech(You're welcome...)] you hear your savior say as she starts to walk off.
 	</p>
 	<p>
 		[pc.thought(Wait... That voice... Lily?!)]
 	</p>
 	<p>
-		You spin around, certain that your mysterious benefactor is none other than your aunt Lily. Even as she walks away, you can tell that it's her. The way she walks, her long, black hair, even her usual attire are all how they should be. Even though you've often criticised her for never wearing anything other than her plain black skirt, white shirt and black heels, right now you've never been happier to see them.
+		You spin around, certain that your mysterious benefactor is none other than your aunt Lily. Even as she walks away, you can tell that it's her. The way she walks, her long, black hair, even her usual attire are all how they should be. Even though you've often criticized her for never wearing anything other than her plain black skirt, white shirt and black heels, right now you've never been happier to see them.
 	</p>
 	<p>
 		[pc.speech(Lily! Oh Lily, I'm so glad you're here! Those... <i>people</i>, they were about to... well... I'm just glad you're here now!)] You run to catch up with your aunt, wrapping your arms around her and pulling her into a loving hug. As you press into her back, you notice what feels to be a large, lumpy backpack digging into your chest, but due to the dim street-light, you didn't see it.
@@ -502,7 +502,7 @@
 		[lilaya.speech(W-What the hell are you doing?!)] Lily exclaims, wriggling free as she pushes you away from her. [lilaya.speech(I-It's not like I was <i>trying</i> to save you! J-Just say thanks and go find some cover before the storm breaks!)]
 	</p>
 	<p>
-		You don't quite understand her reaction. She usually loves it when you hug her like that, but as Lily turns around, you realise that something is wrong. It's still Lily, sort of, but she's got a few extra parts that you certainly don't remember her having before. As she steps back from you, she ends up directly beneath the glow of one of the street lights, and as you get a good look at her, you feel your jaw dropping.
+		You don't quite understand her reaction. She usually loves it when you hug her like that, but as Lily turns around, you realize that something is wrong. It's still Lily, sort of, but she's got a few extra parts that you certainly don't remember her having before. As she steps back from you, she ends up directly beneath the glow of one of the street lights, and as you get a good look at her, you feel your jaw dropping.
 	</p>
 	<p>
 		Just one glance at her face is enough to convince you that this is Lily, but instead of being in her fifties, she now looks to be in her early thirties. What's more worrying than her regression of age, however, is that fact that there are a pair of low, swept-back horns growing out from her forehead. A thin, spaded tail, which you hadn't noticed in the dark, curls around behind her, rising up to draw attention to a pair of large, bat-like wings that suddenly unfurl from her back. Her chest is another area that's different, and you see that Lily now has a massive pair of E-cup breasts, quite unlike the more modestly-sized ones she used to have.
@@ -511,7 +511,7 @@
 		[lilaya.speech(Stop staring!)] Lily commands. [lilaya.speech(I-I'll banish you to another dimension! Or... um... Freeze you and leave you lying out here! What do you want?!)]
 	</p>
 	<p>
-		She clearly doesn't recognise you, and seems quite shocked by your actions. You notice that she's blushing profusely, and you wonder if that's the result of your sudden hug or the way you've been staring at her. As you try to think of something to say, Lily raises her hand, and as she does so, a swirling vortex of snow and ice materialises around her arm.
+		She clearly doesn't recognize you, and seems quite shocked by your actions. You notice that she's blushing profusely, and you wonder if that's the result of your sudden hug or the way you've been staring at her. As you try to think of something to say, Lily raises her hand, and as she does so, a swirling vortex of snow and ice materializes around her arm.
 	</p>
 	<p>
 		You don't really want to be frozen by this demonic version of your aunt, so you quickly blurt out everything you know about what's just happened.
@@ -545,7 +545,7 @@
 	</p>
 
 	<p>
-		[pc.speech(Uuuum... That's a bit of a weird question, but... no?)] you answer, before suddenly realising that you might have offended this demonic version of your aunt. [pc.speech(I mean, you're obviously extremely attractive and anyone would be lucky to have you, but you're my aunt! Well, sort of, anyway...)]
+		[pc.speech(Uuuum... That's a bit of a weird question, but... no?)] you answer, before suddenly realizing that you might have offended this demonic version of your aunt. [pc.speech(I mean, you're obviously extremely attractive and anyone would be lucky to have you, but you're my aunt! Well, sort of, anyway...)]
 	</p>
 
 	<p>
@@ -563,7 +563,7 @@
 		Nothing ever seemed to embarrass your real aunt, but it seems like this version of Lily is the complete polar opposite. Almost everything you've said to her so far has resulted in her blushing or stuttering over her words, and as you let her lead you through the unfamiliar streets of this strange city, you decide that you won't be the first to speak and risk saying the wrong thing yet again. As a result, the rest of the walk proceeds in silence, allowing you to observe several differences between this city and the one you used to call home.
 	</p>
 	<p>
-		Every single street seems to be pedestrianised, and there isn't a single car to be seen anywhere. The street lights are curiously different from the ones you're used to seeing, and instead of producing the usual dull fluorescent glow, tiny little balls of energetic light dance within glass globes, casting a steady, albeit slightly flickering, orange glow over the street's clean paving stones. The buildings on either side all adhere to old-fashioned designs that look very similar to pictures you've seen of Victorian architecture. When combined with the style of street-lights, a casual observer could easily be confused into believing that they'd been transported back to an alternate version of mid-nineteenth century central London. As you look closer, however, the fashion trends being displayed in shop-fronts and on advertisement billboards make it quite clear that this 'alternate dimension' must be of the same time period that you're familiar with.
+		Every single street seems to be pedestrianized, and there isn't a single car to be seen anywhere. The street lights are curiously different from the ones you're used to seeing, and instead of producing the usual dull fluorescent glow, tiny little balls of energetic light dance within glass globes, casting a steady, albeit slightly flickering, orange glow over the street's clean paving stones. The buildings on either side all adhere to old-fashioned designs that look very similar to pictures you've seen of Victorian architecture. When combined with the style of street-lights, a casual observer could easily be confused into believing that they'd been transported back to an alternate version of mid-nineteenth century central London. As you look closer, however, the fashion trends being displayed in shop-fronts and on advertisement billboards make it quite clear that this 'alternate dimension' must be of the same time period that you're familiar with.
 	</p>
 	<p>
 		[lilaya.speech(Right, here we are,)] Lily suddenly says, snapping you out of your trance. [lilaya.speech(You're going to come inside and let me run a few little tests on you, ok? After all, I <i>did</i> save you back there,)] she finishes, walking up a short external staircase to a rather imposing-looking front door.
@@ -654,7 +654,7 @@
 
 	<htmlContent tag="INTRO_NEW_WORLD_5"><![CDATA[
 	<p>
-		You blink once, then twice, then try rubbing your eyes. No matter what you do, all you can see is a pulsating pink glow. You start to panic as you realise that you've been blinded by Lilaya's test.
+		You blink once, then twice, then try rubbing your eyes. No matter what you do, all you can see is a pulsating pink glow. You start to panic as you realize that you've been blinded by Lilaya's test.
 	</p>
 	<p>
 		[pc.speech(Erm, Lilaya?! I can't see!)] you call out.
@@ -724,7 +724,7 @@
 		Lilaya flicks a switch on one of the spotlights, and the pink mist vanishes from sight. Stepping forwards, you see that she's holding a strange shard of crystal, and you look on in wonder as you see its surface glittering and swirling with images of flames. She takes hold of your wrist with one hand, and with the other, places this 'demonstone' into your open palm. As its surprisingly cool surface comes into contact with your skin, you feel a gentle pulsing force pushing against you, trying to push its way in. You do as Lilaya instructed, and with surprising ease, you allow the demonstone to melt down into arcane energy and enter your body.
 	</p>
 	<p>
-		As a soothing warmth spreads up your arm, it feels like you've done this a thousand times before. You somehow know that you're able to harness its power into what you'd once have called magic. You know that its the same sort of arcane power that's found in that strange thunderstorm, and, indeed, all throughout this world. And, somewhat disturbingly, you know that this 'arcane' is strongly connected to your sexual desires, and if you lose control of it, has the power to corrupt both your mind and body. Putting such dark thoughts aside for now, you twist your hand, eager to try out this new power, and a swirling vortex of flame obediently materialises around your arm. With another motion, you dispel it, and look up to see Lilaya beaming at you in excitement.
+		As a soothing warmth spreads up your arm, it feels like you've done this a thousand times before. You somehow know that you're able to harness its power into what you'd once have called magic. You know that its the same sort of arcane power that's found in that strange thunderstorm, and, indeed, all throughout this world. And, somewhat disturbingly, you know that this 'arcane' is strongly connected to your sexual desires, and if you lose control of it, has the power to corrupt both your mind and body. Putting such dark thoughts aside for now, you twist your hand, eager to try out this new power, and a swirling vortex of flame obediently materializes around your arm. With another motion, you dispel it, and look up to see Lilaya beaming at you in excitement.
 	</p>
 	]]>
 	</htmlContent>
@@ -749,7 +749,7 @@
 		[lilaya.speech(This is all just the beginning!)] Lilaya calls out, stopping what she's doing and turning to face you. [lilaya.speech(Look, once I've got through all this, we'll need to run more tests! Inter-dimensional travel! And you've somehow been <i>given</i> a demon's aura! You're the most amazing discovery since, well, <i>ever</i>! I'd like it if you'd stay here so I can keep an eye on you. After all, it's not like you have anywhere else to go, right?)]
 	</p>
 	<p>
-		For the first time since arriving in this strange new world, you realise that you know nobody here, you have no money on you, and you're mostly clueless as to how this whole place works. Thankfully, Lilaya seems to be just as kind to you as your real aunt was, and you happily accept her offer of letting you stay with her.
+		For the first time since arriving in this strange new world, you realize that you know nobody here, you have no money on you, and you're mostly clueless as to how this whole place works. Thankfully, Lilaya seems to be just as kind to you as your real aunt was, and you happily accept her offer of letting you stay with her.
 	</p>
 	<p>
 		[lilaya.speech(Rose? You can show [pc.name] to a suitable room now,)] Lilaya says, before sitting down to consult the books she's gathered.
@@ -780,10 +780,10 @@
 		[pc.speech(Err... Don't the police do anything about that?)] you ask, slightly taken aback at Rose's warning.
 	</p>
 	<p>
-		[rose.speech(You mean the enforcers? Why would they? Once the arcane seeps into a person's mind, they'll happily consent to anything,)] Rose replies, [rose.speech(So if you don't like it, then don't go outside during a storm. Oh, and don't wander off down alleyways. Although the main streets are safe, the less-travelled parts of Dominion are often home to the more... unsavoury sorts of people.)]
+		[rose.speech(You mean the enforcers? Why would they? Once the arcane seeps into a person's mind, they'll happily consent to anything,)] Rose replies, [rose.speech(So if you don't like it, then don't go outside during a storm. Oh, and don't wander off down alleyways. Although the main streets are safe, the less-traveled parts of Dominion are often home to the more... unsavory sorts of people.)]
 	</p>
 	<p>
-		By this time, Rose has led you up the grand staircase in the entrance hall and down a long corridor. She suddenly stops by one of the doors, and, opening it, steps through. You follow her inside, and find yourself standing in a lavishly decorated bedroom. A king-sized bed sits on side of the room, flanked by a pair of finely-crafted drawers. An impressively-sized wardrobe and bookcase stand in the opposite corners, and between them, there's another door. On the far side of the room, a row of windows overlook a well-tended garden courtyard, and as you see a pink flash illuminate the neatly clipped hedgerows and colourful flower beds, you notice that no sound of the accompanying thunder manages to penetrate into the room.
+		By this time, Rose has led you up the grand staircase in the entrance hall and down a long corridor. She suddenly stops by one of the doors, and, opening it, steps through. You follow her inside, and find yourself standing in a lavishly decorated bedroom. A king-sized bed sits on side of the room, flanked by a pair of finely-crafted drawers. An impressively-sized wardrobe and bookcase stand in the opposite corners, and between them, there's another door. On the far side of the room, a row of windows overlook a well-tended garden courtyard, and as you see a pink flash illuminate the neatly clipped hedgerows and colorful flower beds, you notice that no sound of the accompanying thunder manages to penetrate into the room.
 	</p>
 	<p>
 		[rose.speech(This is your room,)] Rose says, before walking over to the door next to the wardrobe, [rose.speech(and in here is your bathroom. If you leave your dirty clothes out here when you take a shower or bath, I'll have them cleaned by the time you're finished.)]
@@ -792,10 +792,10 @@
 		[pc.speech(Thanks,)] you say, not really knowing quite how to react to the fact that you're now living in what looks like a palace. [pc.speech(So, Lilaya's pretty important then, huh? I mean, this place is huge! Does she share these gardens with those other houses?)]
 	</p>
 	<p>
-		Rose sees you looking out the windows at the courtyard garden, [rose.speech(Everything you can see from here is owned by Mistress. And yes, seeing as you're completely unaware of who she is, Lilaya is a recognised daughter of Lyssieth; one of the seven elder Lilin.)]
+		Rose sees you looking out the windows at the courtyard garden, [rose.speech(Everything you can see from here is owned by Mistress. And yes, seeing as you're completely unaware of who she is, Lilaya is a recognized daughter of Lyssieth; one of the seven elder Lilin.)]
 	</p>
 	<p>
-		Seeing the blank expression on your face, Rose sighs and continues, [rose.speech(The Lilin are the daughters of Lilith herself, and the most powerful and important of all of them are the seven elders. While the Lilin have numerous offspring, only a few are ever publicly acknowledged, and those that are, like Lilaya, are considered to be at the very pinnacle of the social hierarchy.)] Rose pauses for a moment to make sure that you're following along, before continuing, [rose.speech(Oh, and I heard you call Lilaya a demon earlier. Please don't say anything like that to her again. You see, the vast, vast majority of all the Lilins' recognised children are full demons, which makes my Mistress very self-conscious about being 'only' a half-demon. While it's not usually a slave's place to speak to someone like this, I hope you understand that I'm only telling you what Lilaya would want you to know. If there's nothing else, I shall return to my duties now. I'll be back in about half an hour to give you any further instructions that Lilaya might have.)]
+		Seeing the blank expression on your face, Rose sighs and continues, [rose.speech(The Lilin are the daughters of Lilith herself, and the most powerful and important of all of them are the seven elders. While the Lilin have numerous offspring, only a few are ever publicly acknowledged, and those that are, like Lilaya, are considered to be at the very pinnacle of the social hierarchy.)] Rose pauses for a moment to make sure that you're following along, before continuing, [rose.speech(Oh, and I heard you call Lilaya a demon earlier. Please don't say anything like that to her again. You see, the vast, vast majority of all the Lilins' recognized children are full demons, which makes my Mistress very self-conscious about being 'only' a half-demon. While it's not usually a slave's place to speak to someone like this, I hope you understand that I'm only telling you what Lilaya would want you to know. If there's nothing else, I shall return to my duties now. I'll be back in about half an hour to give you any further instructions that Lilaya might have.)]
 	</p>
 	<p>
 		[pc.speech(Wait, did you just say you're a <i>slave</i>?)]

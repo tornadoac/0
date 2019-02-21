@@ -19,7 +19,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.managers.universal.SMMissionary;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -145,8 +145,8 @@ public class TunnelSlimeDialogue {
 					} else if (index == 3) {
 						return new Response("Submit", "Allow [npc.name] to transform you into a slime!", TRANSFORMED) {
 							@Override
-							public Colour getHighlightColour() {
-								return Colour.TRANSFORMATION_GENERIC;
+							public Color getHighlightColor() {
+								return Color.TRANSFORMATION_GENERIC;
 							}
 							@Override
 							public void effects() {
@@ -633,13 +633,13 @@ public class TunnelSlimeDialogue {
 							null,
 							null), AFTER_SLIME_SEX_AS_SUB, "<p>"
 								+ "You really aren't sure what to do next, and start to feel pretty uncomfortable with the fact that you just beat up this poor [npc.race]."
-								+ " Leaning down, you do the first thing that comes into your mind, and start apologising,"
+								+ " Leaning down, you do the first thing that comes into your mind, and start apologizing,"
 								+ " [pc.speech(Sorry... I was just trying to defend myself, you know... Erm... Is there anything I can do to make it up to you?)]"
 							+ "</p>"
 							+ "<p>"
 								+ "For a moment, a look of confusion crosses over [npc.namePos] face, but, as [npc.she] sees that you're genuinely troubled by what you've just done, an evil grin crosses [npc.her] face."
 								+ " [npc.She] stands up, and, grabbing you by the [pc.arm], roughly pulls you into [npc.her] as [npc.she] growls,"
-								+ " [npc.speech(How about you start by apologising properly?!)]"
+								+ " [npc.speech(How about you start by apologizing properly?!)]"
 							+ "</p>"
 							+ "<p>"
 								+ "[npc.NamePos] strong, dominant grip on your [pc.arm] causes you to let out a lewd little moan, and your submissive nature takes over as you do as [npc.she] asks."
@@ -648,7 +648,7 @@ public class TunnelSlimeDialogue {
 							+ "<p>"
 								+ "[npc.Name] roughly yanks you forwards, and with a menacing growl, [npc.she] forces [npc.her] tongue into your mouth."
 								+ " You let out a muffled yelp as your opponent takes charge, but as you feel [npc.her] [npc.hands] reaching down to start roughly groping your ass,"
-									+ " you realise that you couldn't be happier with how things have turned out..."
+									+ " you realize that you couldn't be happier with how things have turned out..."
 							+ "</p>");
 					
 				} else if (index == 6) {
@@ -797,7 +797,7 @@ public class TunnelSlimeDialogue {
 				if (index == 1) {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Resist",
-								"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+								"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 									+"</b> fetish, you love being transformed so much that you can't bring yourself to resist!",
 								null);
 					} else {
@@ -807,8 +807,8 @@ public class TunnelSlimeDialogue {
 				} else if (index == 2) {
 					return new Response("Submit", "Allow [npc.name] to transform you into a slime!", TRANSFORMED) {
 						@Override
-						public Colour getHighlightColour() {
-							return Colour.TRANSFORMATION_GENERIC;
+						public Color getHighlightColor() {
+							return Color.TRANSFORMATION_GENERIC;
 						}
 						@Override
 						public void effects() {

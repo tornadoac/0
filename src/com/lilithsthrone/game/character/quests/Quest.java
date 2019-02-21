@@ -57,7 +57,7 @@ public enum Quest {
 		@Override
 		public String getDescription() {
 			return "Lilaya has informed you that her old colleague, Arthur, would know more about the type of magic used in the portal."
-					+ " However, she seems to have an intense dislike of him, and you've ended up being tasked to go and get him to apologise to Lilaya before she'll allow him to" + " come and work with her."
+					+ " However, she seems to have an intense dislike of him, and you've ended up being tasked to go and get him to apologize to Lilaya before she'll allow him to" + " come and work with her."
 					+ " Arthur lives in a district of the city called 'Demon Home', so you can find him there.";
 		}
 
@@ -134,7 +134,7 @@ public enum Quest {
 
 		@Override
 		public String getCompletedDescription() {
-			return "You travelled back to Scarlett's shop, only to discover that Alexa has enslaved her!";
+			return "You traveled back to Scarlett's shop, only to discover that Alexa has enslaved her!";
 		}
 	},
 	
@@ -189,7 +189,7 @@ public enum Quest {
 		public String getCompletedDescription() {
 			return "Arthur explained how he was dabbling in the forbidden art of teleportation spells."
 					+ " Through one of his agents, Zaranix found out about this, and had no difficulty in getting Arthur enslaved for treason."
-					+ " Now that you've rescued him, he's keen to repay the favour by finding out how to send you back home.";
+					+ " Now that you've rescued him, he's keen to repay the favor by finding out how to send you back home.";
 		}
 	},
 	
@@ -241,7 +241,7 @@ public enum Quest {
 		public String getDescription() {
 			return "The guards at the gate to Lyssieth's palace told you that she's not receiving any visitors at the moment."
 					+ " The only way to gain an audience with her would be to take care of her troublesome daughter; 'The Dark Siren'."
-					+ " She's currently living in a stone fortress in one of the central tunnels here in Submission, from which she sends out gangs of imps to terrorise innocent citizens.</br>"
+					+ " She's currently living in a stone fortress in one of the central tunnels here in Submission, from which she sends out gangs of imps to terrorize innocent citizens.</br>"
 					+ "If you're able to enslave her, either through combat or trickery, you'll have earned an audience with Lyssieth.";
 		}
 
@@ -301,7 +301,7 @@ public enum Quest {
 
 		@Override
 		public String getCompletedDescription() {
-			return "You travelled to Elis, where you found the youko, [youkoGuide.name], in an inn called 'The Ninth Tail'."
+			return "You traveled to Elis, where you found the youko, [youkoGuide.name], in an inn called 'The Ninth Tail'."
 					+ " It turned out that she was having to work off a significant debt, and wouldn't be able to help you until it's paid off in full.";
 		}
 	},
@@ -659,7 +659,7 @@ public enum Quest {
 		@Override
 		public String getDescription() {
 			return "When you first arrived in Submission, an enforcer informed you of an ongoing situation in the tunnels."
-					+ " Apparently, there are an increasing number of Slimes who are attacking innocent travellers and transforming them into more Slimes."
+					+ " Apparently, there are an increasing number of Slimes who are attacking innocent travelers and transforming them into more Slimes."
 					+ " If you're able to offer any information on where these aggressive Slimes are coming from, you could earn a one-thousand flame reward.";
 		}
 
@@ -682,7 +682,7 @@ public enum Quest {
 
 		@Override
 		public String getCompletedDescription() {
-			return "The Enforcer that you reported to told you that they'd heard rumours of a Slime Queen before, but no trace of any such thing has ever been found in Submission."
+			return "The Enforcer that you reported to told you that they'd heard rumors of a Slime Queen before, but no trace of any such thing has ever been found in Submission."
 					+ " They suggested that you could take a look down in the Bat Caverns, and offered you a further twenty-thousand flames if you could find this Queen and put an end to her scheming.";
 		}
 	},
@@ -695,7 +695,7 @@ public enum Quest {
 
 		@Override
 		public String getDescription() {
-			return "Travel down into the Bat Caverns and search for the rumoured Slime Queen.";
+			return "Travel down into the Bat Caverns and search for the rumored Slime Queen.";
 		}
 
 		@Override

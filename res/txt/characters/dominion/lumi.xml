@@ -3,7 +3,7 @@
 
 	<htmlContent tag="LUMI_APPEARS"><![CDATA[
 	<p>
-		You find yourself walking through labyrinthine alleyways, with not a soul in sight. Back-doors and steaming vents line the dark brick walls, and you must often navigate around overflowing bins and stacks of empty crates in order to make any progress. These less-travelled parts of Dominion have a dangerous feel to them, and you can't shake the feeling that you're being followed.
+		You find yourself walking through labyrinthine alleyways, with not a soul in sight. Back-doors and steaming vents line the dark brick walls, and you must often navigate around overflowing bins and stacks of empty crates in order to make any progress. These less-traveled parts of Dominion have a dangerous feel to them, and you can't shake the feeling that you're being followed.
 	</p>
 	<p>
 		As you find yourself walking down yet another narrow passage, you hear a high-pitched tinkling noise coming from somewhere behind you, as though someone's just stepped on broken glass. Quickly turning to face the origin of the sound, you see nothing but a deserted alleyway, with not a soul in sight. Shrugging, you continue on your way.
@@ -95,7 +95,7 @@
 		#ENDIF
 	</p>
 	<p>
-		The escapee turns their head in mid-sprint, and, catching sight of you still in full pursuit, their eyes go wide, and they immediately turn back to focus on the way ahead. From what you saw in that moment, the thief has a rather feminine face with a small, pointy nose and puffy jowls, as if they were holding something in their mouth. You suspect that something to be your stolen money, and you're not sure whether to be amused by this animalistic behaviour, or disgusted by the fact that your money is now sure to be covered in saliva.
+		The escapee turns their head in mid-sprint, and, catching sight of you still in full pursuit, their eyes go wide, and they immediately turn back to focus on the way ahead. From what you saw in that moment, the thief has a rather feminine face with a small, pointy nose and puffy jowls, as if they were holding something in their mouth. You suspect that something to be your stolen money, and you're not sure whether to be amused by this animalistic behavior, or disgusted by the fact that your money is now sure to be covered in saliva.
 	</p>
 	<p>
 		With you hot on their heels, the small figure suddenly darts back into a nearby alleyway, obviously hoping to shake you off their tail. Unfortunately for this opportunistic thief, you're determined to catch them, no matter what it takes, and turn to follow them down the dark passage.
@@ -108,10 +108,10 @@
 		As you enter the alleyway, your eyes quickly settle on the unmistakable figure of the fluffy-tailed thief, desperately trying to climb a twelve-foot-high wall. As you hurry forwards, she loses her grip, and falls back onto her butt. It looks like it's a dead-end for your fluffy fugitive, and a win for you.
 	</p>
 	<p>
-		Now that you have a moment to take a good look at the thief, you see that she has a small, human body, covered in light skin. The only non-human parts that she has are a fluffy white wolf tail and two perky wolf ears perched on top of her head, which twitch backwards as they hear you approach. Just like her tail and ears, her long, messy hair is a brilliant white colour, and falls all the way down to her small, round butt, which is sure to be well-bruised from the fall she just took. As she jumps to her feet and spins around to face you, you see that she has small, B-cup breasts, and, standing at full height, she can't measure more than five-foot-two.
+		Now that you have a moment to take a good look at the thief, you see that she has a small, human body, covered in light skin. The only non-human parts that she has are a fluffy white wolf tail and two perky wolf ears perched on top of her head, which twitch backwards as they hear you approach. Just like her tail and ears, her long, messy hair is a brilliant white color, and falls all the way down to her small, round butt, which is sure to be well-bruised from the fall she just took. As she jumps to her feet and spins around to face you, you see that she has small, B-cup breasts, and, standing at full height, she can't measure more than five-foot-two.
 	</p>
 	<p>
-		The small [lumi.race] blushes as she realises that she's caught, and, you see that her cheeks are still swollen from the coin purse she's holding in her mouth. Her emerald-green eyes lock onto yours, and, from a mix of shame and anger, tears start to well up in them. You can't help but think how cute she looks, but, reminding yourself that she's a thief, you step forwards and take on a stern tone as you call out to her.
+		The small [lumi.race] blushes as she realizes that she's caught, and, you see that her cheeks are still swollen from the coin purse she's holding in her mouth. Her emerald-green eyes lock onto yours, and, from a mix of shame and anger, tears start to well up in them. You can't help but think how cute she looks, but, reminding yourself that she's a thief, you step forwards and take on a stern tone as you call out to her.
 	</p>
 	<p>
 		[pc.speech(So, the little thief's run has finally come to an end.)] You say, with hands on hips.
@@ -184,7 +184,7 @@
 		 You laugh, bending down to grab the wolf-girl's shoulders before pinning her to the ground. Shaken out of her daze by the sudden physical contact, the thief opens her eyes and looks up at you. At first, she simply seems to be surprised, but as she sees the hungry grin on your face, her eyes fill with panic. 
 	</p>
 	<p>
-		[lumi.speech(W-What are you doing? Let me go!)] She shouts as she starts to struggle against you. Tears quickly well up in her eyes as she discovers that you've totally immobilised her, and her struggles and cries quickly start to get more frantic and desperate.
+		[lumi.speech(W-What are you doing? Let me go!)] She shouts as she starts to struggle against you. Tears quickly well up in her eyes as she discovers that you've totally immobilized her, and her struggles and cries quickly start to get more frantic and desperate.
 	</p>
 	<p>
 		[pc.speech(Don't worry, I'll make this as enjoyable as possible... For me, that is!)] You sneer as you pin the little wolf-girl to the the floor. Unable to hold back any longer, you quickly drop your lips down to hers, intent on putting her whining to an end by forcing her into a kiss.
@@ -251,7 +251,7 @@
 		Her ears twitch at your question. [lumi.speech(Uh? How do you know that?)] She replies, [lumi.speech(I-I lived in a forest before, but mean fox-ladies drove me out, saying it was their territories, and they threatened me with magic, so I ran as fast as I could and I ended up here...)]
 	</p>
 	<p>
-		[pc.speech(Were you alone? You're the only person I've seen acting like this in Dominion.)] You ask, thinking about what [lumi.she] just told you. It's certainly not common to see such feral behaviour here in Dominion, and the fact that [lumi.she] doesn't know the basics about money, combined with her limited vocabulary, tells you that she must have come from an isolated, solitary part of this 'forest'.
+		[pc.speech(Were you alone? You're the only person I've seen acting like this in Dominion.)] You ask, thinking about what [lumi.she] just told you. It's certainly not common to see such feral behavior here in Dominion, and the fact that [lumi.she] doesn't know the basics about money, combined with her limited vocabulary, tells you that she must have come from an isolated, solitary part of this 'forest'.
 	</p>
 	<p>
 		[lumi.speech(Yes, I lived alone, I never really knew my parents, I just barely remember that I was small, then my body grew super fast and then I hugged my mom and left her.)] She explains.
@@ -273,13 +273,13 @@
 		Sensing that the wolf-girl has quickly grown comfortable with your presence, you reach out to give her head a gentle pat, before giving her soft ears a stroke. [pc.speech(You can keep the money.)]
 	</p>
 	<p>
-		The little wolf-girl fails to contain a small moan as the pleasure from your petting completely overwhelms her. Quickly realising what she's just done, she clasps her hands over her mouth and pretends as though nothing just happened, although the fact that her fluffy tail is pointing straight up into the air gives her feelings away. From behind her hands, the wolf-girl mutters a barely audible question. [lumi.speech(W-What can I ~mmh~ keep?)]
+		The little wolf-girl fails to contain a small moan as the pleasure from your petting completely overwhelms her. Quickly realizing what she's just done, she clasps her hands over her mouth and pretends as though nothing just happened, although the fact that her fluffy tail is pointing straight up into the air gives her feelings away. From behind her hands, the wolf-girl mutters a barely audible question. [lumi.speech(W-What can I ~mmh~ keep?)]
 	</p>
 	<p>
 		Giving her ears one last stroke, you gently boop [lumi.her] nose. [pc.speech(The money you took from me, silly. You can keep it, but I'll tell you how to use it)]
 	</p>
 	<p>
-		Her big [lumi.eyeColour] eyes light up at what you just said, and [lumi.she] gazes up at you in disbelief. [lumi.speech(Really? You... You'd really give all of this to me? Even if I... I took it from you? You're not kidding?)]
+		Her big [lumi.eyeColor] eyes light up at what you just said, and [lumi.she] gazes up at you in disbelief. [lumi.speech(Really? You... You'd really give all of this to me? Even if I... I took it from you? You're not kidding?)]
 	</p>
 	<p>
 		Playfully laughing at [lumi.her] reaction, you assure her that you mean everything you told her and that your flames are now [lumi.hers] to use how [lumi.she] pleases. You then go on to explain the concept of money and how buying and selling food and other items works. The wolf-girl often tilts [lumi.her] head in confusion as you explain these entirely new concepts to her, but you can tell that [lumi.she]'s absorbing every word, and is completely fascinated by your teachings.
@@ -289,7 +289,7 @@
 		[lumi.speech(Thank you so much! Uhm...)]
 	</p>
 	<p>
-		[pc.speech(Call me [pc.Name],)] you tell her, realising that you haven't exchanged names yet.
+		[pc.speech(Call me [pc.Name],)] you tell her, realizing that you haven't exchanged names yet.
 	</p>
 	<p>
 		[lumi.speech([pc.Name]... [pc.Name], [pc.Name]... I like your name! I'm [lumi.Name]!)] [lumi.She] says with a big smile on [lumi.her] face. Before you can reply, [lumi.she] quickly drops down onto all fours, lowering her torso to the ground and wiggling her butt in the air a few times, before suddenly pouncing forwards, [lumi.her] [lumi.arms] stretched out towards you. Caught off guard, you reflexively try to back off, but the wolf-girl's movement is way too sudden and unexpected, and you suddenly find yourself falling onto your back, with Lumi's arms wrapped tightly around you as she gives you a big hug.
@@ -351,7 +351,7 @@
 		The wolf-girl's gaze instantly drops to the ground, and tears start visibly welling in [lumi.her] eyes as she mutters, [lumi.speech(I knew it... I knew you wouldn't be nice to me either...)] 
 	</p>
 	<p>
-		The wolf-girl's voice starts trembling as she realises that you're not the friendly person she took you for. Stepping towards you, she puts your money in your palm, before quickly dashing past you, sobbing uncontrollably and disappearing into the backalleys of Dominion.
+		The wolf-girl's voice starts trembling as she realizes that you're not the friendly person she took you for. Stepping towards you, she puts your money in your palm, before quickly dashing past you, sobbing uncontrollably and disappearing into the backalleys of Dominion.
 	</p>
 	<p>
 		With that, you're left alone with your money in the alleyway. You tell yourself that it's best not to try and make friends with thieves, and, putting your money safely away, you move to continue on your way. After what just happened, you can be sure that you won't be bothered by that particular wolf-girl ever again...

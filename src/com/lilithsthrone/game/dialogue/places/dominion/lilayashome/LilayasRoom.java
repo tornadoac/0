@@ -24,7 +24,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMDoggy;
 import com.lilithsthrone.game.sex.managers.universal.SMMissionary;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -234,7 +234,7 @@ public class LilayasRoom {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
-				return new Response("Apologise", "Say sorry to Rose.", APOLOGY) {
+				return new Response("Apologize", "Say sorry to Rose.", APOLOGY) {
 					@Override
 					public void effects() {
 						Main.game.getTextEndStringBuilder().append(Main.game.getNpc(Rose.class).incrementAffection(Main.game.getPlayer(), 10));
@@ -341,7 +341,7 @@ public class LilayasRoom {
 						Main.game.getTextEndStringBuilder().append(Main.game.getNpc(Rose.class).incrementAffection(Main.game.getPlayer(), 15));
 						Main.game.getNpc(Rose.class).unequipClothingIntoVoid(Main.game.getNpc(Rose.class).getClothingInSlot(InventorySlot.GROIN), true, Main.game.getNpc(Rose.class));
 						Main.game.getNpc(Rose.class).displaceClothingForAccess(CoverableArea.PENIS);
-						Main.game.getNpc(Rose.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_PENIS_STRAPON, Colour.CLOTHING_PURPLE_DARK, false), true, Main.game.getNpc(Rose.class));
+						Main.game.getNpc(Rose.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_PENIS_STRAPON, Color.CLOTHING_PURPLE_DARK, false), true, Main.game.getNpc(Rose.class));
 					}
 				};
 					
@@ -436,7 +436,7 @@ public class LilayasRoom {
 //					public void effects() {
 //						Main.game.getNpc(Rose.class).unequipClothingIntoVoid(Main.game.getNpc(Rose.class).getClothingInSlot(InventorySlot.GROIN), true, Main.game.getNpc(Rose.class));
 //						Main.game.getNpc(Rose.class).displaceClothingForAccess(CoverableArea.PENIS);
-//						Main.game.getNpc(Rose.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_PENIS_STRAPON, Colour.CLOTHING_PURPLE_DARK, false), true, Main.game.getNpc(Rose.class));
+//						Main.game.getNpc(Rose.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_PENIS_STRAPON, Color.CLOTHING_PURPLE_DARK, false), true, Main.game.getNpc(Rose.class));
 //					}
 //				};
 //					

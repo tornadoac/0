@@ -19,7 +19,7 @@ import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -32,9 +32,9 @@ public abstract class AbstractItemType extends AbstractCoreType {
 
 	private String determiner, name, namePlural, description, pathName;
 	private boolean plural;
-	private Colour colourPrimary;
-	private Colour colourSecondary;
-	private Colour colourTertiary;
+	private Color colorPrimary;
+	private Color colorSecondary;
+	private Color colorTertiary;
 	private int value;
 	private Rarity rarity;
 	protected String SVGString;
@@ -50,9 +50,9 @@ public abstract class AbstractItemType extends AbstractCoreType {
 			String namePlural,
 			String description,
 			String pathName,
-			Colour colourPrimary,
-			Colour colourSecondary,
-			Colour colourTertiary,
+			Color colorPrimary,
+			Color colorSecondary,
+			Color colorTertiary,
 			Rarity rarity,
 			TFEssence relatedEssence,
 			List<ItemEffect> effects,
@@ -81,20 +81,20 @@ public abstract class AbstractItemType extends AbstractCoreType {
 			this.effects=effects;
 		}
 
-		if (colourPrimary == null) {
-			this.colourPrimary = Colour.CLOTHING_BLACK;
+		if (colorPrimary == null) {
+			this.colorPrimary = Color.CLOTHING_BLACK;
 		} else {
-			this.colourPrimary = colourPrimary;
+			this.colorPrimary = colorPrimary;
 		}
-		if (colourSecondary == null) {
-			this.colourSecondary = Colour.CLOTHING_BLACK;
+		if (colorSecondary == null) {
+			this.colorSecondary = Color.CLOTHING_BLACK;
 		} else {
-			this.colourSecondary = colourSecondary;
+			this.colorSecondary = colorSecondary;
 		}
-		if (colourTertiary == null) {
-			this.colourTertiary = Colour.CLOTHING_BLACK;
+		if (colorTertiary == null) {
+			this.colorTertiary = Color.CLOTHING_BLACK;
 		} else {
-			this.colourTertiary = colourTertiary;
+			this.colorTertiary = colorTertiary;
 		}
 
 		// Set this item's file image:
@@ -105,7 +105,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 			}
 			String s = Util.inputStreamToString(is);
 
-			SVGString = colourReplacement(this.getColourPrimary(), this.getColourSecondary(), this.getColourTertiary(), s);
+			SVGString = colorReplacement(this.getColorPrimary(), this.getColorSecondary(), this.getColorTertiary(), s);
 
 			is.close();
 
@@ -114,8 +114,8 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		}
 	}
 
-	private String colourReplacement(Colour colour, Colour colourSecondary, Colour colourTertiary, String inputString) {
-		return SvgUtil.colourReplacement(Integer.toString(this.hashCode()), colour, colourSecondary, colourTertiary, inputString);
+	private String colorReplacement(Color color, Color colorSecondary, Color colorTertiary, String inputString) {
+		return SvgUtil.colorReplacement(Integer.toString(this.hashCode()), color, colorSecondary, colorTertiary, inputString);
 	}
 
 	@Override
@@ -151,12 +151,12 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		return new AbstractItem(itemType) {};
 	}
 
-	public static AbstractItem generateFilledCondom(Colour colour, GameCharacter character, FluidCum cum, int millilitres) {
-		return new AbstractFilledCondom(ItemType.CONDOM_USED, colour, character, cum, millilitres) {};
+	public static AbstractItem generateFilledCondom(Color color, GameCharacter character, FluidCum cum, int millilitres) {
+		return new AbstractFilledCondom(ItemType.CONDOM_USED, color, character, cum, millilitres) {};
 	}
 
-	public static AbstractItem generateFilledBreastPump(Colour colour, GameCharacter character, FluidMilk milk, int quantity) {
-		return new AbstractFilledBreastPump(ItemType.MOO_MILKER_FULL, colour, character, milk, quantity) {};
+	public static AbstractItem generateFilledBreastPump(Color color, GameCharacter character, FluidMilk milk, int quantity) {
+		return new AbstractFilledBreastPump(ItemType.MOO_MILKER_FULL, color, character, milk, quantity) {};
 	}
 
 	public String getId() {
@@ -205,7 +205,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 
 	public String getName(boolean displayName) {
 		if(displayName) {
-			return Util.capitaliseSentence((determiner!=null?determiner:"") + " <span style='color: " + rarity.getColour().toWebHexString() + ";'>" + (this.isPlural()?namePlural:name) + "</span>");
+			return Util.capitalizeSentence((determiner!=null?determiner:"") + " <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + (this.isPlural()?namePlural:name) + "</span>");
 		} else {
 			return (this.isPlural()?namePlural:name);
 		}
@@ -213,7 +213,7 @@ public abstract class AbstractItemType extends AbstractCoreType {
 
 	public String getNamePlural(boolean displayName) {
 		if(displayName) {
-			return Util.capitaliseSentence((determiner!=null?determiner:"") + " <span style='color: " + rarity.getColour().toWebHexString() + ";'>" + namePlural + "</span>");
+			return Util.capitalizeSentence((determiner!=null?determiner:"") + " <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + namePlural + "</span>");
 		} else {
 			return namePlural;
 		}
@@ -223,9 +223,9 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		return description;
 	}
 
-	public String getDisplayName(boolean withRarityColour) {
-		return Util.capitaliseSentence((determiner!=null?determiner:"") + (withRarityColour
-				? (" <span style='color: " + rarity.getColour().toWebHexString() + ";'>" + (this.isPlural()?getNamePlural(false):getName(false)) + "</span>")
+	public String getDisplayName(boolean withRarityColor) {
+		return Util.capitalizeSentence((determiner!=null?determiner:"") + (withRarityColor
+				? (" <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + (this.isPlural()?getNamePlural(false):getName(false)) + "</span>")
 				: (this.isPlural()?getNamePlural(false):getName(false))));
 	}
 
@@ -233,16 +233,16 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		return pathName;
 	}
 
-	public Colour getColourPrimary() {
-		return colourPrimary;
+	public Color getColorPrimary() {
+		return colorPrimary;
 	}
 
-	public Colour getColourSecondary() {
-		return colourSecondary;
+	public Color getColorSecondary() {
+		return colorSecondary;
 	}
 
-	public Colour getColourTertiary() {
-		return colourTertiary;
+	public Color getColorTertiary() {
+		return colorTertiary;
 	}
 
 	public int getValue() {
@@ -307,21 +307,21 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		return "This item cannot be used in this way!";
 	}
 
-	public String getDyeBrushEffects(AbstractClothing clothing, Colour colour) {
+	public String getDyeBrushEffects(AbstractClothing clothing, Color color) {
 		return "<p>"
 					+ "As you take hold of the Dye-brush, you see the purple glow around the tip growing in strength."
-					+ " The closer you move it to your " + clothing.getName() + ", the brighter the glow becomes, until suddenly, images of different colours start flashing through your mind."
+					+ " The closer you move it to your " + clothing.getName() + ", the brighter the glow becomes, until suddenly, images of different colors start flashing through your mind."
 					+ " As you touch the bristles to the " + clothing.getName() + "'s surface, the Dye-brush instantly evaporates!"
-					+ " You see that the arcane enchantment has dyed the " + clothing.getName() + " " + colour.getName() + "."
+					+ " You see that the arcane enchantment has dyed the " + clothing.getName() + " " + color.getName() + "."
 				+ "</p>";
 	}
 
-	public String getDyeBrushEffects(AbstractWeapon weapon, Colour colour) {
+	public String getDyeBrushEffects(AbstractWeapon weapon, Color color) {
 		return "<p>"
 					+ "As you take hold of the Dye-brush, you see the purple glow around the tip growing in strength."
-					+ " The closer you move it to your " + weapon.getName() + ", the brighter the glow becomes, until suddenly, images of different colours start flashing through your mind."
+					+ " The closer you move it to your " + weapon.getName() + ", the brighter the glow becomes, until suddenly, images of different colors start flashing through your mind."
 					+ " As you touch the bristles to the " + weapon.getName() + "'s surface, the Dye-brush instantly evaporates!"
-					+ " You see that the arcane enchantment has dyed the " + weapon.getName() + " " + colour.getName() + "."
+					+ " You see that the arcane enchantment has dyed the " + weapon.getName() + " " + color.getName() + "."
 				+ "</p>";
 	}
 

@@ -23,7 +23,7 @@ import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -47,7 +47,7 @@ public class EnchantingUtils {
 		craftedItem.setItemEffects(effectsToBeAdded);
 		
 		craftedItem.setName(EnchantmentDialogue.getOutputName());
-		craftedItem.setColour(ingredient.getEnchantmentEffect().getColour());
+		craftedItem.setColor(ingredient.getEnchantmentEffect().getColor());
 		craftedItem.setSVGString(getSVGString(ingredient, effectsToBeAdded));
 		
 		return craftedItem;
@@ -60,15 +60,15 @@ public class EnchantingUtils {
 		
 		craftedClothing = AbstractClothingType.generateClothing(
 				(AbstractClothingType) ingredient.getEnchantmentItemType(effects),
-				((AbstractClothing)ingredient).getColour(),
-				((AbstractClothing)ingredient).getSecondaryColour(),
-				((AbstractClothing)ingredient).getTertiaryColour(),
+				((AbstractClothing)ingredient).getColor(),
+				((AbstractClothing)ingredient).getSecondaryColor(),
+				((AbstractClothing)ingredient).getTertiaryColor(),
 				effectsToBeAdded);
 		
 		craftedClothing.setPattern(((AbstractClothing)ingredient).getPattern());
-		craftedClothing.setPatternColour(((AbstractClothing)ingredient).getPatternColour());
-		craftedClothing.setPatternSecondaryColour(((AbstractClothing)ingredient).getPatternSecondaryColour());
-		craftedClothing.setPatternTertiaryColour(((AbstractClothing)ingredient).getPatternTertiaryColour());
+		craftedClothing.setPatternColor(((AbstractClothing)ingredient).getPatternColor());
+		craftedClothing.setPatternSecondaryColor(((AbstractClothing)ingredient).getPatternSecondaryColor());
+		craftedClothing.setPatternTertiaryColor(((AbstractClothing)ingredient).getPatternTertiaryColor());
 		
 		craftedClothing.setName(EnchantmentDialogue.getOutputName());
 		
@@ -93,8 +93,8 @@ public class EnchantingUtils {
 		craftedWeapon = AbstractWeaponType.generateWeapon(
 				(AbstractWeaponType) ingredient.getEnchantmentItemType(effects),
 				((AbstractWeapon) ingredient).getDamageType(),
-				((AbstractWeapon)ingredient).getPrimaryColour(),
-				((AbstractWeapon)ingredient).getSecondaryColour());
+				((AbstractWeapon)ingredient).getPrimaryColor(),
+				((AbstractWeapon)ingredient).getSecondaryColor());
 		
 		craftedWeapon.setEffects(effectsToBeAdded);
 		
@@ -108,7 +108,7 @@ public class EnchantingUtils {
 		if(ingredient.getEnchantmentItemType(effects) instanceof AbstractClothingType
 				|| ingredient.getEnchantmentItemType(effects) instanceof AbstractTattooType
 				|| ingredient.getEnchantmentItemType(effects) instanceof AbstractWeaponType) {
-			return Util.capitaliseSentence(ingredient.getName());
+			return Util.capitalizeSentence(ingredient.getName());
 		}
 		
 		if(((AbstractItem)ingredient).getItemType().getId().equals(ItemType.ORIENTATION_HYPNO_WATCH.getId())) {
@@ -139,7 +139,7 @@ public class EnchantingUtils {
 			}
 		}
 		
-		String finalPotionName = ((potionDescriptor==null || potionDescriptor.isEmpty())?"":Util.capitaliseSentence(potionDescriptor)+" ") + potionName;
+		String finalPotionName = ((potionDescriptor==null || potionDescriptor.isEmpty())?"":Util.capitalizeSentence(potionDescriptor)+" ") + potionName;
 		
 		for(ItemEffect ie : effects) {
 			if(ie.getPrimaryModifier() != null && ie.getPrimaryModifier() != TFModifier.NONE) {
@@ -164,7 +164,7 @@ public class EnchantingUtils {
 			}
 		}
 		
-		return Util.capitaliseSentence(finalPotionName);
+		return Util.capitalizeSentence(finalPotionName);
 	}
 	
 	private static Set<TFModifier> freePrimaryModifiers = Util.newHashSetOfValues(TFModifier.TF_MOD_WETNESS, TFModifier.TF_MILK, TFModifier.TF_MILK_CROTCH, TFModifier.TF_CUM, TFModifier.TF_GIRLCUM);
@@ -261,27 +261,27 @@ public class EnchantingUtils {
 		
 		StringBuilder SVGImageSB = new StringBuilder();
 		
-		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getRefinedBackgroundMap().get(ingredient.getEnchantmentEffect().getColour())+"</div>");
+		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getRefinedBackgroundMap().get(ingredient.getEnchantmentEffect().getColor())+"</div>");
 		
 		String s = ((AbstractItemType) ingredient.getEnchantmentItemType(effects)).getSVGString();
 		
-		Colour colour = Colour.CLOTHING_BLUE_LIGHT;
+		Color color = Color.CLOTHING_BLUE_LIGHT;
 		
 		for(ItemEffect ie : effects) {
 			if(ie.getPrimaryModifier() != null && ie.getPrimaryModifier() != TFModifier.NONE) {
-				colour = ie.getPrimaryModifier().getColour();
+				color = ie.getPrimaryModifier().getColor();
 				
 				break;
 			}
 		}
 
-		s = SvgUtil.colourReplacement(((AbstractItem)ingredient).getItemType().getId(), colour, null, null, s);
+		s = SvgUtil.colorReplacement(((AbstractItem)ingredient).getItemType().getId(), color, null, null, s);
 		
 		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+s+"</div>");
 		
 		for(ItemEffect ie : effects) {
 			if(ie.getSecondaryModifier() != null && ie.getSecondaryModifier() != TFModifier.NONE) {
-				SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getRefinedSwirlsMap().get(ie.getSecondaryModifier().getColour())+"</div>");
+				SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getRefinedSwirlsMap().get(ie.getSecondaryModifier().getColor())+"</div>");
 				
 				break;
 			}
@@ -290,7 +290,7 @@ public class EnchantingUtils {
 		return SVGImageSB.toString();
 	}
 	
-	public static String getImportedSVGString(AbstractCoreItem item, Colour importedColour, List<ItemEffect> effects) {
+	public static String getImportedSVGString(AbstractCoreItem item, Color importedColor, List<ItemEffect> effects) {
 
 		if(((AbstractItem)item).getItemType().getId().equals(ItemType.ORIENTATION_HYPNO_WATCH.getId())) {
 			if(effects.isEmpty() || effects.get(0).getPrimaryModifier()==TFModifier.REMOVAL) {
@@ -310,35 +310,35 @@ public class EnchantingUtils {
 		
 		StringBuilder SVGImageSB = new StringBuilder();
 		
-		String importedColourString = SVGImages.SVG_IMAGE_PROVIDER.getRefinedBackgroundMap().get(importedColour);
-		if(importedColourString==null || importedColourString.isEmpty() || importedColourString.equals("null")) {
-			importedColourString = SVGImages.SVG_IMAGE_PROVIDER.getRefinedBackgroundMap().get(effects.get(0).getItemEffectType().getColour());
+		String importedColorString = SVGImages.SVG_IMAGE_PROVIDER.getRefinedBackgroundMap().get(importedColor);
+		if(importedColorString==null || importedColorString.isEmpty() || importedColorString.equals("null")) {
+			importedColorString = SVGImages.SVG_IMAGE_PROVIDER.getRefinedBackgroundMap().get(effects.get(0).getItemEffectType().getColor());
 		}
 		
-		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+importedColourString+"</div>");
+		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+importedColorString+"</div>");
 		
 		String s = item.getSVGString();
 		
-		Colour colour = Colour.CLOTHING_BLUE_LIGHT;
+		Color color = Color.CLOTHING_BLUE_LIGHT;
 		
 		for(ItemEffect ie : effects) {
 			if(ie.getPrimaryModifier() != null && ie.getPrimaryModifier() != TFModifier.NONE) {
-				colour = ie.getPrimaryModifier().getColour();
+				color = ie.getPrimaryModifier().getColor();
 				
 				break;
 			}
 		}
 		
-		s = s.replaceAll("#ff2a2a", colour.getShades()[0]);
-		s = s.replaceAll("#ff5555|#f55", colour.getShades()[1]);
-		s = s.replaceAll("#ff8080", colour.getShades()[2]);
-		s = s.replaceAll("#ffaaaa|#faa", colour.getShades()[3]);
-		s = s.replaceAll("#ffd5d5", colour.getShades()[4]);
+		s = s.replaceAll("#ff2a2a", color.getShades()[0]);
+		s = s.replaceAll("#ff5555|#f55", color.getShades()[1]);
+		s = s.replaceAll("#ff8080", color.getShades()[2]);
+		s = s.replaceAll("#ffaaaa|#faa", color.getShades()[3]);
+		s = s.replaceAll("#ffd5d5", color.getShades()[4]);
 		SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+s+"</div>");
 		
 		for(ItemEffect ie : effects) {
 			if(ie.getSecondaryModifier() != null && ie.getSecondaryModifier() != TFModifier.NONE) {
-				SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getRefinedSwirlsMap().get(ie.getSecondaryModifier().getColour())+"</div>");
+				SVGImageSB.append("<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getRefinedSwirlsMap().get(ie.getSecondaryModifier().getColor())+"</div>");
 				
 				break;
 			}

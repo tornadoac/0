@@ -34,17 +34,17 @@
 		
 		<incompatibleSlots/>
 		
-		<primaryColours>
-			<colour>CLOTHING_TAN</colour>
-			<colour>CLOTHING_BROWN</colour>
-			<colour>CLOTHING_GREY</colour>
-			<colour>CLOTHING_BLACK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_WHITE"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours values="ALL_METAL"/>
-		<tertiaryColoursDye/>
+		<primaryColors>
+			<color>CLOTHING_TAN</color>
+			<color>CLOTHING_BROWN</color>
+			<color>CLOTHING_GREY</color>
+			<color>CLOTHING_BLACK</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_WHITE"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors values="ALL_METAL"/>
+		<tertiaryColorsDye/>
 	
 		<itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 			<tag>SOLD_BY_FINCH</tag>

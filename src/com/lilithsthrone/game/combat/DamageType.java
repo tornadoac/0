@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.combat;
 
 import com.lilithsthrone.game.character.attributes.Attribute;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -11,57 +11,57 @@ import com.lilithsthrone.utils.Colour;
 public enum DamageType {
 
 	PHYSICAL("physical",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			"forceful",
 			Attribute.RESISTANCE_PHYSICAL,
 			Attribute.DAMAGE_PHYSICAL,
 			SpellSchool.EARTH),
 	
 	ICE("ice",
-			Colour.DAMAGE_TYPE_COLD,
+			Color.DAMAGE_TYPE_COLD,
 			"freezing",
 			Attribute.RESISTANCE_ICE,
 			Attribute.DAMAGE_ICE,
 			SpellSchool.WATER),
 	
 	FIRE("fire",
-			Colour.DAMAGE_TYPE_FIRE,
+			Color.DAMAGE_TYPE_FIRE,
 			"burning",
 			Attribute.RESISTANCE_FIRE,
 			Attribute.DAMAGE_FIRE,
 			SpellSchool.FIRE),
 	
 	POISON("poison",
-			Colour.DAMAGE_TYPE_POISON,
+			Color.DAMAGE_TYPE_POISON,
 			"poisoned",
 			Attribute.RESISTANCE_POISON,
 			Attribute.DAMAGE_POISON,
 			SpellSchool.AIR),
 
 	LUST("lust",
-			Colour.DAMAGE_TYPE_LUST,
+			Color.DAMAGE_TYPE_LUST,
 			"arousing",
 			Attribute.RESISTANCE_LUST,
 			Attribute.DAMAGE_LUST,
 			SpellSchool.ARCANE),
 	
 	MISC("generic",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			"standard",
 			Attribute.RESISTANCE_PHYSICAL,
 			Attribute.DAMAGE_PHYSICAL,
 			SpellSchool.ARCANE);
 
 	private String name;
-	private Colour colour;
+	private Color color;
 	private String weaponDescriptor;
 	private Attribute resistAttribute;
 	private Attribute multiplierAttribute;
 	private SpellSchool spellSchool;
 
-	private DamageType(String name, Colour colour, String weaponDescriptor, Attribute resistAttribute, Attribute multiplierAttribute, SpellSchool spellSchool) {
+	private DamageType(String name, Color color, String weaponDescriptor, Attribute resistAttribute, Attribute multiplierAttribute, SpellSchool spellSchool) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.weaponDescriptor = weaponDescriptor;
 		this.resistAttribute = resistAttribute;
 		this.multiplierAttribute = multiplierAttribute;
@@ -72,8 +72,8 @@ public enum DamageType {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public String getWeaponDescriptor() {

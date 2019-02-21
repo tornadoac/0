@@ -38,7 +38,7 @@ import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -63,7 +63,7 @@ public class DominionSuccubusAttacker extends NPC {
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), true);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			addFetish(Fetish.FETISH_DEFLOWERING);
 			addFetish(Fetish.FETISH_DOMINANT);
 			CharacterUtils.addFetishes(this);
@@ -260,7 +260,7 @@ public class DominionSuccubusAttacker extends NPC {
 									+ "</p>"
 									:"")
 							+"<p>"
-								+ "Glancing down, you see a small trickle of blood flowing out of your now-broken-in pussy, and you realise that your hymen has been completely torn."
+								+ "Glancing down, you see a small trickle of blood flowing out of your now-broken-in pussy, and you realize that your hymen has been completely torn."
 								+ " As you let out a desperate sigh, you hear the [npc.race] giggling at your reaction."
 							+ "</p>"
 							+"<p>"
@@ -309,7 +309,7 @@ public class DominionSuccubusAttacker extends NPC {
 							+ "</p>"
 							:"")
 					+"<p>"
-						+ "Letting out a sigh as you realise that your hymen is now completely torn, you look up at the [npc.race], and see a wild, crazed look in [npc.her] eyes."
+						+ "Letting out a sigh as you realize that your hymen is now completely torn, you look up at the [npc.race], and see a wild, crazed look in [npc.her] eyes."
 						+ " Another little painful jolt shoots up between your legs as [npc.she] drives [npc.her] [npc.cock+] even deeper into your [pc.pussy+]."
 						+ " Leaning into you, [npc.she] pulls you into a sloppy kiss, and with a final, violent thrust into your groin, you feel the base of [npc.her] cock grind up against your [pc.labia+]."
 					+ "</p>"
@@ -348,10 +348,10 @@ public class DominionSuccubusAttacker extends NPC {
 		
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN))
 			StringBuilderSB.append("<p style='text-align:center;'>"
-					+ "<b style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
+					+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
 				+ "</p>"
 				+ "<p>"
-					+ "As the [npc.race] carries on pounding away between your legs, the sudden realisation of what's just happened hits you like a sledgehammer."
+					+ "As the [npc.race] carries on pounding away between your legs, the sudden realization of what's just happened hits you like a sledgehammer."
 				+ "</p>"
 				+ "<p style='text-align:center;'>"
 					+ UtilText.parsePlayerThought("I-I've lost my virginity?!<br/>"
@@ -369,7 +369,7 @@ public class DominionSuccubusAttacker extends NPC {
 				+ "<p>"
 					+ "You're vaguely aware of the [npc.race]'s taunts fading away as [npc.she] starts to focus [npc.her] concentration on fucking you."
 					+ " With a desperate moan, you start bucking your hips back against [npc.herHim], resigning yourself to the fact that now you're nothing more than a"
-					+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColour().toWebHexString()+";'>broken virgin</b>..."
+					+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 				+ "</p>");
 		
 		return UtilText.parse(Sex.getActivePartner(),

@@ -62,7 +62,7 @@
 
 	why do hung PCs always get detected by NPCs, but hung NPCs are always a surprise?
 
-	NPCs with the pure virgin perk should be eager for sex during an arcane storm, but that behaviour (where they willingly lose their virginity) is unintentional.
+	NPCs with the pure virgin perk should be eager for sex during an arcane storm, but that behavior (where they willingly lose their virginity) is unintentional.
 	 I'll make them eager for anal/oral, but block them from actions that would make them lose their virginity, thanks for the report!
 
 	The anal action in dominant back-to-wall was removed due to the way I reworked the engine, but I have plans to add in a sub-position called 'Back-to-wall (anal)' that will re-enable that action.
@@ -73,7 +73,7 @@
 	"You now have hair."
 
 	An NPC wearing both assless chaps and backless panties doesn't count as having exposed their ass even if you're in the middle of fucking it. As long as you haven't shifted aside their panties to see their pussy/ cock.
-		(In-sex behaviour)
+		(In-sex behavior)
 
 	The request options may have been affected by this new sex pace update, so they might not be working properly at the moment.
 		I'll make sure that they're working for Friday's release! (I'm probably going to make it so that only sadistic NPCs will refuse requests, and they'll make it quite clear why they're refusing you.)
@@ -126,7 +126,7 @@
 	Spell cost reduction does not affect the cost of the main hand weapon's associated attack spell, but all other spell costs are reduced normally.
 		Correction: It's the fireball spell itself that does not conform to spell cost reduction.
 
-	(Possibly referring to brax) -> NPC also refuse feminisation potion still, despite being available and noted as usable in sex, they never work
+	(Possibly referring to brax) -> NPC also refuse feminization potion still, despite being available and noted as usable in sex, they never work
 
 	Futa enemy -> im stroking her penis -> she says: "go on keep using your fingers"
 
@@ -177,13 +177,13 @@
 	"You lost your anal virginity to ." even though no anal sex yet
 
 	Hard to replicate:
-	I was grinding for Exp from a level 2 enemy, and after I levelled up to lv4 I went into the house to sleep.
+	I was grinding for Exp from a level 2 enemy, and after I leveled up to lv4 I went into the house to sleep.
 	Afterwards I was unable to click on anything above the bottom row of buttons.
 	For example the Load, Overwrite, Deletes buttons when you click on the Save/load bottom button.
 	Or anything in the inventory?
 	I'm seriously unsure as to what caused this bug.
 	It could even be because I spammed the 1/6/9 keys to finish fights faster.
-	Or it could have been the fact after I levelled up I accidentally pressed the explore button again which activated a fight.
+	Or it could have been the fact after I leveled up I accidentally pressed the explore button again which activated a fight.
 
 	Not quite bugs
 	If you ask Lilaya about 'tests', then you cannot do any other dialogue options (such as asking about essences) until you leave and return.

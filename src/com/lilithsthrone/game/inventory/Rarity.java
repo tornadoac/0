@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.inventory;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -9,28 +9,28 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum Rarity {
 
-	COMMON("common", Colour.RARITY_COMMON),
-	UNCOMMON("uncommon", Colour.RARITY_UNCOMMON),
-	RARE("rare", Colour.RARITY_RARE),
-	EPIC("epic", Colour.RARITY_EPIC),
-	LEGENDARY("legendary", Colour.RARITY_LEGENDARY),
-	QUEST("quest", Colour.RARITY_QUEST),
+	COMMON("common", Color.RARITY_COMMON),
+	UNCOMMON("uncommon", Color.RARITY_UNCOMMON),
+	RARE("rare", Color.RARITY_RARE),
+	EPIC("epic", Color.RARITY_EPIC),
+	LEGENDARY("legendary", Color.RARITY_LEGENDARY),
+	QUEST("quest", Color.RARITY_QUEST),
 	
-	JINXED("jinxed", Colour.RARITY_JINXED);
+	JINXED("jinxed", Color.RARITY_JINXED);
 
 	private String name;
-	private Colour colour;
+	private Color color;
 
-	private Rarity(String name, Colour colour) {
+	private Rarity(String name, Color color) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

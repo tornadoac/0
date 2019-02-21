@@ -13,7 +13,7 @@ The "Orifice stats" is:
 	Taste
 	Smell
 
-DONE Colour
+DONE Color
 	fluorescent
 	striped, spotted, mottled
 
@@ -28,8 +28,8 @@ DONE Ass
 	Hipsize
 	[Asshole]
 		Orifice stats
-		[Interior colour]
-		[Rim colour]
+		[Interior color]
+		[Rim color]
 		[Puffyness]
 		[Internal tentacles]
 		[Internally ribbed]
@@ -54,8 +54,8 @@ DONE Breast
 		[Areolae shape]
 		[Nipple length]
 		Orifice stats
-		[Interior colour]
-		[Areolae colour]
+		[Interior color]
+		[Areolae color]
 		[Puffyness]
 		[Internal tentacles]
 		[Internally ribbed]
@@ -67,8 +67,8 @@ DONE Ear
 DONE Eye
 	[Shape e.g. enchanted to look like little pink hearts]
 	[count]
-	[Iris colour]
-	[Pupil colour]
+	[Iris color]
+	[Pupil color]
 
 DONE Face
 	Orifice stats
@@ -76,11 +76,11 @@ DONE Face
 	Pierced lips
 	[Lip size]
 	[Makeup level]
-	[Makeup colour]
+	[Makeup color]
 	[Beard]
 
 DONE Hair
-	Colour
+	Color
 	Length
 	Style
 
@@ -106,7 +106,7 @@ DONE Penis
 	[Barbed]
 	[Prehensile]
 	[ovipositor]
-	[colour]
+	[color]
 	[Fluid cum] (Type derived from penis type)
 	[Fluid urine] (Type derived from penis type)
 	Testicle size
@@ -122,9 +122,9 @@ DONE Penis
 	Same as first
 
 DONE Skin
-	[Primary colour]
-	[Secondary colour]
-	[Colour pattern]
+	[Primary color]
+	[Secondary color]
+	[Color pattern]
 
 DONE Tail
 	[ovipositor]
@@ -143,14 +143,14 @@ DONE Vagina
 	[Girl cum] (Type derived from vagina type)
 	[Fluid urine] (Type derived from vagina type)
 	Clit size
-	[Clit colour]
+	[Clit color]
 	Orifice stats
 		[Puffyness]
 		[Internal tentacles]
 		[Internally ribbed]
 		[Expert muscle control]
-		[Interior colour]
-		[Labia colour]
+		[Interior color]
+		[Labia color]
 
 DONE Wing
 	[allows flight]

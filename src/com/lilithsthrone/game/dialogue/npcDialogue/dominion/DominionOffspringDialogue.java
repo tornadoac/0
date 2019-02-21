@@ -29,7 +29,7 @@ import com.lilithsthrone.game.occupantManagement.OccupancyUtil;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.Cell;
 import com.lilithsthrone.world.WorldType;
@@ -71,12 +71,12 @@ public class DominionOffspringDialogue {
 						"<p>"
 							+ "In stark contrast to Dominion's bustling, ever-busy streets, the city's back alleys are all but completely deserted."
 							+ " Most likely due to their deserved reputation as being the dangerous home to muggers and rapists,"
-								+ " you find that most of your time travelling through these twisting, labyrinthine passageways is spent in complete isolation."
+								+ " you find that most of your time traveling through these twisting, labyrinthine passageways is spent in complete isolation."
 							+ " As you turn the next corner, however, your solitary journey is interrupted, as up ahead you see "
-								+ "<b style='color:"+Femininity.valueOf(offspring().getFemininityValue()).getColour().toWebHexString()+";'>"
+								+ "<b style='color:"+Femininity.valueOf(offspring().getFemininityValue()).getColor().toWebHexString()+";'>"
 								+ Femininity.getFemininityName(offspring().getFemininityValue(), true)+"</b>"
-								+ " <b style='color:"+offspring().getRaceStage().getColour().toWebHexString()+";'>" +offspring().getRaceStage().getName()+"</b>"
-								+ " <b style='color:"+offspring().getRace().getColour().toWebHexString()+";'>[npc.race]</b> leaning back against one of the alley's walls."
+								+ " <b style='color:"+offspring().getRaceStage().getColor().toWebHexString()+";'>" +offspring().getRaceStage().getName()+"</b>"
+								+ " <b style='color:"+offspring().getRace().getColor().toWebHexString()+";'>[npc.race]</b> leaning back against one of the alley's walls."
 						+ "</p>");
 				
 				if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) { // Prostitute introduction:
@@ -100,21 +100,21 @@ public class DominionOffspringDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Your gaze is drawn to [npc.her] [npc.hands] as [npc.she] sensually runs [npc.her] [npc.fingers+] up the length of [npc.her] body, before stopping at [npc.her] chest to push [npc.her] [npc.breasts+] together."
-								+ " Looking up to [npc.her] face as you prepare to give [npc.herHim] your answer, your planned response leaves your mouth as a surprised gasp, as you find yourself instantly recognising the person before you."
+								+ " Looking up to [npc.her] face as you prepare to give [npc.herHim] your answer, your planned response leaves your mouth as a surprised gasp, as you find yourself instantly recognizing the person before you."
 							+ "</p>");
 					
 					if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 						UtilText.nodeContentSB.append(
 								"<p>"
 									+ "[npc.speech(Yeah, I know, right?! It's such a bargain that you don't know what to say! So, just hand those fifty flames over and we can get right to the fuckin-)]"
-									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColour] [npc.eyes] finally come to rest on your [pc.face]."
+									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColor] [npc.eyes] finally come to rest on your [pc.face]."
 									+ " [npc.speech(No way... [npc.PcName]?!)]"
 								+ "</p>");
 					} else {
 						UtilText.nodeContentSB.append(
 								"<p>"
 									+ "[npc.speech(Don't act so surprised! Just hand over the fifty flames and we can start alre-)]"
-									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColour] [npc.eyes] finally come to rest on your [pc.face]."
+									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColor] [npc.eyes] finally come to rest on your [pc.face]."
 									+ " [npc.speech(N-No way... [npc.PcName]?!)]"
 								+ "</p>");
 					}
@@ -122,7 +122,7 @@ public class DominionOffspringDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Whether by some natural instinct, or perhaps some curious quirk of the arcane, you're instantly left with no doubt in your mind that the [npc.woman] in front of you is your [npc.daughter]."
-								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognised you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
+								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognized you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
 							+ "</p>");
 					
 				} else { // Mugger introduction:
@@ -147,22 +147,22 @@ public class DominionOffspringDialogue {
 					
 					UtilText.nodeContentSB.append(
 							"<p>"
-								+ "You let out an irritated sigh as you realise that this amateur is referring to [npc.herself] in the third person, as if that's meant to make them sound more important."
-								+ " Looking up to [npc.her] face as you prepare to give [npc.herHim] a piece of your mind, your planned response leaves your mouth as a surprised gasp, as you find yourself instantly recognising the person before you."
+								+ "You let out an irritated sigh as you realize that this amateur is referring to [npc.herself] in the third person, as if that's meant to make them sound more important."
+								+ " Looking up to [npc.her] face as you prepare to give [npc.herHim] a piece of your mind, your planned response leaves your mouth as a surprised gasp, as you find yourself instantly recognizing the person before you."
 							+ "</p>");
 					
 					if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 						UtilText.nodeContentSB.append(
 								"<p>"
 									+ "[npc.speech(Yeah, that's the reaction I'm lookin' for! Poor, scared little thing, gasping at the thought of what I'm gonna do to you! Perhaps after I've got your flames, I'll give you a good fuckin-)]"
-									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColour] [npc.eyes] finally come to rest on your [pc.face]."
+									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColor] [npc.eyes] finally come to rest on your [pc.face]."
 									+ " [npc.speech(No way... [npc.PcName]?!)]"
 								+ "</p>");
 					} else {
 						UtilText.nodeContentSB.append(
 								"<p>"
 									+ "[npc.speech(Gasping and acting all innocent isn't gonna make me let you go! Just hand over your flames, and maybe I'll decide not to fuck yo-)]"
-									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColour] [npc.eyes] finally come to rest on your [pc.face]."
+									+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColor] [npc.eyes] finally come to rest on your [pc.face]."
 									+ " [npc.speech(N-No way... [npc.PcName]?!)]"
 								+ "</p>");
 					}
@@ -170,7 +170,7 @@ public class DominionOffspringDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Whether by some natural instinct, or perhaps some curious quirk of the arcane, you're instantly left with no doubt in your mind that the [npc.race] in front of you is your [npc.daughter]."
-								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognised you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
+								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognized you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
 							+ "</p>");
 				}
 				
@@ -200,19 +200,19 @@ public class DominionOffspringDialogue {
 					case NEGATIVE_FIVE_LOATHE: case NEGATIVE_FOUR_HATE:
 						if(offspring().getPersonality().get(PersonalityTrait.AGREEABLENESS) == PersonalityWeight.LOW) {
 							UtilText.nodeContentSB.append("Hearing your approach, [npc.name] turns towards you, and in a furious tone, [npc.she] shouts at you,"
-															+" [npc.speech(What the fuck do you want?! If you're not here to apologise, then turn around and fuck off!)]");
+															+" [npc.speech(What the fuck do you want?! If you're not here to apologize, then turn around and fuck off!)]");
 						} else {
 							UtilText.nodeContentSB.append("Hearing your approach, [npc.name] turns towards you, and with an angry scowl, [npc.she] cries out,"
-															+" [npc.speech(What the hell do you want?! Unless you're here to apologise, I'm not interested in anything you have to say!)]");
+															+" [npc.speech(What the hell do you want?! Unless you're here to apologize, I'm not interested in anything you have to say!)]");
 						}
 						break;
 					case NEGATIVE_THREE_STRONG_DISLIKE: case NEGATIVE_TWO_DISLIKE:
 						if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 							UtilText.nodeContentSB.append("Hearing your approach, [npc.name] turns towards you, and in an angry tone, [npc.she] scowls at you,"
-															+" [npc.speech(I'm not talking to you! If you're not here to apologise, you may as well turn right around and get out of here!)]");
+															+" [npc.speech(I'm not talking to you! If you're not here to apologize, you may as well turn right around and get out of here!)]");
 						} else {
 							UtilText.nodeContentSB.append("Hearing your approach, [npc.name] turns towards you, and with an angry scowl, [npc.she] calls out,"
-															+" [npc.speech(I'm not talking to you! Unless you're here to apologise, just go away and leave me alone!)]");
+															+" [npc.speech(I'm not talking to you! Unless you're here to apologize, just go away and leave me alone!)]");
 						}
 						break;
 					case NEGATIVE_ONE_ANNOYED:
@@ -272,7 +272,7 @@ public class DominionOffspringDialogue {
 																	+ " [npc.speech(Still pregnant, I see. Stupid slut.)]");
 								} else {
 									UtilText.nodeContentSB.append("As you continue to approach your [npc.daughter], [npc.she] lets out an exasperated gasp as [npc.her] [npc.eyes] move down to rest on your pregnant belly."
-																	+ " [npc.speech(You're pregnant?! Again?! Do this next lot a favour and don't try to ruin their lives, like you have with mine!)]");
+																	+ " [npc.speech(You're pregnant?! Again?! Do this next lot a favor and don't try to ruin their lives, like you have with mine!)]");
 								}
 								if(offspringPregnant) {
 									UtilText.nodeContentSB.append("</p><p>");
@@ -351,7 +351,7 @@ public class DominionOffspringDialogue {
 					UtilText.nodeContentSB.append("</p>");
 				}
 				
-				// Taking into account player not apologised for attack/rape
+				// Taking into account player not apologized for attack/rape
 				if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) || offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 					UtilText.nodeContentSB.append("<p>");
 					switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
@@ -359,19 +359,19 @@ public class DominionOffspringDialogue {
 							UtilText.nodeContentSB.append(
 									"Coming to a halt in front of your [npc.daughter], you see that [npc.sheIs] sunk into a slight crouch, as though [npc.sheIs] prepared to attack you at any moment."
 									+ " You're not entirely surprised by [npc.her] reaction, and considering what you did to [npc.herHim], you're lucky that [npc.she] didn't run away or attempt to fight you the moment [npc.she] saw you."
-									+ " Realising that you're not going to be able to have a proper conversation with [npc.herHim] until you've sincerely apologised, you're only left with a few options...");
+									+ " Realizing that you're not going to be able to have a proper conversation with [npc.herHim] until you've sincerely apologized, you're only left with a few options...");
 							break;
 						case NEGATIVE_ONE_ANNOYED:
 							UtilText.nodeContentSB.append(
 									"Coming to a halt in front of your [npc.daughter], you see that [npc.sheIs] avoiding looking directly at you, as though [npc.sheIs] disinterested in anything you have to say."
 									+ " You're not entirely surprised by [npc.her] reaction, and considering what you did to [npc.herHim], you're lucky that [npc.sheIs] tolerating your presence in such a dignified manner."
-									+ " Realising that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologised for your actions, you're only left with a few options...");
+									+ " Realizing that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologized for your actions, you're only left with a few options...");
 							break;
 						case ZERO_NEUTRAL: case POSITIVE_ONE_FRIENDLY: case POSITIVE_TWO_LIKE: case POSITIVE_THREE_CARING: case POSITIVE_FOUR_LOVE: case POSITIVE_FIVE_WORSHIP:
 							UtilText.nodeContentSB.append(
 									"Coming to a halt in front of your [npc.daughter], you get the sense that [npc.sheIs] slightly uneasy in your presence, despite [npc.her] amicable greeting."
 									+ " You're not entirely surprised by this, and considering what you did to [npc.herHim], you're lucky that [npc.sheIs] still treating you in such a friendly manner."
-									+ " Realising that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologised for your actions, you're only left with a few options...");
+									+ " Realizing that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologized for your actions, you're only left with a few options...");
 							break;
 						default:
 							break;
@@ -385,13 +385,13 @@ public class DominionOffspringDialogue {
 							UtilText.nodeContentSB.append(
 									"Coming to a halt in front of your [npc.daughter], you see that [npc.sheIs] sunk into a slight crouch, as though [npc.sheIs] prepared to attack you at any moment."
 									+ " It really seems as though [npc.she] hates you, and you consider that you're quite lucky that [npc.she] didn't run away or attempt to fight you the moment [npc.she] saw you."
-									+ " Realising that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologised for the way you've acted towards [npc.herHim], you're only left with a few options...");
+									+ " Realizing that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologized for the way you've acted towards [npc.herHim], you're only left with a few options...");
 							break;
 							
 						case NEGATIVE_THREE_STRONG_DISLIKE: case NEGATIVE_TWO_DISLIKE:
 							UtilText.nodeContentSB.append(
 									"Coming to a halt in front of your [npc.daughter], you see that [npc.sheIs] making a point of not looking in your direction, and with head held high, [npc.she] lets out a derisive hum."
-									+ " It really seems as though [npc.she] dislikes you, and if you wanted to have a proper conversation with [npc.herHim], it looks like you'll have to apologise for the way you've acted towards [npc.herHim]...");
+									+ " It really seems as though [npc.she] dislikes you, and if you wanted to have a proper conversation with [npc.herHim], it looks like you'll have to apologize for the way you've acted towards [npc.herHim]...");
 							break;
 						case NEGATIVE_ONE_ANNOYED:
 							UtilText.nodeContentSB.append(
@@ -428,7 +428,7 @@ public class DominionOffspringDialogue {
 			
 			if(offspring().getAffection(Main.game.getPlayer()) < AffectionLevel.NEGATIVE_TWO_DISLIKE.getMaximumValue()) {
 				if (index == 1) {
-					return new Response("Apologise", "Apologise to [npc.name].", OFFSPRING_ENCOUNTER_APOLOGY) {
+					return new Response("Apologize", "Apologize to [npc.name].", OFFSPRING_ENCOUNTER_APOLOGY) {
 						@Override
 						public void effects() {
 							if(!offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) && !offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
@@ -946,7 +946,7 @@ public class DominionOffspringDialogue {
 											+ " [pc.speech(This isn't the best time for me right now, I'll come back later.)]"
 										+ "</p>");
 								
-								// Taking into account player not apologised for attack/rape
+								// Taking into account player not apologized for attack/rape
 								if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) || offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 									Main.game.getTextStartStringBuilder().append("<p>");
 									switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
@@ -955,8 +955,8 @@ public class DominionOffspringDialogue {
 												"<p>"
 													+ "Letting out an angry snort, your [npc.daughter] turns [npc.her] back on you and starts to walk away, shouting over [npc.her] shoulder as [npc.she] makes [npc.her] exit,"
 													+ (offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH
-															?" [npc.speech(Fine, fuck off then! See if I care! Don't bother coming back unless you're gonna apologise!)]"
-															:" [npc.speech(Eugh, fine! See if I care! Oh, and don't bother coming back unless you're gonna apologise!)]")
+															?" [npc.speech(Fine, fuck off then! See if I care! Don't bother coming back unless you're gonna apologize!)]"
+															:" [npc.speech(Eugh, fine! See if I care! Oh, and don't bother coming back unless you're gonna apologize!)]")
 												+"</p>");
 											break;
 										case NEGATIVE_ONE_ANNOYED:
@@ -964,7 +964,7 @@ public class DominionOffspringDialogue {
 													"<p>"
 														+ "Letting out a dismissive snort, your [npc.daughter] turns [npc.her] back on you and starts to walk away, shouting over [npc.her] shoulder as [npc.she] makes [npc.her] exit,"
 														+ (offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH
-																?" [npc.speech(Fine, see you later! And you'd better be ready to apologise by then!)]"
+																?" [npc.speech(Fine, see you later! And you'd better be ready to apologize by then!)]"
 																:" [npc.speech(Fine, see you later! I'm expecting an apology when you return!)]")
 													+"</p>");
 											break;
@@ -1083,28 +1083,28 @@ public class DominionOffspringDialogue {
 			if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) && offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "Deciding that you need to apologise for both attacking, and then raping your [npc.daughter], you step forwards and start to speak,"
+							+ "Deciding that you need to apologize for both attacking, and then raping your [npc.daughter], you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for what I've done to you. I'm truly sorry...)]"
 						+ "</p>");
 				
 			} else if (offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "Deciding that you need to apologise for attacking your [npc.daughter], you step forwards and start to speak,"
+							+ "Deciding that you need to apologize for attacking your [npc.daughter], you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for what I've done to you. I'm truly sorry...)]"
 						+ "</p>");
 				
 			} else if(offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "Deciding that you need to apologise for attacking your [npc.daughter], you step forwards and start to speak,"
+							+ "Deciding that you need to apologize for attacking your [npc.daughter], you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for what I've done to you. I'm truly sorry...)]"
 						+ "</p>");
 				
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "Deciding that you need to apologise for treating your [npc.daughter] so poorly, you step forwards and start to speak,"
+							+ "Deciding that you need to apologize for treating your [npc.daughter] so poorly, you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for the way I've treated you. I know I've done some bad things, but please believe me when I say that I'm truly sorry.)]"
 						+ "</p>");
 			}
@@ -1115,7 +1115,7 @@ public class DominionOffspringDialogue {
 							+ " [npc.speech(You're damn right you're sorry! And you're going to need to say more than that if you want me to forgive you!)]"
 						+ "</p>"
 						+ "<p>"
-							+ "You continue to apologise to your [npc.daughter] for some time, and while [npc.she] frequently interrupts you to berate you, you can tell that your words are having a positive effect."
+							+ "You continue to apologize to your [npc.daughter] for some time, and while [npc.she] frequently interrupts you to berate you, you can tell that your words are having a positive effect."
 							+ " After a while of this back-and-forth, you run out of ways in which to say sorry, and [npc.name] finally stops shouting at you, before stepping back and sighing."
 						+ "</p>"
 						+ "<p>"
@@ -1135,7 +1135,7 @@ public class DominionOffspringDialogue {
 						+ " [npc.speech(Yeah? Go on, I'm listening.)]"
 					+ "</p>"
 					+ "<p>"
-						+ "You continue to apologise to your [npc.daughter] for some time, and while [npc.she] frequently turns [npc.her] back on you, before spinning around to mention yet another thing you've done wrong,"
+						+ "You continue to apologize to your [npc.daughter] for some time, and while [npc.she] frequently turns [npc.her] back on you, before spinning around to mention yet another thing you've done wrong,"
 							+ " you can tell that your words are having a positive effect."
 						+ " After a while of this back-and-forth, you run out of ways in which to say sorry, and [npc.name] lets out a deep sigh, before starting to pace back and forth in front of you."
 					+ "</p>"
@@ -1304,7 +1304,7 @@ public class DominionOffspringDialogue {
 						+ " As the width of the alleyways rarely offers you the chance to walk side-by-side, you decide to save conversation for when you finally arrive, leading to your five-minute journey being mostly in silence."
 					+ "</p>"
 					+ "<p>"
-						+ "Eventually, you recognise that you're almost at your destination, and sure enough, [npc.name] soon steps off to one side, before unlocking the door to [npc.her] apartment and stepping inside."
+						+ "Eventually, you recognize that you're almost at your destination, and sure enough, [npc.name] soon steps off to one side, before unlocking the door to [npc.her] apartment and stepping inside."
 						+ " Following your [npc.daughter] inside, you're once again pleasantly surprised to find that the spacious interior is in a clean and orderly state."
 					+ "</p>"
 					+ "<p>"
@@ -2187,7 +2187,7 @@ public class DominionOffspringDialogue {
 								AFTER_SEX_CONSENSUAL,
 								"");
 					} else {
-						return new Response("Pay "+UtilText.formatAsMoneyUncoloured(100, "span"), "You don't have enough money...", null);
+						return new Response("Pay "+UtilText.formatAsMoneyUncolored(100, "span"), "You don't have enough money...", null);
 					}
 					
 				} else if (index == 9) {
@@ -2203,7 +2203,7 @@ public class DominionOffspringDialogue {
 								AFTER_SEX_CONSENSUAL,
 								"");
 					} else {
-						return new Response("Pay "+UtilText.formatAsMoneyUncoloured(100, "span"), "You don't have enough money...", null);
+						return new Response("Pay "+UtilText.formatAsMoneyUncolored(100, "span"), "You don't have enough money...", null);
 					}
 				} else {
 					return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
@@ -2313,7 +2313,7 @@ public class DominionOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			
 			if (index == 1) {
-				return new Response("Apologise", "Maybe you went too far... Perhaps you should apologise?", null){
+				return new Response("Apologize", "Maybe you went too far... Perhaps you should apologize?", null){
 					@Override
 					public DialogueNode getNextDialogue() {
 						return Main.game.getDefaultDialogueNoEncounter();
@@ -2323,7 +2323,7 @@ public class DominionOffspringDialogue {
 						Main.game.getTextStartStringBuilder().append(
 								"<p>"
 									+ "Looking down at your [npc.daughter] as [npc.she] shuffles about on the floor, you're suddenly overcome with regret, and, kneeling down next to [npc.herHim], you pull [npc.herHim] into a loving hug."
-									+ " Leaning in over [npc.her] shoulder as you press yourself to [npc.herHim], you apologise for what you've done,"
+									+ " Leaning in over [npc.her] shoulder as you press yourself to [npc.herHim], you apologize for what you've done,"
 									+ " [pc.speech([npc.Name], I'm so sorry! I don't know what came over me! Please forgive me!)]"
 								+ "</p>"
 								+ "<p>"
@@ -2495,7 +2495,7 @@ public class DominionOffspringDialogue {
 							null,
 							null), AFTER_SEX_DEFEAT, "<p>"
 								+ "Looking down at your [npc.daughter] as [npc.she] shuffles about on the floor, you're suddenly overcome with regret, and, kneeling down next to [npc.herHim], you pull [npc.herHim] into a loving hug."
-								+ " Leaning in over [npc.her] shoulder as you press yourself to [npc.herHim], you apologise for what you've done,"
+								+ " Leaning in over [npc.her] shoulder as you press yourself to [npc.herHim], you apologize for what you've done,"
 								+ " [pc.speech([npc.Name], I'm so sorry! I don't know what came over me! Please forgive me!)]"
 							+ "</p>"
 							+ "<p>"
@@ -2652,7 +2652,7 @@ public class DominionOffspringDialogue {
 							+ " [npc.speech(What the hell was that all about?! You owe me an apology!)]"
 						+ "</p>"
 						+ "<p>"
-							+ "Not being in any kind of situation to refuse, you apologise to your [npc.daughter] for attacking [npc.herHim]."
+							+ "Not being in any kind of situation to refuse, you apologize to your [npc.daughter] for attacking [npc.herHim]."
 							+ " Letting out a little huff, [npc.she] continues,"
 							+ " [npc.speech(Well, I can't forgive you just yet! Anyway, you can help make it up to me by giving me some allowance money!)]"
 						+ "</p>"
@@ -2677,7 +2677,7 @@ public class DominionOffspringDialogue {
 							null,
 							null), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally breaking away from you."
-								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>"
 							+ "<p>"
 								+ "[npc.speech(Time for some fun, [npc.pcName]!)]"
@@ -2702,7 +2702,7 @@ public class DominionOffspringDialogue {
 							AFTER_SEX_DEFEAT,
 							"<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>"
 							+ "<p>"
 								+ "[npc.speech(Time for some fun, [npc.pcName]!)]"
@@ -2727,7 +2727,7 @@ public class DominionOffspringDialogue {
 							"<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 							+ "</p>"
 							+ "<p>"
 								+ "[npc.speech(Time for some fun, [npc.pcName]!)]"
@@ -2825,7 +2825,7 @@ public class DominionOffspringDialogue {
 				if(!offspring().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 					return UtilText.parse(offspring(),
 							"<p>"
-								+ "As you step back from [npc.name], [npc.she] grabs on to the edge of the sofa and sinks to the floor, letting out a thankful sob as [npc.she] realises that you've finished."
+								+ "As you step back from [npc.name], [npc.she] grabs on to the edge of the sofa and sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 							+ "</p>");
 					
 				} else {
@@ -2843,7 +2843,7 @@ public class DominionOffspringDialogue {
 					} else {
 						return UtilText.parse(offspring(),
 								"<p>"
-									+ "As you step back from [npc.name], [npc.she] grabs on to the edge of the sofa and sinks to the floor, letting out a desperate whine as [npc.she] realises that you've finished."
+									+ "As you step back from [npc.name], [npc.she] grabs on to the edge of the sofa and sinks to the floor, letting out a desperate whine as [npc.she] realizes that you've finished."
 									+ " [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started."
 								+ "</p>"
 								+ "<p>"
@@ -2857,7 +2857,7 @@ public class DominionOffspringDialogue {
 				if(!offspring().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 					return UtilText.parse(offspring(),
 							"<p>"
-								+ "As you step back from [npc.name], [npc.she] sinks down to floor, letting out a thankful sob as [npc.she] realises that you've finished."
+								+ "As you step back from [npc.name], [npc.she] sinks down to floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 							+ "</p>");
 					
 				} else {
@@ -2865,7 +2865,7 @@ public class DominionOffspringDialogue {
 						return UtilText.parse(offspring(),
 								"<p>"
 									+ "As you step back from [npc.name], [npc.she] sinks to the floor, totally worn out from [npc.her] orgasm"+(Sex.getNumberOfOrgasms(Sex.getActivePartner()) > 1?"s":"")+"."
-									+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realise that you gave [npc.herHim] exactly what [npc.she] wanted."
+									+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realize that you gave [npc.herHim] exactly what [npc.she] wanted."
 								+ "</p>"
 								+ "<p>"
 									+ "[npc.speech(Thanks, [npc.pcName],)]"
@@ -2874,7 +2874,7 @@ public class DominionOffspringDialogue {
 					} else {
 						return UtilText.parse(offspring(),
 								"<p>"
-									+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realises that you've finished."
+									+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realizes that you've finished."
 									+ " [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started."
 								+ "</p>"
 								+ "<p>"
@@ -2908,7 +2908,7 @@ public class DominionOffspringDialogue {
 							
 						} else {
 							if(!offspring().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
-								Main.game.getTextStartStringBuilder().append("As you step back from [npc.name], [npc.she] sinks down to floor, letting out a thankful sob as [npc.she] realises that you've finished."
+								Main.game.getTextStartStringBuilder().append("As you step back from [npc.name], [npc.she] sinks down to floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 											+ " Smirking down at your [npc.daughter] one last time, you turn around and take your leave, feeling thoroughly satisfied as you continue on your journey through the alleyways.");
 								
 							} else {
@@ -3077,9 +3077,9 @@ public class DominionOffspringDialogue {
 							+ " Encouraged by the light, you finish what you started, and with a heavy metal 'clink', you clasp the collar around [npc.namePos] neck."
 						+ "</p>"
 						+ "<p>"
-							+ "As the collar's arcane enchantment recognises its new wearer as being a criminal, ominous purple lettering starts to glow around the metal band, reading;"
-								+ " <i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>New Slave Accepted. Identification: [style.boldArcane("+offspring().getNameIgnoresPlayerKnowledge()+")], [npc.race].</i>"
-							+ " Finally realising what's going on, [npc.name] looks up at you with fear in [npc.her] [npc.eyes]."
+							+ "As the collar's arcane enchantment recognizes its new wearer as being a criminal, ominous purple lettering starts to glow around the metal band, reading;"
+								+ " <i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>New Slave Accepted. Identification: [style.boldArcane("+offspring().getNameIgnoresPlayerKnowledge()+")], [npc.race].</i>"
+							+ " Finally realizing what's going on, [npc.name] looks up at you with fear in [npc.her] [npc.eyes]."
 							+ " [npc.speech(W-Wait, [npc.pcName]! T-This isn't a slave collar is it?!)]"
 						+ "</p>"
 						+ "<p>"
@@ -3097,11 +3097,11 @@ public class DominionOffspringDialogue {
 							+ " Encouraged by this, you decide to finish what you started, and quickly force [npc.name] to wear the enslaving clothing."
 						+ "</p>"
 						+ "<p>"
-							+ "As the arcane enchantment recognises its new wearer as being a criminal, ominous purple lettering is projected into the air, reading;<br/>"
+							+ "As the arcane enchantment recognizes its new wearer as being a criminal, ominous purple lettering is projected into the air, reading;<br/>"
 							+ "<i>Slave identification: [style.boldArcane("+Main.game.getActiveNPC().getNameIgnoresPlayerKnowledge()+")]</i>"
 						+ "</p>"
 						+ "<p>"
-							+ " Finally realising what's going on, [npc.name] looks up at you with fear in [npc.her] [npc.eyes]."
+							+ " Finally realizing what's going on, [npc.name] looks up at you with fear in [npc.her] [npc.eyes]."
 							+ " [npc.speech(W-Wait, [npc.pcName]! T-This isn't enslaving me, is it?!)]"
 						+ "</p>"
 						+ "<p>"

@@ -20,7 +20,7 @@ import com.lilithsthrone.game.character.body.valueEnums.ClitorisSize;
 import com.lilithsthrone.game.character.body.valueEnums.CoveringPattern;
 import com.lilithsthrone.game.character.body.valueEnums.CumProduction;
 import com.lilithsthrone.game.character.body.valueEnums.CupSize;
-import com.lilithsthrone.game.character.body.valueEnums.FluidFlavour;
+import com.lilithsthrone.game.character.body.valueEnums.FluidFlavor;
 import com.lilithsthrone.game.character.body.valueEnums.FluidRegeneration;
 import com.lilithsthrone.game.character.body.valueEnums.HairLength;
 import com.lilithsthrone.game.character.body.valueEnums.HairStyle;
@@ -55,7 +55,7 @@ import com.lilithsthrone.game.inventory.CharacterInventory;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -141,16 +141,16 @@ public class SlimeQueen extends NPC {
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		
 		// Coverings:
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Colour.SLIME_PINK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Colour.SLIME_PINK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_SCLERA, Colour.SLIME_PINK_LIGHT), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PUPILS, Colour.SLIME_PINK_DARK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_ANUS, CoveringPattern.ORIFICE_ANUS, Colour.SLIME_PINK_DARK, false, Colour.SLIME_PINK_DARK, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_HAIR, Colour.SLIME_PINK_DARK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_MOUTH, CoveringPattern.ORIFICE_MOUTH, Colour.SLIME_PINK_DARK, false, Colour.SLIME_PINK_DARK, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Colour.SLIME_PINK_DARK), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Colour.SLIME_PINK_DARK, false, Colour.SLIME_PINK_DARK, true), false);
-		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Colour.SLIME_PINK_DARK, false, Colour.SLIME_PINK_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Color.SLIME_PINK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Color.SLIME_PINK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_SCLERA, Color.SLIME_PINK_LIGHT), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PUPILS, Color.SLIME_PINK_DARK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_ANUS, CoveringPattern.ORIFICE_ANUS, Color.SLIME_PINK_DARK, false, Color.SLIME_PINK_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_HAIR, Color.SLIME_PINK_DARK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_MOUTH, CoveringPattern.ORIFICE_MOUTH, Color.SLIME_PINK_DARK, false, Color.SLIME_PINK_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Color.SLIME_PINK_DARK), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Color.SLIME_PINK_DARK, false, Color.SLIME_PINK_DARK, true), false);
+		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Color.SLIME_PINK_DARK, false, Color.SLIME_PINK_DARK, true), false);
 		
 		this.setHairLength(HairLength.FOUR_MID_BACK.getMaximumValue());
 		this.setHairStyle(HairStyle.HIME_CUT);
@@ -160,12 +160,12 @@ public class SlimeQueen extends NPC {
 		this.setPubicHair(BodyHair.ZERO_NONE);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_RED));
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_RED));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_RED));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_RED));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 		this.setFaceVirgin(false);
@@ -187,7 +187,7 @@ public class SlimeQueen extends NPC {
 		this.setNipplePlasticity(OrificePlasticity.FIVE_YIELDING.getValue());
 		
 		this.setBreastLactationRegeneration(FluidRegeneration.ONE_AVERAGE.getValue());
-		this.setMilkFlavour(FluidFlavour.STRAWBERRY);
+		this.setMilkFlavor(FluidFlavor.STRAWBERRY);
 		this.setBreastMilkStorage(Lactation.FIVE_VERY_LARGE_DROOLING.getMedianValue());
 		this.setBreastStoredMilk(Lactation.FIVE_VERY_LARGE_DROOLING.getMedianValue());
 		
@@ -209,7 +209,7 @@ public class SlimeQueen extends NPC {
 		this.setPenisSize(16); // Huge due to her size
 		this.setPenisCumStorage(CumProduction.FOUR_LARGE.getMedianValue());
 		this.fillCumToMaxStorage();
-		this.setCumFlavour(FluidFlavour.STRAWBERRY);
+		this.setCumFlavor(FluidFlavor.STRAWBERRY);
 		
 		// Vagina:
 		this.setVaginaVirgin(false);
@@ -220,7 +220,7 @@ public class SlimeQueen extends NPC {
 		this.setVaginaWetness(Wetness.SEVEN_DROOLING);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.FIVE_YIELDING.getValue());
-		this.setGirlcumFlavour(FluidFlavour.STRAWBERRY);
+		this.setGirlcumFlavor(FluidFlavor.STRAWBERRY);
 		
 		// Feet:
 		// Foot shape
@@ -237,12 +237,12 @@ public class SlimeQueen extends NPC {
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HEAD_SLIME_QUEENS_TIARA, false), true, this);
 		}
 		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Colour.CLOTHING_GOLD, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_GOLD, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_HEART_NECKLACE, Colour.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Color.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Color.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_HEART_NECKLACE, Color.CLOTHING_GOLD, false), true, this);
 
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Colour.CLOTHING_GOLD, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Colour.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Color.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Color.CLOTHING_GOLD, false), true, this);
 
 	}
 	

@@ -1286,7 +1286,7 @@ public class ConChairTop {
 
 		@Override
 		public String getDescription() {
-			return "Reaching down, you grab [npc.namePos] [npc.tail+]. Guiding it around between your [pc.legs], you press the tip up against your exposed asshole, and [npc.name] lets out a happy cry as [npc.she] realises what you want."
+			return "Reaching down, you grab [npc.namePos] [npc.tail+]. Guiding it around between your [pc.legs], you press the tip up against your exposed asshole, and [npc.name] lets out a happy cry as [npc.she] realizes what you want."
 					+ " With a sudden, forceful thrust, [npc.she] eagerly spears [npc.her] [npc.tail] deep into your [pc.ass]."
 					+ (Main.game.getPlayer().hasPenis()
 						?" The lewd groan that you start to release very quickly turns into a desperate gasp as you feel [npc.her] tail start to massage and stroke your prostate."
@@ -1352,7 +1352,7 @@ public class ConChairTop {
 
 		@Override
 		public String getDescription() {
-			return "Reaching down, you grab [npc.namePos] [npc.tail+]. Guiding it up between your [pc.legs], you press the tip against your exposed [pc.pussy], and [npc.name] lets out a happy cry as [npc.she] realises what you want."
+			return "Reaching down, you grab [npc.namePos] [npc.tail+]. Guiding it up between your [pc.legs], you press the tip against your exposed [pc.pussy], and [npc.name] lets out a happy cry as [npc.she] realizes what you want."
 					+ " With a sudden, forceful thrust, [npc.she] eagerly spears [npc.her] [npc.tail] deep into your [pc.pussy+]."
 					+ " You let out [pc.a_moan+] at the aggressive penetration, and grip down tightly on [npc.her] [npc.tail] for a moment, shuddering in pleasure as it starts thrusting in and out of your [pc.pussy+].";
 		}
@@ -1866,7 +1866,7 @@ public class ConChairTop {
 		}
 	};
 	
-	public static final SexAction PARTNER_SMOULDERING_LOOK = new SexAction(
+	public static final SexAction PARTNER_SMOLDERING_LOOK = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FIVE_EXTREME,
@@ -1897,8 +1897,8 @@ public class ConChairTop {
 		@Override
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
-					"As you look down at the horny demon beneath you, she puts on a smouldering look, and locks her [npc.eyes] onto yours."
-							+ " You hear the faint sound of moaning somewhere within your head, and as you feel your heart hammering in your chest, you realise that [npc.name] is using her demonic powers to turn you on.",
+					"As you look down at the horny demon beneath you, she puts on a smoldering look, and locks her [npc.eyes] onto yours."
+							+ " You hear the faint sound of moaning somewhere within your head, and as you feel your heart hammering in your chest, you realize that [npc.name] is using her demonic powers to turn you on.",
 					
 					"[npc.Name] brushes a loose strand of hair from her face, and as you look down, she bites her [npc.lip] and looks up at you with her big, beautiful eyes."
 							+ " You feel your heart hammering in your chest as you gaze upon the face of every man's wet dream.",

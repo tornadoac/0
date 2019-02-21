@@ -19,7 +19,7 @@ import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.TFModifier;
 import com.lilithsthrone.game.inventory.enchanting.TFPotency;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.places.PlaceType;
 
@@ -39,7 +39,7 @@ public class WeaponType {
 			"opaque demonstones",
 			"Crystal Strike",
 			"A common type of demonstone, the power of which can be harnessed as a weapon."
-					+ " Demonstones are rumoured to be crystallised essences of a Lilin's orgasm.",
+					+ " Demonstones are rumored to be crystalized essences of a Lilin's orgasm.",
 			"meleeCrystal1",
 			"meleeCrystal1",
 			Rarity.RARE,
@@ -114,7 +114,7 @@ public class WeaponType {
 			"misty demonstones",
 			"Crystal Strike",
 			"A powerful demonstone, the power of which can be harnessed as a weapon."
-					+ " Demonstones are rumoured to be crystallised essences of a Lilin's orgasm.",
+					+ " Demonstones are rumored to be crystalized essences of a Lilin's orgasm.",
 			"meleeCrystal2",
 			"meleeCrystal2",
 			Rarity.EPIC,
@@ -190,7 +190,7 @@ public class WeaponType {
 			"clear demonstones",
 			"Crystal Strike",
 			"An extremely powerful demonstone, the power of which can be harnessed as a weapon."
-					+ " Demonstones are rumoured to be crystallised essences of a Lilin's orgasm.",
+					+ " Demonstones are rumored to be crystalized essences of a Lilin's orgasm.",
 			"meleeCrystal3",
 			"meleeCrystal3",
 			Rarity.LEGENDARY,
@@ -287,10 +287,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_MELEE_WEAPON, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_MELEE_WEAPON, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_BLACK.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColorListPresets.JUST_BLACK.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
 			Util.newArrayListOfValues(
 					ItemTag.SOLD_BY_VICKY,
 					ItemTag.WEAPON_BLADE)) {
@@ -368,10 +368,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_WEAPON, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.CRITICAL_CHANCE, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_BLACK.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColorListPresets.JUST_BLACK.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
 			Util.newArrayListOfValues(
 					ItemTag.SOLD_BY_VICKY,
 					ItemTag.WEAPON_BLADE)) {
@@ -451,10 +451,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
 
 		@Override
@@ -514,7 +514,7 @@ public class WeaponType {
 			"chaos feathers",
 			"Feather Bolt",
 			"A magical feather, the power of which can be harnessed as a weapon."
-					+ " Feathers like this are rumoured to have been plucked from a Lilin's wings.",
+					+ " Feathers like this are rumored to have been plucked from a Lilin's wings.",
 			"rangedFeather1",
 			"rangedFeather1",
 			Rarity.RARE,
@@ -585,7 +585,7 @@ public class WeaponType {
 			"chaos feathers",
 			"Feather Bolt",
 			"A well-preserved magical feather, the power of which can be harnessed as a weapon."
-					+ " Feathers like this are rumoured to have been plucked from a Lilin's wings.",
+					+ " Feathers like this are rumored to have been plucked from a Lilin's wings.",
 			"rangedFeather2",
 			"rangedFeather2",
 			Rarity.EPIC,
@@ -1011,7 +1011,7 @@ public class WeaponType {
 			if(isHit) {
 				sb.append(UtilText.returnStringAtRandom(
 								" The ethereal arrow hits its mark, and passes right through [npc2.namePos] chest, causing [npc2.herHim] to gasp and stagger back from the blow.",
-								" The arcane arrow sails straight through the centre of [npc2.namePos] chest, causing [npc2.herHim] to let out a shocked gasp as [npc2.she] staggers back."));
+								" The arcane arrow sails straight through the center of [npc2.namePos] chest, causing [npc2.herHim] to let out a shocked gasp as [npc2.she] staggers back."));
 			} else {
 				sb.append(UtilText.returnStringAtRandom(
 								" The ethereal arrow sails harmlessly off to one side of its target, causing [npc.name] to let out a frustrated sigh.",

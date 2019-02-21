@@ -39,7 +39,7 @@ BUGS:
 -As of 1.69.9 doing the "dominant" route with Brax seems to freeze the game. Entering debug menu allowed me to escape, but I wasn't able to do the scene at all.
 ~Fixed~
 
--Eye colour options aren't working. Clicking "Eye Colour" at Kate's just refreshes the menu, but clicking anything except "Leave" acts like you paid to get your existing eye colour.
+-Eye color options aren't working. Clicking "Eye Color" at Kate's just refreshes the menu, but clicking anything except "Leave" acts like you paid to get your existing eye color.
 
 -No option to stop sex during doggy style, but "Start anal" button appears while doing vaginal doggy, but appears to do nothing. "Pull out" at orgasm does nothing, either.
 

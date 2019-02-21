@@ -30,7 +30,7 @@
 
 	<htmlContent tag="OCCUPANT_START_PREGNANCY_REVEAL"><![CDATA[
 	<p>
-		Before you can move on to the reason for your visit, you suddenly notice that something's a little off about [npc.namePos] gait. Looking down as [npc.she] moves to cradle [npc.her] stomach in both [npc.hands], you gasp as you see that [npc.sheIs] sporting a very obviously [style.colourSex(pregnant belly)].
+		Before you can move on to the reason for your visit, you suddenly notice that something's a little off about [npc.namePos] gait. Looking down as [npc.she] moves to cradle [npc.her] stomach in both [npc.hands], you gasp as you see that [npc.sheIs] sporting a very obviously [style.colorSex(pregnant belly)].
 	</p>
 	<p>
 		#IF npc.getPregnantLitter().isFatherId(pc.getId())
@@ -54,7 +54,7 @@
 
 	<htmlContent tag="OCCUPANT_START_STILL_PREGNANT"><![CDATA[
 	<p>
-		As the door swings shut behind you, you notice that [npc.name] is still cradling [npc.her] [style.colourSex(pregnant belly)] in both [npc.hands]. Reminding [npc.herHim] to go and see Lilaya when [npc.sheIs] ready to give birth, you smile at [npc.herHim] as [npc.she] promises to do just that.
+		As the door swings shut behind you, you notice that [npc.name] is still cradling [npc.her] [style.colorSex(pregnant belly)] in both [npc.hands]. Reminding [npc.herHim] to go and see Lilaya when [npc.sheIs] ready to give birth, you smile at [npc.herHim] as [npc.she] promises to do just that.
 	</p>
 	]]>
 	</htmlContent>
@@ -418,7 +418,7 @@
 		[pc.speech(Of course I'll come with you!)] you reply, smiling happily as you see [npc.namePos] [npc.eyes] light up. Helping [npc.herHim] to take one of [npc.her] suitcases down to the front door, you turn and ask, [pc.speech(So, which direction is it?)]
 	</p>
 	<p>
-		[npc.speech(It's this way, it won't take too long to get there,)] [npc.name] replies, pulling [npc.her] suitcase along behind [npc.herHim] as [npc.she] sets off down the street. Suddenly remembering [npc.her] other belongings, [npc.she] looks back and apologises, [npc.speech(Oh, sorry, [npc.pcName]! I've left you with my other bag!)]
+		[npc.speech(It's this way, it won't take too long to get there,)] [npc.name] replies, pulling [npc.her] suitcase along behind [npc.herHim] as [npc.she] sets off down the street. Suddenly remembering [npc.her] other belongings, [npc.she] looks back and apologizes, [npc.speech(Oh, sorry, [npc.pcName]! I've left you with my other bag!)]
 	</p>
 	<p>
 		[pc.speech(Don't worry, I've got this one,)] you reply, stepping forwards and walking alongside [npc.name] as you help [npc.herHim] to move [npc.her] belongings to [npc.her] new apartment.
@@ -475,7 +475,7 @@
 
 	<htmlContent tag="OCCUPANT_APARTMENT_START_PREGNANCY_REVEAL"><![CDATA[
 	<p>
-		Before you can move on to the reason for your visit, you suddenly notice that something's a little off about [npc.namePos] gait. Looking down as [npc.she] moves to cradle [npc.her] stomach in both [npc.hands], you gasp as you see that [npc.sheIs] sporting a very obviously [style.colourSex(pregnant belly)].
+		Before you can move on to the reason for your visit, you suddenly notice that something's a little off about [npc.namePos] gait. Looking down as [npc.she] moves to cradle [npc.her] stomach in both [npc.hands], you gasp as you see that [npc.sheIs] sporting a very obviously [style.colorSex(pregnant belly)].
 	</p>
 	<p>
 		#IF npc.getPregnantLitter().isFatherId(pc.getId())
@@ -499,7 +499,7 @@
 
 	<htmlContent tag="OCCUPANT_APARTMENT_START_STILL_PREGNANT"><![CDATA[
 	<p>
-		As [npc.name] stands in the doorway before you, you notice that [npc.sheIs] still cradling [npc.her] [style.colourSex(pregnant belly)] in both [npc.hands]. Reminding [npc.herHim] that [npc.sheIs] more than welcome to get help from Lilaya when [npc.sheIs] ready to give birth, you smile at [npc.herHim] as [npc.she] promises to do just that.
+		As [npc.name] stands in the doorway before you, you notice that [npc.sheIs] still cradling [npc.her] [style.colorSex(pregnant belly)] in both [npc.hands]. Reminding [npc.herHim] that [npc.sheIs] more than welcome to get help from Lilaya when [npc.sheIs] ready to give birth, you smile at [npc.herHim] as [npc.she] promises to do just that.
 	</p>
 	]]>
 	</htmlContent>
@@ -550,7 +550,7 @@
 		Finding yourself near to where [npc.name] lives, you decide to pay [npc.herHim] a visit. Cutting across the street towards [npc.her] apartment building, you push open the front door and step into the building's foyer, before heading over to the staircase and making your way up to the second floor.
 	</p>
 	<p>
-		Walking up to the door of [npc.namePos] flat, you give it a firm knock, but even after waiting a minute and knocking again, there's no sign of anyone being inside. Realising that [npc.name] must be out at work, there's nothing more for you to do except turn and head back out into Dominion.
+		Walking up to the door of [npc.namePos] flat, you give it a firm knock, but even after waiting a minute and knocking again, there's no sign of anyone being inside. Realizing that [npc.name] must be out at work, there's nothing more for you to do except turn and head back out into Dominion.
 	</p>
 	<p>
 		Letting out a sigh, you remember what [npc.name] told you once before... [npc.speech(<i>My work hours are from [npc.jobStartHour]:00 to [npc.jobEndHour]:00, [npc.jobStartDay] to [npc.jobEndDay]!</i>)]

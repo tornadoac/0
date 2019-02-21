@@ -16,7 +16,7 @@ import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -41,7 +41,7 @@ public class BatCavernSlimeAttackerDialogue {
 					if(!Main.game.getActiveNPC().isCharacterReactedToPregnancy(Main.game.getPlayer())) {
 						return UtilText.parseFromXMLFile("characters/submission/batCavernSlime", "ATTACK_REPEAT_PREGNANCY_REACT")
 								+ "<p style='text-align:center;'>" 
-									+ "<b style='color:" + Colour.GENERIC_SEX.toWebHexString() + ";'>You ended up getting [npc.name] pregnant!</b>"
+									+ "<b style='color:" + Color.GENERIC_SEX.toWebHexString() + ";'>You ended up getting [npc.name] pregnant!</b>"
 								+ "</p>";
 					
 					} else {
@@ -436,7 +436,7 @@ public class BatCavernSlimeAttackerDialogue {
 				if (index == 1) {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Spit",
-								"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+								"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 									+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 								null);
 					} else {
@@ -479,7 +479,7 @@ public class BatCavernSlimeAttackerDialogue {
 								null,
 								null), AFTER_SEX_DEFEAT, "<p>"
 									+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away."
-									+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+									+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 								+ "</p>");
 						
 					} else if (index == 2) {
@@ -493,7 +493,7 @@ public class BatCavernSlimeAttackerDialogue {
 										null,
 										ResponseTag.START_PACE_PLAYER_SUB_EAGER), AFTER_SEX_DEFEAT, "<p>"
 									+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-									+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+									+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 								+ "</p>");
 						
 					} else if (index == 3 && Main.game.isNonConEnabled()) {
@@ -508,7 +508,7 @@ public class BatCavernSlimeAttackerDialogue {
 										ResponseTag.START_PACE_PLAYER_SUB_RESISTING), AFTER_SEX_DEFEAT, "<p>"
 									+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 									+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-									+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+									+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 								+ "</p>");
 						
 					} else {
@@ -584,7 +584,7 @@ public class BatCavernSlimeAttackerDialogue {
 							null,
 							null), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally breaking away from you."
-								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>");
 					
 				} else if (index == 2) {
@@ -598,7 +598,7 @@ public class BatCavernSlimeAttackerDialogue {
 									null,
 									ResponseTag.START_PACE_PLAYER_SUB_EAGER), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>");
 					
 				} else if (index == 3 && Main.game.isNonConEnabled()) {
@@ -613,7 +613,7 @@ public class BatCavernSlimeAttackerDialogue {
 									ResponseTag.START_PACE_PLAYER_SUB_RESISTING), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 							+ "</p>");
 					
 				} else {
@@ -679,7 +679,7 @@ public class BatCavernSlimeAttackerDialogue {
 							null,
 							null), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally breaking away from you."
-								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss..."
+								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>");
 					
 				} else if (index == 2) {
@@ -693,7 +693,7 @@ public class BatCavernSlimeAttackerDialogue {
 									null,
 									ResponseTag.START_PACE_PLAYER_SUB_EAGER), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
-								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss..."
+								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>");
 					
 				} else if (index == 3 && Main.game.isNonConEnabled()) {
@@ -708,7 +708,7 @@ public class BatCavernSlimeAttackerDialogue {
 									ResponseTag.START_PACE_PLAYER_SUB_RESISTING), AFTER_SEX_DEFEAT, "<p>"
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss."
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
-								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go..."
+								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 							+ "</p>");
 					
 				} else {
@@ -743,7 +743,7 @@ public class BatCavernSlimeAttackerDialogue {
 			if(!Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
-							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realises that you've finished."
+							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 							+ " [npc.She] starts frantically gathering [npc.her] belongings, obviously quite keen to make [npc.her] exit before you decide to do anything else..."
 						+ "</p>");
 				
@@ -752,12 +752,12 @@ public class BatCavernSlimeAttackerDialogue {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
 								+ "As you step back from [npc.name], [npc.she] sinks to the floor, totally worn out from [npc.her] orgasm"+(Sex.getNumberOfOrgasms(Sex.getActivePartner()) > 1?"s":"")+"."
-								+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realise that you gave [npc.herHim] exactly what [npc.she] wanted."
+								+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realize that you gave [npc.herHim] exactly what [npc.she] wanted."
 							+ "</p>");
 				} else {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
-								+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realises that you've finished."
+								+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realizes that you've finished."
 								+ " [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started."
 							+ "</p>");
 				}

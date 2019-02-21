@@ -76,9 +76,9 @@ public class Arm implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if (owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.arms] of [pc.a_armRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.arms] of [pc.a_armRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.arms] of [npc.a_armRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.arms] of [npc.a_armRace], so nothing happens...)]</p>");
 			}
 			
 		} else {
@@ -87,12 +87,12 @@ public class Arm implements BodyPartInterface {
 			if (owner.isPlayer()) {
 				UtilText.transformationContentSB.append(
 						"<p>"
-							+ "Your [pc.arms+] suddenly feel hot and itchy, and you gasp as you realise that they're starting to transform."
+							+ "Your [pc.arms+] suddenly feel hot and itchy, and you gasp as you realize that they're starting to transform."
 							+ " You let out a painful cry as your upper limbs twist and transform, leaving you powerless to do anything other than look on as they reshape themselves into a new form.");
 			} else {
 				UtilText.transformationContentSB.append(
 						"<p>"
-							+ "[npc.Name] fidgets about as [npc.she] feels [npc.her] [npc.arms+] growing hot and itchy, and [npc.she] gasps as [npc.she] realises that they're starting to transform."
+							+ "[npc.Name] fidgets about as [npc.she] feels [npc.her] [npc.arms+] growing hot and itchy, and [npc.she] gasps as [npc.she] realizes that they're starting to transform."
 							+ " [npc.She] lets out a painful cry as [npc.her] upper limbs twist and transform, leaving [npc.her] powerless to do anything other than look on as they reshape themselves into a new form.");
 			}
 		}
@@ -119,7 +119,7 @@ public class Arm implements BodyPartInterface {
 		int currentArmRows = getArmRows();
 		armRows = Math.max(1, Math.min(armRows, MAXIMUM_ROWS));
 		if (armRows == currentArmRows) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		UtilText.transformationContentSB.setLength(0);
@@ -136,7 +136,7 @@ public class Arm implements BodyPartInterface {
 									? "the lowest of your extra pairs" 
 									: "your extra pair"))
 							+ " of [pc.arms], and before you can react, they rapidly shrink away into the [pc.skin] of your torso.<br/>" 
-							+ "You now have [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [pc.arms])], covered in [pc.armFullDescriptionColour]."
+							+ "You now have [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [pc.arms])], covered in [pc.armFullDescriptionColor]."
 						+ "</p>");
 			} else {
 				UtilText.transformationContentSB.append(UtilText.parse(owner,
@@ -148,7 +148,7 @@ public class Arm implements BodyPartInterface {
 									? "the lowest of [npc.her] extra pairs" 
 									: "[npc.her] extra pair"))
 							+ " of [npc.arms], and before [npc.she] can react, they rapidly shrink away into the [npc.skin] of [npc.her] torso.<br/>" 
-							+ "[npc.She] now has [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [npc.arms])], covered in [npc.armFullDescriptionColour]."
+							+ "[npc.She] now has [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [npc.arms])], covered in [npc.armFullDescriptionColor]."
 						+ "</p>"));
 			}
 			
@@ -162,7 +162,7 @@ public class Arm implements BodyPartInterface {
 									? "two extra pairs"
 									: "an extra pair")
 							+ " of [pc.arms] rapidly grow out of the [pc.skin] of your lower torso.<br/>"
-							+ "You now have [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [pc.arms])], covered in [pc.armFullDescriptionColour]."
+							+ "You now have [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [pc.arms])], covered in [pc.armFullDescriptionColor]."
 						+ "</p>");
 			} else {
 				UtilText.transformationContentSB.append(UtilText.parse(owner,
@@ -172,7 +172,7 @@ public class Arm implements BodyPartInterface {
 									? "two extra pairs"
 									: "an extra pair")
 							+ " of [npc.arms] rapidly grow out of the [npc.skin] of [npc.her] lower torso.<br/>"
-							+ "[npc.She] now has [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [npc.arms])], covered in [npc.armFullDescriptionColour]."
+							+ "[npc.She] now has [style.boldTfLesser(" + Util.intToString(armRows) + " pair"+ (armRows > 1 ? "s" : "") + " of [npc.arms])], covered in [npc.armFullDescriptionColor]."
 						+ "</p>"));
 			}
 		}
@@ -197,7 +197,7 @@ public class Arm implements BodyPartInterface {
 		}
 		
 		if(getUnderarmHair() == underarmHair) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 			
 		} else {
 			UtilText.transformationContentSB.setLength(0);

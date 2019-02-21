@@ -44,12 +44,12 @@
       <slot>CHEST</slot>
     </incompatibleSlots>
     
-    <primaryColours values="ALL_METAL"/>
-    <primaryColoursDye values="ALL_METAL"/>
-    <secondaryColours/>
-    <secondaryColoursDye/>
-    <tertiaryColours/>
-    <tertiaryColoursDye/>
+    <primaryColors values="ALL_METAL"/>
+    <primaryColorsDye values="ALL_METAL"/>
+    <secondaryColors/>
+    <secondaryColorsDye/>
+    <tertiaryColors/>
+    <tertiaryColorsDye/>
     
     <itemTags>
       <tag>SOLD_BY_FINCH</tag>

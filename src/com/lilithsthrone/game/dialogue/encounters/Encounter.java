@@ -65,7 +65,7 @@ public enum Encounter {
 	LILAYAS_HOME_CORRIDOR(Util.newHashMapOfValues(
 			new Value<EncounterType, Float>(EncounterType.SLAVE_USES_YOU, 5f))) {
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if(node == EncounterType.SLAVE_USES_YOU && Main.game.getCharactersPresent().isEmpty()) {
 				
 				List<NPC> slaves = new ArrayList<>();
@@ -132,7 +132,7 @@ public enum Encounter {
 		}
 		
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if(node == EncounterType.DOMINION_STORM_ATTACK && Main.game.getCurrentWeather() == Weather.MAGIC_STORM) {
 				Main.game.setActiveNPC(new DominionAlleywayAttacker(Gender.getGenderFromUserPreferences(false, false)));
 	
@@ -197,7 +197,7 @@ public enum Encounter {
 		}
 		
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if(node == EncounterType.DOMINION_STREET_RENTAL_MOMMY) {
 				LocalDateTime time = Main.game.getDateNow();
 				
@@ -253,10 +253,10 @@ public enum Encounter {
 		}
 		
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if (node == EncounterType.DOMINION_ALLEY_ATTACK) {
 				
-				// Prioritise re-encountering the NPC on this tile:
+				// Prioritize re-encountering the NPC on this tile:
 				for(NPC npc : Main.game.getNonCompanionCharactersPresent()) {
 					if(npc instanceof Lumi) {
 						return null;
@@ -337,7 +337,7 @@ public enum Encounter {
 			new Value<EncounterType, Float>(EncounterType.DOMINION_ALLEY_ATTACK, 15f))) {
 
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 				
 			for (NPC npc : Main.game.getNonCompanionCharactersPresent()) {
 				Main.game.setActiveNPC(npc);
@@ -371,9 +371,9 @@ public enum Encounter {
 		}
 		
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if(node==EncounterType.DOMINION_ALLEY_ATTACK) {
-				// Prioritise re-encountering the NPC on this tile:
+				// Prioritize re-encountering the NPC on this tile:
 				for(NPC npc : Main.game.getNonCompanionCharactersPresent()) {
 					Main.game.setActiveNPC(npc);
 					return Main.game.getActiveNPC().getEncounterDialogue();
@@ -426,7 +426,7 @@ public enum Encounter {
 		}
 		
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if (node == EncounterType.HARPY_NEST_ATTACK && !Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)) {
 				
 				for (NPC npc : Main.game.getNonCompanionCharactersPresent()) {
@@ -511,7 +511,7 @@ public enum Encounter {
 		}
 
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if (node == EncounterType.HARPY_NEST_ATTACK) {
 
 				for (NPC npc : Main.game.getNonCompanionCharactersPresent()) {
@@ -584,7 +584,7 @@ public enum Encounter {
 			new Value<EncounterType, Float>(EncounterType.SUBMISSION_FIND_ITEM, 10f))) {
 		
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			
 			if (node == EncounterType.SUBMISSION_TUNNEL_ATTACK) {
 
@@ -787,7 +787,7 @@ public enum Encounter {
 					
 				}
 
-				// Prioritise re-encountering the NPC on this tile:
+				// Prioritize re-encountering the NPC on this tile:
 				for(NPC npc : Main.game.getNonCompanionCharactersPresent()) {
 					Main.game.setActiveNPC(npc);
 					return Main.game.getActiveNPC().getEncounterDialogue();
@@ -829,10 +829,10 @@ public enum Encounter {
 			new Value<EncounterType, Float>(EncounterType.BAT_CAVERN_FIND_ITEM, 6f))) {
 
 		@Override
-		protected DialogueNode initialiseEncounter(EncounterType node) {
+		protected DialogueNode initializeEncounter(EncounterType node) {
 			if (node == EncounterType.BAT_CAVERN_BAT_ATTACK) {
 				
-				// Prioritise re-encountering the NPC on this tile:
+				// Prioritize re-encountering the NPC on this tile:
 				for(NPC npc : Main.game.getNonCompanionCharactersPresent()) {
 					Main.game.setActiveNPC(npc);
 					return Main.game.getActiveNPC().getEncounterDialogue();
@@ -850,7 +850,7 @@ public enum Encounter {
 				
 			} else if (node == EncounterType.BAT_CAVERN_SLIME_ATTACK) {
 				
-				// Prioritise re-encountering the NPC on this tile:
+				// Prioritize re-encountering the NPC on this tile:
 				for(NPC npc : Main.game.getNonCompanionCharactersPresent()) {
 					Main.game.setActiveNPC(npc);
 					return Main.game.getActiveNPC().getEncounterDialogue();
@@ -954,7 +954,7 @@ public enum Encounter {
 		this.dialogues = dialogues;
 	}
 
-	protected abstract DialogueNode initialiseEncounter(EncounterType node);
+	protected abstract DialogueNode initializeEncounter(EncounterType node);
 
 	/**
 	 * Returns a random encounter from the list, or null if no encounter was selected.
@@ -985,7 +985,7 @@ public enum Encounter {
 		for (Entry<EncounterType, Float> e : getDialogues().entrySet()) {
 			total += e.getValue();
 			if (r <= total) {
-				return initialiseEncounter(e.getKey());
+				return initializeEncounter(e.getKey());
 			}
 		}
 

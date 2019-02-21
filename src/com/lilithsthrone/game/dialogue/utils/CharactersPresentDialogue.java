@@ -18,7 +18,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMChair;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.places.PlaceType;
@@ -39,7 +39,7 @@ public class CharactersPresentDialogue {
 		} else {
 			CharactersPresentDialogue.characterViewed = characterViewed;
 		}
-		menuTitle = "Characters Present ("+Util.capitaliseSentence(CharactersPresentDialogue.characterViewed.getName())+")";
+		menuTitle = "Characters Present ("+Util.capitalizeSentence(CharactersPresentDialogue.characterViewed.getName())+")";
 		menuContent = ((NPC) CharactersPresentDialogue.characterViewed).getCharacterInformationScreen();
 	}
 	
@@ -77,9 +77,9 @@ public class CharactersPresentDialogue {
 				if(index == 0) {
 					return "Characters";
 				} else if(index == 1) {
-					return UtilText.parse("[style.colourSex(Sex)]");
+					return UtilText.parse("[style.colorSex(Sex)]");
 				} else if(index == 2) {
-					return UtilText.parse("[style.colourCompanion(Manage)]");
+					return UtilText.parse("[style.colorCompanion(Manage)]");
 				}
 				
 			} else {
@@ -116,16 +116,16 @@ public class CharactersPresentDialogue {
 					
 					if(charactersPresent.get(index - 1).equals(characterViewed)) {
 						if(!charactersPresent.get(index - 1).isRaceConcealed() || charactersPresent.get(index - 1).isPlayerKnowsName()) {
-							title = "[style.colourDisabled([npc.Name])]";
+							title = "[style.colorDisabled([npc.Name])]";
 							description = "You are already looking at [npc.name]!";
 						}else {
-							title = "[style.colourDisabled(Unknown person)]";
+							title = "[style.colorDisabled(Unknown person)]";
 							description = "You don't know what this person looks like!";
 						}
 							
 					} else if(Main.game.getPlayer().hasCompanion(charactersPresent.get(index - 1))) {
-						title = "[style.colourCompanion([npc.Name])]";
-						description = "Take a detailed look at your [style.colourCompanion(companion)], [npc.name].";
+						title = "[style.colorCompanion([npc.Name])]";
+						description = "Take a detailed look at your [style.colorCompanion(companion)], [npc.name].";
 					}
 					
 					return new Response(
@@ -135,7 +135,7 @@ public class CharactersPresentDialogue {
 						@Override
 						public void effects() {
 							characterViewed = charactersPresent.get(index-1);
-							menuTitle = "Characters Present ("+Util.capitaliseSentence(charactersPresent.get(index - 1).getName())+")";
+							menuTitle = "Characters Present ("+Util.capitalizeSentence(charactersPresent.get(index - 1).getName())+")";
 							menuContent = ((NPC) charactersPresent.get(index - 1)).getCharacterInformationScreen();
 						}
 					};
@@ -408,7 +408,7 @@ public class CharactersPresentDialogue {
 									Main.game.setResponseTab(0);
 									characterViewed = charactersPresent.get(0);
 									//no need for character conceal check since its for follower
-									menuTitle = "Characters Present ("+Util.capitaliseSentence(charactersPresent.get(0).getName())+")";
+									menuTitle = "Characters Present ("+Util.capitalizeSentence(charactersPresent.get(0).getName())+")";
 									menuContent = ((NPC) charactersPresent.get(0)).getCharacterInformationScreen();
 								}
 							};
@@ -456,7 +456,7 @@ public class CharactersPresentDialogue {
 			if(!Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
-							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realises that you've finished."
+							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 						+ "</p>");
 				
 			} else {
@@ -464,12 +464,12 @@ public class CharactersPresentDialogue {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
 								+ "As you step back from [npc.name], [npc.she] sinks to the floor, totally worn out from [npc.her] orgasm"+(Sex.getNumberOfOrgasms(Sex.getActivePartner()) > 1?"s":"")+"."
-								+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realise that you gave [npc.herHim] exactly what [npc.she] wanted."
+								+ " Looking up at you, a satisfied smile settles across [npc.her] face, and you realize that you gave [npc.herHim] exactly what [npc.she] wanted."
 							+ "</p>");
 				} else {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
-								+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realises that you've finished."
+								+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realizes that you've finished."
 								+ " [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started."
 							+ "</p>"
 							+ "<p>"
@@ -518,8 +518,8 @@ public class CharactersPresentDialogue {
 			
 			UtilText.nodeContentSB.append(UtilText.parse(characterViewed,
 					"<div class='container-full-width' style='padding:8px;'>"
-						+ "<span style='color:"+Colour.PERK.toWebHexString()+";'>Perks</span> (circular icons) apply permanent boosts to [npc.namePos] attributes.<br/>"
-						+ "<span style='color:"+Colour.TRAIT.toWebHexString()+";'>Traits</span> (square icons) provide unique effects for [npc.name]."
+						+ "<span style='color:"+Color.PERK.toWebHexString()+";'>Perks</span> (circular icons) apply permanent boosts to [npc.namePos] attributes.<br/>"
+						+ "<span style='color:"+Color.TRAIT.toWebHexString()+";'>Traits</span> (square icons) provide unique effects for [npc.name]."
 							+ " Unlike perks, <b>traits will have no effect on [npc.name] until they're slotted into [npc.her] 'Active Traits' bar</b>.<br/>"
 						+ "Perks require perk points to unlock. [npc.Name] earns one perk point each time [npc.she] levels up, and an extra two perk points every five levels."
 					+ "</div>"
@@ -527,7 +527,7 @@ public class CharactersPresentDialogue {
 					+ "<h6 style='text-align:center;'>Active Traits</h6>"));
 
 			UtilText.nodeContentSB.append(
-					"<div id='OCCUPATION_" + characterViewed.getHistory().getAssociatedPerk()+ "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Colour.TRAIT.toWebHexString() + ";'>"
+					"<div id='OCCUPATION_" + characterViewed.getHistory().getAssociatedPerk()+ "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Color.TRAIT.toWebHexString() + ";'>"
 						+ "<div class='square-button-content'>"+characterViewed.getHistory().getAssociatedPerk().getSVGString()+"</div>"
 					+ "</div>");
 			
@@ -537,7 +537,7 @@ public class CharactersPresentDialogue {
 					p = characterViewed.getTraits().get(i);
 				}
 				if(p!=null) {
-					UtilText.nodeContentSB.append("<div id='TRAIT_" + p + "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Colour.TRAIT.toWebHexString() + ";'>"
+					UtilText.nodeContentSB.append("<div id='TRAIT_" + p + "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Color.TRAIT.toWebHexString() + ";'>"
 							+ "<div class='square-button-content'>"+p.getSVGString()+"</div>"
 							+ "</div>");
 					

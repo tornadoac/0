@@ -27,21 +27,21 @@ public enum SpellUpgrade {
 			"Lingering Flames",
 			"Arcane flames continue to burn away at the target for some time after Fireball's impact.",
 			null, Util.newArrayListOfValues(
-					"<b>5</b> [style.colourFire(Fire Damage)] per turn for [style.colourGood(2 turns)]")),
+					"<b>5</b> [style.colorFire(Fire Damage)] per turn for [style.colorGood(2 turns)]")),
 	FIREBALL_2(2,
 			SpellSchool.FIRE,
 			"fireball_twin_comets",
 			"Twin Comets",
-			"Fireball splits into two comets immediately after being cast, and, seemingly with a mind of their own, prioritise different targets where at all possible.",
+			"Fireball splits into two comets immediately after being cast, and, seemingly with a mind of their own, prioritize different targets where at all possible.",
 			null, Util.newArrayListOfValues(
-					"Fires [style.colourExcellent(two)] Fireballs, doing <b>10</b> [style.colourFire(Fire Damage)] each")),
+					"Fires [style.colorExcellent(two)] Fireballs, doing <b>10</b> [style.colorFire(Fire Damage)] each")),
 	FIREBALL_3(5,
 			SpellSchool.FIRE,
 			"fireball_burning_fury",
 			"Burning Fury",
 			"Fireball's twin comets now burn with an intense fury, doing considerably more damage.",
 			null, Util.newArrayListOfValues(
-					"Twin Comets now do <b>15</b> [style.colourFire(Fire Damage)] each")),
+					"Twin Comets now do <b>15</b> [style.colorFire(Fire Damage)] each")),
 	
 	FLASH_1(true,
 			2,
@@ -50,21 +50,21 @@ public enum SpellUpgrade {
 			"Secondary Sparks",
 			"After the initial flash, a series of dazzling sparks crackle and burst into life in front of the target's face.",
 			null, Util.newArrayListOfValues(
-					"Flash now [style.colourExcellent(stuns)] for [style.colourGood(2 turns)]")),
+					"Flash now [style.colorExcellent(stuns)] for [style.colorGood(2 turns)]")),
 	FLASH_2(5,
 			SpellSchool.FIRE,
 			"flash_arcing_flash",
 			"Arcing Flash",
 			"A secondary Flash arcs off from the first, seeking out another target to dazzle.",
 			null, Util.newArrayListOfValues(
-					"Fires [style.colourExcellent(two)] Flashes")),
+					"Fires [style.colorExcellent(two)] Flashes")),
 	FLASH_3(3,
 			SpellSchool.FIRE,
 			"flash_efficient_burn",
 			"Efficient Burn",
 			"By focusing its power into a smaller, more concentrated burst, the caster is able to reduce the cost of Flash, while losing none of its effectiveness.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(Reduces)] base cost to [style.boldMana(40)] aura")),
+					"[style.colorExcellent(Reduces)] base cost to [style.boldMana(40)] aura")),
 	
 	CLOAK_OF_FLAMES_1(true,
 			2,
@@ -73,21 +73,21 @@ public enum SpellUpgrade {
 			"Incendiary",
 			"With every strike, a jet of fire from the Cloak of Flames shoots forwards to burn the enemy. Damage done is affected by the wearer's fire damage, and the target's fire resistance.",
 			null, Util.newArrayListOfValues(
-					"Adds <b>5</b> [style.colourFire(Fire Damage)] to all attacks")),
+					"Adds <b>5</b> [style.colorFire(Fire Damage)] to all attacks")),
 	CLOAK_OF_FLAMES_2(1,
 			SpellSchool.FIRE,
 			"cloak_of_flames_inferno",
 			"Inferno",
 			"The Cloak of Flames imbues the wearer with the knowledge of how to deal the most fire damage possible.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(Gain)] +25 [style.boldFire(Fire Damage)]")),
+					"[style.colorExcellent(Gain)] +25 [style.boldFire(Fire Damage)]")),
 	CLOAK_OF_FLAMES_3(2,
 			SpellSchool.FIRE,
 			"cloak_of_flames_ring_of_fire",
 			"Ring of Fire",
 			"Any enemy that approaches the Cloak of Flames is now greeted by a retaliatory burst of fire. Damage done is affected by the wearer's fire damage, and the attacker's fire resistance.",
 			null, Util.newArrayListOfValues(
-					"<b>Melee</b> or <b>unarmed</b> attackers take <b>5</b> [style.colourFire(Fire Damage)]")),
+					"<b>Melee</b> or <b>unarmed</b> attackers take <b>5</b> [style.colorFire(Fire Damage)]")),
 
 	ELEMENTAL_FIRE_1(true,
 			5,
@@ -96,14 +96,14 @@ public enum SpellUpgrade {
 			"Wildfire",
 			"The summoned elemental imbues all allies with the knowledge of how best to harness arcane fire.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +20 [style.boldFire(Fire Damage)]")),
+					"[style.colorExcellent(All allies gain)] +20 [style.boldFire(Fire Damage)]")),
 	ELEMENTAL_FIRE_2(5,
 			SpellSchool.FIRE,
 			"elemental_fire_burning_desire",
 			"Burning Desire",
 			"The Fire elemental is able to harness the lustful properties of the arcane in order to ignite a burning desire for sex in the hearts and minds of their enemies.",
 			null, Util.newArrayListOfValues(
-					"[style.colourTerrible(All enemies suffer)] -25 [style.boldLust("+Attribute.RESISTANCE_LUST.getName()+")]")),
+					"[style.colorTerrible(All enemies suffer)] -25 [style.boldLust("+Attribute.RESISTANCE_LUST.getName()+")]")),
 	ELEMENTAL_FIRE_3A(5,
 			SpellSchool.FIRE,
 			"elemental_fire_servant_of_fire",
@@ -111,8 +111,8 @@ public enum SpellUpgrade {
 			"The summoner swears to be subservient to the school of Fire, and while their elemental is bound to this form, the elemental is able to draw as much energy from the summoner as they wish.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourFire(Elemental)]: +100% [style.colourExcellent(Non-Seduction Damage)]",
-					"[style.colourArcane(Caster)]: -50% [style.colourHealth(maximum energy)]")) {
+					"[style.colorFire(Elemental)]: +100% [style.colorExcellent(Non-Seduction Damage)]",
+					"[style.colorArcane(Caster)]: -50% [style.colorHealth(maximum energy)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_FIRE_3B);
@@ -133,8 +133,8 @@ public enum SpellUpgrade {
 			"The summoner assumes complete dominance over the school of Fire, and while their elemental is bound to this form, they are forced to share all of their secrets.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourArcane(Caster)]: +25 [style.boldFire(Fire Damage)]",
-					"[style.colourArcane(Caster)]: +25 [style.boldFire(Fire Resistance)]")) {
+					"[style.colorArcane(Caster)]: +25 [style.boldFire(Fire Damage)]",
+					"[style.colorArcane(Caster)]: +25 [style.boldFire(Fire Resistance)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_FIRE_3A);
@@ -158,21 +158,21 @@ public enum SpellUpgrade {
 			"Freezing Fog",
 			"Ice Shard explodes on impact, saturating the air around the target with arcane crystals. These crystals then quickly condense into a freezing fog, which saps the target's ability to cast spells.",
 			null, Util.newArrayListOfValues(
-					"<b>-20</b> "+Attribute.SPELL_COST_MODIFIER.getColouredName("b")+" for [style.colourGood(3 turns)]")),
+					"<b>-20</b> "+Attribute.SPELL_COST_MODIFIER.getColoredName("b")+" for [style.colorGood(3 turns)]")),
 	ICE_SHARD_2(2,
 			SpellSchool.WATER,
 			"ice_shard_cold_snap",
 			"Cold Snap",
 			"As Ice Shard travels through the freezing layer of fog left behind by a previous impact, there's a chance that the crystals in the air will explode, dealing extra damage.",
 			null, Util.newArrayListOfValues(
-					"Ice Shard has +25 "+Attribute.CRITICAL_CHANCE.getColouredName("b")+" against targets affected by Freezing Fog")),
+					"Ice Shard has +25 "+Attribute.CRITICAL_CHANCE.getColoredName("b")+" against targets affected by Freezing Fog")),
 	ICE_SHARD_3(5,
 			SpellSchool.WATER,
 			"ice_shard_deep_freeze",
 			"Deep Freeze",
 			"When the crystals in freezing fog detonate, they instantly entomb any objects nearby in a case of thin ice, momentarily locking them in place.",
 			null, Util.newArrayListOfValues(
-					"If Ice Shard [style.boldExcellent(critically hits)] a target affected by Freezing Fog, that target is [style.colourExcellent(stunned)] for [style.colourGood(1 turn)]")),
+					"If Ice Shard [style.boldExcellent(critically hits)] a target affected by Freezing Fog, that target is [style.colorExcellent(stunned)] for [style.colorGood(1 turn)]")),
 
 	RAIN_CLOUD_1(true,
 			1,
@@ -181,21 +181,21 @@ public enum SpellUpgrade {
 			"Deep Chill",
 			"The arcane rain seeps into the target's bones, chilling them to the core.",
 			null, Util.newArrayListOfValues(
-					"Adds <b>-25</b> "+Attribute.RESISTANCE_ICE.getColouredName("b")+" to Rain Cloud's effects")),
+					"Adds <b>-25</b> "+Attribute.RESISTANCE_ICE.getColoredName("b")+" to Rain Cloud's effects")),
 	RAIN_CLOUD_2(3,
 			SpellSchool.WATER,
 			"rain_cloud_downpour",
 			"Downpour",
 			"Sheets of torrential arcane rain sweep into the target's eyes, causing them to miss the occasional attack.",
 			null, Util.newArrayListOfValues(
-					"Adds <b>+15</b> "+Attribute.MISS_CHANCE.getColouredName("b")+" to Rain Cloud's effects")),
+					"Adds <b>+15</b> "+Attribute.MISS_CHANCE.getColoredName("b")+" to Rain Cloud's effects")),
 	RAIN_CLOUD_3(5,
 			SpellSchool.WATER,
 			"rain_cloud_cloud_burst",
 			"Cloud Burst",
 			"The anger and annoyance of the rain cloud's target is harnessed as energy, and each time they miss an attack, the cloud grows in strength and size.",
 			null, Util.newArrayListOfValues(
-					"If Rain Cloud's target misses, the duration is set to [style.colourGood(6 turns)], and "+Attribute.SPELL_COST_MODIFIER.getColouredName("b")+" debuff is increased to -50")),
+					"If Rain Cloud's target misses, the duration is set to [style.colorGood(6 turns)], and "+Attribute.SPELL_COST_MODIFIER.getColoredName("b")+" debuff is increased to -50")),
 
 	SOOTHING_WATERS_1(true,
 			5,
@@ -204,21 +204,21 @@ public enum SpellUpgrade {
 			"Arcane Springs",
 			"The arcane power infused into Soothing Waters is massively increased, allowing the spell to additionally restore a target's aura.",
 			null, Util.newArrayListOfValues(
-					"Soothing Waters [style.boldExcellent(additionally)] restores <b>20%</b> "+Attribute.MANA_MAXIMUM.getColouredName("b"))),
+					"Soothing Waters [style.boldExcellent(additionally)] restores <b>20%</b> "+Attribute.MANA_MAXIMUM.getColoredName("b"))),
 	SOOTHING_WATERS_2(10,
 			SpellSchool.WATER,
 			"soothing_waters_rejuvenation",
 			"Rejuvenation",
 			"The life-giving properties of water are fully harnessed by the arcane, restoring a huge amount of energy to the target of Soothing Water.",
 			null, Util.newArrayListOfValues(
-					"Soothing Waters' restoration [style.boldExcellent(increased)] to <b>40%</b> "+Attribute.HEALTH_MAXIMUM.getColouredName("b"))),
+					"Soothing Waters' restoration [style.boldExcellent(increased)] to <b>40%</b> "+Attribute.HEALTH_MAXIMUM.getColoredName("b"))),
 	SOOTHING_WATERS_3(10,
 			SpellSchool.WATER,
 			"soothing_waters_bouncing_orb",
 			"Bouncing Orb",
 			"Once cast, Soothing Waters now splits into several orbs, each one seeking out an ally to heal.",
 			null, Util.newArrayListOfValues(
-					"Soothing Waters heals [style.boldExcellent(all allies)] for <b>10%</b> "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and <b>10%</b> "+Attribute.MANA_MAXIMUM.getColouredName("b"))),
+					"Soothing Waters heals [style.boldExcellent(all allies)] for <b>10%</b> "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and <b>10%</b> "+Attribute.MANA_MAXIMUM.getColoredName("b"))),
 
 	ELEMENTAL_WATER_1(true,
 			5,
@@ -227,14 +227,14 @@ public enum SpellUpgrade {
 			"Crashing Waves",
 			"The Water elemental continuously sends forth waves of freezing water to crash upon their enemies, making them far more susceptible to ice attacks.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +20 [style.boldIce(Ice Damage)]")),
+					"[style.colorExcellent(All allies gain)] +20 [style.boldIce(Ice Damage)]")),
 	ELEMENTAL_WATER_2(5,
 			SpellSchool.WATER,
 			"elemental_water_calm_waters",
 			"Calm Waters",
 			"The Water elemental projects the image of calm, steady waters into the mind of any ally who starts to get turned on, helping them to control their lust.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +20 "+Attribute.RESISTANCE_LUST.getColouredName("b"))),
+					"[style.colorExcellent(All allies gain)] +20 "+Attribute.RESISTANCE_LUST.getColoredName("b"))),
 	ELEMENTAL_WATER_3A(5,
 			SpellSchool.WATER,
 			"elemental_water_servant_of_water",
@@ -242,8 +242,8 @@ public enum SpellUpgrade {
 			"The summoner swears to be subservient to the school of Water, and while their elemental is bound to this form, the elemental is able to draw as much energy from the summoner as they wish.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourIce(Elemental)]: +100% [style.colourExcellent(Non-Seduction Damage)]",
-					"[style.colourArcane(Caster)]: -50% [style.colourHealth(maximum energy)]")) {
+					"[style.colorIce(Elemental)]: +100% [style.colorExcellent(Non-Seduction Damage)]",
+					"[style.colorArcane(Caster)]: -50% [style.colorHealth(maximum energy)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_WATER_3B);
@@ -264,8 +264,8 @@ public enum SpellUpgrade {
 			"The summoner assumes complete dominance over the school of Water, and while their elemental is bound to this form, they are forced to share all of their secrets.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourArcane(Caster)]: +25 [style.boldIce(Ice Damage)]",
-					"[style.colourArcane(Caster)]: +25 [style.boldIce(Ice Resistance)]")) {
+					"[style.colorArcane(Caster)]: +25 [style.boldIce(Ice Damage)]",
+					"[style.colorArcane(Caster)]: +25 [style.boldIce(Ice Resistance)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_WATER_3A);
@@ -289,22 +289,22 @@ public enum SpellUpgrade {
 			"Choking Haze",
 			"The clouds of Poison Vapours become far thicker, becoming a stifling, choking haze that causes the target to occasionally miss their attacks.",
 			null, Util.newArrayListOfValues(
-					"Poison Vapours additionally applies <b>+10</b> "+Attribute.MISS_CHANCE.getColouredName("b"))),
+					"Poison Vapours additionally applies <b>+10</b> "+Attribute.MISS_CHANCE.getColoredName("b"))),
 	POISON_VAPOURS_2(5,
 			SpellSchool.AIR,
 			"poison_vapours_arcane_sickness",
 			"Arcane Sickness",
 			"Poison Vapours become infused with a potent arcane sickness, which steadily drains the target's arcane aura.",
 			null, Util.newArrayListOfValues(
-					"Poison Vapours additionally drains <b>10</b> "+Attribute.MANA_MAXIMUM.getColouredName("b")+" per turn")),
+					"Poison Vapours additionally drains <b>10</b> "+Attribute.MANA_MAXIMUM.getColoredName("b")+" per turn")),
 	POISON_VAPOURS_3(2,
 			SpellSchool.AIR,
 			"poison_vapours_weakening_cloud",
 			"Weakening Cloud",
 			"Poison Vapours starts to seep into the target's body, significantly weakening their attacks.",
 			null, Util.newArrayListOfValues(
-					"Poison Vapours additionally applies <b>-15</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b"),
-					"Poison Vapours additionally applies <b>-25</b> "+Attribute.CRITICAL_DAMAGE.getColouredName("b"))),
+					"Poison Vapours additionally applies <b>-15</b> "+Attribute.DAMAGE_PHYSICAL.getColoredName("b"),
+					"Poison Vapours additionally applies <b>-25</b> "+Attribute.CRITICAL_DAMAGE.getColoredName("b"))),
 
 	VACUUM_1(true,
 			5,
@@ -313,8 +313,8 @@ public enum SpellUpgrade {
 			"Secondary Voids",
 			"The target of Vacuum additionally suffers -15 critical chance, and miss chance is increased to +20.",
 			null, Util.newArrayListOfValues(
-					"Vacuum additionally applies <b>-15</b> "+Attribute.CRITICAL_CHANCE.getColouredName("b"),
-					"Vacuum debuff increased to <b>+20</b> "+Attribute.MISS_CHANCE.getColouredName("b"))),
+					"Vacuum additionally applies <b>-15</b> "+Attribute.CRITICAL_CHANCE.getColoredName("b"),
+					"Vacuum debuff increased to <b>+20</b> "+Attribute.MISS_CHANCE.getColoredName("b"))),
 	VACUUM_2(2,
 			SpellSchool.AIR,
 			"vacuum_suction",
@@ -337,16 +337,16 @@ public enum SpellUpgrade {
 			"Guiding Wind",
 			"Guided by the forces of the arcane, the summoned winds apply pressure to their target at key moments, helping them to avoid incoming attacks, as well as to land powerful strikes of their own.",
 			null, Util.newArrayListOfValues(
-					"Protective Gusts buff increased to <b>+15</b> "+Attribute.DODGE_CHANCE.getColouredName("b"),
-					"Protective Gusts additionally applies <b>+10</b> "+Attribute.CRITICAL_CHANCE.getColouredName("b"))),
+					"Protective Gusts buff increased to <b>+15</b> "+Attribute.DODGE_CHANCE.getColoredName("b"),
+					"Protective Gusts additionally applies <b>+10</b> "+Attribute.CRITICAL_CHANCE.getColoredName("b"))),
 	PROTECTIVE_GUSTS_2(1,
 			SpellSchool.AIR,
 			"protective_gusts_focused_blast",
 			"Focused Blast",
 			"With every strike, the arcane winds push forwards to help their target deal the most amount of damage possible.",
 			null, Util.newArrayListOfValues(
-					"Protective Gusts buff increased to <b>+20</b> "+Attribute.DODGE_CHANCE.getColouredName("b"),
-					"Protective Gusts additionally applies <b>+25</b> "+Attribute.CRITICAL_DAMAGE.getColouredName("b"))),
+					"Protective Gusts buff increased to <b>+20</b> "+Attribute.DODGE_CHANCE.getColoredName("b"),
+					"Protective Gusts additionally applies <b>+25</b> "+Attribute.CRITICAL_DAMAGE.getColoredName("b"))),
 	PROTECTIVE_GUSTS_3(2,
 			SpellSchool.AIR,
 			"protective_gusts_lingering_presence",
@@ -362,15 +362,15 @@ public enum SpellUpgrade {
 			"Whirlwind",
 			"The Air elemental summons forth a swirling whirlwind, which disrupts and staggers all enemies.",
 			null, Util.newArrayListOfValues(
-					"[style.colourTerrible(All enemies suffer)] +5 "+Attribute.MISS_CHANCE.getColouredName("b"))),
+					"[style.colorTerrible(All enemies suffer)] +5 "+Attribute.MISS_CHANCE.getColoredName("b"))),
 	ELEMENTAL_AIR_2(5,
 			SpellSchool.AIR,
-			"elemental_air_vitalising_scents",
-			"Vitalising Scents",
-			"The Air elemental surrounds their allies with vitalising scents, imbuing them with the energy needed to dodge incoming attacks, as well as to land powerful strikes of their own.",
+			"elemental_air_vitalizing_scents",
+			"Vitalizing Scents",
+			"The Air elemental surrounds their allies with vitalizing scents, imbuing them with the energy needed to dodge incoming attacks, as well as to land powerful strikes of their own.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +10 "+Attribute.CRITICAL_CHANCE.getColouredName("b"),
-					"[style.colourExcellent(All allies gain)] +5 "+Attribute.DODGE_CHANCE.getColouredName("b"))),
+					"[style.colorExcellent(All allies gain)] +10 "+Attribute.CRITICAL_CHANCE.getColoredName("b"),
+					"[style.colorExcellent(All allies gain)] +5 "+Attribute.DODGE_CHANCE.getColoredName("b"))),
 	ELEMENTAL_AIR_3A(5,
 			SpellSchool.AIR,
 			"elemental_air_servant_of_air",
@@ -378,8 +378,8 @@ public enum SpellUpgrade {
 			"The summoner swears to be subservient to the school of Air, and while their elemental is bound to this form, the elemental is able to draw as much energy from the summoner as they wish.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourAir(Elemental)]: +100% [style.colourExcellent(Non-Seduction Damage)]",
-					"[style.colourArcane(Caster)]: -50% [style.colourHealth(maximum energy)]")) {
+					"[style.colorAir(Elemental)]: +100% [style.colorExcellent(Non-Seduction Damage)]",
+					"[style.colorArcane(Caster)]: -50% [style.colorHealth(maximum energy)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_AIR_3B);
@@ -400,8 +400,8 @@ public enum SpellUpgrade {
 			"The summoner assumes complete dominance over the school of Air, and while their elemental is bound to this form, they are forced to share all of their secrets.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourArcane(Caster)]: +25 "+Attribute.DAMAGE_POISON.getColouredName("b"),
-					"[style.colourArcane(Caster)]: +25 "+Attribute.RESISTANCE_POISON.getColouredName("b"))) {
+					"[style.colorArcane(Caster)]: +25 "+Attribute.DAMAGE_POISON.getColoredName("b"),
+					"[style.colorArcane(Caster)]: +25 "+Attribute.RESISTANCE_POISON.getColoredName("b"))) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_AIR_3A);
@@ -425,21 +425,21 @@ public enum SpellUpgrade {
 			"Ground Shake",
 			"Slam continues on down into the earth after doing its damage, causing the ground beneath the target's feet to shake.",
 			null, Util.newArrayListOfValues(
-					"<b>+10</b> "+Attribute.MISS_CHANCE.getColouredName("b")+" for [style.colourGood(2 turns)]")),
+					"<b>+10</b> "+Attribute.MISS_CHANCE.getColoredName("b")+" for [style.colorGood(2 turns)]")),
 	SLAM_2(2,
 			SpellSchool.EARTH,
 			"slam_aftershock",
 			"Aftershock",
 			"Just as the tremors start to die away, a huge surge of force rises up out of the ground to hit the target.",
 			null, Util.newArrayListOfValues(
-					"Applies <b>5</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b")+" as Ground Shake ends")),
+					"Applies <b>5</b> "+Attribute.DAMAGE_PHYSICAL.getColoredName("b")+" as Ground Shake ends")),
 	SLAM_3(5,
 			SpellSchool.EARTH,
 			"slam_earthquake",
 			"Earthquake",
 			"Slam impacts the ground so hard that all enemies suffer the effects of Ground Shake.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All enemies)] are affected by Ground Shake")),
+					"[style.colorExcellent(All enemies)] are affected by Ground Shake")),
 
 	TELEKENETIC_SHOWER_1(true,
 			5,
@@ -453,16 +453,16 @@ public enum SpellUpgrade {
 			SpellSchool.EARTH,
 			"telekinetic_shower_precision_strikes",
 			"Precision Strikes",
-			"Each strike from Telekinetic Shower is precisely aimed to bypass and degrade the target's physical defences.",
+			"Each strike from Telekinetic Shower is precisely aimed to bypass and degrade the target's physical defenses.",
 			null, Util.newArrayListOfValues(
-					"Telekinetic Shower additionally applies <b>-20</b> "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b"))),
+					"Telekinetic Shower additionally applies <b>-20</b> "+Attribute.RESISTANCE_PHYSICAL.getColoredName("b"))),
 	TELEKENETIC_SHOWER_3(10,
 			SpellSchool.EARTH,
 			"telekinetic_shower_unseen_force",
 			"Unseen Force",
 			"Every time an object from Telekinetic Shower impacts the target, an explosive wave of force is unleashed, dealing considerable damage.",
 			null, Util.newArrayListOfValues(
-					"Telekinetic Shower damage [style.colourExcellent(doubled)] to <b>20</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b")+" per turn")),
+					"Telekinetic Shower damage [style.colorExcellent(doubled)] to <b>20</b> "+Attribute.DAMAGE_PHYSICAL.getColoredName("b")+" per turn")),
 
 	STONE_SHELL_1(true,
 			1,
@@ -471,21 +471,21 @@ public enum SpellUpgrade {
 			"Shifting Sands",
 			"The Stone Shell now occasionally shifts and disintegrates into flowing sand, before quickly reforming elsewhere in order to confuse any enemies.",
 			null, Util.newArrayListOfValues(
-					"Stone Shell additionally applies <b>+10</b> "+Attribute.DODGE_CHANCE.getColouredName("b"))),
+					"Stone Shell additionally applies <b>+10</b> "+Attribute.DODGE_CHANCE.getColoredName("b"))),
 	STONE_SHELL_2(2,
 			SpellSchool.EARTH,
 			"stone_shell_hardened_carapace",
 			"Hardened Carapace",
 			"A second layer of hardened stone is created behind Shone Shell, massively increasing the target's physical resistance.",
 			null, Util.newArrayListOfValues(
-					"Stone Shell's buff is increased to <b>+50</b> "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b"))),
+					"Stone Shell's buff is increased to <b>+50</b> "+Attribute.RESISTANCE_PHYSICAL.getColoredName("b"))),
 	STONE_SHELL_3(1,
 			SpellSchool.EARTH,
 			"stone_shell_explosive_finish",
 			"Explosive Finish",
 			"A reserve of telekinetic energy is stored within the Stone Shell, and when the effect finally comes to an end, this energy is released in an explosive burst.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All enemies)] take <b>10</b> "+Attribute.DAMAGE_PHYSICAL.getColouredName("b")+" when Stone Shell ends")),
+					"[style.colorExcellent(All enemies)] take <b>10</b> "+Attribute.DAMAGE_PHYSICAL.getColoredName("b")+" when Stone Shell ends")),
 
 	ELEMENTAL_EARTH_1(true,
 			5,
@@ -494,15 +494,15 @@ public enum SpellUpgrade {
 			"Rolling Stone",
 			"The Earth elemental sends out waves of force to amplify the damage done by their allies.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +15 "+Attribute.DAMAGE_PHYSICAL.getColouredName("b"),
-					"[style.colourExcellent(All allies gain)] +25 "+Attribute.CRITICAL_DAMAGE.getColouredName("b"))),
+					"[style.colorExcellent(All allies gain)] +15 "+Attribute.DAMAGE_PHYSICAL.getColoredName("b"),
+					"[style.colorExcellent(All allies gain)] +25 "+Attribute.CRITICAL_DAMAGE.getColoredName("b"))),
 	ELEMENTAL_EARTH_2(5,
 			SpellSchool.EARTH,
 			"elemental_earth_hardening",
 			"Hardening",
 			"The Earth elemental's telekinetic powers are used to surround all allies with protective fragments of rock.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +10 "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b"))),
+					"[style.colorExcellent(All allies gain)] +10 "+Attribute.RESISTANCE_PHYSICAL.getColoredName("b"))),
 	ELEMENTAL_EARTH_3A(5,
 			SpellSchool.EARTH,
 			"elemental_earth_servant_of_earth",
@@ -510,8 +510,8 @@ public enum SpellUpgrade {
 			"The summoner swears to be subservient to the school of Earth, and while their elemental is bound to this form, the elemental is able to draw as much energy from the summoner as they wish.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourEarth(Elemental)]: +100% [style.colourExcellent(Non-Seduction Damage)]",
-					"[style.colourArcane(Caster)]: -50% [style.colourHealth(maximum energy)]")) {
+					"[style.colorEarth(Elemental)]: +100% [style.colorExcellent(Non-Seduction Damage)]",
+					"[style.colorArcane(Caster)]: -50% [style.colorHealth(maximum energy)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_EARTH_3B);
@@ -532,8 +532,8 @@ public enum SpellUpgrade {
 			"The summoner assumes complete dominance over the school of Earth, and while their elemental is bound to this form, they are forced to share all of their secrets.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourArcane(Caster)]: +25 "+Attribute.DAMAGE_PHYSICAL.getColouredName("b"),
-					"[style.colourArcane(Caster)]: +25 "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b"))) {
+					"[style.colorArcane(Caster)]: +25 "+Attribute.DAMAGE_PHYSICAL.getColoredName("b"),
+					"[style.colorArcane(Caster)]: +25 "+Attribute.RESISTANCE_PHYSICAL.getColoredName("b"))) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_EARTH_3A);
@@ -557,21 +557,21 @@ public enum SpellUpgrade {
 			"Overwhelming Lust",
 			"The images that are projected into the target's mind become especially lewd and depraved.",
 			null, Util.newArrayListOfValues(
-					"Arcane Arousal damage [style.colourExcellent(doubled)] to <b>30</b> "+Attribute.DAMAGE_LUST.getColouredName("b"))),
+					"Arcane Arousal damage [style.colorExcellent(doubled)] to <b>30</b> "+Attribute.DAMAGE_LUST.getColoredName("b"))),
 	ARCANE_AROUSAL_2(2,
 			SpellSchool.ARCANE,
 			"arcane_arousal_lustful_distraction",
 			"Lustful Distraction",
 			"The lewd images that are sent into the target's mind linger on for some time, causing them to become distracted.",
 			null, Util.newArrayListOfValues(
-					"Target [style.boldBad(suffers)] +15 "+Attribute.MISS_CHANCE.getColouredName("b")+" for [style.boldGood(2 turns)]")),
+					"Target [style.boldBad(suffers)] +15 "+Attribute.MISS_CHANCE.getColoredName("b")+" for [style.boldGood(2 turns)]")),
 	ARCANE_AROUSAL_3(2,
 			SpellSchool.ARCANE,
 			"arcane_arousal_dirty_promises",
 			"Dirty Promises",
 			"Phantasmal whispers are projected alongside the lewd images, promising the target that they'll have a good time if they simply submit...",
 			null, Util.newArrayListOfValues(
-					"Target [style.boldBad(additionally suffers)] -25 "+Attribute.RESISTANCE_LUST.getColouredName("b"),
+					"Target [style.boldBad(additionally suffers)] -25 "+Attribute.RESISTANCE_LUST.getColoredName("b"),
 					"Duration increased to [style.boldGood(3 turns)]")),
 
 	TELEPATHIC_COMMUNICATION_1(true,
@@ -589,14 +589,14 @@ public enum SpellUpgrade {
 			"Projected Touch",
 			"The caster of Telepathic Communication is now able to project phantasmal forces, causing their target to be subjected to ghostly kisses even while their mind is filled with moans.",
 			null, Util.newArrayListOfValues(
-					"Buff [style.colourExcellent(doubled)] to <b>30</b> "+Attribute.DAMAGE_LUST.getColouredName("b"))),
+					"Buff [style.colorExcellent(doubled)] to <b>30</b> "+Attribute.DAMAGE_LUST.getColoredName("b"))),
 	TELEPATHIC_COMMUNICATION_3(3,
 			SpellSchool.ARCANE,
 			"telepathic_communication_power_of_suggestion",
 			"Power of Suggestion",
 			"The caster of Telepathic Communication is able to project powerful words of suggestion into the mind of any person they wish to seduce, causing them to lower their guard.",
 			null, Util.newArrayListOfValues(
-					"[style.boldLust(Seduce)] [style.boldExcellent(applies)] -25 "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b")+" to the target for [style.boldGood(2 turns)]")),
+					"[style.boldLust(Seduce)] [style.boldExcellent(applies)] -25 "+Attribute.RESISTANCE_PHYSICAL.getColoredName("b")+" to the target for [style.boldGood(2 turns)]")),
 
 	ARCANE_CLOUD_1(true,
 			3,
@@ -605,21 +605,21 @@ public enum SpellUpgrade {
 			"Arcane Lightning",
 			"Flashes of pink and purple arcane lightning strike out from the arcane cloud, filling the target's mind with lustful thoughts.",
 			null, Util.newArrayListOfValues(
-					"<b>5</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn")),
+					"<b>5</b> "+Attribute.DAMAGE_LUST.getColoredName("b")+" per turn")),
 	ARCANE_CLOUD_2(5,
 			SpellSchool.ARCANE,
 			"arcane_cloud_thunder",
 			"Arcane Thunder",
 			"Small claps of arcane thunder sound in the target's ears, massively increasing the amount of lust damage they take.",
 			null, Util.newArrayListOfValues(
-					Attribute.DAMAGE_LUST.getColouredName("b")+" [style.boldExcellent(increased)] to <b>15</b> per turn")),
+					Attribute.DAMAGE_LUST.getColoredName("b")+" [style.boldExcellent(increased)] to <b>15</b> per turn")),
 	ARCANE_CLOUD_3(10,
 			SpellSchool.ARCANE,
-			"arcane_cloud_localised_storm",
-			"Localised Storm",
-			"The arcane cloud grows into a localised storm, affecting all enemies with its lust damaging effects.",
+			"arcane_cloud_localized_storm",
+			"Localized Storm",
+			"The arcane cloud grows into a localized storm, affecting all enemies with its lust damaging effects.",
 			null, Util.newArrayListOfValues(
-					"[style.boldExcellent(All enemies)] suffer <b>15</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" per turn")),
+					"[style.boldExcellent(All enemies)] suffer <b>15</b> "+Attribute.DAMAGE_LUST.getColoredName("b")+" per turn")),
 
 	CLEANSE_1(true,
 			5,
@@ -636,11 +636,11 @@ public enum SpellUpgrade {
 			"Arcane Duality",
 			"A shimmering shield of arcane energy is summoned forth around the target of Cleanse. This energy is able to detect if the target is friend or foe, and chooses to either shield or weaken them, respectively.",
 			null, Util.newArrayListOfValues(
-					"+/-10 "+Attribute.RESISTANCE_PHYSICAL.getColouredName("b"),
-					"+/-10 "+Attribute.RESISTANCE_LUST.getColouredName("b"),
-					"+/-10 "+Attribute.RESISTANCE_FIRE.getColouredName("b"),
-					"+/-10 "+Attribute.RESISTANCE_ICE.getColouredName("b"),
-					"+/-10 "+Attribute.RESISTANCE_POISON.getColouredName("b"),
+					"+/-10 "+Attribute.RESISTANCE_PHYSICAL.getColoredName("b"),
+					"+/-10 "+Attribute.RESISTANCE_LUST.getColoredName("b"),
+					"+/-10 "+Attribute.RESISTANCE_FIRE.getColoredName("b"),
+					"+/-10 "+Attribute.RESISTANCE_ICE.getColoredName("b"),
+					"+/-10 "+Attribute.RESISTANCE_POISON.getColoredName("b"),
 					"Lasts [style.boldGood(3 turns)]")),
 	CLEANSE_3(2,
 			SpellSchool.ARCANE,
@@ -676,9 +676,9 @@ public enum SpellUpgrade {
 			SpellSchool.ARCANE,
 			"steal_panty_snatcher",
 			"Panty Snatcher",
-			"The caster has refined and perfected this spell so that it always prioritises stealing the target's underwear before anything else.",
+			"The caster has refined and perfected this spell so that it always prioritizes stealing the target's underwear before anything else.",
 			null, Util.newArrayListOfValues(
-					"Steal [style.boldExcellent(prioritises)] target's clothing in groin slot")),
+					"Steal [style.boldExcellent(prioritizes)] target's clothing in groin slot")),
 
 	TELEPORT_1(true,
 			10,
@@ -687,15 +687,15 @@ public enum SpellUpgrade {
 			"Arcane Arrival",
 			"Upon arrival, the target of Teleport unleashes a burst of lust-inducing arcane energy.",
 			null, Util.newArrayListOfValues(
-					"Deals <b>5</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" to a random enemy")),
+					"Deals <b>5</b> "+Attribute.DAMAGE_LUST.getColoredName("b")+" to a random enemy")),
 	TELEPORT_2(15,
 			SpellSchool.ARCANE,
 			"teleport_mass_teleportation",
 			"Mass Teleportation",
 			"The caster is now able to apply Teleport to as many nearby people as they choose.",
 			null, Util.newArrayListOfValues(
-					"Teleport applied to [style.colourExcellent(all allies)] of target",
-					"Map teleport [style.colourExcellent(no longer blocked)] by companions")),
+					"Teleport applied to [style.colorExcellent(all allies)] of target",
+					"Map teleport [style.colorExcellent(no longer blocked)] by companions")),
 	TELEPORT_3(10,
 			SpellSchool.ARCANE,
 			"teleport_rebounding_teleportation",
@@ -703,7 +703,7 @@ public enum SpellUpgrade {
 			"By creating an arcane anchor before casting the spell, the targets of Teleport are able to return to their original position after a few seconds.",
 			null, Util.newArrayListOfValues(
 					"Teleport duration increased to [style.boldGood(2 turns)]",
-					"Arcane Arrival's <b>5</b> "+Attribute.DAMAGE_LUST.getColouredName("b")+" applied each turn")),
+					"Arcane Arrival's <b>5</b> "+Attribute.DAMAGE_LUST.getColoredName("b")+" applied each turn")),
 
 	LILITHS_COMMAND_1(true,
 			10,
@@ -712,22 +712,22 @@ public enum SpellUpgrade {
 			"Overpowering Presence",
 			"The imposing vision of Lilith herself is cast into the mind of the target, greatly increasing the chance of this spell's effectiveness.",
 			null, Util.newArrayListOfValues(
-					"Success chance [style.colourExcellent(increased)] to 50%")),
+					"Success chance [style.colorExcellent(increased)] to 50%")),
 	LILITHS_COMMAND_2(15,
 			SpellSchool.ARCANE,
 			"liliths_command_demonic_servants",
 			"Demonic Servants",
 			"The target is subjected to a vision of Lilith herself commanding them to submit. The vision is so realistic that even demons are now viable to fall prey to this spell's effects.",
 			null, Util.newArrayListOfValues(
-					"Lilith's Command now [style.colourExcellent(affects demons)]",
-					"Success chance [style.colourExcellent(increased)] to 75%")),
+					"Lilith's Command now [style.colorExcellent(affects demons)]",
+					"Success chance [style.colorExcellent(increased)] to 75%")),
 	LILITHS_COMMAND_3(20,
 			SpellSchool.ARCANE,
 			"liliths_command_ultimate_power",
 			"Ultimate Power",
 			"The vision of Lilith that is projected into the target's mind is so realistic and so powerful, that they have no hope of resisting its effects.",
 			null, Util.newArrayListOfValues(
-					"Success chance [style.colourExcellent(increased)] to 100%")),
+					"Success chance [style.colorExcellent(increased)] to 100%")),
 
 	ELEMENTAL_ARCANE_1(true,
 			5,
@@ -736,14 +736,14 @@ public enum SpellUpgrade {
 			"Lewd Encouragements",
 			"The Arcane elemental projects lewd encouragements into the minds of all their allies, inspiring them to perform deviant and seductive actions.",
 			null, Util.newArrayListOfValues(
-					"[style.colourExcellent(All allies gain)] +15 "+Attribute.DAMAGE_LUST.getColouredName("b"))),
+					"[style.colorExcellent(All allies gain)] +15 "+Attribute.DAMAGE_LUST.getColoredName("b"))),
 	ELEMENTAL_ARCANE_2(5,
 			SpellSchool.ARCANE,
 			"elemental_arcane_caressing_touch",
 			"Caressing Touch",
 			"The Arcane elemental sends out phantasmal tentacles to grope and molest all nearby enemies.",
 			null, Util.newArrayListOfValues(
-					"[style.boldTerrible(All enemies suffer)] -15 "+Attribute.RESISTANCE_LUST.getColouredName("b"))),
+					"[style.boldTerrible(All enemies suffer)] -15 "+Attribute.RESISTANCE_LUST.getColoredName("b"))),
 	ELEMENTAL_ARCANE_3A(5,
 			SpellSchool.ARCANE,
 			"elemental_arcane_servant_of_arcane",
@@ -751,8 +751,8 @@ public enum SpellUpgrade {
 			"The summoner swears to be subservient to the school of Arcane, and while their elemental is bound to this form, the elemental is able to draw as much energy from the summoner as they wish.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourArcane(Elemental)]: +100% [style.colourExcellent(Non-Seduction Damage)]",
-					"[style.colourArcane(Caster)]: -50% [style.colourHealth(maximum energy)]")) {
+					"[style.colorArcane(Elemental)]: +100% [style.colorExcellent(Non-Seduction Damage)]",
+					"[style.colorArcane(Caster)]: -50% [style.colorHealth(maximum energy)]")) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_ARCANE_3B);
@@ -773,8 +773,8 @@ public enum SpellUpgrade {
 			"The summoner assumes complete dominance over the school of Arcane, and while their elemental is bound to this form, they are forced to share all of their secrets.",
 			null, Util.newArrayListOfValues(
 					"While summoned:",
-					"[style.colourArcane(Caster)]: +25 "+Attribute.DAMAGE_LUST.getColouredName("b"),
-					"[style.colourArcane(Caster)]: +25 "+Attribute.RESISTANCE_LUST.getColouredName("b"))) {
+					"[style.colorArcane(Caster)]: +25 "+Attribute.DAMAGE_LUST.getColoredName("b"),
+					"[style.colorArcane(Caster)]: +25 "+Attribute.RESISTANCE_LUST.getColoredName("b"))) {
 
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_ARCANE_3A);
@@ -832,7 +832,7 @@ public enum SpellUpgrade {
 		if (attributeModifiers != null) {
 			for (Entry<Attribute, Integer> e : attributeModifiers.entrySet())
 				modifiersList.add("<b>" + (e.getValue() > 0 ? "+" : "") + e.getValue() + "</b>"
-						+ " <b style='color: " + e.getKey().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(e.getKey().getAbbreviatedName()) + "</b>");
+						+ " <b style='color: " + e.getKey().getColor().toWebHexString() + ";'>" + Util.capitalizeSentence(e.getKey().getAbbreviatedName()) + "</b>");
 		}
 		
 		if (extraEffects != null) {

@@ -39,12 +39,12 @@
 
     <incompatibleSlots/>
 
-    <primaryColours values="ALL"/>
-    <primaryColoursDye values="ALL"/>
-    <secondaryColours/>
-    <secondaryColoursDye/>
-    <tertiaryColours/>
-    <tertiaryColoursDye/>
+    <primaryColors values="ALL"/>
+    <primaryColorsDye values="ALL"/>
+    <secondaryColors/>
+    <secondaryColorsDye/>
+    <tertiaryColors/>
+    <tertiaryColorsDye/>
 
     <itemTags>
       <tag>SOLD_BY_FINCH</tag>
