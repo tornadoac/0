@@ -219,7 +219,7 @@ public class Main extends Application {
 			+"<ul>Fixed Lilaya and Meraxis not being recognized as your half-sisters, nor Lyssieth as your mother, after demon TF.</ul>"
 			+"<ul>Ralph will now correctly stock modded clothing with the tag 'SOLD_BY_RALPH'.</ul>"
 			+"<ul>Clothing rarity defined as non-common will now accurately display that rarity. (Mostly affects modded clothing.)</ul>"
-			+"<ul>Fixed bug where demon offspring were not being assigned the correct subspecies. (Which was causing Lyssieth to give birth to elder lilin.)</ul>"
+			+"<ul>Fixed bug where demon offspring were not being assigned the correct subspecies. (Which was causing Lyssieth to give birth to elder Lilin.)</ul>"
 			+"<ul>Fixed bug where NPCs would sometimes react to your impending orgasm as though it was a different participant that was about to orgasm.</ul>"
 			+"<ul>Fixed issue with incorrect recognition of potential fathers of ongoing pregnancies. This mostly affected dialogue where a character would (incorrectly) react to you getting them pregnant.</ul>"
 			+"<ul>Fixed post-defeat siren being reset and moved back to her fortress after 2 weeks like her subordinates. (She will be returned to her office upon game loading.)</ul>"

@@ -117,14 +117,14 @@ public enum Subspecies {
 	// DEMON:
 	ELDER_LILIN("statusEffects/race/raceElderLilin",
 			"statusEffects/race/raceBackground",
-			"elder lilin",
-			"elder lilin",
-			"elder lilin",
-			"elder lilin",
-			"elder lilin",
-			"elder lilin",
-			"elder lilin",
-			"[npc.Name] is one of the seven elder lilin, and is one of the most powerful beings in existence. [npc.She] can transform [npc.her] body into any form [npc.she] desires, and has absolute mastery over the arcane.",
+			"elder Lilin",
+			"elder Lilin",
+			"elder Lilin",
+			"elder Lilin",
+			"elder Lilin",
+			"elder Lilin",
+			"elder Lilin",
+			"[npc.Name] is one of the seven elder Lilin, and is one of the most powerful beings in existence. [npc.She] can transform [npc.her] body into any form [npc.she] desires, and has absolute mastery over the arcane.",
 			Util.newHashMapOfValues(
 					new Value<Attribute, Float>(Attribute.MAJOR_PHYSIQUE, 1000f),
 					new Value<Attribute, Float>(Attribute.MAJOR_ARCANE, 1000f),
@@ -141,7 +141,7 @@ public enum Subspecies {
 			Race.DEMON,
 			Color.RACE_LILIN,
 			SubspeciesPreference.ONE_LOW,
-			"One of the seven elder lilin.", Util.newHashMapOfValues()) {
+			"One of the seven elder Lilin.", Util.newHashMapOfValues()) {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			body.setSubspeciesOverride(ELDER_LILIN);
@@ -150,14 +150,14 @@ public enum Subspecies {
 
 	LILIN("statusEffects/race/raceLilin",
 			"statusEffects/race/raceBackground",
-			"lilin",
-			"lilin",
-			"lilin",
-			"lilin",
-			"lilin",
-			"lilin",
-			"lilin",
-			"[npc.Name] is a lilin, and as such is far more powerful than a regular demon. [npc.She] can transform [npc.her] body into any form [npc.she] desires, and has a vast amount of arcane power.",
+			"Lilin",
+			"Lilin",
+			"Lilin",
+			"Lilin",
+			"Lilin",
+			"Lilin",
+			"Lilin",
+			"[npc.Name] is a Lilin, and as such is far more powerful than a regular demon. [npc.She] can transform [npc.her] body into any form [npc.she] desires, and has a vast amount of arcane power.",
 			Util.newHashMapOfValues(
 					new Value<Attribute, Float>(Attribute.MAJOR_PHYSIQUE, 500f),
 					new Value<Attribute, Float>(Attribute.MAJOR_ARCANE, 500f),
@@ -172,7 +172,7 @@ public enum Subspecies {
 			"LILIN_BASIC",
 			"LILIN_ADVANCED",
 			Race.DEMON,
-			Color.RACE_LILIN, SubspeciesPreference.ONE_LOW, "A lilin.", Util.newHashMapOfValues()) {
+			Color.RACE_LILIN, SubspeciesPreference.ONE_LOW, "A Lilin.", Util.newHashMapOfValues()) {
 		@Override
 		public void applySpeciesChanges(Body body) {
 			body.setSubspeciesOverride(LILIN);
@@ -243,7 +243,7 @@ public enum Subspecies {
 			Race.DEMON,
 			Color.RACE_DEMON,
 			SubspeciesPreference.FOUR_ABUNDANT,
-			"The result of copulation between a lilin and a non-demonic partner.", Util.newHashMapOfValues(
+			"The result of copulation between a Lilin and a non-demonic partner.", Util.newHashMapOfValues(
 					new Value<>(WorldType.DOMINION, SubspeciesSpawnRarity.ONE_VERY_RARE),
 					new Value<>(WorldType.NIGHTLIFE_CLUB, SubspeciesSpawnRarity.ONE_VERY_RARE))) {
 
@@ -3036,28 +3036,28 @@ public enum Subspecies {
 	 *
 	 * <b>Demon breeding</b><br/>
 	 * Lilin<br/>
-	 * + lilin = lilin<br/>
+	 * + Lilin = Lilin<br/>
 	 * + demon = demon<br/>
 	 * + half-demon = half-demon<br/>
 	 * + human half-demon = human half-demon<br/>
 	 * + non-demon = half-demon<br/>
 	 * + imps = alpha-imps<br/>
 	 * Demon<br/>
-	 * + lilin = demon<br/>
+	 * + Lilin = demon<br/>
 	 * + demon = demon<br/>
 	 * + half-demon = half-demon<br/>
 	 * + human half-demon = human half-demon<br/>
 	 * + non-demon = half-demon<br/>
 	 * + imps = alpha-imps<br/>
 	 * Half-demon<br/>
-	 * + lilin = half-demon<br/>
+	 * + Lilin = half-demon<br/>
 	 * + demon = half-demon<br/>
 	 * + half-demon = half-demon<br/>
 	 * + human half-demon = human half-demon<br/>
 	 * + non-demon = half-demon<br/>
 	 * + imps = alpha-imps<br/>
 	 * Human half-demon<br/>
-	 * + lilin = human half-demon<br/>
+	 * + Lilin = human half-demon<br/>
 	 * + demon = human half-demon<br/>
 	 * + half-demon = human half-demon<br/>
 	 * + human half-demon = imps<br/>

@@ -1133,7 +1133,7 @@ public enum Race {
 	 * StatusEffect.DRAGON),
 	 *
 	 *
-	 * LILIN("lilin",
+	 * LILIN("Lilin",
 	 *
 	 * "Lilin are a humanoid race found everywhere." +
 	 * " Lilin are physically indistinguishable from demons, as both species can alter their bodies at will."

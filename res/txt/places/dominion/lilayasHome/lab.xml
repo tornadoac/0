@@ -83,7 +83,7 @@
 		[lilaya.speech(I simply do <i>not</i> even know what to say!)] she yells in a shrill voice, before contradicting her statement by continuing, [lilaya.speech(I already heard from Meraxis via the resonance stone all about what mommy did! A full demon?! I didn't believe her at first! H-How could you?!)]
 	</p>
 	<p>
-		[pc.speech(How else am I to defeat the other elder lilin without a demon's power?)] you respond with your own question as you try to reason with Lilaya. [pc.speech(Surely you can see how this is for the best?)]
+		[pc.speech(How else am I to defeat the other elder Lilin without a demon's power?)] you respond with your own question as you try to reason with Lilaya. [pc.speech(Surely you can see how this is for the best?)]
 	</p>
 	<p>
 		[lilaya.speech(Oh, I can see how it's for the best alright,)] Lilaya replies, crossing her arms and letting her voice take on a sinister, icy tone, [lilaya.speech(For my entire life, I've been begging mommy to turn me into a full demon, but no matter what I said, she always refused, telling me that she'd sworn never to turn anyone into a demon ever again. Now that she's quite clearly proven that her word means <i>nothing</i>, she has no choice but to finally give me what I want.)]
@@ -449,7 +449,7 @@
 		Your [lilaya.relation(pc)]'s eyes light up as you say this, and she quickly rushes over to the other side of her lab where she keeps the resonance stone. Holding it in one hand, you see the dark-purple sphere light up and start to emit a soft pink glow. In a clear voice, Lilaya states, [lilaya.speech(Mommy, I need you to come here. Right now.)]
 	</p>
 	<p>
-		[lyssieth.speech(Yes, dear,)] you hear Lyssieth's voice being projected from out of the arcane device. A moment later, the elder lilin appears before you in a bright purple flash, and although at first she's smiling, her expression turns into one of worry as she sees the angry expression on Lilaya's face. [lyssieth.speech(Oh, sweetheart, what's wrong? You look upse-)]
+		[lyssieth.speech(Yes, dear,)] you hear Lyssieth's voice being projected from out of the arcane device. A moment later, the elder Lilin appears before you in a bright purple flash, and although at first she's smiling, her expression turns into one of worry as she sees the angry expression on Lilaya's face. [lyssieth.speech(Oh, sweetheart, what's wrong? You look upse-)]
 	</p>
 	<p>
 		[lilaya.speech(Of course I'm upset!)] Lilaya interrupts, [lilaya.speech(You said you'd never turn anyone into a demon ever again, and then you go back on your word the moment you meet [pc.name]! So it turns out that you were just lying to me for all these years! You have no problem at all with turning people into demons, so you've got no reason to leave me as a half-demon for any longer! Tell her, [pc.name]!)]
@@ -503,7 +503,7 @@
 		Just a moment later, a flash of purple light fills the lab, and there before you stands the familiar figure of Lyssieth. Smiling at Lilaya, she then turns and steps towards you, before pulling you into a hug and saying, [lyssieth.speech(Let's return to my palace.)]
 	</p>
 	<p>
-		With that, the two of you are teleported back into the elder lilin's office, and, releasing you from the hug, Lyssieth smiles at you and asks, [lyssieth.speech(So, what is it you wanted?)]
+		With that, the two of you are teleported back into the elder Lilin's office, and, releasing you from the hug, Lyssieth smiles at you and asks, [lyssieth.speech(So, what is it you wanted?)]
 	</p>
 	]]>
 	</htmlContent>
@@ -519,7 +519,7 @@
 		Just a moment later, a flash of purple light fills the lab, and there before you stands the familiar figure of Lyssieth. Smiling at Lilaya, she then turns and steps towards you, before pulling you and [npc.name] into a hug and saying, [lyssieth.speech(Let's return to my palace.)]
 	</p>
 	<p>
-		With that, the three of you are teleported back into the elder lilin's office, and, releasing you both from the hug, Lyssieth asks [npc.name] to wait in Meraxis's office. After [npc.sheHas] left, Lyssieth smiles at you and asks, [lyssieth.speech(So, what is it you wanted?)]
+		With that, the three of you are teleported back into the elder Lilin's office, and, releasing you both from the hug, Lyssieth asks [npc.name] to wait in Meraxis's office. After [npc.sheHas] left, Lyssieth smiles at you and asks, [lyssieth.speech(So, what is it you wanted?)]
 	</p>
 	]]>
 	</htmlContent>

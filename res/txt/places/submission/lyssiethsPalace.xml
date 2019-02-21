@@ -157,14 +157,14 @@
 	
 	<htmlContent tag="LYSSIETH_OFFICE_ENTER"><![CDATA[
 	<p>
-		Deciding to proceed forwards and meet with Lyssieth, you cross over to the mahogany door on the far side of the room. Giving it a quick knock, you turn the handle and push it open, before stepping through and entering the elder lilin's office.
+		Deciding to proceed forwards and meet with Lyssieth, you cross over to the mahogany door on the far side of the room. Giving it a quick knock, you turn the handle and push it open, before stepping through and entering the elder Lilin's office.
 	</p>
 	]]>
 	</htmlContent>
 	
 	<htmlContent tag="LYSSIETH_OFFICE_ENTER_COMPANION"><![CDATA[
 	<p>
-		Deciding to proceed forwards and meet with Lyssieth, you tell [npc.name] to wait for your return on one of the sofas, and then cross over to the mahogany door on the far side of the room. Giving it a quick knock, you turn the handle and push it open, before stepping through and entering the elder lilin's office.
+		Deciding to proceed forwards and meet with Lyssieth, you tell [npc.name] to wait for your return on one of the sofas, and then cross over to the mahogany door on the far side of the room. Giving it a quick knock, you turn the handle and push it open, before stepping through and entering the elder Lilin's office.
 	</p>
 	]]>
 	</htmlContent>
@@ -174,7 +174,7 @@
 		Just like the waiting room behind you, the floor of this room is covered in dark, wooden boards, which are mostly concealed by a large, cream-colored rug. The walls are covered in dark wooden paneling, and set into them are numerous book-filled shelves and ornately carved cabinets. In the very middle of the room, there sits a huge, mahogany desk, and on the side nearest to you, there are two empty seats. On the far side, sitting in a very expensive-looking leather chair, is Lyssieth.
 	</p>
 	<p>
-		As usual, the elder lilin is in her human form, appearing as a stunningly-beautiful, olive-skinned woman, who looks to be in her mid-forties. Her huge, [lyssieth.cupSize]-cup breasts threaten to spill out of her blouse's plunging neckline at any moment, and, as she stands up to greet you, you see that her long, perfect legs are shown-off by the large gap in one side of her long, black, asymmetrical skirt.
+		As usual, the elder Lilin is in her human form, appearing as a stunningly-beautiful, olive-skinned woman, who looks to be in her mid-forties. Her huge, [lyssieth.cupSize]-cup breasts threaten to spill out of her blouse's plunging neckline at any moment, and, as she stands up to greet you, you see that her long, perfect legs are shown-off by the large gap in one side of her long, black, asymmetrical skirt.
 		#IF lyssieth.isVisiblyPregnant()
 		#THEN
 			#IF pc.isVisiblyPregnant() && pc.getPregnantLitter().getFather().equals(lyssieth)
@@ -323,7 +323,7 @@
 		#ELSE
 			[lyssieth.speech(Oh, you want to know a little more about my little sister?)]
 		#ENDIF
-		 Lyssieth says, smiling at you, [lyssieth.speech(Well, to begin, although she's the fifth-born of we elder lilin, she's by far the most belligerent and short-tempered. The slightest thing can send her into a towering rage, and while we lilin have nothing to fear from her, the other races aren't quite so fortunate. The last time I visited her, one of her slaves dropped and smashed a favorite glass of hers, and she wouldn't stop shrieking and cursing until she'd mounted the unfortunate cat-girl and given her such a rough fucking that she could barely stand up afterwards.)]
+		 Lyssieth says, smiling at you, [lyssieth.speech(Well, to begin, although she's the fifth-born of we elder Lilin, she's by far the most belligerent and short-tempered. The slightest thing can send her into a towering rage, and while we Lilin have nothing to fear from her, the other races aren't quite so fortunate. The last time I visited her, one of her slaves dropped and smashed a favorite glass of hers, and she wouldn't stop shrieking and cursing until she'd mounted the unfortunate cat-girl and given her such a rough fucking that she could barely stand up afterwards.)]
 	</p>
 	<p>
 		Shaking her head in despair, Lyssieth crosses the room and retrieves a large, ribbon-bound scroll from one of the many shelves lining the walls. As she unrolls it across her desk, you see that it's a map of Dominion and the surrounding lands. Tracing a large circle around the capital city with her finger, she says, [lyssieth.speech(This whole area is known as the Foloi fields, and is primarily made up of farmland interspersed with small villages. Lilith assigned this whole region's administration to Lunette, who interpreted our mother's orders as a warrant to treat the inhabitants like dirt. When she's not resting in one of the many forests which surround the fields, she's leading her herd of demonic centaurs to terrorize the lands she rules over.)]
@@ -332,7 +332,7 @@
 		[pc.speech(And the inhabitants have done nothing about this?)] you ask.
 	</p>
 	<p>
-		[lyssieth.speech(There's nothing they can do; even the most powerful of lilin must submit to an elder lilin's wishes. The only one who dares to indirectly stand up to her is the lilin 'Minotallys'; the mayor of the town of Elis, she likes to take on the form of a cow-girl, and from what I hear, she's the one responsible for some bands of farmers daring to try and fight back against Lunette. Of course they stand no chance, but perhaps if you and the youko were to help, they could be the key to defeating her...)]
+		[lyssieth.speech(There's nothing they can do; even the most powerful of Lilin must submit to an elder Lilin's wishes. The only one who dares to indirectly stand up to her is the Lilin 'Minotallys'; the mayor of the town of Elis, she likes to take on the form of a cow-girl, and from what I hear, she's the one responsible for some bands of farmers daring to try and fight back against Lunette. Of course they stand no chance, but perhaps if you and the youko were to help, they could be the key to defeating her...)]
 	</p>
 	<p>
 		Rolling up the map, Lyssieth places it back on the shelf, before continuing, [lyssieth.speech(The only other thing to mention is the fact that Lunette takes on the form of a huge pegataur. You see, when you released us from the mirror, we had a short while in which to explore, and Lunette seemed particularly fond of the museum's exhibit on ancient Greek mythology. When mother's spell backfired, and all manner of anthropomorphic and mythological creatures were created, Lunette immediately sought out and subdued the centaurs, before breeding both herself and demons with them in order to make her demonic followers...)]
@@ -362,25 +362,25 @@
 		[pc.speech(I see... And what about your sisters?)] you ask.
 	</p>
 	<p>
-		[lyssieth.speech(Well, as you already know, there are seven of us elder lilin, and, from eldest to youngest, they're: Lirecea, who rules the underwater city of Lyonesse in the form of an octopus-girl; Lovienne and Lasielle, the twins who serve as Lilith's personal bodyguards; myself, who you already know all about; Lunette, who takes the form of a huge pegataur and terrorizes the Foloi fields at the head of her herd of demonic centaur; Lyxias, who, taking the form of a great feathered lamia, rules over the jungle city of Itza'aak in the north; and finally, Lisophia, who takes the form of a dragon-girl and rules over the desert and savannah to the south.)]
+		[lyssieth.speech(Well, as you already know, there are seven of us elder Lilin, and, from eldest to youngest, they're: Lirecea, who rules the underwater city of Lyonesse in the form of an octopus-girl; Lovienne and Lasielle, the twins who serve as Lilith's personal bodyguards; myself, who you already know all about; Lunette, who takes the form of a huge pegataur and terrorizes the Foloi fields at the head of her herd of demonic centaur; Lyxias, who, taking the form of a great feathered lamia, rules over the jungle city of Itza'aak in the north; and finally, Lisophia, who takes the form of a dragon-girl and rules over the desert and savannah to the south.)]
 	</p>
 	<p>
-		[pc.speech(And the non-elder lilin?)]
+		[pc.speech(And the non-elder Lilin?)]
 	</p>
 	<p>
-		[lyssieth.speech(Ah, well, there are far too many of my other sisters for me to name individually,)] Lyssieth softly laughs, [lyssieth.speech(While the ones you may encounter here in this new reality are as ignorant as everyone else as to the goings on in the rest of the world, the ones out in your original reality are not particularly happy with us elder lilin or my mother.)]
+		[lyssieth.speech(Ah, well, there are far too many of my other sisters for me to name individually,)] Lyssieth softly laughs, [lyssieth.speech(While the ones you may encounter here in this new reality are as ignorant as everyone else as to the goings on in the rest of the world, the ones out in your original reality are not particularly happy with us elder Lilin or my mother.)]
 	</p>
 	<p>
 		[pc.speech(Why's that?)] you ask.
 	</p>
 	<p>
-		[lyssieth.speech(Because we inadvertently ruined all of their plans,)] Lyssieth states, [lyssieth.speech(As I already told you before, while Lilith and we elder lilin were sealed away in the mirror, the lilin and demons we left behind took control of all of humanity. By seduction, subterfuge, and every duplicitous method imaginable, they've been able to maintain control over the world's governments throughout almost all of recorded history. Their control was so absolute that when Lilith reappeared, she could have taken over as the true ruler of the world in a matter of days. Her choice to unleash her reality-changing spell ruined all of that, however, as the population-controlling resources which the lilin had at their disposal are now all being used to prevent news of Lilith's arrival spreading.)]
+		[lyssieth.speech(Because we inadvertently ruined all of their plans,)] Lyssieth states, [lyssieth.speech(As I already told you before, while Lilith and we elder Lilin were sealed away in the mirror, the Lilin and demons we left behind took control of all of humanity. By seduction, subterfuge, and every duplicitous method imaginable, they've been able to maintain control over the world's governments throughout almost all of recorded history. Their control was so absolute that when Lilith reappeared, she could have taken over as the true ruler of the world in a matter of days. Her choice to unleash her reality-changing spell ruined all of that, however, as the population-controlling resources which the Lilin had at their disposal are now all being used to prevent news of Lilith's arrival spreading.)]
 	</p>
 	<p>
 		[pc.speech(So four thousand years of preparation for Lilith's return went to waste?)]
 	</p>
 	<p>
-		[lyssieth.speech(Pretty much,)] Lyssieth says, [lyssieth.speech(but I am happy for how it's all worked out. If either the spell or the lilin's plans were executed correctly, humanity would have been doomed.)]
+		[lyssieth.speech(Pretty much,)] Lyssieth says, [lyssieth.speech(but I am happy for how it's all worked out. If either the spell or the Lilin's plans were executed correctly, humanity would have been doomed.)]
 	</p>
 	<p>
 		Now that Lyssieth has told you about her family, you wonder what to ask her next...
@@ -393,7 +393,7 @@
 		After confirming their existence to you before, you're desperate to know more about angels, and so you ask, [pc.speech(Can you tell me more about Samael and the archangels? What ever happened to each of them?)]
 	</p>
 	<p>
-		Lyssieth's expression darkens as you ask this, but she nevertheless answers, [lyssieth.speech(As you already know, my sisters and I had already captured the seven archangels before Samael sealed us in the mirror. As we were holding them close as hostages, all seven of the archangels were sealed in there with us. They tried to break free at first, but we elder lilin are far more powerful than each of them, and, without mother even having to assist, we quickly subdued them. Disgusted by their presence, Lilith ordered each of us to take one of the archangels, and corrupt them into whatever forms we desired...)]
+		Lyssieth's expression darkens as you ask this, but she nevertheless answers, [lyssieth.speech(As you already know, my sisters and I had already captured the seven archangels before Samael sealed us in the mirror. As we were holding them close as hostages, all seven of the archangels were sealed in there with us. They tried to break free at first, but we elder Lilin are far more powerful than each of them, and, without mother even having to assist, we quickly subdued them. Disgusted by their presence, Lilith ordered each of us to take one of the archangels, and corrupt them into whatever forms we desired...)]
 	</p>
 	<p>
 		[pc.speech(But you didn't do that to the one given to you?)] you ask, remembering that that's what Lyssieth told you before.
@@ -402,7 +402,7 @@
 		[lyssieth.speech(That's right. While angels are disgusting creatures, I can't help but see how similar they are to humans in a lot of ways,)] Lyssieth sighs, [lyssieth.speech(You said before that you witnessed a vision of when I first captured Valoel; he was given to me because of my actions that day. I tried to keep him away from my sisters and mother for as long as I could, but Lilith eventually suspected that I was treating him well. She got quite angry when she found out that I hadn't 'used' him even once...)]
 	</p>
 	<p>
-		Lyssieth pauses for a moment, clearly upset by the memory. Not wanting to interrupt her, you wait in silence for a moment, and your patience is rewarded when the elder lilin lets out another deep sigh and continues her tale, [lyssieth.speech(Mother has never physically punished any of us; she prefers to find other ways in which to hurt us. Seeing how I was trying to protect Valoel, she made me watch as she ruthlessly fucked him over and over again, twisting and corrupting him into a demonic version of himself. Even to me, the one who was supposed to ruin him, he was always kind and considerate, but once mother had finished with him, his mind had been warped and twisted. He now serves as Lilith's jailor in her tower, loving nothing more than to sadistically abuse and fuck her prisoners...)]
+		Lyssieth pauses for a moment, clearly upset by the memory. Not wanting to interrupt her, you wait in silence for a moment, and your patience is rewarded when the elder Lilin lets out another deep sigh and continues her tale, [lyssieth.speech(Mother has never physically punished any of us; she prefers to find other ways in which to hurt us. Seeing how I was trying to protect Valoel, she made me watch as she ruthlessly fucked him over and over again, twisting and corrupting him into a demonic version of himself. Even to me, the one who was supposed to ruin him, he was always kind and considerate, but once mother had finished with him, his mind had been warped and twisted. He now serves as Lilith's jailor in her tower, loving nothing more than to sadistically abuse and fuck her prisoners...)]
 	</p>
 	<p>
 		[pc.speech(What of the others?)] you ask, wanting to know what happened to the other six archangels.
@@ -411,10 +411,10 @@
 		[lyssieth.speech(They were all similarly ruined by my sisters. I don't know if you've seen that obscene statue in Slaver Alley, but that's the archangel, Marlel, who was given to my eldest sister, Lirecea. Every time she visits Dominion, she reverts her petrification, fucks her, and then turns her back into a statue again at the moment of her orgasm. With the exception of Valoel, all the other archangels were similarly feminized and turned into fallen angels,)] Lyssieth explains, before going on to list them, [lyssieth.speech(Humatiel was given to Lovienne, who turned him into her lust-crazed nymphomaniac futa fuck-toy. Araqiel was given to the other of mother's personal bodyguards, Lasielle, and he was turned into a cum-crazed trap who cleans up after their frequent orgies. The last three are kept as fuck-toys by my younger three sisters; Asteraoth is owned by Lunette, Vretiel by Lyxias, and Mydaiel by Lisophia.)]
 	</p>
 	<p>
-		Despite the extreme nature of the archangel's fates, Lyssieth doesn't seem as concerned for them as she was for Valoel. You realize that even though Lyssieth is far kinder than her sisters, she's still an elder lilin, and shares her sisters' deep dislike of angels she's not familiar with. Despite her detailed explanation, there's still one angel unaccounted for, and so you ask, [pc.speech(What became of Samael?)]
+		Despite the extreme nature of the archangel's fates, Lyssieth doesn't seem as concerned for them as she was for Valoel. You realize that even though Lyssieth is far kinder than her sisters, she's still an elder Lilin, and shares her sisters' deep dislike of angels she's not familiar with. Despite her detailed explanation, there's still one angel unaccounted for, and so you ask, [pc.speech(What became of Samael?)]
 	</p>
 	<p>
-		[lyssieth.speech(Nobody knows where he is for sure, but he's out there somewhere, trying to organize resistance against the lilin. If it wasn't for him and his meddling, my sisters out there in the rest of the world would have completely corrupted al of humanity by now. While there were only ever seven archangels, just as there are only seven of us elder lilin, there are an unknown number of less-powerful angels out there in the world, fighting against demons in the shadows,)] Lyssieth smirks, before continuing, [lyssieth.speech(It's funny, really, because Samael and all of his disgusting kind try to act all high and mighty, and claim that sex is beneath them. How else could there be more angels, though? He's clearly out there fucking humans and producing more angels to fight for him. That two-faced nature of his sickens me...)]
+		[lyssieth.speech(Nobody knows where he is for sure, but he's out there somewhere, trying to organize resistance against the Lilin. If it wasn't for him and his meddling, my sisters out there in the rest of the world would have completely corrupted al of humanity by now. While there were only ever seven archangels, just as there are only seven of us elder Lilin, there are an unknown number of less-powerful angels out there in the world, fighting against demons in the shadows,)] Lyssieth smirks, before continuing, [lyssieth.speech(It's funny, really, because Samael and all of his disgusting kind try to act all high and mighty, and claim that sex is beneath them. How else could there be more angels, though? He's clearly out there fucking humans and producing more angels to fight for him. That two-faced nature of his sickens me...)]
 	</p>
 	<p>
 		Having now learned a little more about angels, you make a note to take a closer look at the statue in Slaver Alley the next time you're there, before wondering what to ask next...
@@ -446,16 +446,16 @@
 		You feel as though you could do with a summary of the huge amount of information that Lyssieth shared with you and her daughters, and so you ask, [pc.speech(Can you briefly go over everything again?)]
 	</p>
 	<p>
-		[lyssieth.speech(Of course,)] Lyssieth replies, before pushing her half-rim glasses up onto the bridge of her nose and starting, [lyssieth.speech(So, in the very beginning, thousands of years ago, Lilith and we seven elder lilin ruled over humanity and influenced their development. Over the course of many years, we gave birth to many demons, while mother corrupted many humans into more lilin. One day, an angel called Samael came before us, at the head of seven archangels, and demanded we leave humanity alone. They underestimated our power, and after a few years, all seven of the archangels had been captured. Samael then tricked mother and we seven lilin into being locked away inside a small dimension within an enchanted mirror, but at the moment of our capture, we also dragged the seven archangels in with us.)]
+		[lyssieth.speech(Of course,)] Lyssieth replies, before pushing her half-rim glasses up onto the bridge of her nose and starting, [lyssieth.speech(So, in the very beginning, thousands of years ago, Lilith and we seven elder Lilin ruled over humanity and influenced their development. Over the course of many years, we gave birth to many demons, while mother corrupted many humans into more Lilin. One day, an angel called Samael came before us, at the head of seven archangels, and demanded we leave humanity alone. They underestimated our power, and after a few years, all seven of the archangels had been captured. Samael then tricked mother and we seven Lilin into being locked away inside a small dimension within an enchanted mirror, but at the moment of our capture, we also dragged the seven archangels in with us.)]
 	</p>
 	<p>
 		Leaning back against her desk, Lyssieth smiles knowingly at you as she continues, [lyssieth.speech(Four thousand years later, mother managed to project her voice out of the mirror, and, by tricking you into coming in contact with it, we were released. After spending an hour or two having some... 'fun' in the museum, Lilith unleashed a reality-warping spell which she'd been weaving for those four thousand years. It was meant to change the whole world's population into demons, with Lilith as the undisputed ruler of them all, but a small piece of her power had been locked away inside of you, causing the spell to backfire. Instead of creating her demonic world, only the region which you knew as the British Isles was transformed by the spell, becoming what you now know as Dominion.)]
 	</p>
 	<p>
-		[lyssieth.speech(The rest of the world is still out there as you remember it, but what nobody would have known is that it's been secretly controlled all this time by the lilin and demons we left behind those four thousand years ago. By infiltrating governments and controlling all of the world's mass media, they're suppressing information about this new reality, while simultaneously allowing the overpopulation overspill from Dominion to disrupt and collapse neighboring countries. Sweeping in and unifying the chaos under openly-demonic leadership, mother and her daughters are slowly taking over the world.)]
+		[lyssieth.speech(The rest of the world is still out there as you remember it, but what nobody would have known is that it's been secretly controlled all this time by the Lilin and demons we left behind those four thousand years ago. By infiltrating governments and controlling all of the world's mass media, they're suppressing information about this new reality, while simultaneously allowing the overpopulation overspill from Dominion to disrupt and collapse neighboring countries. Sweeping in and unifying the chaos under openly-demonic leadership, mother and her daughters are slowly taking over the world.)]
 	</p>
 	<p>
-		[lyssieth.speech(If Lilith succeeds with her new plan for world domination, humans would be subjected to her intense hatred of them, and would no doubt be forcibly transformed into demons and other anthropomorphic or mythological races. I cannot allow this to happen, so, seizing the opportunity of you reappearing in this reality three years after that night at the museum, I've decided to support you in an attempt to overthrow my elder lilin sisters, and eventually defeat Lilith herself. Whatever you choose to do after that happens, I will support you, so long as humans are spared. I am the only one of my sisters who shows any sort of compassion towards humans, so I imagine that your conflicts with them will all have to be resolved through combat or trickery. After you defeat each one, you'll be able to force them to share their essence with you, just as I shared mine, thereby increasing your arcane power to the point where you'll be able to stand against Lilith herself.)]
+		[lyssieth.speech(If Lilith succeeds with her new plan for world domination, humans would be subjected to her intense hatred of them, and would no doubt be forcibly transformed into demons and other anthropomorphic or mythological races. I cannot allow this to happen, so, seizing the opportunity of you reappearing in this reality three years after that night at the museum, I've decided to support you in an attempt to overthrow my elder Lilin sisters, and eventually defeat Lilith herself. Whatever you choose to do after that happens, I will support you, so long as humans are spared. I am the only one of my sisters who shows any sort of compassion towards humans, so I imagine that your conflicts with them will all have to be resolved through combat or trickery. After you defeat each one, you'll be able to force them to share their essence with you, just as I shared mine, thereby increasing your arcane power to the point where you'll be able to stand against Lilith herself.)]
 	</p>
 	<p>
 		Pushing herself off from her desk to stand upright once more, Lyssieth smiles at you and says, [lyssieth.speech(I hope that's cleared everything up.)]
@@ -482,7 +482,7 @@
 		#ENDIF
 	</p>
 	<p>
-		Stepping forwards between the elder lilin's legs, you get ready to give her a good fucking...
+		Stepping forwards between the elder Lilin's legs, you get ready to give her a good fucking...
 	</p>
 	]]>
 	</htmlContent>
@@ -503,7 +503,7 @@
 		#ENDIF
 	</p>
 	<p>
-		Doing as the elder lilin says, you spread your legs and get ready to receive a good fucking...
+		Doing as the elder Lilin says, you spread your legs and get ready to receive a good fucking...
 	</p>
 	]]>
 	</htmlContent>
@@ -517,7 +517,7 @@
 		#ENDIF
 	</p>
 	<p>
-		Smiling at the compliment, you follow the elder lilin's lead and start getting your things in order. As you do so, you realize that the two of you have made quite a mess all over the office's desk and floor, and as you finish gathering your things, Lyssieth sighs, [lyssieth.speech(I'm going to need to spend a moment cleaning this up... Come back later if you want to have some more fun!)]
+		Smiling at the compliment, you follow the elder Lilin's lead and start getting your things in order. As you do so, you realize that the two of you have made quite a mess all over the office's desk and floor, and as you finish gathering your things, Lyssieth sighs, [lyssieth.speech(I'm going to need to spend a moment cleaning this up... Come back later if you want to have some more fun!)]
 	</p>
 	<p>
 		Reassuring her that you will, you take your leave and head back out into Meraxis's office-cum-waiting room...
@@ -534,7 +534,7 @@
 		#ENDIF
 	</p>
 	<p>
-		Blushing at the admonishment, you follow the elder lilin's lead and start getting your things in order. As you do so, you think that you probably could have put in a little more effort to satisfy Lyssieth, but before you can dwell on that thought for too long, she sighs, [lyssieth.speech(I'm going to need to spend a moment... erm... finishing myself off. Come back later if you want to make it up to me...)]
+		Blushing at the admonishment, you follow the elder Lilin's lead and start getting your things in order. As you do so, you think that you probably could have put in a little more effort to satisfy Lyssieth, but before you can dwell on that thought for too long, she sighs, [lyssieth.speech(I'm going to need to spend a moment... erm... finishing myself off. Come back later if you want to make it up to me...)]
 	</p>
 	<p>
 		Reassuring her that you will, you take your leave and head back out into Meraxis's office-cum-waiting room...
@@ -544,10 +544,10 @@
 	
 	<htmlContent tag="DEMON_TF"><![CDATA[
 	<p>
-		Knowing that only lilin are able to transform others into demons, and, desiring to be one yourself, you simply say, [pc.speech(I want you turn me into a demon, Lyssieth.)]
+		Knowing that only Lilin are able to transform others into demons, and, desiring to be one yourself, you simply say, [pc.speech(I want you turn me into a demon, Lyssieth.)]
 	</p>
 	<p>
-		[lyssieth.speech(What?!)] the elder lilin exclaims, shaking her head and making a dismissive gesture with one hand. [lyssieth.speech(There's no way that's happening. Demonic transformations are <i>permanent</i>, meaning that there's no way to ever regain your humanity. I swore a long time ago that I'd never do that to anyone ever again. I didn't make an exception for Lilaya or Meraxis, even though they're already half-demon, so there's no way I'm making an exception for you
+		[lyssieth.speech(What?!)] the elder Lilin exclaims, shaking her head and making a dismissive gesture with one hand. [lyssieth.speech(There's no way that's happening. Demonic transformations are <i>permanent</i>, meaning that there's no way to ever regain your humanity. I swore a long time ago that I'd never do that to anyone ever again. I didn't make an exception for Lilaya or Meraxis, even though they're already half-demon, so there's no way I'm making an exception for you
 		#IF pc.getRace()==RACE_HUMAN
 		#THEN, especially seeing as you've kept your humanity for this long already.
 		#ELSE.
@@ -587,7 +587,7 @@
 		[pc.speech(I'm sure she'll understand,)] you say, [pc.speech(After all, this is for the good of our quest to defeat Lilith.)]
 	</p>
 	<p>
-		[lyssieth.speech(Yes, but just know that there will be consequences for your relationship with Lilaya after this. It won't ever be the same again,)] Lyssieth says, [lyssieth.speech(Also, as I mentioned before, there's no going back from becoming a demon. Unlike all other transformations, the demonic one works by corrupting and reshaping your aura, which causes your body to take on an immutable, demonic form. Of course, because I've given you the essence of my power, you're going to be unlike all other demons, and you'll be able to change your body into that of a human. Despite your appearance, however, you'll always be a demon, just as I'm always a lilin, even though I can take on this human form.)]
+		[lyssieth.speech(Yes, but just know that there will be consequences for your relationship with Lilaya after this. It won't ever be the same again,)] Lyssieth says, [lyssieth.speech(Also, as I mentioned before, there's no going back from becoming a demon. Unlike all other transformations, the demonic one works by corrupting and reshaping your aura, which causes your body to take on an immutable, demonic form. Of course, because I've given you the essence of my power, you're going to be unlike all other demons, and you'll be able to change your body into that of a human. Despite your appearance, however, you'll always be a demon, just as I'm always a Lilin, even though I can take on this human form.)]
 	</p>
 	<p>
 		[pc.speech(I can deal with Lilaya,)] you say, [pc.speech(and I understand that it's permanent.)]
@@ -601,7 +601,7 @@
 		, although you can always use your demonic powers to transform into whatever form you like afterwards.)]
 	</p>
 	<p>
-		You can tell that she's still not entirely happy with wanting to do this, but from the rising lust in her voice, you aren't sure for how long she'll resist. Giving you a big smile, she steps up close to you and finally says, [lyssieth.speech(Oh, and of course, all demons are expected to treat the lilin who transformed them as their new mother.
+		You can tell that she's still not entirely happy with wanting to do this, but from the rising lust in her voice, you aren't sure for how long she'll resist. Giving you a big smile, she steps up close to you and finally says, [lyssieth.speech(Oh, and of course, all demons are expected to treat the Lilin who transformed them as their new mother.
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN I hope you don't mind, but I'm going to have to insist upon you calling me 'mommy' while we fuck...
 		#ELSE Don't worry, that won't take effect until after the entire transformation is complete, so there's nothing wrong with the two of us having sex...
@@ -644,7 +644,7 @@
 		#ENDIF
 	</p>
 	<p>
-		Stepping back into the open space beside her desk, Lyssieth flashes you a devious grin, and as she blinks, her green irises suddenly change into glowing yellow, and you see that her pupils have transformed into vertical, snake-like slits. Taking a deep breath, the elder lilin grows right before your eyes, gaining well over a foot in height to stand at about 6 and a half feet tall. Stretching her arms up towards the ceiling, a huge pair of demonic, scarlet-colored wings suddenly unfold from behind her back. Immediately afterwards, a long, spaded tail grows down and curls upwards to start playfully stroking at her exposed pussy. As the elder lilin lets out an erotic sigh, a pair of long, grey horns grow out from her forehead to sweep back over her now-black, silken hair. Her ears then suddenly point out and, along with her arms and legs, darken and turn the same shade of scarlet as her wings and tail.
+		Stepping back into the open space beside her desk, Lyssieth flashes you a devious grin, and as she blinks, her green irises suddenly change into glowing yellow, and you see that her pupils have transformed into vertical, snake-like slits. Taking a deep breath, the elder Lilin grows right before your eyes, gaining well over a foot in height to stand at about 6 and a half feet tall. Stretching her arms up towards the ceiling, a huge pair of demonic, scarlet-colored wings suddenly unfold from behind her back. Immediately afterwards, a long, spaded tail grows down and curls upwards to start playfully stroking at her exposed pussy. As the elder Lilin lets out an erotic sigh, a pair of long, grey horns grow out from her forehead to sweep back over her now-black, silken hair. Her ears then suddenly point out and, along with her arms and legs, darken and turn the same shade of scarlet as her wings and tail.
 	</p>
 	<p>
 		[lyssieth.speech(Mmm... Yes!)] Lyssieth cries out as her breasts expand into [lyssieth.breastSize] [lyssieth.cupSize]-cups, while her pussy takes on the same scarlet color as her other demonic parts. Shortly after this, the entire of her body and face changes color in much the same way, and as her tail continues stroking up and down over her wet labia, a fat, 16-inch demonic cock grows out just above her pussy.
@@ -692,7 +692,7 @@
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN [lyssieth.speech(That's right... ~Mmm!~ Take it deep... That's a good [pc.girl]...)] Lyssieth moans, and, wanting to please your new mommy, you relax your throat and allow her to push her fat shaft deep down your gullet.
-		#ELSE [lyssieth.speech(That's right... ~Mmm!~ Take it deep...)] Lyssieth moans, and, wanting to please her, you relax your throat and allow the elder lilin to push her fat shaft deep down your gullet.
+		#ELSE [lyssieth.speech(That's right... ~Mmm!~ Take it deep...)] Lyssieth moans, and, wanting to please her, you relax your throat and allow the elder Lilin to push her fat shaft deep down your gullet.
 		#ENDIF
 		 With a wet, squelching sound, she then withdraws her cock, before thrusting it down your throat once more. You feel a thick mixture of saliva and precum drooling from the sides of your mouth, and let out a very muffled moan as you happily allow Lyssieth to start fucking your face...
 	</p>
@@ -705,7 +705,7 @@
 		#THEN [pc.speech(Sorry, mommy, but you're the one who's going to be using their mouth,)]
 		#ELSE [pc.speech(Sorry, Lyssieth, but you're the one who's going to be using their mouth,)]
 		#ENDIF
-		 you say, reaching up to push down on the elder lilin's shoulders. Just as you'd suspected, she's horny enough to not really care who's doing what, so long as it's sexual, and, despite some half-hearted protests, she allows you to push her to her knees in front of you.
+		 you say, reaching up to push down on the elder Lilin's shoulders. Just as you'd suspected, she's horny enough to not really care who's doing what, so long as it's sexual, and, despite some half-hearted protests, she allows you to push her to her knees in front of you.
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
@@ -749,13 +749,13 @@
 		#ENDIF
 	</p>
 	<p>
-		You aren't sure yet if you're going to allow Lyssieth to fuck you, but getting her to eat you out for a while sounds like fun regardless. Grabbing the elder lilin by her horns, you pull her face into your groin, moaning, [pc.speech(~Mmm!~ Come on then! Get started already!)]
+		You aren't sure yet if you're going to allow Lyssieth to fuck you, but getting her to eat you out for a while sounds like fun regardless. Grabbing the elder Lilin by her horns, you pull her face into your groin, moaning, [pc.speech(~Mmm!~ Come on then! Get started already!)]
 	</p>
 	<p>
 		Not needing to be told twice, she happily thrusts her tongue into your demonic pussy, reaching around to grab your [pc.ass+] in both hands as she buries her face between your [pc.legs] and starts eating you out. Bucking your hips back and forth, you start grinding your hungry cunt down against
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN your new mommy's lips,
-		#ELSE the horny lilin's lips,
+		#ELSE the horny Lilin's lips,
 		#ENDIF
 		 wondering if you'll let her fuck you after this, or whether you'll continue to assert your dominance over her...
 	</p>
@@ -775,14 +775,14 @@
 		As you start to reply, Lyssieth suddenly reaches up and starts stroking her fingers around and around in a circular manner over your doll-like crotch. Her touch produces such an intense stimulation that the words which were forming in your mouth burst out as a desperate, passionate groan. Letting out soft laugh, Lyssieth continues stroking your sensitive groin, and as she starts gently pulling and squeezing at a particularly sensitive point on your crotch, you can't help but let out a series of [pc.moans+].
 	</p>
 	<p>
-		[lyssieth.speech(Mmm, you like that?)] Lyssieth teases, before suddenly wrapping her fingers around the protrusion that's appeared between your [pc.legs]. Letting out an alarmed groan as you feel this, you look down to see that the elder lilin is stroking your new demonic cock with one hand, while the other is reaching up to cup and massage your new pair of balls. Although at first your shaft is only a couple of inches long, as Lyssieth continues to stroke and tug at it, it grows larger and larger, until finally, at [pc.penisInches]-inches long, it's almost as big as hers is.
+		[lyssieth.speech(Mmm, you like that?)] Lyssieth teases, before suddenly wrapping her fingers around the protrusion that's appeared between your [pc.legs]. Letting out an alarmed groan as you feel this, you look down to see that the elder Lilin is stroking your new demonic cock with one hand, while the other is reaching up to cup and massage your new pair of balls. Although at first your shaft is only a couple of inches long, as Lyssieth continues to stroke and tug at it, it grows larger and larger, until finally, at [pc.penisInches]-inches long, it's almost as big as hers is.
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN [pc.speech(~Aah!~ Yes, mommy, that feels so good!)] you exclaim, drawing another soft giggle from between Lyssieth's lips. 
 		#ELSE [pc.speech(~Aah!~ Yes, that feels so good!)] you exclaim, drawing another soft giggle from between Lyssieth's lips.
 		#ENDIF
-		 Still busily massaging and cupping your new balls with her free hand, the elder lilin causes them to expand to a size larger than a normal human's, and as you let out another deep groan, you feel them grow heavy as they fill with potent, demonic sperm.
+		 Still busily massaging and cupping your new balls with her free hand, the elder Lilin causes them to expand to a size larger than a normal human's, and as you let out another deep groan, you feel them grow heavy as they fill with potent, demonic sperm.
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
@@ -791,13 +791,13 @@
 		#ENDIF
 	</p>
 	<p>
-		You aren't sure about allowing Lyssieth to fuck you, but getting her to give you a blowjob sounds like fun regardless. Grabbing the elder lilin by her horns, you pull her face into your groin, thrusting your now-erect cock past her waiting lips as you groan, [pc.speech(~Mmm!~ Just suck it already!)]
+		You aren't sure about allowing Lyssieth to fuck you, but getting her to give you a blowjob sounds like fun regardless. Grabbing the elder Lilin by her horns, you pull her face into your groin, thrusting your now-erect cock past her waiting lips as you groan, [pc.speech(~Mmm!~ Just suck it already!)]
 	</p>
 	<p>
 		Not needing to be told twice, Lyssieth happily relaxes her throat, reaching around to grab your [pc.ass+] in both hands as she buries her face between your [pc.legs] and takes your thick cock all the way down her gullet. Bucking your hips back and forth, you start face-fucking
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN your new mommy,
-		#ELSE the horny lilin,
+		#ELSE the horny Lilin,
 		#ENDIF
 		 wondering if you'll let her fuck you after this, or whether you'll continue to assert your dominance over her...
 	</p>
@@ -814,13 +814,13 @@
 		#ENDIF
 	</p>
 	<p>
-		You aren't sure about allowing Lyssieth to fuck you, but getting her to give you a blowjob sounds like fun regardless. Grabbing the elder lilin by her horns, you pull her face into your groin, thrusting your now-erect cock past her waiting lips as you groan, [pc.speech(~Mmm!~ Just suck it already!)]
+		You aren't sure about allowing Lyssieth to fuck you, but getting her to give you a blowjob sounds like fun regardless. Grabbing the elder Lilin by her horns, you pull her face into your groin, thrusting your now-erect cock past her waiting lips as you groan, [pc.speech(~Mmm!~ Just suck it already!)]
 	</p>
 	<p>
 		Not needing to be told twice, Lyssieth happily relaxes her throat, reaching around to grab your [pc.ass+] in both hands as she buries her face between your [pc.legs] and takes your thick cock all the way down her gullet. Bucking your hips back and forth, you start face-fucking
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN your new mommy,
-		#ELSE the horny lilin,
+		#ELSE the horny Lilin,
 		#ENDIF
 		 wondering if you'll let her fuck you after this, or whether you'll continue to assert your dominance over her...
 	</p>
@@ -840,13 +840,13 @@
 		#ENDIF
 	</p>
 	<p>
-		You aren't sure yet if you're going to allow Lyssieth to fuck you, but getting her to eat you out for a while sounds like fun regardless. Grabbing the elder lilin by her horns, you pull her face into your groin, moaning, [pc.speech(~Mmm!~ Come on then! Get started already!)]
+		You aren't sure yet if you're going to allow Lyssieth to fuck you, but getting her to eat you out for a while sounds like fun regardless. Grabbing the elder Lilin by her horns, you pull her face into your groin, moaning, [pc.speech(~Mmm!~ Come on then! Get started already!)]
 	</p>
 	<p>
 		Not needing to be told twice, she happily thrusts her tongue into your demonic pussy, reaching around to grab your [pc.ass+] in both hands as she buries her face between your [pc.legs] and starts eating you out. Bucking your hips back and forth, you start grinding your hungry cunt down against
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN your new mommy's lips,
-		#ELSE the horny lilin's lips,
+		#ELSE the horny Lilin's lips,
 		#ENDIF
 		 wondering if you'll let her fuck you after this, or whether you'll continue to assert your dominance over her...
 	</p>
@@ -858,7 +858,7 @@
 		As you gather your things, you notice that there are full-height mirrors on either side of the office's door, and, stepping up in front of one, you take a good look at your new demonic body.
 	</p>
 	<p>
-		The smooth, demonic skin that's covering your body is the same scarlet shade as Lyssieth's, with your black hair, grey horns, and yellow irises similarly being the same color as the elder lilin's. Behind your back, you have a pair of [pc.wingSize], bat-like wings, while dangling down from just above your ass, you have a spaded tail. The rest of you is very much humanoid in nature, and, if it wasn't for the color of your skin, you could be mistaken for a particularly attractive human if you were to transform your wings, horn, and tail away.
+		The smooth, demonic skin that's covering your body is the same scarlet shade as Lyssieth's, with your black hair, grey horns, and yellow irises similarly being the same color as the elder Lilin's. Behind your back, you have a pair of [pc.wingSize], bat-like wings, while dangling down from just above your ass, you have a spaded tail. The rest of you is very much humanoid in nature, and, if it wasn't for the color of your skin, you could be mistaken for a particularly attractive human if you were to transform your wings, horn, and tail away.
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
@@ -872,7 +872,7 @@
 	
 	<htmlContent tag="AFTER_DEMON_TF_SEX_SURNAMES"><![CDATA[
 	<p>
-		Turning to face the elder lilin, who is now considered to be your new mother, you reassure her, [pc.speech(Don't worry, I'm sure they'll understand. I'll explain to Lilaya when I see her next.)]
+		Turning to face the elder Lilin, who is now considered to be your new mother, you reassure her, [pc.speech(Don't worry, I'm sure they'll understand. I'll explain to Lilaya when I see her next.)]
 	</p>
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
@@ -882,15 +882,15 @@
 		 Lyssieth replies, leaning over your shoulder to kiss you on the cheek, before stepping back and saying, [lyssieth.speech(Now, get the rest of your things together. I'm sure you want to be off to have some fun with your new body!)]
 	</p>
 	<p>
-		Doing as she says, you continue to gather your things and get yourself in order, ready to head out into the world as a demon. After just a moment, you're ready to leave, and you turn back towards Lyssieth to see that she's transformed back into her human form. After the intense intimacy of the sex with her in her true elder lilin body, it seems a little strange now to see her once more appearing as a human. As she gathers up her discarded clothing,
+		Doing as she says, you continue to gather your things and get yourself in order, ready to head out into the world as a demon. After just a moment, you're ready to leave, and you turn back towards Lyssieth to see that she's transformed back into her human form. After the intense intimacy of the sex with her in her true elder Lilin body, it seems a little strange now to see her once more appearing as a human. As she gathers up her discarded clothing,
 		#IF !lyssieth.getFluidsStoredInOrifice(ORIFICE_VAGINA).isEmpty()
 		#THEN you smirk to yourself as you see your cum still oozing out of her now-human pussy.
 		#ELSE you smirk to yourself as you see splatters of her cum dripping down her legs.
 		#ENDIF
 		 Placing her clothing on her desk, she turns towards you and smiles, before saying,
 		#IF pc.hasFetish(FETISH_INCEST)
-		#THEN [lyssieth.speech(So, now that mommy's given you what you wanted, there's the matter of public recognition to address. Publicly recognizing you as my [pc.daughter] would undoubtedly draw Lilith's attention, so that's out of the question. It is customary, however, for all of the sons and daughters of lilin to take a variation of their mother's name as their new surname. I normally insist upon this for all of my offspring, but as you're a special case, I'll let you decide. Do you want to take the surname of 'Lyssiethmartuilani'? It's quite a mouthful, but it roughly means 'direct daughter of Lyssieth'. Even incubi offspring take this name - the 'daughter' part of the meaning is just customary. So, do you want mommy's special surname?)]
-		#ELSE [lyssieth.speech(So, now that I've given you what you wanted, there's the matter of public recognition to address. Publicly recognizing you as my [pc.daughter] would undoubtedly draw Lilith's attention, so that's out of the question. It is customary, however, for all of the sons and daughters of lilin to take a variation of their mother's name as their new surname. I normally insist upon this for all of my offspring, but as you're a special case, I'll let you decide. Do you want to take the surname of 'Lyssiethmartuilani'? It's quite a mouthful, but it roughly means 'direct daughter of Lyssieth'. Even incubi offspring take this name - the 'daughter' part of the meaning is just customary. So, do you want it?)]
+		#THEN [lyssieth.speech(So, now that mommy's given you what you wanted, there's the matter of public recognition to address. Publicly recognizing you as my [pc.daughter] would undoubtedly draw Lilith's attention, so that's out of the question. It is customary, however, for all of the sons and daughters of Lilin to take a variation of their mother's name as their new surname. I normally insist upon this for all of my offspring, but as you're a special case, I'll let you decide. Do you want to take the surname of 'Lyssiethmartuilani'? It's quite a mouthful, but it roughly means 'direct daughter of Lyssieth'. Even incubi offspring take this name - the 'daughter' part of the meaning is just customary. So, do you want mommy's special surname?)]
+		#ELSE [lyssieth.speech(So, now that I've given you what you wanted, there's the matter of public recognition to address. Publicly recognizing you as my [pc.daughter] would undoubtedly draw Lilith's attention, so that's out of the question. It is customary, however, for all of the sons and daughters of Lilin to take a variation of their mother's name as their new surname. I normally insist upon this for all of my offspring, but as you're a special case, I'll let you decide. Do you want to take the surname of 'Lyssiethmartuilani'? It's quite a mouthful, but it roughly means 'direct daughter of Lyssieth'. Even incubi offspring take this name - the 'daughter' part of the meaning is just customary. So, do you want it?)]
 		#ENDIF
 	</p>
 	<p>
@@ -992,7 +992,7 @@
 	
 	<htmlContent tag="LILAYA_DEMON_TF_START"><![CDATA[
 	<p>
-		With an accompanying flash of purple light, you, Lilaya, and Lyssieth appear back in the elder lilin's office. The instant that you find yourselves in this new location, Lilaya turns to your mother and demands, [lilaya.speech(So go on, do it! I can't stand being a half-demon any longer!)]
+		With an accompanying flash of purple light, you, Lilaya, and Lyssieth appear back in the elder Lilin's office. The instant that you find yourselves in this new location, Lilaya turns to your mother and demands, [lilaya.speech(So go on, do it! I can't stand being a half-demon any longer!)]
 	</p>
 	<p>
 		Wearily looking into Lilaya's eyes, Lyssieth asks, [lyssieth.speech(So you're still adamant about wanting to lose what humanity you have left? You know, I specifically asked Lilith to alter her spell such that it would keep you as a half-demon. I didn't want you losing all connection to the person you were in the previous reality...)]
@@ -1074,7 +1074,7 @@
 		Breaking out of her sister's embrace, Meraxis makes an affirmative nodding gesture, before trying to dart away to one side of the room. Before she's able to take more than two steps, Lyssieth reaches out and grabs her arm, before pulling her into her body and gently teasing, [lyssieth.speech(Mommy can help you with that...)]
 	</p>
 	<p>
-		Before you or Lilaya can react, Lyssieth pulls her daughter into a passionate kiss, and as Meraxis's surprised exclamation is muffled into her mouth, the elder lilin rapidly transforms into her true form. As Lyssieth's skin turns scarlet, and demonic wings and tail grow from her back, Meraxis's moans start to get more pleasurable, and you see a faint purple glow shimmering in and out of sight around her head. Breaking off the kiss, Lyssieth grins down to her daughter and asks, [lyssieth.speech(So, daughter, how do you like mommy's true form?)]
+		Before you or Lilaya can react, Lyssieth pulls her daughter into a passionate kiss, and as Meraxis's surprised exclamation is muffled into her mouth, the elder Lilin rapidly transforms into her true form. As Lyssieth's skin turns scarlet, and demonic wings and tail grow from her back, Meraxis's moans start to get more pleasurable, and you see a faint purple glow shimmering in and out of sight around her head. Breaking off the kiss, Lyssieth grins down to her daughter and asks, [lyssieth.speech(So, daughter, how do you like mommy's true form?)]
 	</p>
 	<p>
 		With a hungry look in her eyes, Meraxis answers, [siren.speech(I... I love it... I want you to fuck me!)]
@@ -1106,7 +1106,7 @@
 		[lilaya.speech(Fine, just don't come crying to me when you change your mind,)] Lilaya dismissively states, closing the door after her sister's departure.
 	</p>
 	<p>
-		Before you or Lilaya can make the next move, Lyssieth strides over to her daughter and pulls her into a passionate kiss. As Lilaya's surprised exclamation is muffled into her mouth, the elder lilin rapidly transforms into her true form. As Lyssieth's skin turns scarlet, and demonic wings and tail grow from her back, Lilaya's moans start to get more pleasurable, and you see a faint purple glow shimmering in and out of sight around her head. Breaking off the kiss, Lyssieth grins down to her daughter and asks, [lyssieth.speech(So, daughter, how do you like mommy's true form?)]
+		Before you or Lilaya can make the next move, Lyssieth strides over to her daughter and pulls her into a passionate kiss. As Lilaya's surprised exclamation is muffled into her mouth, the elder Lilin rapidly transforms into her true form. As Lyssieth's skin turns scarlet, and demonic wings and tail grow from her back, Lilaya's moans start to get more pleasurable, and you see a faint purple glow shimmering in and out of sight around her head. Breaking off the kiss, Lyssieth grins down to her daughter and asks, [lyssieth.speech(So, daughter, how do you like mommy's true form?)]
 	</p>
 	<p>
 		With a hungry look in her eyes, Lilaya answers, [siren.speech(I... I love it... Please, mommy, fuck me! Make me into a real demon!)]
@@ -1170,7 +1170,7 @@
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN Doing as your mother asks, you step up in front of Lilaya, and, teasing the [pc.cockHead+] of your [pc.cock] over her [lilaya.labia+], you thrust your hips forwards and penetrate your [lilaya.relation(pc)].
-		#ELSE Doing as the elder lilin asks, you step up in front of Lilaya, and, teasing the [pc.cockHead+] of your [pc.cock] over her [lilaya.labia+], you thrust your hips forwards and penetrate her.
+		#ELSE Doing as the elder Lilin asks, you step up in front of Lilaya, and, teasing the [pc.cockHead+] of your [pc.cock] over her [lilaya.labia+], you thrust your hips forwards and penetrate her.
 		#ENDIF
 	</p>
 	<p>
@@ -1238,7 +1238,7 @@
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN Doing as your mother asks, you drop down onto your knees in front of your [lilaya.relation(pc)], and, pressing your [pc.lips+] against her [lilaya.labia+], you push your [pc.tongue+] into her pussy and start eating her out.
-		#ELSE Doing as the elder lilin asks, you drop down onto your knees in front of Lilaya, and, pressing your [pc.lips+] against her [lilaya.labia+], you push your [pc.tongue+] into her pussy and start eating her out.
+		#ELSE Doing as the elder Lilin asks, you drop down onto your knees in front of Lilaya, and, pressing your [pc.lips+] against her [lilaya.labia+], you push your [pc.tongue+] into her pussy and start eating her out.
 		#ENDIF
 	</p>
 	<p>
@@ -1268,7 +1268,7 @@
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN Doing as your mother asks, you drop down onto your knees in front of your [lilaya.relation(pc)], and, pressing your [pc.lips+] against the [lilaya.cockHead+] of her cock, you push your head forwards and take her throbbing length into your mouth.
-		#ELSE Doing as the elder lilin asks, you drop down onto your knees in front of Lilaya, and, pressing your [pc.lips+] against the [lilaya.cockHead+] of her cock, you push your head forwards and take her throbbing length into your mouth.
+		#ELSE Doing as the elder Lilin asks, you drop down onto your knees in front of Lilaya, and, pressing your [pc.lips+] against the [lilaya.cockHead+] of her cock, you push your head forwards and take her throbbing length into your mouth.
 		#ENDIF
 	</p>
 	<p>
@@ -1328,7 +1328,7 @@
 	<p>
 		#IF pc.hasFetish(FETISH_INCEST)
 		#THEN Doing as your mother asks, you drop your hand down between your [lilaya.relation(pc)]'s legs, and, pressing your [pc.fingers+] against her [lilaya.labia+], you push your hand forwards and slide your digits into her pussy.
-		#ELSE Doing as the elder lilin asks, you drop your hand down between Lilaya's legs, and, pressing your [pc.fingers+] against her [lilaya.labia+], you push your hand forwards and slide your digits into her pussy.
+		#ELSE Doing as the elder Lilin asks, you drop your hand down between Lilaya's legs, and, pressing your [pc.fingers+] against her [lilaya.labia+], you push your hand forwards and slide your digits into her pussy.
 		#ENDIF
 	</p>
 	<p>
@@ -1488,7 +1488,7 @@
 	
 	<htmlContent tag="LILAYA_DEMON_TF_MERAXIS_RECEIVE_ORAL_CUNNILINGUS"><![CDATA[
 	<p>
-		[pc.speech(I want your tongue in my pussy,)] you say, allowing Lyssieth to take the lead and move around in front of the half-demon. As Meraxis makes a consenting little mutter, the elder lilin moves to lie down on the lush rug covering most of her office's floor. With her hands still on Meraxis's hips, she pulls her daughter down with her, so that she's straddling her groin, looking down into her mother's eyes.
+		[pc.speech(I want your tongue in my pussy,)] you say, allowing Lyssieth to take the lead and move around in front of the half-demon. As Meraxis makes a consenting little mutter, the elder Lilin moves to lie down on the lush rug covering most of her office's floor. With her hands still on Meraxis's hips, she pulls her daughter down with her, so that she's straddling her groin, looking down into her mother's eyes.
 	</p>
 	<p>
 		[lyssieth.speech(I'll take your virginity, my dear Meraxis,)] Lyssieth softly moans as Lilaya kneels down behind her sister's ass.
@@ -1527,7 +1527,7 @@
 	
 	<htmlContent tag="LILAYA_DEMON_TF_MERAXIS_RECEIVE_ORAL_BLOWJOB"><![CDATA[
 	<p>
-		[pc.speech(I want you sucking on my cock,)] you say, allowing Lyssieth to take the lead and move around in front of the half-demon. As Meraxis makes a consenting little mutter, the elder lilin moves to lie down on the lush rug covering most of her office's floor. With her hands still on Meraxis's hips, she pulls her daughter down with her, so that she's straddling her groin, looking down into her mother's eyes.
+		[pc.speech(I want you sucking on my cock,)] you say, allowing Lyssieth to take the lead and move around in front of the half-demon. As Meraxis makes a consenting little mutter, the elder Lilin moves to lie down on the lush rug covering most of her office's floor. With her hands still on Meraxis's hips, she pulls her daughter down with her, so that she's straddling her groin, looking down into her mother's eyes.
 	</p>
 	<p>
 		[lyssieth.speech(I'll take your virginity, my dear Meraxis,)] Lyssieth softly moans as Lilaya kneels down behind her sister's ass.
@@ -1566,7 +1566,7 @@
 	
 	<htmlContent tag="LILAYA_DEMON_TF_MERAXIS_KNEELING_NO_ACCESS"><![CDATA[
 	<p>
-		As you can't access your genitals, you allow Lyssieth to take the lead, and watch as she moves around in front of the half-demon. As Meraxis makes a consenting little mutter, the elder lilin moves to lie down on the lush rug covering most of her office's floor. With her hands on Meraxis's hips, she pulls her daughter down with her, so that she's straddling her groin, looking down into her mother's eyes.
+		As you can't access your genitals, you allow Lyssieth to take the lead, and watch as she moves around in front of the half-demon. As Meraxis makes a consenting little mutter, the elder Lilin moves to lie down on the lush rug covering most of her office's floor. With her hands on Meraxis's hips, she pulls her daughter down with her, so that she's straddling her groin, looking down into her mother's eyes.
 	</p>
 	<p>
 		[lyssieth.speech(I'll take your virginity, my dear Meraxis,)] Lyssieth softly moans as Lilaya kneels down behind her sister's ass.
@@ -1762,7 +1762,7 @@
 		[lyssieth.speech(Oh, why if it isn't my dear [pc.name] and Meraxis. What's caused you to barge into my office without knocking first?)] Lyssieth asks, standing up and smiling at the two of you.
 	</p>
 	<p>
-		Releasing your hand, Meraxis points at the elder lilin, striking a heroic pose as she commands, [siren.speech(Mommy, I demand to be turned into a full demon! Summon my sister and proceed with the ritual!)]
+		Releasing your hand, Meraxis points at the elder Lilin, striking a heroic pose as she commands, [siren.speech(Mommy, I demand to be turned into a full demon! Summon my sister and proceed with the ritual!)]
 	</p>
 	<p>
 		Letting out a deep sigh, Lyssieth nevertheless consents, [lyssieth.speech(Very well... I did promise that I'd transform the two of you... Your sister will want to be present for this.)] 
@@ -1774,7 +1774,7 @@
 		[siren.speech(Y-Yes, that's right!)] Meraxis replies, looking up at her mother as she steps up in front of her.
 	</p>
 	<p>
-		Before you or Lilaya can react, Lyssieth pulls her daughter into a passionate kiss, and as Meraxis's surprised exclamation is muffled into her mouth, the elder lilin rapidly transforms into her true form. As Lyssieth's skin turns scarlet, and demonic wings and tail grow from her back, Meraxis's moans start to get more pleasurable, and you see a faint purple glow shimmering in and out of sight around her head. Breaking off the kiss, Lyssieth grins down to her daughter and asks, [lyssieth.speech(So, daughter, how do you like mommy's true form?)]
+		Before you or Lilaya can react, Lyssieth pulls her daughter into a passionate kiss, and as Meraxis's surprised exclamation is muffled into her mouth, the elder Lilin rapidly transforms into her true form. As Lyssieth's skin turns scarlet, and demonic wings and tail grow from her back, Meraxis's moans start to get more pleasurable, and you see a faint purple glow shimmering in and out of sight around her head. Breaking off the kiss, Lyssieth grins down to her daughter and asks, [lyssieth.speech(So, daughter, how do you like mommy's true form?)]
 	</p>
 	<p>
 		With a hungry look in her eyes, Meraxis answers, [siren.speech(I... I love it... I want you to fuck me!)]

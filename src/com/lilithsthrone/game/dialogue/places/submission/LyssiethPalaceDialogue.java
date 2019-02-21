@@ -652,7 +652,7 @@ public class LyssiethPalaceDialogue {
 					}
 					@Override
 					public void effects() {
-						// Lyssieth strips and transforms to full lilin
+						// Lyssieth strips and transforms to full Lilin
 						((Lyssieth) Main.game.getNpc(Lyssieth.class)).setLilinBody();
 						for(AbstractClothing c : Main.game.getPlayer().getClothingCurrentlyEquipped()) {
 							c.setSealed(false);

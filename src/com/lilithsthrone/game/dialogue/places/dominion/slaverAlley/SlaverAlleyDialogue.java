@@ -1373,7 +1373,7 @@ public class SlaverAlleyDialogue {
 						+ " [finch.speech(That's all there really is to it. With this license, you're able to buy and sell slaves in any manner you like."
 							+ " The only restriction is on enslavement, which, as I said, can only be done to those who are willing, or those who are wanted by the Enforcers."
 							+ " Oh, and on that last note, don't even bother trying to enslave any demons you run into, as there's absolutely no way an enforcer would sign off on an enslavement order for a demon."
-							+ " For all they know, the demon in question could be a lilin's favored daughter, and before they know it, they'd be the one ending up in my cells!)]"
+							+ " For all they know, the demon in question could be a Lilin's favored daughter, and before they know it, they'd be the one ending up in my cells!)]"
 					+ "</p>"
 					+ "<p>"
 						+ "Thanking him for explaining things to you, you take your new slaver license from [finch.name], who has some final words,"

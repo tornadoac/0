@@ -550,7 +550,7 @@ public class LyssiethReveal {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
-				return new Response("Impossible", "Ask Lyssieth how you're meant to fight an elder lilin and her army of demonic centaurs.", LAB_ENDING_SIREN_HELP);
+				return new Response("Impossible", "Ask Lyssieth how you're meant to fight an elder Lilin and her army of demonic centaurs.", LAB_ENDING_SIREN_HELP);
 			}
 			return null;
 		}

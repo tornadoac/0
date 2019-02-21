@@ -294,7 +294,7 @@ public enum Quest {
 
 		@Override
 		public String getDescription() {
-			return "[siren.Name] told you that you're going to need the help of the youko if you're to defeat the elder lilin pegataur, Lunette."
+			return "[siren.Name] told you that you're going to need the help of the youko if you're to defeat the elder Lilin pegataur, Lunette."
 					+ " She said that you should find and enlist the help of her old friend, [youkoGuide.name], who worked in her lab back when she was living in her citadel."
 					+ " [youkoGuide.Name] will have returned to the town of Elis, which is the settlement nearest to the Shinrin Forest, the youko's homeland.";
 		}

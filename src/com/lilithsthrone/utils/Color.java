@@ -103,7 +103,7 @@ public enum Color {
 	RACE_UNKNOWN(false, BaseColor.BLACK, "black", Util.newArrayListOfValues("unknown")),
 	RACE_HUMAN(false, BaseColor.BLUE_STEEL, "pale blue", Util.newArrayListOfValues("human")),
 	RACE_DEMON(false, BaseColor.PURPLE_LIGHT, "light purple", Util.newArrayListOfValues("demon")),
-	RACE_LILIN(false, BaseColor.PURPLE, "purple", Util.newArrayListOfValues("lilin")),
+	RACE_LILIN(false, BaseColor.PURPLE, "purple", Util.newArrayListOfValues("Lilin")),
 	RACE_IMP(false, BaseColor.PURPLE, "purple", Util.newArrayListOfValues("imp")),
 	RACE_ANGEL(false, BaseColor.BLUE_LIGHT, "light blue", Util.newArrayListOfValues("angel")),
 	RACE_DOG_MORPH(false, BaseColor.BROWN, "brown", Util.newArrayListOfValues("dogMorph", "dog")),
