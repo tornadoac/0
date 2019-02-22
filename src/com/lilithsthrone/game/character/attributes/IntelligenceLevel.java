@@ -2,7 +2,7 @@ package com.lilithsthrone.game.character.attributes;
 
 import com.lilithsthrone.game.character.effects.StatusEffect;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.65
@@ -11,7 +11,7 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum IntelligenceLevel {
 	
-	ZERO_AIRHEAD("arcane impotence", 0, 5, Colour.INTELLIGENCE_STAGE_ZERO) {
+	ZERO_AIRHEAD("arcane impotence", 0, 5, Color.INTELLIGENCE_STAGE_ZERO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			if(Main.game.isInNewWorld()) {
@@ -22,35 +22,35 @@ public enum IntelligenceLevel {
 		}
 	},
 	
-	ONE_AVERAGE("arcane potential", 5, 15, Colour.INTELLIGENCE_STAGE_ONE) {
+	ONE_AVERAGE("arcane potential", 5, 15, Color.INTELLIGENCE_STAGE_ONE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_1;
 		}
 	},
 	
-	TWO_SMART("arcane proficiency", 15, 35, Colour.INTELLIGENCE_STAGE_TWO) {
+	TWO_SMART("arcane proficiency", 15, 35, Color.INTELLIGENCE_STAGE_TWO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_2;
 		}
 	},
 	
-	THREE_BRAINY("arcane prowess", 35, 65, Colour.INTELLIGENCE_STAGE_THREE) {
+	THREE_BRAINY("arcane prowess", 35, 65, Color.INTELLIGENCE_STAGE_THREE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_3;
 		}
 	},
 	
-	FOUR_GENIUS("arcane mastery", 65, 95, Colour.INTELLIGENCE_STAGE_FOUR) {
+	FOUR_GENIUS("arcane mastery", 65, 95, Color.INTELLIGENCE_STAGE_FOUR) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_4;
 		}
 	},
 	
-	FIVE_POLYMATH("arcane brilliance", 95, 100, Colour.INTELLIGENCE_STAGE_FIVE) {
+	FIVE_POLYMATH("arcane brilliance", 95, 100, Color.INTELLIGENCE_STAGE_FIVE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_5;
@@ -59,13 +59,13 @@ public enum IntelligenceLevel {
 	
 	private String name;
 	private int minimumValue, maximumValue;
-	private Colour colour;
+	private Color color;
 
-	private IntelligenceLevel(String name, int minimumValue, int maximumValue, Colour colour) {
+	private IntelligenceLevel(String name, int minimumValue, int maximumValue, Color color) {
 		this.name = name;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 	}
 	
 	public abstract StatusEffect getRelatedStatusEffect();
@@ -82,8 +82,8 @@ public enum IntelligenceLevel {
 		return maximumValue;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public static IntelligenceLevel getIntelligenceLevelFromValue(float value){

@@ -16,7 +16,7 @@ import com.lilithsthrone.game.inventory.enchanting.AbstractItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.inventory.enchanting.TFModifier;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.XMLSaving;
 
 /**
@@ -28,7 +28,7 @@ public abstract class AbstractCoreItem implements XMLSaving {
 
 
 	protected String name, namePlural, SVGString;
-	protected Colour colourShade;
+	protected Color colorShade;
 	protected Rarity rarity;
 
 	protected Map<Attribute, Integer> attributeModifiers;
@@ -39,13 +39,13 @@ public abstract class AbstractCoreItem implements XMLSaving {
 	public AbstractCoreItem(String name,
 			String namePlural,
 			String SVGString,
-			Colour colour,
+			Color color,
 			Rarity rarity,
 			Map<Attribute, Integer> attributeModifiers) {
 		this(name,
 				namePlural,
 				SVGString,
-				colour,
+				color,
 				rarity,
 				attributeModifiers,
 				new HashSet<>());
@@ -54,14 +54,14 @@ public abstract class AbstractCoreItem implements XMLSaving {
 	public AbstractCoreItem(String name,
 			String namePlural,
 			String SVGString,
-			Colour colour,
+			Color color,
 			Rarity rarity,
 			Map<Attribute, Integer> attributeModifiers,
 			Set<ItemTag> itemTags) {
 		super();
 		this.name = name;
 		this.namePlural = namePlural;
-		this.colourShade = colour;
+		this.colorShade = color;
 		this.rarity = rarity;
 		this.SVGString = SVGString;
 
@@ -127,7 +127,7 @@ public abstract class AbstractCoreItem implements XMLSaving {
 	public boolean equals(Object o) {
 		if(o instanceof AbstractCoreItem){
 			if(((AbstractCoreItem)o).getName().equals(this.getName())
-				&& ((AbstractCoreItem)o).getColour() == this.getColour()
+				&& ((AbstractCoreItem)o).getColor() == this.getColor()
 				&& ((AbstractCoreItem)o).getRarity() == this.getRarity()
 				&& ((AbstractCoreItem)o).getAttributeModifiers().equals(this.getAttributeModifiers())
 				&& ((AbstractCoreItem)o).getEnchantmentEffect() == getEnchantmentEffect()
@@ -144,7 +144,7 @@ public abstract class AbstractCoreItem implements XMLSaving {
 	public int hashCode() {
 		int result = 17;
 		result = 31 * result + this.getName().hashCode();
-		result = 31 * result + this.getColour().hashCode();
+		result = 31 * result + this.getColor().hashCode();
 		result = 31 * result + this.getRarity().hashCode();
 		result = 31 * result + this.getAttributeModifiers().hashCode();
 		if(getEnchantmentEffect()!=null) {
@@ -205,12 +205,12 @@ public abstract class AbstractCoreItem implements XMLSaving {
 		return getRarity().getName();
 	}
 
-	public Colour getColour() {
-		return colourShade;
+	public Color getColor() {
+		return colorShade;
 	}
 
-	public void setColour(Colour Colour) {
-		this.colourShade = Colour;
+	public void setColor(Color Color) {
+		this.colorShade = Color;
 	}
 
 	public Map<Attribute, Integer> getAttributeModifiers() {

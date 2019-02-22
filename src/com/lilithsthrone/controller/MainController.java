@@ -96,7 +96,7 @@ import com.lilithsthrone.game.sex.sexActions.baseActions.PenisVagina;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.ImageCache;
 import com.lilithsthrone.rendering.RenderingEngine;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.utils.Vector2i;
@@ -154,7 +154,7 @@ public class MainController implements Initializable {
 	private boolean allowInput;
 	private KeyCode[] lastKeys;
 
-	static Colour flashMessageColour = null;
+	static Color flashMessageColor = null;
 	static String flashMessageText = null;
 
 	java.net.CookieManager cookieManager = new java.net.CookieManager();
@@ -197,7 +197,7 @@ public class MainController implements Initializable {
 			public void onChange() {
 				if (Main.game.getPlayer() != null) {
 					Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).setDiscovered(true);
-					Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).setTravelledTo(true);
+					Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).setTraveledTo(true);
 					if (Main.game.getPlayer().getLocation().getY() < Main.game.getActiveWorld().WORLD_HEIGHT - 1) {
 						Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY() + 1).setDiscovered(true);
 					}
@@ -379,7 +379,7 @@ public class MainController implements Initializable {
 			}
 
 			private void printAlreadyExistingBinding(String primarySecondary, String actionName, String eventCodeName) {
-				Main.game.getTextStartStringBuilder().append("<p style='text-align:center;'>" + "<b style='color:" + Colour.GENERIC_BAD.toWebHexString() + ";'>The key '" + eventCodeName
+				Main.game.getTextStartStringBuilder().append("<p style='text-align:center;'>" + "<b style='color:" + Color.GENERIC_BAD.toWebHexString() + ";'>The key '" + eventCodeName
 						+ "' is already the " + primarySecondary + " bind for the action '" + actionName + "'!</b>" + "</p>");
 				Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
 			}
@@ -1046,7 +1046,7 @@ public class MainController implements Initializable {
 		addEventListener(document, id, "mouseleave", hideTooltipListener, false);
 
 		TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(
-				Util.capitaliseSentence(c.getPlaceName()),
+				Util.capitalizeSentence(c.getPlaceName()),
 				c.getPlace().getPlaceType().getWorldPlaceDescription()
 				+(c.getPlace().getPlaceType().isDangerous()
 					?"<br/>This is a [style.italicsBad(dangerous)] area!"
@@ -1071,19 +1071,19 @@ public class MainController implements Initializable {
 				charactersPresentDescription.append(
 						(Main.game.getCharactersPresent(c).contains(character)
 								?character.getName("The")
-								:"[style.colourDisabled("+character.getName("The")+")]")
-						+": "+(character.isRaceConcealed()?"[style.colourDisabled(Unknown race!)]":UtilText.parse(character, "[npc.FullRace(true)]"))
+								:"[style.colorDisabled("+character.getName("The")+")]")
+						+": "+(character.isRaceConcealed()?"[style.colorDisabled(Unknown race!)]":UtilText.parse(character, "[npc.FullRace(true)]"))
 						+"<br/>");
 			}
 		}
 
-		TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(Util.capitaliseSentence(c.getPlaceName()), charactersPresentDescription.toString());
+		TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(c.getPlaceName()), charactersPresentDescription.toString());
 		addEventListener(document, id, "mouseenter", el2, false);
 
 		((EventTarget) document.getElementById(id)).addEventListener("click", e -> {
 			if(((Main.game.getPlayer().isAbleToTeleport()
 						&& Main.game.getPlayer().getMana()>=Spell.TELEPORT.getModifiedCost(Main.game.getPlayer())
-						&& c.isTravelledTo())
+						&& c.isTraveledTo())
 					|| Main.game.isDebugMode())
 				&& (Main.game.getSavedDialogueNode()!=null && !Main.game.getSavedDialogueNode().isTravelDisabled())) {
 
@@ -1347,7 +1347,7 @@ public class MainController implements Initializable {
 			addEventListener(documentAttributes, id, "mouseleave", hideTooltipListener, false);
 			TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation("Toggle Calendar Display",
 					"Toggle the date's display between a calendar and day count.<br/>"
-						+ "The current date is: <b style='color:"+Colour.BASE_BLUE_LIGHT.toWebHexString()+";'>"
+						+ "The current date is: <b style='color:"+Color.BASE_BLUE_LIGHT.toWebHexString()+";'>"
 						+Main.game.getDateNow().getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH)
 						+", "+Main.game.getDateNow().getDayOfMonth()+Util.getDayOfMonthSuffix(Main.game.getDateNow().getDayOfMonth())+" "+Main.game.getDateNow().getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH)
 						+", "
@@ -1355,7 +1355,7 @@ public class MainController implements Initializable {
 								?(!Main.game.isInNewWorld()?Main.game.getDateNow().getYear()-Game.TIME_SKIP_YEARS:Main.game.getDateNow().getYear())
 								:"????")
 						+"</b><br/>"
-						+ "You've been in this new world for: <b style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>"+Main.game.getDayNumber()+" day"+(Main.game.getDayNumber()>1?"s":"")+"</b>");
+						+ "You've been in this new world for: <b style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>"+Main.game.getDayNumber()+" day"+(Main.game.getDayNumber()>1?"s":"")+"</b>");
 			addEventListener(documentAttributes, id, "mouseenter", el2, false);
 		}
 
@@ -1982,7 +1982,7 @@ public class MainController implements Initializable {
 				if(Main.game.isStarted() && Main.game.isInNewWorld() && Main.game.isPrologueFinished()) {
 					Main.game.setContent(new Response("", "", DebugDialogue.DEBUG_MENU));
 				} else {
-					Main.game.flashMessage(Colour.GENERIC_BAD, "Unavailable in prologue!");
+					Main.game.flashMessage(Color.GENERIC_BAD, "Unavailable in prologue!");
 				}
 			}
 		}
@@ -2070,7 +2070,7 @@ public class MainController implements Initializable {
 					});
 
 				} else {
-					Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot dominate!");
+					Main.game.flashMessage(Color.GENERIC_BAD, "Cannot dominate!");
 				}
 			}
 		}
@@ -2155,7 +2155,7 @@ public class MainController implements Initializable {
 					});
 
 				} else {
-					Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot be dominated!"); //Cannot dominate
+					Main.game.flashMessage(Color.GENERIC_BAD, "Cannot be dominated!"); //Cannot dominate
 				}
 			}
 		}
@@ -2353,12 +2353,12 @@ public class MainController implements Initializable {
 		Main.saveProperties();
 	}
 
-	public Colour getFlashMessageColour() {
-		return flashMessageColour;
+	public Color getFlashMessageColor() {
+		return flashMessageColor;
 	}
 
-	public void setFlashMessageColour(Colour flashMessageColour) {
-		MainController.flashMessageColour = flashMessageColour;
+	public void setFlashMessageColor(Color flashMessageColor) {
+		MainController.flashMessageColor = flashMessageColor;
 	}
 
 	public String getFlashMessageText() {

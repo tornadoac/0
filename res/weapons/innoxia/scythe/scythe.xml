@@ -64,14 +64,14 @@
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_MELEE_WEAPON" timer="0"/>
 		</effects>
 		
-		<primaryColours>
-			<colour>CLOTHING_BLACK_STEEL</colour>
-		</primaryColours> 
-		<primaryColoursDye values="ALL_METAL"/>
-		<secondaryColours> 
-			<colour>CLOTHING_PURPLE_DARK</colour>
-		</secondaryColours> 
-		<secondaryColoursDye values="ALL"/>
+		<primaryColors>
+			<color>CLOTHING_BLACK_STEEL</color>
+		</primaryColors> 
+		<primaryColorsDye values="ALL_METAL"/>
+		<secondaryColors> 
+			<color>CLOTHING_PURPLE_DARK</color>
+		</secondaryColors> 
+		<secondaryColorsDye values="ALL"/>
 		
 		<itemTags> 
 			<tag>WEAPON_BLADE</tag>

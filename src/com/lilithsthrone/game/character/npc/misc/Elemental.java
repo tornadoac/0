@@ -161,27 +161,27 @@ public class Elemental extends NPC {
 		this.setBodySize(BodySize.ZERO_SKINNY.getMedianValue());
 			
 		// Coverings:
-//		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Colour.EYE_RED));
-//		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Colour.SKIN_PALE), true);
+//		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_RED));
+//		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_PALE), true);
 //		
-//		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Colour.HORN_WHITE), false);
+//		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_WHITE), false);
 //
-//		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Colour.COVERING_BROWN_DARK), true);
+//		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BROWN_DARK), true);
 //		this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
 //		this.setHairStyle(HairStyle.LOOSE);
 //		
-//		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Colour.COVERING_BLACK), false);
+//		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 //		this.setUnderarmHair(BodyHair.ZERO_NONE);
 //		this.setAssHair(BodyHair.ZERO_NONE);
 //		this.setPubicHair(BodyHair.ZERO_NONE);
 //		this.setFacialHair(BodyHair.ZERO_NONE);
 //
-//			this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_PURPLE));
-//			this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_PURPLE));
-//				this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_BLACK));
-//				this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//			this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//				this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_BLACK));
+//			this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_PURPLE));
+//			this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_PURPLE));
+//				this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_BLACK));
+//				this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//			this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//				this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
 			
 			// Face:
 			this.setFaceVirgin(true);

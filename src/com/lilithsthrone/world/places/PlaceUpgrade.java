@@ -8,7 +8,7 @@ import com.lilithsthrone.game.character.quests.QuestLine;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
 import com.lilithsthrone.game.occupantManagement.MilkingRoom;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.Cell;
 
@@ -20,7 +20,7 @@ import com.lilithsthrone.world.Cell;
 public enum PlaceUpgrade {
 	
 	SLAVERY_ADMINISTRATION_CELLS(true,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Dingy Cells",
 			"-",
 			"",
@@ -34,7 +34,7 @@ public enum PlaceUpgrade {
 			null),
 	
 	LILAYA_EMPTY_ROOM(true,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Empty Room",
 			"Rose will return this room to its original state, which will render it unsuitable for housing any of your slaves.",
 			"This room is empty, and would need conversion work to be done if you'd like to house any of your slaves here.",
@@ -78,7 +78,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_ARTHUR_ROOM(true,
-			Colour.RACE_HUMAN,
+			Color.RACE_HUMAN,
 			"Arthur's Room",
 			"Help Rose to move arcane instrumentation into this room in order to make it suitable for Arthur to stay in. <b>This is a permanent modification, and can never be undone!</b>",
 			"This room now belongs to Arthur, who uses it as his personal lab-cum-bedroom.",
@@ -118,7 +118,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_GUEST_ROOM(true,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Guest Room",
 			"Rose will prepare this room for one of your guests, making it suitable for housing one person."
 					+ " While not the most economical option, the occupant of this room will no doubt appreciate having their own personal space.",
@@ -168,7 +168,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_SLAVE_ROOM(true,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Slave's Room",
 			"Rose will prepare this room just like she would for any other guest, making it suitable for housing just one of your slaves."
 					+ " While not the most economical choice if you plan on owning a large number of slaves, the occupant of this room will no doubt appreciate having their own personal space.",
@@ -226,7 +226,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_MILKING_ROOM(true,
-			Colour.BASE_ORANGE,
+			Color.BASE_ORANGE,
 			"Milking Room",
 			"Install milking machines in this room, allowing eight slaves to be assigned to work in here, each of which will be milked of their milk and cum.",
 			"This room has been converted into a suitable place for milking eight of your slaves' milk and cum.",
@@ -276,7 +276,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_SLAVE_ROOM_DOUBLE(true,
-			Colour.BASE_MAGENTA,
+			Color.BASE_MAGENTA,
 			"Double Slave Room",
 			"Rose will prepare this room just like she would for any other guest, making it suitable for housing two of your slaves."
 					+ " While more cost-effective than giving each slave their own room, the occupants will no doubt be a little frustrated at having to share their personal space with another slave.",
@@ -341,7 +341,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_SLAVE_ROOM_DOWNGRADE_BED(false,
-			Colour.GENERIC_BAD,
+			Color.GENERIC_BAD,
 			"Small Steel Bed",
 			"Replace the bed in this room with a steel-framed one, complete with an uncomfortable mattress, a hard pillow, and a thin blanket."
 					+ " These changes will leave no doubt in the occupant's mind that they're a slave.",
@@ -371,7 +371,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_SLAVE_ROOM_UPGRADE_BED(false,
-			Colour.GENERIC_GOOD,
+			Color.GENERIC_GOOD,
 			"Double Size Bed",
 			"Install a double size bed in this room, along with a more comfortable mattress, fluffy pillows, and a warm duvet."
 					+ " The occupant of this room is sure to appreciate these upgrades.",
@@ -414,13 +414,13 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_SLAVE_ROOM_OBEDIENCE_TRAINER(false,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Obedience Trainer",
 			"Lilaya has asked you if you'd consider installing one of her experimental devices in this room; a so-called 'obedience trainer'."
-					+ " This particular addition takes the form of a large, glowing crystal that is to be placed in the centre of the room."
+					+ " This particular addition takes the form of a large, glowing crystal that is to be placed in the center of the room."
 					+ " Whenever the room's occupant thinks a disobedient thought, the crystal will shoot out a shocking bolt of arcane energy, thereby training a slave's obedience in the most intrusive fashion imaginable.",
 			"You've installed one one of Lilaya's experimental devices in this room; a so-called 'obedience trainer'."
-					+ " This particular addition takes the form of a large, glowing crystal that has been placed in the centre of the room."
+					+ " This particular addition takes the form of a large, glowing crystal that has been placed in the center of the room."
 					+ " Whenever the room's occupant thinks a disobedient thought, the crystal shoots out a shocking bolt of arcane energy, thereby training a slave's obedience in the most intrusive fashion imaginable.",
 			"One of Lilaya's experimental devices, a so-called 'obedience trainer', has been installed in the middle of this room."
 					+ " Taking the form of a large, glowing crystal, the obedience trainer will shoot a shocking bolt of arcane energy at any slave nearby that dares to think a disobedient thought."
@@ -434,7 +434,7 @@ public enum PlaceUpgrade {
 			null),
 	
 	LILAYA_SLAVE_ROOM_ROOM_SERVICE(false,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Room service",
 			"You could offer this room's occupant unlimited room service."
 					+ " This isn't exactly how most owners treat their slaves, and while it's sure to make the occupant like you more, it's also going to cost quite a bit in upkeep, as well as have some negative effects on their obedience...",
@@ -451,7 +451,7 @@ public enum PlaceUpgrade {
 			null),
 	
 	LILAYA_SLAVE_ROOM_ARCANE_INSTRUMENTS(false,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Arcane Instruments",
 			"Allow Lilaya to install arcane sensors in this room, so that she can gather useful data on your slave's aura."
 					+ " Your slaves will find this to be an intrusion on what little personal space they have, and their affection towards you will suffer as a result.",
@@ -468,7 +468,7 @@ public enum PlaceUpgrade {
 			null),
 	
 	LILAYA_MILKING_ROOM_ARTISAN_MILKERS(false,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Artisan Milkers",
 			"You could replace the standard milking machines in this room with very expensive artisan ones."
 					+ " While being far more comfortable for the slaves that use them, these milking machines seem to be designed more for show than practicality, and deliver a slightly lower milk output than the regular machines.<br/>"
@@ -505,7 +505,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_MILKING_ROOM_INDUSTRIAL_MILKERS(false,
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			"Industrial Milkers",
 			"You could replace the standard milking machines in this room with industrial-grade ones."
 					+ " While being far less comfortable for the slaves that use them, these milking machines maximise both milk output and profit.<br/>"
@@ -542,7 +542,7 @@ public enum PlaceUpgrade {
 	},
 	
 	LILAYA_MILKING_ROOM_MILK_EFFICIENCY(false,
-			Colour.MILK,
+			Color.MILK,
 			"Lact-o-Cups",
 			"The company that makes the milking machines also offers a selection of aftermarket upgrades. One of these is 'Lact-o-Cups', which promises to double the machine's maximum hourly milking efficiency.",
 			"You've added the optional 'Lact-o-Cups' to the milking machines in this room, doubling their maximum hourly milking efficiency.",
@@ -556,7 +556,7 @@ public enum PlaceUpgrade {
 			null),
 	
 	LILAYA_MILKING_ROOM_CUM_EFFICIENCY(false,
-			Colour.CUM,
+			Color.CUM,
 			"Succ-u-Buses",
 			"The company that makes the milking machines also offers a selection of aftermarket upgrades. One of these is 'Succ-u-Buses', which promises to double the machine's maximum hourly cum-milking efficiency.",
 			"You've added the optional 'Succ-u-Buses' to the milking machines in this room, doubling their maximum hourly cum-milking efficiency.",
@@ -570,7 +570,7 @@ public enum PlaceUpgrade {
 			null),
 
 	LILAYA_MILKING_ROOM_GIRLCUM_EFFICIENCY(false,
-			Colour.GIRLCUM,
+			Color.GIRLCUM,
 			"Vibro-Pumps",
 			"The company that makes the milking machines also offers a selection of aftermarket upgrades. One of these is 'Vibro-Pumps', which promises to double the machine's maximum hourly girlcum-milking efficiency.",
 			"You've added the optional 'Vibro-Pumps' to the milking machines in this room, doubling their maximum hourly girlcum-milking efficiency.",
@@ -689,7 +689,7 @@ public enum PlaceUpgrade {
 	private int upkeep;
 	private int capacity;
 	
-	private Colour colour;
+	private Color color;
 	
 	private float affectionGain;
 	private float obedienceGain;
@@ -697,7 +697,7 @@ public enum PlaceUpgrade {
 	private List<PlaceUpgrade> prerequisites;
 
 	private PlaceUpgrade(boolean isCoreRoomUpgrade,
-			Colour colour,
+			Color color,
 			String name,
 			String descriptionForPurchase,
 			String descriptionAfterPurchase,
@@ -711,7 +711,7 @@ public enum PlaceUpgrade {
 			List<PlaceUpgrade> prerequisites) {
 		
 		this.isCoreRoomUpgrade = isCoreRoomUpgrade;
-		this.colour = colour;
+		this.color = color;
 		this.name = name;
 		this.descriptionForPurchase = descriptionForPurchase;
 		this.descriptionAfterPurchase = descriptionAfterPurchase;
@@ -763,8 +763,8 @@ public enum PlaceUpgrade {
 		return isCoreRoomUpgrade;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public String getName() {

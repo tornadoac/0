@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.lilithsthrone.game.character.GameCharacter;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.world.places.PlaceType;
 
 /**
@@ -17,7 +17,7 @@ public abstract class AbstractWorldType {
 
 	private String name;
 	private String fileLocation;
-	private Colour colour;
+	private Color color;
 	private int worldSize;
 	private int timeToTransition;
 
@@ -34,7 +34,7 @@ public abstract class AbstractWorldType {
 	@Deprecated
 	AbstractWorldType(int worldSize,
 			String name,
-			Colour colour,
+			Color color,
 			int timeToTransition,
 			PlaceType standardPlace,
 			PlaceType cutOffZone,
@@ -43,7 +43,7 @@ public abstract class AbstractWorldType {
 		this.worldSize=worldSize;
 
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.timeToTransition=timeToTransition;
 		this.moveCost = 5;
 
@@ -58,12 +58,12 @@ public abstract class AbstractWorldType {
 	}
 
 	protected AbstractWorldType(String name,
-			Colour colour,
+			Color color,
 			int timeToTransition,
 			String fileLocation,
 			Map<Color, PlaceType> placesMap) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.timeToTransition=timeToTransition;
 		moveCost = 5;
 
@@ -84,8 +84,8 @@ public abstract class AbstractWorldType {
 			if(o instanceof AbstractWorldType){
 				if(((AbstractWorldType)o).getName().equals(getName())
 						&& ((AbstractWorldType)o).getName().equals(getName())
-						&& ((AbstractWorldType)o).getColour() == getColour()
-						&& ((AbstractWorldType)o).getColour() == getColour()
+						&& ((AbstractWorldType)o).getColor() == getColor()
+						&& ((AbstractWorldType)o).getColor() == getColor()
 						&& ((AbstractWorldType)o).getPlacesMap().equals(getPlacesMap())
 						){
 					return true;
@@ -99,7 +99,7 @@ public abstract class AbstractWorldType {
 	public int hashCode() { // I know it doesn't include everything, but this should be enough to check for equality.
 		int result = super.hashCode();
 		result = 31 * result + getName().hashCode();
-		result = 31 * result + getColour().hashCode();
+		result = 31 * result + getColor().hashCode();
 		if(getFileLocation()!=null) {
 			result = 31 * result + getFileLocation().hashCode();
 		}
@@ -115,8 +115,8 @@ public abstract class AbstractWorldType {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public int getTimeToTransition() {

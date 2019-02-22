@@ -3,7 +3,7 @@
 
 	<htmlContent tag="OUTSIDE"><![CDATA[
 	<p>
-		Keen to put an end to your lengthy pursuit of Arthur, you once again find yourself travelling through the district of Dominion known as 'Demon Home'.
+		Keen to put an end to your lengthy pursuit of Arthur, you once again find yourself traveling through the district of Dominion known as 'Demon Home'.
 		 Following the directions that you received from Scarlett, you soon locate Zaranix's house, which lies only a little way down the street from your elusive quarry's apartment building.
 		 With a wry grin, you take a moment to reflect on the fact that Arthur was right under your nose this whole time, before focusing your attention on the building in front of you.
 	</p>
@@ -31,7 +31,7 @@
 	
 	<htmlContent tag="OUTSIDE_REPEAT_HOSTILE_MAIDS"><![CDATA[
 	<p>
-		As Zaranix's demonic maids are sure to recognise you on sight, you decide that knocking on the door would be an extremely bad idea.
+		As Zaranix's demonic maids are sure to recognize you on sight, you decide that knocking on the door would be an extremely bad idea.
 		 You'll have to either sneak in through the garden, or try to kick in the door and storm the place before the maids can call for help.
 	</p>
 	]]>
@@ -129,7 +129,7 @@
 	<p>
 		The demon's voice takes on a different tone as she steps forwards,
 		 [amber.speech(I <i>do</i> deserve to have a little fun though.
-		 I'll let you see my master, who'll then decide if you can meet with Arthur or not, but you'll have to show me that you're prepared to be on your best behaviour.
+		 I'll let you see my master, who'll then decide if you can meet with Arthur or not, but you'll have to show me that you're prepared to be on your best behavior.
 		 Get down on all fours and lick my shoes like the dog you are.)]
 	</p>
 	<p>
@@ -334,9 +334,9 @@
 		 Eager to get this whole business with Arthur settled once and for all, you obediently do as you're instructed, and crawl alongside the succubus maid as she sets off into the house.
 	</p>
 	<p>
-		Your hands and knees are thankfully cushioned by the immaculate red carpet that lines the wide corridor you find yourself travelling down, and as you shuffle along beside Amber, you glance around at your surroundings.
-		 The house appears to be quite similar to Lilaya's; the opulent decor of gold-framed paintings, marble busts, and crystal chandeliers obviously a trend amongst the wealthy demon elite.
-		 Although it's quite clear that Zaranix is very well-off, his house is nevertheless a little less grand than Lilaya's, and you once again find yourself marvelling at how fortunate you are to have an aunt like her.
+		Your hands and knees are thankfully cushioned by the immaculate red carpet that lines the wide corridor you find yourself traveling down, and as you shuffle along beside Amber, you glance around at your surroundings.
+		 The house appears to be quite similar to Lilaya's; the opulent décor of gold-framed paintings, marble busts, and crystal chandeliers obviously a trend amongst the wealthy demon elite.
+		 Although it's quite clear that Zaranix is very well-off, his house is nevertheless a little less grand than Lilaya's, and you once again find yourself marveling at how fortunate you are to have an aunt like her.
 	</p>
 	<p>
 		You're suddenly snapped out of your musings by the sound of a high-pitched giggle.
@@ -355,7 +355,7 @@
 	</p>
 	<p>
 		After that brief encounter, you follow Amber a little further down the corridor, before turning off and being led through a heavy oaken door into a grand drawing room.
-		 Several sofas and chairs are tastefully arranged around a low table in the centre of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
+		 Several sofas and chairs are tastefully arranged around a low table in the center of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
 		 The high ceiling is home to yet another extravagant chandelier, and you suddenly feel very small as you crawl alongside the succubus maid.
 	</p>
 	<p>
@@ -454,7 +454,7 @@
 	</p>
 	<p>
 		Zaranix had started to stand up, but as you ask that question, he immediately sits back down, and you see a flash of concern pass over his handsome face.
-		 [zaranix.speech(She's called Lilaya? It's a dangerous game, naming yourself after a Lilin's favourite child like that. You should advise your aunt to change it, before it brings down Lyssieth's wrath.)]
+		 [zaranix.speech(She's called Lilaya? It's a dangerous game, naming yourself after a Lilin's favorite child like that. You should advise your aunt to change it, before it brings down Lyssieth's wrath.)]
 	</p>
 	<p>
 		[pc.speech(Erm, that <i>is</i> my aunt,)]
@@ -473,7 +473,7 @@
 		The succubus quickly makes her exit, leaving you alone with the imposing incubus as he starts pacing back and forth.
 		 [zaranix.speech(Today's your lucky day, I suppose,)]
 		 he says.
-		 [zaranix.speech(You'll be getting what you're after. I may have wealth and a modicum of power in this city, but having never been recognised by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has.
+		 [zaranix.speech(You'll be getting what you're after. I may have wealth and a modicum of power in this city, but having never been recognized by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has.
 			 And it's not just any demon! Hah! Lyssieth's precious little half-demon herself!)]
 	</p>
 	<p>
@@ -513,7 +513,7 @@
 		The succubus quickly makes her exit, leaving you alone with the imposing incubus as he starts pacing back and forth,
 		 [zaranix.speech(Today's your lucky day, I suppose,)]
 		 he says.
-		 [zaranix.speech(You'll be getting what you're after. I may have wealth and a modicum of power in this city, but having never been recognised by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has.
+		 [zaranix.speech(You'll be getting what you're after. I may have wealth and a modicum of power in this city, but having never been recognized by my Lilin mother, I'd be a fool to stand against the wishes of a demon who has.
 			 And it's not just any demon! Hah! Lyssieth's precious little half-demon herself!)]
 	</p>
 	<p>
@@ -559,7 +559,7 @@
 		[amber.speech(That insolent-)] Amber starts, but is quickly cut off by her master.
 	</p>
 	<p>
-		[zaranix.speech(Let him go, Amber, it's not worth getting caught up in the affairs of Lyssieth's favourite child.)]
+		[zaranix.speech(Let him go, Amber, it's not worth getting caught up in the affairs of Lyssieth's favorite child.)]
 	</p>
 	<p>
 		[amber.speech(Yes, master,)] Amber replies, before turning her attention towards you,
@@ -849,7 +849,7 @@
 	
 	<htmlContent tag="STAIRS_KATHERINE_NOT_SUBDUED"><![CDATA[
 	<p>
-		[style.italicsBad(You can hear the faint sound of humming coming from down the corridor to your right, and you realise that one of Zaranix's maids must be busy cleaning down there!
+		[style.italicsBad(You can hear the faint sound of humming coming from down the corridor to your right, and you realize that one of Zaranix's maids must be busy cleaning down there!
 		 If you wanted to avoid confrontation, it would be best not to head over there.)]
 	</p>
 	]]>
@@ -866,7 +866,7 @@
 	
 	<htmlContent tag="CORRIDOR_KATHERINE_NOT_SUBDUED"><![CDATA[
 	<p>
-		[style.italicsBad(You can hear the faint sound of humming coming from further down the corridor, and you realise that one of Zaranix's maids must be busy cleaning down there!
+		[style.italicsBad(You can hear the faint sound of humming coming from further down the corridor, and you realize that one of Zaranix's maids must be busy cleaning down there!
 		 If you wanted to avoid confrontation, it would be best not to head over there.)]
 	</p>
 	]]>
@@ -878,7 +878,7 @@
 		 To either side of the path, numerous flowerbeds and small glass structures are home to an incredible variety of plant-life, much of which is quite clearly alien to your old world.
 	</p>
 	<p>
-		Although small enough not to pose a threat, you see several, tentacle-like varieties squirming and twisting about with a mind of their own; the brightly coloured flower in the centre of each one looking unmistakably like a vagina.
+		Although small enough not to pose a threat, you see several, tentacle-like varieties squirming and twisting about with a mind of their own; the brightly colored flower in the center of each one looking unmistakably like a vagina.
 		 Inspecting yet more of the flora as you move along, you notice that some of these tentacled plants have penis-like endings,
 			 and you spend a moment reflecting on the fact that even the plant-life in this world is sexual in nature.
 		 From the variety of herbs, plants, and flowers, and the evidence of careful cultivation techniques, it appears as though this garden is less for show, and more for the practical purpose of gathering arcane ingredients.
@@ -896,7 +896,7 @@
 		 To either side of the path, numerous flowerbeds and small glass structures are home to an incredible variety of plant-life, much of which is quite clearly alien to your old world.
 	</p>
 	<p>
-		Although small enough not to pose a threat, you see several, tentacle-like varieties squirming and twisting about with a mind of their own; the brightly coloured flower in the centre of each one looking unmistakably like a vagina.
+		Although small enough not to pose a threat, you see several, tentacle-like varieties squirming and twisting about with a mind of their own; the brightly colored flower in the center of each one looking unmistakably like a vagina.
 		 Inspecting yet more of the flora as you move along, you notice that some of these tentacled plants have penis-like endings,
 			 and you spend a moment reflecting on the fact that even the plant-life in this world is sexual in nature.
 		 From the variety of herbs, plants, and flowers, and the evidence of careful cultivation techniques, it appears as though this garden is less for show, and more for the practical purpose of gathering arcane ingredients.
@@ -917,7 +917,7 @@
 	
 	<htmlContent tag="GARDEN_ROOM_KATHERINE_NOT_SUBDUED"><![CDATA[
 	<p>
-		[style.italicsBad(You can hear the faint sound of humming coming from the other side of the wooden door, and you realise that one of Zaranix's maids must be out there cleaning the corridor!
+		[style.italicsBad(You can hear the faint sound of humming coming from the other side of the wooden door, and you realize that one of Zaranix's maids must be out there cleaning the corridor!
 		 If you wanted to avoid confrontation, it would be best to head back out into the garden and look for another way in.)]
 	</p>
 	
@@ -949,7 +949,7 @@
 		 [katherine.speech(Wait a moment... I would have been told if guests were expected...)]
 	</p>
 	<p>
-		The realisation that you're an intruder suddenly dawns on her, and she gasps,
+		The realization that you're an intruder suddenly dawns on her, and she gasps,
 		 [katherine.speech(Eek! That must mean you're a thief! Thief! Thief!)]
 	</p>
 	<p>
@@ -961,7 +961,7 @@
 	<htmlContent tag="CORRIDOR_MAID_KATHERINE_ENCOUNTER_REPEAT"><![CDATA[
 	<p>
 		As you walk down the corridor, an ivory-skinned succubus, wearing a light pink maid's uniform, suddenly stands up from behind a cabinet.
-		 You instantly recognise her as Katherine, and, once again, she doesn't notice you at first, and continues to swipe her little feather-duster over the top of the wooden furniture, happily humming away as she works.
+		 You instantly recognize her as Katherine, and, once again, she doesn't notice you at first, and continues to swipe her little feather-duster over the top of the wooden furniture, happily humming away as she works.
 	</p>
 	<p>
 		Before you have a chance to take any action, she looks up and catches sight of you.
@@ -1013,8 +1013,8 @@
 	<htmlContent tag="LOUNGE_EMPTY"><![CDATA[
 	<p>
 		You find yourself standing in Zaranix's grand drawing room.
-		 Several sofas and chairs are tastefully arranged around a low table in the centre of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
-		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-coloured carpet.
+		 Several sofas and chairs are tastefully arranged around a low table in the center of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
+		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-colored carpet.
 	</p>
 	<p>
 		There doesn't appear to be anyone here right now, so you should probably continue on your way...
@@ -1025,8 +1025,8 @@
 	<htmlContent tag="LOUNGE_AMBER_SUBDUED"><![CDATA[
 	<p>
 		You find yourself standing in Zaranix's grand drawing room.
-		 Several sofas and chairs are tastefully arranged around a low table in the centre of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
-		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-coloured carpet.
+		 Several sofas and chairs are tastefully arranged around a low table in the center of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
+		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-colored carpet.
 	</p>
 	<p>
 		<i>
@@ -1040,8 +1040,8 @@
 	<htmlContent tag="LOUNGE_AMBER_PRESENT_ALREADY_MET"><![CDATA[
 	<p>
 		Carefully opening a heavy oaken door, you find yourself stepping into a grand drawing room.
-		 Several sofas and chairs are tastefully arranged around a low table in the centre of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
-		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-coloured carpet.
+		 Several sofas and chairs are tastefully arranged around a low table in the center of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
+		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-colored carpet.
 	</p>
 	]]>
 	</htmlContent>
@@ -1067,13 +1067,13 @@
 	<htmlContent tag="LOUNGE_AMBER_PRESENT"><![CDATA[
 	<p>
 		Carefully opening a heavy oaken door, you find yourself stepping into a grand drawing room.
-		 Several sofas and chairs are tastefully arranged around a low table in the centre of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
-		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-coloured carpet.
+		 Several sofas and chairs are tastefully arranged around a low table in the center of the room, while numerous bookcases and cabinets line the floral-wallpapered walls.
+		 The high ceiling is home to an exceptionally extravagant chandelier, while the floor underfoot is covered in thick, cream-colored carpet.
 	</p>
 	<p>
 		The features of this room aren't quite the focus of your attention, however, as near the right-hand wall you see the back of a succubus maid.
 		 Her dark ebony skin matches the black of her maid's uniform, and atop her head, she has the most amazing hair you've ever seen.
-		 Reaching down to just above her ass, and styled into loose waves, the maid's amber-coloured hair gives off a bright glow.
+		 Reaching down to just above her ass, and styled into loose waves, the maid's amber-colored hair gives off a bright glow.
 	</p>
 	<p>
 		She appears to be busily dusting and polishing several ornamental objects in a display cabinet, and hasn't noticed your entry.

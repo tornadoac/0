@@ -90,37 +90,37 @@
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="RESISTANCE_PHYSICAL" timer="0"/>
 		</effects>
 		
-		<!-- Your clothing can be coloured any way you like, but if you'd like the player to be able to dye your clothing, you can specify available colours here. primaryColours and secondaryColours all spawn in as a default colour, while their 'Dye' counterparts are only available if the player chooses to dye the clothing in that colour. The game detects specific colour values, and recolours them to the value chosen by the player. These values are as follows:
-		Red is used as base colour for changing the DAMAGE TYPE's colour of the graphic in-game, and the game will only recognise and change the following colours:
+		<!-- Your clothing can be colored any way you like, but if you'd like the player to be able to dye your clothing, you can specify available colors here. primaryColors and secondaryColors all spawn in as a default color, while their 'Dye' counterparts are only available if the player chooses to dye the clothing in that color. The game detects specific color values, and recolors them to the value chosen by the player. These values are as follows:
+		Red is used as base color for changing the DAMAGE TYPE's color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ff2a2a
 			#ff5555
 			#ff8080
 			#ffaaaa
 			#ffd5d5
-		Orange is used as base colour for changing the PRIMARY colour of the graphic in-game, and the game will only recognise and change the following colours:
+		Orange is used as base color for changing the PRIMARY color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ff7f2a
 			#ff9955
 			#ffb380
 			#ffccaa
 			#ffe6d5
-		Yellow is used as base colour for changing the SECONDARY colour of the graphic in-game, and the game will only recognise and change the following colours:
+		Yellow is used as base color for changing the SECONDARY color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ffd42a
 			#ffdd55
 			#ffe680
 			#ffeeaa
 			#fff6d5
-		As you can see above, weapons differ from clothing in that their 'Red' colour is recoloured based on the weapon's damage type! The "primaryColours" and "secondaryColours" defined below are for recolouring the Orange and Yellow values, respectively.
+		As you can see above, weapons differ from clothing in that their 'Red' color is recolored based on the weapon's damage type! The "primaryColors" and "secondaryColors" defined below are for recoloring the Orange and Yellow values, respectively.
 			
 		ANY GRADIENTS THAT YOU USE SHOULD BE CALLED: "innoGrad1", "innoGrad2", etc.
-		You can see a visual representation of these colours (as used in clothing) here: https://www.lilithsthrone.com/wiki/doku.php?id=modding_wiki:modding:creating_clothes
-		Colour lists to be used can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColourListPresets.java -->
-		<primaryColours>
-			<colour>CLOTHING_BROWN_DARK</colour>
-			<colour>CLOTHING_TAN</colour>
-		</primaryColours> 
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values = "JUST_STEEL"/> 
-		<secondaryColoursDye values="ALL_METAL"/>
+		You can see a visual representation of these colors (as used in clothing) here: https://www.lilithsthrone.com/wiki/doku.php?id=modding_wiki:modding:creating_clothes
+		Color lists to be used can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColorListPresets.java -->
+		<primaryColors>
+			<color>CLOTHING_BROWN_DARK</color>
+			<color>CLOTHING_TAN</color>
+		</primaryColors> 
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values = "JUST_STEEL"/> 
+		<secondaryColorsDye values="ALL_METAL"/>
 		
 		<!-- Special item tags that apply to this weapon. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 		<itemTags/>

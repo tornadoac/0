@@ -150,7 +150,7 @@ import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.RenderingEngine;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Vector2i;
 import com.lilithsthrone.utils.XMLSaving;
@@ -388,7 +388,7 @@ public class Game implements XMLSaving {
 				for (File child : directoryListing) {
 					if (child.getName().equals(exportFileName+".xml")){
 						if(!allowOverwrite) {
-							Main.game.flashMessage(Colour.GENERIC_BAD, "Name already exists!");
+							Main.game.flashMessage(Color.GENERIC_BAD, "Name already exists!");
 							return;
 						} else {
 							overwrite = true;
@@ -431,7 +431,7 @@ public class Game implements XMLSaving {
 					Main.game.getOccupancyUtil().saveAsXML(game, doc);
 				}catch(Exception ex) {
 					System.err.println("SlaveryUtil saving failed!");
-					Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "SlaveryUtil failure"), false);
+					Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "SlaveryUtil failure"), false);
 				}
 
 				Element dateNode = doc.createElement("date");
@@ -443,7 +443,7 @@ public class Game implements XMLSaving {
 				CharacterUtils.addAttribute(doc, dateNode, "minute", String.valueOf(Main.game.startingDate.getMinute()));
 			} catch(Exception ex) {
 				System.err.println("coreInfo saving failed!");
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "coreInfo failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "coreInfo failure"), false);
 			}
 
 			Main.game.dialogueFlags.saveAsXML(game, doc);
@@ -456,7 +456,7 @@ public class Game implements XMLSaving {
 				}
 			} catch(Exception ex) {
 				System.err.println("eventLog saving failed!");
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "eventLog failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "eventLog failure"), false);
 			}
 
 			try {
@@ -474,7 +474,7 @@ public class Game implements XMLSaving {
 				}
 			} catch(Exception ex) {
 				System.err.println("slaveryEventLog saving failed!");
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "slaveryEventLog failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "slaveryEventLog failure"), false);
 			}
 
 			// Add maps:
@@ -488,7 +488,7 @@ public class Game implements XMLSaving {
 				}
 			} catch(Exception ex) {
 				System.err.println("maps saving failed!");
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "maps failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "maps failure"), false);
 			}
 
 			// Add player:
@@ -498,7 +498,7 @@ public class Game implements XMLSaving {
 				Main.game.getPlayer().saveAsXML(characterNode, doc);
 			} catch(Exception ex) {
 				System.err.println("playerCharacter saving failed!");
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "playerCharacter failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "playerCharacter failure"), false);
 			}
 
 			// Add all NPCs:
@@ -511,7 +511,7 @@ public class Game implements XMLSaving {
 			} catch(Exception ex) {
 				System.err.println("NPC saving failed!");
 				ex.printStackTrace();
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "NPC failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "NPC failure"), false);
 			}
 
 			// Ending stuff:
@@ -537,16 +537,16 @@ public class Game implements XMLSaving {
 
 				if(!exportFileName.startsWith("AutoSave")) {
 					if(overwrite) {
-						Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colourGood(Game saved)]", saveLocation), false);
-						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()), false, Colour.GENERIC_GOOD, "Save game overwritten!");
+						Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colorGood(Game saved)]", saveLocation), false);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()), false, Color.GENERIC_GOOD, "Save game overwritten!");
 					} else {
-						Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colourGood(Game saved)]", saveLocation), false);
-						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()), false, Colour.GENERIC_GOOD, "Game saved!");
+						Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colorGood(Game saved)]", saveLocation), false);
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()), false, Color.GENERIC_GOOD, "Game saved!");
 					}
 				}
 			} catch(Exception ex) {
 				System.err.println("XML writing failed!");
-				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "XML writing failure"), false);
+				Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "<style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Partial Save Fail<b>", "XML writing failure"), false);
 			}
 
 			if(timeLog) {
@@ -825,10 +825,10 @@ public class Game implements XMLSaving {
 					}
 				}
 
-				if(Main.isVersionOlderThan(loadingVersion, "0.2.5.1")) { //Reset ass/nipple/lip colours
+				if(Main.isVersionOlderThan(loadingVersion, "0.2.5.1")) { //Reset ass/nipple/lip colors
 					for(NPC npc : Main.game.getAllNPCs()) {
 						if(!npc.isSlave() || (npc.getOwner()!=null && !npc.getOwner().isPlayer()))
-						npc.setSkinCovering(new Covering(npc.getSkinCovering(), npc.getCovering(npc.getSkinCovering()).getPrimaryColour()), true);
+						npc.setSkinCovering(new Covering(npc.getSkinCovering(), npc.getCovering(npc.getSkinCovering()).getPrimaryColor()), true);
 					}
 				}
 
@@ -970,7 +970,7 @@ public class Game implements XMLSaving {
 		Main.game.setRequestAutosave(false);
 
 		DialogueNode startingDialogueNode = Main.game.getPlayerCell().getPlace().getDialogue(false);
-		Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colourGood(Game loaded)]", "data/saves/"+name+".xml"), false);
+		Main.game.addEvent(new EventLogEntry(Main.game.getMinutesPassed(), "[style.colorGood(Game loaded)]", "data/saves/"+name+".xml"), false);
 		Main.game.setContent(new Response(startingDialogueNode.getLabel(), startingDialogueNode.getDescription(), startingDialogueNode), false);
 
 //		System.out.println(Main.isVersionOlderThan(loadingVersion, "0.2.12.95"));
@@ -1690,7 +1690,7 @@ public class Game implements XMLSaving {
 				} else {
 					Main.game.getPlayer().incrementAttribute(Attribute.MAJOR_CORRUPTION, response.getCorruptionNeeded().getCorruptionBypass());
 					corruptionGains = ("<p style='text-align:center;'>"
-							+ "<b>You have gained +"+response.getCorruptionNeeded().getCorruptionBypass()+"</b> <b style='color:"+Attribute.MAJOR_CORRUPTION.getColour().toWebHexString()+";'>corruption</b><b>!</b>"
+							+ "<b>You have gained +"+response.getCorruptionNeeded().getCorruptionBypass()+"</b> <b style='color:"+Attribute.MAJOR_CORRUPTION.getColor().toWebHexString()+";'>corruption</b><b>!</b>"
 							+ "</p>");
 				}
 			}
@@ -1899,7 +1899,7 @@ public class Game implements XMLSaving {
 		}
 	}
 
-	public void setContent(Response response, boolean allowTimeProgress, Colour flashMessageColour, String flashMessageText){
+	public void setContent(Response response, boolean allowTimeProgress, Color flashMessageColor, String flashMessageText){
 
 		DialogueNode node = response.getNextDialogue();
 		setPlayerMovedLocation(false);
@@ -2082,7 +2082,7 @@ public class Game implements XMLSaving {
 
 		}
 
-		Main.mainController.setFlashMessageColour(flashMessageColour);
+		Main.mainController.setFlashMessageColor(flashMessageColor);
 		Main.mainController.setFlashMessageText(flashMessageText);
 
 		//-------------------- MEMORY LEAK PROBLEM
@@ -2179,8 +2179,8 @@ public class Game implements XMLSaving {
 		setContent(response, allowTimeProgress, null, null);
 	}
 
-	public void setContent(Response response, Colour colour, String messageText) {
-		setContent(response, true, colour, messageText);
+	public void setContent(Response response, Color color, String messageText) {
+		setContent(response, true, color, messageText);
 	}
 
 	private void resetResponsePointer() {
@@ -2271,10 +2271,10 @@ public class Game implements XMLSaving {
 				choicesDialogueSB.append(
 						"<div class='response-tab"+(responseTab==responsePageCounter?" selected'":"'")
 							+ (isResponseTabEmpty(node, responsePageCounter)
-									?"style='color:"+Colour.TEXT_GREY.toWebHexString()+";'"
+									?"style='color:"+Color.TEXT_GREY.toWebHexString()+";'"
 									:(responseTab==responsePageCounter
 										?""
-										:"style='color:"+Colour.TEXT_HALF_GREY.toWebHexString()+";'"))
+										:"style='color:"+Color.TEXT_HALF_GREY.toWebHexString()+";'"))
 							+" id='tab_" + responsePageCounter + "'>"
 							+(responsePageCounter==responseTab-1
 								?"<b class='hotkey-icon'>"
@@ -2459,8 +2459,8 @@ public class Game implements XMLSaving {
 		}
 		style = "style='font-size:"+fontSize+"em;'";
 
-		if(response.getHighlightColour()!=Colour.TEXT) {
-			style = "style='color:"+response.getHighlightColour().toWebHexString()+"; font-size:"+fontSize+"em;'";
+		if(response.getHighlightColor()!=Color.TEXT) {
+			style = "style='color:"+response.getHighlightColor().toWebHexString()+"; font-size:"+fontSize+"em;'";
 		}
 
 		String titleText = UtilText.parse(response.getTitle());
@@ -2590,14 +2590,14 @@ public class Game implements XMLSaving {
 
 	/**
 	 * Flashes a message at the bottom of the screen.
-	 * @param colour Colour of the text message.
+	 * @param color Color of the text message.
 	 * @param text Content of the message.
 	 */
-	public void flashMessage(Colour colour, String text){
-//		Main.game.addEvent(new EventLogEntry(minutesPassed, "", "<span style='color:"+colour.toWebHexString()+";'>"+text+"</span>"), false);
+	public void flashMessage(Color color, String text){
+//		Main.game.addEvent(new EventLogEntry(minutesPassed, "", "<span style='color:"+color.toWebHexString()+";'>"+text+"</span>"), false);
 //		Main.mainController.updateUIRightPanel();
 		Main.mainController.getWebEngine().executeScript(
-				"document.getElementById('bottom-text').innerHTML=\"<span style='color:"+colour.toWebHexString()+";'>"+text+"</span>\";"
+				"document.getElementById('bottom-text').innerHTML=\"<span style='color:"+color.toWebHexString()+";'>"+text+"</span>\";"
 				+ "document.getElementById('bottom-text').classList.add('demo');"
 				+ "setTimeout(function(){"
 				+ "document.getElementById('bottom-text').classList.remove('demo');"
@@ -2776,7 +2776,7 @@ public class Game implements XMLSaving {
 						charactersPresent.add((NPC) character);
 					}
 				} catch (Exception e) {
-					if(Main.game.isStarted()) { // Only check once game has started, otherwise initialisation methods (such as equipClothing) may end up breaking this:
+					if(Main.game.isStarted()) { // Only check once game has started, otherwise initialization methods (such as equipClothing) may end up breaking this:
 						System.err.println("Failed to load character present: "+id);
 						getWorlds().get(worldType).getCell(location).removeCharacterPresentId(id);
 					}

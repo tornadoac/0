@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * Arbitrary measurements in increments of 1, going from 0 to 7.
@@ -11,30 +11,30 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum AssSize {
 	
-	ZERO_FLAT("flat", 0, Colour.GENERIC_SIZE_ONE),
+	ZERO_FLAT("flat", 0, Color.GENERIC_SIZE_ONE),
 	
-	ONE_TINY("tiny", 1, Colour.GENERIC_SIZE_TWO),
+	ONE_TINY("tiny", 1, Color.GENERIC_SIZE_TWO),
 	
-	TWO_SMALL("small", 2, Colour.GENERIC_SIZE_THREE),
+	TWO_SMALL("small", 2, Color.GENERIC_SIZE_THREE),
 	
-	THREE_NORMAL("round", 3, Colour.GENERIC_SIZE_FOUR),
+	THREE_NORMAL("round", 3, Color.GENERIC_SIZE_FOUR),
 	
-	FOUR_LARGE("large", 4, Colour.GENERIC_SIZE_FIVE),
+	FOUR_LARGE("large", 4, Color.GENERIC_SIZE_FIVE),
 	
-	FIVE_HUGE("huge", 5, Colour.GENERIC_SIZE_SIX),
+	FIVE_HUGE("huge", 5, Color.GENERIC_SIZE_SIX),
 	
-	SIX_MASSIVE("massive", 6, Colour.GENERIC_SIZE_SEVEN),
+	SIX_MASSIVE("massive", 6, Color.GENERIC_SIZE_SEVEN),
 	
-	SEVEN_GIGANTIC("gigantic", 7, Colour.GENERIC_SIZE_EIGHT);
+	SEVEN_GIGANTIC("gigantic", 7, Color.GENERIC_SIZE_EIGHT);
 
 	private String descriptor;
 	private int size;
-	private Colour colour;
+	private Color color;
 
-	private AssSize(String descriptor, int assSize, Colour colour) {
+	private AssSize(String descriptor, int assSize, Color color) {
 		this.descriptor = descriptor;
 		this.size = assSize;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public static AssSize getAssSizeFromInt(int assSize) {
@@ -57,7 +57,7 @@ public enum AssSize {
 		return size;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

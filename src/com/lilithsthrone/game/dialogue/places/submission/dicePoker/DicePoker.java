@@ -14,7 +14,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -98,7 +98,7 @@ public class DicePoker {
 		
 		UtilText.nodeContentSB.append("<div class='container-half-width'>");
 			for(int i=0; i<playerDice.size(); i++) {
-				UtilText.nodeContentSB.append("<div class='modifier-icon' style='width:18%; margin:0 1%; border:3px solid "+(diceToReroll.contains(playerDice.get(i))?Colour.GENERIC_MINOR_GOOD.toWebHexString():"")+";'>"
+				UtilText.nodeContentSB.append("<div class='modifier-icon' style='width:18%; margin:0 1%; border:3px solid "+(diceToReroll.contains(playerDice.get(i))?Color.GENERIC_MINOR_GOOD.toWebHexString():"")+";'>"
 													+(Hand.getDiceInHand(playerDice).contains(playerDice.get(i))
 															?"<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>"
 																	+SVGImages.SVG_IMAGE_PROVIDER.getDiceGlow()
@@ -110,18 +110,18 @@ public class DicePoker {
 			}
 			Hand playerHand = Hand.getHand(playerDice);
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-					+ "<b>"+playerHand.getRanking()+". "+playerHand.getName()+"</b> | [style.colourDisabled(Value: "+Hand.getValue(playerDice)+")]<br/>"
+					+ "<b>"+playerHand.getRanking()+". "+playerHand.getName()+"</b> | [style.colorDisabled(Value: "+Hand.getValue(playerDice)+")]<br/>"
 					+(comparingHands==0
-						?"[style.colourDisabled(You "+(progress==3?"have drawn":"are drawing")+"...)]"
+						?"[style.colorDisabled(You "+(progress==3?"have drawn":"are drawing")+"...)]"
 						:(comparingHands<0
-							?"[style.colourTerrible(You "+(progress==3?"have lost":"are losing")+"!)]"
-							:"[style.colourExcellent(You "+(progress==3?"have won":"are winning")+"!)]"))
+							?"[style.colorTerrible(You "+(progress==3?"have lost":"are losing")+"!)]"
+							:"[style.colorExcellent(You "+(progress==3?"have won":"are winning")+"!)]"))
 						+ "</div>");
 		UtilText.nodeContentSB.append("</div>");
 		
 		UtilText.nodeContentSB.append("<div class='container-half-width'>");
 			for(int i=0; i<gamblerDice.size(); i++) {
-				UtilText.nodeContentSB.append("<div class='modifier-icon' style='width:18%; margin:0 1%; border:3px solid "+(diceToReroll.contains(gamblerDice.get(i))?Colour.GENERIC_MINOR_GOOD.toWebHexString():"")+";'>"
+				UtilText.nodeContentSB.append("<div class='modifier-icon' style='width:18%; margin:0 1%; border:3px solid "+(diceToReroll.contains(gamblerDice.get(i))?Color.GENERIC_MINOR_GOOD.toWebHexString():"")+";'>"
 													+(Hand.getDiceInHand(gamblerDice).contains(gamblerDice.get(i))
 															?"<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>"
 																	+SVGImages.SVG_IMAGE_PROVIDER.getDiceGlow()
@@ -132,12 +132,12 @@ public class DicePoker {
 			}
 			Hand gamblerHand = Hand.getHand(gamblerDice);
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-					+ "<b>"+gamblerHand.getRanking()+". "+gamblerHand.getName()+"</b> | [style.colourDisabled(Value: "+Hand.getValue(gamblerDice)+")]<br/>"
+					+ "<b>"+gamblerHand.getRanking()+". "+gamblerHand.getName()+"</b> | [style.colorDisabled(Value: "+Hand.getValue(gamblerDice)+")]<br/>"
 					+UtilText.parse(gambler,(comparingHands==0
-						?"[style.colourDisabled([npc.Name] "+(progress==3?"has drawn":"is drawing")+"...)]"
+						?"[style.colorDisabled([npc.Name] "+(progress==3?"has drawn":"is drawing")+"...)]"
 						:(comparingHands>0
-							?"[style.colourTerrible([npc.Name] "+(progress==3?"has lost":"is losing")+"!)]"
-							:"[style.colourExcellent([npc.Name] "+(progress==3?"has won":"is winning")+"!)]")))
+							?"[style.colorTerrible([npc.Name] "+(progress==3?"has lost":"is losing")+"!)]"
+							:"[style.colorExcellent([npc.Name] "+(progress==3?"has won":"is winning")+"!)]")))
 					+ "</div>");
 		UtilText.nodeContentSB.append("</div>");
 		
@@ -155,7 +155,7 @@ public class DicePoker {
 						?"[style.boldGood("+progressDescriptions[i]+")]"
 						:progress>i
 							?progressDescriptions[i]
-							:"[style.colourDisabled("+progressDescriptions[i]+")]")
+							:"[style.colorDisabled("+progressDescriptions[i]+")]")
 					+ "</div>");
 		}
 		UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -207,7 +207,7 @@ public class DicePoker {
 		
 		@Override
 		public String getLabel() {
-			return "Dice Poker - <b style='color:"+table.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(table.getName())+" Table</b>";
+			return "Dice Poker - <b style='color:"+table.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(table.getName())+" Table</b>";
 		}
 		
 		@Override
@@ -326,7 +326,7 @@ public class DicePoker {
 												+ "[npc.speech(Damn it... You got me,)] [npc.name] sighs. [npc.speech(I fold.)]"
 											+ "</p>"
 											+ "<p style='text-align:center;'>"
-												+ "<i>[npc.Name] <b>folded</b>! [style.colourExcellent(You won!)]</i>"
+												+ "<i>[npc.Name] <b>folded</b>! [style.colorExcellent(You won!)]</i>"
 											+ "</p>"
 											+moneyChange;
 							progress++;
@@ -413,7 +413,7 @@ public class DicePoker {
 													:" You can tell that [npc.name] isn't attracted to you, so you should just take your leave...")
 										+ "</p>"
 										+ "<p style='text-align:center;'>"
-											+ "<i>You <b>folded</b>! [style.colourTerrible(You lost!)]</i>"
+											+ "<i>You <b>folded</b>! [style.colorTerrible(You lost!)]</i>"
 										+ "</p>";
 						progress++;
 						progress++;
@@ -476,7 +476,7 @@ public class DicePoker {
 													+ "You collect your winnings and return [npc.namePos] polite remark, before moving off and taking your leave..."
 												+ "</p>"
 												+ "<p style='text-align:center;'>"
-													+ "[style.colourExcellent(You won!)]</i>"
+													+ "[style.colorExcellent(You won!)]</i>"
 												+ "</p>"
 												+moneyChange;
 							progress++;
@@ -496,7 +496,7 @@ public class DicePoker {
 															:" You can tell that [npc.name] isn't attracted to you, so you should just take your leave...")
 												+ "</p>"
 												+ "<p style='text-align:center;'>"
-													+ "[style.colourTerrible(You lost!)]</i>"
+													+ "[style.colorTerrible(You lost!)]</i>"
 												+ "</p>";
 							progress++;
 							Main.game.setContent(new Response("", "", END_LOSS));

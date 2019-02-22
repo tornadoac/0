@@ -33,8 +33,8 @@ import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.Color;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -82,16 +82,16 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 	private int enchantmentLimit;
 	protected List<ItemEffect> effects;
 	
-	private Map<DamageType, Map<Colour, Map<Colour, String>>> SVGStringMap;
-	private Map<DamageType, Map<Colour, Map<Colour, String>>> SVGStringEquippedMap;
+	private Map<DamageType, Map<Color, Map<Color, String>>> SVGStringMap;
+	private Map<DamageType, Map<Color, Map<Color, String>>> SVGStringEquippedMap;
 	
-	private List<Colour> availablePrimaryColours;
-	private List<Colour> availablePrimaryDyeColours;
-	private List<Colour> allAvailablePrimaryColours;
+	private List<Color> availablePrimaryColors;
+	private List<Color> availablePrimaryDyeColors;
+	private List<Color> allAvailablePrimaryColors;
 	
-	private List<Colour> availableSecondaryColours;
-	private List<Colour> availableSecondaryDyeColours;
-	private List<Colour> allAvailableSecondaryColours;
+	private List<Color> availableSecondaryColors;
+	private List<Color> availableSecondaryDyeColors;
+	private List<Color> allAvailableSecondaryColors;
 
 	private List<ItemTag> itemTags;
 
@@ -115,10 +115,10 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			int enchantmentLimit,
 			List<ItemEffect> effects,
 			List<Spell> spells,
-			List<Colour> availablePrimaryColours,
-			List<Colour> availablePrimaryDyeColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableSecondaryDyeColours,
+			List<Color> availablePrimaryColors,
+			List<Color> availablePrimaryDyeColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableSecondaryDyeColors,
 			List<ItemTag> itemTags) {
 		this(baseValue,
 				melee,
@@ -141,10 +141,10 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 				enchantmentLimit,
 				effects,
 				spells,
-				availablePrimaryColours,
-				availablePrimaryDyeColours,
-				availableSecondaryColours,
-				availableSecondaryDyeColours,
+				availablePrimaryColors,
+				availablePrimaryDyeColors,
+				availableSecondaryColors,
+				availableSecondaryDyeColors,
 				itemTags,
 				null,
 				null,
@@ -173,10 +173,10 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			int enchantmentLimit,
 			List<ItemEffect> effects,
 			List<Spell> spells,
-			List<Colour> availablePrimaryColours,
-			List<Colour> availablePrimaryDyeColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableSecondaryDyeColours,
+			List<Color> availablePrimaryColors,
+			List<Color> availablePrimaryDyeColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableSecondaryDyeColors,
 			List<ItemTag> itemTags,
 			String equipText,
 			String unequipText,
@@ -233,10 +233,10 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			this.itemTags = itemTags;
 		}
 
-		setUpColours(availablePrimaryColours,
-				availablePrimaryDyeColours,
-				availableSecondaryColours,
-				availableSecondaryDyeColours);
+		setUpColors(availablePrimaryColors,
+				availablePrimaryDyeColors,
+				availableSecondaryColors,
+				availableSecondaryDyeColors);
 
 		SVGStringMap = new HashMap<>();
 		SVGStringEquippedMap = new HashMap<>();
@@ -402,79 +402,79 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 					System.err.println("AbstractWeaponType loading failed. Cause: 'missDescriptions' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
 				}
 				
-				List<Colour> importedPrimaryColours = new ArrayList<>();
+				List<Color> importedPrimaryColors = new ArrayList<>();
 				try {
-					if(((Element)coreAttributes.getElementsByTagName("primaryColours").item(0)).getAttribute("values").isEmpty()) {
-						Element primaryColoursElement = ((Element)coreAttributes.getElementsByTagName("primaryColours").item(0));
-						if(primaryColoursElement.getElementsByTagName("colour").getLength() > 0) {
-							for(int i=0; i<primaryColoursElement.getElementsByTagName("colour").getLength(); i++){
-								importedPrimaryColours.add(Colour.valueOf(((Element)primaryColoursElement.getElementsByTagName("colour").item(i)).getTextContent()));
+					if(((Element)coreAttributes.getElementsByTagName("primaryColors").item(0)).getAttribute("values").isEmpty()) {
+						Element primaryColorsElement = ((Element)coreAttributes.getElementsByTagName("primaryColors").item(0));
+						if(primaryColorsElement.getElementsByTagName("color").getLength() > 0) {
+							for(int i=0; i<primaryColorsElement.getElementsByTagName("color").getLength(); i++){
+								importedPrimaryColors.add(Color.valueOf(((Element)primaryColorsElement.getElementsByTagName("color").item(i)).getTextContent()));
 							}
 						}
 					} else {
-						importedPrimaryColours = ColourListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("primaryColours").item(0)).getAttribute("values")).getPresetColourList();
+						importedPrimaryColors = ColorListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("primaryColors").item(0)).getAttribute("values")).getPresetColorList();
 					}
 				} catch(Exception ex) {
-					System.err.println("AbstractWeaponType loading failed. Cause: 'primaryColours' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractWeaponType loading failed. Cause: 'primaryColors' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
 				}
 
-				List<Colour> importedPrimaryColoursDye = new ArrayList<>();
+				List<Color> importedPrimaryColorsDye = new ArrayList<>();
 				try {
-					if(((Element)coreAttributes.getElementsByTagName("primaryColoursDye").item(0)).getAttribute("values").isEmpty()) {
-						Element primaryColoursElement = ((Element)coreAttributes.getElementsByTagName("primaryColoursDye").item(0));
-						if(primaryColoursElement.getElementsByTagName("colour").getLength() > 0) {
-							for(int i=0; i<primaryColoursElement.getElementsByTagName("colour").getLength(); i++){
-								importedPrimaryColoursDye.add(Colour.valueOf(((Element)primaryColoursElement.getElementsByTagName("colour").item(i)).getTextContent()));
+					if(((Element)coreAttributes.getElementsByTagName("primaryColorsDye").item(0)).getAttribute("values").isEmpty()) {
+						Element primaryColorsElement = ((Element)coreAttributes.getElementsByTagName("primaryColorsDye").item(0));
+						if(primaryColorsElement.getElementsByTagName("color").getLength() > 0) {
+							for(int i=0; i<primaryColorsElement.getElementsByTagName("color").getLength(); i++){
+								importedPrimaryColorsDye.add(Color.valueOf(((Element)primaryColorsElement.getElementsByTagName("color").item(i)).getTextContent()));
 							}
 						}
 					} else {
-						importedPrimaryColoursDye = ColourListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("primaryColoursDye").item(0)).getAttribute("values")).getPresetColourList();
+						importedPrimaryColorsDye = ColorListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("primaryColorsDye").item(0)).getAttribute("values")).getPresetColorList();
 					}
 				} catch(Exception ex) {
-					System.err.println("AbstractWeaponType loading failed. Cause: 'primaryColoursDye' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractWeaponType loading failed. Cause: 'primaryColorsDye' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
 				}
 
-				List<Colour> importedSecondaryColours = new ArrayList<>();
+				List<Color> importedSecondaryColors = new ArrayList<>();
 				try {
-					if((Element)coreAttributes.getElementsByTagName("secondaryColours").item(0)!=null) {
-						if(((Element)coreAttributes.getElementsByTagName("secondaryColours").item(0)).getAttribute("values").isEmpty()) {
-							Element secondaryColoursElement = ((Element)coreAttributes.getElementsByTagName("secondaryColours").item(0));
-							if(secondaryColoursElement.getElementsByTagName("colour").getLength() > 0) {
-								for(int i=0; i<secondaryColoursElement.getElementsByTagName("colour").getLength(); i++){
-									importedSecondaryColours.add(Colour.valueOf(((Element)secondaryColoursElement.getElementsByTagName("colour").item(i)).getTextContent()));
+					if((Element)coreAttributes.getElementsByTagName("secondaryColors").item(0)!=null) {
+						if(((Element)coreAttributes.getElementsByTagName("secondaryColors").item(0)).getAttribute("values").isEmpty()) {
+							Element secondaryColorsElement = ((Element)coreAttributes.getElementsByTagName("secondaryColors").item(0));
+							if(secondaryColorsElement.getElementsByTagName("color").getLength() > 0) {
+								for(int i=0; i<secondaryColorsElement.getElementsByTagName("color").getLength(); i++){
+									importedSecondaryColors.add(Color.valueOf(((Element)secondaryColorsElement.getElementsByTagName("color").item(i)).getTextContent()));
 								}
 							}
 						} else {
-							importedSecondaryColours = ColourListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("secondaryColours").item(0)).getAttribute("values")).getPresetColourList();
+							importedSecondaryColors = ColorListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("secondaryColors").item(0)).getAttribute("values")).getPresetColorList();
 						}
 					}
 				} catch(Exception ex) {
-					System.err.println("AbstractWeaponType loading failed. Cause: 'secondaryColours' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractWeaponType loading failed. Cause: 'secondaryColors' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
 				}
 
-				List<Colour> importedSecondaryColoursDye = new ArrayList<>();
+				List<Color> importedSecondaryColorsDye = new ArrayList<>();
 				try {
-					if((Element)coreAttributes.getElementsByTagName("secondaryColoursDye").item(0)!=null) {
-						if(((Element)coreAttributes.getElementsByTagName("secondaryColoursDye").item(0)).getAttribute("values").isEmpty()) {
-							Element secondaryColoursElement = ((Element)coreAttributes.getElementsByTagName("secondaryColoursDye").item(0));
-							if(secondaryColoursElement.getElementsByTagName("colour").getLength() > 0) {
-								for(int i=0; i<secondaryColoursElement.getElementsByTagName("colour").getLength(); i++){
-									importedSecondaryColoursDye.add(Colour.valueOf(((Element)secondaryColoursElement.getElementsByTagName("colour").item(i)).getTextContent()));
+					if((Element)coreAttributes.getElementsByTagName("secondaryColorsDye").item(0)!=null) {
+						if(((Element)coreAttributes.getElementsByTagName("secondaryColorsDye").item(0)).getAttribute("values").isEmpty()) {
+							Element secondaryColorsElement = ((Element)coreAttributes.getElementsByTagName("secondaryColorsDye").item(0));
+							if(secondaryColorsElement.getElementsByTagName("color").getLength() > 0) {
+								for(int i=0; i<secondaryColorsElement.getElementsByTagName("color").getLength(); i++){
+									importedSecondaryColorsDye.add(Color.valueOf(((Element)secondaryColorsElement.getElementsByTagName("color").item(i)).getTextContent()));
 								}
 							}
 						} else {
-							importedSecondaryColoursDye = ColourListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("secondaryColoursDye").item(0)).getAttribute("values")).getPresetColourList();
+							importedSecondaryColorsDye = ColorListPresets.valueOf(((Element)coreAttributes.getElementsByTagName("secondaryColorsDye").item(0)).getAttribute("values")).getPresetColorList();
 						}
 					}
 				} catch(Exception ex) {
-					System.err.println("AbstractWeaponType loading failed. Cause: 'secondaryColoursDye' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractWeaponType loading failed. Cause: 'secondaryColorsDye' element unable to be parsed. (" + weaponXMLFile.getName() + ")\n" + ex);
 				}
 				
-				setUpColours(
-						importedPrimaryColours,
-						importedPrimaryColoursDye,
-						importedSecondaryColours,
-						importedSecondaryColoursDye);
+				setUpColors(
+						importedPrimaryColors,
+						importedPrimaryColorsDye,
+						importedSecondaryColors,
+						importedSecondaryColorsDye);
 				
 				SVGStringMap = new HashMap<>();
 				SVGStringEquippedMap = new HashMap<>();
@@ -532,7 +532,7 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 		return generateWeapon(wt, dt, null, null);
 	}
 	
-	public static AbstractWeapon generateWeapon(AbstractWeaponType wt, DamageType dt, Colour primaryColour, Colour secondaryColour) {
+	public static AbstractWeapon generateWeapon(AbstractWeaponType wt, DamageType dt, Color primaryColor, Color secondaryColor) {
 		
 		if (wt.getAvailableDamageTypes() != null) {
 			if (!wt.getAvailableDamageTypes().contains(dt)) {
@@ -540,22 +540,22 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			}
 		}
 		
-		Colour c1 = primaryColour;
-		Colour c2 = secondaryColour;
+		Color c1 = primaryColor;
+		Color c2 = secondaryColor;
 		
-		if (primaryColour == null || !wt.getAllAvailablePrimaryColours().contains(primaryColour)) {
-			if(wt.getAvailablePrimaryColours().isEmpty()) {
-				c1 = Colour.CLOTHING_BLACK;
+		if (primaryColor == null || !wt.getAllAvailablePrimaryColors().contains(primaryColor)) {
+			if(wt.getAvailablePrimaryColors().isEmpty()) {
+				c1 = Color.CLOTHING_BLACK;
 			} else {
-				c1 = wt.getAvailablePrimaryColours().get(Util.random.nextInt(wt.getAvailablePrimaryColours().size()));
+				c1 = wt.getAvailablePrimaryColors().get(Util.random.nextInt(wt.getAvailablePrimaryColors().size()));
 			}
 		}
 		
-		if (secondaryColour == null || !wt.getAllAvailableSecondaryColours().contains(secondaryColour)) {
-			if(wt.getAvailableSecondaryColours().isEmpty()) {
-				c2 = Colour.CLOTHING_BLACK;
+		if (secondaryColor == null || !wt.getAllAvailableSecondaryColors().contains(secondaryColor)) {
+			if(wt.getAvailableSecondaryColors().isEmpty()) {
+				c2 = Color.CLOTHING_BLACK;
 			} else {
-				c2 = wt.getAvailableSecondaryColours().get(Util.random.nextInt(wt.getAvailableSecondaryColours().size()));
+				c2 = wt.getAvailableSecondaryColors().get(Util.random.nextInt(wt.getAvailableSecondaryColors().size()));
 			}
 		}
 		
@@ -564,7 +564,7 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			public String onEquip(GameCharacter character) {
 				if (character.isPlayer()) {
 					if (Main.getProperties().addWeaponDiscovered(wt)) {
-						Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(wt.getName(), wt.getRarity().getColour()), true);
+						Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(wt.getName(), wt.getRarity().getColor()), true);
 					}
 				}
 				return wt.equipText(character);
@@ -577,51 +577,51 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 		};
 	}
 
-	private void setUpColours(List<Colour> availablePrimaryColours,
-			List<Colour> availablePrimaryDyeColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableSecondaryDyeColours) {
+	private void setUpColors(List<Color> availablePrimaryColors,
+			List<Color> availablePrimaryDyeColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableSecondaryDyeColors) {
 		
-		this.availablePrimaryColours = new ArrayList<>();
-		if (availablePrimaryColours != null) {
-			this.availablePrimaryColours.addAll(availablePrimaryColours);
+		this.availablePrimaryColors = new ArrayList<>();
+		if (availablePrimaryColors != null) {
+			this.availablePrimaryColors.addAll(availablePrimaryColors);
 		}
 
-		Set<Colour> colourSet = new HashSet<>();
+		Set<Color> colorSet = new HashSet<>();
 		
-		this.availablePrimaryDyeColours = new ArrayList<>();
-		if (availablePrimaryDyeColours != null) {
-			this.availablePrimaryDyeColours.addAll(availablePrimaryDyeColours);
+		this.availablePrimaryDyeColors = new ArrayList<>();
+		if (availablePrimaryDyeColors != null) {
+			this.availablePrimaryDyeColors.addAll(availablePrimaryDyeColors);
 		}
 		
-		this.allAvailablePrimaryColours = new ArrayList<>();
-		colourSet.addAll(this.availablePrimaryColours);
-		if(availablePrimaryDyeColours!=null) {
-			colourSet.addAll(availablePrimaryDyeColours);
+		this.allAvailablePrimaryColors = new ArrayList<>();
+		colorSet.addAll(this.availablePrimaryColors);
+		if(availablePrimaryDyeColors!=null) {
+			colorSet.addAll(availablePrimaryDyeColors);
 		}
-		this.allAvailablePrimaryColours.addAll(colourSet);
-		this.allAvailablePrimaryColours.sort((c1, c2) -> c1.compareTo(c2));
+		this.allAvailablePrimaryColors.addAll(colorSet);
+		this.allAvailablePrimaryColors.sort((c1, c2) -> c1.compareTo(c2));
 		
-		this.availableSecondaryColours = new ArrayList<>();
-		if (availableSecondaryColours != null) {
-			this.availableSecondaryColours.addAll(availableSecondaryColours);
+		this.availableSecondaryColors = new ArrayList<>();
+		if (availableSecondaryColors != null) {
+			this.availableSecondaryColors.addAll(availableSecondaryColors);
 		}
 		
-		this.availableSecondaryDyeColours = new ArrayList<>();
-		if (availableSecondaryDyeColours != null) {
-			this.availableSecondaryDyeColours.addAll(availableSecondaryDyeColours);
+		this.availableSecondaryDyeColors = new ArrayList<>();
+		if (availableSecondaryDyeColors != null) {
+			this.availableSecondaryDyeColors.addAll(availableSecondaryDyeColors);
 		}
 
-		colourSet.clear();
-		this.allAvailableSecondaryColours = new ArrayList<>();
-		if(availableSecondaryColours!=null) {
-			colourSet.addAll(availableSecondaryColours);
+		colorSet.clear();
+		this.allAvailableSecondaryColors = new ArrayList<>();
+		if(availableSecondaryColors!=null) {
+			colorSet.addAll(availableSecondaryColors);
 		}
-		if(availableSecondaryDyeColours!=null) {
-			colourSet.addAll(availableSecondaryDyeColours);
+		if(availableSecondaryDyeColors!=null) {
+			colorSet.addAll(availableSecondaryDyeColors);
 		}
-		this.allAvailableSecondaryColours.addAll(colourSet);
-		this.allAvailableSecondaryColours.sort((c1, c2) -> c1.compareTo(c2));
+		this.allAvailableSecondaryColors.addAll(colorSet);
+		this.allAvailableSecondaryColors.sort((c1, c2) -> c1.compareTo(c2));
 	}
 	
 	/**
@@ -910,50 +910,50 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 		return spells;
 	}
 
-	public List<Colour> getAvailablePrimaryColours() {
-		return availablePrimaryColours;
+	public List<Color> getAvailablePrimaryColors() {
+		return availablePrimaryColors;
 	}
 	
-	public List<Colour> getAvailablePrimaryDyeColours() {
-		return availablePrimaryDyeColours;
+	public List<Color> getAvailablePrimaryDyeColors() {
+		return availablePrimaryDyeColors;
 	}
 	
-	public List<Colour> getAllAvailablePrimaryColours() {
-		return allAvailablePrimaryColours;
+	public List<Color> getAllAvailablePrimaryColors() {
+		return allAvailablePrimaryColors;
 	}
 
-	public List<Colour> getAvailableSecondaryColours() {
-		return availableSecondaryColours;
+	public List<Color> getAvailableSecondaryColors() {
+		return availableSecondaryColors;
 	}
 
-	public List<Colour> getAvailableSecondaryDyeColours() {
-		return availableSecondaryDyeColours;
+	public List<Color> getAvailableSecondaryDyeColors() {
+		return availableSecondaryDyeColors;
 	}
 	
-	public List<Colour> getAllAvailableSecondaryColours() {
-		return allAvailableSecondaryColours;
+	public List<Color> getAllAvailableSecondaryColors() {
+		return allAvailableSecondaryColors;
 	}
 
-	private void addSVGStringMapping(DamageType dt, Colour colourSecondary, Colour colourTertiary, String s) {
+	private void addSVGStringMapping(DamageType dt, Color colorSecondary, Color colorTertiary, String s) {
 		if(SVGStringMap.get(dt)==null) {
 			SVGStringMap.put(dt, new HashMap<>());
-			SVGStringMap.get(dt).put(colourSecondary, new HashMap<>());
+			SVGStringMap.get(dt).put(colorSecondary, new HashMap<>());
 			
-		} else if(SVGStringMap.get(dt).get(colourSecondary)==null) {
-			SVGStringMap.get(dt).put(colourSecondary, new HashMap<>());
+		} else if(SVGStringMap.get(dt).get(colorSecondary)==null) {
+			SVGStringMap.get(dt).put(colorSecondary, new HashMap<>());
 		}
 		
-		SVGStringMap.get(dt).get(colourSecondary).put(colourTertiary, s);
+		SVGStringMap.get(dt).get(colorSecondary).put(colorTertiary, s);
 	}
 	
-	private String getSVGStringFromMap(DamageType dt, Colour colourSecondary, Colour colourTertiary) {
+	private String getSVGStringFromMap(DamageType dt, Color colorSecondary, Color colorTertiary) {
 		if(SVGStringMap.get(dt)==null) {
 			return null;
 		} else {
-			if(SVGStringMap.get(dt).get(colourSecondary)==null) {
+			if(SVGStringMap.get(dt).get(colorSecondary)==null) {
 				return null;
 			} else {
-				return SVGStringMap.get(dt).get(colourSecondary).get(colourTertiary);
+				return SVGStringMap.get(dt).get(colorSecondary).get(colorTertiary);
 			}
 		}
 	}
@@ -966,24 +966,24 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			}
 		}
 		
-		Colour pColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailablePrimaryColours()!=null && !this.getAllAvailablePrimaryColours().isEmpty()) {
-			pColour = this.getAllAvailablePrimaryColours().get(0);
+		Color pColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailablePrimaryColors()!=null && !this.getAllAvailablePrimaryColors().isEmpty()) {
+			pColor = this.getAllAvailablePrimaryColors().get(0);
 		}
-		Colour sColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailableSecondaryColours()!=null && !this.getAllAvailableSecondaryColours().isEmpty()) {
-			sColour = this.getAllAvailableSecondaryColours().get(0);
+		Color sColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailableSecondaryColors()!=null && !this.getAllAvailableSecondaryColors().isEmpty()) {
+			sColor = this.getAllAvailableSecondaryColors().get(0);
 		}
 		
-		return getSVGImage(dt, pColour, sColour);
+		return getSVGImage(dt, pColor, sColor);
 	}
 	
-	public String getSVGImage(DamageType dt, Colour colourPrimary, Colour colourSecondary) {
+	public String getSVGImage(DamageType dt, Color colorPrimary, Color colorSecondary) {
 		if (!this.getAvailableDamageTypes().contains(dt)) {
 			return "";
 		}
 		
-		String stringFromMap = getSVGStringFromMap(dt, colourPrimary, colourSecondary);
+		String stringFromMap = getSVGStringFromMap(dt, colorPrimary, colorSecondary);
 		if(stringFromMap!=null) {
 			return stringFromMap;
 		}
@@ -1005,9 +1005,9 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 				is.close();
 			}
 			
-			s = SvgUtil.colourReplacement(this.getId(), dt.getColour(), colourPrimary, colourSecondary, s);
+			s = SvgUtil.colorReplacement(this.getId(), dt.getColor(), colorPrimary, colorSecondary, s);
 			
-			addSVGStringMapping(dt, colourPrimary, colourSecondary, s);
+			addSVGStringMapping(dt, colorPrimary, colorSecondary, s);
 			
 			return s;
 			
@@ -1018,26 +1018,26 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 		return "";
 	}
 	
-	private void addSVGStringEquippedMapping(DamageType dt, Colour colourSecondary, Colour colourTertiary, String s) {
+	private void addSVGStringEquippedMapping(DamageType dt, Color colorSecondary, Color colorTertiary, String s) {
 		if(SVGStringEquippedMap.get(dt)==null) {
 			SVGStringEquippedMap.put(dt, new HashMap<>());
-			SVGStringEquippedMap.get(dt).put(colourSecondary, new HashMap<>());
+			SVGStringEquippedMap.get(dt).put(colorSecondary, new HashMap<>());
 			
-		} else if(SVGStringEquippedMap.get(dt).get(colourSecondary)==null) {
-			SVGStringEquippedMap.get(dt).put(colourSecondary, new HashMap<>());
+		} else if(SVGStringEquippedMap.get(dt).get(colorSecondary)==null) {
+			SVGStringEquippedMap.get(dt).put(colorSecondary, new HashMap<>());
 		}
 		
-		SVGStringEquippedMap.get(dt).get(colourSecondary).put(colourTertiary, s);
+		SVGStringEquippedMap.get(dt).get(colorSecondary).put(colorTertiary, s);
 	}
 	
-	private String getSVGStringEquippedFromMap(DamageType dt, Colour colourSecondary, Colour colourTertiary) {
+	private String getSVGStringEquippedFromMap(DamageType dt, Color colorSecondary, Color colorTertiary) {
 		if(SVGStringEquippedMap.get(dt)==null) {
 			return null;
 		} else {
-			if(SVGStringEquippedMap.get(dt).get(colourSecondary)==null) {
+			if(SVGStringEquippedMap.get(dt).get(colorSecondary)==null) {
 				return null;
 			} else {
-				return SVGStringEquippedMap.get(dt).get(colourSecondary).get(colourTertiary);
+				return SVGStringEquippedMap.get(dt).get(colorSecondary).get(colorTertiary);
 			}
 		}
 	}
@@ -1050,24 +1050,24 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 			}
 		}
 		
-		Colour pColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailablePrimaryColours()!=null && !this.getAllAvailablePrimaryColours().isEmpty()) {
-			pColour = this.getAllAvailablePrimaryColours().get(0);
+		Color pColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailablePrimaryColors()!=null && !this.getAllAvailablePrimaryColors().isEmpty()) {
+			pColor = this.getAllAvailablePrimaryColors().get(0);
 		}
-		Colour sColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailableSecondaryColours()!=null && !this.getAllAvailableSecondaryColours().isEmpty()) {
-			sColour = this.getAllAvailableSecondaryColours().get(0);
+		Color sColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailableSecondaryColors()!=null && !this.getAllAvailableSecondaryColors().isEmpty()) {
+			sColor = this.getAllAvailableSecondaryColors().get(0);
 		}
 		
-		return getSVGEquippedImage(dt, pColour, sColour);
+		return getSVGEquippedImage(dt, pColor, sColor);
 	}
 	
-	public String getSVGEquippedImage(DamageType dt, Colour colourPrimary, Colour colourSecondary) {
+	public String getSVGEquippedImage(DamageType dt, Color colorPrimary, Color colorSecondary) {
 		if (!this.getAvailableDamageTypes().contains(dt)) {
 			return "";
 		}
 		
-		String stringFromMap = getSVGStringEquippedFromMap(dt, colourPrimary, colourSecondary);
+		String stringFromMap = getSVGStringEquippedFromMap(dt, colorPrimary, colorSecondary);
 		if(stringFromMap!=null) {
 			return stringFromMap;
 		}
@@ -1089,9 +1089,9 @@ public abstract class AbstractWeaponType extends AbstractCoreType {
 				is.close();
 			}
 			
-			s = SvgUtil.colourReplacement(this.getId(), dt.getColour(), colourPrimary, colourSecondary, s);
+			s = SvgUtil.colorReplacement(this.getId(), dt.getColor(), colorPrimary, colorSecondary, s);
 			
-			addSVGStringEquippedMapping(dt, colourPrimary, colourSecondary, s);
+			addSVGStringEquippedMapping(dt, colorPrimary, colorSecondary, s);
 			
 			return s;
 			

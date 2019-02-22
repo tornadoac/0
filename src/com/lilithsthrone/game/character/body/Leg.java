@@ -47,14 +47,14 @@ public class Leg implements BodyPartInterface {
 		if(this.getFootStructure()==footStructure) {
 			return UtilText.parse(owner,
 					"<p>"
-						+ "[style.colourDisabled(Nothing happens, as [npc.namePos] [npc.feet] are already [npc.footStructure]...)]"
+						+ "[style.colorDisabled(Nothing happens, as [npc.namePos] [npc.feet] are already [npc.footStructure]...)]"
 					+ "</p>");
 		}
 		
 		if(!type.getFootType().getPermittedFootStructures().contains(footStructure)) {
 			return UtilText.parse(owner,
 					"<p>"
-						+ "[style.colourDisabled(Nothing happens, as [npc.namePos] [npc.feet] cannot transform to be "+footStructure.getName()+"...)]"
+						+ "[style.colorDisabled(Nothing happens, as [npc.namePos] [npc.feet] cannot transform to be "+footStructure.getName()+"...)]"
 					+ "</p>");
 		}
 
@@ -149,9 +149,9 @@ public class Leg implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if (owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.legs] of [pc.a_legRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.legs] of [pc.a_legRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.legs] of [npc.a_legRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.legs] of [npc.a_legRace], so nothing happens...)]</p>");
 			}
 			
 		} else {

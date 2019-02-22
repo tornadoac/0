@@ -63,7 +63,7 @@ import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
@@ -82,7 +82,7 @@ public class UtilText {
 	private static List<ParserTag> parserTags;
 	
 	private static List<GameCharacter> specialNPCList = new ArrayList<>();
-	private static boolean parseCapitalise;
+	private static boolean parseCapitalize;
 	private static boolean parseAddPronoun;
 	
 	private static ScriptEngine engine;
@@ -182,15 +182,15 @@ public class UtilText {
 		}
 
 		if (Femininity.valueOf(Main.game.getPlayer().getFemininityValue()) == Femininity.MASCULINE || Femininity.valueOf(Main.game.getPlayer().getFemininityValue()) == Femininity.MASCULINE_STRONG)
-			return "<span class='speech' style='color:" + Colour.MASCULINE.toWebHexString() + ";'>" + modifiedSentence + "</span>";
+			return "<span class='speech' style='color:" + Color.MASCULINE.toWebHexString() + ";'>" + modifiedSentence + "</span>";
 		else if (Femininity.valueOf(Main.game.getPlayer().getFemininityValue()) == Femininity.ANDROGYNOUS)
-			return "<span class='speech' style='color:" + Colour.ANDROGYNOUS.toWebHexString() + ";'>" + modifiedSentence + "</span>";
+			return "<span class='speech' style='color:" + Color.ANDROGYNOUS.toWebHexString() + ";'>" + modifiedSentence + "</span>";
 		else
-			return "<span class='speech' style='color:" + Colour.FEMININE.toWebHexString() + ";'>" + modifiedSentence + "</span>";
+			return "<span class='speech' style='color:" + Color.FEMININE.toWebHexString() + ";'>" + modifiedSentence + "</span>";
 	}
 
-	private static String getGlowStyle(Colour colour) {
-		return colour==null?"":"text-shadow: 0px 0px 4px "+colour.getShadesRgbaFormat(0.75f)[1]+";";
+	private static String getGlowStyle(Color color) {
+		return color==null?"":"text-shadow: 0px 0px 4px "+color.getShadesRgbaFormat(0.75f)[1]+";";
 	}
 	
 	public static String parseSpeech(String text, GameCharacter target) {
@@ -262,19 +262,19 @@ public class UtilText {
 			modifiedSentence = splitOnConditional[0]+"#THEN"+modifiedSentence;
 		}
 
-		Colour glow = target.getSpeechGlowColour();
-		if (target.getSpeechColour() != null) {
-			return "<span class='speech' style='color:" + target.getSpeechColour() + ";"+getGlowStyle(glow)+"'>"
+		Color glow = target.getSpeechGlowColor();
+		if (target.getSpeechColor() != null) {
+			return "<span class='speech' style='color:" + target.getSpeechColor() + ";"+getGlowStyle(glow)+"'>"
 						+ modifiedSentence
 					+ "</span>";
 
 		} else {
 			if (Femininity.valueOf(target.getFemininityValue()) == Femininity.MASCULINE || Femininity.valueOf(target.getFemininityValue()) == Femininity.MASCULINE_STRONG) {
-				return "<span class='speech' style='color:" + Colour.MASCULINE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+				return "<span class='speech' style='color:" + Color.MASCULINE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 			} else if (Femininity.valueOf(target.getFemininityValue()) == Femininity.ANDROGYNOUS) {
-				return "<span class='speech' style='color:" + Colour.ANDROGYNOUS_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+				return "<span class='speech' style='color:" + Color.ANDROGYNOUS_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 			} else {
-				return "<span class='speech' style='color:" + Colour.FEMININE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+				return "<span class='speech' style='color:" + Color.FEMININE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 			}
 		}
 	}
@@ -282,17 +282,17 @@ public class UtilText {
 	public static String parseSpeechNoEffects(String text, GameCharacter target) {
 		modifiedSentence = text;
 
-		Colour glow = target.getSpeechGlowColour();
-		if (target.getSpeechColour() != null) {
-			return "<span class='speech' style='color:" + target.getSpeechColour() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+		Color glow = target.getSpeechGlowColor();
+		if (target.getSpeechColor() != null) {
+			return "<span class='speech' style='color:" + target.getSpeechColor() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 
 		} else {
 			if (Femininity.valueOf(target.getFemininityValue()) == Femininity.MASCULINE || Femininity.valueOf(target.getFemininityValue()) == Femininity.MASCULINE_STRONG) {
-				return "<span class='speech' style='color:" + Colour.MASCULINE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+				return "<span class='speech' style='color:" + Color.MASCULINE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 			} else if (Femininity.valueOf(target.getFemininityValue()) == Femininity.ANDROGYNOUS) {
-				return "<span class='speech' style='color:" + Colour.ANDROGYNOUS_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+				return "<span class='speech' style='color:" + Color.ANDROGYNOUS_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 			} else {
-				return "<span class='speech' style='color:" + Colour.FEMININE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
+				return "<span class='speech' style='color:" + Color.FEMININE_NPC.toWebHexString() + ";"+getGlowStyle(glow)+"'>" + modifiedSentence + "</span>";
 			}
 		}
 	}
@@ -308,16 +308,16 @@ public class UtilText {
 				modifiedSentence = Util.addSexSounds(modifiedSentence, 5);
 		}
 
-		if (target.getSpeechColour() != null) {
-			return "<span class='thoughts' style='color:" + target.getSpeechColour() + ";'>" + modifiedSentence + "</span>";
+		if (target.getSpeechColor() != null) {
+			return "<span class='thoughts' style='color:" + target.getSpeechColor() + ";'>" + modifiedSentence + "</span>";
 
 		} else {
 			if (Femininity.valueOf(target.getFemininityValue()) == Femininity.MASCULINE || Femininity.valueOf(target.getFemininityValue()) == Femininity.MASCULINE_STRONG) {
-				return "<span class='thoughts' style='color:" + Colour.MASCULINE_NPC.toWebHexString() + ";'>" + modifiedSentence + "</span>";
+				return "<span class='thoughts' style='color:" + Color.MASCULINE_NPC.toWebHexString() + ";'>" + modifiedSentence + "</span>";
 			} else if (Femininity.valueOf(target.getFemininityValue()) == Femininity.ANDROGYNOUS) {
-				return "<span class='thoughts' style='color:" + Colour.ANDROGYNOUS_NPC.toWebHexString() + ";'>" + modifiedSentence + "</span>";
+				return "<span class='thoughts' style='color:" + Color.ANDROGYNOUS_NPC.toWebHexString() + ";'>" + modifiedSentence + "</span>";
 			} else {
-				return "<span class='thoughts' style='color:" + Colour.FEMININE_NPC.toWebHexString() + ";'>" + modifiedSentence + "</span>";
+				return "<span class='thoughts' style='color:" + Color.FEMININE_NPC.toWebHexString() + ";'>" + modifiedSentence + "</span>";
 			}
 		}
 	}
@@ -333,7 +333,7 @@ public class UtilText {
 		if (stutter)
 			modifiedSentence = Util.addStutter(modifiedSentence, 6);
 
-		return "<span class='speech' style='color:" + femininity.getColour().toWebHexString() + ";'>" + modifiedSentence + "</span>";
+		return "<span class='speech' style='color:" + femininity.getColor().toWebHexString() + ";'>" + modifiedSentence + "</span>";
 	}
 	
 	public static String getDisabledResponse(String label) {
@@ -342,13 +342,13 @@ public class UtilText {
 	
 	// "Temporary" methods until I refine the way DialogueNodes work:
 	public static String getRequirementsDescription(Perk perkRequired) {
-		return ("You require the perk '<b style='color:"+perkRequired.getPerkCategory().getColour().toWebHexString()+";'>"+perkRequired.getName(Main.game.getPlayer())+"</b>'.");
+		return ("You require the perk '<b style='color:"+perkRequired.getPerkCategory().getColor().toWebHexString()+";'>"+perkRequired.getName(Main.game.getPlayer())+"</b>'.");
 	}
 	
 	public static String getRequirementsDescription(Perk perkRequired, Gender... gendersRequired) {
 		descriptionSB.setLength(0);
 		
-		descriptionSB.append("You require the perk '<b style='color:"+perkRequired.getPerkCategory().getColour().toWebHexString()+";'>"+perkRequired.getName(Main.game.getPlayer())+"</b>'");
+		descriptionSB.append("You require the perk '<b style='color:"+perkRequired.getPerkCategory().getColor().toWebHexString()+";'>"+perkRequired.getName(Main.game.getPlayer())+"</b>'");
 		
 		if(gendersRequired.length==0) {
 			descriptionSB.append(".");
@@ -362,7 +362,7 @@ public class UtilText {
 					else
 						descriptionSB.append(", ");
 				}
-				descriptionSB.append("<b style='color:"+gendersRequired[i].getColour().toWebHexString()+";'>"+gendersRequired[i].getName()+"</b>");
+				descriptionSB.append("<b style='color:"+gendersRequired[i].getColor().toWebHexString()+";'>"+gendersRequired[i].getName()+"</b>");
 			}
 			
 			descriptionSB.append(".");
@@ -374,7 +374,7 @@ public class UtilText {
 	public static String getRequirementsDescription(CorruptionLevel corruptionNeeded, Perk... perkRequired) {
 		descriptionSB.setLength(0);
 		
-		descriptionSB.append("You require a corruption level of <b style='color:"+corruptionNeeded.getColour().toWebHexString()+";'>"+corruptionNeeded.getName()+"</b>");
+		descriptionSB.append("You require a corruption level of <b style='color:"+corruptionNeeded.getColor().toWebHexString()+";'>"+corruptionNeeded.getName()+"</b>");
 		
 		if(perkRequired.length==0) {
 			descriptionSB.append(".");
@@ -388,7 +388,7 @@ public class UtilText {
 					else
 						descriptionSB.append(", ");
 				}
-				descriptionSB.append("<b style='color:"+perkRequired[i].getPerkCategory().getColour().toWebHexString()+";'>"+perkRequired[i].getName(Main.game.getPlayer())+"</b>");
+				descriptionSB.append("<b style='color:"+perkRequired[i].getPerkCategory().getColor().toWebHexString()+";'>"+perkRequired[i].getName(Main.game.getPlayer())+"</b>");
 			}
 			
 			descriptionSB.append(".");
@@ -410,12 +410,12 @@ public class UtilText {
 		return "&#9737;"; // Java doesn't support unicode 6 ;_;   No pentagram for me... ;_;  "&#9956";
 	}
 	
-	public static String formatAsEssencesUncoloured(int amount, String tag, boolean withOverlay) {
+	public static String formatAsEssencesUncolored(int amount, String tag, boolean withOverlay) {
 		String essenceString = formatter.format(amount);
 		return "<div class='item-inline'>"
-					+ TFEssence.ARCANE.getSVGStringUncoloured() + (withOverlay?"<div class='overlay no-pointer' id='ESSENCE_"+TFEssence.ARCANE.hashCode()+"'></div>":"")
+					+ TFEssence.ARCANE.getSVGStringUncolored() + (withOverlay?"<div class='overlay no-pointer' id='ESSENCE_"+TFEssence.ARCANE.hashCode()+"'></div>":"")
 				+"</div>"
-				+ " <"+tag+" style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>"+essenceString+"</"+tag+">";
+				+ " <"+tag+" style='color:"+Color.TEXT_GREY.toWebHexString()+";'>"+essenceString+"</"+tag+">";
 	}
 	
 	public static String formatAsEssences(int amount, String tag, boolean withOverlay) {
@@ -424,7 +424,7 @@ public class UtilText {
 		return "<div class='item-inline'>"
 					+ TFEssence.ARCANE.getSVGString() + (withOverlay?"<div class='overlay no-pointer' id='ESSENCE_"+TFEssence.ARCANE.hashCode()+"'></div>":"")
 				+"</div>"
-				+ " <"+tag+" style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>"+essenceString+"</"+tag+">";
+				+ " <"+tag+" style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>"+essenceString+"</"+tag+">";
 	}
 	
 	public static String formatAsMoney(int money, String tag) {
@@ -435,12 +435,12 @@ public class UtilText {
 	 * Just used for values like "?". <b>Do not</b> use for numerical values.
 	 */
 	public static String formatAsMoney(String money, String tag) {
-		return "<" + tag + " style='color:" + Colour.CURRENCY_GOLD.toWebHexString() + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
-				+ "<" + tag + " style='color:" + Colour.TEXT.getShades(8)[3] + ";'>" + money + "</" + tag + ">";
+		return "<" + tag + " style='color:" + Color.CURRENCY_GOLD.toWebHexString() + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
+				+ "<" + tag + " style='color:" + Color.TEXT.getShades(8)[3] + ";'>" + money + "</" + tag + ">";
 	}
 	
-	public static String applyGlow(String input, Colour colour) {
-		return "<span style='color:"+colour.toWebHexString()+"; text-shadow: 0px 0px 4px "+colour.getShades()[4]+";'>"+input+"</span>";
+	public static String applyGlow(String input, Color color) {
+		return "<span style='color:"+color.toWebHexString()+"; text-shadow: 0px 0px 4px "+color.getShades()[4]+";'>"+input+"</span>";
 	}
 	
 	private static NumberFormat nf = NumberFormat.getNumberInstance(Locale.getDefault());
@@ -450,39 +450,39 @@ public class UtilText {
 		formatter.applyPattern("#,###,###");
 	}
 	
-	public static String formatAsMoney(int money, String tag, Colour amountColour) {
-		String tagColour;
+	public static String formatAsMoney(int money, String tag, Color amountColor) {
+		String tagColor;
 //		int copper = Math.abs(money%100);
 //		int silver = Math.abs((money%10000)/100);
 //		int gold = Math.abs(money/10000);
 		String moneyString = formatter.format(money);
 		
-		if(amountColour==null) {
-			tagColour = Colour.TEXT.getShades(8)[3];
+		if(amountColor==null) {
+			tagColor = Color.TEXT.getShades(8)[3];
 		} else {
-			tagColour = amountColour.toWebHexString();
+			tagColor = amountColor.toWebHexString();
 		}
 		
-//		return (money<0?"<b style='color:" + tagColour + ";'>-</b>":"")
+//		return (money<0?"<b style='color:" + tagColor + ";'>-</b>":"")
 //				+(gold!=0
-//					?"<" + tag + " style='color:" + (amountColour==Colour.TEXT?Colour.TEXT.toWebHexString():Colour.CURRENCY_GOLD.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
-//						+ "<" + tag + " style='color:" + tagColour + ";'>" + moneyString + "</" + tag + ">"
+//					?"<" + tag + " style='color:" + (amountColor==Color.TEXT?Color.TEXT.toWebHexString():Color.CURRENCY_GOLD.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
+//						+ "<" + tag + " style='color:" + tagColor + ";'>" + moneyString + "</" + tag + ">"
 //					:"")
 //				+(silver!=0
-//					?"<" + tag + " style='color:" + (amountColour==Colour.TEXT?Colour.TEXT.toWebHexString():Colour.CURRENCY_SILVER.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
-//						+ "<" + tag + " style='color:" + tagColour + ";'>" + silver + "</" + tag + ">"
+//					?"<" + tag + " style='color:" + (amountColor==Color.TEXT?Color.TEXT.toWebHexString():Color.CURRENCY_SILVER.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
+//						+ "<" + tag + " style='color:" + tagColor + ";'>" + silver + "</" + tag + ">"
 //					:"")
 //				+(copper!=0 || money==0
-//					?"<" + tag + " style='color:" + (amountColour==Colour.TEXT?Colour.TEXT.toWebHexString():Colour.CURRENCY_COPPER.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
-//						+ "<" + tag + " style='color:" + tagColour + ";'>" + copper + "</" + tag + ">"
+//					?"<" + tag + " style='color:" + (amountColor==Color.TEXT?Color.TEXT.toWebHexString():Color.CURRENCY_COPPER.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
+//						+ "<" + tag + " style='color:" + tagColor + ";'>" + copper + "</" + tag + ">"
 //					:"");
 		
-		return "<" + tag + " style='color:" + (amountColour==Colour.TEXT?Colour.TEXT.toWebHexString():Colour.CURRENCY_GOLD.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
-					+ "<" + tag + " style='color:" + tagColour + ";'>" + moneyString + "</" + tag + ">";
+		return "<" + tag + " style='color:" + (amountColor==Color.TEXT?Color.TEXT.toWebHexString():Color.CURRENCY_GOLD.toWebHexString()) + "; padding-right:2px;'>" + getCurrencySymbol() + "</" + tag + ">"
+					+ "<" + tag + " style='color:" + tagColor + ";'>" + moneyString + "</" + tag + ">";
 	}
 	
-	public static String formatAsMoneyUncoloured(int money, String tag) {
-		return formatAsMoney(money, tag, Colour.TEXT);
+	public static String formatAsMoneyUncolored(int money, String tag) {
+		return formatAsMoney(money, tag, Color.TEXT);
 	}
 	
 	public static String formatAsItemPrice(int money) {
@@ -490,15 +490,15 @@ public class UtilText {
 	}
 	
 	public static String formatVirginityLoss(String s) {
-		return "<p style='text-align:center; color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'><i>"+s+"</i></p>";
+		return "<p style='text-align:center; color:"+Color.GENERIC_ARCANE.toWebHexString()+";'><i>"+s+"</i></p>";
 	}
 	
 	public static String formatTooLoose(String s) {
-		return "<p style='text-align:center; color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'><i>"+s+"</i></p>";
+		return "<p style='text-align:center; color:"+Color.GENERIC_ARCANE.toWebHexString()+";'><i>"+s+"</i></p>";
 	}
 	
 	public static String formatStretching(String s) {
-		return "<p style='text-align:center; color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'><i>"+s+"</i></p>";
+		return "<p style='text-align:center; color:"+Color.GENERIC_ARCANE.toWebHexString()+";'><i>"+s+"</i></p>";
 	}
 
 	public static boolean isVowel(char c) {
@@ -589,7 +589,7 @@ public class UtilText {
 		}
 		
 		if(strings.isEmpty()) {
-			return "<p><span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Dialogue for '"+tag+"' not found! (Make sure that the 'res' folder is in the same directory as the .jar or .exe.)</span></p>";
+			return "<p><span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Dialogue for '"+tag+"' not found! (Make sure that the 'res' folder is in the same directory as the .jar or .exe.)</span></p>";
 
 		} else {
 			return parse(specialNPC, strings.get(Util.random.nextInt(strings.size())));
@@ -861,8 +861,8 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"moneyUncoloured",
-						"moneyNoColour",
+						"moneyUncolored",
+						"moneyNoColor",
 						"moneyUncolored",
 						"moneyNoColor"),
 				true,
@@ -871,7 +871,7 @@ public class UtilText {
 				"Formats the supplied number as money, using the tag as the html tag."){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return UtilText.formatAsMoneyUncoloured(Integer.valueOf(arguments.split(", ")[0]), arguments.split(", ")[1]);
+				return UtilText.formatAsMoneyUncolored(Integer.valueOf(arguments.split(", ")[0]), arguments.split(", ")[1]);
 			}
 		});
 
@@ -897,7 +897,7 @@ public class UtilText {
 				false,
 				"(prefix)",
 				"Returns the name of the target, <b>automatically appending</b> 'the' to names that don't start with a capital letter."
-				+ " If a prefix is provided, the prefix will be appended (with an automatic addition of a space) to non-capitalised names."){
+				+ " If a prefix is provided, the prefix will be appended (with an automatic addition of a space) to non-capitalized names."){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(!speechTarget.equals("")) {
@@ -1112,7 +1112,7 @@ public class UtilText {
 				false,
 				"(prefix)",
 				"Returns the name of the target, <b>automatically appending</b> 'the' to names that don't start with a capital letter. If you want the basic form of the name, pass in a space as an argument."
-				+ " If a prefix is provided, the prefix will be appended (with an automatic addition of a space) to non-capitalised names."){
+				+ " If a prefix is provided, the prefix will be appended (with an automatic addition of a space) to non-capitalized names."){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(arguments!=null) {
@@ -1272,7 +1272,7 @@ public class UtilText {
 						"gender"),
 				true,
 				true,
-				"(coloured)",//TODO
+				"(colored)",//TODO
 				"Description of method"){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -1281,14 +1281,14 @@ public class UtilText {
 				boolean pronoun = parseAddPronoun;
 				parseAddPronoun = false;
 				if(arguments!=null && Boolean.valueOf(arguments)) {
-					return "<span style='color:"+gender.getColour().toWebHexString()+";'>"
-							+ (parseCapitalise
-									?Util.capitaliseSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
+					return "<span style='color:"+gender.getColor().toWebHexString()+";'>"
+							+ (parseCapitalize
+									?Util.capitalizeSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
 											:(pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
 							+"</span>";
 				}
-				return parseCapitalise
-						?Util.capitaliseSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
+				return parseCapitalize
+						?Util.capitalizeSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
 						:(pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName();
 			}
 		});
@@ -1300,7 +1300,7 @@ public class UtilText {
 						"appearsAsGender"),
 				true,
 				true,
-				"(coloured)",//TODO
+				"(colored)",//TODO
 				"Description of method"){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -1309,14 +1309,14 @@ public class UtilText {
 				boolean pronoun = parseAddPronoun;
 				parseAddPronoun = false;
 				if(arguments!=null && Boolean.valueOf(arguments)) {
-					return "<span style='color:"+gender.getColour().toWebHexString()+";'>"
-							+ (parseCapitalise
-									?Util.capitaliseSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
+					return "<span style='color:"+gender.getColor().toWebHexString()+";'>"
+							+ (parseCapitalize
+									?Util.capitalizeSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
 											:(pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
 							+"</span>";
 				}
-				return parseCapitalise
-						?Util.capitaliseSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
+				return parseCapitalize
+						?Util.capitalizeSentence((pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName())
 						:(pronoun?UtilText.generateSingularDeterminer(gender.getName())+" ":"")+gender.getName();
 			}
 		});
@@ -1337,7 +1337,7 @@ public class UtilText {
 					return character.getRelationshipStrTo(targetedCharacter);
 				} catch(Exception ex) {
 					ex.printStackTrace();
-					return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Error: relation command character argument not found! ("+arguments+")</i>";
+					return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Error: relation command character argument not found! ("+arguments+")</i>";
 				}
 			}
 		});
@@ -1391,7 +1391,6 @@ public class UtilText {
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
 						"mom",
-						"mum",
 						"dad"),
 				true,
 				true,
@@ -1573,7 +1572,7 @@ public class UtilText {
 				true,
 				true,
 				"",
-				"Returns a random mean pluralised word to describe this person, based on their femininity."){ // R-Rude!
+				"Returns a random mean pluralized word to describe this person, based on their femininity."){ // R-Rude!
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(character.isFeminine()) {
@@ -1609,22 +1608,22 @@ public class UtilText {
 						"femininityRace"),
 				true,
 				true,
-				"(coloured)",
-				"Returns a full description of this characters race (including femininity). Pass in 'true' to colour the text."){
+				"(colored)",
+				"Returns a full description of this characters race (including femininity). Pass in 'true' to color the text."){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				boolean pronoun = parseAddPronoun;
 				parseAddPronoun = false;
 				if(arguments!=null && Boolean.valueOf(arguments)) {
-					return "<span style='color:"+character.getFemininity().getColour().toWebHexString()+";'>"
-							+ (parseCapitalise
-									?Util.capitaliseSentence(Femininity.getFemininityName(character.getFemininityValue(), pronoun))
+					return "<span style='color:"+character.getFemininity().getColor().toWebHexString()+";'>"
+							+ (parseCapitalize
+									?Util.capitalizeSentence(Femininity.getFemininityName(character.getFemininityValue(), pronoun))
 									:Femininity.getFemininityName(character.getFemininityValue(), pronoun))+"</span>"
-							+ " <span style='color:"+character.getRaceStage().getColour().toWebHexString()+";'>" +character.getRaceStage().getName()+"</span>"
-							+ " <span style='color:"+character.getSubspecies().getColour(character).toWebHexString()+";'>" +  getSubspeciesName(character.getSubspecies(),character) + "</span>";
+							+ " <span style='color:"+character.getRaceStage().getColor().toWebHexString()+";'>" +character.getRaceStage().getName()+"</span>"
+							+ " <span style='color:"+character.getSubspecies().getColor(character).toWebHexString()+";'>" +  getSubspeciesName(character.getSubspecies(),character) + "</span>";
 				}
-				return (parseCapitalise
-						?Util.capitaliseSentence(Femininity.getFemininityName(character.getFemininityValue(), pronoun))
+				return (parseCapitalize
+						?Util.capitalizeSentence(Femininity.getFemininityName(character.getFemininityValue(), pronoun))
 						:Femininity.getFemininityName(character.getFemininityValue(), pronoun))+" "+character.getRaceStage().getName()+" "+getSubspeciesName(character.getSubspecies(),character);
 			}
 			@Override
@@ -1638,17 +1637,17 @@ public class UtilText {
 						"race"),
 				true,
 				true,
-				"(coloured)",
-				"Returns the name of this characters race. Pass in 'true' to colour the text."){
+				"(colored)",
+				"Returns the name of this characters race. Pass in 'true' to color the text."){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(arguments!=null && Boolean.valueOf(arguments)) {
 					boolean pronoun = parseAddPronoun;
 					parseAddPronoun = false;
 					String name = character.isRaceConcealed()?"unknown race":getSubspeciesName(character.getSubspecies(),character);
-					return "<span style='color:"+(character.isRaceConcealed()?Colour.TEXT_GREY:character.getSubspecies().getColour(character)).toWebHexString()+";'>"
-							+ (parseCapitalise
-									?Util.capitaliseSentence((pronoun?UtilText.generateSingularDeterminer(name)+" ":"")+name)
+					return "<span style='color:"+(character.isRaceConcealed()?Color.TEXT_GREY:character.getSubspecies().getColor(character)).toWebHexString()+";'>"
+							+ (parseCapitalize
+									?Util.capitalizeSentence((pronoun?UtilText.generateSingularDeterminer(name)+" ":"")+name)
 									:(pronoun?UtilText.generateSingularDeterminer(name)+" ":"")+name)
 							+"</span>";
 				}
@@ -1675,17 +1674,17 @@ public class UtilText {
 						"raceStage"),
 				true,
 				true,
-				"(coloured)",
-				"Returns the name of the 'stage' of characters race (partial, lesser, greater). Pass in 'true' to colour the text."){
+				"(colored)",
+				"Returns the name of the 'stage' of characters race (partial, lesser, greater). Pass in 'true' to color the text."){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(arguments!=null && Boolean.valueOf(arguments)) {
 					boolean pronoun = parseAddPronoun;
 					parseAddPronoun = false;
 					String name = character.getRaceStage().getName();
-					return "<span style='color:"+character.getRaceStage().getColour().toWebHexString()+";'>"
-							+ (parseCapitalise
-									?Util.capitaliseSentence((pronoun?UtilText.generateSingularDeterminer(name)+" ":"")+name)
+					return "<span style='color:"+character.getRaceStage().getColor().toWebHexString()+";'>"
+							+ (parseCapitalize
+									?Util.capitalizeSentence((pronoun?UtilText.generateSingularDeterminer(name)+" ":"")+name)
 									:(pronoun?UtilText.generateSingularDeterminer(name)+" ":"")+name)
 							+"</span>";
 				}
@@ -1703,7 +1702,7 @@ public class UtilText {
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(!(character instanceof NPC)) {
-					return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>preferredBody_not_npc</i>";
+					return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>preferredBody_not_npc</i>";
 				}
 				if(arguments!=null) {
 					return ((NPC) character).getPreferredBodyDescription(arguments);
@@ -2209,7 +2208,7 @@ public class UtilText {
 						"mas"),
 				true,
 				true,
-				"(coloured)",//TODO
+				"(colored)",//TODO
 				"Description of method"){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -2291,7 +2290,7 @@ public class UtilText {
 				"Description of method"){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return String.valueOf(Util.conversionCentimetresToInches(character.getHeightValue()));
+				return String.valueOf(Util.conversionCentimetersToInches(character.getHeightValue()));
 			}
 		});
 		
@@ -2304,7 +2303,7 @@ public class UtilText {
 				"Description of method"){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return Util.inchesToFeetAndInches(Util.conversionCentimetresToInches(character.getHeightValue()));
+				return Util.inchesToFeetAndInches(Util.conversionCentimetersToInches(character.getHeightValue()));
 			}
 		});
 		
@@ -2869,7 +2868,7 @@ public class UtilText {
 							break;
 						case SUB_NORMAL:
 							if(arguments!=null && !arguments.isEmpty()) {
-								return Util.capitaliseSentence(arguments); // Assume start of sentence, so capitalise.
+								return Util.capitalizeSentence(arguments); // Assume start of sentence, so capitalize.
 							} else if(Character.isUpperCase(command.charAt(0))) {
 								descriptors = Util.newArrayListOfValues("happily", "eagerly", "willingly"); // If start of sentence, need descriptor.
 								break;
@@ -3407,17 +3406,17 @@ public class UtilText {
 				if(arguments!=null) {
 					CoverableArea area = CoverableArea.valueOf(arguments);
 					if(character.getHighestZLayerCoverableArea(area)==null) {
-						return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>no_clothing_covering_"+area+"</i>";
+						return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>no_clothing_covering_"+area+"</i>";
 					} else {
 						try {
 							return character.getHighestZLayerCoverableArea(area).getName();
 						} catch(Exception ex) {
-							return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
+							return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
 						}
 					}
 					
 				} else {
-					return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
+					return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
 				}
 			}
 			
@@ -3441,17 +3440,17 @@ public class UtilText {
 				if(arguments!=null) {
 					CoverableArea area = CoverableArea.valueOf(arguments);
 					if(character.getLowestZLayerCoverableArea(area)==null) {
-						return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>no_clothing_covering_"+area+"</i>";
+						return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>no_clothing_covering_"+area+"</i>";
 					} else {
 						try {
 							return character.getHighestZLayerCoverableArea(area).getName();
 						} catch(Exception ex) {
-							return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
+							return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
 						}
 					}
 					
 				} else {
-					return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
+					return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Clothing_area_not_found</i>";
 				}
 			}
 			
@@ -3500,21 +3499,21 @@ public class UtilText {
 		
 
 		List<String> commandNames = new ArrayList<>();
-		for(Colour c : Colour.values()) {
+		for(Color c : Color.values()) {
 			if(c.getFormattingNames()!=null) {
 				
 				commandNames = new ArrayList<>();
 				for(String s : c.getFormattingNames()) {
-					commandNames.add("color"+Util.capitaliseSentence(s));
-					commandNames.add("c"+Util.capitaliseSentence(s));
-					commandNames.add("colour"+Util.capitaliseSentence(s));
+					commandNames.add("color"+Util.capitalizeSentence(s));
+					commandNames.add("c"+Util.capitalizeSentence(s));
+					commandNames.add("color"+Util.capitalizeSentence(s));
 				}
 				
 				commandsList.add(new ParserCommand(
 						commandNames,
 						false,
 						false,
-						"(text to colour)",
+						"(text to color)",
 						"Description of method"){//TODO
 					@Override
 					public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -3527,8 +3526,8 @@ public class UtilText {
 				
 				commandNames = new ArrayList<>();
 				for(String s : c.getFormattingNames()) {
-					commandNames.add("bold"+Util.capitaliseSentence(s));
-					commandNames.add("b"+Util.capitaliseSentence(s));
+					commandNames.add("bold"+Util.capitalizeSentence(s));
+					commandNames.add("b"+Util.capitalizeSentence(s));
 				}
 				
 				commandsList.add(new ParserCommand(
@@ -3548,9 +3547,9 @@ public class UtilText {
 				
 				commandNames = new ArrayList<>();
 				for(String s : c.getFormattingNames()) {
-					commandNames.add("italic"+Util.capitaliseSentence(s));
-					commandNames.add("italics"+Util.capitaliseSentence(s));
-					commandNames.add("i"+Util.capitaliseSentence(s));
+					commandNames.add("italic"+Util.capitalizeSentence(s));
+					commandNames.add("italics"+Util.capitalizeSentence(s));
+					commandNames.add("i"+Util.capitalizeSentence(s));
 				}
 				
 				commandsList.add(new ParserCommand(
@@ -3570,9 +3569,9 @@ public class UtilText {
 				
 				commandNames = new ArrayList<>();
 				for(String s : c.getFormattingNames()) {
-					commandNames.add("glow"+Util.capitaliseSentence(s));
-					commandNames.add("glowing"+Util.capitaliseSentence(s));
-					commandNames.add("g"+Util.capitaliseSentence(s));
+					commandNames.add("glow"+Util.capitalizeSentence(s));
+					commandNames.add("glowing"+Util.capitalizeSentence(s));
+					commandNames.add("g"+Util.capitalizeSentence(s));
 				}
 				
 				commandsList.add(new ParserCommand(
@@ -5072,8 +5071,8 @@ public class UtilText {
 				BodyPartType.TESTICLES){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return (parseCapitalise
-						?Util.capitaliseSentence(Util.intToString(character.getPenisNumberOfTesticles()))
+				return (parseCapitalize
+						?Util.capitalizeSentence(Util.intToString(character.getPenisNumberOfTesticles()))
 						:Util.intToString(character.getPenisNumberOfTesticles()));
 			}
 		});
@@ -5175,7 +5174,7 @@ public class UtilText {
 				BodyPartType.PENIS){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return String.valueOf(Util.conversionInchesToCentimetres(character.getPenisRawSizeValue()));
+				return String.valueOf(Util.conversionInchesToCentimeters(character.getPenisRawSizeValue()));
 			}
 		});
 		
@@ -5283,7 +5282,7 @@ public class UtilText {
 				BodyPartType.PENIS){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return String.valueOf(Util.conversionInchesToCentimetres(character.getSecondPenisRawSizeValue()));
+				return String.valueOf(Util.conversionInchesToCentimeters(character.getSecondPenisRawSizeValue()));
 			}
 		});
 		
@@ -5505,7 +5504,7 @@ public class UtilText {
 				BodyPartType.VAGINA){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return String.valueOf(Util.conversionInchesToCentimetres(character.getVaginaRawClitorisSizeValue()));
+				return String.valueOf(Util.conversionInchesToCentimeters(character.getVaginaRawClitorisSizeValue()));
 			}
 		});
 
@@ -5581,7 +5580,7 @@ public class UtilText {
 						"irisesFullDescription"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
@@ -5593,63 +5592,63 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"irisColour",
 						"irisColor",
-						"irisesColour",
+						"irisColor",
+						"irisesColor",
 						"irisesColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(character.getEyeCovering())
-						.getColourDescriptor(character, arguments != null && arguments.equalsIgnoreCase("true"), parseCapitalise);
+						.getColorDescriptor(character, arguments != null && arguments.equalsIgnoreCase("true"), parseCapitalize);
 			}
 		});
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"irisColourPrimary",
 						"irisColorPrimary",
-						"irisesColourPrimary",
+						"irisColorPrimary",
 						"irisesColorPrimary",
-						"irisPrimaryColour",
+						"irisesColorPrimary",
 						"irisPrimaryColor",
-						"irisesPrimaryColour",
+						"irisPrimaryColor",
+						"irisesPrimaryColor",
 						"irisesPrimaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(character.getEyeCovering())
-						.getPrimaryColourDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
+						.getPrimaryColorDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
 			}
 		});
 
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"irisColourSecondary",
 						"irisColorSecondary",
-						"irisesColourSecondary",
+						"irisColorSecondary",
 						"irisesColorSecondary",
-						"irisSecondaryColour",
+						"irisesColorSecondary",
 						"irisSecondaryColor",
-						"irisesSecondaryColour",
+						"irisSecondaryColor",
+						"irisesSecondaryColor",
 						"irisesSecondaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(character.getEyeCovering())
-						.getSecondaryColourDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
+						.getSecondaryColorDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
 			}
 		});
 		
@@ -5674,7 +5673,7 @@ public class UtilText {
 						"pupilsFullDescription"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
@@ -5686,63 +5685,63 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"pupilColour",
 						"pupilColor",
-						"pupilsColour",
+						"pupilColor",
+						"pupilsColor",
 						"pupilsColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(BodyCoveringType.EYE_PUPILS)
-						.getColourDescriptor(character, arguments != null && arguments.equalsIgnoreCase("true"), parseCapitalise);
+						.getColorDescriptor(character, arguments != null && arguments.equalsIgnoreCase("true"), parseCapitalize);
 			}
 		});
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"pupilColourPrimary",
 						"pupilColorPrimary",
-						"pupilsColourPrimary",
+						"pupilColorPrimary",
 						"pupilsColorPrimary",
-						"pupilPrimaryColour",
+						"pupilsColorPrimary",
 						"pupilPrimaryColor",
-						"pupilsPrimaryColour",
+						"pupilPrimaryColor",
+						"pupilsPrimaryColor",
 						"pupilsPrimaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(BodyCoveringType.EYE_PUPILS)
-						.getPrimaryColourDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
+						.getPrimaryColorDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
 			}
 		});
 
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"pupilColourSecondary",
 						"pupilColorSecondary",
-						"pupilsColourSecondary",
+						"pupilColorSecondary",
 						"pupilsColorSecondary",
-						"pupilSecondaryColour",
+						"pupilsColorSecondary",
 						"pupilSecondaryColor",
-						"pupilsSecondaryColour",
+						"pupilSecondaryColor",
+						"pupilsSecondaryColor",
 						"pupilsSecondaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(BodyCoveringType.EYE_PUPILS)
-						.getSecondaryColourDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
+						.getSecondaryColorDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
 			}
 		});
 		
@@ -5752,7 +5751,7 @@ public class UtilText {
 						"scleraeFullDescription"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
@@ -5764,63 +5763,63 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"scleraColour",
 						"scleraColor",
-						"scleraeColour",
+						"scleraColor",
+						"scleraeColor",
 						"scleraeColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(BodyCoveringType.EYE_SCLERA)
-						.getColourDescriptor(character, arguments != null && arguments.equalsIgnoreCase("true"), parseCapitalise);
+						.getColorDescriptor(character, arguments != null && arguments.equalsIgnoreCase("true"), parseCapitalize);
 			}
 		});
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"scleraColourPrimary",
 						"scleraColorPrimary",
-						"scleraeColourPrimary",
+						"scleraColorPrimary",
 						"scleraeColorPrimary",
-						"scleraPrimaryColour",
+						"scleraeColorPrimary",
 						"scleraPrimaryColor",
-						"scleraePrimaryColour",
+						"scleraPrimaryColor",
+						"scleraePrimaryColor",
 						"scleraePrimaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(BodyCoveringType.EYE_SCLERA)
-						.getPrimaryColourDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
+						.getPrimaryColorDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
 			}
 		});
 
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"scleraColourSecondary",
 						"scleraColorSecondary",
-						"scleraeColourSecondary",
+						"scleraColorSecondary",
 						"scleraeColorSecondary",
-						"scleraSecondaryColour",
+						"scleraeColorSecondary",
 						"scleraSecondaryColor",
-						"scleraeSecondaryColour",
+						"scleraSecondaryColor",
+						"scleraeSecondaryColor",
 						"scleraeSecondaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
+				"true If you want this color's name to be colored.",
 				"Description of method",
 				BodyPartType.EYE){//TODO
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				return character.getCovering(BodyCoveringType.EYE_SCLERA)
-						.getSecondaryColourDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
+						.getSecondaryColorDescriptor(arguments != null && arguments.equalsIgnoreCase("true"));
 			}
 		});
 		
@@ -5886,7 +5885,7 @@ public class UtilText {
 				try { // Getting the target NPC can throw a NullPointerException, so if it does (i.e., there's no NPC suitable for parsing), just catch it and carry on.
 					engine.put("npc", ParserTarget.NPC.getCharacter("npc"));
 				} catch(Exception ex) {
-					System.err.println("Parsing error: Could not initialise npc");
+					System.err.println("Parsing error: Could not initialize npc");
 				}
 			}
 			
@@ -5896,24 +5895,24 @@ public class UtilText {
 			} catch (ScriptException e) {
 				System.err.println("Scripting parsing error: "+command);
 				System.err.println(e.getMessage());
-				return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>(Error in script parsing!)</i>";
+				return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>(Error in script parsing!)</i>";
 			}
 		}
 		
 		// Non-script parsing:
 		
-		parseCapitalise = false;
+		parseCapitalize = false;
 		parseAddPronoun = false;
 		
 		if(command.split("_").length==2) {
 			if(Character.isUpperCase(command.split("_")[0].charAt(0)))
-				parseCapitalise = true;
+				parseCapitalize = true;
 			command = command.split("_")[1];
 			parseAddPronoun = true;
 		} 
 			
 		if(Character.isUpperCase(command.charAt(0))) {
-			parseCapitalise = true;
+			parseCapitalize = true;
 		}
 		
 		ParserTarget parserTarget = findParserTargetWithTag(target.replaceAll("\u200b", ""));
@@ -5925,25 +5924,25 @@ public class UtilText {
 			character = parserTarget.getCharacter(target.toLowerCase());
 		} catch(Exception ex) {
 			ex.printStackTrace();
-			return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Error: parserTarget.getCharacter() not found! ("+target+")</i>";
+			return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Error: parserTarget.getCharacter() not found! ("+target+")</i>";
 		}
 		
 		// Commands with arguments:
 		ParserCommand cmd = findCommandWithTag(command.replaceAll("\u200b", ""));
 		if (cmd == null) {
-			return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>command_unknown</i>";
+			return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>command_unknown</i>";
 		}
 
 
 		String output = cmd.parse(command, arguments, target, character);
-		parseCapitalise = parseCapitalise && cmd.isAllowsCapitalisation();
+		parseCapitalize = parseCapitalize && cmd.isAllowsCapitalization();
 		parseAddPronoun = parseAddPronoun && cmd.isAllowsPronoun();
 		
 		if(parseAddPronoun) {
 			output = (UtilText.isVowel(output.charAt(0))?"an ":"a ")+output;
 		}
-		if (parseCapitalise) {
-			return Util.capitaliseSentence(output);
+		if (parseCapitalize) {
+			return Util.capitalizeSentence(output);
 		}
 		return output;
 	}
@@ -6057,7 +6056,7 @@ public class UtilText {
 		}
 		engine.put("RND", Util.random);
 		
-		//TODO static methods don't work unless initialised like so:
+		//TODO static methods don't work unless initialized like so:
 //		try {
 //			engine.eval("var sex = Java.type('com.lilithsthrone.game.sex.Sex');");
 //		} catch (ScriptException e) {
@@ -6092,7 +6091,7 @@ public class UtilText {
 				engine.put("npc", ParserTarget.NPC.getCharacter("npc"));
 //				System.out.println("specialNPCList is empty");
 			} catch(Exception ex) {
-//				System.err.println("Parsing error 2: Could not initialise npc");
+//				System.err.println("Parsing error 2: Could not initialize npc");
 			}
 		}
 		
@@ -6113,7 +6112,7 @@ public class UtilText {
 			System.err.println("Conditional parsing error: "+conditionalStatement);
 			System.err.println(e.getMessage());
 //			e.printStackTrace();
-			return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>(Error in conditional parsing!)</i>";
+			return "<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>(Error in conditional parsing!)</i>";
 		}
 	}
 	
@@ -6127,7 +6126,7 @@ public class UtilText {
 	 * Race<br/>
 	 * Skin<br/>
 	 * Skin+<br/>
-	 * Colour<br/>
+	 * Color<br/>
 	 * name<br/>
 	 * name+<br/>
 	 * names<br/>
@@ -6195,7 +6194,7 @@ public class UtilText {
 				getModifiedTags(tags, tagsPlural, "FullDescription"),
 				true,
 				true,
-				"true If you want this description's colour names to be coloured.",
+				"true If you want this description's color names to be colored.",
 				"Returns a full description of this part.",
 				bodyPart){
 			@Override
@@ -6213,7 +6212,7 @@ public class UtilText {
 		});
 		
 		commandsList.add(new ParserCommand(
-				getModifiedTags(tags, tagsPlural, "FullDescriptionColour", "FullDescriptionColor", "FullDescriptionColoured", "FullDescriptionColored"),
+				getModifiedTags(tags, tagsPlural, "FullDescriptionColor", "FullDescriptionColor", "FullDescriptionColored", "FullDescriptionColored"),
 				true,
 				true,
 				"",
@@ -6229,11 +6228,11 @@ public class UtilText {
 		});
 		
 		commandsList.add(new ParserCommand(
-				getModifiedTags(tags, tagsPlural, "Colour", "Color"),
+				getModifiedTags(tags, tagsPlural, "Color", "Color"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
-				"Returns the colour of whatever 'skin' is covering this body part.",
+				"true If you want this color's name to be colored.",
+				"Returns the color of whatever 'skin' is covering this body part.",
 				bodyPart){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -6242,19 +6241,19 @@ public class UtilText {
 				}
 				if(arguments!=null) {
 					if(arguments.equalsIgnoreCase("true")) {
-						return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getColourDescriptor(character, true, parseCapitalise);
+						return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getColorDescriptor(character, true, parseCapitalize);
 					}
 				}
-				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getColourDescriptor(character, false, parseCapitalise);
+				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getColorDescriptor(character, false, parseCapitalize);
 			}
 		});
 		
 		commandsList.add(new ParserCommand(
-				getModifiedTags(tags, tagsPlural, "ColourPrimary", "ColorPrimary", "PrimaryColour", "PrimaryColor"),
+				getModifiedTags(tags, tagsPlural, "ColorPrimary", "ColorPrimary", "PrimaryColor", "PrimaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
-				"Returns the primary colour of whatever 'skin' is covering this body part.",
+				"true If you want this color's name to be colored.",
+				"Returns the primary color of whatever 'skin' is covering this body part.",
 				bodyPart){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -6263,19 +6262,19 @@ public class UtilText {
 				}
 				if(arguments!=null) {
 					if(arguments.equalsIgnoreCase("true")) {
-						return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getPrimaryColourDescriptor(true);
+						return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getPrimaryColorDescriptor(true);
 					}
 				}
-				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getPrimaryColourDescriptor(false);
+				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getPrimaryColorDescriptor(false);
 			}
 		});
 		
 		commandsList.add(new ParserCommand(
-				getModifiedTags(tags, tagsPlural, "ColourSecondary", "ColorSecondary", "SecondaryColour", "SecondaryColor"),
+				getModifiedTags(tags, tagsPlural, "ColorSecondary", "ColorSecondary", "SecondaryColor", "SecondaryColor"),
 				true,
 				true,
-				"true If you want this colour's name to be coloured.",
-				"Returns the secondary colour of whatever 'skin' is covering this body part.",
+				"true If you want this color's name to be colored.",
+				"Returns the secondary color of whatever 'skin' is covering this body part.",
 				bodyPart){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
@@ -6284,26 +6283,26 @@ public class UtilText {
 				}
 				if(arguments!=null) {
 					if(arguments.equalsIgnoreCase("true")) {
-						return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getSecondaryColourDescriptor(true);
+						return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getSecondaryColorDescriptor(true);
 					}
 				}
-				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getSecondaryColourDescriptor(false);
+				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getSecondaryColorDescriptor(false);
 			}
 		});
 		
 		commandsList.add(new ParserCommand(
-				getModifiedTags(tags, tagsPlural, "ColourHex", "ColorHex"),
+				getModifiedTags(tags, tagsPlural, "ColorHex", "ColorHex"),
 				true,
 				true,
 				"",
-				"Returns the hex code for the colour of whatever 'skin' is covering this body part.",
+				"Returns the hex code for the color of whatever 'skin' is covering this body part.",
 				bodyPart){
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character))==null) {
 					return "";
 				}
-				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getPrimaryColour().toWebHexString();
+				return character.getCovering(getBodyPartFromType(bodyPart,character).getBodyCoveringType(character)).getPrimaryColor().toWebHexString();
 			}
 		});
 		

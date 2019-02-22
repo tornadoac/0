@@ -115,7 +115,7 @@ public class ResponseCombat extends Response {
 	}
 
 	public DialogueNode initCombat() {
-		Combat.COMBAT.initialiseCombat(allies, enemyLeader, enemies, openingDescriptions);
+		Combat.COMBAT.initializeCombat(allies, enemyLeader, enemies, openingDescriptions);
 		return Combat.COMBAT.startCombat();
 	}
 	

@@ -20,7 +20,7 @@ import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -33,7 +33,7 @@ import com.lilithsthrone.utils.Util.Value;
 public enum Spell {
 
 	// FIRE:
-	
+
 	FIREBALL(false,
 			SpellSchool.FIRE,
 			SpellType.OFFENSIVE,
@@ -51,7 +51,7 @@ public enum Spell {
 					SpellUpgrade.FIREBALL_2,
 					SpellUpgrade.FIREBALL_3),
 			null, null) {
-		
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_1)) {
@@ -60,7 +60,7 @@ public enum Spell {
 				return new HashMap<>();
 			}
 		}
-		
+
 		@Override
 		public int getDamage(GameCharacter caster) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_2) && !caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_3)) {
@@ -68,13 +68,13 @@ public enum Spell {
 			}
 			return 15;
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
-			
+
 			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
 
 			descriptionSB.append("<p>"
@@ -93,54 +93,54 @@ public enum Spell {
 				descriptionSB.append(" The fireball instantly splits in two after being cast!");
 			}
 			descriptionSB.append("</p>");
-			
+
 			descriptionSB.append(getDamageDescription(caster, target, damage, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
-				
+
 				descriptionSB.append(applyDamage(caster, target, damage));
 
 				if(caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_1)) {
 					applyStatusEffects(caster, target, isCritical);
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
-				
+
 				// Second fireball:
 				if(caster.hasSpellUpgrade(SpellUpgrade.FIREBALL_2)) {
 					damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 					GameCharacter secondaryTarget = Combat.getRandomAlliedPartyMember(target);
-					
+
 					if(secondaryTarget.equals(target)) {
 						descriptionSB.append("<p>"
 								+"The second Fireball swerves around to hit "+(target.isPlayer()?"you":UtilText.parse(target,"[npc.name]"))+" for a second time!"
 							+"</p>");
-						
+
 						descriptionSB.append(getDamageDescription(caster, target, damage, isHit, isCritical));
 						descriptionSB.append(applyDamage(caster, target, damage));
-						
+
 					} else {
 						descriptionSB.append("<p>"
 								+"The second Fireball swerves around to hit "+(secondaryTarget.isPlayer()?"you":UtilText.parse(secondaryTarget,"[npc.name]"))+"!"
 							+"</p>");
-						
+
 						descriptionSB.append(getDamageDescription(caster, secondaryTarget, damage, isHit, isCritical));
 						descriptionSB.append(applyDamage(caster, secondaryTarget, damage));
 						applyStatusEffects(caster, secondaryTarget, isCritical);
 						descriptionSB.append(getStatusEffectApplication(caster, secondaryTarget, isHit, isCritical));
 					}
-					
+
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
-			
+
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	FLASH(false,
 			SpellSchool.FIRE,
 			SpellType.OFFENSIVE,
@@ -157,8 +157,8 @@ public enum Spell {
 					SpellUpgrade.FLASH_1,
 					SpellUpgrade.FLASH_2,
 					SpellUpgrade.FLASH_3),
-			null, Util.newArrayListOfValues("[style.colourExcellent(Stuns)] target for [style.colourGood(1 turn)]")) {
-		
+			null, Util.newArrayListOfValues("[style.colorExcellent(Stuns)] target for [style.colorGood(1 turn)]")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FLASH_1)) {
@@ -167,7 +167,7 @@ public enum Spell {
 				return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.FLASH, 1));
 			}
 		}
-		
+
 		@Override
 		public int getBaseCost(GameCharacter caster) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.FLASH_3)) {
@@ -176,12 +176,12 @@ public enum Spell {
 				return 60;
 			}
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
-			
+
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
 
 			descriptionSB.append("<p>"
@@ -202,22 +202,22 @@ public enum Spell {
 			descriptionSB.append("</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
-				
+
 				// Second flash:
 				if(caster.hasSpellUpgrade(SpellUpgrade.FLASH_2)) {
 					GameCharacter secondaryTarget = Combat.getRandomAlliedPartyMember(target);
-					
+
 					if(secondaryTarget.equals(target)) {
 						descriptionSB.append("<p>"
 								+"The second Flash fails to find another target, and quickly fizzles out..."
 							+"</p>");
-						
+
 					} else {
 						descriptionSB.append("<p>"
 								+"The second Flash shoots out in front of "+(secondaryTarget.isPlayer()?"your face, blinding you as well!":UtilText.parse(secondaryTarget,"[npc.namePos] face, blinding [npc.herHim] as well!"))
@@ -227,22 +227,22 @@ public enum Spell {
 						applyStatusEffects(caster, secondaryTarget, isCritical);
 						descriptionSB.append(getStatusEffectApplication(caster, secondaryTarget, isHit, isCritical));
 					}
-					
+
 				}
-				
+
 			} else {
 				descriptionSB.append("<p style='text-align:center;'>"
 						+ "[style.italicsBad(The flash misses!)]"
 						+ "</p>");
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	CLOAK_OF_FLAMES(false,
 			SpellSchool.FIRE,
 			SpellType.DEFENSIVE,
@@ -261,31 +261,31 @@ public enum Spell {
 					SpellUpgrade.CLOAK_OF_FLAMES_3),
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_FIRE, 10),
-					new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 50)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
+					new Value<Attribute, Integer>(Attribute.RESISTANCE_ICE, 50)), Util.newArrayListOfValues("Lasts for [style.colorGood(3 turns)]")) {
 
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_3)) {
 				return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_3, 3));
-				
+
 			} else if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_2)) {
 				return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_2, 3));
-				
+
 			} else if(caster!=null && caster.hasSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_1)) {
 				return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES_1, 3));
-				
+
 			} else {
 				return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.CLOAK_OF_FLAMES, 3));
 			}
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -298,26 +298,26 @@ public enum Spell {
 											"With a swipe of [npc.her] [npc.arm], [npc.name] summons a protective cloak of arcane fire around you!",
 											"With a swipe of [npc1.her] [npc1.arm], [npc1.name] summons a protective cloak of arcane fire around [npc2.name]!")
 								+"</p>");
-			
+
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			if(isHit) {
 				target.removeStatusEffect(StatusEffect.CLOAK_OF_FLAMES);
 				target.removeStatusEffect(StatusEffect.CLOAK_OF_FLAMES_1);
 				target.removeStatusEffect(StatusEffect.CLOAK_OF_FLAMES_2);
 				target.removeStatusEffect(StatusEffect.CLOAK_OF_FLAMES_3);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	ELEMENTAL_FIRE(false,
 			SpellSchool.FIRE,
 			SpellType.DEFENSIVE,
@@ -335,24 +335,24 @@ public enum Spell {
 					SpellUpgrade.ELEMENTAL_FIRE_2,
 					SpellUpgrade.ELEMENTAL_FIRE_3A,
 					SpellUpgrade.ELEMENTAL_FIRE_3B),
-			null, Util.newArrayListOfValues("Summons [style.colourArcane(Elemental)] in form of [style.colourSchoolFire(Fire)]")) {
-		
+			null, Util.newArrayListOfValues("Summons [style.colorArcane(Elemental)] in form of [style.colorSchoolFire(Fire)]")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			boolean elementalAlreadySummoned = false;
 			if(!caster.hasDiscoveredElemental()) {
 				caster.createElemental();
 			} else {
 				elementalAlreadySummoned = caster.getCompanions().contains(caster.getElemental());
 			}
-			
+
 			caster.getElemental().setElementalSchool(SpellSchool.FIRE);
-			
+
 			if(elementalAlreadySummoned) {
 				descriptionSB.append("<p>"
 						+UtilText.parse(caster, caster.getElemental(),
@@ -367,7 +367,7 @@ public enum Spell {
 									?"With a flash of light and a burst of flames, you bind your elemental, [npc2.name], to the school of Fire!"
 									:"With a flash of light and a burst of flames, [npc1.name] binds [npc1.her] elemental, [npc2.name], to the school of Fire!"))
 					+"</p>");
-				
+
 			} else {
 				caster.addCompanion(caster.getElemental());
 				descriptionSB.append("<p>"
@@ -383,7 +383,7 @@ public enum Spell {
 									?"With a flash of light and a burst of flames, you summon forth your elemental, [npc2.name], by binding [npc2.herHim] to the school of Fire!"
 									:"With a flash of light and a burst of flames, [npc1.name] summons forth [npc1.her] elemental, [npc2.name], by binding [npc2.herHim] to the school of Fire!"))
 					+"</p>");
-				
+
 				if(Main.game.isInCombat()) {
 					if(caster.isPlayer() || Combat.getAllies().contains(caster)) {
 						Combat.addAlly(caster.getElemental());
@@ -392,14 +392,14 @@ public enum Spell {
 					}
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	// WATER:
 
 	ICE_SHARD(false,
@@ -425,7 +425,7 @@ public enum Spell {
 					return Util.newHashMapOfValues(
 							new Value<StatusEffect, Integer>(StatusEffect.FREEZING_FOG, 3),
 							new Value<StatusEffect, Integer>(StatusEffect.FROZEN, 1));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.ICE_SHARD_1)){
 					return Util.newHashMapOfValues(
 							new Value<StatusEffect, Integer>(StatusEffect.FREEZING_FOG, 3));
@@ -433,15 +433,15 @@ public enum Spell {
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -454,7 +454,7 @@ public enum Spell {
 											"Summoning a swirling vortex of water from the moisture in the air, [npc1.name] focuses [npc1.her] energy on freezing it in place, creating a shard of ice that [npc.she] then launches at you!",
 											"Summoning a swirling vortex of water from the moisture in the air, [npc1.name] focuses [npc1.her] energy on freezing it in place, creating a shard of ice that [npc.she] then launches at [npc2.name]!")
 								);
-			
+
 			if(isHit && isCritical && target.hasStatusEffect(StatusEffect.FREEZING_FOG) && caster.hasSpellUpgrade(SpellUpgrade.ICE_SHARD_2)) {
 				descriptionSB.append(" The freezing fog detonates as the Ice Shard travels through it");
 				if(caster.hasSpellUpgrade(SpellUpgrade.ICE_SHARD_3)) {
@@ -463,11 +463,11 @@ public enum Spell {
 					descriptionSB.append("!");
 				}
 			}
-			
+
 			descriptionSB.append("</p>");
-			
+
 			descriptionSB.append(getDamageDescription(caster, target, damage, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				if(damage>0) {
@@ -479,10 +479,10 @@ public enum Spell {
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
@@ -504,34 +504,34 @@ public enum Spell {
 					SpellUpgrade.RAIN_CLOUD_2,
 					SpellUpgrade.RAIN_CLOUD_3),
 			Util.newHashMapOfValues(
-					new Value<Attribute, Integer>(Attribute.SPELL_COST_MODIFIER, -25)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
-		
+					new Value<Attribute, Integer>(Attribute.SPELL_COST_MODIFIER, -25)), Util.newArrayListOfValues("Lasts for [style.colorGood(3 turns)]")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.RAIN_CLOUD_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.RAIN_CLOUD_DOWNPOUR_FOR_CLOUDBURST, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.RAIN_CLOUD_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.RAIN_CLOUD_DOWNPOUR, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.RAIN_CLOUD_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.RAIN_CLOUD_DEEP_CHILL, 3));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.RAIN_CLOUD, 3));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(//TODO chuuni three from here
@@ -544,7 +544,7 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
@@ -553,14 +553,14 @@ public enum Spell {
 				target.removeStatusEffect(StatusEffect.RAIN_CLOUD_DOWNPOUR);
 				target.removeStatusEffect(StatusEffect.RAIN_CLOUD_DEEP_CHILL);
 				target.removeStatusEffect(StatusEffect.RAIN_CLOUD);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
@@ -582,14 +582,14 @@ public enum Spell {
 					SpellUpgrade.SOOTHING_WATERS_2,
 					SpellUpgrade.SOOTHING_WATERS_3),
 			null, Util.newArrayListOfValues("[style.boldGood(Restores)] 20% [style.boldHealth(energy)]")) {
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -603,34 +603,34 @@ public enum Spell {
 			if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_3) ) {
 				descriptionSB.append(" Smaller globes of water split off from the primary orb!");
 			}
-			
+
 			descriptionSB.append("</p>");
-			
+
 			caster.incrementMana(-cost);
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_3)) {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<p>"
 											+ UtilText.parse(target, "One of the small orbs circles around to heal [npc.name] for a second time, restoring a total of "
-																		+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.5f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-																		+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.3f+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!")
+																		+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.5f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and "
+																		+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.3f+" "+Attribute.MANA_MAXIMUM.getColoredName("b")+"!")
 											+ "</p>");
-					
+
 					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.5f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.3f);
-					
+
 					if(Main.game.isInCombat()) {
 						if(Combat.getEnemies().contains(target)) {
 							for(NPC combatant : Combat.getEnemies()) {
 								if(!combatant.equals(target)) {
 									descriptionSB.append("<p>"
 											+ UtilText.parse(combatant, "Another of the orbs flies towards [npc.name], healing [npc.herHim] for a total of "
-																		+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-																		+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!")
+																		+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and "
+																		+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f+" "+Attribute.MANA_MAXIMUM.getColoredName("b")+"!")
 											+ "</p>");
-					
+
 									descriptionSB.append(applyDamage(caster, combatant, -combatant.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f));
 									combatant.incrementMana(combatant.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f);
 								}
@@ -639,8 +639,8 @@ public enum Spell {
 							if(!Main.game.getPlayer().equals(target)) {
 								descriptionSB.append("<p>"
 											+ "Another of the orbs flies towards you, healing you for a total of "
-											+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-											+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"
+											+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and "
+											+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f+" "+Attribute.MANA_MAXIMUM.getColoredName("b")+"!"
 										+ "</p>");
 								descriptionSB.append(applyDamage(caster, Main.game.getPlayer(), -Main.game.getPlayer().getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f));
 								Main.game.getPlayer().incrementMana(Main.game.getPlayer().getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f);
@@ -649,8 +649,8 @@ public enum Spell {
 								if(!combatant.equals(target)) {
 									descriptionSB.append("<p>"
 											+ UtilText.parse(combatant, "Another of the orbs flies towards [npc.name], healing [npc.herHim] for a total of "
-																		+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-																		+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!")
+																		+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and "
+																		+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f+" "+Attribute.MANA_MAXIMUM.getColoredName("b")+"!")
 											+ "</p>");
 									descriptionSB.append(applyDamage(caster, combatant, -combatant.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.1f));
 									combatant.incrementMana(combatant.getAttributeValue(Attribute.MANA_MAXIMUM)*0.1f);
@@ -658,43 +658,43 @@ public enum Spell {
 							}
 						}
 					}
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_2)) {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<p>"
 								+ "The orb of water heals "+(target.isPlayer()?"you":UtilText.parse(target,"[npc.name]"))+" for a total of "
-									+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-									+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"
+									+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and "
+									+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f+" "+Attribute.MANA_MAXIMUM.getColoredName("b")+"!"
 							+ "</p>");
 					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.4f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.SOOTHING_WATERS_1)) {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<p>"
 								+"The orb of water heals "+(target.isPlayer()?"you":UtilText.parse(target,"[npc.name]"))+" for a total of "
-									+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+" and "
-									+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f+" "+Attribute.MANA_MAXIMUM.getColouredName("b")+"!"
+									+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+" and "
+									+(int)target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f+" "+Attribute.MANA_MAXIMUM.getColoredName("b")+"!"
 							+ "</p>");
 					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f));
 					target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*0.2f);
-					
+
 				} else {
 					descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 					descriptionSB.append("<p>"
 								+ "The orb of water heals "+(target.isPlayer()?"you":UtilText.parse(target,"[npc.name]"))+" for a total of "
-									+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f+" "+Attribute.HEALTH_MAXIMUM.getColouredName("b")+"!"
+									+(int)target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f+" "+Attribute.HEALTH_MAXIMUM.getColoredName("b")+"!"
 							+ "</p>");
 					descriptionSB.append(applyDamage(caster, target, -target.getAttributeValue(Attribute.HEALTH_MAXIMUM)*0.2f));
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	ELEMENTAL_WATER(false,
 			SpellSchool.WATER,
 			SpellType.DEFENSIVE,
@@ -712,24 +712,24 @@ public enum Spell {
 					SpellUpgrade.ELEMENTAL_WATER_2,
 					SpellUpgrade.ELEMENTAL_WATER_3A,
 					SpellUpgrade.ELEMENTAL_WATER_3B),
-			null, Util.newArrayListOfValues("Summons [style.colourArcane(Elemental)] in form of [style.colourSchoolWater(Water)]")) {
-		
+			null, Util.newArrayListOfValues("Summons [style.colorArcane(Elemental)] in form of [style.colorSchoolWater(Water)]")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			boolean elementalAlreadySummoned = false;
 			if(!caster.hasDiscoveredElemental()) {
 				caster.createElemental();
 			} else {
 				elementalAlreadySummoned = caster.getCompanions().contains(caster.getElemental());
 			}
-			
+
 			caster.getElemental().setElementalSchool(SpellSchool.WATER);
-			
+
 			if(elementalAlreadySummoned) {
 				descriptionSB.append("<p>"
 						+UtilText.parse(caster, caster.getElemental(),
@@ -744,7 +744,7 @@ public enum Spell {
 									?"With a huge splash, you bind your elemental, [npc2.name], to the school of Water!"
 									:"With a huge splash, [npc1.name] binds [npc1.her] elemental, [npc2.name], to the school of Water!"))
 					+"</p>");
-				
+
 			} else {
 				caster.addCompanion(caster.getElemental());
 				descriptionSB.append("<p>"
@@ -760,7 +760,7 @@ public enum Spell {
 									?"With a huge splash, you summon forth your elemental, [npc2.name], by binding [npc2.herHim] to the school of Water!"
 									:"With a huge splash, [npc1.name] summons forth [npc1.her] elemental, [npc2.name], by binding [npc2.herHim] to the school of Water!"))
 					+"</p>");
-				
+
 				if(Main.game.isInCombat()) {
 					if(caster.isPlayer() || Combat.getAllies().contains(caster)) {
 						Combat.addAlly(caster.getElemental());
@@ -769,88 +769,88 @@ public enum Spell {
 					}
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
 
 	// AIR:
-	
-	POISON_VAPOURS(false,
+
+	POISON_VAPORS(false,
 			SpellSchool.AIR,
 			SpellType.OFFENSIVE,
 			DamageType.POISON,
 			false,
-			"Poison Vapours",
-			"poison_vapours",
+			"Poison Vapors",
+			"poison_vapors",
 			"Summons a cloud of poisonous gas around a target.",
 			0,
 			DamageVariance.LOW,
 			40,
 			null,
 			Util.newArrayListOfValues(
-					SpellUpgrade.POISON_VAPOURS_1,
-					SpellUpgrade.POISON_VAPOURS_2,
-					SpellUpgrade.POISON_VAPOURS_3),
-			null, Util.newArrayListOfValues("<b>10</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(3 turns)]")) {
+					SpellUpgrade.POISON_VAPORS_1,
+					SpellUpgrade.POISON_VAPORS_2,
+					SpellUpgrade.POISON_VAPORS_3),
+			null, Util.newArrayListOfValues("<b>10</b> [style.colorPoison(Poison Damage)] per turn for [style.colorGood(3 turns)]")) {
 
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
-				if(caster.hasSpellUpgrade(SpellUpgrade.POISON_VAPOURS_3)) {
-					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPOURS_WEAKENING_CLOUD, 3));
-					
-				} else if(caster.hasSpellUpgrade(SpellUpgrade.POISON_VAPOURS_2)) {
-					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPOURS_ARCANE_SICKNESS, 3));
-					
-				} else if(caster.hasSpellUpgrade(SpellUpgrade.POISON_VAPOURS_1)) {
-					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPOURS_CHOKING_HAZE, 3));
-					
+				if(caster.hasSpellUpgrade(SpellUpgrade.POISON_VAPORS_3)) {
+					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPORS_WEAKENING_CLOUD, 3));
+
+				} else if(caster.hasSpellUpgrade(SpellUpgrade.POISON_VAPORS_2)) {
+					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPORS_ARCANE_SICKNESS, 3));
+
+				} else if(caster.hasSpellUpgrade(SpellUpgrade.POISON_VAPORS_1)) {
+					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPORS_CHOKING_HAZE, 3));
+
 				} else {
-					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPOURS, 3));
+					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.POISON_VAPORS, 3));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
 													"Let seal be broken, and by true power be unleashed! Now, by haze and smog, the air itself obeys my command!"),
-											"With a sweeping motion of your [pc.arm], you summon forth a cloud of poison vapours around yourself!",
-											"With a sweeping motion of your [pc.arm], you summon forth a cloud of poison vapours around [npc.name]!",
+											"With a sweeping motion of your [pc.arm], you summon forth a cloud of poison vapors around yourself!",
+											"With a sweeping motion of your [pc.arm], you summon forth a cloud of poison vapors around [npc.name]!",
 											"",
-											"With a sweeping motion of [npc.her] [npc.arm], [npc.name] summons forth a cloud of poison vapours around you!",
-											"With a sweeping motion of [npc1.her] [npc1.arm], [npc1.name] summons forth a cloud of poison vapours around [npc2.name]!")
+											"With a sweeping motion of [npc.her] [npc.arm], [npc.name] summons forth a cloud of poison vapors around you!",
+											"With a sweeping motion of [npc1.her] [npc1.arm], [npc1.name] summons forth a cloud of poison vapors around [npc2.name]!")
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
-				target.removeStatusEffect(StatusEffect.POISON_VAPOURS_WEAKENING_CLOUD);
-				target.removeStatusEffect(StatusEffect.POISON_VAPOURS_ARCANE_SICKNESS);
-				target.removeStatusEffect(StatusEffect.POISON_VAPOURS_CHOKING_HAZE);
-				target.removeStatusEffect(StatusEffect.POISON_VAPOURS);
-				
+				target.removeStatusEffect(StatusEffect.POISON_VAPORS_WEAKENING_CLOUD);
+				target.removeStatusEffect(StatusEffect.POISON_VAPORS_ARCANE_SICKNESS);
+				target.removeStatusEffect(StatusEffect.POISON_VAPORS_CHOKING_HAZE);
+				target.removeStatusEffect(StatusEffect.POISON_VAPORS);
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
@@ -872,35 +872,35 @@ public enum Spell {
 					SpellUpgrade.VACUUM_2,
 					SpellUpgrade.VACUUM_3),
 			Util.newHashMapOfValues(
-					new Value<Attribute, Integer>(Attribute.MISS_CHANCE, 10)), Util.newArrayListOfValues("Lasts for [style.colourGood(4 turns)]")) {
+					new Value<Attribute, Integer>(Attribute.MISS_CHANCE, 10)), Util.newArrayListOfValues("Lasts for [style.colorGood(4 turns)]")) {
 
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.VACUUM_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.VACUUM_TOTAL_VOID, 4));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.VACUUM_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.VACUUM_SUCTION, 4));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.VACUUM_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.VACUUM_SECONDARY_VOIDS, 4));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.VACUUM, 4));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -913,7 +913,7 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, damage, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				descriptionSB.append(applyDamage(caster, target, damage));
@@ -922,14 +922,14 @@ public enum Spell {
 				target.removeStatusEffect(StatusEffect.VACUUM_SUCTION);
 				target.removeStatusEffect(StatusEffect.VACUUM_SECONDARY_VOIDS);
 				target.removeStatusEffect(StatusEffect.VACUUM);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
@@ -952,33 +952,33 @@ public enum Spell {
 					SpellUpgrade.PROTECTIVE_GUSTS_3),
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.RESISTANCE_POISON, 25),
-					new Value<Attribute, Integer>(Attribute.DODGE_CHANCE, 10)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
-		
+					new Value<Attribute, Integer>(Attribute.DODGE_CHANCE, 10)), Util.newArrayListOfValues("Lasts for [style.colorGood(3 turns)]")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 5));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.PROTECTIVE_GUSTS_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS_GUIDING_WIND, 3));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.PROTECTIVE_GUSTS, 3));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -991,25 +991,25 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
 				target.removeStatusEffect(StatusEffect.PROTECTIVE_GUSTS_FOCUSED_BLAST);
 				target.removeStatusEffect(StatusEffect.PROTECTIVE_GUSTS_GUIDING_WIND);
 				target.removeStatusEffect(StatusEffect.PROTECTIVE_GUSTS);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	ELEMENTAL_AIR(false,
 			SpellSchool.AIR,
 			SpellType.DEFENSIVE,
@@ -1027,24 +1027,24 @@ public enum Spell {
 					SpellUpgrade.ELEMENTAL_AIR_2,
 					SpellUpgrade.ELEMENTAL_AIR_3A,
 					SpellUpgrade.ELEMENTAL_AIR_3B),
-			null, Util.newArrayListOfValues("Summons [style.colourArcane(Elemental)] in form of [style.colourSchoolAir(Air)]")) {
-		
+			null, Util.newArrayListOfValues("Summons [style.colorArcane(Elemental)] in form of [style.colorSchoolAir(Air)]")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			boolean elementalAlreadySummoned = false;
 			if(!caster.hasDiscoveredElemental()) {
 				caster.createElemental();
 			} else {
 				elementalAlreadySummoned = caster.getCompanions().contains(caster.getElemental());
 			}
-			
+
 			caster.getElemental().setElementalSchool(SpellSchool.AIR);
-			
+
 			if(elementalAlreadySummoned) {
 				descriptionSB.append("<p>"
 						+UtilText.parse(caster, caster.getElemental(),
@@ -1059,7 +1059,7 @@ public enum Spell {
 									?"With a tremendous gust of wind, you bind your elemental, [npc2.name], to the school of Air!"
 									:"With a tremendous gust of wind, [npc1.name] binds [npc1.her] elemental, [npc2.name], to the school of Air!"))
 					+"</p>");
-				
+
 			} else {
 				caster.addCompanion(caster.getElemental());
 				descriptionSB.append("<p>"
@@ -1075,7 +1075,7 @@ public enum Spell {
 									?"With a tremendous gust of wind, you summon forth your elemental, [npc2.name], by binding [npc2.herHim] to the school of Air!"
 									:"With a tremendous gust of wind, [npc1.name] summons forth [npc1.her] elemental, [npc2.name], by binding [npc2.herHim] to the school of Air!"))
 					+"</p>");
-				
+
 				if(Main.game.isInCombat()) {
 					if(caster.isPlayer() || Combat.getAllies().contains(caster)) {
 						Combat.addAlly(caster.getElemental());
@@ -1084,16 +1084,16 @@ public enum Spell {
 					}
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
 
 	// EARTH:
-	
+
 	SLAM(false,
 			SpellSchool.EARTH,
 			SpellType.OFFENSIVE,
@@ -1109,29 +1109,29 @@ public enum Spell {
 							SpellUpgrade.SLAM_1,
 							SpellUpgrade.SLAM_2,
 							SpellUpgrade.SLAM_3), null, null) {
-		
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.SLAM_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.SLAM_AFTER_SHOCK, 2));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.SLAM_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.SLAM_GROUND_SHAKE, 2));
-					
+
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -1142,7 +1142,7 @@ public enum Spell {
 											"With a downward, striking gesture, [npc.name] summons forth a huge wave of pure force, which slams down on you!",
 											"With a downward, striking gesture, [npc.name] summons forth a huge wave of pure force, which slams down on [npc2.name]!")
 								);
-			
+
 			if(isHit) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.SLAM_3)) {
 					descriptionSB.append(" The force then strikes down into the ground, causing a huge earthquake!");
@@ -1150,11 +1150,11 @@ public enum Spell {
 					descriptionSB.append(" The force then strikes down into the ground, causing the ground to shake!");
 				}
 			}
-			
+
 			descriptionSB.append("</p>");
-			
+
 			descriptionSB.append(getDamageDescription(caster, target, damage, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				if(damage>0) {
@@ -1175,16 +1175,16 @@ public enum Spell {
 							descriptionSB.append(getStatusEffectApplication(caster, combatant, isHit, isCritical));
 						}
 					}
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.SLAM_1)) {
 					applyStatusEffects(caster, target, isCritical);
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
@@ -1205,32 +1205,32 @@ public enum Spell {
 					SpellUpgrade.TELEKENETIC_SHOWER_1,
 					SpellUpgrade.TELEKENETIC_SHOWER_2,
 					SpellUpgrade.TELEKENETIC_SHOWER_3),
-			null, Util.newArrayListOfValues("<b>10</b> [style.colourPhysical(Physical Damage)] per turn for [style.colourGood(3 turns)]")) {
-		
+			null, Util.newArrayListOfValues("<b>10</b> [style.colorPhysical(Physical Damage)] per turn for [style.colorGood(3 turns)]")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEKENETIC_SHOWER_UNSEEN_FORCE, 6));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEKENETIC_SHOWER_PRECISION_STRIKES, 6));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEKENETIC_SHOWER, 6));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEKENETIC_SHOWER, 3));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
 
 			descriptionSB.append("<p>"
@@ -1245,21 +1245,21 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
 				target.removeStatusEffect(StatusEffect.TELEKENETIC_SHOWER);
 				target.removeStatusEffect(StatusEffect.TELEKENETIC_SHOWER_PRECISION_STRIKES);
 				target.removeStatusEffect(StatusEffect.TELEKENETIC_SHOWER_UNSEEN_FORCE);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
@@ -1281,34 +1281,34 @@ public enum Spell {
 					SpellUpgrade.STONE_SHELL_2,
 					SpellUpgrade.STONE_SHELL_3),
 			Util.newHashMapOfValues(
-					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 25)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
-		
+					new Value<Attribute, Integer>(Attribute.RESISTANCE_PHYSICAL, 25)), Util.newArrayListOfValues("Lasts for [style.colorGood(3 turns)]")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.STONE_SHELL_EXPLOSIVE_FINISH, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.STONE_SHELL_HARDENED_CARAPACE, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.STONE_SHELL_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.STONE_SHELL_SHIFTING_SANDS, 3));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.STONE_SHELL, 3));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -1321,25 +1321,25 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				descriptionSB.append(target.removeStatusEffectCombat(StatusEffect.STONE_SHELL_EXPLOSIVE_FINISH));
 				target.removeStatusEffect(StatusEffect.STONE_SHELL_HARDENED_CARAPACE);
 				target.removeStatusEffect(StatusEffect.STONE_SHELL_SHIFTING_SANDS);
 				target.removeStatusEffect(StatusEffect.PROTECTIVE_GUSTS);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	ELEMENTAL_EARTH(false,
 			SpellSchool.EARTH,
 			SpellType.DEFENSIVE,
@@ -1357,24 +1357,24 @@ public enum Spell {
 					SpellUpgrade.ELEMENTAL_EARTH_2,
 					SpellUpgrade.ELEMENTAL_EARTH_3A,
 					SpellUpgrade.ELEMENTAL_EARTH_3B),
-			null, Util.newArrayListOfValues("Summons [style.colourArcane(Elemental)] in form of [style.colourSchoolEarth(Earth)]")) {
-		
+			null, Util.newArrayListOfValues("Summons [style.colorArcane(Elemental)] in form of [style.colorSchoolEarth(Earth)]")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			boolean elementalAlreadySummoned = false;
 			if(!caster.hasDiscoveredElemental()) {
 				caster.createElemental();
 			} else {
 				elementalAlreadySummoned = caster.getCompanions().contains(caster.getElemental());
 			}
-			
+
 			caster.getElemental().setElementalSchool(SpellSchool.EARTH);
-			
+
 			if(elementalAlreadySummoned) {
 				descriptionSB.append("<p>"
 						+UtilText.parse(caster, caster.getElemental(),
@@ -1389,7 +1389,7 @@ public enum Spell {
 									?"With a burst of rocks and debris, you bind your elemental, [npc2.name], to the school of Earth!"
 									:"With a burst of rocks and debris, [npc1.name] binds [npc1.her] elemental, [npc2.name], to the school of Earth!"))
 					+"</p>");
-				
+
 			} else {
 				caster.addCompanion(caster.getElemental());
 				descriptionSB.append("<p>"
@@ -1405,7 +1405,7 @@ public enum Spell {
 									?"With a burst of rocks and debris, you summon forth your elemental, [npc2.name], by binding [npc2.herHim] to the school of Earth!"
 									:"With a burst of rocks and debris, [npc1.name] summons forth [npc1.her] elemental, [npc2.name], by binding [npc2.herHim] to the school of Earth!"))
 					+"</p>");
-				
+
 				if(Main.game.isInCombat()) {
 					if(caster.isPlayer() || Combat.getAllies().contains(caster)) {
 						Combat.addAlly(caster.getElemental());
@@ -1414,16 +1414,16 @@ public enum Spell {
 					}
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	// ARCANE:
-	
+
 	ARCANE_AROUSAL(false,
 			SpellSchool.ARCANE,
 			SpellType.OFFENSIVE,
@@ -1445,10 +1445,10 @@ public enum Spell {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_DIRTY_PROMISES, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_AROUSAL_LUSTFUL_DISTRACTION, 2));
-					
+
 				}
 			}
 			return new HashMap<>();
@@ -1461,13 +1461,13 @@ public enum Spell {
 			}
 			return 15;
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
 
 			descriptionSB.append("<p>"
@@ -1480,31 +1480,31 @@ public enum Spell {
 											"[npc.Name] focuses [npc.her] arcane energy on projecting an arousing vision into your mind!",
 											"[npc.Name] focuses [npc.her] arcane energy on projecting an arousing vision into [npc2.namePos] mind!")
 								+"</p>");
-			
+
 			descriptionSB.append(getDamageDescription(caster, target, damage, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				if(damage>0) {
 					descriptionSB.append(target.incrementLust(damage, true));
 				}
-				
+
 				if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_AROUSAL_2)) {
 					target.removeStatusEffect(StatusEffect.ARCANE_AROUSAL_DIRTY_PROMISES);
 					target.removeStatusEffect(StatusEffect.ARCANE_AROUSAL_LUSTFUL_DISTRACTION);
-					
+
 					applyStatusEffects(caster, target, isCritical);
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	TELEPATHIC_COMMUNICATION(false,
 			SpellSchool.ARCANE,
 			SpellType.DEFENSIVE,
@@ -1522,33 +1522,33 @@ public enum Spell {
 					SpellUpgrade.TELEPATHIC_COMMUNICATION_2,
 					SpellUpgrade.TELEPATHIC_COMMUNICATION_3),
 			Util.newHashMapOfValues(
-					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 15)), Util.newArrayListOfValues("Lasts for [style.colourGood(5 turns)]")) {
-		
+					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 15)), Util.newArrayListOfValues("Lasts for [style.colorGood(5 turns)]")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION, 10));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPATHIC_COMMUNICATION_PROJECTED_TOUCH, 10));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPATHIC_COMMUNICATION, 10));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPATHIC_COMMUNICATION, 5));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -1561,25 +1561,25 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
 				target.removeStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_PROJECTED_TOUCH);
 				target.removeStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION_POWER_OF_SUGGESTION);
 				target.removeStatusEffect(StatusEffect.TELEPATHIC_COMMUNICATION);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	ARCANE_CLOUD(false,
 			SpellSchool.ARCANE,
 			SpellType.OFFENSIVE,
@@ -1597,34 +1597,34 @@ public enum Spell {
 					SpellUpgrade.ARCANE_CLOUD_2,
 					SpellUpgrade.ARCANE_CLOUD_3),
 			Util.newHashMapOfValues(
-					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, -25)), Util.newArrayListOfValues("Lasts for [style.colourGood(3 turns)]")) {
+					new Value<Attribute, Integer>(Attribute.RESISTANCE_LUST, -25)), Util.newArrayListOfValues("Lasts for [style.colorGood(3 turns)]")) {
 
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_CLOUD_3)) {
-					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_CLOUD_LOCALISED_STORM, 3));
-					
+					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_CLOUD_LOCALIZED_STORM, 3));
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_CLOUD_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_CLOUD_ARCANE_THUNDER, 3));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.ARCANE_CLOUD_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_CLOUD_ARCANE_LIGHTNING, 3));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.ARCANE_CLOUD, 3));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -1637,25 +1637,25 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
-				target.removeStatusEffect(StatusEffect.ARCANE_CLOUD_LOCALISED_STORM);
+				target.removeStatusEffect(StatusEffect.ARCANE_CLOUD_LOCALIZED_STORM);
 				target.removeStatusEffect(StatusEffect.ARCANE_CLOUD_ARCANE_THUNDER);
 				target.removeStatusEffect(StatusEffect.ARCANE_CLOUD_ARCANE_LIGHTNING);
 				target.removeStatusEffect(StatusEffect.ARCANE_CLOUD);
-				
+
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	CLEANSE(true,
 			SpellSchool.ARCANE,
 			SpellType.DEFENSIVE,
@@ -1672,13 +1672,13 @@ public enum Spell {
 					SpellUpgrade.CLEANSE_1,
 					SpellUpgrade.CLEANSE_2,
 					SpellUpgrade.CLEANSE_3),
-			null, Util.newArrayListOfValues("[style.colourGood(Removes all)] combat status effects from the target")) {
-		
+			null, Util.newArrayListOfValues("[style.colorGood(Removes all)] combat status effects from the target")) {
+
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null && Main.game.isInCombat()) {
 				StatusEffect effect = StatusEffect.ARCANE_DUALITY_POSITIVE;
-				
+
 				if(Combat.getEnemies().contains(caster)) {
 					if(!Combat.getEnemies().contains(target)) {
 						effect = StatusEffect.ARCANE_DUALITY_NEGATIVE;
@@ -1688,18 +1688,18 @@ public enum Spell {
 						effect = StatusEffect.ARCANE_DUALITY_NEGATIVE;
 					}
 				}
-				
+
 				if(caster.hasSpellUpgrade(SpellUpgrade.CLEANSE_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(effect, 6));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.CLEANSE_2)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(effect, 3));
-					
+
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public boolean isBeneficial(GameCharacter caster, GameCharacter target) {
 			if(Main.game.isInCombat()) {
@@ -1715,13 +1715,13 @@ public enum Spell {
 			}
 			return true;
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -1732,7 +1732,7 @@ public enum Spell {
 											"Thrusting [npc.her] [npc.hand] forwards, [npc.name] summons forth an explosion of cleansing arcane energy upon you!",
 											"Thrusting [npc.her] [npc.hand] forwards, [npc.name] summons forth an explosion of cleansing arcane energy upon [npc2.name]!")
 								+"</p>");
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				List<StatusEffect> effectsToRemove = new ArrayList<>();
@@ -1745,7 +1745,7 @@ public enum Spell {
 						} else {
 							removePositive = false;
 						}
-						
+
 					} else {
 						if(Combat.getEnemies().contains(target)) {
 							removeNegative = false;
@@ -1762,19 +1762,19 @@ public enum Spell {
 				for(StatusEffect se : effectsToRemove) {
 					descriptionSB.append(target.removeStatusEffectCombat(se));
 				}
-				
+
 				descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	STEAL(true,
 			SpellSchool.ARCANE,
 			SpellType.OFFENSIVE,
@@ -1792,15 +1792,15 @@ public enum Spell {
 					SpellUpgrade.STEAL_2,
 					SpellUpgrade.STEAL_3A,
 					SpellUpgrade.STEAL_3B),
-			null, Util.newArrayListOfValues("[style.colourExcellent(Steals)] a random item from the target's inventory")) {
-		
+			null, Util.newArrayListOfValues("[style.colorExcellent(Steals)] a random item from the target's inventory")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -1811,14 +1811,14 @@ public enum Spell {
 											"Thrusting out [npc.her] [npc.hand] and clenching [npc.her] fist, [npc.name] channels [npc.her] arcane power into stealing one of your items!",
 											"Thrusting out [npc.her] [npc.hand] and clenching [npc.her] fist, [npc.name] channels [npc.her] arcane power into stealing one of [npc2.namePos] items!")
 								+"</p>");
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				boolean stealItem = false;
 				boolean mainWeaponSteal = false;
 				boolean offhandWeaponSteal = false;
 				AbstractClothing clothingToSteal = null;
-				
+
 				if(caster.hasSpellUpgrade(SpellUpgrade.STEAL_3B)) {
 					clothingToSteal = target.getClothingInSlot(InventorySlot.GROIN);
 					if(clothingToSteal != null && !clothingToSteal.isSealed()) {
@@ -1835,7 +1835,7 @@ public enum Spell {
 								+ caster.addClothing(clothingToSteal, true));
 					}
 				}
-				
+
 				if(clothingToSteal==null) {
 					if(caster.hasSpellUpgrade(SpellUpgrade.STEAL_3A)) {
 						List<AbstractClothing> nonSealedClothing = new ArrayList<>();
@@ -1847,7 +1847,7 @@ public enum Spell {
 						if(!nonSealedClothing.isEmpty()) {
 							clothingToSteal = nonSealedClothing.get(Util.random.nextInt(nonSealedClothing.size()));
 						}
-						
+
 					} else if(caster.hasSpellUpgrade(SpellUpgrade.STEAL_1)) {
 						List<AbstractClothing> nonSealedOuterClothing = new ArrayList<>();
 						for(AbstractClothing c : target.getClothingCurrentlyEquipped()) {
@@ -1858,19 +1858,19 @@ public enum Spell {
 						if(!nonSealedOuterClothing.isEmpty()) {
 							clothingToSteal = nonSealedOuterClothing.get(Util.random.nextInt(nonSealedOuterClothing.size()));
 						}
-						
+
 					}
-					
+
 					if(caster.hasSpellUpgrade(SpellUpgrade.STEAL_2)) {
 						mainWeaponSteal = target.getMainWeapon()!=null;
 						offhandWeaponSteal = target.getOffhandWeapon()!=null;
-						
+
 					}
-					
+
 					stealItem = target.getInventorySlotsTaken()>0;
-					
+
 					double rnd = Math.random();
-					
+
 					if(mainWeaponSteal && (rnd<0.2 || (!offhandWeaponSteal && !stealItem && clothingToSteal==null))) {
 						AbstractWeapon weapon = target.getMainWeapon();
 						target.unequipMainWeapon(true);
@@ -1884,7 +1884,7 @@ public enum Spell {
 										"[npc1.Name] stole [npc2.namePos] "+weapon.getName()+" from out of [npc2.her] [npc2.hands]!")
 								+ "</p>"
 								+ caster.addWeapon(weapon, true));
-						
+
 					} else if(offhandWeaponSteal && (rnd<0.2 || (!stealItem && clothingToSteal==null))) {
 						AbstractWeapon weapon = target.getOffhandWeapon();
 						target.unequipOffhandWeapon(true);
@@ -1898,7 +1898,7 @@ public enum Spell {
 										"[npc1.Name] stole [npc2.namePos] "+weapon.getName()+" from out of [npc2.her] [npc2.hands]!")
 								+ "</p>"
 								+ caster.addWeapon(weapon, true));
-						
+
 					} else if(stealItem && (rnd<0.5 || (clothingToSteal==null))) {
 						AbstractItem item = null;
 						if(!target.getAllItemsInInventory().isEmpty()) {
@@ -1925,7 +1925,7 @@ public enum Spell {
 											"[npc1.Name] stole [npc2.namePos] "+item.getName()+" from out of [npc2.her] inventory!")
 									+ "</p>"
 									+ caster.addItem(item, false));
-							
+
 						} else if(weapon!=null && (itemStealRnd<0.66 || (clothing==null))) {
 							target.removeWeapon(weapon);
 							descriptionSB.append("<p>"
@@ -1938,7 +1938,7 @@ public enum Spell {
 											"[npc1.Name] stole [npc2.namePos] "+weapon.getName()+" from out of [npc2.her] inventory!")
 									+ "</p>"
 									+ caster.addWeapon(weapon, false));
-							
+
 						} else {
 							target.removeClothing(clothing);
 							descriptionSB.append("<p>"
@@ -1952,7 +1952,7 @@ public enum Spell {
 									+ "</p>"
 									+ caster.addClothing(clothing, false));
 						}
-						
+
 					} else if(clothingToSteal!=null) {
 						target.forceUnequipClothingIntoVoid(caster, clothingToSteal);
 						descriptionSB.append("<p>"
@@ -1965,25 +1965,25 @@ public enum Spell {
 										"[npc2.Name] lets out an embarrassed cry as [npc1.name] steals the "+clothingToSteal.getName()+" that [npc2.sheIs] currently wearing!")
 								+ "</p>"
 								+ caster.addClothing(clothingToSteal, true));
-						
+
 					} else {
 						descriptionSB.append("<p>[style.italicsDisabled(There's nothing to steal...)]</p>");
 					}
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
-		
+
 		@Override
 		public Map<Integer, List<TreeEntry<SpellSchool, SpellUpgrade>>> getSpellUpgradeTree() {
 			return Spell.spellStealUpgradeTree;
 		}
 	},
-	
+
 	TELEPORT(true,
 			SpellSchool.ARCANE,
 			SpellType.DEFENSIVE,
@@ -2002,33 +2002,33 @@ public enum Spell {
 					SpellUpgrade.TELEPORT_3),
 			Util.newHashMapOfValues(
 					new Value<Attribute, Integer>(Attribute.DODGE_CHANCE, 100)), Util.newArrayListOfValues(
-					"Lasts for [style.colourGood(1 turn)]",
-					"[style.colourExcellent(Unlocks)] map teleport",
-					"Map teleport [style.colourTerrible(blocked)] by companions")) {
-		
+					"Lasts for [style.colorGood(1 turn)]",
+					"[style.colorExcellent(Unlocks)] map teleport",
+					"Map teleport [style.colorTerrible(blocked)] by companions")) {
+
 
 		@Override
 		public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 			if(caster!=null) {
 				if(caster.hasSpellUpgrade(SpellUpgrade.TELEPORT_3)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPORT_ARCANE_ARRIVAL, 2));
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.TELEPORT_1)) {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPORT_ARCANE_ARRIVAL, 1));
-					
+
 				} else {
 					return Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.TELEPORT, 1));
 				}
 			}
 			return new HashMap<>();
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -2039,13 +2039,13 @@ public enum Spell {
 											"With a quick, cutting motion from one of [npc.her] [npc.hands], [npc.name] teleports you behind your enemies!",
 											"With a quick, cutting motion from one of [npc.her] [npc.hands], [npc.name] teleports [npc2.name] behind [npc2.her] enemies!")
 								+"</p>");
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 
 				target.removeStatusEffect(StatusEffect.TELEPORT_ARCANE_ARRIVAL);
 				target.removeStatusEffect(StatusEffect.TELEPORT);
-				
+
 				if(caster.hasSpellUpgrade(SpellUpgrade.TELEPORT_2)) {
 					if(Combat.getEnemies().contains(target)) {
 						for(NPC combatant : Combat.getEnemies()) {
@@ -2060,20 +2060,20 @@ public enum Spell {
 							descriptionSB.append(getStatusEffectApplication(caster, combatant, isHit, isCritical));
 						}
 					}
-					
+
 				} else {
 					applyStatusEffects(caster, target, isCritical);
 					descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	LILITHS_COMMAND(true,
 			SpellSchool.ARCANE,
 			SpellType.OFFENSIVE,
@@ -2090,14 +2090,14 @@ public enum Spell {
 					SpellUpgrade.LILITHS_COMMAND_1,
 					SpellUpgrade.LILITHS_COMMAND_2,
 					SpellUpgrade.LILITHS_COMMAND_3),
-			null, Util.newArrayListOfValues("[style.colourGood(25%)] chance for target to [style.colourExcellent(instantly submit)]")) {
-		
+			null, Util.newArrayListOfValues("[style.colorGood(25%)] chance for target to [style.colorExcellent(instantly submit)]")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -2108,23 +2108,23 @@ public enum Spell {
 											"Drawing an immense amount of power from [npc.her] arcane aura, [npc.name] projects the words of Lilith herself into your mind, ordering you to submit!",
 											"Drawing an immense amount of power from [npc1.her] arcane aura, [npc1.name] projects the words of Lilith herself into [npc2.namePos] mind, ordering [npc2.herHim] to submit!")
 								+"</p>");
-			
+
 			// If attack hits, apply damage and effects:
 			if (isHit) {
 				boolean success = false;
 				if(caster.hasSpellUpgrade(SpellUpgrade.LILITHS_COMMAND_3)) {
 					success = true;
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.LILITHS_COMMAND_2)) {
 					success = Math.random()<0.75f;
-					
+
 				} else if(caster.hasSpellUpgrade(SpellUpgrade.LILITHS_COMMAND_1)) {
 					success = Math.random()<0.5f && target.isVulnerableToArcaneStorm();
-					
+
 				} else {
 					success = Math.random()<0.25f && target.isVulnerableToArcaneStorm();
 				}
-				
+
 				descriptionSB.append("<p>");
 				if(success) {
 					target.setHealthPercentage(0);
@@ -2136,18 +2136,18 @@ public enum Spell {
 								"You find yourself standing face-to-face with the queen of all demons herself."
 								+ " Snapping her fingers, Lilith points to the floor, and as she does so, you find yourself dropping to your knees in front of her."
 								+ " Eager to please her, you look up into Lilith's eyes as you [pc.moan], [pc.speech(Please, Lilith... Do what you want with me... I'm your loyal slave...)]");
-						
+
 					} else {
 						descriptionSB.append(UtilText.parse(target,
 								"[npc.Name] sinks to [npc.her] knees as the effect of Lilith's Command completely overwhelms [npc.herHim]."
 										+ " Letting out [npc.a_moan+], [npc.she] starts touching [npc.herself] as [npc.she] pleads, [npc.speech(Please, Lilith... Do what you want with me... I'm your loyal slave...)]"));
 					}
-					
+
 				} else {
 					if(target.isPlayer()) {
 						descriptionSB.append(
 								"You shake your head and jump back as you resist the effects of Lilith's Command!");
-						
+
 					} else if(target.isVulnerableToArcaneStorm() || !caster.hasSpellUpgrade(SpellUpgrade.LILITHS_COMMAND_2)) {
 						descriptionSB.append(UtilText.parse(target, "[npc.Name] shakes [npc.her] head and jumps back as [npc.she] resists the effects of Lilith's Command!"));
 					} else {
@@ -2156,14 +2156,14 @@ public enum Spell {
 				}
 				descriptionSB.append("</p>");
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	ELEMENTAL_ARCANE(false,
 			SpellSchool.ARCANE,
 			SpellType.DEFENSIVE,
@@ -2181,24 +2181,24 @@ public enum Spell {
 					SpellUpgrade.ELEMENTAL_ARCANE_2,
 					SpellUpgrade.ELEMENTAL_ARCANE_3A,
 					SpellUpgrade.ELEMENTAL_ARCANE_3B),
-			null, Util.newArrayListOfValues("Summons [style.colourArcane(Elemental)] in form of [style.colourArcane(Arcane)]")) {
-		
+			null, Util.newArrayListOfValues("Summons [style.colorArcane(Elemental)] in form of [style.colorArcane(Arcane)]")) {
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.setLength(0);
-			
+
 			boolean elementalAlreadySummoned = false;
 			if(!caster.hasDiscoveredElemental()) {
 				caster.createElemental();
 			} else {
 				elementalAlreadySummoned = caster.getCompanions().contains(caster.getElemental());
 			}
-			
+
 			caster.getElemental().setElementalSchool(SpellSchool.ARCANE);
-			
+
 			if(elementalAlreadySummoned) {
 				descriptionSB.append("<p>"
 						+UtilText.parse(caster, caster.getElemental(),
@@ -2213,7 +2213,7 @@ public enum Spell {
 									?"With a flash of purple arcane lightning, you bind your elemental, [npc2.name], to the school of Arcane!"
 									:"With a flash of purple arcane lightning, [npc1.name] binds [npc1.her] elemental, [npc2.name], to the school of Arcane!"))
 					+"</p>");
-				
+
 			} else {
 				caster.addCompanion(caster.getElemental());
 				descriptionSB.append("<p>"
@@ -2229,7 +2229,7 @@ public enum Spell {
 									?"With a flash of purple arcane lightning, you summon forth your elemental, [npc2.name], by binding [npc2.herHim] to the school of Arcane!"
 									:"With a flash of purple arcane lightning, [npc1.name] summons forth [npc1.her] elemental, [npc2.name], by binding [npc2.herHim] to the school of Arcane!"))
 					+"</p>");
-				
+
 				if(Main.game.isInCombat()) {
 					if(caster.isPlayer() || Combat.getAllies().contains(caster)) {
 						Combat.addAlly(caster.getElemental());
@@ -2238,16 +2238,16 @@ public enum Spell {
 					}
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	// FROM WEAPONS:
-	
+
 	WITCH_SEAL(false,
 			SpellSchool.AIR,
 			SpellType.OFFENSIVE,
@@ -2263,20 +2263,20 @@ public enum Spell {
 			null,
 			null, Util.newArrayListOfValues(
 					"[style.boldExcellent(Stuns)] the target",
-					"Lasts for [style.colourGood(3 turns)]")) {
-		
+					"Lasts for [style.colorGood(3 turns)]")) {
+
 		@Override
 		public boolean isSpellBook() {
 			return false;
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			descriptionSB.setLength(0);
-			
+
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -2289,19 +2289,19 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			if(isHit) {
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	WITCH_CHARM(false,
 			SpellSchool.ARCANE,
 			SpellType.DEFENSIVE,
@@ -2316,20 +2316,20 @@ public enum Spell {
 			Util.newHashMapOfValues(new Value<StatusEffect, Integer>(StatusEffect.WITCH_CHARM, 5)),
 			null,
 			Util.newHashMapOfValues(
-					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 25)), Util.newArrayListOfValues("Lasts for [style.colourGood(5 turns)]")) {
-		
+					new Value<Attribute, Integer>(Attribute.DAMAGE_LUST, 25)), Util.newArrayListOfValues("Lasts for [style.colorGood(5 turns)]")) {
+
 		@Override
 		public boolean isSpellBook() {
 			return false;
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 
 			descriptionSB.setLength(0);
-			
+
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -2342,19 +2342,19 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, 0, isHit, isCritical));
-			
+
 			if(isHit) {
 				applyStatusEffects(caster, target, isCritical);
 				descriptionSB.append(getStatusEffectApplication(caster, target, isHit, isCritical));
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	},
-	
+
 	DARK_SIREN_SIRENS_CALL(false,
 			SpellSchool.AIR,
 			SpellType.OFFENSIVE,
@@ -2362,7 +2362,7 @@ public enum Spell {
 			false,
 			"Siren's Call",
 			"dark_siren_sirens_call",
-			"Unleashes a reverberating scream, the power of which causes the ground to split open. From this fissure, poisonous vapours rise to choke and stifle all nearby enemies.",
+			"Unleashes a reverberating scream, the power of which causes the ground to split open. From this fissure, poisonous vapors rise to choke and stifle all nearby enemies.",
 			10,
 			DamageVariance.NONE,
 			200,
@@ -2370,21 +2370,21 @@ public enum Spell {
 			null,
 			null,
 			Util.newArrayListOfValues(
-					"<b>25</b> [style.colourPoison(Poison Damage)] per turn for [style.colourGood(10 turns)]",
-					"Affects [style.colourExcellent(all enemies)]")) {
-		
+					"<b>25</b> [style.colorPoison(Poison Damage)] per turn for [style.colorGood(10 turns)]",
+					"Affects [style.colorExcellent(all enemies)]")) {
+
 		@Override
 		public boolean isSpellBook() {
 			return false;
 		}
-		
+
 		@Override
 		public String applyEffect(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 			descriptionSB.setLength(0);
 
 			float damage = Attack.calculateSpellDamage(caster, target, damageType, this.getDamage(caster), damageVariance, isCritical);
 			float cost = getModifiedCost(caster);
-			
+
 			descriptionSB.append("<p>"
 									+getCastDescription(caster, target,
 											Util.newArrayListOfValues(
@@ -2397,7 +2397,7 @@ public enum Spell {
 								+"</p>");
 
 			descriptionSB.append(getDamageDescription(caster, target, damage, true, isCritical));
-			
+
 			if(Combat.getEnemies().contains(target)) {
 				for(NPC combatant : Combat.getEnemies()) {
 					applyStatusEffects(caster, combatant, isCritical);
@@ -2411,16 +2411,16 @@ public enum Spell {
 					descriptionSB.append(getStatusEffectApplication(caster, combatant, isHit, isCritical));
 				}
 			}
-			
+
 			descriptionSB.append(getCostDescription(caster, cost));
 			caster.incrementMana(-cost);
-			
+
 			return descriptionSB.toString();
 		}
 	};
-	
+
 	private static Map<SpellSchool, List<Spell>> spellsFromSchoolMap = new HashMap<>();
-	
+
 	static {
 		for(SpellSchool school : SpellSchool.values()) {
 			spellsFromSchoolMap.put(school, new ArrayList<>());
@@ -2429,13 +2429,13 @@ public enum Spell {
 			spellsFromSchoolMap.get(s.getSpellSchool()).add(s);
 		}
 	}
-	
+
 	public static Map<SpellSchool, List<Spell>> getSpellsFromSchoolMap() {
 		return spellsFromSchoolMap;
 	}
-	
+
 	private static StringBuilder descriptionSB = new StringBuilder();
-	
+
 	protected static Map<Integer, List<TreeEntry<SpellSchool, SpellUpgrade>>> spellStealUpgradeTree;
 	static {
 		spellStealUpgradeTree = new HashMap<>();
@@ -2454,27 +2454,27 @@ public enum Spell {
 		spellStealUpgradeTree.get(2).add(new TreeEntry<>(SpellSchool.ARCANE, 2, SpellUpgrade.STEAL_3B));
 		spellStealUpgradeTree.get(2).get(1).addLink(spellStealUpgradeTree.get(2).get(0));
 	}
-	
+
 	private boolean forbiddenSpell;
 	private SpellSchool spellSchool;
 	private SpellType type;
 	protected DamageType damageType;
 	private boolean beneficial;
-	
+
 	private String name;
 	private String description;
-	
+
 	protected int damage;
 	protected int spellCost;
 	protected DamageVariance damageVariance;
 	private Map<StatusEffect, Integer> statusEffects;
-	
+
 	private Map<Integer, List<TreeEntry<SpellSchool, SpellUpgrade>>> spellUpgradeTree;
-	
+
 	private HashMap<Attribute, Integer> attributeModifiers;
 	private List<String> extraEffects;
 	private List<String> modifiersList;
-	
+
 	private String SVGString;
 
 	private Spell(boolean forbiddenSpell,
@@ -2491,46 +2491,46 @@ public enum Spell {
 			Map<StatusEffect, Integer> statusEffects,
 			List<SpellUpgrade> upgradeList,
 			HashMap<Attribute, Integer> attributeModifiers, List<String> extraEffects) {
-		
+
 		this.forbiddenSpell = forbiddenSpell;
-		
+
 		this.spellSchool = spellSchool;
 		this.type = type;
 		this.damageType = damageType;
 		this.beneficial = beneficial;
-		
+
 		this.name = name;
 		this.description = description;
 
 		this.damage = damage;
 		this.damageVariance = damageVariance;
-		
+
 		this.spellCost = spellCost;
-		
+
 		if(statusEffects == null) {
 			this.statusEffects = new HashMap<>();
 		} else {
 			this.statusEffects = statusEffects;
 		}
-		
+
 		spellUpgradeTree = new HashMap<>();
-		initialiseBasicSpellUpgradeTree(upgradeList);
+		initializeBasicSpellUpgradeTree(upgradeList);
 
 		this.attributeModifiers = attributeModifiers;
 		this.extraEffects = extraEffects;
-		
+
 		modifiersList = new ArrayList<>();
-		
+
 		if (attributeModifiers != null) {
 			for (Entry<Attribute, Integer> e : attributeModifiers.entrySet())
 				modifiersList.add("<b>" + (e.getValue() > 0 ? "+" : "") + e.getValue() + "</b>"
-						+ " <b style='color: " + e.getKey().getColour().toWebHexString() + ";'>" + Util.capitaliseSentence(e.getKey().getAbbreviatedName()) + "</b>");
+						+ " <b style='color: " + e.getKey().getColor().toWebHexString() + ";'>" + Util.capitalizeSentence(e.getKey().getAbbreviatedName()) + "</b>");
 		}
-		
+
 		if (extraEffects != null) {
 			modifiersList.addAll(extraEffects);
 		}
-		
+
 		// SVG:
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/combat/spell/" + pathName + ".svg");
@@ -2538,17 +2538,17 @@ public enum Spell {
 				System.err.println("Error! Spell icon file does not exist (Trying to read from '"+pathName+"')!");
 			}
 			SVGString = Util.inputStreamToString(is);
-			
-			SVGString = SvgUtil.colourReplacement(this.toString(), damageType.getMultiplierAttribute().getColour(), SVGString);
-			
+
+			SVGString = SvgUtil.colorReplacement(this.toString(), damageType.getMultiplierAttribute().getColor(), SVGString);
+
 			is.close();
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	private void initialiseBasicSpellUpgradeTree(List<SpellUpgrade> upgradeList) {
+
+	private void initializeBasicSpellUpgradeTree(List<SpellUpgrade> upgradeList) {
 		if(upgradeList!=null) {
 			for(int i = 0; i<upgradeList.size(); i++) {
 				spellUpgradeTree.put(i, new ArrayList<>());
@@ -2557,7 +2557,7 @@ public enum Spell {
 				if(i==upgradeList.size()-1 && upgradeList.size()==4) {
 					spellUpgradeTree.get(i-1).add(new TreeEntry<>(spellSchool, i-1, upgradeList.get(i)));
 					spellUpgradeTree.get(i-2).get(0).addLink(spellUpgradeTree.get(i-1).get(1));
-					
+
 				} else if(i!=0) {
 					spellUpgradeTree.get(i).get(0).addLink(spellUpgradeTree.get(i-1).get(0));
 				}
@@ -2570,11 +2570,11 @@ public enum Spell {
 	public List<String> getModifiersAsStringList() {
 		return modifiersList;
 	}
-	
+
 	public boolean isSpellBook() {
 		return true;
 	}
-	
+
 	public boolean isForbiddenSpell() {
 		return forbiddenSpell;
 	}
@@ -2590,7 +2590,7 @@ public enum Spell {
 	public DamageType getDamageType() {
 		return damageType;
 	}
-	
+
 	public boolean isBeneficial(GameCharacter caster, GameCharacter target) {
 		return beneficial;
 	}
@@ -2598,7 +2598,7 @@ public enum Spell {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
@@ -2617,20 +2617,20 @@ public enum Spell {
 	public int getBaseCost(GameCharacter caster) {
 		return spellCost;
 	}
-	
+
 	/**
 	 * @param caster The person casting the spell.
 	 * @return The cost of casting this spell as it relates to the caster. i.e. This spell's basic spell cost, reduced by the caster's spell efficiency.
 	 */
 	public float getModifiedCost(GameCharacter caster) {
 		float calculatedCost = getBaseCost(caster);
-		
+
 		calculatedCost *= ((100 - Util.getModifiedDropoffValue(caster.getAttributeValue(Attribute.SPELL_COST_MODIFIER), 100)) / 100f);
-		
+
 		// Round float value to nearest 1 decimal place:
 		return (Math.round(calculatedCost*10))/10f;
 	}
-	
+
 	public Map<StatusEffect, Integer> getStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 		return statusEffects;
 	}
@@ -2646,11 +2646,11 @@ public enum Spell {
 	public List<String> getExtraEffects() {
 		return extraEffects;
 	}
-	
+
 	public String getSVGString() {
 		return SVGString;
 	}
-	
+
 	protected void applyStatusEffects(GameCharacter caster, GameCharacter target, boolean isCritical) {
 		for (Entry<StatusEffect, Integer> se : getStatusEffects(caster, target, isCritical).entrySet()) {
 			target.addStatusEffect(se.getKey(), se.getValue() * (caster.isPlayer() && caster.hasTrait(Perk.JOB_MUSICIAN, true)?2:1) * (isCritical?2:1));
@@ -2659,7 +2659,7 @@ public enum Spell {
 
 	protected String getDamageDescription(GameCharacter caster, GameCharacter target, float damage, boolean isHit, boolean isCritical) {
 		StringBuilder damageCostDescriptionSB = new StringBuilder();
-		
+
 		boolean appliesEffects = !this.getStatusEffects(caster, target, isCritical).isEmpty();
 
 		damageCostDescriptionSB.append("<p>");
@@ -2670,7 +2670,7 @@ public enum Spell {
 					} else {
 						if(damage>0) {
 							damageCostDescriptionSB.append(UtilText.parse(target,
-									"You [style.boldExcellent(critically)] hit [npc.name] for " + damage + " " + damageType.getMultiplierAttribute().getColouredName("b") + "!"));
+									"You [style.boldExcellent(critically)] hit [npc.name] for " + damage + " " + damageType.getMultiplierAttribute().getColoredName("b") + "!"));
 						}
 						if(appliesEffects) {
 							damageCostDescriptionSB.append(" You [style.boldExcellent(critically)] cast the spell, doubling its duration!");
@@ -2682,11 +2682,11 @@ public enum Spell {
 					} else {
 						if(damage>0) {
 							damageCostDescriptionSB.append(UtilText.parse(target,
-									"You hit [npc.name] for " + damage + " " + damageType.getMultiplierAttribute().getColouredName("b") + "!"));
+									"You hit [npc.name] for " + damage + " " + damageType.getMultiplierAttribute().getColoredName("b") + "!"));
 						}
 					}
 				}
-				
+
 			} else {
 				if (isCritical) {
 					if(!isHit) {
@@ -2694,7 +2694,7 @@ public enum Spell {
 					} else {
 						if(damage>0) {
 							damageCostDescriptionSB.append(UtilText.parse(caster, target,
-									"[npc1.Name] [style.boldExcellent(critically)] hits " + (target.isPlayer()?"you":"[npc2.name]")+" for " + damage + " " + damageType.getMultiplierAttribute().getColouredName("b") + "!"));
+									"[npc1.Name] [style.boldExcellent(critically)] hits " + (target.isPlayer()?"you":"[npc2.name]")+" for " + damage + " " + damageType.getMultiplierAttribute().getColoredName("b") + "!"));
 						}
 						if(appliesEffects) {
 							damageCostDescriptionSB.append(UtilText.parse(caster, " [npc.Name] [style.boldExcellent(critically)] casts the spell, doubling its duration!"));
@@ -2706,7 +2706,7 @@ public enum Spell {
 					} else {
 						if(damage>0) {
 							damageCostDescriptionSB.append(UtilText.parse(caster, target,
-									"[npc1.Name] hits " + (target.isPlayer()?"you":"[npc2.name]")+" for " + damage + " " + damageType.getMultiplierAttribute().getColouredName("b") + "!"));
+									"[npc1.Name] hits " + (target.isPlayer()?"you":"[npc2.name]")+" for " + damage + " " + damageType.getMultiplierAttribute().getColoredName("b") + "!"));
 						}
 					}
 				}
@@ -2715,10 +2715,10 @@ public enum Spell {
 				return "";
 			}
 		damageCostDescriptionSB.append("</p>");
-		
+
 		return damageCostDescriptionSB.toString();
 	}
-	
+
 	protected String applyDamage(GameCharacter caster, GameCharacter target, float damage) {
 		if(damage==0) {
 			if(target.isPlayer()) {
@@ -2726,12 +2726,12 @@ public enum Spell {
 			} else {
 				return (UtilText.parse(target,"<p>[npc.Name] appears to be completely [style.boldExcellent(immune)] to "+DamageType.LUST.getName()+" damage!</p>"));
 			}
-			
+
 		} else {
 			return target.incrementHealth(caster, -damage);
 		}
 	}
-	
+
 	protected String getStatusEffectApplication(GameCharacter caster, GameCharacter target, boolean isHit, boolean isCritical) {
 		StringBuilder damageCostDescriptionSB = new StringBuilder();
 
@@ -2745,7 +2745,7 @@ public enum Spell {
 								+(this.isBeneficial(caster, target)
 										?"benefiting from "
 										:"suffering from ")));
-			
+
 			int i = 0;
 			for (Entry<StatusEffect, Integer> seEntry : this.getStatusEffects(caster, target, isCritical).entrySet()) {
 				if (i != 0) {
@@ -2758,17 +2758,17 @@ public enum Spell {
 				damageCostDescriptionSB.append("<b>" + seEntry.getValue() * (caster.isPlayer() && caster.hasTrait(Perk.JOB_MUSICIAN, true)?2:1) * (isCritical?2:1)
 						+ "</b> turns"
 						+(caster.hasTrait(Perk.JOB_MUSICIAN, true)
-								?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_MUSICIAN.getColour().toWebHexString()+";'>"+Perk.JOB_MUSICIAN.getName(caster)+"</b>)"
+								?" ([style.boldExcellent(doubled)] from <b style='color:"+Perk.JOB_MUSICIAN.getColor().toWebHexString()+";'>"+Perk.JOB_MUSICIAN.getName(caster)+"</b>)"
 								:"")
-						+ " of <b style='color:" + seEntry.getKey().getColour().toWebHexString() + ";'>" + seEntry.getKey().getName(target) + "</b>");
+						+ " of <b style='color:" + seEntry.getKey().getColor().toWebHexString() + ";'>" + seEntry.getKey().getName(target) + "</b>");
 				i++;
 			}
 			damageCostDescriptionSB.append(".</p>");
 		}
-		
+
 		return damageCostDescriptionSB.toString();
 	}
-	
+
 	public static String getBasicStatusEffectApplication(GameCharacter target, boolean beneficial, Map<StatusEffect, Integer> statusEffects) {
 		StringBuilder damageCostDescriptionSB = new StringBuilder();
 
@@ -2781,7 +2781,7 @@ public enum Spell {
 							+(beneficial
 									?"benefiting from "
 									:"suffering from ")));
-		
+
 		int i = 0;
 		for (Entry<StatusEffect, Integer> seEntry : statusEffects.entrySet()) {
 			if (i != 0) {
@@ -2791,17 +2791,17 @@ public enum Spell {
 					damageCostDescriptionSB.append(", ");
 				}
 			}
-			damageCostDescriptionSB.append("<b>" + seEntry.getValue() + "</b> turns of <b style='color:" + seEntry.getKey().getColour().toWebHexString() + ";'>" + seEntry.getKey().getName(target) + "</b>");
+			damageCostDescriptionSB.append("<b>" + seEntry.getValue() + "</b> turns of <b style='color:" + seEntry.getKey().getColor().toWebHexString() + ";'>" + seEntry.getKey().getName(target) + "</b>");
 			i++;
 		}
 		damageCostDescriptionSB.append(".</p>");
-		
+
 		return damageCostDescriptionSB.toString();
 	}
 
 	protected String getCostDescription(GameCharacter caster, float cost) {
 		return "<p>"
-					+ "Casting this spell cost "+(caster.isPlayer()?"you":UtilText.parse(caster, "[npc.name]"))+" <b>" + cost + "</b> <b style='color:" + Attribute.MANA_MAXIMUM.getColour().toWebHexString() + ";'>aura</b>!</b>"
+					+ "Casting this spell cost "+(caster.isPlayer()?"you":UtilText.parse(caster, "[npc.name]"))+" <b>" + cost + "</b> <b style='color:" + Attribute.MANA_MAXIMUM.getColor().toWebHexString() + ";'>aura</b>!</b>"
 				+ "</p>";
 	}
 
@@ -2816,7 +2816,7 @@ public enum Spell {
 			String NPCCastOnPlayer,
 			String NPCCastOnNPC) {
 		StringBuilder sb = new StringBuilder();
-		
+
 		if(caster.hasTraitActivated(Perk.CHUUNI) && chuuniDialogue!=null) {
 			sb.append(UtilText.parse(caster, target, "[npc.speech("+Util.randomItemFrom(chuuniDialogue))+")]</br>");
 		}
@@ -2839,27 +2839,27 @@ public enum Spell {
 		}
 		return sb.toString();
 	}
-	
+
 	// Rendering:
-	
+
 	private static final int ROWS = 3;
-	
+
 	private static StringBuilder treeSB = new StringBuilder();
 	private static StringBuilder spellSB = new StringBuilder();
 	private static StringBuilder lineSB = new StringBuilder();
 	private static StringBuilder entrySB = new StringBuilder();
-	
+
 	public static String getSpellTreesDisplay(SpellSchool school, GameCharacter character) {
 		treeSB.setLength(0);
 		appendSpellSchool(character, school);
 		return treeSB.toString();
 	}
-	
+
 	private static void appendSpellSchool(GameCharacter character, SpellSchool spellSchool) {
 		treeSB.append("<div class='container-full-width' style='width:100%; padding:0; margin:0;'>"
-				+ "<div class='container-full-width' style='text-align:center;'><h6 style='color:"+spellSchool.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(spellSchool.getName())+"</h6>"
-						+"<b style='color:"+spellSchool.getColour().toWebHexString()+";'>"+character.getSpellUpgradePoints(spellSchool)+"</b> <b>Upgrade Points Available</b></div>");
-		
+				+ "<div class='container-full-width' style='text-align:center;'><h6 style='color:"+spellSchool.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(spellSchool.getName())+"</h6>"
+						+"<b style='color:"+spellSchool.getColor().toWebHexString()+";'>"+character.getSpellUpgradePoints(spellSchool)+"</b> <b>Upgrade Points Available</b></div>");
+
 		for(Spell spell : Spell.getSpellsFromSchoolMap().get(spellSchool)) {
 //			System.out.println(spell.getName());
 			if(!spell.getSpellUpgradeTree().isEmpty()) {
@@ -2870,10 +2870,10 @@ public enum Spell {
 				treeSB.append("</div>");
 			}
 		}
-		
+
 		treeSB.append("</div>");
 	}
-	
+
 	private static String appendSpell(GameCharacter character, int row, Spell spell) {
 		spellSB.setLength(0);
 
@@ -2881,10 +2881,10 @@ public enum Spell {
 			if(row==-1) {
 				boolean hasSpell = character.hasSpell(spell);
 				boolean forbidden = spell.isForbiddenSpell();
-				
+
 				spellSB.append("<div class='square-button "+(forbidden || !hasSpell?" disabled":"")+"' style='width:50%; margin:8px 25%; cursor: default; "
 										+(hasSpell
-												?"border-color:"+spell.getSpellSchool().getColour().toWebHexString()+";"
+												?"border-color:"+spell.getSpellSchool().getColor().toWebHexString()+";"
 												:"")+"' id='SPELL_TREE_"+spell+"'>"
 									+ "<div class='square-button-content' style='cursor: default;'>"+spell.getSVGString()+"</div>"
 									+ (!hasSpell
@@ -2893,11 +2893,11 @@ public enum Spell {
 											:"<div style='position:absolute; left:0; top:0; margin:0; padding:0; width:100%; height:100%; background-color:#000; opacity:0.8;'></div>")
 										:"")
 								+ "</div>");
-				
+
 			} else {
 				List<TreeEntry<SpellSchool, SpellUpgrade>> upgradesList = spell.getSpellUpgradeTree().get(row);
 				int size = upgradesList.size();
-				
+
 				spellSB.append(getHorizontalLine(character, spell, row));
 				for(TreeEntry<SpellSchool, SpellUpgrade> entry : upgradesList) {
 					spellSB.append(getUpgradeEntry(character, spell, entry, size));
@@ -2906,68 +2906,68 @@ public enum Spell {
 		spellSB.append("</div>");
 		return spellSB.toString();
 	}
-	
+
 	private static String getHorizontalLine(GameCharacter character, Spell spell, int row) {
 		lineSB.setLength(0);
-		
+
 		for(TreeEntry<SpellSchool, SpellUpgrade> entry : spell.getSpellUpgradeTree().get(row)) {
 			float entryX = getX(spell, entry.getRow(), entry);
 			for(TreeEntry<SpellSchool, SpellUpgrade> siblingEntry : entry.getSiblingLinks()) {
 				float siblingX = getX(spell, siblingEntry.getRow(), siblingEntry);
 				lineSB.append("<div style='width:100%; height:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events:none;'>"
-						+ "<svg width='100%' height='100%'><line x1='"+siblingX+"%' y1='50%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineSiblingColour(character, spell, entry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
+						+ "<svg width='100%' height='100%'><line x1='"+siblingX+"%' y1='50%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineSiblingColor(character, spell, entry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
 			}
 			for(TreeEntry<SpellSchool, SpellUpgrade> parentEntry : entry.getParentLinks()) {
 				float parentX = getX(spell, parentEntry.getRow(), parentEntry);
-				String colour = getPerkLineParentColour(character, spell, entry).toWebHexString();
-						
+				String color = getPerkLineParentColor(character, spell, entry).toWebHexString();
+
 				if(Math.abs(entryX-parentX)>0.01f) {
 					lineSB.append("<div style='width:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events: none;'>"
-							+ "<svg style='padding:0; margin:0;' width='100%'><line x1='"+entryX+"%' y1='0' x2='"+parentX+"%' y2='0' stroke='"+colour+"' stroke-width='4px'/></svg></div>");
+							+ "<svg style='padding:0; margin:0;' width='100%'><line x1='"+entryX+"%' y1='0' x2='"+parentX+"%' y2='0' stroke='"+color+"' stroke-width='4px'/></svg></div>");
 				}
 			}
 		}
-		
+
 		return lineSB.toString();
 	}
-	
+
 	private static float getMargin(int size) {
 		return (100-(size*40))/(size*2f);
 	}
-	
+
 	private static float getX(Spell spell, int row, TreeEntry<SpellSchool, SpellUpgrade> entry) {
 		List<TreeEntry<SpellSchool, SpellUpgrade>> list = spell.getSpellUpgradeTree().get(row);
 		int size = list.size();
 		float marginSize = getMargin(size);
 		int column = list.indexOf(entry);
-		
+
 		return ((marginSize*(column)*2)+(column*40)+20+marginSize);
 	}
-	
+
 	private static String getUpgradeEntry(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> perkEntry, int size) {
-		
+
 		entrySB.setLength(0);
 
 		boolean forbidden = spell.isForbiddenSpell();
 		boolean hasUpgrade = character.hasSpellUpgrade(perkEntry.getEntry());
 		boolean isUpgradeAvailable = isSpellUpgradeAvailable(character, spell, perkEntry);
-		
+
 		// Append up/down lines:
 		float entryX = getX(spell, perkEntry.getRow(), perkEntry);
 		if(!perkEntry.getParentLinks().isEmpty()) {
 			entrySB.append("<div style='width:100%; height:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events:none;'>"
-					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='0%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineParentColour(character, spell, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
+					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='0%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineParentColor(character, spell, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
 		}
 		if(!perkEntry.getChildLinks().isEmpty()) {
 			entrySB.append("<div style='width:100%; height:100%; padding:0; margin:0; top:0; left:0; position:absolute; pointer-events:none;'>"
-					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='100%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineChildColour(character, spell, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
+					+ "<svg width='100%' height='100%'><line x1='"+entryX+"%' y1='100%' x2='"+entryX+"%' y2='50%' stroke='"+getPerkLineChildColor(character, spell, perkEntry).toWebHexString()+"' stroke-width='2px'/></svg></div>");
 		}
-		
+
 		entrySB.append("<div class='square-button round"+(!hasUpgrade && !isUpgradeAvailable?" disabled":"")+"' style='width:40%; margin:8px "+getMargin(size)+"%; "
 										+ (character.hasSpellUpgrade(perkEntry.getEntry())
-											?"cursor: default; border-color:"+perkEntry.getCategory().getColour().toWebHexString()+";"
+											?"cursor: default; border-color:"+perkEntry.getCategory().getColor().toWebHexString()+";"
 											:(!perkEntry.getEntry().isAvailable(character) //|| character.getSpellUpgradePoints(perkEntry.getCategory()) < perkEntry.getEntry().getPointCost()
-												?"cursor: default; border-color:"+Colour.GENERIC_BAD.toWebHexString()+";"
+												?"cursor: default; border-color:"+Color.GENERIC_BAD.toWebHexString()+";"
 												:""))
 										+"' id='SPELL_UPGRADE_"+perkEntry.getEntry()+"'>"
 							+ "<div class='square-button-content'>"+perkEntry.getEntry().getSVGString()+"</div>"
@@ -2979,10 +2979,10 @@ public enum Spell {
 									?"<div style='position:absolute; left:0; top:0; margin:0; padding:0; width:100%; height:100%; background-color:#000; opacity:0.6; border-radius:50%; cursor:pointer;'></div>"
 									:""))
 						+ "</div>");
-		
+
 		return entrySB.toString();
 	}
-	
+
 	public static boolean isSpellUpgradeAvailable(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
 		if(character.hasSpell(spell) && entry.getEntry().isAlwaysAvailable()) {
 			return true;
@@ -2999,8 +2999,8 @@ public enum Spell {
 		}
 		return false;
 	}
-	
-	private static Colour getPerkLineParentColour(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
+
+	private static Color getPerkLineParentColor(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
 		boolean parentOwned = false;
 		for(TreeEntry<SpellSchool, SpellUpgrade> parent : entry.getParentLinks()) {
 			if(character.hasSpellUpgrade(parent.getEntry())) {
@@ -3008,15 +3008,15 @@ public enum Spell {
 				break;
 			}
 		}
-		
+
 		return character.hasSpellUpgrade(entry.getEntry()) && parentOwned
-				?entry.getCategory().getColour()
+				?entry.getCategory().getColor()
 				:isSpellUpgradeAvailable(character, spell, entry)
-					?Colour.BASE_GREY
-					:Colour.TEXT_GREY_DARK;
+					?Color.BASE_GREY
+					:Color.TEXT_GREY_DARK;
 	}
-	
-	private static Colour getPerkLineChildColour(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
+
+	private static Color getPerkLineChildColor(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
 		boolean childOwned = false;
 		boolean childAvailable = false;
 		for(TreeEntry<SpellSchool, SpellUpgrade> child : entry.getChildLinks()) {
@@ -3027,15 +3027,15 @@ public enum Spell {
 				childAvailable = true;
 			}
 		}
-		
+
 		return character.hasSpellUpgrade(entry.getEntry()) && childOwned
-				?entry.getCategory().getColour()
+				?entry.getCategory().getColor()
 				:childAvailable
-					?Colour.BASE_GREY
-					:Colour.TEXT_GREY_DARK;
+					?Color.BASE_GREY
+					:Color.TEXT_GREY_DARK;
 	}
-	
-	private static Colour getPerkLineSiblingColour(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
+
+	private static Color getPerkLineSiblingColor(GameCharacter character, Spell spell, TreeEntry<SpellSchool, SpellUpgrade> entry) {
 		boolean siblingOwned = false;
 		boolean siblingAvailable = false;
 		for(TreeEntry<SpellSchool, SpellUpgrade> sibling : entry.getSiblingLinks()) {
@@ -3047,11 +3047,11 @@ public enum Spell {
 				siblingAvailable = true;
 			}
 		}
-		
+
 		return isSpellUpgradeAvailable(character, spell, entry) && siblingOwned
-				?entry.getCategory().getColour()
+				?entry.getCategory().getColor()
 				:siblingAvailable
-					?Colour.BASE_GREY
-					:Colour.TEXT_GREY_DARK;
+					?Color.BASE_GREY
+					:Color.TEXT_GREY_DARK;
 	}
 }

@@ -147,7 +147,7 @@ public class DominionAlleywayAttacker extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			
@@ -234,10 +234,10 @@ public class DominionAlleywayAttacker extends NPC {
 		} else {
 			if(this.isSlave()) {
 				return (UtilText.parse(this,
-						"[npc.NamePos] days of prowling the back alleys of Dominion and mugging innocent travellers are now over. Having run afoul of the law, [npc.sheIs] now a slave, and is no more than [npc.her] owner's property."));
+						"[npc.NamePos] days of prowling the back alleys of Dominion and mugging innocent travelers are now over. Having run afoul of the law, [npc.sheIs] now a slave, and is no more than [npc.her] owner's property."));
 			} else {
 				return (UtilText.parse(this,
-						"[npc.Name] is a resident of Dominion, who prowls the back alleys in search of innocent travellers to mug and rape."));
+						"[npc.Name] is a resident of Dominion, who prowls the back alleys in search of innocent travelers to mug and rape."));
 			}
 		}
 	}

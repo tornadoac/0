@@ -51,14 +51,14 @@
 			<effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_WEAPON" timer="0"/>
 		</effects>
 		
-		<primaryColours>
-			<colour>CLOTHING_STEEL</colour>
-		</primaryColours> 
-		<primaryColoursDye values="ALL_METAL"/>
-		<secondaryColours> 
-			<colour>CLOTHING_BLACK</colour>
-		</secondaryColours> 
-		<secondaryColoursDye values="ALL"/>
+		<primaryColors>
+			<color>CLOTHING_STEEL</color>
+		</primaryColors> 
+		<primaryColorsDye values="ALL_METAL"/>
+		<secondaryColors> 
+			<color>CLOTHING_BLACK</color>
+		</secondaryColors> 
+		<secondaryColorsDye values="ALL"/>
 		
 		<itemTags/>
 		

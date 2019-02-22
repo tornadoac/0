@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -8,19 +8,19 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum Femininity {
-	MASCULINE_STRONG(0, 19, Colour.MASCULINE_PLUS),
-	MASCULINE(20, 39, Colour.MASCULINE),
-	ANDROGYNOUS(40, 59, Colour.ANDROGYNOUS),
-	FEMININE(60, 79, Colour.FEMININE),
-	FEMININE_STRONG(80, 100, Colour.FEMININE_PLUS);
+	MASCULINE_STRONG(0, 19, Color.MASCULINE_PLUS),
+	MASCULINE(20, 39, Color.MASCULINE),
+	ANDROGYNOUS(40, 59, Color.ANDROGYNOUS),
+	FEMININE(60, 79, Color.FEMININE),
+	FEMININE_STRONG(80, 100, Color.FEMININE_PLUS);
 
 	private int minimumFemininity, maximumFemininity;
-	private Colour colour;
+	private Color color;
 
-	private Femininity(int minimumFemininity, int maximumFemininity, Colour colour) {
+	private Femininity(int minimumFemininity, int maximumFemininity, Color color) {
 		this.minimumFemininity = minimumFemininity;
 		this.maximumFemininity = maximumFemininity;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public int getMinimumFemininity() {
@@ -72,8 +72,8 @@ public enum Femininity {
 			return (withDeterminer ? "a " : "") + "very feminine";
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public boolean isFeminine() {

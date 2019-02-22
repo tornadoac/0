@@ -58,13 +58,13 @@ public class HarpyNestBimbo {
 				if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimboEncountered)) {
 					return "<p>"
 							+ "You find yourself standing on the outskirts of [bimboHarpy.namePos] nest; one of the largest and most populous of all the nests in Dominion."
-							+ " Huge, multi-level platforms extend across the roofs of several buildings, with colourful canvas awnings erected to shield the flock from the elements."
+							+ " Huge, multi-level platforms extend across the roofs of several buildings, with colorful canvas awnings erected to shield the flock from the elements."
 							+ (Main.game.isDayTime()
 									?""
 									:" A series of bright, arcane-powered lights illuminate the entire area, and from what you can see, the harpies here are just as active at night as they are during daylight hours.")
 						+ "</p>"
 						+ "<p>"
-							+ "Whereas most nests contain a variety of differently-coloured harpies, the overwhelming majority of [bimboHarpy.namePos] flock have, in an attempt to copy their matriarch, had their feathers dyed bleach-blonde."
+							+ "Whereas most nests contain a variety of differently-colored harpies, the overwhelming majority of [bimboHarpy.namePos] flock have, in an attempt to copy their matriarch, had their feathers dyed bleach-blonde."
 							+ " Looking closer, you see that their proportions are also similar to [bimboHarpy.namePos]."
 							+ " From those that you've seen in other nests, you know that the average breast size for a harpy is about a B-cup, but the ones in this particular nest seem to all be at least a D-cup or bigger."
 							+ " Their hips and asses are also far larger than the average, leading you to the obvious conclusion that this particular nest is devoted to imitating their leader."
@@ -76,13 +76,13 @@ public class HarpyNestBimbo {
 				} else {
 					return "<p>"
 							+ "You find yourself standing on the outskirts of one of the largest harpy nests in Dominion."
-							+ " Huge, multi-level platforms extend across the roofs of several buildings, with colourful canvas awnings erected to shield the flock from the elements."
+							+ " Huge, multi-level platforms extend across the roofs of several buildings, with colorful canvas awnings erected to shield the flock from the elements."
 							+ (Main.game.isDayTime()
 									?""
 									:" A series of bright, arcane-powered lights illuminate the entire area, and from what you can see, the harpies here are just as active at night as they are during daylight hours.")
 						+ "</p>"
 						+ "<p>"
-							+ "Whereas most nests contain a variety of differently-coloured harpies, the overwhelming majority of this particular flock have bleach-blonde feathers."
+							+ "Whereas most nests contain a variety of differently-colored harpies, the overwhelming majority of this particular flock have bleach-blonde feathers."
 							+ " Looking closer, you see that their proportions are rather unusual as well."
 							+ " From those that you've seen in other nests, you know that the average breast size for a harpy is about a B-cup, but the ones in this particular nest seem to all be at least a D-cup or bigger."
 							+ " Their hips and asses are also far larger than the average, leading you to the obvious conclusion that this particular nest prizes large proportions."
@@ -110,9 +110,9 @@ public class HarpyNestBimbo {
 					
 				} else {
 					if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimboEncountered)) {
-						return new Response("Approach [bimboHarpy.name]", "Walk to the centre of the nest and talk to [bimboHarpy.name].", HARPY_NEST_BIMBO_APPROACH);
+						return new Response("Approach [bimboHarpy.name]", "Walk to the center of the nest and talk to [bimboHarpy.name].", HARPY_NEST_BIMBO_APPROACH);
 					} else {
-						return new Response("Approach matriarch", "Walk to the centre of the nest and talk to the matriarch.", HARPY_NEST_BIMBO_APPROACH);
+						return new Response("Approach matriarch", "Walk to the center of the nest and talk to the matriarch.", HARPY_NEST_BIMBO_APPROACH);
 					}
 				}
 					
@@ -135,7 +135,7 @@ public class HarpyNestBimbo {
 				if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.bimboPacified)) {
 					return "<p>"
 								+ "Deciding that you should go and pay [bimboHarpy.name] another visit, you set off across the nest."
-								+ " Most of the bimbo harpies recognise you as [bimboHarpy.namePos] "+(Main.game.getPlayer().isFeminine()?"mistress":"master")+", and submissively bow their heads or drop to their knees as you pass."
+								+ " Most of the bimbo harpies recognize you as [bimboHarpy.namePos] "+(Main.game.getPlayer().isFeminine()?"mistress":"master")+", and submissively bow their heads or drop to their knees as you pass."
 								+ " Reaching the staircase that leads to the upper platform, you quickly scale the stairs, and as you reach the top, you're greeted by a familiar sight."
 							+ "</p>"
 							+ "<p>"
@@ -146,7 +146,7 @@ public class HarpyNestBimbo {
 							+ "</p>"
 							+ "<p>"
 								+ "[bimboHarpy.Name] instantly jumps up off the sunbed, and, rushing forwards, she throws herself to her knees at your [pc.feet]."
-								+ " Looking up with her big [bimboHarpy.eyeColour] eyes, she pushes out her chest and bites her lip."
+								+ " Looking up with her big [bimboHarpy.eyeColor] eyes, she pushes out her chest and bites her lip."
 							+ "</p>"
 							+ "<p>"
 								+ "[bimboHarpy.speechNoEffects(Ah! "+(Main.game.getPlayer().isFeminine()?"Mistress":"Master")+"! I've been, like, super good and stuff!)] she happily squeals."
@@ -161,14 +161,14 @@ public class HarpyNestBimbo {
 							+ "</p>"
 							+ "<p>"
 								+ "One of her feathered hands sinks down between her legs, and she leans back on her knees, presenting her panties to you as she starts rubbing at the fabric."
-								+ " Several members of her inner-circle start mimicking her behaviour, and, shuffling ever closer, [bimboHarpy.name] moans out loud,"
+								+ " Several members of her inner-circle start mimicking her behavior, and, shuffling ever closer, [bimboHarpy.name] moans out loud,"
 								+ " [bimboHarpy.speechNoEffects(Ah! Please! Fuck me!)]"
 							+ "</p>";
 					
 				} else {
 					return "<p>"
 							+ "Deciding that you should go and pay [bimboHarpy.name] another visit, you set off across the nest."
-							+ " A couple of the bimbo harpies that you pass recognise you from before, and start whispering to one another as you pass."
+							+ " A couple of the bimbo harpies that you pass recognize you from before, and start whispering to one another as you pass."
 							+ " Reaching the staircase that leads to the upper platform, you quickly scale the stairs, and as you reach the top, you're greeted by a familiar sight."
 						+ "</p>"
 						+ "<p>"
@@ -202,13 +202,13 @@ public class HarpyNestBimbo {
 						+ "[style.speechFeminine(...and he was, like, 'I'll do whatever you say!', and I was like, 'Uhh, duh!'...)]<br/>"
 					+ "</p>"
 					+ "<p>"
-						+ "Combined with their large assets and choice of feather colour, you're left with no doubt as to what's going on here."
+						+ "Combined with their large assets and choice of feather color, you're left with no doubt as to what's going on here."
 						+ " Every single one of this nest's occupants is a bimbo."
 						+ " Before you know it, you've reached the staircase that leads to the upper platform, and, taking one look back at the crowd of bimbos, you set off up the the stairs, and quickly reach the top."
 					+ "</p>"
 					+ "<p>"
 						+ "You'd already seen a picture of [bimboHarpy.name] in the enforcer's papers, but even if you hadn't, it's clearly obvious who the matriarch is."
-						+ " With large, perfectly shaped breasts, the body of a super-model, and one of the most gorgeous faces you've ever seen, [bimboHarpy.name] is the centre of attention."
+						+ " With large, perfectly shaped breasts, the body of a super-model, and one of the most gorgeous faces you've ever seen, [bimboHarpy.name] is the center of attention."
 						+ " Her inner-circle of bimbo harpies are gathered around her, vying for their leader's attention as they giggle and agree with every word she speaks."
 						+ " One harpy in particular seems to be the closest to her, and it's this particular bimbo who's the first one to notice your approach."
 					+ "</p>"
@@ -462,14 +462,14 @@ public class HarpyNestBimbo {
 					+ "</p>"
 					+ "<p>"
 						+ "[bimboHarpyCompanion.Name] stops in between the two of you, looking back and forth in confusion."
-						+ " You notice that the rest of the flock haven't come to the defence of their matriarch, and are watching, waiting to see what [bimboHarpyCompanion.name] decides to do."
+						+ " You notice that the rest of the flock haven't come to the defense of their matriarch, and are watching, waiting to see what [bimboHarpyCompanion.name] decides to do."
 					+ "</p>"
 					+"<p>"
 						+ "[pc.speechNoEffects([bimboHarpyCompanion.Name]!)] you shout. [pc.speechNoEffects(Come over here and kneel to me, like, <i>right this instant</i>!)]"
 					+ "</p>"
 					+ "<p>"
 						+ "Not quite knowing how to react, [bimboHarpy.name] watches in disbelief as her companion rushes forwards and obediently drops to her knees in front of you."
-						+ " The rest of the harpies quickly follow suit; recognising you as a more powerful and, crucially, more attractive female than their current matriarch."
+						+ " The rest of the harpies quickly follow suit; recognizing you as a more powerful and, crucially, more attractive female than their current matriarch."
 					+ "</p>"
 					+ "<p>"
 						+ "As what's just happened starts to sink in, [bimboHarpy.name] quickly runs forwards, pushing [bimboHarpyCompanion.name] out of the way and taking her place as she kneels in front of you."
@@ -635,7 +635,7 @@ public class HarpyNestBimbo {
 					public void effects() {
 						Main.game.getTextStartStringBuilder().append( "<p>"
 								+ "Obediently doing as you're told, you open your mouth and let the lollipop slide past your [pc.lips+]."
-								+ " An intense, sweet flavour hits your tongue, and you find that it's quite unlike anything you've ever tasted before."
+								+ " An intense, sweet flavor hits your tongue, and you find that it's quite unlike anything you've ever tasted before."
 								+ " Before you know what you're doing, you're wrapping your [pc.lips] around the delicious candy, letting out little whining noises as you find yourself unable to stop sucking and licking it..."
 							+ "</p>"
 							+ItemEffectType.BIMBO_LOLLIPOP.applyEffect(null, null, null, 0, Main.game.getNpc(HarpyBimbo.class), Main.game.getPlayer(), null));
@@ -746,7 +746,7 @@ public class HarpyNestBimbo {
 					public void effects() {
 						Main.game.getTextStartStringBuilder().append( "<p>"
 								+ "Obediently doing as you're told, you open your mouth and let the lollipop slide past your [pc.lips+]."
-								+ " An intense, sweet flavour hits your tongue, and you find that it's quite unlike anything you've ever tasted before."
+								+ " An intense, sweet flavor hits your tongue, and you find that it's quite unlike anything you've ever tasted before."
 								+ " Before you know what you're doing, you're wrapping your [pc.lips] around the delicious candy, letting out little whining noises as you find yourself unable to stop sucking and licking it..."
 							+ "</p>"
 							+ItemEffectType.BIMBO_LOLLIPOP.applyEffect(null, null, null, 0, Main.game.getNpc(HarpyBimbo.class), Main.game.getPlayer(), null));
@@ -783,7 +783,7 @@ public class HarpyNestBimbo {
 					+ "</p>"
 					+ "<p>"
 						+ "Seeing their matriarch submit to you, the rest of the harpies fall to their knees, bowing down to you as you issue your orders,"
-						+ " [pc.speech(You're all going to calm down, got it?! No more feuds, and no more attacking travellers through the Harpy Nests!)]"
+						+ " [pc.speech(You're all going to calm down, got it?! No more feuds, and no more attacking travelers through the Harpy Nests!)]"
 					+ "</p>"
 					+ "<p>"
 						+ "Your words seem to sink in, and are met by a chorus of eager agreements."
@@ -866,7 +866,7 @@ public class HarpyNestBimbo {
 							+ "Any protests or objections that leave your mouth are drowned out by a chorus of laughter, and as one, the group of bimbo harpies descend upon you..."
 						+ "</p>"
 						+ "<p>"
-							+ "For the next few hours, you're the centre of the harpies' attention."
+							+ "For the next few hours, you're the center of the harpies' attention."
 							+ " Applying heavy layers of makeup, dressing you up in frilly clothes, and parading you around in front of one another are amongst the least humiliating things you suffer."
 							+ " Eventually, however, [bimboHarpy.name] loses interest, and one-by-one, the rest of the harpies move onto other things."
 						+ "</p>"
@@ -927,7 +927,7 @@ public class HarpyNestBimbo {
 					+ " [harpyBimbo.speechNoEffects(That's better! Now, like, I can't have you leaving lookin' so, like, plain! Us girls need to give you a makeover!)]"
 				+ "</p>"
 				+ "<p>"
-					+ "For the next few hours, you're the centre of the harpies' attention."
+					+ "For the next few hours, you're the center of the harpies' attention."
 					+ " Applying heavy layers of makeup, dressing you up in frilly clothes, and parading you around in front of one another are amongst the least humiliating things you suffer."
 					+ " Eventually, however, [bimboHarpy.name] loses interest, and one-by-one, the rest of the harpies move onto other things."
 				+ "</p>"
@@ -973,7 +973,7 @@ public class HarpyNestBimbo {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "As you step back from [bimboHarpy.name], she sinks to the floor, letting out a desperate whine as she realises that you've finished with her."
+							+ "As you step back from [bimboHarpy.name], she sinks to the floor, letting out a desperate whine as she realizes that you've finished with her."
 							+ " Her feathered hands dart down between her legs, and she frantically starts masturbating as she seeks to finish what you started."
 							+ " The surrounding harpies, having watched the whole thing, kneel in submission as you finish with their matriarch."
 						+ "</p>";

@@ -19,7 +19,7 @@ import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.TFModifier;
 import com.lilithsthrone.game.inventory.enchanting.TFPotency;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.places.PlaceType;
 
@@ -29,7 +29,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class WeaponType {
-	
+
 	public static AbstractWeaponType MELEE_CHAOS_RARE = new AbstractWeaponType(1000,
 			true,
 			false,
@@ -39,7 +39,7 @@ public class WeaponType {
 			"opaque demonstones",
 			"Crystal Strike",
 			"A common type of demonstone, the power of which can be harnessed as a weapon."
-					+ " Demonstones are rumoured to be crystallised essences of a Lilin's orgasm.",
+					+ " Demonstones are rumored to be crystalized essences of a Lilin's orgasm.",
 			"meleeCrystal1",
 			"meleeCrystal1",
 			Rarity.RARE,
@@ -61,7 +61,7 @@ public class WeaponType {
 			null,
 			null,
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
-				
+
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(focus)] on the energy in the crystal."
@@ -84,7 +84,7 @@ public class WeaponType {
 			return UtilText.parse(target,
 					"Strike at [npc.name] in melee, using your crystal's power to inflict extra damage!");
 		}
-		
+
 		@Override
 		public List<Spell> getGenerationSpells(DamageType dt) {
 			switch(dt) {
@@ -99,12 +99,12 @@ public class WeaponType {
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
-					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+					return Util.newArrayListOfValues(Spell.POISON_VAPORS);
 			}
 			return null;
 		}
 	};
-	
+
 	public static AbstractWeaponType MELEE_CHAOS_EPIC = new AbstractWeaponType(1500,
 			true,
 			false,
@@ -114,7 +114,7 @@ public class WeaponType {
 			"misty demonstones",
 			"Crystal Strike",
 			"A powerful demonstone, the power of which can be harnessed as a weapon."
-					+ " Demonstones are rumoured to be crystallised essences of a Lilin's orgasm.",
+					+ " Demonstones are rumored to be crystalized essences of a Lilin's orgasm.",
 			"meleeCrystal2",
 			"meleeCrystal2",
 			Rarity.EPIC,
@@ -160,7 +160,7 @@ public class WeaponType {
 			return UtilText.parse(target,
 					"Strike at [npc.name] in melee, using your crystal's power to inflict extra damage!");
 		}
-		
+
 		@Override
 		public List<Spell> getGenerationSpells(DamageType dt) {
 			switch(dt) {
@@ -175,12 +175,12 @@ public class WeaponType {
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
-					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+					return Util.newArrayListOfValues(Spell.POISON_VAPORS);
 			}
 			return null;
 		}
 	};
-	
+
 	public static AbstractWeaponType MELEE_CHAOS_LEGENDARY = new AbstractWeaponType(2500,
 			true,
 			false,
@@ -190,7 +190,7 @@ public class WeaponType {
 			"clear demonstones",
 			"Crystal Strike",
 			"An extremely powerful demonstone, the power of which can be harnessed as a weapon."
-					+ " Demonstones are rumoured to be crystallised essences of a Lilin's orgasm.",
+					+ " Demonstones are rumored to be crystalized essences of a Lilin's orgasm.",
 			"meleeCrystal3",
 			"meleeCrystal3",
 			Rarity.LEGENDARY,
@@ -252,12 +252,12 @@ public class WeaponType {
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
-					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+					return Util.newArrayListOfValues(Spell.POISON_VAPORS);
 			}
 			return null;
 		}
 	};
-	
+
 	public static AbstractWeaponType MELEE_ZWEIHANDER = new AbstractWeaponType(5000,
 			true,
 			true,
@@ -287,10 +287,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_MELEE_WEAPON, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_MELEE_WEAPON, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_BLACK.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColorListPresets.JUST_BLACK.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
 			Util.newArrayListOfValues(
 					ItemTag.SOLD_BY_VICKY,
 					ItemTag.WEAPON_BLADE)) {
@@ -340,7 +340,7 @@ public class WeaponType {
 					"Strike at [npc.name] with your zweihander!");
 		}
 	};
-	
+
 	public static AbstractWeaponType MELEE_KNIGHTLY_SWORD = new AbstractWeaponType(2500,
 			true,
 			false,
@@ -368,10 +368,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_WEAPON, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.CRITICAL_CHANCE, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_BLACK.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColorListPresets.JUST_BLACK.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
 			Util.newArrayListOfValues(
 					ItemTag.SOLD_BY_VICKY,
 					ItemTag.WEAPON_BLADE)) {
@@ -421,7 +421,7 @@ public class WeaponType {
 					"Strike at [npc.name] with your "+this.getName()+"!");
 		}
 	};
-	
+
 	public static AbstractWeaponType OFFHAND_BUCKLER = new AbstractWeaponType(1000,
 			true,
 			false,
@@ -451,10 +451,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
+			ColorListPresets.JUST_STEEL.getPresetColorList(),
+			ColorListPresets.ALL_METAL.getPresetColorList(),
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
 
 		@Override
@@ -514,7 +514,7 @@ public class WeaponType {
 			"chaos feathers",
 			"Feather Bolt",
 			"A magical feather, the power of which can be harnessed as a weapon."
-					+ " Feathers like this are rumoured to have been plucked from a Lilin's wings.",
+					+ " Feathers like this are rumored to have been plucked from a Lilin's wings.",
 			"rangedFeather1",
 			"rangedFeather1",
 			Rarity.RARE,
@@ -555,7 +555,7 @@ public class WeaponType {
 			return UtilText.parse(target,
 					"Use your feather's power to shoot a bolt of energy at [npc.name]!");
 		}
-		
+
 		@Override
 		public List<Spell> getGenerationSpells(DamageType dt) {
 			switch(dt) {
@@ -570,12 +570,12 @@ public class WeaponType {
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
-					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+					return Util.newArrayListOfValues(Spell.POISON_VAPORS);
 			}
 			return null;
 		}
 	};
-	
+
 	public static AbstractWeaponType OFFHAND_CHAOS_EPIC = new AbstractWeaponType(1500,
 			false,
 			false,
@@ -585,7 +585,7 @@ public class WeaponType {
 			"chaos feathers",
 			"Feather Bolt",
 			"A well-preserved magical feather, the power of which can be harnessed as a weapon."
-					+ " Feathers like this are rumoured to have been plucked from a Lilin's wings.",
+					+ " Feathers like this are rumored to have been plucked from a Lilin's wings.",
 			"rangedFeather2",
 			"rangedFeather2",
 			Rarity.EPIC,
@@ -627,7 +627,7 @@ public class WeaponType {
 			return UtilText.parse(target,
 					"Use your feather's power to shoot a bolt of energy at [npc.name]!");
 		}
-		
+
 		@Override
 		public List<Spell> getGenerationSpells(DamageType dt) {
 			switch(dt) {
@@ -642,12 +642,12 @@ public class WeaponType {
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
-					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+					return Util.newArrayListOfValues(Spell.POISON_VAPORS);
 			}
 			return null;
 		}
 	};
-	
+
 	// I made this in one of my lunch breaks x_x
 	public static AbstractWeaponType MAIN_WESTERN_KKP = new AbstractWeaponType(25000,
 			false,
@@ -698,7 +698,7 @@ public class WeaponType {
 					"The name's [pc.surname]... [pc.name] [pc.surname].");
 		}
 	};
-	
+
 	public static AbstractWeaponType RANGED_MUSKET = new AbstractWeaponType(15000,
 			false,
 			true,
@@ -726,7 +726,7 @@ public class WeaponType {
 			null,
 			null,
 			null) {
-				
+
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(ready)] [npc.her] musket.");
@@ -736,7 +736,7 @@ public class WeaponType {
 		public String unequipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(put)] [npc.her] musket away.");
 		}
-		
+
 		@Override
 		public String getAttackDescription(GameCharacter character, GameCharacter target, boolean isHit) {
 			if(isHit) {
@@ -746,7 +746,7 @@ public class WeaponType {
 								"You point your arcane musket at [npc.name] and pull the trigger, unleashing a blast of arcane power that strikes [npc.herHim] right in the chest!",
 								"Taking aim at [npc.name] with your musket, you pull the trigger, unleashing a powerful blast of arcane energy that slams into [npc.her] torso!",
 								"You fire your musket at [npc.name], blasting forth a powerful jolt of arcane energy that strikes [npc.herHim] straight in the chest!"));
-					
+
 				} else {
 					return UtilText.parse(character,
 							UtilText.returnStringAtRandom(
@@ -754,7 +754,7 @@ public class WeaponType {
 								"Taking aim at you with [npc.her] musket, [npc.name] pulls the trigger, unleashing a powerful blast of arcane energy that slams into your torso!",
 								"[npc.Name] fires [npc.her] musket at you, blasting forth a powerful jolt of arcane energy that strikes you straight in the chest!"));
 				}
-				
+
 			} else {
 				if(character.isPlayer()) {
 					return UtilText.parse(target,
@@ -762,7 +762,7 @@ public class WeaponType {
 								"You point you arcane musket at [npc.name] and pull the trigger, but, much to your dismay, the blast of arcane power misses its target!",
 								"Taking aim at [npc.name] with your musket, you pull the trigger, but unfortunately the blast of arcane power that you unleash misses your target!",
 								"You fire your musket at [npc.name], blasting forth a powerful jolt of arcane energy that unfortunately fails to hit your target!"));
-					
+
 				} else {
 					return UtilText.parse(character,
 							UtilText.returnStringAtRandom(
@@ -779,7 +779,7 @@ public class WeaponType {
 					"Point your musket at [npc.name] and fire!");
 		}
 	};
-	
+
 	public static AbstractWeaponType MAIN_WITCH_BROOM = new AbstractWeaponType(5000,
 			true,
 			false,
@@ -813,7 +813,7 @@ public class WeaponType {
 			null,
 			null,
 			null) {
-		
+
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(ready)] [npc.her] broom.");
@@ -833,7 +833,7 @@ public class WeaponType {
 								"You whack [npc.namePos] [npc.arm] with your broom.",
 								"You swipe your broom at [npc.namePos] [npc.legs], and manage to hit [npc.herHim] in the shins.",
 								"You swing your broom at [npc.name], grinning as the end makes contact with [npc.her] torso."));
-					
+
 				} else {
 					return UtilText.parse(character,
 							UtilText.returnStringAtRandom(
@@ -841,7 +841,7 @@ public class WeaponType {
 								"[npc.Name] swipes [npc.her] broom at your [pc.legs], and manages to hit you in the shins.",
 								"[npc.Name] swings [npc.her] broom at you, grinning as the end makes contact with your torso."));
 				}
-				
+
 			} else {
 				if(character.isPlayer()) {
 					return UtilText.parse(target,
@@ -849,7 +849,7 @@ public class WeaponType {
 								"You try to whack [npc.name] with your broom, but [npc.she] manages to grab the shaft and push you away.",
 								"You attempt to swipe your broom at [npc.namePos] [npc.legs], but [npc.she] jumps back and manages to avoid the blow.",
 								"You swing your broom at [npc.name], but [npc.she] manages to duck at the last moment and avoid the blow."));
-					
+
 				} else {
 					return UtilText.parse(character,
 							UtilText.returnStringAtRandom(
@@ -866,7 +866,7 @@ public class WeaponType {
 					"Swipe the broom at [npc.name]!");
 		}
 	};
-	
+
 	public static AbstractWeaponType MAIN_FEATHER_DUSTER = new AbstractWeaponType(250,
 			true,
 			false,
@@ -892,7 +892,7 @@ public class WeaponType {
 			null,
 			null,
 			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
-		
+
 		@Override
 
 		public String getDescription() {
@@ -904,7 +904,7 @@ public class WeaponType {
 				return "A short-handled feather duster, ideal for keeping a house clean, but not much use in combat...";
 			}
 		}
-		
+
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(ready)] [npc.her] feather duster.");
@@ -924,7 +924,7 @@ public class WeaponType {
 								"You tickle [npc.namePos] [npc.arm] with your feather duster.",
 								"You swipe your feather duster at [npc.namePos] [npc.legs], and manage to tickle [npc.her] shins.",
 								"You swing your feather duster at [npc.name], grinning as you tickle [npc.her] torso."));
-					
+
 				} else {
 					return UtilText.parse(character,
 							UtilText.returnStringAtRandom(
@@ -932,7 +932,7 @@ public class WeaponType {
 								"[npc.Name] swipes [npc.her] feather duster at your [pc.legs], and manages to tickle your shins.",
 								"[npc.Name] swings [npc.her] feather duster at you, grinning as [npc.she] tickles your torso."));
 				}
-				
+
 			} else {
 				if(character.isPlayer()) {
 					return UtilText.parse(target,
@@ -940,7 +940,7 @@ public class WeaponType {
 								"You try to tickle [npc.name] with your feather duster, but [npc.she] manages to push you away.",
 								"You attempt to swipe your feather duster at [npc.namePos] [npc.legs], but [npc.she] jumps back and manages to avoid the tickling.",
 								"You swing your feather duster at [npc.name], but [npc.she] manages to duck at the last moment and avoid the tickling."));
-					
+
 				} else {
 					return UtilText.parse(character,
 							UtilText.returnStringAtRandom(
@@ -1003,15 +1003,15 @@ public class WeaponType {
 		@Override
 		public String getAttackDescription(GameCharacter character, GameCharacter target, boolean isHit) {
 			StringBuilder sb = new StringBuilder();
-			
+
 			sb.append(UtilText.returnStringAtRandom(
 							"Pulling back the arcane bow's string, an essence is drawn out of [npc.namePos] arcane aura, before [npc.she] [npc.verb(let)] loose and fires it at [npc2.name].",
 							"[npc.Name] pulls the bow's string back, grinning as an arcane essence is drawn out of [npc.her] arcane aura, before letting loose and firing the newly-formed bolt straight at [npc2.name]."));
-			
+
 			if(isHit) {
 				sb.append(UtilText.returnStringAtRandom(
 								" The ethereal arrow hits its mark, and passes right through [npc2.namePos] chest, causing [npc2.herHim] to gasp and stagger back from the blow.",
-								" The arcane arrow sails straight through the centre of [npc2.namePos] chest, causing [npc2.herHim] to let out a shocked gasp as [npc2.she] staggers back."));
+								" The arcane arrow sails straight through the center of [npc2.namePos] chest, causing [npc2.herHim] to let out a shocked gasp as [npc2.she] staggers back."));
 			} else {
 				sb.append(UtilText.returnStringAtRandom(
 								" The ethereal arrow sails harmlessly off to one side of its target, causing [npc.name] to let out a frustrated sigh.",
@@ -1026,37 +1026,37 @@ public class WeaponType {
 					"Shoot at [npc.name] with your "+this.getName()+"!");
 		}
 	};
-	
+
 	public static List<AbstractWeaponType> rareWeapons = new ArrayList<>();
 	private static List<AbstractWeaponType> allweapons = new ArrayList<>();
 	public static List<AbstractWeaponType> moddedWeapons = new ArrayList<>();
-	
+
 	public static Map<AbstractWeaponType, String> weaponToIdMap = new HashMap<>();
 	public static Map<String, AbstractWeaponType> idToWeaponMap = new HashMap<>();
-	
+
 	public static AbstractWeaponType getWeaponTypeFromId(String id) {
 //		System.out.print("ID: "+id);
 		id = Util.getClosestStringMatch(id, idToWeaponMap.keySet());
 //		System.out.println("  set to: "+id);
 		return idToWeaponMap.get(id);
 	}
-	
+
 	public static String getIdFromWeaponType(AbstractWeaponType weaponType) {
 		return weaponToIdMap.get(weaponType);
 	}
 
 	static {
-		
+
 		// Load in modded clothing:
 		moddedWeapons = new ArrayList<>();
 		File dir = new File("res/mods");
-		
+
 		if (dir.exists() && dir.isDirectory()) {
 			File[] modDirectoryListing = dir.listFiles();
 			if (modDirectoryListing != null) {
 				for (File modAuthorDirectory : modDirectoryListing) {
 					File modAuthorClothingDirectory = new File(modAuthorDirectory.getAbsolutePath()+"/items/weapons");
-					
+
 					File[] clothingDirectoriesListing = modAuthorClothingDirectory.listFiles();
 					if (clothingDirectoriesListing != null) {
 						for (File clothingDirectory : clothingDirectoriesListing) {
@@ -1082,13 +1082,13 @@ public class WeaponType {
 				}
 			}
 		}
-		
+
 		allweapons.addAll(moddedWeapons);
-		
+
 		// Add in external res clothing:
-		
+
 		dir = new File("res/weapons");
-		
+
 		if (dir.exists() && dir.isDirectory()) {
 			File[] authorDirectoriesListing = dir.listFiles();
 			if (authorDirectoriesListing != null) {
@@ -1117,28 +1117,28 @@ public class WeaponType {
 				}
 			}
 		}
-		
+
 		Field[] fields = WeaponType.class.getFields();
-		
+
 		for(Field f : fields){
-			
+
 			if (AbstractWeaponType.class.isAssignableFrom(f.getType())) {
-				
+
 				AbstractWeaponType weapon;
-				
+
 				try {
 					weapon = ((AbstractWeaponType) f.get(null));
 
 					// I feel like this is stupid :thinking:
 					weaponToIdMap.put(weapon, f.getName());
 					idToWeaponMap.put(f.getName(), weapon);
-					
+
 					allweapons.add(weapon);
-				
+
 					if (weapon.getRarity() == Rarity.RARE) {
 						rareWeapons.add(weapon);
 					}
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}

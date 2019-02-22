@@ -46,7 +46,7 @@ import com.lilithsthrone.game.sex.SexType;
 import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -83,7 +83,7 @@ public class Cultist extends NPC {
 	
 			this.setLocation(Main.game.getPlayer(), true);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_ORAL_GIVING);
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
@@ -148,43 +148,43 @@ public class Cultist extends NPC {
 
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-		List<Colour> colours = new ArrayList<>();
-		colours.add(Colour.CLOTHING_ORANGE);
-		colours.add(Colour.CLOTHING_BLACK);
-		colours.add(Colour.CLOTHING_PURPLE);
-		colours.add(Colour.CLOTHING_PURPLE_LIGHT);
-		Colour underwearColour = colours.get(Util.random.nextInt(colours.size()));
+		List<Color> colors = new ArrayList<>();
+		colors.add(Color.CLOTHING_ORANGE);
+		colors.add(Color.CLOTHING_BLACK);
+		colors.add(Color.CLOTHING_PURPLE);
+		colors.add(Color.CLOTHING_PURPLE_LIGHT);
+		Color underwearColor = colors.get(Util.random.nextInt(colors.size()));
 
-		colours.clear();
-		colours.add(Colour.CLOTHING_WHITE);
-		colours.add(Colour.CLOTHING_BLACK);
-		Colour witchColour = colours.get(Util.random.nextInt(colours.size()));
+		colors.clear();
+		colors.add(Color.CLOTHING_WHITE);
+		colors.add(Color.CLOTHING_BLACK);
+		Color witchColor = colors.get(Util.random.nextInt(colors.size()));
 		
 		List<AbstractClothingType> clothingChoices = new ArrayList<>();
 		
 		clothingChoices.add(ClothingType.GROIN_CROTCHLESS_PANTIES);
 		clothingChoices.add(ClothingType.GROIN_CROTCHLESS_THONG);
-		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), underwearColour, false), true, this);
+		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), underwearColor, false), true, this);
 		
 		clothingChoices.clear();
 		clothingChoices.add(ClothingType.CHEST_LACY_PLUNGE_BRA);
 		clothingChoices.add(ClothingType.CHEST_PLUNGE_BRA);
-		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), underwearColour, false), true, this);
+		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), underwearColor, false), true, this);
 		
 		clothingChoices.clear();
 		clothingChoices.add(ClothingType.SOCK_THIGHHIGH_SOCKS);
-		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), witchColour, false), true, this);
+		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), witchColor, false), true, this);
 
-		equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", witchColour, false), true, this);
+		equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", witchColor, false), true, this);
 		if(Math.random()<0.5) {
-			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", witchColour, Colour.CLOTHING_GOLD, witchColour, false), true, this);
+			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_hat", witchColor, Color.CLOTHING_GOLD, witchColor, false), true, this);
 		} else {
-			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", witchColour, Colour.CLOTHING_GOLD, witchColour, false), true, this);
+			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", witchColor, Color.CLOTHING_GOLD, witchColor, false), true, this);
 		}
 		if(Math.random()>0.5f) {
-			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", witchColour, false), true, this);
+			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", witchColor, false), true, this);
 		} else {
-			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", witchColour, false), true, this);
+			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", witchColor, false), true, this);
 		}
 		
 		if(addWeapons) {
@@ -192,22 +192,22 @@ public class Cultist extends NPC {
 		}
 		
 		// Makeup:
-		colours = Util.newArrayListOfValues(
-				Colour.COVERING_NONE,
-				Colour.COVERING_ORANGE,
-				Colour.COVERING_PURPLE,
-				Colour.COVERING_BLACK);
+		colors = Util.newArrayListOfValues(
+				Color.COVERING_NONE,
+				Color.COVERING_ORANGE,
+				Color.COVERING_PURPLE,
+				Color.COVERING_BLACK);
 		
-		Colour colourForCoordination = colours.get(Util.random.nextInt(colours.size()));
-		Colour colourForNails = colours.get(Util.random.nextInt(colours.size()));
+		Color colorForCoordination = colors.get(Util.random.nextInt(colors.size()));
+		Color colorForNails = colors.get(Util.random.nextInt(colors.size()));
 		
-		setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, colourForCoordination));
-		setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-		setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, colourForCoordination));
-		setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, colourForCoordination));
+		setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, colorForCoordination));
+		setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+		setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, colorForCoordination));
+		setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, colorForCoordination));
 		
-		setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, colourForNails));
-		setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, colourForNails));
+		setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, colorForNails));
+		setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, colorForNails));
 	}
 	
 	@Override
@@ -394,7 +394,7 @@ public class Cultist extends NPC {
 		return "<p>"
 				+UtilText.parse(this,
 					UtilText.returnStringAtRandom(
-							"[npc.Name] swirls her broomstick around in a mesmerising pattern, before thrusting it at you and casting a spell!",
+							"[npc.Name] swirls her broomstick around in a mesmerizing pattern, before thrusting it at you and casting a spell!",
 							"[npc.Name] places her broomstick between her legs, and, thrusting her hips forwards, she lets out an incredibly lewd moan as she casts a spell!",
 							"[npc.Name] thrusts her broomstick out into mid-air five times, before letting out a desperate moan and casting a spell!"))
 			+"</p>";
@@ -404,7 +404,7 @@ public class Cultist extends NPC {
 		return "<p>"
 				+UtilText.parse(this,
 					UtilText.returnStringAtRandom(
-							"[npc.Name] puts on a smouldering look, and as her eyes meet yours, you hear an extremely lewd moan echoing around in your head, [npc.thought(~Aaah!~ You're making me so wet!)]",
+							"[npc.Name] puts on a smoldering look, and as her eyes meet yours, you hear an extremely lewd moan echoing around in your head, [npc.thought(~Aaah!~ You're making me so wet!)]",
 							"[npc.Name] locks her big, innocent-looking eyes with yours, and as she pouts, you hear an echoing moan deep within your mind, [npc.thought(~Mmm!~ Fuck me! ~Aaa!~ My pussy's wet and ready for you!)]",
 							"[npc.Name] pouts innocently at you, before blowing you a wet kiss. As she straightens back up, you feel a ghostly pair of wet lips press against your cheek."))
 				+"</p>";
@@ -422,7 +422,7 @@ public class Cultist extends NPC {
 	// ****************** Sex & Dirty talk: ***************************
 	
 	@Override
-	public boolean getSexBehaviourDeniesRequests(SexType sexTypeRequest) {
+	public boolean getSexBehaviorDeniesRequests(SexType sexTypeRequest) {
 		return true;
 	}
 
@@ -519,7 +519,7 @@ public class Cultist extends NPC {
 //									+ " The agony between your legs is pure bliss, and you focus on the pain as you squeal and moan in a delightful haze of overwhelming ecstasy."
 //									+ "</p>":"")
 //							+"<p>"
-//								+ "Glancing down, you see a small trickle of blood flowing out of your now-broken-in pussy, and you realise that your hymen has been completely torn."
+//								+ "Glancing down, you see a small trickle of blood flowing out of your now-broken-in pussy, and you realize that your hymen has been completely torn."
 //								+ " As you let out a desperate sigh, you hear the succubus giggling at your reaction."
 //							+ "</p>"
 //							+"<p>"
@@ -570,7 +570,7 @@ public class Cultist extends NPC {
 //							+ " The discomfort between your legs is pure bliss, and you focus on the pain as you squeal and moan in a delightful haze of overwhelming ecstasy."
 //							+ "</p>":"")
 //					+"<p>"
-//						+ "Letting out a sigh as you realise that your hymen is now completely torn, you look up at the succubus, and see a wild, crazed look in her eyes."
+//						+ "Letting out a sigh as you realize that your hymen is now completely torn, you look up at the succubus, and see a wild, crazed look in her eyes."
 //						+ " Another little painful jolt shoots up between your legs as she drives her bumpy, demonic cock even deeper into your "+Main.game.getPlayer().getVaginaName(true)+"."
 //						+ " Leaning into you, she pulls you into a sloppy kiss, and with a final, violent thrust into your groin, you feel the base of her cock grind up against your outer labia."
 //					+ "</p>"
@@ -611,10 +611,10 @@ public class Cultist extends NPC {
 //		
 //		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN))
 //			StringBuilderSB.append("<p style='text-align:center;'>"
-//					+ "<b style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
+//					+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
 //				+ "</p>"
 //				+ "<p>"
-//					+ "As the succubus carries on pounding away between your legs, the sudden realisation of what's just happened hits you like a sledgehammer."
+//					+ "As the succubus carries on pounding away between your legs, the sudden realization of what's just happened hits you like a sledgehammer."
 //				+ "</p>"
 //				+ "<p style='text-align:center;'>"
 //					+ UtilText.parsePlayerThought("I-I've lost my virginity?!<br/>"
@@ -632,7 +632,7 @@ public class Cultist extends NPC {
 //				+ "<p>"
 //				+ "You're vaguely aware of the succubus's taunts fading away as she starts to focus her concentration on fucking you."
 //				+ " With a desperate moan, you start bucking your hips back against her, resigning yourself to the fact that now you're nothing more than a"
-//				+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColour().toWebHexString()+";'>broken virgin</b>..."
+//				+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 //				+ "</p>");
 //		
 //		return UtilText.parse(Sex.getPartner(),

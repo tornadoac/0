@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 public class BodyCoveringSkinToneColorHelper {
@@ -20,60 +20,60 @@ public class BodyCoveringSkinToneColorHelper {
 					BodyCoveringType.MAKEUP_NAIL_POLISH_FEET,
 					BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS);
 			
-	private static class FilteredColours {
-		private List<Colour> primary;
-		private List<Colour> secondary;
+	private static class FilteredColors {
+		private List<Color> primary;
+		private List<Color> secondary;
 		
-		public FilteredColours(List<Colour> primary, List<Colour> secondary) {
+		public FilteredColors(List<Color> primary, List<Color> secondary) {
 			this.primary = primary;
 			this.secondary = secondary;
 		}
 
-		public List<Colour> getPrimary() {
+		public List<Color> getPrimary() {
 			return primary;
 		}
 
-		public List<Colour> getSecondary() {
+		public List<Color> getSecondary() {
 			return secondary;
 		}
 		
 	}
 	
-	private static Map<StartingSkinTone, Map<BodyCoveringType, FilteredColours>> filteredColours = new EnumMap<>(StartingSkinTone.class);
+	private static Map<StartingSkinTone, Map<BodyCoveringType, FilteredColors>> filteredColors = new EnumMap<>(StartingSkinTone.class);
 	
 	private BodyCoveringSkinToneColorHelper() {
 		//singleton via statics
 	}
 	
-	public static List<Colour> getAcceptableColoursForPrimary(StartingSkinTone tone, BodyCoveringType bct) {
-		return getOrCreateFilteredColoursForCombination(tone, bct).getPrimary();
+	public static List<Color> getAcceptableColorsForPrimary(StartingSkinTone tone, BodyCoveringType bct) {
+		return getOrCreateFilteredColorsForCombination(tone, bct).getPrimary();
 	}
 	
-	public static List<Colour> getAcceptableColoursForSecondary(StartingSkinTone tone, BodyCoveringType bct) {
-		return getOrCreateFilteredColoursForCombination(tone, bct).getSecondary();
+	public static List<Color> getAcceptableColorsForSecondary(StartingSkinTone tone, BodyCoveringType bct) {
+		return getOrCreateFilteredColorsForCombination(tone, bct).getSecondary();
 	}
 	
-	private static FilteredColours getOrCreateFilteredColoursForCombination(StartingSkinTone tone, BodyCoveringType bct) {
+	private static FilteredColors getOrCreateFilteredColorsForCombination(StartingSkinTone tone, BodyCoveringType bct) {
 		if (NOT_FOR_THESE_BCTS.contains(bct)) {
-			return new FilteredColours(new ArrayList<>(), new ArrayList<>());
+			return new FilteredColors(new ArrayList<>(), new ArrayList<>());
 		}
-		return filteredColours.computeIfAbsent(tone, ignored -> new EnumMap<>(BodyCoveringType.class)).computeIfAbsent(bct, ignored -> {
-			Set<Colour> colourApplicationListPrimary = new HashSet<>();
+		return filteredColors.computeIfAbsent(tone, ignored -> new EnumMap<>(BodyCoveringType.class)).computeIfAbsent(bct, ignored -> {
+			Set<Color> colorApplicationListPrimary = new HashSet<>();
 
-			colourApplicationListPrimary.addAll(bct.getNaturalColoursPrimary());
-			colourApplicationListPrimary.retainAll(tone.getAssociatedColours());
-			if(colourApplicationListPrimary.isEmpty()) {
-				colourApplicationListPrimary.addAll(bct.getNaturalColoursPrimary());
+			colorApplicationListPrimary.addAll(bct.getNaturalColorsPrimary());
+			colorApplicationListPrimary.retainAll(tone.getAssociatedColors());
+			if(colorApplicationListPrimary.isEmpty()) {
+				colorApplicationListPrimary.addAll(bct.getNaturalColorsPrimary());
 			}
 			
-			Set<Colour> colourApplicationListSecondary = new HashSet<>();
+			Set<Color> colorApplicationListSecondary = new HashSet<>();
 
-			colourApplicationListSecondary.addAll(bct.getNaturalColoursSecondary());
-			colourApplicationListSecondary.retainAll(tone.getAssociatedColours());
-			if(colourApplicationListSecondary.isEmpty()) {
-				colourApplicationListSecondary.addAll(bct.getNaturalColoursSecondary());
+			colorApplicationListSecondary.addAll(bct.getNaturalColorsSecondary());
+			colorApplicationListSecondary.retainAll(tone.getAssociatedColors());
+			if(colorApplicationListSecondary.isEmpty()) {
+				colorApplicationListSecondary.addAll(bct.getNaturalColorsSecondary());
 			}
-			return new FilteredColours(new ArrayList<>(colourApplicationListPrimary), new ArrayList<>(colourApplicationListSecondary));
+			return new FilteredColors(new ArrayList<>(colorApplicationListPrimary), new ArrayList<>(colorApplicationListSecondary));
 		});
 	}
 }

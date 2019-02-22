@@ -77,9 +77,9 @@ public class Eye implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.eyes] of [pc.a_eyeRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.eyes] of [pc.a_eyeRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.eyes] of [npc.a_eyeRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.eyes] of [npc.a_eyeRace], so nothing happens...)]</p>");
 			}
 		}
 		
@@ -321,7 +321,7 @@ public class Eye implements BodyPartInterface {
 		eyePairs = Math.max(1, Math.min(eyePairs, MAXIMUM_PAIRS));
 		
 		if(owner.getEyePairs() == eyePairs) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		boolean removingExtraEyes = owner.getEyePairs() > eyePairs;
@@ -367,7 +367,7 @@ public class Eye implements BodyPartInterface {
 
 	public String setIrisShape(GameCharacter owner, EyeShape irisShape) {
 		if(owner.getIrisShape() == irisShape) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 
 		this.irisShape = irisShape;
@@ -393,7 +393,7 @@ public class Eye implements BodyPartInterface {
 
 	public String setPupilShape(GameCharacter owner, EyeShape pupilShape) {
 		if(owner.getPupilShape() == pupilShape) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 
 		this.pupilShape = pupilShape;
@@ -417,7 +417,7 @@ public class Eye implements BodyPartInterface {
 		if(owner.getCovering(owner.getEyeCovering()).equals(covering)
 				|| owner.getCovering(BodyCoveringType.EYE_PUPILS).equals(covering)
 				|| owner.getCovering(BodyCoveringType.EYE_SCLERA).equals(covering)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		UtilText.transformationContentSB.setLength(0);
@@ -427,45 +427,45 @@ public class Eye implements BodyPartInterface {
 		if (owner.isPlayer()) {
 			UtilText.transformationContentSB.append(
 					"<p>"
-						+ "Your vision goes blurry for a moment as your [pc.eyes] shift and change colour.<br/>"
+						+ "Your vision goes blurry for a moment as your [pc.eyes] shift and change color.<br/>"
 						+ "You now have ");
 			
 			if(covering.getPattern() == CoveringPattern.EYE_IRISES_HETEROCHROMATIC) {
-				UtilText.transformationContentSB.append("heterochromatic [pc.irisPrimaryColour(true)]-and-[pc.irisSecondaryColour(true)] [pc.irisShape] irises, ");
+				UtilText.transformationContentSB.append("heterochromatic [pc.irisPrimaryColor(true)]-and-[pc.irisSecondaryColor(true)] [pc.irisShape] irises, ");
 			} else {
-				UtilText.transformationContentSB.append("[pc.irisPrimaryColour(true)] [pc.irisShape] irises ");
+				UtilText.transformationContentSB.append("[pc.irisPrimaryColor(true)] [pc.irisShape] irises ");
 			}
 			if(covering.getPattern() == CoveringPattern.EYE_PUPILS_HETEROCHROMATIC) {
-				UtilText.transformationContentSB.append("with heterochromatic [pc.pupilPrimaryColour(true)]-and-[pc.pupilSecondaryColour(true)] [pc.pupilShape] pupils ");
+				UtilText.transformationContentSB.append("with heterochromatic [pc.pupilPrimaryColor(true)]-and-[pc.pupilSecondaryColor(true)] [pc.pupilShape] pupils ");
 			} else {
-				UtilText.transformationContentSB.append("with [pc.pupilPrimaryColour(true)] [pc.pupilShape] pupils ");
+				UtilText.transformationContentSB.append("with [pc.pupilPrimaryColor(true)] [pc.pupilShape] pupils ");
 			}
 			if(covering.getPattern() == CoveringPattern.EYE_SCLERA_HETEROCHROMATIC) {
-				UtilText.transformationContentSB.append("and heterochromatic [pc.scleraPrimaryColour(true)]-and-[pc.scleraSecondaryColour(true)] sclerae.</p>");
+				UtilText.transformationContentSB.append("and heterochromatic [pc.scleraPrimaryColor(true)]-and-[pc.scleraSecondaryColor(true)] sclerae.</p>");
 			} else {
-				UtilText.transformationContentSB.append("and [pc.scleraPrimaryColour(true)] sclerae.</p>");
+				UtilText.transformationContentSB.append("and [pc.scleraPrimaryColor(true)] sclerae.</p>");
 			}
 			
 		} else {
 			UtilText.transformationContentSB.append(
 					"<p>"
-						+ "[npc.Name] blinks a few times as [npc.her] [npc.eyes] shift and change colour.<br/>"
+						+ "[npc.Name] blinks a few times as [npc.her] [npc.eyes] shift and change color.<br/>"
 						+ "[npc.She] now has ");
 		
 			if(covering.getPattern() == CoveringPattern.EYE_IRISES_HETEROCHROMATIC) {
-				UtilText.transformationContentSB.append("heterochromatic [npc.irisPrimaryColour(true)]-and-[npc.irisSecondaryColour(true)] [npc.irisShape] irises, ");
+				UtilText.transformationContentSB.append("heterochromatic [npc.irisPrimaryColor(true)]-and-[npc.irisSecondaryColor(true)] [npc.irisShape] irises, ");
 			} else {
-				UtilText.transformationContentSB.append("[npc.irisPrimaryColour(true)] [npc.irisShape] irises ");
+				UtilText.transformationContentSB.append("[npc.irisPrimaryColor(true)] [npc.irisShape] irises ");
 			}
 			if(covering.getPattern() == CoveringPattern.EYE_PUPILS_HETEROCHROMATIC) {
-				UtilText.transformationContentSB.append("with heterochromatic [npc.pupilPrimaryColour(true)]-and-[npc.pupilSecondaryColour(true)] [npc.pupilShape] pupils ");
+				UtilText.transformationContentSB.append("with heterochromatic [npc.pupilPrimaryColor(true)]-and-[npc.pupilSecondaryColor(true)] [npc.pupilShape] pupils ");
 			} else {
-				UtilText.transformationContentSB.append("with [npc.pupilPrimaryColour(true)] [npc.pupilShape] pupils ");
+				UtilText.transformationContentSB.append("with [npc.pupilPrimaryColor(true)] [npc.pupilShape] pupils ");
 			}
 			if(covering.getPattern() == CoveringPattern.EYE_SCLERA_HETEROCHROMATIC) {
-				UtilText.transformationContentSB.append("and heterochromatic [npc.scleraPrimaryColour(true)]-and-[npc.scleraSecondaryColour(true)] sclerae.</p>");
+				UtilText.transformationContentSB.append("and heterochromatic [npc.scleraPrimaryColor(true)]-and-[npc.scleraSecondaryColor(true)] sclerae.</p>");
 			} else {
-				UtilText.transformationContentSB.append("and [npc.scleraPrimaryColour(true)] sclerae.</p>");
+				UtilText.transformationContentSB.append("and [npc.scleraPrimaryColor(true)] sclerae.</p>");
 			}
 		}
 		

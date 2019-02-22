@@ -52,7 +52,7 @@ public enum Occupation {
 
 	NPC_SLIME_QUEEN_GUARD(Perk.JOB_MISC, "slime queen's guard", "-", OccupationTag.HAS_PREREQUISITES),
 
-	NPC_LILIN(Perk.JOB_MISC, "lilin", "-", OccupationTag.HAS_PREREQUISITES),
+	NPC_LILIN(Perk.JOB_MISC, "Lilin", "-", OccupationTag.HAS_PREREQUISITES),
 
 	// NPC histories:
 

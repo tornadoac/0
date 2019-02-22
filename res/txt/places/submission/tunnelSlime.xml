@@ -5,7 +5,7 @@
 	<p>
 		As you travel down the gloomy, twisting tunnels of Submission, the sounds of dripping water and slowly creaking pipes echo off the stone walls to either side of you.
 		 Due to this continuous background noise, the quiet splashing of a slime's footsteps as [npc.she] sneaks up on you are all but completely concealed.
-		 It isn't until the slime is within ten metres that you suddenly become aware of [npc.herHis] presence, and you quickly spin around to find yourself looking at [npc.a_fullRace(true)]!
+		 It isn't until the slime is within ten meters that you suddenly become aware of [npc.herHis] presence, and you quickly spin around to find yourself looking at [npc.a_fullRace(true)]!
 	</p>
 	]]>
 	</htmlContent>
@@ -13,14 +13,14 @@
 	<htmlContent tag="ATTACK_TRANSFORMER_PLAYER_SLIME"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
-		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Mmm! You're lookin' good!)]
 	</p>
 	<p>
-		[npc.Name] suddenly stops, before placing [npc.her] hands on [npc.her] [npc.hips+]. Despite [npc.her] suspicious behaviour, it doesn't look like [npc.she] wants to attack you, and as [npc.she] speaks once more, this is revealed to be the case. [npc.speech(Don't worry, I'm not looking for a fight or anything! I'm just out here on the Queen's orders. Gotta transform as many travellers as I can into slimes and all that!)]
+		[npc.Name] suddenly stops, before placing [npc.her] hands on [npc.her] [npc.hips+]. Despite [npc.her] suspicious behavior, it doesn't look like [npc.she] wants to attack you, and as [npc.she] speaks once more, this is revealed to be the case. [npc.speech(Don't worry, I'm not looking for a fight or anything! I'm just out here on the Queen's orders. Gotta transform as many travelers as I can into slimes and all that!)]
 	</p>
 	<p>
-		You let out a sigh, allowing yourself to relax a little as you realise that you aren't going to be forced into a fight.
+		You let out a sigh, allowing yourself to relax a little as you realize that you aren't going to be forced into a fight.
 	</p>
 	]]>
 	</htmlContent>
@@ -52,7 +52,7 @@
 	<htmlContent tag="ATTACK_TRANSFORMER_SLIME_QUEEN"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
-		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Mmm! You're gonna make a great slime, I can tell already!)]
 	</p>
 	<p>
@@ -84,7 +84,7 @@
 	<htmlContent tag="ATTACK_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
-		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Mmm! You're gonna make a great slime, I can tell already!)]
 	</p>
 	<p>
@@ -101,7 +101,7 @@
 	<htmlContent tag="ATTACK"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
-		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Mmm! Yeah, you look like you've got some cash!)]
 	</p>
 	<p>
@@ -184,14 +184,14 @@
 	<htmlContent tag="ATTACK_REPEAT_TRANSFORMER_PLAYER_SLIME"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
-		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Fancy seeing you here again!)]
 	</p>
 	<p>
-		[npc.Name] suddenly stops, before placing [npc.her] hands on [npc.her] [npc.hips+]. Despite [npc.her] suspicious behaviour, it doesn't look like [npc.she] wants to attack you, and as [npc.she] speaks once more, this is revealed to be the case. [npc.speech(Don't worry, I'm still not looking for a fight or anything! I'm just out here on the Queen's orders. Gotta transform as many travellers as I can into slimes and all that!)]
+		[npc.Name] suddenly stops, before placing [npc.her] hands on [npc.her] [npc.hips+]. Despite [npc.her] suspicious behavior, it doesn't look like [npc.she] wants to attack you, and as [npc.she] speaks once more, this is revealed to be the case. [npc.speech(Don't worry, I'm still not looking for a fight or anything! I'm just out here on the Queen's orders. Gotta transform as many travelers as I can into slimes and all that!)]
 	</p>
 	<p>
-		You let out a sigh, allowing yourself to relax a little as you realise that you aren't going to be forced into a fight.
+		You let out a sigh, allowing yourself to relax a little as you realize that you aren't going to be forced into a fight.
 	</p>
 	]]>
 	</htmlContent>
@@ -199,7 +199,7 @@
 	<htmlContent tag="ATTACK_REPEAT_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
-		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.She] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Fancy seeing you here again!)]
 	</p>
 	<p>
@@ -221,7 +221,7 @@
 		#ELSE
 			[npc.speech(Haha! It's you again!)]
 		#ENDIF
-		 The familiar [npc.race] laughs, continuing to advance on you. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 The familiar [npc.race] laughs, continuing to advance on you. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(So, you gonna hand over your cash, or what?)]
 	</p>
 	<p>
@@ -234,11 +234,11 @@
 	<htmlContent tag="ATTACK_PREGNANCY_REVEAL_TRANSFORMER_PLAYER_SLIME"><![CDATA[
 	<p>
 		[npc.speech(Haha! It's you again! Look here, you've gone and got me knocked up!)]
-		 The familiar [npc.race] laughs, rubbing the noticeably swollen bump in [npc.her] belly. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
-		 [npc.speech(Don't worry, I'm still not looking for a fight or anything! I'm just out here on the Queen's orders. Gotta transform as many travellers as I can into slimes and all that!)]
+		 The familiar [npc.race] laughs, rubbing the noticeably swollen bump in [npc.her] belly. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 [npc.speech(Don't worry, I'm still not looking for a fight or anything! I'm just out here on the Queen's orders. Gotta transform as many travelers as I can into slimes and all that!)]
 	</p>
 	<p>
-		You let out a sigh, allowing yourself to relax a little as you realise that you aren't going to be forced into a fight.
+		You let out a sigh, allowing yourself to relax a little as you realize that you aren't going to be forced into a fight.
 	</p>
 	]]>
 	</htmlContent>
@@ -246,7 +246,7 @@
 	<htmlContent tag="ATTACK_PREGNANCY_REVEAL_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Haha! It's you again! Look here, you've gone and got me knocked up!)]
-		 The familiar [npc.race] laughs, rubbing the noticeably swollen bump in [npc.her] belly. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 The familiar [npc.race] laughs, rubbing the noticeably swollen bump in [npc.her] belly. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(Just like last time, I'm not interested in your money, or anything you have to say! I'm just here to carry out the Queen's orders! That being, to turn you into a cute little slime! Now, we can do this the easy way, or the hard way!)]
 	</p>
 	<p>
@@ -258,7 +258,7 @@
 	<htmlContent tag="ATTACK_PREGNANCY_REVEAL"><![CDATA[
 	<p>
 		[npc.speech(Haha! It's you again! Look here, you've gone and got me knocked up!)]
-		 The familiar [npc.race] laughs, rubbing the noticeably swollen bump in [npc.her] belly. [npc.Her] [npc.skinColour] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
+		 The familiar [npc.race] laughs, rubbing the noticeably swollen bump in [npc.her] belly. [npc.Her] [npc.skinColor] body shakes and ripples a little from [npc.her] joyous outburst, and [npc.she] bites [npc.her] lip as [npc.she] eyes you up and down.
 		 [npc.speech(So, you gonna take responsibility, or what? Come on, I need the extra cash for our kid's clothes and stuff, so hand it over!)]
 	</p>
 	<p>
@@ -329,12 +329,12 @@
 		 [npc.Name] cries, letting go of your [pc.arm] in order to unscrew the top of the glass canister. Before you can have any second thoughts, [npc.she] suddenly reaches up and grabs your chin, before squeezing your cheeks in order to get you to open your mouth. Not wanting to resist, you do as [npc.name] expects, and obediently part your [pc.lips+]. Instantly, [npc.name] brings the canister to your [pc.face+], and, tilting it up, forces the glowing pink liquid into your mouth.
 	</p>
 	<p>
-		The sweet, sickly flavour of the thick pink liquid immediately overwhelms your senses, and, ignoring the instinct to spit it out, you start frantically gulping down the slimy goo. [npc.Name] grins in delight as [npc.she] forces you to drink the entire canister, before tossing the now-empty glass container to smash against a nearby wall.
+		The sweet, sickly flavor of the thick pink liquid immediately overwhelms your senses, and, ignoring the instinct to spit it out, you start frantically gulping down the slimy goo. [npc.Name] grins in delight as [npc.she] forces you to drink the entire canister, before tossing the now-empty glass container to smash against a nearby wall.
 	</p>
 	<p>
 		[npc.speech(Oh, yes! I never getting tired of seeing what's next! Please do try to enjoy this. I know I will!)]
 		 [npc.Name] laughs, stepping back and staring at you with a wicked smirk on [npc.her] face.
-		 As [npc.she] prepares to watch you transform, you see [npc.herHim] slip a hand down between [npc.her] [npc.legs], and you let out a startled cry as you realise that [npc.she]'s going to masturbate to the sight of you turning into a slime...
+		 As [npc.she] prepares to watch you transform, you see [npc.herHim] slip a hand down between [npc.her] [npc.legs], and you let out a startled cry as you realize that [npc.she]'s going to masturbate to the sight of you turning into a slime...
 	</p>
 	]]>
 	</htmlContent>
@@ -373,7 +373,7 @@
 
 	<htmlContent tag="RESIST_TRANSFORMED_RAPE"><![CDATA[
 	<p>
-		You can't help but smirk as you realise that you've ruined [npc.name]'s plans. Seeing the smile on your face makes [npc.herHim] even angrier, and a manic, evil snarl flashes across [npc.her] face as [npc.she] leans down on top of you. [npc.speech(Let's see if you're still smiling after I'm done with you, hmm?! I'm going to fuck you so hard, the entire of Submission's gonna hear your screams!)]
+		You can't help but smirk as you realize that you've ruined [npc.name]'s plans. Seeing the smile on your face makes [npc.herHim] even angrier, and a manic, evil snarl flashes across [npc.her] face as [npc.she] leans down on top of you. [npc.speech(Let's see if you're still smiling after I'm done with you, hmm?! I'm going to fuck you so hard, the entire of Submission's gonna hear your screams!)]
 	</p>
 	<p>
 		With that, [npc.name] suddenly presses [npc.her] [npc.lips] down against yours, thrusting [npc.her] [npc.tongue] into your mouth as [npc.she] forces [npc.herself] on you...

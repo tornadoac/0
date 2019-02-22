@@ -550,7 +550,7 @@ public class LyssiethReveal {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
-				return new Response("Impossible", "Ask Lyssieth how you're meant to fight an elder lilin and her army of demonic centaurs.", LAB_ENDING_SIREN_HELP);
+				return new Response("Impossible", "Ask Lyssieth how you're meant to fight an elder Lilin and her army of demonic centaurs.", LAB_ENDING_SIREN_HELP);
 			}
 			return null;
 		}
@@ -807,8 +807,8 @@ public class LyssiethReveal {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_3_A_FINDING_THE_YOUKO));
 						Main.game.getTextEndStringBuilder().append(
 								"<div class='container-full-width' style='text-align:center;'>"
-										+ "[style.colourExcellent(You have unlocked the world map!)]<br/>"
-										+ "<i>It can be viewed either through your phone's map menu, or by travelling to one of Dominion's exit tiles and accessing the 'World travel' menu.</i>"
+										+ "[style.colorExcellent(You have unlocked the world map!)]<br/>"
+										+ "<i>It can be viewed either through your phone's map menu, or by traveling to one of Dominion's exit tiles and accessing the 'World travel' menu.</i>"
 								+ "</div>");
 					}
 				};

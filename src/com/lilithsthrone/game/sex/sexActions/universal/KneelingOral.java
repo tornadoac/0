@@ -204,7 +204,7 @@ public class KneelingOral {
 				
 				switch (Sex.getCharacterPerformingAction().getPenisOrgasmCumQuantity()) {
 					case ZERO_NONE:
-						UtilText.nodeContentSB.append(", [npc.she] [npc.verb(realise)] that [npc.sheIs] not able to produce even one drop of cum.");
+						UtilText.nodeContentSB.append(", [npc.she] [npc.verb(realize)] that [npc.sheIs] not able to produce even one drop of cum.");
 						break;
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(", a small trickle of [npc.cum+] squirts out onto the floor above [npc2.namePos] head.");
@@ -298,7 +298,7 @@ public class KneelingOral {
 			UtilText.nodeContentSB.append(" [npc.Her] [npc.balls+] tense up, and as [npc.she] let out [npc.a_moan+]");
 			switch (Sex.getCharacterPerformingAction().getPenisOrgasmCumQuantity()) {
 				case ZERO_NONE:
-					UtilText.nodeContentSB.append(", [npc.she] [npc.verb(realise)] that [npc.sheIs] not able to produce even one drop of cum.");
+					UtilText.nodeContentSB.append(", [npc.she] [npc.verb(realize)] that [npc.sheIs] not able to produce even one drop of cum.");
 					break;
 				case ONE_TRICKLE:
 					UtilText.nodeContentSB.append(", [npc.she] [npc.verb(feel)] a small trickle of [npc.cum+] squirting down [npc2.namePos] throat into [npc2.her] stomach.");

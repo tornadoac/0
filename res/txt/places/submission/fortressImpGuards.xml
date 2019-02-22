@@ -185,7 +185,7 @@
 		[npc.speech(In that case, please stand aside, [pc.master]. I'll be no more than thirty seconds.)]
 	</p>
 	<p>
-		As the two of you hold this conversation, you notice that the imp guards are getting more and more visibly terrified. As your elemental steps forwards, they let out a synchronised scream, and, stumbling over their own feet, they rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We'd make terrible slaves, honest! Y-You can come an' go as yer please, j-just don't hurt us!)]
+		As the two of you hold this conversation, you notice that the imp guards are getting more and more visibly terrified. As your elemental steps forwards, they let out a synchronized scream, and, stumbling over their own feet, they rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We'd make terrible slaves, honest! Y-You can come an' go as yer please, j-just don't hurt us!)]
 	</p>
 	<p>
 		[pc.speech(Hmm, I suppose I am feeling merciful today,)] you state, before turning towards [npc.name]. [pc.speech(Come along, these ones aren't worth your time.)]
@@ -201,14 +201,14 @@
 		Thinking that these imps look particularly cowardly, you think that simply summoning your elemental would be enough to intimidate them. Grinning down at the leader, you declare, [pc.speech(You really think you stand a chance against me?! Perhaps if you can defeat my elemental, you'll have earned the right to challenge me!)]
 	</p>
 	<p>
-		The colour instantly drains from [npc2.namePos] cheeks, and [npc2.she] hisses to [npc2.her] superior, [npc2.speech('Ey! A-An elemental?! Ain't that one o' those arcane thingies?! W-We can't fight that!)]
+		The color instantly drains from [npc2.namePos] cheeks, and [npc2.she] hisses to [npc2.her] superior, [npc2.speech('Ey! A-An elemental?! Ain't that one o' those arcane thingies?! W-We can't fight that!)]
 	</p>
 	]]>
 	</htmlContent>
 	
 	<htmlContent tag="ENTRANCE_ELEMENTAL_SUMMON_END"><![CDATA[
 	<p>
-		As your elemental steps forwards, the two imps let out a synchronised scream, and, stumbling over their own feet, rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We don't want no trouble with one o' those arcane thingies! J-Just, please don't hurt us!)]
+		As your elemental steps forwards, the two imps let out a synchronized scream, and, stumbling over their own feet, rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We don't want no trouble with one o' those arcane thingies! J-Just, please don't hurt us!)]
 	</p>
 	<p>
 		[pc.speech(Hmm, I suppose I am feeling merciful today,)] you state, before turning towards [npc.name]. [pc.speech(Come along, these ones aren't worth your time.)]
@@ -255,7 +255,7 @@
 		[npc.speech(N-No! W-Wait, we were just doin' as we were told!)] the leader stutters, stumbling backwards and lowering [npc.her] weapon. [npc.speech(T-There's no need fer ya ta be doin' that...)]
 	</p>
 	<p>
-		[npc2.Her] spirit instantly broken, [npc2.name] joins [npc2.her] superior in apologising as [npc2.she] hurriedly stands aside, [npc2.speech(That's right! W-We'd never normally be so rude! I-It's just that our boss told us ta say all that stuff!)]
+		[npc2.Her] spirit instantly broken, [npc2.name] joins [npc2.her] superior in apologizing as [npc2.she] hurriedly stands aside, [npc2.speech(That's right! W-We'd never normally be so rude! I-It's just that our boss told us ta say all that stuff!)]
 	</p>
 	<p>
 		[pc.speech(Move!)] you command, glaring down at the leader.

@@ -142,7 +142,7 @@ public class ZaranixHomeGroundFloorRepeat {
 				};
 
 			} else if (index == 2) {
-				return new Response("Apologise", "Do as Amber says and get down on your knees to apologise to her.", OUTSIDE_APOLOGY,
+				return new Response("Apologize", "Do as Amber says and get down on your knees to apologize to her.", OUTSIDE_APOLOGY,
 						Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), CorruptionLevel.THREE_DIRTY, null, null, null) {
 					@Override
 					public void effects() {
@@ -181,12 +181,12 @@ public class ZaranixHomeGroundFloorRepeat {
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			
-			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "KNOCK_ON_DOOR_APOLOGISE"));
+			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "KNOCK_ON_DOOR_APOLOGIZE"));
 
 			if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
-				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "KNOCK_ON_DOOR_APOLOGISE_MOUTH_FREE"));
+				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "KNOCK_ON_DOOR_APOLOGIZE_MOUTH_FREE"));
 			} else {
-				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "KNOCK_ON_DOOR_APOLOGISE_MOUTH_BLOCKED"));
+				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "KNOCK_ON_DOOR_APOLOGIZE_MOUTH_BLOCKED"));
 			}
 			
 			return UtilText.nodeContentSB.toString();
@@ -202,7 +202,7 @@ public class ZaranixHomeGroundFloorRepeat {
 							Main.game.getTextEndStringBuilder().append(Main.game.getNpc(Amber.class).incrementAffection(Main.game.getPlayer(), -2.5f));
 							Main.game.getNpc(Amber.class).returnToHome();
 							Main.game.getPlayer().setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_ENTRANCE, false);
-							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "ENTRY_APOLOGISE"));
+							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloorRepeat", "ENTRY_APOLOGIZE"));
 						}
 					};
 					

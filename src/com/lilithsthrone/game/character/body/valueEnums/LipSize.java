@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.83
@@ -9,20 +9,20 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum LipSize {
 
-	ZERO_THIN(0, "thin", Colour.GENERIC_SIZE_ONE),
-	ONE_AVERAGE(1, "average-sized", Colour.GENERIC_SIZE_TWO),
-	TWO_FULL(2, "full", Colour.GENERIC_SIZE_THREE),
-	THREE_PLUMP(3, "plump", Colour.GENERIC_SIZE_FOUR),
-	FOUR_HUGE(4, "huge", Colour.GENERIC_SIZE_FIVE);
+	ZERO_THIN(0, "thin", Color.GENERIC_SIZE_ONE),
+	ONE_AVERAGE(1, "average-sized", Color.GENERIC_SIZE_TWO),
+	TWO_FULL(2, "full", Color.GENERIC_SIZE_THREE),
+	THREE_PLUMP(3, "plump", Color.GENERIC_SIZE_FOUR),
+	FOUR_HUGE(4, "huge", Color.GENERIC_SIZE_FIVE);
 	
 	private int value;
 	private String descriptor;
-	private Colour colour;
+	private Color color;
 
-	private LipSize(int value, String descriptor, Colour colour) {
+	private LipSize(int value, String descriptor, Color color) {
 		this.value = value;
 		this.descriptor = descriptor;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public int getValue() {
@@ -50,7 +50,7 @@ public enum LipSize {
 		return largest;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

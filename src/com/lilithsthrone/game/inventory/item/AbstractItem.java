@@ -16,7 +16,7 @@ import com.lilithsthrone.game.inventory.enchanting.AbstractItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.EnchantingUtils;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.XMLSaving;
 
@@ -31,7 +31,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 	protected List<ItemEffect> itemEffects;
 
 	public AbstractItem(AbstractItemType itemType) {
-		super(itemType.getName(false), itemType.getNamePlural(false), itemType.getSVGString(), itemType.getColourPrimary(), itemType.getRarity(), null, itemType.getItemTags());
+		super(itemType.getName(false), itemType.getNamePlural(false), itemType.getSVGString(), itemType.getColorPrimary(), itemType.getRarity(), null, itemType.getItemTags());
 
 		this.itemType = itemType;
 		this.itemEffects = itemType.getEffects();
@@ -62,7 +62,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 
 		CharacterUtils.addAttribute(doc, element, "id", this.getItemType().getId());
 		CharacterUtils.addAttribute(doc, element, "name", this.getName());
-		CharacterUtils.addAttribute(doc, element, "colour", this.getColour().toString());
+		CharacterUtils.addAttribute(doc, element, "color", this.getColor().toString());
 		
 		Element innerElement = doc.createElement("itemEffects");
 		element.appendChild(innerElement);
@@ -94,7 +94,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 			item.setItemEffects(effectsToBeAdded);
 			
 			if(!effectsToBeAdded.isEmpty() && (item.getItemType().getId().equals(ItemType.ELIXIR.getId()) || item.getItemType().getId().equals(ItemType.POTION.getId()))) {
-				item.setSVGString(EnchantingUtils.getImportedSVGString(item, (parentElement.getAttribute("colour").isEmpty()?Colour.GENERIC_ARCANE:Colour.valueOf(parentElement.getAttribute("colour"))), effectsToBeAdded));
+				item.setSVGString(EnchantingUtils.getImportedSVGString(item, (parentElement.getAttribute("color").isEmpty()?Color.GENERIC_ARCANE:Color.valueOf(parentElement.getAttribute("color"))), effectsToBeAdded));
 			}
 			
 			return item;
@@ -151,17 +151,17 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 	
 	// Getters & setters:
 	
-	public String getName(boolean withDeterminer, boolean withRarityColour) {
+	public String getName(boolean withDeterminer, boolean withRarityColor) {
 		return (withDeterminer
 				? (!itemType.getDeterminer().equalsIgnoreCase("a") && !itemType.getDeterminer().equalsIgnoreCase("an")
 					? itemType.getDeterminer() + " "
 					: (Util.isVowel(name.charAt(0)) ? "an " : "a "))
 				: " ")
-				+ (withRarityColour ? (" <span style='color: " + rarity.getColour().toWebHexString() + ";'>" + name + "</span>") : " "+name);
+				+ (withRarityColor ? (" <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + name + "</span>") : " "+name);
 	}
 	
-	public String getDisplayName(boolean withRarityColour) {
-		return Util.capitaliseSentence((itemType.getDeterminer()==""?"":itemType.getDeterminer()+" ") + (withRarityColour ? ("<span style='color: " + rarity.getColour().toWebHexString() + ";'>" + name + "</span>") : name));
+	public String getDisplayName(boolean withRarityColor) {
+		return Util.capitalizeSentence((itemType.getDeterminer()==""?"":itemType.getDeterminer()+" ") + (withRarityColor ? ("<span style='color: " + rarity.getColor().toWebHexString() + ";'>" + name + "</span>") : name));
 	}
 
 	@Override

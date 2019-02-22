@@ -23,7 +23,7 @@ import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -201,7 +201,7 @@ public class RoomPlayer {
 					}
 					
 					Main.game.getTextEndStringBuilder().append("<p>"
-								+ "<b style='color:"+ Colour.GENERIC_GOOD.toWebHexString()+ ";'>Your clothes have been cleaned, and you feel refreshed!</b>"
+								+ "<b style='color:"+ Color.GENERIC_GOOD.toWebHexString()+ ";'>Your clothes have been cleaned, and you feel refreshed!</b>"
 							+ "</p>");
 				}
 			};
@@ -210,7 +210,7 @@ public class RoomPlayer {
 			if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.knowsDate)) {
 				return new Response("Calendar", "Take another look at the enchanted calendar that's pinned up on one wall.", AUNT_HOME_PLAYERS_ROOM_CALENDAR);
 			} else {
-				return new Response("<span style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>Calendar</span>", "There's a calendar pinned up on one wall. Take a closer look at it.", AUNT_HOME_PLAYERS_ROOM_CALENDAR);
+				return new Response("<span style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>Calendar</span>", "There's a calendar pinned up on one wall. Take a closer look at it.", AUNT_HOME_PLAYERS_ROOM_CALENDAR);
 			}
 			
 		} else if(index == 5) {
@@ -247,7 +247,7 @@ public class RoomPlayer {
 	}
 	
 	private static String formatWashingArea(boolean isFullyCleaned, String input) {
-		return "<p style='color:"+(isFullyCleaned?Colour.GENERIC_GOOD.toWebHexString():Colour.CUM.toWebHexString())+";'><i>"
+		return "<p style='color:"+(isFullyCleaned?Color.GENERIC_GOOD.toWebHexString():Color.CUM.toWebHexString())+";'><i>"
 					+ input
 				+ "</i></p>";
 	}
@@ -297,7 +297,7 @@ public class RoomPlayer {
 						+ " You open the curtains and gather your things, ready to set out once more."
 					+ "</p>"
 					+ "<p>"
-						+ "<b style='color:"+ Colour.GENERIC_GOOD.toWebHexString()+ ";'>You feel completely refreshed!</b>"
+						+ "<b style='color:"+ Color.GENERIC_GOOD.toWebHexString()+ ";'>You feel completely refreshed!</b>"
 					+ "</p>";
 		}
 
@@ -334,7 +334,7 @@ public class RoomPlayer {
 						+ " You open the curtains and gather your things, ready to set out once more."
 					+ "</p>"
 					+ "<p>"
-					+ "<b style='color:"+ Colour.GENERIC_GOOD.toWebHexString()+ ";'>You feel completely refreshed!</b>"
+					+ "<b style='color:"+ Color.GENERIC_GOOD.toWebHexString()+ ";'>You feel completely refreshed!</b>"
 					+ "</p>";
 		}
 
@@ -361,7 +361,7 @@ public class RoomPlayer {
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			UtilText.nodeContentSB.append("<p>"
-						+ "You step into the en-suite, marvelling at its extravagant design. Leaving your dirty clothes on the other side of the door, you take a long, relaxing shower."
+						+ "You step into the en suite, marveling at its extravagant design. Leaving your dirty clothes on the other side of the door, you take a long, relaxing shower."
 					+ "</p>");
 			
 			return UtilText.nodeContentSB.toString();
@@ -396,7 +396,7 @@ public class RoomPlayer {
 			}
 			
 			if(Main.game.getPlayer().getCorruptionLevel()==CorruptionLevel.ZERO_PURE) {
-				UtilText.nodeContentSB.append(" The more you flick back and forth through the calendar, the more scantily-dressed the subject of each picture becomes, until you suddenly realise what you're doing and step back, shocked.");
+				UtilText.nodeContentSB.append(" The more you flick back and forth through the calendar, the more scantily-dressed the subject of each picture becomes, until you suddenly realize what you're doing and step back, shocked.");
 			} else {
 				UtilText.nodeContentSB.append(" The more you flick back and forth through the calendar, the more scantily-dressed the subject of each picture becomes, and you find yourself getting a little turned on...");
 			}
@@ -411,7 +411,7 @@ public class RoomPlayer {
 						+ " Shaking your head, you flip back through the calendar to find out what the current date is,");
 			}
 			
-			UtilText.nodeContentSB.append(" and see that it's the <b style='color:"+Colour.BASE_BLUE_LIGHT.toWebHexString()+";'>"
+			UtilText.nodeContentSB.append(" and see that it's the <b style='color:"+Color.BASE_BLUE_LIGHT.toWebHexString()+";'>"
 						+ Main.game.getDateNow().format(DateTimeFormatter.ofPattern("d", Locale.ENGLISH))
 						+ Util.getDayOfMonthSuffix(Main.game.getDateNow().getDayOfMonth())
 						+ " "
@@ -419,7 +419,7 @@ public class RoomPlayer {
 						+ ", "
 						+ Main.game.getDateNow().format(DateTimeFormatter.ofPattern("yyyy", Locale.ENGLISH))
 					+"</b>. From a quick calculation "+(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_ARCANE)<IntelligenceLevel.ONE_AVERAGE.getMaximumValue()?"(with some help from your phone's calculator)":"")
-					+ ", you figure out that it's been <b style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>"+Main.game.getDayNumber()+" day"+(Main.game.getDayNumber()>1?"s":"")+"</b> since you appeared in this world."
+					+ ", you figure out that it's been <b style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>"+Main.game.getDayNumber()+" day"+(Main.game.getDayNumber()>1?"s":"")+"</b> since you appeared in this world."
 					+ "</p>");
 			
 			if(!Main.game.getDialogueFlags().values.contains(DialogueFlagValue.knowsDate)) {
@@ -478,13 +478,13 @@ public class RoomPlayer {
 
 			UtilText.nodeContentSB.append(
 					"<h4 style='text-align:center;'>"
-							+ "<span style='color:"+Colour.BASE_ORANGE.toWebHexString()+";'>October</span>"
+							+ "<span style='color:"+Color.BASE_ORANGE.toWebHexString()+";'>October</span>"
 							+ "<br/>"
-							+ "<span style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Lilith's Month</span>"
+							+ "<span style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Lilith's Month</span>"
 					+ "</h4>"
 					+ "<p><i>"
 						+ "October was chosen by Lilith herself to be the month in which all of Dominion shows their devotion towards their glorious queen!"
-						+ " Banners and ribbons, typically in Lilith's traditional colours of orange, purple, and black, are proudly flown from every building, in order to show our queen just how devoted her subjects are!"
+						+ " Banners and ribbons, typically in Lilith's traditional colors of orange, purple, and black, are proudly flown from every building, in order to show our queen just how devoted her subjects are!"
 						+ " While all citizens are expected to celebrate Lilith's rule, the most devout of her followers dress up in traditional demonic costumes in order to prove their loyalty."
 					+ "</p>"
 					+ "<p>"
@@ -537,9 +537,9 @@ public class RoomPlayer {
 
 			UtilText.nodeContentSB.append(
 					"<h4 style='text-align:center;'>"
-							+ "<span style='color:"+Colour.BASE_RED.toWebHexString()+";'>December</span>"
+							+ "<span style='color:"+Color.BASE_RED.toWebHexString()+";'>December</span>"
 							+ "<br/>"
-							+ "<span style='color:"+Colour.BASE_GOLD.toWebHexString()+";'>Yuletide</span>"
+							+ "<span style='color:"+Color.BASE_GOLD.toWebHexString()+";'>Yuletide</span>"
 					+ "</h4>"
 					+ "<i>"
 					+ "<p>"

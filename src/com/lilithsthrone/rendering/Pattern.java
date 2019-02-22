@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 
 /**
@@ -23,12 +23,12 @@ public class Pattern {
 	
 	private String name;
 	
-	private boolean primaryRecolourAvailable;
-	private boolean secondaryRecolourAvailable;
-	private boolean tertiaryRecolourAvailable;
+	private boolean primaryRecolorAvailable;
+	private boolean secondaryRecolorAvailable;
+	private boolean tertiaryRecolorAvailable;
 	
 	private String baseSVGString;
-	private Map<Colour, Map<Colour, Map<Colour, String>>> SVGStringMap;
+	private Map<Color, Map<Color, Map<Color, String>>> SVGStringMap;
 	
 	static {
 		allPatterns = new TreeMap<>();
@@ -81,21 +81,21 @@ public class Pattern {
 				e.printStackTrace();
 			}
 			
-			primaryRecolourAvailable = 
+			primaryRecolorAvailable = 
 					baseSVGString.contains("#f4d7d7")
 					|| baseSVGString.contains("#e9afaf")
 					|| baseSVGString.contains("#de8787")
 					|| baseSVGString.contains("#d35f5f")
 					|| baseSVGString.contains("#c83737");
 			
-			secondaryRecolourAvailable = 
+			secondaryRecolorAvailable = 
 					baseSVGString.contains("#f4e3d7")
 					|| baseSVGString.contains("#e9c6af")
 					|| baseSVGString.contains("#deaa87")
 					|| baseSVGString.contains("#d38d5f")
 					|| baseSVGString.contains("#c87137");
 			
-			tertiaryRecolourAvailable = 
+			tertiaryRecolorAvailable = 
 					baseSVGString.contains("#f4eed7")
 					|| baseSVGString.contains("#e9ddaf")
 					|| baseSVGString.contains("#decd87")
@@ -134,39 +134,39 @@ public class Pattern {
 		return this.name.replace('_', ' ');
 	}
 	
-	public boolean isPrimaryRecolourAvailable() {
-		return primaryRecolourAvailable;
+	public boolean isPrimaryRecolorAvailable() {
+		return primaryRecolorAvailable;
 	}
 
-	public boolean isSecondaryRecolourAvailable() {
-		return secondaryRecolourAvailable;
+	public boolean isSecondaryRecolorAvailable() {
+		return secondaryRecolorAvailable;
 	}
 
-	public boolean isTertiaryRecolourAvailable() {
-		return tertiaryRecolourAvailable;
+	public boolean isTertiaryRecolorAvailable() {
+		return tertiaryRecolorAvailable;
 	}
 
-	public String getSVGString(Colour colour, Colour colourSecondary, Colour colourTertiary) {
-		if(!SVGStringMap.containsKey(colour) || !SVGStringMap.get(colour).containsKey(colourSecondary) || !SVGStringMap.get(colour).get(colourSecondary).containsKey(colourTertiary)) {
-			generateSVGImage(colour, colourSecondary, colourTertiary);
+	public String getSVGString(Color color, Color colorSecondary, Color colorTertiary) {
+		if(!SVGStringMap.containsKey(color) || !SVGStringMap.get(color).containsKey(colorSecondary) || !SVGStringMap.get(color).get(colorSecondary).containsKey(colorTertiary)) {
+			generateSVGImage(color, colorSecondary, colorTertiary);
 		}
-		return SVGStringMap.get(colour).get(colourSecondary).get(colourTertiary);
+		return SVGStringMap.get(color).get(colorSecondary).get(colorTertiary);
 	}
 	
-	private void generateSVGImage(Colour colour, Colour colourSecondary, Colour colourTertiary) {
-		addSVGStringMapping(colour, colourSecondary, colourTertiary, SvgUtil.colourReplacementPattern(this.getName(), colour, colourSecondary, colourTertiary, baseSVGString));
+	private void generateSVGImage(Color color, Color colorSecondary, Color colorTertiary) {
+		addSVGStringMapping(color, colorSecondary, colorTertiary, SvgUtil.colorReplacementPattern(this.getName(), color, colorSecondary, colorTertiary, baseSVGString));
 	}
 	
-	private void addSVGStringMapping(Colour colour, Colour colourSecondary, Colour colourTertiary, String s) {
-		if(SVGStringMap.get(colour)==null) {
-			SVGStringMap.put(colour, new HashMap<>());
-			SVGStringMap.get(colour).put(colourSecondary, new HashMap<>());
+	private void addSVGStringMapping(Color color, Color colorSecondary, Color colorTertiary, String s) {
+		if(SVGStringMap.get(color)==null) {
+			SVGStringMap.put(color, new HashMap<>());
+			SVGStringMap.get(color).put(colorSecondary, new HashMap<>());
 			
-		} else if(SVGStringMap.get(colour).get(colourSecondary)==null) {
-			SVGStringMap.get(colour).put(colourSecondary, new HashMap<>());
+		} else if(SVGStringMap.get(color).get(colorSecondary)==null) {
+			SVGStringMap.get(color).put(colorSecondary, new HashMap<>());
 		}
 		
-		SVGStringMap.get(colour).get(colourSecondary).put(colourTertiary, s);
+		SVGStringMap.get(color).get(colorSecondary).put(colorTertiary, s);
 	}
 }
 

@@ -299,7 +299,7 @@ public class SABraxSubCowgirl {
 				
 				UtilText.nodeContentSB.append(" You feel a big dollop of slimy cum drip out of your "+Main.game.getPlayer().getVaginaName(true)+", and you let out a giggle as you smush the slimy creampie down onto Brax's wolf-like muzzle."
 						+ " You hold the squirming wolf-boy's head still as you press your cum-filled cunt down over his mouth, giving him no choice but to start cleaning you out."
-						+ " After a moment, Brax stops squirming as he realises that it's useless to resist, and you let out a contented sigh as he starts licking out the cum from your creampied "+Main.game.getPlayer().getVaginaName(false)+".");
+						+ " After a moment, Brax stops squirming as he realizes that it's useless to resist, and you let out a contented sigh as he starts licking out the cum from your creampied "+Main.game.getPlayer().getVaginaName(false)+".");
 				
 				return UtilText.nodeContentSB.toString();
 						
@@ -391,7 +391,7 @@ public class SABraxSubCowgirl {
 				
 				UtilText.nodeContentSB.append(" You feel a big dollop of slimy cum drip out of your [pc.asshole+], and you let out a giggle as you smush the slimy creampie down onto Brax's wolf-like muzzle."
 						+ " You hold the squirming wolf-boy's head still as you press your cum-filled asshole down over his mouth, giving him no choice but to start cleaning you out."
-						+ " After a moment, Brax stops squirming as he realises that it's useless to resist, and you let out a contented sigh as he starts licking out the cum from your creampied [pc.asshole].");
+						+ " After a moment, Brax stops squirming as he realizes that it's useless to resist, and you let out a contented sigh as he starts licking out the cum from your creampied [pc.asshole].");
 				
 				return UtilText.nodeContentSB.toString();
 						
@@ -1063,7 +1063,7 @@ public class SABraxSubCowgirl {
 					+ "Making sure to save a little for yourself, you break off the kiss, rapidly closing your hand around Brax's muzzle to prevent him from wasting his precious jizz."
 					+ " Not being able to resist any longer, you make a show of swallowing the small amount of delicious cum that you kept in your mouth, before telling Brax to do the same."
 					+ "<br/><br/>"
-					+ "You hold Brax's muzzle closed until you see him reluctantly mimicking your behaviour, and, as you let go, he obediently opens his mouth to show you that he's swallowed it all."
+					+ "You hold Brax's muzzle closed until you see him reluctantly mimicking your behavior, and, as you let go, he obediently opens his mouth to show you that he's swallowed it all."
 					+ " Delighted with the wolf-boy's performance, you lean down and share a passionate, cummy kiss with him.";
 		}
 
@@ -1743,9 +1743,9 @@ public class SABraxSubCowgirl {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if (Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE))
-				UtilText.nodeContentSB.append("As you feel Brax's tongue lapping away at your [pc.asshole+], you realise that you're starting to climax, and with a desperate moan, you brace for your orgasm. ");
+				UtilText.nodeContentSB.append("As you feel Brax's tongue lapping away at your [pc.asshole+], you realize that you're starting to climax, and with a desperate moan, you brace for your orgasm. ");
 			else
-				UtilText.nodeContentSB.append("As you feel Brax's tongue lapping away at your "+Main.game.getPlayer().getVaginaName(true)+", you realise that you're starting to climax, and with a desperate moan, you brace for your orgasm. ");
+				UtilText.nodeContentSB.append("As you feel Brax's tongue lapping away at your "+Main.game.getPlayer().getVaginaName(true)+", you realize that you're starting to climax, and with a desperate moan, you brace for your orgasm. ");
 
 			// Penis:
 			if (Main.game.getPlayer().hasPenis()) {
@@ -2000,7 +2000,7 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			if (!Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).isEmpty()) {
-				return "Brax's groans start getting louder, and you realise that he's about to orgasm."
+				return "Brax's groans start getting louder, and you realize that he's about to orgasm."
 						+ " Feeling the fat cock in your ass throbbing wildly, you're suddenly overcome by the desperate need to have your ass filled with his sticky seed."
 						+ " Lifting yourself up one last time, you slam yourself down on his swollen member, driving the fat knot at the base of his cock into your asshole."
 						+ " You let out a startled cry as you feel the knot immediately swell up, locking Brax's twitching dog-cock deep in your ass."
@@ -2009,7 +2009,7 @@ public class SABraxSubCowgirl {
 						+ " After a few moments, you feel the knot deflating, and with a wet pop, it slips out, freeing you up again.";
 				
 			} else if (!Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).isEmpty()) {
-				return "Brax's groans start getting louder, and you realise that he's about to orgasm."
+				return "Brax's groans start getting louder, and you realize that he's about to orgasm."
 						+ " Feeling the fat cock in your pussy throbbing wildly, you're suddenly overcome by the desperate need to "+(Main.game.getPlayer().isVisiblyPregnant()?"be":"have your womb")+" filled with his sticky seed."
 						+ " Lifting yourself up one last time, you slam yourself down on his swollen member, driving the fat knot at the base of his cock into your greedy cunt."
 						+ " You let out a startled cry as you feel the knot immediately swell up, locking Brax's twitching dog-cock deep in your wet slit."
@@ -2018,7 +2018,7 @@ public class SABraxSubCowgirl {
 						+ " After a few moments, you feel the knot deflating, and with a wet pop, it slips out, freeing you up again.";
 				
 			} else {
-				return "Brax's groans start getting louder, and you realise that he's about to orgasm."
+				return "Brax's groans start getting louder, and you realize that he's about to orgasm."
 						+ " Looking back at his [npc.penis+], you're suddenly overcome by the desperate need to start stroking it."
 						+ " Shuffling back, so that you're sitting on his thighs, you reach down and grab his massive shaft in both hands."
 						+ " Sliding your grip up and down the entire length, you press down on the fat knot at the base before lifting up to rub the tapered tip."

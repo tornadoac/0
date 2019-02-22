@@ -37,7 +37,7 @@ import com.lilithsthrone.game.character.body.valueEnums.CupSize;
 import com.lilithsthrone.game.character.body.valueEnums.EyeShape;
 import com.lilithsthrone.game.character.body.valueEnums.Femininity;
 import com.lilithsthrone.game.character.body.valueEnums.FluidExpulsion;
-import com.lilithsthrone.game.character.body.valueEnums.FluidFlavour;
+import com.lilithsthrone.game.character.body.valueEnums.FluidFlavor;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.character.body.valueEnums.FluidRegeneration;
 import com.lilithsthrone.game.character.body.valueEnums.GenitalArrangement;
@@ -67,7 +67,7 @@ import com.lilithsthrone.game.dialogue.eventLog.EventLogEntryBookAddedToLibrary;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 
@@ -77,19 +77,19 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public abstract class AbstractItemEffectType {
-	
+
 	private List<String> effectsDescriptions;
-	private Colour colour;
-	
-	public AbstractItemEffectType(List<String> effectsDescriptions, Colour colour) {
+	private Color color;
+
+	public AbstractItemEffectType(List<String> effectsDescriptions, Color color) {
 		this.effectsDescriptions = effectsDescriptions;
-		this.colour = colour;
+		this.color = color;
 	}
-	
-	public Colour getColour() {
-		return colour;
+
+	public Color getColor() {
+		return color;
 	}
-	
+
 	public String getPotionDescriptor() {
 		return "";
 	}
@@ -97,31 +97,31 @@ public abstract class AbstractItemEffectType {
 	public List<TFModifier> getPrimaryModifiers() {
 		return new ArrayList<>();
 	}
-	
+
 	public List<TFModifier> getSecondaryModifiers(TFModifier primaryModifier) {
 		return new ArrayList<>();
 	}
-	
+
 	public List<TFPotency> getPotencyModifiers(TFModifier primaryModifier, TFModifier secondaryModifier) {
 		return new ArrayList<>();
 	}
-	
+
 	public int getLimits(TFModifier primaryModifier, TFModifier secondaryModifier) {
 		return 0;
 	}
-	
+
 	public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
 		return effectsDescriptions;
 	}
-	
+
 	public abstract String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer);
-	
+
 	public static String getBookEffect(Subspecies subspecies, boolean withDescription) {
 		Main.getProperties().addRaceDiscovered(subspecies);
 		if(Main.getProperties().addAdvancedRaceKnowledge(subspecies) && ItemType.getLoreBook(subspecies)!=null) {
 			Main.game.addEvent(new EventLogEntryBookAddedToLibrary(ItemType.getLoreBook(subspecies)), true);
 		}
-		
+
 		if(Main.game.getPlayer().addRaceDiscoveredFromBook(subspecies)) {
 			return (withDescription
 						?subspecies.getBasicDescription(null)
@@ -129,17 +129,17 @@ public abstract class AbstractItemEffectType {
 						:"")
 					+Main.game.getPlayer().incrementAttribute(subspecies.getDamageMultiplier(), 5f)
 					+Main.game.getPlayer().incrementAttribute(subspecies.getResistanceMultiplier(), 5f);
-			
+
 		} else {
 			return subspecies.getBasicDescription(null)
 					+subspecies.getAdvancedDescription(null)
-					+"<p style='text-align:center; color:"+Colour.TEXT_GREY.toWebHexString()+";'>"
+					+"<p style='text-align:center; color:"+Color.TEXT_GREY.toWebHexString()+";'>"
 						+ "Nothing further can be gained from re-reading this book..."
 					+ "</p>";
 		}
-		
+
 	}
-	
+
 	protected static List<TFModifier> getClothingTFSecondaryModifiers(TFModifier primaryModifier) {
 		switch(primaryModifier) {
 			case TF_ASS:
@@ -208,7 +208,7 @@ public abstract class AbstractItemEffectType {
 					penisMods.add(TFModifier.TF_MOD_ORIFICE_TENTACLED);
 				}
 				return penisMods;
-				
+
 			case TF_VAGINA:
 				List<TFModifier> mods = Util.newArrayListOfValues(
 						TFModifier.TF_MOD_SIZE,// clit size
@@ -238,7 +238,7 @@ public abstract class AbstractItemEffectType {
 		}
 		return new ArrayList<>();
 	}
-	
+
 	protected static int getClothingTFLimits(TFModifier primaryModifier, TFModifier secondaryModifier) {
 
 		switch(secondaryModifier) {
@@ -247,13 +247,13 @@ public abstract class AbstractItemEffectType {
 			case TF_MOD_ELASTICITY:
 				return OrificeElasticity.SEVEN_ELASTIC.getValue();
 			case TF_MOD_PLASTICITY:
-				return OrificePlasticity.SEVEN_MOULDABLE.getValue();
+				return OrificePlasticity.SEVEN_MOLDABLE.getValue();
 			case TF_MOD_CAPACITY_2:
 				return Capacity.SEVEN_GAPING.getMaximumValue();
 			case TF_MOD_ELASTICITY_2:
 				return OrificeElasticity.SEVEN_ELASTIC.getValue();
 			case TF_MOD_PLASTICITY_2:
-				return OrificePlasticity.SEVEN_MOULDABLE.getValue();
+				return OrificePlasticity.SEVEN_MOLDABLE.getValue();
 			case TF_MOD_WETNESS:
 				if(primaryModifier!=TFModifier.TF_PENIS
 					&& primaryModifier!=TFModifier.TF_BREASTS
@@ -269,7 +269,7 @@ public abstract class AbstractItemEffectType {
 			default:
 				break;
 		}
-		
+
 		switch(primaryModifier) {
 			case TF_ASS:
 				switch(secondaryModifier) {
@@ -288,7 +288,7 @@ public abstract class AbstractItemEffectType {
 					case TF_MOD_SIZE_SECONDARY:
 						return NippleSize.FOUR_MASSIVE.getValue();
 					case TF_MOD_SIZE_TERTIARY:
-						return  AreolaeSize.FOUR_MASSIVE.getValue();
+						return AreolaeSize.FOUR_MASSIVE.getValue();
 					case TF_MOD_WETNESS:
 						return Lactation.SEVEN_MONSTROUS_AMOUNT_POURING.getMaximumValue();
 					case TF_MOD_REGENERATION:
@@ -358,10 +358,10 @@ public abstract class AbstractItemEffectType {
 		}
 		return 0;
 	}
-	
+
 	protected static List<String> getClothingTFDescriptions(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
 		List<String> descriptions = new ArrayList<>();
-		
+
 		String orificeName = "";
 
 		if(primaryModifier==TFModifier.TF_PENIS) {
@@ -375,7 +375,7 @@ public abstract class AbstractItemEffectType {
 		} else if(primaryModifier==TFModifier.TF_ASS) {
 			orificeName = "anus";
 		}
-		
+
 		switch(secondaryModifier) {
 			case TF_MOD_CAPACITY:
 				descriptions.add(getClothingTFChangeDescriptionEntry(potency, orificeName+" capacity", limit+" inches"));
@@ -405,7 +405,7 @@ public abstract class AbstractItemEffectType {
 			default:
 				break;
 		}
-		
+
 		switch(primaryModifier) {
 			case TF_ASS:
 				switch(secondaryModifier) {
@@ -416,7 +416,7 @@ public abstract class AbstractItemEffectType {
 						descriptions.add(getClothingTFChangeDescriptionEntry(potency, "hip size", HipSize.getHipSizeFromInt(limit).getDescriptor()));
 						break;
 					case TF_MOD_ORIFICE_PUFFY:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "anus puffy", "anal puffyness"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "anus puffy", "anal puffiness"));
 						break;
 					case TF_MOD_ORIFICE_RIBBED:
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "anus ribbed",  "anal ribbing"));
@@ -449,10 +449,10 @@ public abstract class AbstractItemEffectType {
 						descriptions.add(getClothingTFChangeDescriptionEntry(potency, "milk regeneration", String.valueOf(limit)));
 						break;
 					case TF_MOD_ORIFICE_PUFFY:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "nipples puffy", "nipple puffyness"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "nipples puffy", "nipple puffiness"));
 						break;
 					case TF_MOD_ORIFICE_RIBBED:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "nipples internally ribbed",  "nipple ribbing"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "nipples internally ribbed", "nipple ribbing"));
 						break;
 					case TF_MOD_ORIFICE_MUSCLED:
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "nipples internally muscled", "internal nipple muscles"));
@@ -494,7 +494,7 @@ public abstract class AbstractItemEffectType {
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "lips puffy", "puffy lips"));
 						break;
 					case TF_MOD_ORIFICE_RIBBED:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "throat internally ribbed",  "throat ribbing"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "throat internally ribbed", "throat ribbing"));
 						break;
 					case TF_MOD_ORIFICE_MUSCLED:
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "throat internally muscled", "extra throat muscles"));
@@ -536,7 +536,7 @@ public abstract class AbstractItemEffectType {
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra puffy", "puffy urethra"));
 						break;
 					case TF_MOD_ORIFICE_RIBBED:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra internally ribbed",  "urethral ribbing"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra internally ribbed", "urethral ribbing"));
 						break;
 					case TF_MOD_ORIFICE_MUSCLED:
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra internally muscled", "urethral muscles"));
@@ -560,7 +560,7 @@ public abstract class AbstractItemEffectType {
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "vagina puffy", "puffy vagina"));
 						break;
 					case TF_MOD_ORIFICE_RIBBED:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "vagina internally ribbed",  "vaginal ribbing"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "vagina internally ribbed", "vaginal ribbing"));
 						break;
 					case TF_MOD_ORIFICE_MUSCLED:
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "vagina internally muscled", "extra vaginal muscles"));
@@ -572,7 +572,7 @@ public abstract class AbstractItemEffectType {
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra puffy", "puffy urethra"));
 						break;
 					case TF_MOD_ORIFICE_RIBBED_2:
-						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra internally ribbed",  "urethral ribbing"));
+						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra internally ribbed", "urethral ribbing"));
 						break;
 					case TF_MOD_ORIFICE_MUSCLED_2:
 						descriptions.add(getClothingOrificeTFChangeDescriptionEntry(potency, "urethra internally muscled", "urethral muscles"));
@@ -587,10 +587,10 @@ public abstract class AbstractItemEffectType {
 			default:
 				break;
 		}
-		
+
 		return descriptions;
 	}
-	
+
 	private static String getClothingOrificeTFChangeDescriptionEntry(TFPotency potency, String changeAdd, String changeRemove) {
 		switch(potency) {
 			case MINOR_BOOST:
@@ -608,7 +608,7 @@ public abstract class AbstractItemEffectType {
 		}
 		return "";
 	}
-	
+
 	private static String getClothingTFChangeDescriptionEntry(TFPotency potency, String subject, String limit) {
 		switch(potency) {
 			case MINOR_BOOST:
@@ -626,7 +626,7 @@ public abstract class AbstractItemEffectType {
 		}
 		return "";
 	}
-	
+
 	protected static String applyClothingTF(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 		int capacityIncrement = (potency.isNegative()?-2:2);
 		int elasticityIncrement = (potency.isNegative()?-1:1);
@@ -641,7 +641,7 @@ public abstract class AbstractItemEffectType {
 		int lactationIncrement = (potency.isNegative()?-50:50);
 
 		int fluidRegenerationIncrement = (potency.isNegative()?-1:1);
-		
+
 		int heightIncrement = (potency.isNegative()?-1:1);
 		int muscleIncrement = (potency.isNegative()?-1:1);
 		int bodySizeIncrement = (potency.isNegative()?-1:1);
@@ -658,10 +658,10 @@ public abstract class AbstractItemEffectType {
 
 		int clitorisSizeIncrement = (potency.isNegative()?-1:1);
 		int labiaSizeIncrement = (potency.isNegative()?-1:1);
-		
+
 		int TFCount = 0;
 		int minutesRequired = 60;
-		
+
 		switch(potency) {
 			case MINOR_BOOST:
 				minutesRequired = 7 * 24 * 60;
@@ -682,15 +682,15 @@ public abstract class AbstractItemEffectType {
 				minutesRequired = 60;
 				break;
 		}
-		
+
 		TFCount = timer.getTimePassed()/minutesRequired;
 		if(TFCount>=1) {
 			timer.setTimePassed(timer.getTimePassed()%minutesRequired);
 		}
 //		System.out.println(timer.getTimePassed() + ", " + minutesRequired + ": " +TFCount);
-		
+
 		StringBuilder sb = new StringBuilder();
-		
+
 		for(int i=0; i<TFCount; i++) {
 			switch(primaryModifier) {
 				case TF_ASS:
@@ -1375,10 +1375,10 @@ public abstract class AbstractItemEffectType {
 					break;
 			}
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	private static boolean isWithinLimits(int increment, float currentValue, int limit) {
 		if(increment<0) {
 			if(increment + currentValue < limit) {
@@ -1389,7 +1389,7 @@ public abstract class AbstractItemEffectType {
 		}
 		return true;
 	}
-	
+
 	private static boolean isSetToLimit(int increment, float currentValue, int limit) {
 		if(increment<0) {
 			if(currentValue <= limit) {
@@ -1400,11 +1400,11 @@ public abstract class AbstractItemEffectType {
 		}
 		return true;
 	}
-	
+
 	protected static List<String> descriptions = new ArrayList<>();
 	protected static List<String> genericAttributeEffectDescription(ResourceRestoration restorationType, TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit) {
 		descriptions.clear();
-		
+
 		switch(secondaryModifier) {
 			case ARCANE_BOOST:
 				switch(potency) {
@@ -1413,7 +1413,7 @@ public abstract class AbstractItemEffectType {
 							addResourceDescriptionsDrain(60, restorationType);
 						} else {
 							if(primaryModifier.getAssociatedAttribute()!=null) {
-								descriptions.add("[style.boldTerrible(-1)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
+								descriptions.add("[style.boldTerrible(-1)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
 							}
 						}
 						break;
@@ -1422,7 +1422,7 @@ public abstract class AbstractItemEffectType {
 							addResourceDescriptionsDrain(40, restorationType);
 						} else {
 							if(primaryModifier.getAssociatedAttribute()!=null) {
-								descriptions.add("[style.boldTerrible(-0.5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
+								descriptions.add("[style.boldTerrible(-0.5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
 							}
 						}
 						break;
@@ -1431,7 +1431,7 @@ public abstract class AbstractItemEffectType {
 							addResourceDescriptionsDrain(20, restorationType);
 						} else {
 							if(primaryModifier.getAssociatedAttribute()!=null) {
-								descriptions.add("[style.boldBad(-5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b> to 'potion effects'");
+								descriptions.add("[style.boldBad(-5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b> to 'potion effects'");
 							}
 						}
 						break;
@@ -1440,7 +1440,7 @@ public abstract class AbstractItemEffectType {
 							addResourceDescriptionsRestore(20, restorationType);
 						} else {
 							if(primaryModifier.getAssociatedAttribute()!=null) {
-								descriptions.add("[style.boldGood(+5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b> to 'potion effects'");
+								descriptions.add("[style.boldGood(+5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b> to 'potion effects'");
 							}
 						}
 						break;
@@ -1449,7 +1449,7 @@ public abstract class AbstractItemEffectType {
 							addResourceDescriptionsRestore(40, restorationType);
 						} else {
 							if(primaryModifier.getAssociatedAttribute()!=null) {
-								descriptions.add("[style.boldExcellent(+0.5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
+								descriptions.add("[style.boldExcellent(+0.5)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
 							}
 						}
 						break;
@@ -1458,7 +1458,7 @@ public abstract class AbstractItemEffectType {
 							addResourceDescriptionsRestore(60, restorationType);
 						} else {
 							if(primaryModifier.getAssociatedAttribute()!=null) {
-								descriptions.add("[style.boldExcellent(+1)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
+								descriptions.add("[style.boldExcellent(+1)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b>");
 							}
 						}
 						break;
@@ -1467,18 +1467,18 @@ public abstract class AbstractItemEffectType {
 			default:
 				if(primaryModifier==null || primaryModifier==TFModifier.NONE) {
 					addResourceDescriptionsRestore(10, restorationType);
-					
+
 				} else {
 					if(primaryModifier.getAssociatedAttribute()!=null) {
-						descriptions.add("[style.boldGood(+1)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b> to 'potion effects'");
+						descriptions.add("[style.boldGood(+1)] <b style='color:"+primaryModifier.getAssociatedAttribute().getColor().toWebHexString()+";'>"+primaryModifier.getAssociatedAttribute().getName()+"</b> to 'potion effects'");
 					}
 				}
 				break;
 		}
-		
+
 		return descriptions;
 	}
-	
+
 	private static void addResourceDescriptionsRestore(int value, ResourceRestoration restorationType) {
 		switch(restorationType){
 			case HEALTH:
@@ -1507,7 +1507,7 @@ public abstract class AbstractItemEffectType {
 				break;
 		}
 	}
-	
+
 	private static String applyRestoration(GameCharacter target, ResourceRestoration restorationType, float percentage) {
 		switch(restorationType) {
 			case ALL:
@@ -1521,7 +1521,7 @@ public abstract class AbstractItemEffectType {
 				target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)*percentage);
 				break;
 		}
-		
+
 		if(percentage > 0) {
 			if(target.isPlayer()) {
 				return "A soothing warmth spreads all throughout your body, and with a deeply satisfied sigh, you find yourself feeling a lot healthier than you did just a moment ago.";
@@ -1536,7 +1536,7 @@ public abstract class AbstractItemEffectType {
 			}
 		}
 	}
-	
+
 	protected static String genericAttributeEffect(ResourceRestoration restorationType, TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
 
 		switch(secondaryModifier) {
@@ -1605,7 +1605,7 @@ public abstract class AbstractItemEffectType {
 			default:
 				if(primaryModifier==null || primaryModifier==TFModifier.NONE) {
 					applyRestoration(target, restorationType, 0.1f);
-					
+
 					if(target.isPlayer()) {
 						return "A soothing warmth spreads all throughout your body, and with a deeply satisfied sigh, you find yourself feeling a lot healthier than you did just a moment ago.";
 					} else {
@@ -1620,13 +1620,13 @@ public abstract class AbstractItemEffectType {
 				}
 				break;
 		}
-		
+
 		return "";
 	}
-	
+
 	// Caching:
 	private static Map<Race, Map<TFModifier, LinkedHashMap<TFModifier, List<TFPotency>>>> racialPrimaryModSecondaryModPotencyGrid = new HashMap<>();
-	
+
 	protected static List<TFModifier> getRacialSecondaryModifiers(Race race, TFModifier primaryModifier) {
 		if(racialPrimaryModSecondaryModPotencyGrid.containsKey(race) && racialPrimaryModSecondaryModPotencyGrid.get(race).containsKey(primaryModifier)) {
 			return new ArrayList<>(racialPrimaryModSecondaryModPotencyGrid.get(race).get(primaryModifier).keySet());
@@ -1635,7 +1635,7 @@ public abstract class AbstractItemEffectType {
 			return new ArrayList<>(racialPrimaryModSecondaryModPotencyGrid.get(race).get(primaryModifier).keySet());
 		}
 	}
-	
+
 	protected static List<TFPotency> getRacialPotencyModifiers(Race race, TFModifier primaryModifier, TFModifier secondaryModifier) {
 		if(racialPrimaryModSecondaryModPotencyGrid.get(race).containsKey(primaryModifier)) {
 			return new ArrayList<>(racialPrimaryModSecondaryModPotencyGrid.get(race).get(primaryModifier).get(secondaryModifier));
@@ -1644,10 +1644,10 @@ public abstract class AbstractItemEffectType {
 			return new ArrayList<>(racialPrimaryModSecondaryModPotencyGrid.get(race).get(primaryModifier).get(secondaryModifier));
 		}
 	}
-	
+
 	private static void populateGrid(Race race, TFModifier primaryModifier){ //TODO Please make this better -.-
 		LinkedHashMap<TFModifier, List<TFPotency>> secondaryModPotencyMap = new LinkedHashMap<>();
-		
+
 		switch(primaryModifier) {
 			case TF_ANTENNA:
 				for(int i=0; i< AntennaType.getAntennaTypes(race).size();i++) {
@@ -1655,7 +1655,7 @@ public abstract class AbstractItemEffectType {
 				}
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				break;
-			
+
 			case TF_ARMS:
 				for(int i=0; i< ArmType.getArmTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
@@ -1665,12 +1665,12 @@ public abstract class AbstractItemEffectType {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_BODY_HAIR, TFPotency.getAllPotencies());
 				}
 				break;
-				
+
 			case TF_ASS:
 				for(int i=0; i< AssType.getAssTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.getAllPotencies());
 				if(Main.game.isAssHairEnabled()) {
@@ -1686,16 +1686,16 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_MUSCLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				break;
-				
+
 			case TF_BREASTS: case TF_BREASTS_CROTCH:
 				for(int i=0; i< BreastType.getBreastTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT_SECONDARY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE_TERTIARY, TFPotency.getAllPotencies());
 
@@ -1708,11 +1708,11 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_BREAST_SHAPE_SIDESET, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_BREAST_SHAPE_WIDE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_BREAST_SHAPE_NARROW, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_NIPPLE_NORMAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_NIPPLE_VAGINA, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_NIPPLE_LIPS, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_AREOLAE_CIRCLE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_AREOLAE_HEART, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_AREOLAE_STAR, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
@@ -1730,7 +1730,7 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_MUSCLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				break;
-				
+
 			case TF_CORE:
 				secondaryModPotencyMap.put(TFModifier.TF_TYPE_1, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
@@ -1742,37 +1742,37 @@ public abstract class AbstractItemEffectType {
 				}
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_INTERNAL, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				break;
-				
+
 			case TF_EARS:
 				for(int i=0; i< EarType.getEarTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
 				break;
-				
+
 			case TF_EYES:
 				for(int i=0; i< EyeType.getEyeTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_IRIS_CIRCLE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_IRIS_VERTICAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_IRIS_HORIZONTAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_IRIS_HEART, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_IRIS_STAR, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_PUPIL_CIRCLE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_PUPIL_VERTICAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_PUPIL_HORIZONTAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_PUPIL_HEART, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_EYE_PUPIL_STAR, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				break;
-				
+
 			case TF_FACE:
 				for(int i=0; i< FaceType.getFaceTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_PUFFY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_RIBBED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
@@ -1788,19 +1788,19 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_TONGUE_RIBBED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_TONGUE_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_TONGUE_BIFURCATED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
+
 				if(Main.game.isFacialHairEnabled()) {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_BODY_HAIR, TFPotency.getAllPotencies());
 				}
 				break;
-				
+
 			case TF_HAIR:
 				for(int i=0; i< HairType.getHairTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
 				break;
-				
+
 			case TF_HORNS:
 				secondaryModPotencyMap.put(TFModifier.REMOVAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				for(int i=0; i< RacialBody.valueOfRace(race).getHornTypes(true).size();i++) {
@@ -1810,7 +1810,7 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT_SECONDARY, TFPotency.getAllPotencies());
 				break;
-				
+
 			case TF_LEGS:
 				for(int i=0; i< LegType.getLegTypes(race).size();i++) {
 					secondaryModPotencyMap.put(TFModifier.valueOf("TF_TYPE_"+(i+1)), Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
@@ -1843,7 +1843,7 @@ public abstract class AbstractItemEffectType {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_FOOT_STRUCTURE_UNGULIGRADE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				}
 				break;
-				
+
 			case TF_PENIS:
 				secondaryModPotencyMap.put(TFModifier.TF_TYPE_1, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
@@ -1860,34 +1860,34 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_TAPERED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_VEINY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE_TERTIARY, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_WETNESS, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_REGENERATION, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_CUM_EXPULSION, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_INTERNAL, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
+
 				if(Main.game.isPubicHairEnabled()) {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_BODY_HAIR, TFPotency.getAllPotencies());
 				}
-				
+
 				if(Main.getProperties().hasValue(PropertyValue.urethralContent)) {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_CAPACITY, TFPotency.getAllPotencies());
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ELASTICITY, TFPotency.getAllPotencies());
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_PLASTICITY, TFPotency.getAllPotencies());
-	
+
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_PUFFY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_RIBBED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_MUSCLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				}
 				break;
-				
+
 			case TF_SKIN:
 				secondaryModPotencyMap.put(TFModifier.TF_TYPE_1, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				break;
-				
+
 			case TF_TAIL:
 				secondaryModPotencyMap.put(TFModifier.REMOVAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				for(int i=0; i< TailType.getTailTypes(race).size();i++) {
@@ -1895,14 +1895,14 @@ public abstract class AbstractItemEffectType {
 				}
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_COUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				break;
-				
+
 			case TF_VAGINA:
 				secondaryModPotencyMap.put(TFModifier.TF_TYPE_1, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE_TERTIARY, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.REMOVAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_BARBED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_FLARED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_BLUNT, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
@@ -1913,7 +1913,7 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_TAPERED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PENIS_VEINY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_CAPACITY, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ELASTICITY, TFPotency.getAllPotencies());
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_PLASTICITY, TFPotency.getAllPotencies());
@@ -1922,27 +1922,27 @@ public abstract class AbstractItemEffectType {
 				if(Main.game.isPubicHairEnabled()) {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_BODY_HAIR, TFPotency.getAllPotencies());
 				}
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_VAGINA_SQUIRTER, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_PUFFY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_RIBBED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_MUSCLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_TENTACLED, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
+
 				if(Main.getProperties().hasValue(PropertyValue.urethralContent)) {
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_CAPACITY_2, TFPotency.getAllPotencies());
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ELASTICITY_2, TFPotency.getAllPotencies());
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_PLASTICITY_2, TFPotency.getAllPotencies());
-	
+
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_PUFFY_2, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_RIBBED_2, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_MUSCLED_2, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 					secondaryModPotencyMap.put(TFModifier.TF_MOD_ORIFICE_TENTACLED_2, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				}
-				
+
 				break;
-				
+
 			case TF_WINGS:
 				secondaryModPotencyMap.put(TFModifier.REMOVAL, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				for(int i=0; i< WingType.getWingTypes(race).size();i++) {
@@ -1950,10 +1950,10 @@ public abstract class AbstractItemEffectType {
 				}
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_SIZE, TFPotency.getAllPotencies());
 				break;
-				
+
 			case TF_CUM: case TF_MILK: case TF_MILK_CROTCH: case TF_GIRLCUM:
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_WETNESS, TFPotency.getAllPotencies());
-				
+
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLUID_ADDICTIVE, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLUID_ALCOHOLIC, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLUID_BUBBLING, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
@@ -1962,51 +1962,51 @@ public abstract class AbstractItemEffectType {
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLUID_SLIMY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLUID_STICKY, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
 				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLUID_VISCOUS, Util.newArrayListOfValues(TFPotency.MINOR_DRAIN, TFPotency.MINOR_BOOST));
-				
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_BEER, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_CHOCOLATE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_CUM, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_GIRLCUM, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_MILK, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_HONEY, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_MINT, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_PINEAPPLE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_SLIME, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_STRAWBERRY, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
-				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOUR_VANILLA, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_BEER, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_CHOCOLATE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_CUM, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_GIRLCUM, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_MILK, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_HONEY, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_MINT, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_PINEAPPLE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_SLIME, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_STRAWBERRY, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
+				secondaryModPotencyMap.put(TFModifier.TF_MOD_FLAVOR_VANILLA, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				break;
-				
+
 			default:
 				secondaryModPotencyMap.put(TFModifier.NONE, Util.newArrayListOfValues(TFPotency.MINOR_BOOST));
 				break;
 		}
-		
+
 		racialPrimaryModSecondaryModPotencyGrid.put(race, Util.newHashMapOfValues(new Value<>(primaryModifier, secondaryModPotencyMap)));
 	}
-	
+
 	// And in the comments these words appear: 'My name is Innoxia, creator of smut: Look on my methods, ye Modders, and despair!'
-	
+
 	private static int smallChangeMajorDrain = -3;
 	private static int smallChangeDrain = -2;
 	private static int smallChangeMinorDrain = -1;
 	private static int smallChangeMinorBoost = 1;
 	private static int smallChangeBoost = 2;
 	private static int smallChangeMajorBoost = 3;
-	
+
 	private static int smallMediumChangeMajorDrain = -10;
 	private static int smallMediumChangeDrain = -5;
 	private static int smallMediumChangeMinorDrain = -1;
 	private static int smallMediumChangeMinorBoost = 1;
 	private static int smallMediumChangeBoost = 5;
 	private static int smallMediumChangeMajorBoost = 10;
-	
+
 	private static int mediumChangeMajorDrain = -15;
 	private static int mediumChangeDrain = -5;
 	private static int mediumChangeMinorDrain = -1;
 	private static int mediumChangeMinorBoost = 1;
 	private static int mediumChangeBoost = 5;
 	private static int mediumChangeMajorBoost = 15;
-	
+
 	private static int largeChangeMajorDrain = -50;
 	private static int largeChangeDrain = -15;
 	private static int largeChangeMinorDrain = -1;
@@ -2016,37 +2016,37 @@ public abstract class AbstractItemEffectType {
 
 	private static int singleDrain = -1;
 	private static int singleBoost = 1;
-	
+
 	protected static RacialEffectUtil getRacialEffect(Race race, TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, GameCharacter user, GameCharacter target) {
-		
+
 		switch(primaryModifier) {
 			case TF_ANTENNA:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(0)==AntennaType.NONE?"Removes antennae.":Util.capitaliseSentence(AntennaType.getAntennaTypes(race).get(0).getTransformName())+" antenna transformation.",
+						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(0)==AntennaType.NONE?"Removes antennae.":Util.capitalizeSentence(AntennaType.getAntennaTypes(race).get(0).getTransformName())+" antenna transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAntennaType(AntennaType.getAntennaTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(1)==AntennaType.NONE?"Removes antennae.":Util.capitaliseSentence(AntennaType.getAntennaTypes(race).get(1).getTransformName())+" antenna transformation.",
+						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(1)==AntennaType.NONE?"Removes antennae.":Util.capitalizeSentence(AntennaType.getAntennaTypes(race).get(1).getTransformName())+" antenna transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAntennaType(AntennaType.getAntennaTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(2)==AntennaType.NONE?"Removes antennae.":Util.capitaliseSentence(AntennaType.getAntennaTypes(race).get(2).getTransformName())+" antenna transformation.",
+						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(2)==AntennaType.NONE?"Removes antennae.":Util.capitalizeSentence(AntennaType.getAntennaTypes(race).get(2).getTransformName())+" antenna transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAntennaType(AntennaType.getAntennaTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(3)==AntennaType.NONE?"Removes antennae.":Util.capitaliseSentence(AntennaType.getAntennaTypes(race).get(3).getTransformName())+" antenna transformation.",
+						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(3)==AntennaType.NONE?"Removes antennae.":Util.capitalizeSentence(AntennaType.getAntennaTypes(race).get(3).getTransformName())+" antenna transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAntennaType(AntennaType.getAntennaTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(4)==AntennaType.NONE?"Removes antennae.":Util.capitaliseSentence(AntennaType.getAntennaTypes(race).get(4).getTransformName())+" antenna transformation.",
+						return new RacialEffectUtil(AntennaType.getAntennaTypes(race).get(4)==AntennaType.NONE?"Removes antennae.":Util.capitalizeSentence(AntennaType.getAntennaTypes(race).get(4).getTransformName())+" antenna transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAntennaType(AntennaType.getAntennaTypes(race).get(4)); } };
-						
+
 					case TF_MOD_COUNT:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2063,37 +2063,37 @@ public abstract class AbstractItemEffectType {
 						if(RacialBody.valueOfRace(race).getAntennaType() == AntennaType.NONE) {
 							return new RacialEffectUtil("Removes antennae.", 0, "") { @Override public String applyEffect() { return target.setAntennaType(RacialBody.valueOfRace(race).getAntennaType()); } };
 						} else {
-							return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" antennae transformation.", 0, "") { @Override public String applyEffect() { return target.setAntennaType(RacialBody.valueOfRace(race).getAntennaType()); } };
+							return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" antennae transformation.", 0, "") { @Override public String applyEffect() { return target.setAntennaType(RacialBody.valueOfRace(race).getAntennaType()); } };
 						}
 				}
-			
+
 			case TF_ARMS:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(ArmType.getArmTypes(race).get(0).getTransformName())+" arm transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(ArmType.getArmTypes(race).get(0).getTransformName())+" arm transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setArmType(ArmType.getArmTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(ArmType.getArmTypes(race).get(1).getTransformName())+" arm transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(ArmType.getArmTypes(race).get(1).getTransformName())+" arm transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setArmType(ArmType.getArmTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(ArmType.getArmTypes(race).get(2).getTransformName())+" arm transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(ArmType.getArmTypes(race).get(2).getTransformName())+" arm transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setArmType(ArmType.getArmTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(ArmType.getArmTypes(race).get(3).getTransformName())+" arm transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(ArmType.getArmTypes(race).get(3).getTransformName())+" arm transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setArmType(ArmType.getArmTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(ArmType.getArmTypes(race).get(4).getTransformName())+" arm transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(ArmType.getArmTypes(race).get(4).getTransformName())+" arm transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setArmType(ArmType.getArmTypes(race).get(4)); } };
-						
+
 					case TF_MOD_COUNT:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2117,36 +2117,36 @@ public abstract class AbstractItemEffectType {
 								return new RacialEffectUtil("Adds a huge amount of underarm hair.", smallChangeMajorBoost, " hairiness") { @Override public String applyEffect() { return target.incrementUnderarmHair(smallChangeMajorBoost); } };
 						}
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" arm transformation.", 0, "") { @Override public String applyEffect() { return target.setArmType(RacialBody.valueOfRace(race).getArmType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" arm transformation.", 0, "") { @Override public String applyEffect() { return target.setArmType(RacialBody.valueOfRace(race).getArmType()); } };
 				}
-				
+
 			case TF_ASS:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(AssType.getAssTypes(race).get(0).getTransformName())+" ass transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(AssType.getAssTypes(race).get(0).getTransformName())+" ass transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAssType(AssType.getAssTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(AssType.getAssTypes(race).get(1).getTransformName())+" ass transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(AssType.getAssTypes(race).get(1).getTransformName())+" ass transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAssType(AssType.getAssTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(AssType.getAssTypes(race).get(2).getTransformName())+" ass transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(AssType.getAssTypes(race).get(2).getTransformName())+" ass transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAssType(AssType.getAssTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(AssType.getAssTypes(race).get(3).getTransformName())+" ass transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(AssType.getAssTypes(race).get(3).getTransformName())+" ass transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAssType(AssType.getAssTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(AssType.getAssTypes(race).get(4).getTransformName())+" ass transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(AssType.getAssTypes(race).get(4).getTransformName())+" ass transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setAssType(AssType.getAssTypes(race).get(4)); } };
-						
+
 					case TF_MOD_SIZE:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2177,7 +2177,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in hip size.", smallChangeMajorBoost, " hip size") { @Override public String applyEffect() { return target.incrementHipSize(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_BODY_HAIR:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2193,7 +2193,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Adds a huge amount of ass hair.", smallChangeMajorBoost, " hairiness") { @Override public String applyEffect() { return target.incrementAssHair(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_CAPACITY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2254,7 +2254,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in natural anal lubrication.", smallChangeMajorBoost, " wetness") { @Override public String applyEffect() { return target.incrementAssWetness(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2283,38 +2283,38 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds internal tentacles to anus.", 0, "") { @Override public String applyEffect() { return target.addAssOrificeModifier(OrificeModifier.TENTACLED); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" ass transformation.", 0, "") { @Override public String applyEffect() { return target.setAssType(RacialBody.valueOfRace(race).getAssType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" ass transformation.", 0, "") { @Override public String applyEffect() { return target.setAssType(RacialBody.valueOfRace(race).getAssType()); } };
 				}
-				
+
 			case TF_BREASTS:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(0).getTransformName())+" breast transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(0).getTransformName())+" breast transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastType(BreastType.getBreastTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(1).getTransformName())+" breast transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(1).getTransformName())+" breast transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastType(BreastType.getBreastTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(2).getTransformName())+" breast transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(2).getTransformName())+" breast transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastType(BreastType.getBreastTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(3).getTransformName())+" breast transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(3).getTransformName())+" breast transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastType(BreastType.getBreastTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(4).getTransformName())+" breast transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(4).getTransformName())+" breast transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastType(BreastType.getBreastTypes(race).get(4)); } };
-						
+
 					case TF_MOD_COUNT:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2344,7 +2344,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in breast size.", smallChangeMajorBoost, " breast size") { @Override public String applyEffect() { return target.incrementBreastSize(smallChangeMajorBoost); } };
 						}
-						
+
 
 					case TF_MOD_SIZE_SECONDARY:
 						switch(potency) {
@@ -2374,14 +2374,14 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil("Transforms breast shape into being wide.", 0, "") { @Override public String applyEffect() { return target.setBreastShape(BreastShape.WIDE); } };
 					case TF_MOD_BREAST_SHAPE_NARROW:
 						return new RacialEffectUtil("Transforms breast shape into being narrow.", 0, "") { @Override public String applyEffect() { return target.setBreastShape(BreastShape.NARROW); } };
-						
+
 					case TF_MOD_NIPPLE_NORMAL:
 						return new RacialEffectUtil("Turns nipples into a normal, human-like shape.", 0, "") { @Override public String applyEffect() { return target.setNippleShape(NippleShape.NORMAL); } };
 					case TF_MOD_NIPPLE_VAGINA:
 						return new RacialEffectUtil("Turns nipples into vaginas.", 0, "") { @Override public String applyEffect() { return target.setNippleShape(NippleShape.VAGINA); } };
 					case TF_MOD_NIPPLE_LIPS:
 						return new RacialEffectUtil("Turns nipples into pairs of lips.", 0, "") { @Override public String applyEffect() { return target.setNippleShape(NippleShape.LIPS); } };
-						
+
 					case TF_MOD_SIZE_TERTIARY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2403,7 +2403,7 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil("Turns the shape of areolae into hearts.", 0, "") { @Override public String applyEffect() { return target.setAreolaeShape(AreolaeShape.HEART); } };
 					case TF_MOD_AREOLAE_STAR:
 						return new RacialEffectUtil("Turns the shape of areolae into stars.", 0, "") { @Override public String applyEffect() { return target.setAreolaeShape(AreolaeShape.STAR); } };
-						
+
 					case TF_MOD_CAPACITY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2479,7 +2479,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in milk regeneration.", smallChangeMajorBoost, "") { @Override public String applyEffect() { return target.incrementBreastLactationRegeneration(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2508,38 +2508,38 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds internal tentacles to nipples.", 0, "") { @Override public String applyEffect() { return target.addNippleOrificeModifier(OrificeModifier.TENTACLED); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" breast transformation.", 0, "") { @Override public String applyEffect() { return target.setBreastType(RacialBody.valueOfRace(race).getBreastType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" breast transformation.", 0, "") { @Override public String applyEffect() { return target.setBreastType(RacialBody.valueOfRace(race).getBreastType()); } };
 				}
 
 			case TF_BREASTS_CROTCH:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(0).getTransformName())+" crotch-boob transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(0).getTransformName())+" crotch-boob transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastCrotchType(BreastType.getBreastTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(1).getTransformName())+" crotch-boob transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(1).getTransformName())+" crotch-boob transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastCrotchType(BreastType.getBreastTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(2).getTransformName())+" crotch-boob transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(2).getTransformName())+" crotch-boob transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastCrotchType(BreastType.getBreastTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(3).getTransformName())+" crotch-boob transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(3).getTransformName())+" crotch-boob transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastCrotchType(BreastType.getBreastTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(BreastType.getBreastTypes(race).get(4).getTransformName())+" crotch-boob transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(BreastType.getBreastTypes(race).get(4).getTransformName())+" crotch-boob transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setBreastCrotchType(BreastType.getBreastTypes(race).get(4)); } };
-						
+
 					case TF_MOD_COUNT:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2571,7 +2571,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in crotch-boob size.", smallChangeMajorBoost, " crotch-boob size") { @Override public String applyEffect() { return target.incrementBreastCrotchSize(smallChangeMajorBoost); } };
 						}
-						
+
 
 					case TF_MOD_SIZE_SECONDARY:
 						switch(potency) {
@@ -2603,14 +2603,14 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil("Transforms crotch-boob shape into being wide.", 0, "") { @Override public String applyEffect() { return target.setBreastCrotchShape(BreastShape.WIDE); } };
 					case TF_MOD_BREAST_SHAPE_NARROW:
 						return new RacialEffectUtil("Transforms crotch-boob shape into being narrow.", 0, "") { @Override public String applyEffect() { return target.setBreastCrotchShape(BreastShape.NARROW); } };
-						
+
 					case TF_MOD_NIPPLE_NORMAL:
 						return new RacialEffectUtil("Turns nipples into a normal, human-like shape.", 0, "") { @Override public String applyEffect() { return target.setNippleCrotchShape(NippleShape.NORMAL); } };
 					case TF_MOD_NIPPLE_VAGINA:
 						return new RacialEffectUtil("Turns nipples into vaginas.", 0, "") { @Override public String applyEffect() { return target.setNippleCrotchShape(NippleShape.VAGINA); } };
 					case TF_MOD_NIPPLE_LIPS:
 						return new RacialEffectUtil("Turns nipples into pairs of lips.", 0, "") { @Override public String applyEffect() { return target.setNippleCrotchShape(NippleShape.LIPS); } };
-						
+
 					case TF_MOD_SIZE_TERTIARY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2632,7 +2632,7 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil("Turns the shape of areolae into hearts.", 0, "") { @Override public String applyEffect() { return target.setAreolaeCrotchShape(AreolaeShape.HEART); } };
 					case TF_MOD_AREOLAE_STAR:
 						return new RacialEffectUtil("Turns the shape of areolae into stars.", 0, "") { @Override public String applyEffect() { return target.setAreolaeCrotchShape(AreolaeShape.STAR); } };
-						
+
 					case TF_MOD_CAPACITY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2708,7 +2708,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in milk regeneration.", smallChangeMajorBoost, "") { @Override public String applyEffect() { return target.incrementBreastCrotchLactationRegeneration(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2737,13 +2737,13 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds internal tentacles to nipples.", 0, "") { @Override public String applyEffect() { return target.addNippleCrotchOrificeModifier(OrificeModifier.TENTACLED); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" crotch-boob transformation.", 0, "") { @Override public String applyEffect() {
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" crotch-boob transformation.", 0, "") { @Override public String applyEffect() {
 							return target.setBreastCrotchType(RacialBody.valueOfRace(race).getBreastType()); } };
 				}
-				
-			case TF_CORE: 
+
+			case TF_CORE:
 				switch(secondaryModifier) {
 					case TF_MOD_SIZE:
 						switch(potency) {
@@ -2827,66 +2827,66 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Moves genitals and asshole into internal slit-like cloaca.", 0, "") { @Override public String applyEffect() { return target.setGenitalArrangement(GenitalArrangement.CLOACA); } };
 						}
-						
+
 					default:
 						return new RacialEffectUtil("Random "+race.getName(false)+" transformation", 0, "") {
 							@Override
 							public String applyEffect() {
 								TFModifier mod = TFModifier.getTFRacialBodyPartsList().get(Util.random.nextInt(TFModifier.getTFRacialBodyPartsList().size()));
-								
+
 								return getRacialEffect(race, mod, secondaryModifier, potency, user, target).applyEffect();
 							}
 						};
 				}
-				
+
 			case TF_EARS:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(EarType.getEarTypes(race).get(0).getTransformName())+" ears transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EarType.getEarTypes(race).get(0).getTransformName())+" ears transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEarType(EarType.getEarTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(EarType.getEarTypes(race).get(1).getTransformName())+" ears transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EarType.getEarTypes(race).get(1).getTransformName())+" ears transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEarType(EarType.getEarTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(EarType.getEarTypes(race).get(2).getTransformName())+" ears transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EarType.getEarTypes(race).get(2).getTransformName())+" ears transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEarType(EarType.getEarTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(EarType.getEarTypes(race).get(3).getTransformName())+" ears transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EarType.getEarTypes(race).get(3).getTransformName())+" ears transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEarType(EarType.getEarTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(EarType.getEarTypes(race).get(4).getTransformName())+" ears transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EarType.getEarTypes(race).get(4).getTransformName())+" ears transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEarType(EarType.getEarTypes(race).get(4)); } };
-							
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" ears transformation.", 0, "") { @Override public String applyEffect() { return target.setEarType(RacialBody.valueOfRace(race).getEarType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" ears transformation.", 0, "") { @Override public String applyEffect() { return target.setEarType(RacialBody.valueOfRace(race).getEarType()); } };
 				}
-				
+
 			case TF_EYES:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(EyeType.getEyeTypes(race).get(0).getTransformName())+" eyes transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EyeType.getEyeTypes(race).get(0).getTransformName())+" eyes transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEyeType(EyeType.getEyeTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(EyeType.getEyeTypes(race).get(1).getTransformName())+" eyes transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EyeType.getEyeTypes(race).get(1).getTransformName())+" eyes transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEyeType(EyeType.getEyeTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(EyeType.getEyeTypes(race).get(2).getTransformName())+" eyes transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EyeType.getEyeTypes(race).get(2).getTransformName())+" eyes transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEyeType(EyeType.getEyeTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(EyeType.getEyeTypes(race).get(3).getTransformName())+" eyes transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EyeType.getEyeTypes(race).get(3).getTransformName())+" eyes transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEyeType(EyeType.getEyeTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(EyeType.getEyeTypes(race).get(4).getTransformName())+" eyes transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(EyeType.getEyeTypes(race).get(4).getTransformName())+" eyes transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setEyeType(EyeType.getEyeTypes(race).get(4)); } };
-						
+
 					case TF_MOD_COUNT:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -2905,7 +2905,7 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil("Gives irises a heart shape.", 0, "") { @Override public String applyEffect() { return target.setIrisShape(EyeShape.HEART); } };
 					case TF_MOD_EYE_IRIS_STAR:
 						return new RacialEffectUtil("Gives irises a star shape.", 0, "") { @Override public String applyEffect() { return target.setIrisShape(EyeShape.STAR); } };
-						
+
 					case TF_MOD_EYE_PUPIL_CIRCLE:
 						return new RacialEffectUtil("Gives pupils a round shape.", 0, "") { @Override public String applyEffect() { return target.setPupilShape(EyeShape.ROUND); } };
 					case TF_MOD_EYE_PUPIL_VERTICAL:
@@ -2916,33 +2916,33 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil("Gives pupils a heart shape.", 0, "") { @Override public String applyEffect() { return target.setPupilShape(EyeShape.HEART); } };
 					case TF_MOD_EYE_PUPIL_STAR:
 						return new RacialEffectUtil("Gives pupils a star shape.", 0, "") { @Override public String applyEffect() { return target.setPupilShape(EyeShape.STAR); } };
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" eyes transformation.", 0, "") { @Override public String applyEffect() { return target.setEyeType(RacialBody.valueOfRace(race).getEyeType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" eyes transformation.", 0, "") { @Override public String applyEffect() { return target.setEyeType(RacialBody.valueOfRace(race).getEyeType()); } };
 				}
-				
+
 			case TF_FACE:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(FaceType.getFaceTypes(race).get(0).getTransformName())+" face transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(FaceType.getFaceTypes(race).get(0).getTransformName())+" face transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setFaceType(FaceType.getFaceTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(FaceType.getFaceTypes(race).get(1).getTransformName())+" face transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(FaceType.getFaceTypes(race).get(1).getTransformName())+" face transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setFaceType(FaceType.getFaceTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(FaceType.getFaceTypes(race).get(2).getTransformName())+" face transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(FaceType.getFaceTypes(race).get(2).getTransformName())+" face transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setFaceType(FaceType.getFaceTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(FaceType.getFaceTypes(race).get(3).getTransformName())+" face transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(FaceType.getFaceTypes(race).get(3).getTransformName())+" face transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setFaceType(FaceType.getFaceTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(FaceType.getFaceTypes(race).get(4).getTransformName())+" face transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(FaceType.getFaceTypes(race).get(4).getTransformName())+" face transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setFaceType(FaceType.getFaceTypes(race).get(4)); } };
-						
+
 					case TF_MOD_SIZE:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -2958,7 +2958,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in lip size.", smallChangeMajorBoost, " lip size") { @Override public String applyEffect() { return target.incrementLipSize(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -3083,7 +3083,7 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds bifurcation to tongue.", 0, "") { @Override public String applyEffect() { return target.addTongueModifier(TongueModifier.BIFURCATED); } };
 						}
-						
+
 					case TF_MOD_BODY_HAIR:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3099,33 +3099,33 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Adds a huge amount of facial hair.", smallChangeMajorBoost, " hairiness") { @Override public String applyEffect() { return target.incrementFacialHair(smallChangeMajorBoost); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" face transformation.", 0, "") { @Override public String applyEffect() { return target.setFaceType(RacialBody.valueOfRace(race).getFaceType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" face transformation.", 0, "") { @Override public String applyEffect() { return target.setFaceType(RacialBody.valueOfRace(race).getFaceType()); } };
 				}
-				
+
 			case TF_HAIR:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(HairType.getHairTypes(race).get(0).getTransformName())+" hair transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(HairType.getHairTypes(race).get(0).getTransformName())+" hair transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setHairType(HairType.getHairTypes(race).get(0)); } };
-	
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(HairType.getHairTypes(race).get(1).getTransformName())+" hair transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(HairType.getHairTypes(race).get(1).getTransformName())+" hair transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setHairType(HairType.getHairTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(HairType.getHairTypes(race).get(2).getTransformName())+" hair transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(HairType.getHairTypes(race).get(2).getTransformName())+" hair transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setHairType(HairType.getHairTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(HairType.getHairTypes(race).get(3).getTransformName())+" hair transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(HairType.getHairTypes(race).get(3).getTransformName())+" hair transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setHairType(HairType.getHairTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(HairType.getHairTypes(race).get(4).getTransformName())+" hair transformation.", 0, "") {
+						return new RacialEffectUtil(Util.capitalizeSentence(HairType.getHairTypes(race).get(4).getTransformName())+" hair transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setHairType(HairType.getHairTypes(race).get(4)); } };
-						
+
 					case TF_MOD_SIZE:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3141,11 +3141,11 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in hair length.", mediumChangeMajorBoost, " inches") { @Override public String applyEffect() { return target.incrementHairLength(mediumChangeMajorBoost); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" hair transformation.", 0, "") { @Override public String applyEffect() { return target.setHairType(RacialBody.valueOfRace(race).getHairType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" hair transformation.", 0, "") { @Override public String applyEffect() { return target.setHairType(RacialBody.valueOfRace(race).getHairType()); } };
 				}
-				
+
 			case TF_HORNS:
 				switch(secondaryModifier) {
 					case TF_MOD_SIZE:
@@ -3163,7 +3163,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in horn length.", mediumChangeMajorBoost, " inches") { @Override public String applyEffect() { return target.incrementHornLength(mediumChangeMajorBoost); } };
 						}
-				
+
 					case TF_MOD_COUNT:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -3177,7 +3177,7 @@ public abstract class AbstractItemEffectType {
 										return target.incrementHornRows(singleBoost);
 									} } };
 						}
-						
+
 					case TF_MOD_COUNT_SECONDARY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3193,10 +3193,10 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in horns per row.", smallChangeMajorBoost, " horns per row") { @Override public String applyEffect() { return target.incrementHornsPerRow(smallChangeMajorBoost); } };
 						}
-						
+
 					case REMOVAL:
 						return new RacialEffectUtil("Removes horns.", 0, "") { @Override public String applyEffect() { return target.setHornType(HornType.NONE); } };
-						
+
 					case TF_TYPE_1:
 						return getHornTypeRacialEffectUtil(race, target, 0);
 
@@ -3211,34 +3211,34 @@ public abstract class AbstractItemEffectType {
 
 					case TF_TYPE_5:
 						return getHornTypeRacialEffectUtil(race, target, 4);
-							
+
 					default:
 						List<AbstractHornType> hornTypes = RacialBody.valueOfRace(race).getHornTypes(true);
 						AbstractHornType hornType = hornTypes.isEmpty()?HornType.NONE:Util.randomItemFrom(hornTypes);
-						return new RacialEffectUtil(hornType==HornType.NONE?"Removes horns.":Util.capitaliseSentence(race.getName(false))+" horn transformation.", 0, "") {
+						return new RacialEffectUtil(hornType==HornType.NONE?"Removes horns.":Util.capitalizeSentence(race.getName(false))+" horn transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setHornType(hornType); } };
 				}
-				
+
 			case TF_LEGS:
 				switch(secondaryModifier) {
 					case TF_TYPE_1:
-						return new RacialEffectUtil(Util.capitaliseSentence(LegType.getLegTypes(race).get(0).getTransformName())+" legs transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(LegType.getLegTypes(race).get(0).getTransformName())+" legs transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setLegType(LegType.getLegTypes(race).get(0)); } };
 					case TF_TYPE_2:
-						return new RacialEffectUtil(Util.capitaliseSentence(LegType.getLegTypes(race).get(1).getTransformName())+" legs transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(LegType.getLegTypes(race).get(1).getTransformName())+" legs transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setLegType(LegType.getLegTypes(race).get(1)); } };
 					case TF_TYPE_3:
-						return new RacialEffectUtil(Util.capitaliseSentence(LegType.getLegTypes(race).get(2).getTransformName())+" legs transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(LegType.getLegTypes(race).get(2).getTransformName())+" legs transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setLegType(LegType.getLegTypes(race).get(2)); } };
 					case TF_TYPE_4:
-						return new RacialEffectUtil(Util.capitaliseSentence(LegType.getLegTypes(race).get(3).getTransformName())+" legs transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(LegType.getLegTypes(race).get(3).getTransformName())+" legs transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setLegType(LegType.getLegTypes(race).get(3)); } };
 					case TF_TYPE_5:
-						return new RacialEffectUtil(Util.capitaliseSentence(LegType.getLegTypes(race).get(4).getTransformName())+" legs transformation.",
+						return new RacialEffectUtil(Util.capitalizeSentence(LegType.getLegTypes(race).get(4).getTransformName())+" legs transformation.",
 								0, "") {
 							@Override public String applyEffect() { return target.setLegType(LegType.getLegTypes(race).get(4)); } };
 
@@ -3271,7 +3271,7 @@ public abstract class AbstractItemEffectType {
 						return new RacialEffectUtil(" Transforms lower body to an eight-tentacled, feral "+race.getName(true)+"'s.",
 								0, "") {
 							@Override public String applyEffect() { return RacialBody.valueOfRace(race).getLegType().applyLegConfigurationTransformation(target, LegConfiguration.CEPHALOPOD, true); } };
-							
+
 
 					case TF_MOD_FOOT_STRUCTURE_PLANTIGRADE:
 						return new RacialEffectUtil(" Transforms foot structure to be plantigrade.",
@@ -3288,9 +3288,9 @@ public abstract class AbstractItemEffectType {
 								0, "") {
 							@Override public String applyEffect() { return target.setFootStructure(FootStructure.UNGULIGRADE); } };
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" legs transformation.", 0, "") { @Override public String applyEffect() { return target.setLegType(RacialBody.valueOfRace(race).getLegType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" legs transformation.", 0, "") { @Override public String applyEffect() { return target.setLegType(RacialBody.valueOfRace(race).getLegType()); } };
 				}
-				
+
 			case TF_PENIS:
 				switch(secondaryModifier) {
 					case TF_MOD_SIZE:
@@ -3341,7 +3341,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Adds a huge amount of pubic hair.", smallChangeMajorBoost, " hairiness") { @Override public String applyEffect() { return target.incrementPubicHair(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_PENIS_BARBED:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -3505,7 +3505,7 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Makes testicles internal.", 0, "") { @Override public String applyEffect() { return target.setInternalTesticles(true); } };
 						}
-						
+
 					case TF_MOD_CAPACITY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3551,7 +3551,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in urethra plasticity.", smallChangeMajorBoost, " plasticity") { @Override public String applyEffect() { return target.incrementUrethraPlasticity(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -3580,14 +3580,14 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds internal tentacles to urethra.", 0, "") { @Override public String applyEffect() { return target.addUrethraOrificeModifier(OrificeModifier.TENTACLED); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" penis transformation.", 0, "") { @Override public String applyEffect() { return target.setPenisType(RacialBody.valueOfRace(race).getPenisType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" penis transformation.", 0, "") { @Override public String applyEffect() { return target.setPenisType(RacialBody.valueOfRace(race).getPenisType()); } };
 				}
-				
+
 			case TF_SKIN:
-				return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" skin transformation.", 0, "") { @Override public String applyEffect() { return target.setSkinType(RacialBody.valueOfRace(race).getSkinType()); } };
-				
+				return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" skin transformation.", 0, "") { @Override public String applyEffect() { return target.setSkinType(RacialBody.valueOfRace(race).getSkinType()); } };
+
 			case TF_TAIL:
 				switch(secondaryModifier) {
 					case TF_MOD_COUNT:
@@ -3605,33 +3605,33 @@ public abstract class AbstractItemEffectType {
 						}
 					case REMOVAL:
 						return new RacialEffectUtil("Removes tail.", 0, "") { @Override public String applyEffect() { return target.setTailType(TailType.NONE); } };
-						
+
 					case TF_TYPE_1:
-						return new RacialEffectUtil(TailType.getTailTypes(race).get(0)==TailType.NONE?"Removes tail.":Util.capitaliseSentence(TailType.getTailTypes(race).get(0).getTransformName())+" tail transformation.", 0, "") {
+						return new RacialEffectUtil(TailType.getTailTypes(race).get(0)==TailType.NONE?"Removes tail.":Util.capitalizeSentence(TailType.getTailTypes(race).get(0).getTransformName())+" tail transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setTailType(TailType.getTailTypes(race).get(0)); } };
-						
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(TailType.getTailTypes(race).get(1)==TailType.NONE?"Removes tail.":Util.capitaliseSentence(TailType.getTailTypes(race).get(1).getTransformName())+" tail transformation.", 0, "") {
+						return new RacialEffectUtil(TailType.getTailTypes(race).get(1)==TailType.NONE?"Removes tail.":Util.capitalizeSentence(TailType.getTailTypes(race).get(1).getTransformName())+" tail transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setTailType(TailType.getTailTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(TailType.getTailTypes(race).get(2)==TailType.NONE?"Removes tail.":Util.capitaliseSentence(TailType.getTailTypes(race).get(2).getTransformName())+" tail transformation.", 0, "") {
+						return new RacialEffectUtil(TailType.getTailTypes(race).get(2)==TailType.NONE?"Removes tail.":Util.capitalizeSentence(TailType.getTailTypes(race).get(2).getTransformName())+" tail transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setTailType(TailType.getTailTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(TailType.getTailTypes(race).get(3)==TailType.NONE?"Removes tail.":Util.capitaliseSentence(TailType.getTailTypes(race).get(3).getTransformName())+" tail transformation.", 0, "") {
+						return new RacialEffectUtil(TailType.getTailTypes(race).get(3)==TailType.NONE?"Removes tail.":Util.capitalizeSentence(TailType.getTailTypes(race).get(3).getTransformName())+" tail transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setTailType(TailType.getTailTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(TailType.getTailTypes(race).get(4)==TailType.NONE?"Removes tail.":Util.capitaliseSentence(TailType.getTailTypes(race).get(4).getTransformName())+" tail transformation.", 0, "") {
+						return new RacialEffectUtil(TailType.getTailTypes(race).get(4)==TailType.NONE?"Removes tail.":Util.capitalizeSentence(TailType.getTailTypes(race).get(4).getTransformName())+" tail transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setTailType(TailType.getTailTypes(race).get(4)); } };
-							
+
 					default:
 						TailType tailType = RacialBody.valueOfRace(race).getRandomTailType(false);
-						return new RacialEffectUtil(tailType==TailType.NONE?"Removes tail.":Util.capitaliseSentence(race.getName(false))+" tail transformation.", 0, "") {
+						return new RacialEffectUtil(tailType==TailType.NONE?"Removes tail.":Util.capitalizeSentence(race.getName(false))+" tail transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setTailType(tailType); } };
 				}
-				
+
 			case TF_VAGINA:
 				switch(secondaryModifier) {
 					case TF_MOD_SIZE:
@@ -3681,7 +3681,7 @@ public abstract class AbstractItemEffectType {
 						}
 					case REMOVAL:
 							return new RacialEffectUtil("Removes vagina.", 0, "") { @Override public String applyEffect() { return target.setVaginaType(VaginaType.NONE); } };
-							
+
 					case TF_MOD_BODY_HAIR:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3768,7 +3768,7 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds bulging veins to clitoris.", 0, "") { @Override public String applyEffect() { return target.addClitorisModifier(PenetrationModifier.VEINY); } };
 						}
-							
+
 					case TF_MOD_CAPACITY:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3837,7 +3837,7 @@ public abstract class AbstractItemEffectType {
 							case MINOR_DRAIN: default:
 								return new RacialEffectUtil("Stops vagina from squirting on orgasm.", 0, "") { @Override public String applyEffect() { return target.setVaginaSquirter(false); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -3866,7 +3866,7 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds internal tentacles to vagina.", 0, "") { @Override public String applyEffect() { return target.addVaginaOrificeModifier(OrificeModifier.TENTACLED); } };
 						}
-						
+
 					// Urethral stuff:
 					case TF_MOD_CAPACITY_2:
 						switch(potency) {
@@ -3913,7 +3913,7 @@ public abstract class AbstractItemEffectType {
 							case MAJOR_BOOST:
 								return new RacialEffectUtil("Huge increase in urethra plasticity.", smallChangeMajorBoost, " plasticity") { @Override public String applyEffect() { return target.incrementVaginaUrethraPlasticity(smallChangeMajorBoost); } };
 						}
-						
+
 					case TF_MOD_ORIFICE_PUFFY_2:
 						switch(potency) {
 							case MINOR_DRAIN:
@@ -3942,36 +3942,36 @@ public abstract class AbstractItemEffectType {
 							case MINOR_BOOST: default:
 								return new RacialEffectUtil("Adds internal tentacles to urethra.", 0, "") { @Override public String applyEffect() { return target.addVaginaUrethraOrificeModifier(OrificeModifier.TENTACLED); } };
 						}
-						
+
 					default:
-						return new RacialEffectUtil(Util.capitaliseSentence(race.getName(false))+" vagina transformation.", 0, "") { @Override public String applyEffect() { return target.setVaginaType(RacialBody.valueOfRace(race).getVaginaType()); } };
+						return new RacialEffectUtil(Util.capitalizeSentence(race.getName(false))+" vagina transformation.", 0, "") { @Override public String applyEffect() { return target.setVaginaType(RacialBody.valueOfRace(race).getVaginaType()); } };
 				}
-				
+
 			case TF_WINGS:
 				switch(secondaryModifier) {
 					case REMOVAL:
 						return new RacialEffectUtil("Removes wings.", 0, "") { @Override public String applyEffect() { return target.setWingType(WingType.NONE); } };
-						
+
 					case TF_TYPE_1:
-						return new RacialEffectUtil(WingType.getWingTypes(race).get(0)==WingType.NONE?"Removes wings.":Util.capitaliseSentence(WingType.getWingTypes(race).get(0).getTransformName())+" wings transformation.", 0, "") {
+						return new RacialEffectUtil(WingType.getWingTypes(race).get(0)==WingType.NONE?"Removes wings.":Util.capitalizeSentence(WingType.getWingTypes(race).get(0).getTransformName())+" wings transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setWingType(WingType.getWingTypes(race).get(0)); } };
-						
+
 					case TF_TYPE_2:
-						return new RacialEffectUtil(WingType.getWingTypes(race).get(1)==WingType.NONE?"Removes wings.":Util.capitaliseSentence(WingType.getWingTypes(race).get(1).getTransformName())+" wings transformation.", 0, "") {
+						return new RacialEffectUtil(WingType.getWingTypes(race).get(1)==WingType.NONE?"Removes wings.":Util.capitalizeSentence(WingType.getWingTypes(race).get(1).getTransformName())+" wings transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setWingType(WingType.getWingTypes(race).get(1)); } };
-	
+
 					case TF_TYPE_3:
-						return new RacialEffectUtil(WingType.getWingTypes(race).get(2)==WingType.NONE?"Removes wings.":Util.capitaliseSentence(WingType.getWingTypes(race).get(2).getTransformName())+" wings transformation.", 0, "") {
+						return new RacialEffectUtil(WingType.getWingTypes(race).get(2)==WingType.NONE?"Removes wings.":Util.capitalizeSentence(WingType.getWingTypes(race).get(2).getTransformName())+" wings transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setWingType(WingType.getWingTypes(race).get(2)); } };
-	
+
 					case TF_TYPE_4:
-						return new RacialEffectUtil(WingType.getWingTypes(race).get(3)==WingType.NONE?"Removes wings.":Util.capitaliseSentence(WingType.getWingTypes(race).get(3).getTransformName())+" wings transformation.", 0, "") {
+						return new RacialEffectUtil(WingType.getWingTypes(race).get(3)==WingType.NONE?"Removes wings.":Util.capitalizeSentence(WingType.getWingTypes(race).get(3).getTransformName())+" wings transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setWingType(WingType.getWingTypes(race).get(3)); } };
-	
+
 					case TF_TYPE_5:
-						return new RacialEffectUtil(WingType.getWingTypes(race).get(4)==WingType.NONE?"Removes wings.":Util.capitaliseSentence(WingType.getWingTypes(race).get(4).getTransformName())+" wings transformation.", 0, "") {
+						return new RacialEffectUtil(WingType.getWingTypes(race).get(4)==WingType.NONE?"Removes wings.":Util.capitalizeSentence(WingType.getWingTypes(race).get(4).getTransformName())+" wings transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setWingType(WingType.getWingTypes(race).get(4)); } };
-							
+
 					case TF_MOD_SIZE:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -3989,35 +3989,35 @@ public abstract class AbstractItemEffectType {
 						}
 					default:
 						WingType wingType = RacialBody.valueOfRace(race).getRandomWingType(false);
-						return new RacialEffectUtil(wingType==WingType.NONE?"Removes wings.":Util.capitaliseSentence(race.getName(false))+" wings transformation.", 0, "") {
+						return new RacialEffectUtil(wingType==WingType.NONE?"Removes wings.":Util.capitalizeSentence(race.getName(false))+" wings transformation.", 0, "") {
 							@Override public String applyEffect() { return target.setWingType(wingType); } };
 				}
-				
+
 			case TF_CUM:
 				switch(secondaryModifier) {
-					case TF_MOD_FLAVOUR_BEER:
-						return new RacialEffectUtil("Makes cum taste like beer.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.BEER); } };
-					case TF_MOD_FLAVOUR_CHOCOLATE:
-						return new RacialEffectUtil("Makes cum taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.CHOCOLATE); } };
-					case TF_MOD_FLAVOUR_CUM:
-						return new RacialEffectUtil("Makes cum taste like cum.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.CUM); } };
-					case TF_MOD_FLAVOUR_GIRLCUM:
-						return new RacialEffectUtil("Makes cum taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.GIRL_CUM); } };
-					case TF_MOD_FLAVOUR_MILK:
-						return new RacialEffectUtil("Makes cum taste like milk.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.MILK); } };
-					case TF_MOD_FLAVOUR_HONEY:
-						return new RacialEffectUtil("Makes cum taste like honey.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.HONEY); } };
-					case TF_MOD_FLAVOUR_MINT:
-						return new RacialEffectUtil("Makes cum taste like mint.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.MINT); } };
-					case TF_MOD_FLAVOUR_PINEAPPLE:
-						return new RacialEffectUtil("Makes cum taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.PINEAPPLE); } };
-					case TF_MOD_FLAVOUR_SLIME:
-						return new RacialEffectUtil("Makes cum taste like slime.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.SLIME); } };
-					case TF_MOD_FLAVOUR_STRAWBERRY:
-						return new RacialEffectUtil("Makes cum taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.STRAWBERRY); } };
-					case TF_MOD_FLAVOUR_VANILLA:
-						return new RacialEffectUtil("Makes cum taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setCumFlavour(FluidFlavour.VANILLA); } };
-	
+					case TF_MOD_FLAVOR_BEER:
+						return new RacialEffectUtil("Makes cum taste like beer.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.BEER); } };
+					case TF_MOD_FLAVOR_CHOCOLATE:
+						return new RacialEffectUtil("Makes cum taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.CHOCOLATE); } };
+					case TF_MOD_FLAVOR_CUM:
+						return new RacialEffectUtil("Makes cum taste like cum.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.CUM); } };
+					case TF_MOD_FLAVOR_GIRLCUM:
+						return new RacialEffectUtil("Makes cum taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.GIRL_CUM); } };
+					case TF_MOD_FLAVOR_MILK:
+						return new RacialEffectUtil("Makes cum taste like milk.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.MILK); } };
+					case TF_MOD_FLAVOR_HONEY:
+						return new RacialEffectUtil("Makes cum taste like honey.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.HONEY); } };
+					case TF_MOD_FLAVOR_MINT:
+						return new RacialEffectUtil("Makes cum taste like mint.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.MINT); } };
+					case TF_MOD_FLAVOR_PINEAPPLE:
+						return new RacialEffectUtil("Makes cum taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.PINEAPPLE); } };
+					case TF_MOD_FLAVOR_SLIME:
+						return new RacialEffectUtil("Makes cum taste like slime.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.SLIME); } };
+					case TF_MOD_FLAVOR_STRAWBERRY:
+						return new RacialEffectUtil("Makes cum taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.STRAWBERRY); } };
+					case TF_MOD_FLAVOR_VANILLA:
+						return new RacialEffectUtil("Makes cum taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setCumFlavor(FluidFlavor.VANILLA); } };
+
 					case TF_MOD_FLUID_ADDICTIVE:
 						if(potency == TFPotency.MINOR_DRAIN) {
 							return new RacialEffectUtil("Removes addictive effect from cum.", 0, "") { @Override public String applyEffect() { return target.removeCumModifier(FluidModifier.ADDICTIVE); } };
@@ -4066,7 +4066,7 @@ public abstract class AbstractItemEffectType {
 						} else {
 							return new RacialEffectUtil("Makes cum thick and viscous.", 0, "") { @Override public String applyEffect() { return target.addCumModifier(FluidModifier.VISCOUS); } };
 						}
-						
+
 					default:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -4084,32 +4084,32 @@ public abstract class AbstractItemEffectType {
 						}
 				}
 				break;
-				
+
 			case TF_MILK:
 				switch(secondaryModifier) {
-					case TF_MOD_FLAVOUR_BEER:
-						return new RacialEffectUtil("Makes milk taste like beer.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.BEER); } };
-					case TF_MOD_FLAVOUR_CHOCOLATE:
-						return new RacialEffectUtil("Makes milk taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.CHOCOLATE); } };
-					case TF_MOD_FLAVOUR_CUM:
-						return new RacialEffectUtil("Makes milk taste like cum.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.CUM); } };
-					case TF_MOD_FLAVOUR_GIRLCUM:
-						return new RacialEffectUtil("Makes milk taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.GIRL_CUM); } };
-					case TF_MOD_FLAVOUR_MILK:
-						return new RacialEffectUtil("Makes milk taste like milk.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.MILK); } };
-					case TF_MOD_FLAVOUR_HONEY:
-						return new RacialEffectUtil("Makes milk taste like honey.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.HONEY); } };
-					case TF_MOD_FLAVOUR_MINT:
-						return new RacialEffectUtil("Makes milk taste like mint.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.MINT); } };
-					case TF_MOD_FLAVOUR_PINEAPPLE:
-						return new RacialEffectUtil("Makes milk taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.PINEAPPLE); } };
-					case TF_MOD_FLAVOUR_SLIME:
-						return new RacialEffectUtil("Makes milk taste like slime.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.SLIME); } };
-					case TF_MOD_FLAVOUR_STRAWBERRY:
-						return new RacialEffectUtil("Makes milk taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.STRAWBERRY); } };
-					case TF_MOD_FLAVOUR_VANILLA:
-						return new RacialEffectUtil("Makes milk taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavour(FluidFlavour.VANILLA); } };
-	
+					case TF_MOD_FLAVOR_BEER:
+						return new RacialEffectUtil("Makes milk taste like beer.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.BEER); } };
+					case TF_MOD_FLAVOR_CHOCOLATE:
+						return new RacialEffectUtil("Makes milk taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.CHOCOLATE); } };
+					case TF_MOD_FLAVOR_CUM:
+						return new RacialEffectUtil("Makes milk taste like cum.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.CUM); } };
+					case TF_MOD_FLAVOR_GIRLCUM:
+						return new RacialEffectUtil("Makes milk taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.GIRL_CUM); } };
+					case TF_MOD_FLAVOR_MILK:
+						return new RacialEffectUtil("Makes milk taste like milk.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.MILK); } };
+					case TF_MOD_FLAVOR_HONEY:
+						return new RacialEffectUtil("Makes milk taste like honey.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.HONEY); } };
+					case TF_MOD_FLAVOR_MINT:
+						return new RacialEffectUtil("Makes milk taste like mint.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.MINT); } };
+					case TF_MOD_FLAVOR_PINEAPPLE:
+						return new RacialEffectUtil("Makes milk taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.PINEAPPLE); } };
+					case TF_MOD_FLAVOR_SLIME:
+						return new RacialEffectUtil("Makes milk taste like slime.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.SLIME); } };
+					case TF_MOD_FLAVOR_STRAWBERRY:
+						return new RacialEffectUtil("Makes milk taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.STRAWBERRY); } };
+					case TF_MOD_FLAVOR_VANILLA:
+						return new RacialEffectUtil("Makes milk taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setMilkFlavor(FluidFlavor.VANILLA); } };
+
 					case TF_MOD_FLUID_ADDICTIVE:
 						if(potency == TFPotency.MINOR_DRAIN) {
 							return new RacialEffectUtil("Removes addictive effect from milk.", 0, "") { @Override public String applyEffect() { return target.removeMilkModifier(FluidModifier.ADDICTIVE); } };
@@ -4158,7 +4158,7 @@ public abstract class AbstractItemEffectType {
 						} else {
 							return new RacialEffectUtil("Makes milk thick and viscous.", 0, "") { @Override public String applyEffect() { return target.addMilkModifier(FluidModifier.VISCOUS); } };
 						}
-						
+
 					default:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -4179,29 +4179,29 @@ public abstract class AbstractItemEffectType {
 
 			case TF_MILK_CROTCH:
 				switch(secondaryModifier) {
-					case TF_MOD_FLAVOUR_BEER:
-						return new RacialEffectUtil("Makes udder-milk taste like beer.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.BEER); } };
-					case TF_MOD_FLAVOUR_CHOCOLATE:
-						return new RacialEffectUtil("Makes udder-milk taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.CHOCOLATE); } };
-					case TF_MOD_FLAVOUR_CUM:
-						return new RacialEffectUtil("Makes udder-milk taste like cum.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.CUM); } };
-					case TF_MOD_FLAVOUR_GIRLCUM:
-						return new RacialEffectUtil("Makes udder-milk taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.GIRL_CUM); } };
-					case TF_MOD_FLAVOUR_MILK:
-						return new RacialEffectUtil("Makes udder-milk taste like milk.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.MILK); } };
-					case TF_MOD_FLAVOUR_HONEY:
-						return new RacialEffectUtil("Makes udder-milk taste like honey.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.HONEY); } };
-					case TF_MOD_FLAVOUR_MINT:
-						return new RacialEffectUtil("Makes udder-milk taste like mint.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.MINT); } };
-					case TF_MOD_FLAVOUR_PINEAPPLE:
-						return new RacialEffectUtil("Makes udder-milk taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.PINEAPPLE); } };
-					case TF_MOD_FLAVOUR_SLIME:
-						return new RacialEffectUtil("Makes udder-milk taste like slime.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.SLIME); } };
-					case TF_MOD_FLAVOUR_STRAWBERRY:
-						return new RacialEffectUtil("Makes udder-milk taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.STRAWBERRY); } };
-					case TF_MOD_FLAVOUR_VANILLA:
-						return new RacialEffectUtil("Makes udder-milk taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavour(FluidFlavour.VANILLA); } };
-	
+					case TF_MOD_FLAVOR_BEER:
+						return new RacialEffectUtil("Makes udder-milk taste like beer.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.BEER); } };
+					case TF_MOD_FLAVOR_CHOCOLATE:
+						return new RacialEffectUtil("Makes udder-milk taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.CHOCOLATE); } };
+					case TF_MOD_FLAVOR_CUM:
+						return new RacialEffectUtil("Makes udder-milk taste like cum.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.CUM); } };
+					case TF_MOD_FLAVOR_GIRLCUM:
+						return new RacialEffectUtil("Makes udder-milk taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.GIRL_CUM); } };
+					case TF_MOD_FLAVOR_MILK:
+						return new RacialEffectUtil("Makes udder-milk taste like milk.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.MILK); } };
+					case TF_MOD_FLAVOR_HONEY:
+						return new RacialEffectUtil("Makes udder-milk taste like honey.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.HONEY); } };
+					case TF_MOD_FLAVOR_MINT:
+						return new RacialEffectUtil("Makes udder-milk taste like mint.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.MINT); } };
+					case TF_MOD_FLAVOR_PINEAPPLE:
+						return new RacialEffectUtil("Makes udder-milk taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.PINEAPPLE); } };
+					case TF_MOD_FLAVOR_SLIME:
+						return new RacialEffectUtil("Makes udder-milk taste like slime.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.SLIME); } };
+					case TF_MOD_FLAVOR_STRAWBERRY:
+						return new RacialEffectUtil("Makes udder-milk taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.STRAWBERRY); } };
+					case TF_MOD_FLAVOR_VANILLA:
+						return new RacialEffectUtil("Makes udder-milk taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setMilkCrotchFlavor(FluidFlavor.VANILLA); } };
+
 					case TF_MOD_FLUID_ADDICTIVE:
 						if(potency == TFPotency.MINOR_DRAIN) {
 							return new RacialEffectUtil("Removes addictive effect from udder-milk.", 0, "") { @Override public String applyEffect() { return target.removeMilkCrotchModifier(FluidModifier.ADDICTIVE); } };
@@ -4250,7 +4250,7 @@ public abstract class AbstractItemEffectType {
 						} else {
 							return new RacialEffectUtil("Makes udder-milk thick and viscous.", 0, "") { @Override public String applyEffect() { return target.addMilkCrotchModifier(FluidModifier.VISCOUS); } };
 						}
-						
+
 					default:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -4268,32 +4268,32 @@ public abstract class AbstractItemEffectType {
 						}
 				}
 				break;
-					
+
 			case TF_GIRLCUM:
 				switch(secondaryModifier) {
-					case TF_MOD_FLAVOUR_BEER:
-						return new RacialEffectUtil("Makes girlcum taste like beer.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.BEER); } };
-					case TF_MOD_FLAVOUR_CHOCOLATE:
-						return new RacialEffectUtil("Makes girlcum taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.CHOCOLATE); } };
-					case TF_MOD_FLAVOUR_CUM:
-						return new RacialEffectUtil("Makes girlcum taste like cum.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.CUM); } };
-					case TF_MOD_FLAVOUR_GIRLCUM:
-						return new RacialEffectUtil("Makes girlcum taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.GIRL_CUM); } };
-					case TF_MOD_FLAVOUR_MILK:
-						return new RacialEffectUtil("Makes girlcum taste like milk.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.MILK); } };
-					case TF_MOD_FLAVOUR_HONEY:
-						return new RacialEffectUtil("Makes girlcum taste like honey.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.HONEY); } };
-					case TF_MOD_FLAVOUR_MINT:
-						return new RacialEffectUtil("Makes girlcum taste like mint.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.MINT); } };
-					case TF_MOD_FLAVOUR_PINEAPPLE:
-						return new RacialEffectUtil("Makes girlcum taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.PINEAPPLE); } };
-					case TF_MOD_FLAVOUR_SLIME:
-						return new RacialEffectUtil("Makes girlcum taste like slime.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.SLIME); } };
-					case TF_MOD_FLAVOUR_STRAWBERRY:
-						return new RacialEffectUtil("Makes girlcum taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.STRAWBERRY); } };
-					case TF_MOD_FLAVOUR_VANILLA:
-						return new RacialEffectUtil("Makes girlcum taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavour(FluidFlavour.VANILLA); } };
-	
+					case TF_MOD_FLAVOR_BEER:
+						return new RacialEffectUtil("Makes girlcum taste like beer.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.BEER); } };
+					case TF_MOD_FLAVOR_CHOCOLATE:
+						return new RacialEffectUtil("Makes girlcum taste like chocolate.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.CHOCOLATE); } };
+					case TF_MOD_FLAVOR_CUM:
+						return new RacialEffectUtil("Makes girlcum taste like cum.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.CUM); } };
+					case TF_MOD_FLAVOR_GIRLCUM:
+						return new RacialEffectUtil("Makes girlcum taste like girlcum.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.GIRL_CUM); } };
+					case TF_MOD_FLAVOR_MILK:
+						return new RacialEffectUtil("Makes girlcum taste like milk.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.MILK); } };
+					case TF_MOD_FLAVOR_HONEY:
+						return new RacialEffectUtil("Makes girlcum taste like honey.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.HONEY); } };
+					case TF_MOD_FLAVOR_MINT:
+						return new RacialEffectUtil("Makes girlcum taste like mint.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.MINT); } };
+					case TF_MOD_FLAVOR_PINEAPPLE:
+						return new RacialEffectUtil("Makes girlcum taste like pineapple.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.PINEAPPLE); } };
+					case TF_MOD_FLAVOR_SLIME:
+						return new RacialEffectUtil("Makes girlcum taste like slime.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.SLIME); } };
+					case TF_MOD_FLAVOR_STRAWBERRY:
+						return new RacialEffectUtil("Makes girlcum taste like strawberries.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.STRAWBERRY); } };
+					case TF_MOD_FLAVOR_VANILLA:
+						return new RacialEffectUtil("Makes girlcum taste like vanilla.", 0, "") { @Override public String applyEffect() { return target.setGirlcumFlavor(FluidFlavor.VANILLA); } };
+
 					case TF_MOD_FLUID_ADDICTIVE:
 						if(potency == TFPotency.MINOR_DRAIN) {
 							return new RacialEffectUtil("Removes addictive effect from girlcum.", 0, "") { @Override public String applyEffect() { return target.removeGirlcumModifier(FluidModifier.ADDICTIVE); } };
@@ -4342,7 +4342,7 @@ public abstract class AbstractItemEffectType {
 						} else {
 							return new RacialEffectUtil("Makes girlcum thick and viscous.", 0, "") { @Override public String applyEffect() { return target.addGirlcumModifier(FluidModifier.VISCOUS); } };
 						}
-						
+
 					default:
 						switch(potency) {
 							case MAJOR_DRAIN:
@@ -4360,37 +4360,37 @@ public abstract class AbstractItemEffectType {
 						}
 				}
 				break;
-				
+
 			default:
 				return new RacialEffectUtil("Random non-racial transformation", 0, "") {
 					@Override
 					public String applyEffect() {
 						TFModifier mod = TFModifier.NONE, modSecondary = TFModifier.NONE;
-						
+
 						while (mod == TFModifier.NONE || modSecondary == TFModifier.NONE) {
 							mod = TFModifier.getTFRacialBodyPartsList().get(Util.random.nextInt(TFModifier.getTFRacialBodyPartsList().size()));
 							modSecondary = getRacialSecondaryModifiers(race, mod).get(Util.random.nextInt(getRacialSecondaryModifiers(race, mod).size()));
 						}
-						
+
 						TFPotency pot = getRacialPotencyModifiers(race, mod, modSecondary).get(Util.random.nextInt(getRacialPotencyModifiers(race, mod, modSecondary).size()));
-						
+
 						return getRacialEffect(race, mod, modSecondary, pot, user, target).applyEffect();
 					}
 				};
 		}
-		
+
 		return new RacialEffectUtil("Random non-racial transformation", 0, "") {
 			@Override
 			public String applyEffect() {
 				TFModifier mod = TFModifier.NONE, modSecondary = TFModifier.NONE;
-				
+
 				while (mod == TFModifier.NONE || modSecondary == TFModifier.NONE) {
 					mod = TFModifier.getTFRacialBodyPartsList().get(Util.random.nextInt(TFModifier.getTFRacialBodyPartsList().size()));
 					modSecondary = getRacialSecondaryModifiers(race, mod).get(Util.random.nextInt(getRacialSecondaryModifiers(race, mod).size()));
 				}
-				
+
 				TFPotency pot = getRacialPotencyModifiers(race, mod, modSecondary).get(Util.random.nextInt(getRacialPotencyModifiers(race, mod, modSecondary).size()));
-				
+
 				return getRacialEffect(race, mod, modSecondary, pot, user, target).applyEffect();
 			}
 		};
@@ -4399,9 +4399,9 @@ public abstract class AbstractItemEffectType {
 	private static RacialEffectUtil getHornTypeRacialEffectUtil(Race race, GameCharacter target, int index) {
 		List<AbstractHornType> hornTypes = RacialBody.valueOfRace(race).getHornTypes(true);
 		AbstractHornType selectedHornType = hornTypes.isEmpty()?HornType.NONE:Util.randomItemFrom(hornTypes);
-		
+
 		return new RacialEffectUtil("Grows "+selectedHornType.getTransformName()+" horns.", 0, "") {
 			@Override public String applyEffect() { return target.setHornType(selectedHornType); } };
 	}
-	
+
 }

@@ -18,7 +18,7 @@ import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.persona.Relationship;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -34,7 +34,7 @@ public enum SpecialAttack {
 	TEASE_ANAL_RECEIVING(50,
 			"buttslut tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -136,7 +136,7 @@ public enum SpecialAttack {
 	TEASE_ANAL_GIVING(50,
 			"anal tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -206,7 +206,7 @@ public enum SpecialAttack {
 	TEASE_VAGINAL_RECEIVING(50,
 			"pussy slut tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -286,7 +286,7 @@ public enum SpecialAttack {
 	TEASE_VAGINAL_GIVING(50,
 			"vaginal tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -357,7 +357,7 @@ public enum SpecialAttack {
 	TEASE_INCEST(50,
 			"incest tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -453,7 +453,7 @@ public enum SpecialAttack {
 	TEASE_CUM_STUD(50,
 			"cum stud tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -523,7 +523,7 @@ public enum SpecialAttack {
 	TEASE_CUM_ADDICT(50,
 			"cum tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -537,13 +537,13 @@ public enum SpecialAttack {
 			if(caster.isPlayer()) {
 				attackText = UtilText.parse(target,
 						(UtilText.returnStringAtRandom(
-						"You let out a desperate moan as you suddenly realise that your mouth isn't full of cum, "
+						"You let out a desperate moan as you suddenly realize that your mouth isn't full of cum, "
 								+ "[pc.speech(Aah! I need cum! I haven't had a meal in ages!)]",
 
 						"Opening wide to show [npc.name] how empty your mouth is, you cry out, "
 								+ "[pc.speech(Mmm! I need cum!)]",
 
-						"You let out a pathetic whine as you realise that you haven't had any cum in a while, "
+						"You let out a pathetic whine as you realize that you haven't had any cum in a while, "
 								+ "[pc.speech(I'm so hungry! I need cum!)]",
 
 						"You let out a pathetic whine as you beg for a meal, "
@@ -552,13 +552,13 @@ public enum SpecialAttack {
 			} else if(target.isPlayer()) {
 				attackText = UtilText.parse(caster,
 						(UtilText.returnStringAtRandom(
-						"[npc.Name] lets out [npc.a_moan+] as [npc.she] suddenly realises that [npc.her] mouth isn't full of cum, "
+						"[npc.Name] lets out [npc.a_moan+] as [npc.she] suddenly realizes that [npc.her] mouth isn't full of cum, "
 								+ "[npc.speech(Aah! I need cum! I haven't had a meal in ages!)]",
 
 						"Opening wide to show you how empty [npc.her] mouth is, [npc.name] cries out, "
 								+ "[npc.speech(Mmm! I need cum!)]",
 
-						"[npc.Name] lets out a pathetic whine as [npc.she] realises that [npc.she] hasn't had any cum in a while, "
+						"[npc.Name] lets out a pathetic whine as [npc.she] realizes that [npc.she] hasn't had any cum in a while, "
 								+ "[npc.speech(I'm so hungry! I need cum!)]",
 
 						"[npc.Name] lets out a pathetic whine as [npc.she] begs for a meal, "
@@ -567,13 +567,13 @@ public enum SpecialAttack {
 			} else {
 				attackText = UtilText.parse(caster, target,
 						(UtilText.returnStringAtRandom(
-						"[npc.Name] lets out [npc.a_moan+] as [npc.she] suddenly realises that [npc.her] mouth isn't full of cum, "
+						"[npc.Name] lets out [npc.a_moan+] as [npc.she] suddenly realizes that [npc.her] mouth isn't full of cum, "
 								+ "[npc.speech(Aah! I need cum! I haven't had a meal in ages!)]",
 
 						"Opening wide to show [npc2.name] how empty [npc.her] mouth is, [npc.name] cries out, "
 								+ "[npc.speech(Mmm! I need cum!)]",
 
-						"[npc.Name] lets out a pathetic whine as [npc.she] realises that [npc.she] hasn't had any cum in a while, "
+						"[npc.Name] lets out a pathetic whine as [npc.she] realizes that [npc.she] hasn't had any cum in a while, "
 								+ "[npc.speech(I'm so hungry! I need cum!)]",
 
 						"[npc.Name] lets out a pathetic whine as [npc.she] begs for a meal, "
@@ -602,7 +602,7 @@ public enum SpecialAttack {
 	TEASE_PENIS_RECEIVING(50,
 			"cock addict tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -639,7 +639,7 @@ public enum SpecialAttack {
 		}
 	},
 	
-	TEASE_PENIS_GIVING(50, "cock stud tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_PENIS_GIVING(50, "cock stud tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -675,7 +675,7 @@ public enum SpecialAttack {
 	TEASE_FOOT_RECEIVING(50,
 			"submissive foot tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -715,7 +715,7 @@ public enum SpecialAttack {
 	TEASE_FOOT_GIVING(50,
 			"dominant foot tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -751,7 +751,7 @@ public enum SpecialAttack {
 	TEASE_ORAL_RECEIVING(50,
 			"oral tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -818,7 +818,7 @@ public enum SpecialAttack {
 		}
 	},
 	
-	TEASE_ORAL_GIVING(50, "oral performer tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_ORAL_GIVING(50, "oral performer tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -918,7 +918,7 @@ public enum SpecialAttack {
 	TEASE_BREASTS_OTHERS(50,
 			"breasts lover tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -1007,7 +1007,7 @@ public enum SpecialAttack {
 		}
 	},
 	
-	TEASE_BREASTS(50, "breasts tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_BREASTS(50, "breasts tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -1108,7 +1108,7 @@ public enum SpecialAttack {
 	TEASE_LACTATION_OTHERS(50,
 			"milk-lover tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -1200,7 +1200,7 @@ public enum SpecialAttack {
 	TEASE_LACTATION(50,
 			"lactation tease",
 			"fetish_generic",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			DamageType.LUST,
 			20,
 			DamageVariance.LOW,
@@ -1276,7 +1276,7 @@ public enum SpecialAttack {
 		}
 	},
 	
-	TEASE_FERTILITY(50, "fertility tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_FERTILITY(50, "fertility tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -1448,7 +1448,7 @@ public enum SpecialAttack {
 		}
 	},
 	
-	TEASE_VIRILITY(50, "virility tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_VIRILITY(50, "virility tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -1514,7 +1514,7 @@ public enum SpecialAttack {
 		}
 	},
 	
-	TEASE_DOMINANT(50, "dominant tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_DOMINANT(50, "dominant tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -1610,7 +1610,7 @@ public enum SpecialAttack {
 			return owner.hasFetish(Fetish.FETISH_DOMINANT);
 		}
 	},
-	TEASE_SUBMISSIVE(50, "submissive tease", "fetish_generic", Colour.GENERIC_ARCANE,
+	TEASE_SUBMISSIVE(50, "submissive tease", "fetish_generic", Color.GENERIC_ARCANE,
 			DamageType.LUST, 20, DamageVariance.LOW, 5,
 			null) {
 		@Override
@@ -1703,7 +1703,7 @@ public enum SpecialAttack {
 	DOG_BITE(50,
 			"bite",
 			"biteIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			DamageType.PHYSICAL,
 			20,
 			DamageVariance.LOW,
@@ -1753,7 +1753,7 @@ public enum SpecialAttack {
 	COW_HEADBUTT(50,
 			"Headbutt",
 			"hornsIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			DamageType.PHYSICAL,
 			20,
 			DamageVariance.LOW,
@@ -1804,7 +1804,7 @@ public enum SpecialAttack {
 	ANTLER_HEADBUTT(50,
 			"Headbutt",
 			"hornsIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			DamageType.PHYSICAL,
 			20,
 			DamageVariance.LOW,
@@ -1855,7 +1855,7 @@ public enum SpecialAttack {
 	WOLF_SAVAGE(50,
 			"savage attack",
 			"savageIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			DamageType.PHYSICAL,
 			30,
 			DamageVariance.HIGH,
@@ -1907,7 +1907,7 @@ public enum SpecialAttack {
 	SQUIRREL_SCRATCH(50,
 			"scratch",
 			"scratchIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			DamageType.PHYSICAL,
 			10,
 			DamageVariance.HIGH,
@@ -1958,7 +1958,7 @@ public enum SpecialAttack {
 	ALLIGATOR_TAIL_SWIPE(50,
 			"tail swipe",
 			"tailSwipeIcon",
-			Colour.RACE_ALLIGATOR_MORPH,
+			Color.RACE_ALLIGATOR_MORPH,
 			DamageType.PHYSICAL,
 			25,
 			DamageVariance.HIGH,
@@ -2009,7 +2009,7 @@ public enum SpecialAttack {
 	CAT_SCRATCH(50,
 			"scratch",
 			"scratchIcon",
-			Colour.DAMAGE_TYPE_PHYSICAL,
+			Color.DAMAGE_TYPE_PHYSICAL,
 			DamageType.PHYSICAL,
 			15,
 			DamageVariance.HIGH,
@@ -2060,7 +2060,7 @@ public enum SpecialAttack {
 	HORSE_KICK(50,
 			"kick",
 			"kickIcon",
-			Colour.CLOTHING_RED,
+			Color.CLOTHING_RED,
 			DamageType.PHYSICAL,
 			20,
 			DamageVariance.LOW,
@@ -2121,7 +2121,7 @@ public enum SpecialAttack {
 	private SpecialAttack(int renderingPriority,
 			String name,
 			String pathName,
-			Colour colourShade,
+			Color colorShade,
 			DamageType damageType,
 			int damage,
 			DamageVariance damageVariance,
@@ -2146,7 +2146,7 @@ public enum SpecialAttack {
 			}
 			SVGString = Util.inputStreamToString(is);
 			
-			SVGString = SvgUtil.colourReplacement(this.toString(), colourShade, SVGString);
+			SVGString = SvgUtil.colorReplacement(this.toString(), colorShade, SVGString);
 
 			is.close();
 
@@ -2163,15 +2163,15 @@ public enum SpecialAttack {
 		if (isCritical) {
 			descriptionSB.append("<p>"
 					+ (isHit 
-							? "<b>[npc.Name] <b style='color: " + Colour.CLOTHING_GOLD.toWebHexString() + ";'>critically</b> [npc.verb(hit)] for " + damage
-								+ " <b style='color: " + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + damageType.getName() + " damage</b>" + "!</b>"
+							? "<b>[npc.Name] <b style='color: " + Color.CLOTHING_GOLD.toWebHexString() + ";'>critically</b> [npc.verb(hit)] for " + damage
+								+ " <b style='color: " + damageType.getMultiplierAttribute().getColor().toWebHexString() + ";'>" + damageType.getName() + " damage</b>" + "!</b>"
 							: "<b>[npc.Name] missed!</b>")
 					+ "</p>");
 		} else {
 			descriptionSB.append(
 					"<p>"
 						+ (isHit
-								? "<b>[npc.Name] [npc.verb(hit)] for " + damage + " <b style='color: " + damageType.getMultiplierAttribute().getColour().toWebHexString() + ";'>" + damageType.getName() + " damage</b>" + "!</b>"
+								? "<b>[npc.Name] [npc.verb(hit)] for " + damage + " <b style='color: " + damageType.getMultiplierAttribute().getColor().toWebHexString() + ";'>" + damageType.getName() + " damage</b>" + "!</b>"
 								: "<b>[npc.Name] missed!</b>")
 					+ "</p>");
 		}
@@ -2187,14 +2187,14 @@ public enum SpecialAttack {
 						descriptionSB.append(", ");
 					}
 				}
-				descriptionSB.append("<b>" + seEntry.getValue() + "</b> turns of <b style='color:" + seEntry.getKey().getColour().toWebHexString() + ";'>" + seEntry.getKey().getName(target) + "</b>");
+				descriptionSB.append("<b>" + seEntry.getValue() + "</b> turns of <b style='color:" + seEntry.getKey().getColor().toWebHexString() + ";'>" + seEntry.getKey().getName(target) + "</b>");
 				i++;
 			}
 			descriptionSB.append(".</p>");
 		}
 
 		descriptionSB.append("<p>"
-								+ "[npc.Name] will be unable to repeat this attack for <b style='color:" + Colour.GENERIC_MINOR_BAD.toWebHexString() + ";'>"+this.getCooldown()+" turns</b>.</b>"
+								+ "[npc.Name] will be unable to repeat this attack for <b style='color:" + Color.GENERIC_MINOR_BAD.toWebHexString() + ";'>"+this.getCooldown()+" turns</b>.</b>"
 							+ "</p>");
 
 		return UtilText.parse(caster, target, descriptionSB.toString());
@@ -2224,9 +2224,9 @@ public enum SpecialAttack {
 					descriptionSB.append(
 							UtilText.parse(target,
 							"<p>"
-								+ "[npc.Name] can't bring [npc.herself] to look away, and as [npc.she] lets out a desperate whine, you realise that [npc.she] has "
-								+ UtilText.generateSingularDeterminer(fetishWeakness.getName(target))+" <b style='color: " + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+fetishWeakness.getName(target)+" fetish</b>, and your display is"
-								+ " <b style='color:" + Colour.GENERIC_EXCELLENT.toWebHexString() + ";'>massively turning [npc.herHim] on</b>!"
+								+ "[npc.Name] can't bring [npc.herself] to look away, and as [npc.she] lets out a desperate whine, you realize that [npc.she] has "
+								+ UtilText.generateSingularDeterminer(fetishWeakness.getName(target))+" <b style='color: " + Color.GENERIC_ARCANE.toWebHexString() + ";'>"+fetishWeakness.getName(target)+" fetish</b>, and your display is"
+								+ " <b style='color:" + Color.GENERIC_EXCELLENT.toWebHexString() + ";'>massively turning [npc.herHim] on</b>!"
 							+ "</p>"));
 				} else {
 					descriptionSB.append(
@@ -2242,8 +2242,8 @@ public enum SpecialAttack {
 							UtilText.parse(caster,
 							"<p>"
 								+ "Because you have "
-								+UtilText.generateSingularDeterminer(fetishWeakness.getName(target))+" <b style='color: " + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+fetishWeakness.getName(target)+" fetish</b>,"
-								+ " you find yourself unable to look away from [npc.namePos] enticing display, which is <b style='color:" + Colour.GENERIC_TERRIBLE.toWebHexString() + ";'>massively turning you on</b>!"
+								+UtilText.generateSingularDeterminer(fetishWeakness.getName(target))+" <b style='color: " + Color.GENERIC_ARCANE.toWebHexString() + ";'>"+fetishWeakness.getName(target)+" fetish</b>,"
+								+ " you find yourself unable to look away from [npc.namePos] enticing display, which is <b style='color:" + Color.GENERIC_TERRIBLE.toWebHexString() + ";'>massively turning you on</b>!"
 							+ "</p>"));
 				} else {
 					descriptionSB.append(
@@ -2259,8 +2259,8 @@ public enum SpecialAttack {
 							UtilText.parse(caster, target,
 							"<p>"
 								+ "Because [npc2.name] has "
-								+UtilText.generateSingularDeterminer(fetishWeakness.getName(target))+" <b style='color: " + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+fetishWeakness.getName(target)+" fetish</b>,"
-								+ " [npc2.she] finds [npc2.herself] unable to look away from [npc.namePos] enticing display, which is <b style='color:" + Colour.GENERIC_TERRIBLE.toWebHexString() + ";'>massively turning [npc2.herHim] on</b>!"
+								+UtilText.generateSingularDeterminer(fetishWeakness.getName(target))+" <b style='color: " + Color.GENERIC_ARCANE.toWebHexString() + ";'>"+fetishWeakness.getName(target)+" fetish</b>,"
+								+ " [npc2.she] finds [npc2.herself] unable to look away from [npc.namePos] enticing display, which is <b style='color:" + Color.GENERIC_TERRIBLE.toWebHexString() + ";'>massively turning [npc2.herHim] on</b>!"
 							+ "</p>"));
 				} else {
 					descriptionSB.append(
@@ -2280,13 +2280,13 @@ public enum SpecialAttack {
 			descriptionSB.append(
 					UtilText.parse(target,
 					"<p>"
-						+ "Putting on such a display is quite tiring, and you will be unable to repeat this attack for <b style='color:" + Colour.GENERIC_MINOR_BAD.toWebHexString() + ";'>"+this.getCooldown()+" turns</b>.</b>"
+						+ "Putting on such a display is quite tiring, and you will be unable to repeat this attack for <b style='color:" + Color.GENERIC_MINOR_BAD.toWebHexString() + ";'>"+this.getCooldown()+" turns</b>.</b>"
 					+ "</p>"));
 		} else {
 			descriptionSB.append(
 					UtilText.parse(caster,
 					"<p>"
-						+ "Putting on such a display is quite tiring, and [npc.name] will be unable to repeat this attack for <b style='color:" + Colour.GENERIC_MINOR_BAD.toWebHexString() + ";'>"+this.getCooldown()+" turns</b>.</b>"
+						+ "Putting on such a display is quite tiring, and [npc.name] will be unable to repeat this attack for <b style='color:" + Color.GENERIC_MINOR_BAD.toWebHexString() + ";'>"+this.getCooldown()+" turns</b>.</b>"
 					+ "</p>"));
 		}
 		

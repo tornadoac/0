@@ -115,8 +115,8 @@ import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.Pattern;
-import com.lilithsthrone.utils.Colour;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.Color;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -344,7 +344,7 @@ public class CharacterUtils {
 		float takesAfterMotherChance = takesAfterMother?0.75f:0.25f;
 
 		List<BodyCoveringType> typesToInfluence = new ArrayList<>();
-		// Skin & fur colours:
+		// Skin & fur colors:
 		for(BodyPartInterface bp : body.getAllBodyParts()){
 			if(bp.getBodyCoveringType(body)!=null
 					&& !(bp instanceof Eye)) {
@@ -357,55 +357,55 @@ public class CharacterUtils {
 		typesToInfluence.add(BodyCoveringType.TONGUE);
 
 		if(raceFromMother) {
-			typesToInfluence = setCoveringColours(body, mother, typesToInfluence);
-			setCoveringColours(body, father, typesToInfluence);
+			typesToInfluence = setCoveringColors(body, mother, typesToInfluence);
+			setCoveringColors(body, father, typesToInfluence);
 		} else {
-			typesToInfluence = setCoveringColours(body, father, typesToInfluence);
-			setCoveringColours(body, mother, typesToInfluence);
+			typesToInfluence = setCoveringColors(body, father, typesToInfluence);
+			setCoveringColors(body, mother, typesToInfluence);
 		}
 
 		body.updateCoverings(false, false, true, false);
 
-		// Iris colour:
+		// Iris color:
 		if(Math.random()<=0.9f) {
 			if(Math.random()>=takesAfterMotherChance) {
 				body.getCoverings().put(body.getEye().getBodyCoveringType(body),
 						new Covering(body.getEye().getBodyCoveringType(body), mother.getCovering(mother.getEyeCovering()).getPattern(),
-								mother.getCovering(mother.getEyeCovering()).getPrimaryColour(), mother.getCovering(mother.getEyeCovering()).isPrimaryGlowing(),
-								mother.getCovering(mother.getEyeCovering()).getPrimaryColour(), mother.getCovering(mother.getEyeCovering()).isPrimaryGlowing()));
+								mother.getCovering(mother.getEyeCovering()).getPrimaryColor(), mother.getCovering(mother.getEyeCovering()).isPrimaryGlowing(),
+								mother.getCovering(mother.getEyeCovering()).getPrimaryColor(), mother.getCovering(mother.getEyeCovering()).isPrimaryGlowing()));
 			} else {
 				body.getCoverings().put(body.getEye().getBodyCoveringType(body),
 						new Covering(body.getEye().getBodyCoveringType(body), father.getCovering(father.getEyeCovering()).getPattern(),
-								father.getCovering(father.getEyeCovering()).getPrimaryColour(), father.getCovering(father.getEyeCovering()).isPrimaryGlowing(),
-								father.getCovering(father.getEyeCovering()).getPrimaryColour(), father.getCovering(father.getEyeCovering()).isPrimaryGlowing()));
+								father.getCovering(father.getEyeCovering()).getPrimaryColor(), father.getCovering(father.getEyeCovering()).isPrimaryGlowing(),
+								father.getCovering(father.getEyeCovering()).getPrimaryColor(), father.getCovering(father.getEyeCovering()).isPrimaryGlowing()));
 			}
 		}
-		// Pupil colour:
+		// Pupil color:
 		if(Math.random()<=0.5f) {
 			if(Math.random()>=takesAfterMotherChance) {
 				body.getCoverings().put(BodyCoveringType.EYE_PUPILS,
 						new Covering(body.getEye().getBodyCoveringType(body), mother.getCovering(BodyCoveringType.EYE_PUPILS).getPattern(),
-								mother.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColour(), mother.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing(),
-								mother.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColour(), mother.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing()));
+								mother.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColor(), mother.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing(),
+								mother.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColor(), mother.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing()));
 			} else {
 				body.getCoverings().put(BodyCoveringType.EYE_PUPILS,
 						new Covering(body.getEye().getBodyCoveringType(body), father.getCovering(BodyCoveringType.EYE_PUPILS).getPattern(),
-								father.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing(),
-								father.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing()));
+								father.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColor(), father.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing(),
+								father.getCovering(BodyCoveringType.EYE_PUPILS).getPrimaryColor(), father.getCovering(BodyCoveringType.EYE_PUPILS).isPrimaryGlowing()));
 			}
 		}
-		// Sclera colour:
+		// Sclera color:
 		if(Math.random()<=0.5f) {
 			if(Math.random()>=takesAfterMotherChance) {
 				body.getCoverings().put(BodyCoveringType.EYE_SCLERA,
 						new Covering(body.getEye().getBodyCoveringType(body), mother.getCovering(BodyCoveringType.EYE_SCLERA).getPattern(),
-								mother.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), mother.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing(),
-								mother.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), mother.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing()));
+								mother.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColor(), mother.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing(),
+								mother.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColor(), mother.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing()));
 			} else {
 				body.getCoverings().put(BodyCoveringType.EYE_SCLERA,
 						new Covering(body.getEye().getBodyCoveringType(body), father.getCovering(BodyCoveringType.EYE_SCLERA).getPattern(),
-								father.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing(),
-								father.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColour(), father.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing()));
+								father.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColor(), father.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing(),
+								father.getCovering(BodyCoveringType.EYE_SCLERA).getPrimaryColor(), father.getCovering(BodyCoveringType.EYE_SCLERA).isPrimaryGlowing()));
 			}
 		}
 
@@ -843,10 +843,10 @@ public class CharacterUtils {
 		return body;
 	}
 
-	private static List<BodyCoveringType> setCoveringColours(Body body, GameCharacter character, List<BodyCoveringType> typesToInfluence) {
+	private static List<BodyCoveringType> setCoveringColors(Body body, GameCharacter character, List<BodyCoveringType> typesToInfluence) {
 		List<BodyCoveringType> tempList = new ArrayList<>(typesToInfluence);
 
-		// Skin & fur colours:
+		// Skin & fur colors:
 		for(BodyPartInterface bp : character.getAllBodyParts()){
 			if(bp.getBodyCoveringType(character)!=null
 					&& !(bp instanceof Eye)) {
@@ -854,9 +854,9 @@ public class CharacterUtils {
 					Covering covering = character.getCovering(bp.getBodyCoveringType(character));
 					body.getCoverings().put(
 							bp.getBodyCoveringType(character),
-							new Covering(covering.getType(), covering.getPattern(), covering.getModifier(), covering.getPrimaryColour(), covering.isPrimaryGlowing(), covering.getSecondaryColour(), covering.isSecondaryGlowing()));
+							new Covering(covering.getType(), covering.getPattern(), covering.getModifier(), covering.getPrimaryColor(), covering.isPrimaryGlowing(), covering.getSecondaryColor(), covering.isSecondaryGlowing()));
 					tempList.remove(bp.getBodyCoveringType(character));
-//					System.out.println("Set: "+bp.getType().getName(character)+" : "+bp.getBodyCoveringType().getName(character)+"("+bp.getType().getRace().getName()+") : "+covering.getPrimaryColour().getName());
+//					System.out.println("Set: "+bp.getType().getName(character)+" : "+bp.getBodyCoveringType().getName(character)+"("+bp.getType().getRace().getName()+") : "+covering.getPrimaryColor().getName());
 				}
 			}
 		}
@@ -872,10 +872,10 @@ public class CharacterUtils {
 				Covering covering = character.getCovering(bct);
 					body.getCoverings().put(
 							bct,
-							new Covering(covering.getType(), covering.getPattern(), covering.getModifier(), covering.getPrimaryColour(), covering.isPrimaryGlowing(), covering.getSecondaryColour(), covering.isSecondaryGlowing()));
+							new Covering(covering.getType(), covering.getPattern(), covering.getModifier(), covering.getPrimaryColor(), covering.isPrimaryGlowing(), covering.getSecondaryColor(), covering.isSecondaryGlowing()));
 					tempList.remove(bct);
 			}
-//				System.out.println("Set: "+bct+" : "+bct.getName(character)+" : "+covering.getPrimaryColour().getName());
+//				System.out.println("Set: "+bct+" : "+bct.getName(character)+" : "+covering.getPrimaryColor().getName());
 		}
 //		System.out.println("------------------------------");
 
@@ -1573,18 +1573,18 @@ public class CharacterUtils {
 		}
 
 		// Hair:
-		if(Math.random()<=0.1f && !character.getCovering(character.getHairCovering()).getType().getDyePatterns().isEmpty()) { // 10% chance to have a non-natural hair colour:
+		if(Math.random()<=0.1f && !character.getCovering(character.getHairCovering()).getType().getDyePatterns().isEmpty()) { // 10% chance to have a non-natural hair color:
 			Covering currentCovering = character.getCovering(character.getHairCovering());
 			character.setHairCovering(new Covering(
 					currentCovering.getType(),
 					Util.randomItemFrom(currentCovering.getType().getDyePatterns()),
-					currentCovering.getType().getAllPrimaryColours().isEmpty()
-						?currentCovering.getPrimaryColour()
-						:Util.randomItemFrom(currentCovering.getType().getAllPrimaryColours()),
+					currentCovering.getType().getAllPrimaryColors().isEmpty()
+						?currentCovering.getPrimaryColor()
+						:Util.randomItemFrom(currentCovering.getType().getAllPrimaryColors()),
 					Math.random()<=0.05f,
-					currentCovering.getType().getAllSecondaryColours().isEmpty()
-						?currentCovering.getSecondaryColour()
-						:Util.randomItemFrom(currentCovering.getType().getAllSecondaryColours()),
+					currentCovering.getType().getAllSecondaryColors().isEmpty()
+						?currentCovering.getSecondaryColor()
+						:Util.randomItemFrom(currentCovering.getType().getAllSecondaryColors()),
 					Math.random()<=0.05f),
 					true);
 		}
@@ -2038,9 +2038,9 @@ public class CharacterUtils {
 	}
 
 	public static void equipClothing(GameCharacter character, boolean replaceUnsuitableClothing, boolean onlyAddCoreClothing) {
-		Colour primaryColour = ColourListPresets.ALL.getPresetColourList().get(Util.random.nextInt(ColourListPresets.ALL.getPresetColourList().size())),
-				secondaryColour = ColourListPresets.ALL.getPresetColourList().get(Util.random.nextInt(ColourListPresets.ALL.getPresetColourList().size())),
-				lingerieColour = ColourListPresets.LINGERIE.getPresetColourList().get(Util.random.nextInt(ColourListPresets.LINGERIE.getPresetColourList().size()));
+		Color primaryColor = ColorListPresets.ALL.getPresetColorList().get(Util.random.nextInt(ColorListPresets.ALL.getPresetColorList().size())),
+				secondaryColor = ColorListPresets.ALL.getPresetColorList().get(Util.random.nextInt(ColorListPresets.ALL.getPresetColorList().size())),
+				lingerieColor = ColorListPresets.LINGERIE.getPresetColorList().get(Util.random.nextInt(ColorListPresets.LINGERIE.getPresetColorList().size()));
 
 		// Remove exposing underwear if replaceUnsuitableClothing and is exposed:
 		if(replaceUnsuitableClothing
@@ -2073,7 +2073,7 @@ public class CharacterUtils {
 							&& character.getClothingInSlot(InventorySlot.TORSO_UNDER).getItemTags().contains(ItemTag.DRESS))) {
 					// Don't add clothing if not core
 				} else {
-					if((slot.isCoreClothing() || Math.random()>0.75f || (slot.isJewellery() && character.getBodyMaterial().isRequiresPiercing())) && !character.isSlotIncompatible(slot) && character.getClothingInSlot(slot)==null) {
+					if((slot.isCoreClothing() || Math.random()>0.75f || (slot.isJewelry() && character.getBodyMaterial().isRequiresPiercing())) && !character.isSlotIncompatible(slot) && character.getClothingInSlot(slot)==null) {
 						if(!ClothingType.getCommonClothingMapFemaleIncludingAndrogynous().get(slot).isEmpty()) {
 
 							BodyPartClothingBlock block = slot.getBodyPartClothingBlock(character);
@@ -2099,10 +2099,10 @@ public class CharacterUtils {
 									AbstractClothing clothingToAdd = AbstractClothingType.generateClothing(
 											ct,
 											(slot == InventorySlot.GROIN || slot==InventorySlot.CHEST || slot==InventorySlot.SOCK
-													? ct.getAvailablePrimaryColours().contains(lingerieColour)?lingerieColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size()))
+													? ct.getAvailablePrimaryColors().contains(lingerieColor)?lingerieColor:ct.getAvailablePrimaryColors().get(Util.random.nextInt(ct.getAvailablePrimaryColors().size()))
 													: (slot.isCoreClothing()
-															?ct.getAvailablePrimaryColours().contains(primaryColour)?primaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size()))
-															:ct.getAvailablePrimaryColours().contains(secondaryColour)?secondaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size())))),
+															?ct.getAvailablePrimaryColors().contains(primaryColor)?primaryColor:ct.getAvailablePrimaryColors().get(Util.random.nextInt(ct.getAvailablePrimaryColors().size()))
+															:ct.getAvailablePrimaryColors().contains(secondaryColor)?secondaryColor:ct.getAvailablePrimaryColors().get(Util.random.nextInt(ct.getAvailablePrimaryColors().size())))),
 											false);
 									if(ct.isPatternAvailable() && Math.random() >= 0.8f) {
 										clothingToAdd.setPattern(Util.randomItemFrom(new ArrayList<>(Pattern.getAllPatterns().values())).getName());
@@ -2131,7 +2131,7 @@ public class CharacterUtils {
 							&& character.getClothingInSlot(InventorySlot.TORSO_UNDER).getClothingType().toString().contains("DRESS"))) {//TODO please don't do this //BE QUIET
 					// Don't add clothing if not core
 				} else {
-					if((slot.isCoreClothing() || Math.random()>0.75f || (slot.isJewellery() && character.getBodyMaterial().isRequiresPiercing())) && !character.isSlotIncompatible(slot) && character.getClothingInSlot(slot)==null) {
+					if((slot.isCoreClothing() || Math.random()>0.75f || (slot.isJewelry() && character.getBodyMaterial().isRequiresPiercing())) && !character.isSlotIncompatible(slot) && character.getClothingInSlot(slot)==null) {
 						if(!ClothingType.getCommonClothingMapMaleIncludingAndrogynous().get(slot).isEmpty()) {
 
 							BodyPartClothingBlock block = slot.getBodyPartClothingBlock(character);
@@ -2153,10 +2153,10 @@ public class CharacterUtils {
 									AbstractClothing clothingToAdd = AbstractClothingType.generateClothing(
 											ct,
 											(slot == InventorySlot.GROIN || slot==InventorySlot.CHEST || slot==InventorySlot.SOCK
-													?  ct.getAvailablePrimaryColours().contains(lingerieColour)?lingerieColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size()))
+													?  ct.getAvailablePrimaryColors().contains(lingerieColor)?lingerieColor:ct.getAvailablePrimaryColors().get(Util.random.nextInt(ct.getAvailablePrimaryColors().size()))
 															: (slot.isCoreClothing()
-																	?ct.getAvailablePrimaryColours().contains(primaryColour)?primaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size()))
-																	:ct.getAvailablePrimaryColours().contains(secondaryColour)?secondaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size())))),
+																	?ct.getAvailablePrimaryColors().contains(primaryColor)?primaryColor:ct.getAvailablePrimaryColors().get(Util.random.nextInt(ct.getAvailablePrimaryColors().size()))
+																	:ct.getAvailablePrimaryColors().contains(secondaryColor)?secondaryColor:ct.getAvailablePrimaryColors().get(Util.random.nextInt(ct.getAvailablePrimaryColors().size())))),
 											false);
 									if(ct.isPatternAvailable() && Math.random() >= 0.8f) {
 										clothingToAdd.setPattern(Util.randomItemFrom(new ArrayList<>(Pattern.getAllPatterns().values())).getName());
@@ -2256,28 +2256,28 @@ public class CharacterUtils {
 
 	public static void applyMakeup(GameCharacter character, boolean overrideExistingMakeup) {
 		if((character.isFeminine() && !character.hasFetish(Fetish.FETISH_CROSS_DRESSER)) || (!character.isFeminine() && character.hasFetish(Fetish.FETISH_CROSS_DRESSER))) {
-			List<Colour> colours = Util.newArrayListOfValues(
-					Colour.COVERING_NONE,
-					Colour.COVERING_CLEAR,
-					Colour.COVERING_RED,
-					Colour.COVERING_PINK,
-					Colour.COVERING_BLUE);
+			List<Color> colors = Util.newArrayListOfValues(
+					Color.COVERING_NONE,
+					Color.COVERING_CLEAR,
+					Color.COVERING_RED,
+					Color.COVERING_PINK,
+					Color.COVERING_BLUE);
 
 			if(character.getHistory()==Occupation.NPC_PROSTITUTE) {
-				colours.remove(Colour.COVERING_NONE);
-				colours.remove(Colour.COVERING_CLEAR);
+				colors.remove(Color.COVERING_NONE);
+				colors.remove(Color.COVERING_CLEAR);
 			}
 
-			Colour colourForCoordination = Util.randomItemFrom(colours);
-			Colour colourForNails = Util.randomItemFrom(colours);
+			Color colorForCoordination = Util.randomItemFrom(colors);
+			Color colorForNails = Util.randomItemFrom(colors);
 
-			character.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, colourForCoordination));
-			character.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-			character.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, colourForCoordination));
-			character.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, colourForCoordination));
+			character.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, colorForCoordination));
+			character.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+			character.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, colorForCoordination));
+			character.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, colorForCoordination));
 
-			character.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, colourForNails));
-			character.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, colourForNails));
+			character.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, colorForNails));
+			character.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, colorForNails));
 
 		} else {
 			// Masculine characters
@@ -2298,7 +2298,7 @@ public class CharacterUtils {
 		}
 
 		if (prostitute.hasPenis()) {
-			prostitutePrice += Math.min((prostitute.getBody().getPenis().getRawSizeValue() - 5) * 0.01f, 0.10f); // Penalises small penises, but adds price if penis is large.
+			prostitutePrice += Math.min((prostitute.getBody().getPenis().getRawSizeValue() - 5) * 0.01f, 0.10f); // Penalizes small penises, but adds price if penis is large.
 		}
 
 		if (prostitute.getBody().getBreast().getNipples().getOrificeNipples().getRawCapacityValue() >= 4) {

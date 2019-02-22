@@ -75,7 +75,7 @@ import com.lilithsthrone.game.sex.SexType;
 import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -87,7 +87,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class Vicky extends NPC {
-	
+
 	private AbstractItemType[] availableIngredients = new AbstractItemType[] {
 			ItemType.RACE_INGREDIENT_CAT_MORPH,
 			ItemType.RACE_INGREDIENT_DOG_MORPH,
@@ -99,21 +99,21 @@ public class Vicky extends NPC {
 			ItemType.RACE_INGREDIENT_ALLIGATOR_MORPH,
 			ItemType.RACE_INGREDIENT_REINDEER_MORPH,
 			ItemType.RACE_INGREDIENT_HUMAN};
-	
+
 	private static List<AbstractItemType> availableSpellBooks = new ArrayList<>();
-	
+
 	static {
 		for(Spell s : Spell.values()) {
 			switch(s) {
 				// Tier 1:
 				case ARCANE_AROUSAL:
 				case ICE_SHARD:
-				case POISON_VAPOURS:
+				case POISON_VAPORS:
 				case FIREBALL:
 				case SLAM:
 					availableSpellBooks.add(ItemType.getSpellBookType(s));
 					break;
-					
+
 				// Tier 2:
 				case ARCANE_CLOUD:
 				case FLASH:
@@ -123,7 +123,7 @@ public class Vicky extends NPC {
 				case VACUUM:
 					availableSpellBooks.add(ItemType.getSpellBookType(s));
 					break;
-		
+
 				// Tier 3:
 				case STONE_SHELL:
 				case PROTECTIVE_GUSTS:
@@ -134,7 +134,7 @@ public class Vicky extends NPC {
 				case CLEANSE:
 				case STEAL:
 					break;
-					
+
 				// Tier 4:
 				case ELEMENTAL_AIR:
 				case ELEMENTAL_ARCANE:
@@ -143,12 +143,12 @@ public class Vicky extends NPC {
 				case ELEMENTAL_WATER:
 					availableSpellBooks.add(ItemType.getSpellBookType(s));
 					break;
-					
+
 				// Tier 5: // Special quest spells
 				case LILITHS_COMMAND:
 				case TELEPORT:
 					break;
-					
+
 				case WITCH_CHARM:
 				case WITCH_SEAL:
 				case DARK_SIREN_SIRENS_CALL:
@@ -156,18 +156,18 @@ public class Vicky extends NPC {
 			}
 		}
 	}
-	
+
 	public Vicky() {
 		this(false);
 	}
-	
+
 	public Vicky(boolean isImported) {
 		super(isImported, new NameTriplet("Vicky"), "Haugen",
 				"Vicky is the owner of the shop 'Arcane Arts'. Her manner of staring at anyone who enters her shop is quite unsettling, and you feel as though she's ready to pounce on you at any moment...",
 				37, Month.MAY, 26,
 				10, Gender.F_P_V_B_FUTANARI,
 				Subspecies.WOLF_MORPH, RaceStage.GREATER, new CharacterInventory(10), WorldType.SHOPPING_ARCADE, PlaceType.SHOPPING_ARCADE_VICKYS_SHOP, true);
-		
+
 		if(!isImported) {
 			dailyReset();
 		}
@@ -176,7 +176,7 @@ public class Vicky extends NPC {
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -184,33 +184,33 @@ public class Vicky extends NPC {
 			setStartingBody(false);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 25);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 60);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_STORE_OWNER);
-	
+
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
 			this.addFetish(Fetish.FETISH_NON_CON_DOM);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -218,28 +218,28 @@ public class Vicky extends NPC {
 		this.setFemininity(85);
 		this.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
 		this.setBodySize(BodySize.THREE_LARGE.getMedianValue());
-		
-		// Coverings:
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_LYCAN, Colour.EYE_YELLOW));
-		this.setSkinCovering(new Covering(BodyCoveringType.LYCAN_FUR, Colour.COVERING_BLACK), true);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_LYCAN_FUR, Colour.COVERING_BLACK), true);
+		// Coverings:
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_LYCAN, Color.EYE_YELLOW));
+		this.setSkinCovering(new Covering(BodyCoveringType.LYCAN_FUR, Color.COVERING_BLACK), true);
+
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_LYCAN_FUR, Color.COVERING_BLACK), true);
 		this.setHairLength(0);
 		this.setHairStyle(HairStyle.LOOSE);
-		
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_LYCAN_FUR, CoveringPattern.NONE, Colour.COVERING_BLACK, false, Colour.COVERING_BLACK, false), false);
+
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_LYCAN_FUR, CoveringPattern.NONE, Color.COVERING_BLACK, false, Color.COVERING_BLACK, false), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.ZERO_NONE);
 		this.setPubicHair(BodyHair.FOUR_NATURAL);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_AMBER));
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_AMBER));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_BLACK));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_BLACK));
-		
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_AMBER));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_AMBER));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_BLACK));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -247,7 +247,7 @@ public class Vicky extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.C.getMeasurement());
@@ -255,21 +255,21 @@ public class Vicky extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FOUR_WOMANLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisSize(9);
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		this.setPenisCumStorage(65);
 		this.fillCumToMaxStorage();
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -279,23 +279,23 @@ public class Vicky extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-		
+
 		this.unequipAllClothingIntoVoid(true);
 
 		this.setMoney(10);
-		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_CORSET_DRESS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HIPS_SUSPENDER_BELT, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_STOCKINGS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_THIGH_HIGH_BOOTS, Colour.CLOTHING_BLACK, false), true, this);
+
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_CORSET_DRESS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HIPS_SUSPENDER_BELT, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_STOCKINGS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_THIGH_HIGH_BOOTS, Color.CLOTHING_BLACK, false), true, this);
 
 	}
 
@@ -303,7 +303,7 @@ public class Vicky extends NPC {
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
@@ -314,9 +314,9 @@ public class Vicky extends NPC {
 		clearNonEquippedInventory();
 
 		int requiredRoomForMiscItems = ItemType.getEssences().size()+SpellSchool.values().length+availableSpellBooks.size()+10;
-		
+
 		List<AbstractCoreType> types = new ArrayList<>();
-		
+
 		for(AbstractWeaponType wt : WeaponType.getAllweapons()) {
 			if(wt.getItemTags().contains(ItemTag.SOLD_BY_VICKY)) {
 				types.add(wt);
@@ -336,7 +336,7 @@ public class Vicky extends NPC {
 				if(clothing!=null && clothing.getItemTags().contains(ItemTag.SOLD_BY_VICKY)) {
 					types.add(clothing);
 //					this.addClothing(AbstractClothingType.generateClothing(clothing, false), false);
-				} 
+				}
 			} catch(Exception ex) {
 				ex.printStackTrace();
 			}
@@ -348,10 +348,10 @@ public class Vicky extends NPC {
 				for(int i=0; i<1+Util.random.nextInt(3); i++){
 					this.addWeapon(AbstractWeaponType.generateWeapon((AbstractWeaponType) type), false);
 				}
-				
+
 			} else if(type instanceof AbstractItemType) {
 				this.addItem(AbstractItemType.generateItem((AbstractItemType) type), false);
-				
+
 			} else if(type instanceof AbstractClothingType) {
 				this.addClothing(AbstractClothingType.generateClothing((AbstractClothingType) type, false), false);
 			}
@@ -361,7 +361,7 @@ public class Vicky extends NPC {
 			}
 		}
 //		System.out.println(availableIngredients.length);
-		
+
 		AbstractItem ingredient = AbstractItemType.generateItem(availableIngredients[Util.random.nextInt(availableIngredients.length)]);
 		TFModifier primaryMod = TFModifier.getTFRacialBodyPartsList().get(Util.random.nextInt(TFModifier.getTFRacialBodyPartsList().size()));
 		for(int i=0; i<10;i++) {
@@ -371,23 +371,23 @@ public class Vicky extends NPC {
 					this.addItem(potion, false);
 					potion.setName(EnchantingUtils.getPotionName(ingredient, potion.getEffects()));
 				}
-				
+
 				ingredient = AbstractItemType.generateItem(availableIngredients[Util.random.nextInt(availableIngredients.length)]);
 				primaryMod = TFModifier.getTFRacialBodyPartsList().get(Util.random.nextInt(TFModifier.getTFRacialBodyPartsList().size()));
 			} catch(Exception ex) {
 			}
 		}
-		
+
 		for(AbstractItemType itemType : availableSpellBooks) {
 			this.addItem(AbstractItemType.generateItem(itemType), false);
 		}
-		
+
 		for(SpellSchool school : SpellSchool.values()) {
 			for(int i=0; i<10+Util.random.nextInt(20); i++) {
 				this.addItem(AbstractItemType.generateItem(ItemType.getSpellScrollType(school)), false);
 			}
 		}
-		
+
 		if(Main.game.getPlayer().hasQuest(QuestLine.SIDE_ENCHANTMENT_DISCOVERY)) {
 			for(AbstractItemType itemType : ItemType.getEssences()) {
 				for(int i=0;i<20+Util.random.nextInt(11);i++) {
@@ -396,11 +396,11 @@ public class Vicky extends NPC {
 			}
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
@@ -427,7 +427,7 @@ public class Vicky extends NPC {
 	public boolean willBuy(AbstractCoreItem item) {
 		if(item instanceof AbstractWeapon)
 			return true;
-		
+
 		if(item instanceof AbstractItem) {
 			if(((AbstractItem)item).getItemType().getItemTags().contains(ItemTag.ESSENCE)
 					|| ((AbstractItem)item).getItemType().getItemTags().contains(ItemTag.SPELL_BOOK)
@@ -437,7 +437,7 @@ public class Vicky extends NPC {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -448,20 +448,20 @@ public class Vicky extends NPC {
 			Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(AbstractItemType.generateItem(ItemType.ARTHURS_PACKAGE), false, true));
 		}
 	}
-	
+
 	// Sex:
-	
+
 	@Override
-	public boolean getSexBehaviourDeniesRequests(SexType sexTypeRequest) {
+	public boolean getSexBehaviorDeniesRequests(SexType sexTypeRequest) {
 		return true;
 	}
-	
+
 	@Override
 	public Set<SexSlot> getSexPositionPreferences(GameCharacter target) {
 		sexPositionPreferences.clear();
-		
+
 		sexPositionPreferences.add(SexSlotBipeds.MISSIONARY_DESK_DOM);
-		
+
 		return sexPositionPreferences;
 	}
 
@@ -469,10 +469,10 @@ public class Vicky extends NPC {
 	public SexType getForeplayPreference(GameCharacter target) {
 		if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true)) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.ANUS);
-			
+
 		} else if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true) && Main.game.getPlayer().hasVagina()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.VAGINA);
-			
+
 		} else {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.ANUS);
 		}
@@ -482,10 +482,10 @@ public class Vicky extends NPC {
 	public SexType getMainSexPreference(GameCharacter target) {
 		if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true)) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.ANUS);
-			
+
 		} else if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true) && Main.game.getPlayer().hasVagina()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.VAGINA);
-			
+
 		} else {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.ANUS);
 		}

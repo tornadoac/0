@@ -66,7 +66,7 @@ import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -82,7 +82,7 @@ public class DarkSiren extends NPC {
 	public DarkSiren() {
 		this(false);
 	}
-	
+
 	public DarkSiren(boolean isImported) {
 		super(isImported,
 				new NameTriplet("Meraxis"), "Lyssiethmartuilani",
@@ -99,34 +99,34 @@ public class DarkSiren extends NPC {
 			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3")) {
 				this.addTrait(Perk.CHUUNI);
 				this.setEssenceCount(TFEssence.ARCANE, 10000);
-				
+
 				this.addSpell(Spell.FIREBALL);
 				this.addSpellUpgrade(SpellUpgrade.FIREBALL_1);
 				this.addSpellUpgrade(SpellUpgrade.FIREBALL_2);
-				
+
 				this.addSpell(Spell.CLOAK_OF_FLAMES);
 				this.addSpellUpgrade(SpellUpgrade.CLOAK_OF_FLAMES_1);
-				
+
 				this.addSpell(Spell.ICE_SHARD);
 				this.addSpellUpgrade(SpellUpgrade.ICE_SHARD_1);
 				this.addSpellUpgrade(SpellUpgrade.ICE_SHARD_2);
-				
-				this.addSpell(Spell.POISON_VAPOURS);
-				this.addSpellUpgrade(SpellUpgrade.POISON_VAPOURS_1);
-				this.addSpellUpgrade(SpellUpgrade.POISON_VAPOURS_2);
-				
+
+				this.addSpell(Spell.POISON_VAPORS);
+				this.addSpellUpgrade(SpellUpgrade.POISON_VAPORS_1);
+				this.addSpellUpgrade(SpellUpgrade.POISON_VAPORS_2);
+
 				this.addSpell(Spell.VACUUM);
 				this.addSpellUpgrade(SpellUpgrade.VACUUM_1);
-				
+
 				this.addSpell(Spell.SLAM);
 				this.addSpellUpgrade(SpellUpgrade.SLAM_1);
 				this.addSpellUpgrade(SpellUpgrade.SLAM_2);
 				this.addSpellUpgrade(SpellUpgrade.SLAM_3);
-				
+
 				this.addSpell(Spell.TELEKENETIC_SHOWER);
 				this.addSpellUpgrade(SpellUpgrade.TELEKENETIC_SHOWER_1);
 			}
-			
+
 		}
 	}
 
@@ -135,7 +135,7 @@ public class DarkSiren extends NPC {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
 
 		this.setGenericName("dark siren");
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.12.5")) {
 			this.setBody(Gender.F_V_B_FEMALE, Subspecies.DEMON, RaceStage.PARTIAL_FULL);
 			setStartingBody(true);
@@ -147,34 +147,34 @@ public class DarkSiren extends NPC {
 		}
 		setName(new NameTriplet("Meraxis"));
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 40);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 50);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-			
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MUGGER);
-			
+
 			this.clearFetishes();
-			
+
 			this.addFetish(Fetish.FETISH_TRANSFORMATION_GIVING);
 			this.addFetish(Fetish.FETISH_VOYEURIST);
 		}
-		
+
 		// Body:
 		this.setSubspeciesOverride(Subspecies.HALF_DEMON);
 		this.setHalfDemonSubspecies(Subspecies.HUMAN);
@@ -188,31 +188,31 @@ public class DarkSiren extends NPC {
 		this.setFemininity(80);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.ZERO_SKINNY.getMedianValue());
-		
-		// Coverings:
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, CoveringPattern.EYE_IRISES_HETEROCHROMATIC, Colour.EYE_GREEN, false, Colour.EYE_PURPLE, true));
-		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Colour.SKIN_RED), true);
-		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Colour.SKIN_LIGHT), true);
-		
-		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Colour.HORN_DARK_GREY), false);
 
-		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Colour.COVERING_BLACK), true);
+		// Coverings:
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, CoveringPattern.EYE_IRISES_HETEROCHROMATIC, Color.EYE_GREEN, false, Color.EYE_PURPLE, true));
+		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
+		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
+
+		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
+
+		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMedianValue());
 		this.setHairStyle(HairStyle.LOOSE);
-		
-		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Colour.COVERING_BLACK), false);
+
+		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.ZERO_NONE);
 		this.setPubicHair(BodyHair.TWO_MANICURED);
 		this.setFacialHair(BodyHair.ZERO_NONE);
 
-		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_PURPLE_DARK));
-		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_PURPLE_DARK));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_BLACK));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_BLACK));
-		
+		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_PURPLE_DARK));
+		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_PURPLE_DARK));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_BLACK));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -220,7 +220,7 @@ public class DarkSiren extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.AA.getMeasurement());
@@ -228,17 +228,17 @@ public class DarkSiren extends NPC {
 		this.setNippleSize(NippleSize.ONE_SMALL);
 		this.setAreolaeSize(AreolaeSize.ONE_SMALL);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
 		this.setAssSize(AssSize.TWO_SMALL);
 		this.setHipSize(HipSize.THREE_GIRLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		// n/a
-		
+
 		// Vagina:
 		this.setVaginaVirgin(true);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -248,60 +248,60 @@ public class DarkSiren extends NPC {
 		this.setVaginaWetness(Wetness.TWO_MOIST);
 		this.setVaginaElasticity(OrificeElasticity.TWO_FIRM.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.SIX_MALLEABLE.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		this.unequipAllClothingIntoVoid(true);
-		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_LACY_PANTIES, Colour.CLOTHING_PURPLE_VERY_DARK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_LACY_PLUNGE_BRA, Colour.CLOTHING_PURPLE_VERY_DARK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_THIGHHIGH_SOCKS_STRIPED, Colour.CLOTHING_PURPLE_VERY_DARK, Colour.CLOTHING_BLACK, null, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_hand_striped_gloves"), Colour.CLOTHING_PURPLE_VERY_DARK, Colour.CLOTHING_BLACK, null, false), true, this);
-		
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", Colour.CLOTHING_BLACK, Colour.CLOTHING_GOLD, Colour.CLOTHING_PURPLE_VERY_DARK, false), true, this);
+
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_LACY_PANTIES, Color.CLOTHING_PURPLE_VERY_DARK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_LACY_PLUNGE_BRA, Color.CLOTHING_PURPLE_VERY_DARK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_THIGHHIGH_SOCKS_STRIPED, Color.CLOTHING_PURPLE_VERY_DARK, Color.CLOTHING_BLACK, null, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_hand_striped_gloves"), Color.CLOTHING_PURPLE_VERY_DARK, Color.CLOTHING_BLACK, null, false), true, this);
+
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_hat_wide", Color.CLOTHING_BLACK, Color.CLOTHING_GOLD, Color.CLOTHING_PURPLE_VERY_DARK, false), true, this);
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_darkSiren_siren_amulet", false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_darkSiren_siren_cloak", false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_darkSiren_siren_seal", false), true, this);
-		
+
 		this.setPiercedEar(true);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Colour.CLOTHING_BLACK_STEEL, false), true, this);
-		
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_BLACK_STEEL, false), true, this);
+
 		if(addWeapons) {
 			this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_scythe_scythe"), DamageType.POISON));
 		}
 	}
-	
+
 	public void postDefeatReset() {
 		this.setObedience(ObedienceLevel.NEGATIVE_ONE_DISOBEDIENT.getMedianValue());
 		this.setLocation(WorldType.LYSSIETH_PALACE, PlaceType.LYSSIETH_PALACE_SIREN_OFFICE, true);
 		this.unequipAllClothingIntoVoid(true);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_LACY_PANTIES, Colour.CLOTHING_PURPLE_VERY_DARK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_LACY_PLUNGE_BRA, Colour.CLOTHING_PURPLE_VERY_DARK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TRAINER_SOCKS, Colour.CLOTHING_WHITE, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_PENCIL_SKIRT, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torso_feminine_short_sleeve_shirt", Colour.CLOTHING_PINK_LIGHT, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torsoOver_feminine_blazer", Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Colour.CLOTHING_PINK_LIGHT, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Colour.CLOTHING_BLACK_STEEL, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_LACY_PANTIES, Color.CLOTHING_PURPLE_VERY_DARK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_LACY_PLUNGE_BRA, Color.CLOTHING_PURPLE_VERY_DARK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TRAINER_SOCKS, Color.CLOTHING_WHITE, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_PENCIL_SKIRT, Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torso_feminine_short_sleeve_shirt", Color.CLOTHING_PINK_LIGHT, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torsoOver_feminine_blazer", Color.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Color.CLOTHING_PINK_LIGHT, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_BLACK_STEEL, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_darkSiren_siren_seal", false), true, this);
 	}
-	
+
 	@Override
-	public String getSpeechColour() {
+	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			return "#7E0094";
 		}//
 		return "#D397C5";//C374B1";
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
@@ -317,20 +317,20 @@ public class DarkSiren extends NPC {
 			return "The ruler of Submission's central imp citadel, this 'Dark Siren' is an incredibly powerful arcane user...";
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public void endSex() {
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
@@ -343,14 +343,14 @@ public class DarkSiren extends NPC {
 		}
 		return super.getRelationshipsTo(character, excludedRelationships);
 	}
-	
+
 	// Combat:
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
 	}
-	
+
 	public Attack attackType() {
 		if(!getWeightedSpellsAvailable(Combat.getTargetedCombatant(this)).isEmpty() && Math.random()<0.75f) {
 			return Attack.SPELL;
@@ -358,12 +358,12 @@ public class DarkSiren extends NPC {
 
 		return Attack.MAIN;
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
 			return new Response("", "", ImpCitadelDialogue.KEEP_AFTER_COMBAT_VICTORY);
-			
+
 		} else {
 			return new Response("", "", ImpCitadelDialogue.KEEP_AFTER_COMBAT_DEFEAT) {
 				@Override

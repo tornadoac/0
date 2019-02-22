@@ -270,13 +270,13 @@ public class PixShower {
 		@Override
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
-					"Realising that you're in no state to resist Pix's 'fun', you gently lean back into the dominant dog-girl, allowing her to use you as she sees fit.",
+					"Realizing that you're in no state to resist Pix's 'fun', you gently lean back into the dominant dog-girl, allowing her to use you as she sees fit.",
 							
 					"You decide to just let Pix use you however she wants, and gently lean back against her as she lets out an approving growl.",
 					
 					"Leaning forwards against the wall of the shower, you surrender yourself to Pix, allowing her to do whatever she wants with you.",
 					
-					"Coming to the realisation that Pix is in full control of the situation, you lean forwards against the wall of the shower, deciding to let her do whatever she wants with you.");
+					"Coming to the realization that Pix is in full control of the situation, you lean forwards against the wall of the shower, deciding to let her do whatever she wants with you.");
 		}
 		
 		@Override
@@ -865,7 +865,7 @@ public class PixShower {
 				UtilText.nodeContentSB.append(" You don't last more than a few seconds under her expert touch, and as you feel your [pc.balls+] tense up");
 				switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
 					case ZERO_NONE:
-						UtilText.nodeContentSB.append(", you let out [pc.a_moan+] as you realise that you're not able to produce even one drop of cum.");
+						UtilText.nodeContentSB.append(", you let out [pc.a_moan+] as you realize that you're not able to produce even one drop of cum.");
 						break;
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(", you feel a small trickle of [pc.cum+] squirting");
@@ -960,7 +960,7 @@ public class PixShower {
 			return "You feel a desperate heat rising in your groin, but, not wanting to promise Pix that you'll come back and see her again, you decide to keep quiet and orgasm without her help."
 					+ " As your climax builds and builds, you suddenly find yourself letting out a little [pc.moan]."
 					+ "<br/><br/>"
-					+ "Betrayed by your inability to keep quiet, Pix realises what's going on, and with an angry growl, she grabs your [pc.arms], pinning them behind your back as she slams you into the wall, "
+					+ "Betrayed by your inability to keep quiet, Pix realizes what's going on, and with an angry growl, she grabs your [pc.arms], pinning them behind your back as she slams you into the wall, "
 					+ "[pix.speech(What did I say?! You're <i>not</i> orgasming until you promise to come back! Y'know, I can do this all day!)]"
 					+ "<br/><br/>"
 					+"She holds you there, pinned up against the wall, for several minutes, and try as you might, you're completely unable to break free."
@@ -1041,7 +1041,7 @@ public class PixShower {
 
 		@Override
 		public String getDescription() {
-			return "You hear Pix letting out desperate little whines, and you realise that she's getting off on preventing you from orgasming."
+			return "You hear Pix letting out desperate little whines, and you realize that she's getting off on preventing you from orgasming."
 					+ " Sensing your chance to break free, you try pushing her off of you, but that only seems to increase the intensity of her moans,"
 					+ " and with an ear-splitting scream, she slams you forwards against the wall, grinding her naked [pix.pussy] up against your [pc.ass] as her orgasm washes over her."
 					+ "<br/><br/>"

@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.gender;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.69
@@ -8,24 +8,24 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum AndrogynousIdentification {
-	FEMININE("feminine", Colour.FEMININE),
-	CLOTHING_FEMININE("clothing feminine", Colour.ANDROGYNOUS),
-	CLOTHING_MASCULINE("clothing masculine", Colour.ANDROGYNOUS),
-	MASCULINE("masculine", Colour.MASCULINE);
+	FEMININE("feminine", Color.FEMININE),
+	CLOTHING_FEMININE("clothing feminine", Color.ANDROGYNOUS),
+	CLOTHING_MASCULINE("clothing masculine", Color.ANDROGYNOUS),
+	MASCULINE("masculine", Color.MASCULINE);
 	
 	private String name;
-	private Colour colour;
+	private Color color;
 	
-	private AndrogynousIdentification(String name, Colour colour) {
+	private AndrogynousIdentification(String name, Color color) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

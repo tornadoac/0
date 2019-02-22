@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.effects;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.53
@@ -9,27 +9,27 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum PerkCategory {
 	
-	JOB(Colour.BASE_BROWN),
+	JOB(Color.BASE_BROWN),
 	
-	PHYSICAL(Colour.ATTRIBUTE_PHYSIQUE),
+	PHYSICAL(Color.ATTRIBUTE_PHYSIQUE),
 	
-	BOTH(Colour.ATTRIBUTE_CORRUPTION),
+	BOTH(Color.ATTRIBUTE_CORRUPTION),
 	
-	ARCANE(Colour.ATTRIBUTE_ARCANE),
+	ARCANE(Color.ATTRIBUTE_ARCANE),
 	
-	// Just for colouring:
-	PHYSICAL_EARTH(Colour.SPELL_SCHOOL_EARTH),
-	PHYSICAL_WATER(Colour.SPELL_SCHOOL_WATER),
-	ARCANE_FIRE(Colour.SPELL_SCHOOL_FIRE),
-	ARCANE_AIR(Colour.SPELL_SCHOOL_AIR);
+	// Just for coloring:
+	PHYSICAL_EARTH(Color.SPELL_SCHOOL_EARTH),
+	PHYSICAL_WATER(Color.SPELL_SCHOOL_WATER),
+	ARCANE_FIRE(Color.SPELL_SCHOOL_FIRE),
+	ARCANE_AIR(Color.SPELL_SCHOOL_AIR);
 
-	private Colour colour;
+	private Color color;
 
-	private PerkCategory(Colour colour) {
-		this.colour = colour;
+	private PerkCategory(Color color) {
+		this.color = color;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

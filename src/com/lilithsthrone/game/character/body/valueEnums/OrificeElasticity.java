@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * Arbitrary measurements in increments of 1, going from 0 to 7.
@@ -14,43 +14,43 @@ public enum OrificeElasticity {
 	/*-------RIGID:---------*/
 
 	/**Is extremely resistant to being stretched out.*/
-	ZERO_UNYIELDING("rigid", 0, 0.05f, Colour.GENERIC_SIZE_ONE),
+	ZERO_UNYIELDING("rigid", 0, 0.05f, Color.GENERIC_SIZE_ONE),
 	
 	/**Is very resistant to being stretched out.*/
-	ONE_RIGID("stiff", 1, 0.1f, Colour.GENERIC_SIZE_TWO),
+	ONE_RIGID("stiff", 1, 0.1f, Color.GENERIC_SIZE_TWO),
 	
 	/**Is resistant to being stretched out.*/
-	TWO_FIRM("firm", 2, 0.15f, Colour.GENERIC_SIZE_THREE),
+	TWO_FIRM("firm", 2, 0.15f, Color.GENERIC_SIZE_THREE),
 
 	/*-------NORMAL:---------*/
 	
 	/**Normal value, along with FOUR_LIMBER. Is quite resistant to being stretched out.*/
-	THREE_FLEXIBLE("flexible", 3, 0.2f, Colour.GENERIC_SIZE_FOUR),
+	THREE_FLEXIBLE("flexible", 3, 0.2f, Color.GENERIC_SIZE_FOUR),
 
 	/**Normal value, along with THREE_FLEXIBLE. Is somewhat resistant to being stretched out.*/
-	FOUR_LIMBER("limber", 4, 0.25f, Colour.GENERIC_SIZE_FIVE),
+	FOUR_LIMBER("limber", 4, 0.25f, Color.GENERIC_SIZE_FIVE),
 
 	/*-------STRETCHY:---------*/
 	
 	/**Stretches out fairly quickly.*/
-	FIVE_STRETCHY("stretchy", 5, 0.3f, Colour.GENERIC_SIZE_SIX),
+	FIVE_STRETCHY("stretchy", 5, 0.3f, Color.GENERIC_SIZE_SIX),
 
 	/**Easily stretches out.*/
-	SIX_SUPPLE("supple", 6, 0.4f, Colour.GENERIC_SIZE_SEVEN),
+	SIX_SUPPLE("supple", 6, 0.4f, Color.GENERIC_SIZE_SEVEN),
 	
 	/**Very quickly stretches out.*/
-	SEVEN_ELASTIC("elastic", 7, 0.5f, Colour.GENERIC_SIZE_EIGHT);
+	SEVEN_ELASTIC("elastic", 7, 0.5f, Color.GENERIC_SIZE_EIGHT);
 
 	private String descriptor;
 	private int value;
 	private float stretchModifier;
-	private Colour colour;
+	private Color color;
 
-	private OrificeElasticity(String descriptor, int value, float stretchModifier, Colour colour) {
+	private OrificeElasticity(String descriptor, int value, float stretchModifier, Color color) {
 		this.descriptor = descriptor;
 		this.value = value;
 		this.stretchModifier = stretchModifier;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public static OrificeElasticity getElasticityFromInt(int value) {
@@ -77,8 +77,8 @@ public enum OrificeElasticity {
 		return stretchModifier;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 }

@@ -147,7 +147,7 @@ public enum InventorySlot {
 	private String name;
 	private boolean plural;
 	private String tattooSlotName;
-	private boolean jewellery;
+	private boolean jewelry;
 	private boolean coreClothing;
 
 	private static List<InventorySlot> humanoidSlots;
@@ -251,12 +251,12 @@ public enum InventorySlot {
 //		humanoidSlots.add(PIERCING_PENIS);
 	}
 
-	private InventorySlot(int zLayer, String name, boolean plural, boolean coreClothing, boolean jewellery, String tattooSlotName) {
+	private InventorySlot(int zLayer, String name, boolean plural, boolean coreClothing, boolean jewelry, String tattooSlotName) {
 		this.zLayer = zLayer;
 		this.name = name;
 		this.plural = plural;
 		this.coreClothing = coreClothing;
-		this.jewellery = jewellery;
+		this.jewelry = jewelry;
 		this.tattooSlotName = tattooSlotName;
 	}
 
@@ -280,8 +280,8 @@ public enum InventorySlot {
 		return coreClothing;
 	}
 
-	public boolean isJewellery() {
-		return jewellery;
+	public boolean isJewelry() {
+		return jewelry;
 	}
 
 	public static List<InventorySlot> getHumanoidSlots() {

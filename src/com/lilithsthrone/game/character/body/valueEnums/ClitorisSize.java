@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * Anything over ZERO_AVERAGE is basically a pseudo penis
@@ -11,31 +11,31 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum ClitorisSize {
 	
-	ZERO_AVERAGE("normal-sized", 0, 1, Colour.GENERIC_SIZE_ONE),
+	ZERO_AVERAGE("normal-sized", 0, 1, Color.GENERIC_SIZE_ONE),
 	
-	ONE_BIG("big", 1, 3, Colour.GENERIC_SIZE_TWO),
+	ONE_BIG("big", 1, 3, Color.GENERIC_SIZE_TWO),
 	
-	TWO_LARGE("large", 3, 5, Colour.GENERIC_SIZE_THREE),
+	TWO_LARGE("large", 3, 5, Color.GENERIC_SIZE_THREE),
 	
-	THREE_HUGE("huge", 5, 11, Colour.GENERIC_SIZE_FOUR),
+	THREE_HUGE("huge", 5, 11, Color.GENERIC_SIZE_FOUR),
 	
-	FOUR_MASSIVE("massive", 11, 22, Colour.GENERIC_SIZE_FIVE),
+	FOUR_MASSIVE("massive", 11, 22, Color.GENERIC_SIZE_FIVE),
 	
-	FIVE_ENORMOUS("enormous", 22, 30, Colour.GENERIC_SIZE_SIX),
+	FIVE_ENORMOUS("enormous", 22, 30, Color.GENERIC_SIZE_SIX),
 	
-	SIX_GIGANTIC("gigantic", 30, 38, Colour.GENERIC_SIZE_SEVEN),
+	SIX_GIGANTIC("gigantic", 30, 38, Color.GENERIC_SIZE_SEVEN),
 	
-	SEVEN_STALLION("stallion-sized", 38, 50, Colour.GENERIC_SIZE_EIGHT);
+	SEVEN_STALLION("stallion-sized", 38, 50, Color.GENERIC_SIZE_EIGHT);
 
 	private int minimumValue, maximumValue;
 	private String descriptor;
-	private Colour colour;
+	private Color color;
 
-	private ClitorisSize(String descriptor, int minimumValue, int maximumValue, Colour colour) {
+	private ClitorisSize(String descriptor, int minimumValue, int maximumValue, Color color) {
 		this.descriptor = descriptor;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public int getMinimumValue() {
@@ -67,7 +67,7 @@ public enum ClitorisSize {
 		return descriptor;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

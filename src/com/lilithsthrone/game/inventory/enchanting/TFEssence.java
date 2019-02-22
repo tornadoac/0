@@ -6,7 +6,7 @@ import java.io.InputStream;
 import com.lilithsthrone.game.inventory.Rarity;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -21,21 +21,21 @@ public enum TFEssence {
 			"An exceedingly rare pure arcane essence.",
 			"arcane",
 			"essenceArcane",
-			Colour.GENERIC_ARCANE,
+			Color.GENERIC_ARCANE,
 			Rarity.LEGENDARY);
 	
 
-	private String name, description, descriptor, SVGString, SVGStringUncoloured;
-	private Colour colour;
+	private String name, description, descriptor, SVGString, SVGStringUncolored;
+	private Color color;
 	private Rarity rarity;
 
-	private TFEssence(String name, String description, String descriptor, String SVGString, Colour colour, Rarity rarity) {
+	private TFEssence(String name, String description, String descriptor, String SVGString, Color color, Rarity rarity) {
 		this.name = name;
 		this.description = description;
 		this.descriptor = descriptor;
 		this.SVGString = SVGString;
-		this.SVGStringUncoloured = SVGString;
-		this.colour = colour;
+		this.SVGStringUncolored = SVGString;
+		this.color = color;
 		this.rarity = rarity;
 		
 		// Set this item's file image:
@@ -47,11 +47,11 @@ public enum TFEssence {
 			String base = Util.inputStreamToString(is);
 			
 			String s = base;
-			s = SvgUtil.colourReplacement(this.toString(), Colour.BASE_GREY, s);
-			this.SVGStringUncoloured = s;
+			s = SvgUtil.colorReplacement(this.toString(), Color.BASE_GREY, s);
+			this.SVGStringUncolored = s;
 
 			String s2 = base;
-			s2 = SvgUtil.colourReplacement(this.toString(), colour, s2);
+			s2 = SvgUtil.colorReplacement(this.toString(), color, s2);
 			this.SVGString = s2;
 
 			is.close();
@@ -77,12 +77,12 @@ public enum TFEssence {
 		return SVGString;
 	}
 	
-	public String getSVGStringUncoloured() {
-		return SVGStringUncoloured;
+	public String getSVGStringUncolored() {
+		return SVGStringUncolored;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public Rarity getRarity() {

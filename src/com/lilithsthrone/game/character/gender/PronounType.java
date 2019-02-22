@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.gender;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.86
@@ -8,23 +8,23 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum PronounType {
-	FEMININE("feminine", Colour.FEMININE),
-	NEUTRAL("androgynous", Colour.ANDROGYNOUS),
-	MASCULINE("masculine", Colour.MASCULINE);
+	FEMININE("feminine", Color.FEMININE),
+	NEUTRAL("androgynous", Color.ANDROGYNOUS),
+	MASCULINE("masculine", Color.MASCULINE);
 	
 	private String name;
-	private Colour colour;
+	private Color color;
 	
-	private PronounType(String name, Colour colour) {
+	private PronounType(String name, Color color) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

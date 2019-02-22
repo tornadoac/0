@@ -54,14 +54,14 @@
 
 		<incompatibleSlots/>
 
-		<primaryColours>
-			<colour>CLOTHING_TAN</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_BLACK"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours values="JUST_DARK_BROWN"/>
-		<tertiaryColoursDye values="ALL"/>
+		<primaryColors>
+			<color>CLOTHING_TAN</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_BLACK"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors values="JUST_DARK_BROWN"/>
+		<tertiaryColorsDye values="ALL"/>
 
 		<itemTags/>
 	</coreAttributes>

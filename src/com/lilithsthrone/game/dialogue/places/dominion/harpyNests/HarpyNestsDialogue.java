@@ -12,7 +12,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
 
@@ -76,7 +76,7 @@ public class HarpyNestsDialogue {
 									"<p>"
 										+ "Pushing open one of the large glass doors, you step forwards into the lobby."
 										+ " Although there's a front desk, it's currently surrounded by a group of bickering harpies, and from what snippets of conversation you can catch,"
-											+ " it sounds like they're arguing with the receptionist, and each other, over what colour of feather is the most attractive."
+											+ " it sounds like they're arguing with the receptionist, and each other, over what color of feather is the most attractive."
 									+ "</p>"
 									+ "<p>"
 										+ "Looking around, you don't see any other members of the building's staff, so, assuming that they're available for just anyone to use, you head over to one of the elevators and step inside."
@@ -127,7 +127,7 @@ public class HarpyNestsDialogue {
 						+ "</p>"
 						+(Main.game.getPlayer().getLevel()<5
 								? "<p>"
-								+ "<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>It's recommended that you be at least level 5 before exploring the Harpy nests!</b>"
+								+ "<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>It's recommended that you be at least level 5 before exploring the Harpy nests!</b>"
 							+ "</p>"
 							:""));
 			}
@@ -155,7 +155,7 @@ public class HarpyNestsDialogue {
 						} else {
 							Main.game.getTextStartStringBuilder().append(
 									"<p>"
-										+ "Stepping into the same elevator you used to ride up to the enforcer post, you soon find yourself travelling back down to street level."
+										+ "Stepping into the same elevator you used to ride up to the enforcer post, you soon find yourself traveling back down to street level."
 									+ "</p>");
 						}
 						
@@ -263,7 +263,7 @@ public class HarpyNestsDialogue {
 								+ " [style.speechFeminine(I'm serious about these harpies! They're far more dangerous than any old mugger you might meet in the alleyways below!)]"
 							+ "</p>"
 							+ "<p>"
-								+ "<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>It's recommended that you be at least level 5 before exploring the Harpy nests!</b>"
+								+ "<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>It's recommended that you be at least level 5 before exploring the Harpy nests!</b>"
 							+ "</p>"
 							:"");
 				
@@ -310,7 +310,7 @@ public class HarpyNestsDialogue {
 								+ " [style.speechMasculine(I'm serious about these harpies! They're far more dangerous than any old mugger you might meet in the alleyways below!)]"
 							+ "</p>"
 							+ "<p>"
-								+ "<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>It's recommended that you be at least level 5 before exploring the Harpy nests!</b>"
+								+ "<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>It's recommended that you be at least level 5 before exploring the Harpy nests!</b>"
 							+ "</p>"
 							:"");
 			}
@@ -344,7 +344,7 @@ public class HarpyNestsDialogue {
 					+ "<p>"
 						+ "[style.speechMasculineStrong(Alright, report back here as soon as you get that warrant,)] you hear him say."
 						+ " [style.speechMasculineStrong(These harpies are getting out of control..."
-						+ " Oh, and Alice, before you go, if I hear just <i>one more</i> rumour about you shirking your duties to go visit your boyfriend, I'll fuck you myself! Now get out of my sight!)]"
+						+ " Oh, and Alice, before you go, if I hear just <i>one more</i> rumor about you shirking your duties to go visit your boyfriend, I'll fuck you myself! Now get out of my sight!)]"
 					+ "</p>"
 					+ "<p>"
 						+ "[style.speechFeminine(Yes sir!)] the cat-girls call out in unison, before running off."
@@ -381,7 +381,7 @@ public class HarpyNestsDialogue {
 						+ "You flick between the papers as he continues,"
 						+ " [style.speechMasculineStrong(That one with the blonde feathers is [bimboHarpy.name], the mean-looking one is [dominantHarpy.name], and the other one is called [nymphoHarpy.name]."
 						+ " They outright refuse to get along with one another, and their little ongoing feud is causing the Nests to descend into anarchy."
-						+ " We've even started to get reports of harpies attacking travellers in broad daylight! No matter how many enforcer patrols we send out, nothing changes."
+						+ " We've even started to get reports of harpies attacking travelers in broad daylight! No matter how many enforcer patrols we send out, nothing changes."
 						+ " As much as I hate to admit it, it's the matriarchs who are the ones responsible for keeping law and order up here.)]"
 					+ "</p>"
 					+ "<p>"
@@ -454,10 +454,10 @@ public class HarpyNestsDialogue {
 						+ "Having received your reward, you say farewell to the happy horse-boy, and, walking out of his office, head back into the Enforcer Post."
 					+ "</p>"
 					+ "<p style='text-align:center;'>"
-						+ "<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>You have received:</b> <b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>"+UtilText.getCurrencySymbol()+"</b> <b>5,000</b>"
+						+ "<b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>You have received:</b> <b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>"+UtilText.getCurrencySymbol()+"</b> <b>5,000</b>"
 					+ "</p>"
 					+ "<p style='text-align:center;'>"
-						+ "<b style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>The Harpy Nests are now safe to travel through!</b>"
+						+ "<b style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>The Harpy Nests are now safe to travel through!</b>"
 					+ "</p>";
 		}
 		
@@ -508,10 +508,10 @@ public class HarpyNestsDialogue {
 								+ (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)
 									?"Although you've pacified the harpy nests, these walkways are dangerous at the moment, due to the ongoing arcane storm."
 										+ " The harpies should all be taking shelter, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
 										+ " It's probably only a matter of time before they make their move..."
 									:"Although the harpies should all be taking shelter, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
 										+ " It's probably only a matter of time before they make their move...")
 							+ "</p>");
 					break;
@@ -519,15 +519,15 @@ public class HarpyNestsDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Due to the ongoing rain, each flock has taken shelter in the building below their nest, or beneath the canvas coverings that have been erected to protect the harpies from the elements."
-								+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favour of their leader."
+								+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favor of their leader."
 								+ " Peering over the side of the railing, you see that the people walking down the streets below are similarly huddling beneath any shelter they can find, desperate to get out of the rain."
 							+ "</p>"
 							+ "<p>"
 								+ (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)
-									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be travelling between the nests."
+									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be traveling between the nests."
 										+ " Although there's no risk of being attacked, harpies are still quite touchy by nature, and you imagine that it wouldn't be too hard to cause a confrontation if you were to go looking for trouble..."
-									:"As you continue travelling down the walkways, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
+									:"As you continue traveling down the walkways, you can't help but shake the feeling that you're being watched."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
 										+ " It's probably only a matter of time before one of them decides to openly confront you...")
 							+ "</p>");
 					break;
@@ -537,25 +537,25 @@ public class HarpyNestsDialogue {
 								"<p>"
 									+ "The members of each flock are sprawled out over their nest's platforms."
 									+ " Most are simply lounging about beneath canvas coverings, but there are plenty to be seen sunbathing or talking in little groups."
-									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favour of their leader."
+									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favor of their leader."
 									+ " Peering over the side of the railing, you see the people walking down the streets below, oblivious to what's going on high above them."
 								+ "</p>");
 					} else {
 						UtilText.nodeContentSB.append(
 								"<p>"
 									+ "The members of each flock are sprawled out over their nest's platforms."
-									+ " Even at night, there are still plenty of harpies to be seen lounging about or talking in little groups, their brightly-coloured feathers illuminated by a series of bright lights that cover the rooftops."
-									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favour of their leader."
+									+ " Even at night, there are still plenty of harpies to be seen lounging about or talking in little groups, their brightly-colored feathers illuminated by a series of bright lights that cover the rooftops."
+									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favor of their leader."
 									+ " Peering over the side of the railing, you see the people walking down the streets below, oblivious to what's going on high above them."
 								+ "</p>");
 					}
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)
-									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be travelling between the nests."
+									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be traveling between the nests."
 										+ " Although there's no risk of being attacked, harpies are still quite touchy by nature, and you imagine that it wouldn't be too hard to cause a confrontation if you were to go looking for trouble..."
-									:"As you continue travelling down the walkways, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
+									:"As you continue traveling down the walkways, you can't help but shake the feeling that you're being watched."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
 										+ " It's probably only a matter of time before one of them decides to openly confront you...")
 							+ "</p>");
 					break;
@@ -582,7 +582,7 @@ public class HarpyNestsDialogue {
 				} else {
 					return new ResponseEffectsOnly(
 							"Explore",
-							"Explore the walkways. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+							"Explore the walkways. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 								@Override
 								public void effects() {
 									DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);
@@ -632,10 +632,10 @@ public class HarpyNestsDialogue {
 								+ (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)
 									?"Although you've pacified the harpy nests, these walkways are dangerous at the moment, due to the ongoing arcane storm."
 										+ " The harpies should all be taking shelter, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
 										+ " It's probably only a matter of time before they make their move..."
 									:"Although the harpies should all be taking shelter, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly duck out of sight."
 										+ " It's probably only a matter of time before they make their move...")
 							+ "</p>");
 					break;
@@ -643,15 +643,15 @@ public class HarpyNestsDialogue {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Due to the ongoing rain, each flock has taken shelter in the building below their nest, or beneath the canvas coverings that have been erected to protect the harpies from the elements."
-								+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favour of their leader."
+								+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favor of their leader."
 								+ " Peering over the side of the railing, you see that the people walking down the streets below are similarly huddling beneath any shelter they can find, desperate to get out of the rain."
 							+ "</p>"
 							+ "<p>"
 								+ (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)
-									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be travelling between the nests."
+									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be traveling between the nests."
 										+ " Although there's no risk of being attacked, harpies are still quite touchy by nature, and you imagine that it wouldn't be too hard to cause a confrontation if you were to go looking for trouble..."
-									:"As you continue travelling down the walkways, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
+									:"As you continue traveling down the walkways, you can't help but shake the feeling that you're being watched."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
 										+ " It's probably only a matter of time before one of them decides to openly confront you...")
 							+ "</p>");
 					break;
@@ -661,25 +661,25 @@ public class HarpyNestsDialogue {
 								"<p>"
 									+ "The members of each flock are sprawled out over their nest's platforms."
 									+ " Most are simply lounging about beneath canvas coverings, but there are plenty to be seen sunbathing or talking in little groups."
-									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favour of their leader."
+									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favor of their leader."
 									+ " Peering over the side of the railing, you see the people walking down the streets below, oblivious to what's going on high above them."
 								+ "</p>");
 					} else {
 						UtilText.nodeContentSB.append(
 								"<p>"
 									+ "The members of each flock are sprawled out over their nest's platforms."
-									+ " Even at night, there are still plenty of harpies to be seen lounging about or talking in little groups, their brightly-coloured feathers illuminated by a series of bright lights that cover the rooftops."
-									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favour of their leader."
+									+ " Even at night, there are still plenty of harpies to be seen lounging about or talking in little groups, their brightly-colored feathers illuminated by a series of bright lights that cover the rooftops."
+									+ " The matriarch of each nest is clearly visible, even from a great distance, as they're always surrounded by other harpies eager to gain the favor of their leader."
 									+ " Peering over the side of the railing, you see the people walking down the streets below, oblivious to what's going on high above them."
 								+ "</p>");
 					}
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_HARPY_PACIFICATION)
-									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be travelling between the nests."
+									?"You sometimes see an enforcer patrolling a walkway off in the distance; reminding you that it's now safe for people to be traveling between the nests."
 										+ " Although there's no risk of being attacked, harpies are still quite touchy by nature, and you imagine that it wouldn't be too hard to cause a confrontation if you were to go looking for trouble..."
-									:"As you continue travelling down the walkways, you can't help but shake the feeling that you're being watched."
-										+ " An occasional flash of colour out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
+									:"As you continue traveling down the walkways, you can't help but shake the feeling that you're being watched."
+										+ " An occasional flash of color out of the corner of your [pc.eye] confirms your suspicions, but each time you turn to face your elusive stalker, they quickly fly off back to their nest."
 										+ " It's probably only a matter of time before one of them decides to openly confront you...")
 							+ "</p>");
 					break;
@@ -706,7 +706,7 @@ public class HarpyNestsDialogue {
 				} else {
 					return new ResponseEffectsOnly(
 							"Explore",
-							"Explore the walkways. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep travelling back and forth..."){
+							"Explore the walkways. Although you don't think you're any more or less likely to find anything by doing this, at least you won't have to keep traveling back and forth..."){
 								@Override
 								public void effects() {
 									DialogueNode dn = Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation()).getPlace().getDialogue(true, true);

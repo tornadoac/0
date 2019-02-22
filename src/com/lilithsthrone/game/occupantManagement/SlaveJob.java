@@ -51,7 +51,7 @@ public enum SlaveJob {
 			PlaceType.LILAYA_HOME_CORRIDOR) {
 		@Override
 		public EventLogEntry getHourlyEvent(long hour, NPC slave, List<NPC> otherNPCsPresent) {
-			return new EventLogEntry(Main.game.getDayNumber()-1*24l+hour, "[style.colourDisabled(Nothing)]", "");
+			return new EventLogEntry(Main.game.getDayNumber()-1*24l+hour, "[style.colorDisabled(Nothing)]", "");
 		}
 		
 		@Override
@@ -478,7 +478,7 @@ public enum SlaveJob {
 	}
 	
 	public EventLogEntry getHourlyEvent(long hour, NPC slave, List<NPC> otherNPCsPresent) {
-//		return new EventLogEntry(Main.game.getDayNumber()-1*24l+hour, "[style.colourDisabled(Nothing)]", "");
+//		return new EventLogEntry(Main.game.getDayNumber()-1*24l+hour, "[style.colorDisabled(Nothing)]", "");
 		return null;
 	}
 	

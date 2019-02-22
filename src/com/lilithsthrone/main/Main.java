@@ -30,7 +30,7 @@ import com.lilithsthrone.game.dialogue.story.CharacterCreation;
 import com.lilithsthrone.game.dialogue.utils.OptionsDialogue;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.sex.Sex;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.CreditsSlot;
 import com.lilithsthrone.world.Generation;
 import com.lilithsthrone.world.WorldType;
@@ -90,7 +90,7 @@ public class Main extends Application {
 		+ "</p>"
 
 		+ "<p>"
-			+ "First of all, I must apologise for how long this preview took to get released."
+			+ "First of all, I must apologize for how long this preview took to get released."
 			+ " Everything was going well enough up until the point where I started adding taurs, and then everything slowed to a crawl as I had to work my way though a lot of refactoring and supporting code additions."
 			+ " All of the code support for taurs (including framework for future additions of lamia, mermaids, arachnae, and cephalopods) is now complete, including sex position support."
 			+ " I have implemented this sex support to most generic sex scenes, but all of the unique ones still need going over so that I can add handling of taurs and other body types."
@@ -157,14 +157,14 @@ public class Main extends Application {
 			+"<ul>Added more clothing tooltip information, to let you know about clothing's extra effects (such as allowing sex-equip, being discarded when unequipped, and requiring penis/vagina/fuckable nipples). Also added this info to the clothing inspect dialogue.</ul>"
 			+"<ul>Improved fishnet images to make them a little clearer.</ul>"
 			+"<ul>Added 'TRANSPARENT' item tag for clothing, to mark that it leaves all parts fully visible. This has been applied to fishnets, chastity cages, condoms, and anal plugs.</ul>"
-			+"<ul>Added secondary and tertiary dye colours to stiletto heels.</ul>"
+			+"<ul>Added secondary and tertiary dye colors to stiletto heels.</ul>"
 			+"<ul>Added: 'Taur-trousers' (Leg slot, sold by Nyan, androgynous, can only be worn by characters with a taur lower body.)</ul>"
 			+"<ul>Added: 'Taur-skirt' (Leg slot, sold by Nyan, feminine, can only be worn by characters with a taur lower body.)</ul>"
 
 			+"<li>Other:</li>"
 			+"<ul>Improved background code for determining who is allowed to do what during sex.</ul>"
-			+"<ul>Added support in sex engine for any number of actions to be executed upon sex initialisation.</ul>"
-			+"<ul>Slightly altered the 'cum stud' fetish so that it's now mainly about the love of filling orifices with cum, so that NPCs who like/love this fetish will now prioritise creampies/cumming inside their partners.</ul>"
+			+"<ul>Added support in sex engine for any number of actions to be executed upon sex initialization.</ul>"
+			+"<ul>Slightly altered the 'cum stud' fetish so that it's now mainly about the love of filling orifices with cum, so that NPCs who like/love this fetish will now prioritize creampies/cumming inside their partners.</ul>"
 			+"<ul>Slightly altered Lyssieth's fetishes and desires.</ul>"
 			+"<ul>Improved positioning action code, and made available to NPCs the 'facesitting' positions in generic sex.</ul>"
 			+"<ul><b>Added:</b> 'Mating press' position for use in generic sex scenes.</ul>"
@@ -190,7 +190,7 @@ public class Main extends Application {
 			+"<ul>Slightly reduced save file size.</ul>"
 			+"<ul>Added 'Cowgirl (on back)' positioning action in sex.</ul>"
 			+"<ul>Added foot structure transformation options to the 'racial food' items' enchantment menu. Select 'legs' as the primary enchantment, and then, depending on the item, you'll be able to select one or more from the three foot structure types as the secondary modifier. </ul>"
-			+"<ul>Compacted formatting of additional information during sex. (Meaning things which were coloured, such as lubrications and penetrations.)</ul>"
+			+"<ul>Compacted formatting of additional information during sex. (Meaning things which were colored, such as lubrications and penetrations.)</ul>"
 			+"<ul>Youko tails are now treated as being prehensile.</ul>"
 			+"<ul>Updated the exposes status effects, changing the icon, description, and effects. Added an alternative (neutral) effect for if the exposed character's lower body is not bipedal.</ul>"
 			+"<ul>Added 'horns per row' self-transform option to the demon & slime self-transformation menus.</ul>"
@@ -216,10 +216,10 @@ public class Main extends Application {
 			+"<ul>Fixed issue where NPCs in sex would sometimes not get a chance to take an 'orgasm preparation' action before you orgasmed.</ul>"
 			+"<ul>Clothing that you put on during sex is no longer removed and thrown to the floor at the end of sex.</ul>"
 			+"<ul>Fixed bug where sometimes the sequence of orgasm actions would leave Lilaya with no opportunity to react to being creampied.</ul>"
-			+"<ul>Fixed Lilaya and Meraxis not being recognised as your half-sisters, nor Lyssieth as your mother, after demon TF.</ul>"
+			+"<ul>Fixed Lilaya and Meraxis not being recognized as your half-sisters, nor Lyssieth as your mother, after demon TF.</ul>"
 			+"<ul>Ralph will now correctly stock modded clothing with the tag 'SOLD_BY_RALPH'.</ul>"
 			+"<ul>Clothing rarity defined as non-common will now accurately display that rarity. (Mostly affects modded clothing.)</ul>"
-			+"<ul>Fixed bug where demon offspring were not being assigned the correct subspecies. (Which was causing Lyssieth to give birth to elder lilin.)</ul>"
+			+"<ul>Fixed bug where demon offspring were not being assigned the correct subspecies. (Which was causing Lyssieth to give birth to elder Lilin.)</ul>"
 			+"<ul>Fixed bug where NPCs would sometimes react to your impending orgasm as though it was a different participant that was about to orgasm.</ul>"
 			+"<ul>Fixed issue with incorrect recognition of potential fathers of ongoing pregnancies. This mostly affected dialogue where a character would (incorrectly) react to you getting them pregnant.</ul>"
 			+"<ul>Fixed post-defeat siren being reset and moved back to her fortress after 2 weeks like her subordinates. (She will be returned to her office upon game loading.)</ul>"
@@ -237,7 +237,7 @@ public class Main extends Application {
 		+ "</list>"
 	;
 
-	public static String disclaimer = "<h6 style='text-align: center; color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>You must read and agree to the following in order to play this game!</h6>"
+	public static String disclaimer = "<h6 style='text-align: center; color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>You must read and agree to the following in order to play this game!</h6>"
 
 			+ "<p>This game is a <b>fictional</b> text-based erotic RPG. All content contained within this game forms part of a fictional universe that is not related to real-life places, people or events.<br/><br/>"
 
@@ -758,16 +758,16 @@ public class Main extends Application {
 
 	public static void quickSaveGame() {
 		if (Main.game.isInCombat()) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot quicksave while in combat!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Cannot quicksave while in combat!");
 
 		} else if (Main.game.isInSex()) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot quicksave while in sex!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Cannot quicksave while in sex!");
 
 		} else if (Main.game.getCurrentDialogueNode().getDialogueNodeType()!=DialogueNodeType.NORMAL) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Can only quicksave in a normal scene!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Can only quicksave in a normal scene!");
 
 		} else if (!Main.game.isStarted() || !Main.game.getCurrentDialogueNode().equals(Main.game.getDefaultDialogueNoEncounter())) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Cannot save in this scene!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Cannot save in this scene!");
 
 		} else {
 			Main.getProperties().lastQuickSaveName = "QuickSave_"+Main.game.getPlayer().getName();
@@ -791,15 +791,15 @@ public class Main extends Application {
 
 	public static void saveGame(String name, boolean allowOverwrite) {
 		if (name.length()==0) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Name too short!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Name too short!");
 			return;
 		}
 		if (name.length() > 32) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Name too long!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Name too long!");
 			return;
 		}
 		if (!name.matches("[a-zA-Z0-9]+[a-zA-Z0-9' _]*")) {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "Incompatible characters!");
+			Main.game.flashMessage(Color.GENERIC_BAD, "Incompatible characters!");
 			return;
 		}
 
@@ -807,7 +807,7 @@ public class Main extends Application {
 
 		try {
 			properties.lastSaveLocation = name;//"data/saves/"+name+".lts";
-			properties.nameColour = Femininity.valueOf(game.getPlayer().getFemininityValue()).getColour().toWebHexString();
+			properties.nameColor = Femininity.valueOf(game.getPlayer().getFemininityValue()).getColor().toWebHexString();
 			properties.name = game.getPlayer().getName();
 			properties.level = game.getPlayer().getLevel();
 			properties.money = game.getPlayer().getMoney();
@@ -846,7 +846,7 @@ public class Main extends Application {
 			}
 
 		} else {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "File not found...");
+			Main.game.flashMessage(Color.GENERIC_BAD, "File not found...");
 		}
 	}
 
@@ -862,7 +862,7 @@ public class Main extends Application {
 			}
 
 		} else {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "File not found...");
+			Main.game.flashMessage(Color.GENERIC_BAD, "File not found...");
 		}
 	}
 
@@ -878,7 +878,7 @@ public class Main extends Application {
 			}
 
 		} else {
-			Main.game.flashMessage(Colour.GENERIC_BAD, "File not found...");
+			Main.game.flashMessage(Color.GENERIC_BAD, "File not found...");
 		}
 	}
 

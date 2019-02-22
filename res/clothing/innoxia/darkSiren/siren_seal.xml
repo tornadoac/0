@@ -15,7 +15,7 @@
 		<imageName>siren_seal.svg</imageName>
 		<imageEquippedName/>
 		<enchantmentLimit>10</enchantmentLimit>
-		<effects> 
+		<effects>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MINOR_BOOST" primaryModifier="CLOTHING_SEALING" secondaryModifier="ARCANE_BOOST" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
@@ -27,7 +27,7 @@
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_DRAIN" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_SPELLS" timer="0"/>
 		</effects>
-		
+
 		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
@@ -39,20 +39,20 @@
 				<concealedSlots/>
 			</blockedParts>
 		</blockedPartsList>
-		
+
 		<incompatibleSlots/>
-		
-		<primaryColours>
-			<colour>CLOTHING_WHITE</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours>
-			<colour>CLOTHING_WHITE</colour>
-		</secondaryColours>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColour/>
-		<tertiaryColoursDye/>
-	
+
+		<primaryColors>
+			<color>CLOTHING_WHITE</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors>
+			<color>CLOTHING_WHITE</color>
+		</secondaryColors>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColor/>
+		<tertiaryColorsDye/>
+
 		<itemTags/>
 	</coreAttributes>
 
@@ -79,5 +79,5 @@
 	  <![CDATA[[npc.Name] roughly [npc.verb(tug)] the eyepatch's straps off of [npc2.namePos] [npc2.ears], before taking it off.]]>
 	</otherRough>
   </displacementText>
-	
+
 </clothing>

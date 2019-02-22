@@ -155,7 +155,7 @@ public class ChairSex {
 		}
 		@Override
 		public String getDescription() {
-			return "You try to manoeuvre around in such a way that you'll be able to kneel in front of [npc2.name]. As you do this, you [npc.moan], [npc.speech(Please, I want to use my mouth...)]";
+			return "You try to maneuver around in such a way that you'll be able to kneel in front of [npc2.name]. As you do this, you [npc.moan], [npc.speech(Please, I want to use my mouth...)]";
 		}
 		@Override
 		public void applyEffects() {
@@ -227,7 +227,7 @@ public class ChairSex {
 		}
 		@Override
 		public String getDescription() {
-			return "You try to manoeuvre around in such a way that you'll be able to get [npc2.name] to kneel down in front of you. As you do this, you [npc.moan], [npc.speech(Please, I want you to use your mouth...)]";
+			return "You try to maneuver around in such a way that you'll be able to get [npc2.name] to kneel down in front of you. As you do this, you [npc.moan], [npc.speech(Please, I want you to use your mouth...)]";
 		}
 		@Override
 		public void applyEffects() {
@@ -299,7 +299,7 @@ public class ChairSex {
 		}
 		@Override
 		public String getDescription() {
-			return "You try to manoeuvre around in such a way that you'll be able to get [npc2.name] to sit in your lap. As you do this, you [npc.moan], [npc.speech(Please, I want to be on the bottom...)]";
+			return "You try to maneuver around in such a way that you'll be able to get [npc2.name] to sit in your lap. As you do this, you [npc.moan], [npc.speech(Please, I want to be on the bottom...)]";
 		}
 		@Override
 		public void applyEffects() {
@@ -371,7 +371,7 @@ public class ChairSex {
 		}
 		@Override
 		public String getDescription() {
-			return "You try to manoeuvre around in such a way that you'll be able to sit down in [npc2.namePos] lap. As you do this, you [npc.moan], [npc.speech(Please, I want to be on the top...)]";
+			return "You try to maneuver around in such a way that you'll be able to sit down in [npc2.namePos] lap. As you do this, you [npc.moan], [npc.speech(Please, I want to be on the top...)]";
 		}
 		@Override
 		public void applyEffects() {

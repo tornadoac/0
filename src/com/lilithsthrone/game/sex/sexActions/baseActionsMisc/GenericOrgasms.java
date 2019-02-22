@@ -1336,7 +1336,7 @@ public class GenericOrgasms {
 					}
 					switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 						case SIX_EXTREME: case SEVEN_MONSTROUS:
-							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
+							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
 									+" [npc1.cum+] backs up and starts drooling out of [npc2.her] [npc2.asshole], [npc2.she] [npc2.verb(let)] out [npc2.a_moan+]."
 											+ " [npc1.Name] [npc1.verb(keep)] [npc1.her] [npc1.cock] hilted deep in [npc2.her] ass, [npc1.moaning+] as [npc1.she] [npc.verb(wait)] for [npc1.her] [npc1.balls] to run dry.");
 							break;
@@ -1357,7 +1357,7 @@ public class GenericOrgasms {
 
 						switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 							case SIX_EXTREME: case SEVEN_MONSTROUS:
-								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
+								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
 										+ " [npc2.her] [npc2.ass+] is absolutely drenched in [npc.cum+].");
 								break;
 							default:
@@ -1377,7 +1377,7 @@ public class GenericOrgasms {
 						}
 						switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 							case SIX_EXTREME: case SEVEN_MONSTROUS:
-								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
+								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
 										+ " [npc2.her] torso is absolutely drenched in [npc.cum+].");
 								break;
 							default:
@@ -1393,7 +1393,7 @@ public class GenericOrgasms {
 						cumTargetSB.append(" all over [npc2.namePos] [npc2.crotchBoobs+] and groin.");
 						switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 							case SIX_EXTREME: case SEVEN_MONSTROUS:
-								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
+								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
 										+ " [npc2.her] crotch and stomach is absolutely drenched in [npc.cum+].");
 								break;
 							default:
@@ -1405,12 +1405,12 @@ public class GenericOrgasms {
 				case MOUTH:
 					if(target.isPlayer()) {
 						cumTargetSB.append(" deep down your throat, and you find yourself making muffled whining noises as you feel the [npc.cum+] sliding down into your stomach.");
-						switch(characterOrgasming.getCumFlavour()) {
+						switch(characterOrgasming.getCumFlavor()) {
 							case BEER:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] beer-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] beer-flavored");
 								break;
 							case CHOCOLATE:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] chocolate-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] chocolate-flavored");
 								break;
 							case CUM:
 								cumTargetSB.append(" The salty taste of");
@@ -1419,25 +1419,25 @@ public class GenericOrgasms {
 								cumTargetSB.append(" The unusual taste of [npc1.namePos] sweet");
 								break;
 							case HONEY:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] honey-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] honey-flavored");
 								break;
 							case MILK:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] milk-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] milk-flavored");
 								break;
 							case MINT:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] mint-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] mint-flavored");
 								break;
 							case PINEAPPLE:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] pineapple-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] pineapple-flavored");
 								break;
 							case SLIME:
 								cumTargetSB.append(" The unusual taste of [npc1.namePos] sweet");
 								break;
 							case STRAWBERRY:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] strawberry-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] strawberry-flavored");
 								break;
 							case VANILLA:
-								cumTargetSB.append(" The unusual taste of [npc1.namePos] vanilla-flavoured");
+								cumTargetSB.append(" The unusual taste of [npc1.namePos] vanilla-flavored");
 								break;
 						}
 						cumTargetSB.append(" cum rises up to hit your [npc2.tongue], and you");
@@ -1489,7 +1489,7 @@ public class GenericOrgasms {
 					}
 					switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 						case SIX_EXTREME: case SEVEN_MONSTROUS:
-							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
+							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
 									+" [npc1.cum+] backs up and starts drooling out of the corners of [npc2.her] mouth, [npc2.she] [npc2.verb(let)] out a desperate, muffled [npc2.moan]."
 											+ " [npc1.Name] [npc1.verb(keep)] [npc1.her] [npc1.cock] hilted deep down [npc2.her] throat, [npc1.moaning+] as [npc1.she] [npc.verb(wait)] for [npc1.her] [npc1.balls] to run dry.");
 							break;
@@ -1531,7 +1531,7 @@ public class GenericOrgasms {
 						
 						switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 							case SIX_EXTREME: case SEVEN_MONSTROUS:
-								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
+								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
 										+ " [npc2.her] [npc2.legs+] are absolutely drenched in [npc.cum+].");
 								break;
 							default:
@@ -1547,7 +1547,7 @@ public class GenericOrgasms {
 					}
 					switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 						case SIX_EXTREME: case SEVEN_MONSTROUS:
-							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
+							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
 									+" [npc1.cum+] backs up and starts drooling out of [npc2.her] urethra, [npc2.she] [npc2.verb(let)] out [npc2.a_moan+]."
 											+ " [npc1.Name] [npc1.verb(keep)] [npc1.her] [npc1.cock] hilted inside of [npc2.herHim], [npc1.moaning+] as [npc1.she] [npc.verb(wait)] for [npc1.her] [npc1.balls] to run dry.");
 							break;
@@ -1576,7 +1576,7 @@ public class GenericOrgasms {
 					}
 					switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 						case SIX_EXTREME: case SEVEN_MONSTROUS:
-							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
+							cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and as [npc1.her]"
 									+" [npc1.cum+] backs up and starts drooling out of [npc2.her] [npc2.pussy], [npc2.she] [npc2.verb(let)] out [npc2.a_moan+]."
 											+ " [npc1.Name] [npc1.verb(keep)] [npc1.her] [npc1.cock] hilted deep in [npc2.her] [npc2.pussy], [npc1.moaning+] as [npc1.she] [npc.verb(wait)] for [npc1.her] [npc1.balls] to run dry.");
 							break;
@@ -1619,7 +1619,7 @@ public class GenericOrgasms {
 						
 						switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 							case SIX_EXTREME: case SEVEN_MONSTROUS:
-								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
+								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
 										+ " [npc2.her] [npc2.hands+] are absolutely drenched in [npc.cum+].");
 								break;
 							default:
@@ -1641,7 +1641,7 @@ public class GenericOrgasms {
 						
 						switch (characterOrgasming.getPenisOrgasmCumQuantity()) {
 							case SIX_EXTREME: case SEVEN_MONSTROUS:
-								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realise)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
+								cumTargetSB.append(" After a few seconds, [npc2.name] [npc2.verb(realize)] that [npc1.nameIs] not even close to stopping, and after just a moment more,"
 										+ " [npc2.her] [npc2.feet+] are absolutely drenched in [npc.cum+].");
 								break;
 							default:
@@ -3596,58 +3596,58 @@ public class GenericOrgasms {
 			if(isRealPenisFuckingCharacter(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(this))) {
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
 					if(Sex.getCharacterPerformingAction().getFetishDesire(Fetish.FETISH_PREGNANCY).isPositive() && !Sex.getCharacterPerformingAction().isVisiblyPregnant()) {
-						return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
+						return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 								+ " With a hysterical squeal, [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Aah!~ Now I've got you! Cum in me, [npc2.name]! ~Ooh!~ ~Yes!~ Give me your babies!)]";
 					}
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my pussy, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my ass, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Fill my balls with your cum!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep down [npc.her] throat."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep down [npc.her] throat."
 							+ " With a desperate, gurgling [npc.moan], [npc.she] [npc.verb(prepare)] to swallow all of the cum that's about to be pumped inside of [npc.herHim].";
 				}
 				return "Error: Forced creampie not accounted for. Please let Innoxia know!";
 				
 			} else { // Dildo:
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my pussy with that toy, [npc2.name]!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my ass with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my cock with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill me with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep down [npc.her] throat.";
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] [npc.verb(use)] [npc.her] advantageous position to force [npc2.her] [npc2.cock+] deep down [npc.her] throat.";
 				}
 				return "Error: Forced creampie area not accounted for. Please let Innoxia know!";
 			}
@@ -3748,34 +3748,34 @@ public class GenericOrgasms {
 			if(isRealPenisFuckingCharacter(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(this))) {
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
 					if(Sex.getCharacterPerformingAction().getFetishDesire(Fetish.FETISH_PREGNANCY).isPositive() && !Sex.getCharacterPerformingAction().isVisiblyPregnant()) {
-						return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+						return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 								+ " With a hysterical squeal, [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Aah!~ Now I've got you! Cum in me, [npc2.name]! ~Ooh!~ ~Yes!~ Give me your babies!)]";
 					}
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my pussy, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my ass, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 							+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Fill my balls with your cum!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat."
 							+ " With a desperate, gurgling [npc.moan], [npc.she] [npc.verb(prepare)] to swallow all of the cum that's about to be pumped inside of [npc.herHim].";
 				}
@@ -3783,29 +3783,29 @@ public class GenericOrgasms {
 				
 			} else { // Dildo:
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 							+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my pussy with that toy, [npc2.name]!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 							+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my ass with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 							+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 						+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my cock with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 							+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 						+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill me with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.her] lower back,"
 								+ " and, tightly hugging [npc2.herHim], [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat.";
 				}
 				return "Error: Hug-lock area not accounted for. Please let Innoxia know!";
@@ -3907,58 +3907,58 @@ public class GenericOrgasms {
 			if(isRealPenisFuckingCharacter(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(this))) {
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
 					if(Sex.getCharacterPerformingAction().getFetishDesire(Fetish.FETISH_PREGNANCY).isPositive() && !Sex.getCharacterPerformingAction().isVisiblyPregnant()) {
-						return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+						return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 								+ " With a hysterical squeal, [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Aah!~ Now I've got you! Cum in me, [npc2.name]! ~Ooh!~ ~Yes!~ Give me your babies!)]";
 					}
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my pussy, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my ass, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Fill my balls with your cum!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) { // This shouldn't really ever be encountered:
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back, before letting out a desperate, muffled [npc.moan].";
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back, before letting out a desperate, muffled [npc.moan].";
 				}
 				return "Error: Leg-lock area not accounted for. Please let Innoxia know!";
 				
 			} else { // Dildo:
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my pussy with that toy, [npc2.name]!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my ass with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my cock with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back,"
 								+ " forcing [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill me with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) { // This shouldn't really ever be encountered:
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back, before letting out a desperate, muffled [npc.moan].";
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to orgasm, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.legs] around [npc2.her] lower back, before letting out a desperate, muffled [npc.moan].";
 				}
 				return "Error: Leg-lock area not accounted for. Please let Innoxia know!";
 			}
@@ -4053,36 +4053,36 @@ public class GenericOrgasms {
 			if(isRealPenisFuckingCharacter(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(this))) {
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
 					if(Sex.getCharacterPerformingAction().getFetishDesire(Fetish.FETISH_PREGNANCY).isPositive() && !Sex.getCharacterPerformingAction().isVisiblyPregnant()) {
-						return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+						return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 								+ " With a hysterical squeal, [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Aah!~ Now I've got you! Cum in me, [npc2.name]! ~Ooh!~ ~Yes!~ Give me your babies!)]";
 					}
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my pussy, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my ass, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 							+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Fill my balls with your cum!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat."
 							+ " With a desperate, gurgling [npc.moan], [npc.she] [npc.verb(prepare)] to swallow all of the cum that's about to be pumped inside of [npc.herHim].";
 				}
@@ -4090,29 +4090,29 @@ public class GenericOrgasms {
 				
 			} else { // Dildo:
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my pussy with that toy, [npc2.name]!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my ass with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 						+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my cock with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 						+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill me with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tail] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat.";
 				}
 				return "Error: Tail-lock area not accounted for. Please let Innoxia know!";
@@ -4215,36 +4215,36 @@ public class GenericOrgasms {
 			if(isRealPenisFuckingCharacter(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(this))) {
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
 					if(Sex.getCharacterPerformingAction().getFetishDesire(Fetish.FETISH_PREGNANCY).isPositive() && !Sex.getCharacterPerformingAction().isVisiblyPregnant()) {
-						return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+						return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 								+ " With a hysterical squeal, [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Aah!~ Now I've got you! Cum in me, [npc2.name]! ~Ooh!~ ~Yes!~ Give me your babies!)]";
 					}
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my pussy, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my ass, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 							+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Fill my balls with your cum!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat."
 							+ " With a desperate, gurgling [npc.moan], [npc.she] [npc.verb(prepare)] to swallow all of the cum that's about to be pumped inside of [npc.herHim].";
 				}
@@ -4252,29 +4252,29 @@ public class GenericOrgasms {
 				
 			} else { // Dildo:
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my pussy with that toy, [npc2.name]!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my ass with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 						+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my cock with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 						+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill me with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.wingSize] [npc.wings] around [npc2.her] body,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat.";
 				}
 				return "Error: Tail-lock area not accounted for. Please let Innoxia know!";
@@ -4377,36 +4377,36 @@ public class GenericOrgasms {
 			if(isRealPenisFuckingCharacter(Sex.getCharacterPerformingAction(), Sex.getCharacterTargetedForSexAction(this))) {
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
 					if(Sex.getCharacterPerformingAction().getFetishDesire(Fetish.FETISH_PREGNANCY).isPositive() && !Sex.getCharacterPerformingAction().isVisiblyPregnant()) {
-						return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+						return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 								+ " With a hysterical squeal, [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Aah!~ Now I've got you! Cum in me, [npc2.name]! ~Ooh!~ ~Yes!~ Give me your babies!)]";
 					}
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my pussy, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in my ass, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 							+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Fill my balls with your cum!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 							+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Cum in me, [npc2.name]! ~Aah!~ Give me a nice big creampie!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat."
 							+ " With a desperate, gurgling [npc.moan], [npc.she] [npc.verb(prepare)] to swallow all of the cum that's about to be pumped inside of [npc.herHim].";
 				}
@@ -4414,29 +4414,29 @@ public class GenericOrgasms {
 				
 			} else { // Dildo:
 				if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.pussy+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my pussy with that toy, [npc2.name]!)]";
 
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.ANUS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] [npc.asshole+]. With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my ass with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_PENIS)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] cock's urethra."
 						+ "With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill my cock with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.URETHRA_VAGINA)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 							+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep into [npc.her] pussy's urethra."
 						+ " With a desperate [npc.moan], [npc.she] [npc.verb(cry)] out,"
 							+" [npc.speechNoEffects(~Ooh!~ ~Yes!~ Fill me with that toy, [npc2.name]!)]";
 					
 				} else if(isAreaFuckedByTarget(this, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH)) {
-					return "As [npc.name] [npc.verb(realise)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
+					return "As [npc.name] [npc.verb(realize)] that [npc2.nameIsFull] about to cum, [npc.she] quickly [npc.verb(wrap)] [npc.her] [npc.tentacles] around [npc2.her] lower back,"
 								+ " and, pulling [npc2.herHim] forwards, [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock+] deep down [npc.her] throat.";
 				}
 				return "Error: Tail-lock area not accounted for. Please let Innoxia know!";

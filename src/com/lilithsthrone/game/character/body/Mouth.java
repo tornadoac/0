@@ -116,9 +116,9 @@ public class Mouth implements BodyPartInterface {
 		
 		if(owner.getLipSizeValue() == effectiveLipSize) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The size of your [pc.lips] doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The size of your [pc.lips] doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The size of [npc.namePos] [npc.lips] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.lips] doesn't change...)]</p>");
 			}
 		}
 		
@@ -156,7 +156,7 @@ public class Mouth implements BodyPartInterface {
 	
 	public String setPiercedLip(GameCharacter owner, boolean piercedLip) {
 		if(owner.isPiercedLip() == piercedLip) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.piercedLip = piercedLip;

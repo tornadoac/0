@@ -78,7 +78,7 @@ public class DominionClubNPC extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			

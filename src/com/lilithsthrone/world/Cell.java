@@ -37,7 +37,7 @@ public class Cell implements XMLSaving {
 
 	private String name;
 	private boolean discovered;
-	private boolean travelledTo;
+	private boolean traveledTo;
 	private boolean northAccess;
 	private boolean southAccess;
 	private boolean eastAccess;
@@ -55,7 +55,7 @@ public class Cell implements XMLSaving {
 
 		name = "";
 		discovered = false;
-		travelledTo = false;
+		traveledTo = false;
 		place = new GenericPlace(type.getStandardPlace());
 
 		inventory = new CharacterInventory(0, CELL_MAXIMUM_INVENTORY_SPACE);
@@ -82,7 +82,7 @@ public class Cell implements XMLSaving {
 		CharacterUtils.addAttribute(doc, element, "name", this.getName());
 
 		CharacterUtils.addAttribute(doc, element, "discovered", String.valueOf(this.discovered));
-		CharacterUtils.addAttribute(doc, element, "travelledTo", String.valueOf(this.travelledTo));
+		CharacterUtils.addAttribute(doc, element, "traveledTo", String.valueOf(this.traveledTo));
 		CharacterUtils.addAttribute(doc, element, "northAccess", String.valueOf(this.northAccess));
 		CharacterUtils.addAttribute(doc, element, "southAccess", String.valueOf(this.southAccess));
 		CharacterUtils.addAttribute(doc, element, "eastAccess", String.valueOf(this.eastAccess));
@@ -113,14 +113,19 @@ public class Cell implements XMLSaving {
 
 		cell.setDiscovered(Boolean.valueOf(parentElement.getAttribute("discovered")));
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.11.5")) {
+<<<<<<< HEAD
 			cell.setTravelledTo(Boolean.valueOf(parentElement.getAttribute("discovered")));
 
+=======
+			cell.setTraveledTo(Boolean.valueOf(parentElement.getAttribute("discovered")));
+			
+>>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 		} else {
 			try {
 				if(type.isRevealedOnStart()) {
-					cell.setTravelledTo(true);
+					cell.setTraveledTo(true);
 				} else {
-					cell.setTravelledTo(Boolean.valueOf(parentElement.getAttribute("travelledTo")));
+					cell.setTraveledTo(Boolean.valueOf(parentElement.getAttribute("traveledTo")));
 				}
 			} catch(Exception ex) {
 			}
@@ -183,12 +188,12 @@ public class Cell implements XMLSaving {
 		this.discovered = discovered;
 	}
 
-	public boolean isTravelledTo() {
-		return travelledTo;
+	public boolean isTraveledTo() {
+		return traveledTo;
 	}
 
-	public void setTravelledTo(boolean travelledTo) {
-		this.travelledTo = travelledTo;
+	public void setTraveledTo(boolean traveledTo) {
+		this.traveledTo = traveledTo;
 	}
 
 	public GenericPlace getPlace() {

@@ -50,79 +50,79 @@ public class OccupantDialogue {
 		switch(al) {
 			case NEGATIVE_FIVE_LOATHE:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>loathe</i> you, you can tell that [npc.sheIs] still attracted to you.");
+					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>loathe</i> you, you can tell that [npc.sheIs] still attracted to you.");
 				} else {
-					sb.append("[npc.Name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>loathe</i> you.");
+					sb.append("[npc.Name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>loathe</i> you.");
 				}
 				break;
 			case NEGATIVE_FOUR_HATE:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>hate</i> you, you can tell that [npc.sheIs] still attracted to you.");
+					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>hate</i> you, you can tell that [npc.sheIs] still attracted to you.");
 				} else {
-					sb.append("[npc.Name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>hate</i> you.");
+					sb.append("[npc.Name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>hate</i> you.");
 				}
 				break;
 			case NEGATIVE_THREE_STRONG_DISLIKE:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>strongly dislike</i> you, you can tell that [npc.sheIs] still attracted to you.");
+					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>strongly dislike</i> you, you can tell that [npc.sheIs] still attracted to you.");
 				} else {
-					sb.append("[npc.Name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>strongly dislike</i> you.");
+					sb.append("[npc.Name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>strongly dislike</i> you.");
 				}
 				break;
 			case NEGATIVE_TWO_DISLIKE:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>dislike</i> you, you can tell that [npc.sheIs] still attracted to you.");
+					sb.append("Even though [npc.name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>dislike</i> you, you can tell that [npc.sheIs] still attracted to you.");
 				} else {
-					sb.append("[npc.Name] seems to <i style='color:"+al.getColour().toWebHexString()+";'>dislike</i> you.");
+					sb.append("[npc.Name] seems to <i style='color:"+al.getColor().toWebHexString()+";'>dislike</i> you.");
 				}
 				break;
 			case NEGATIVE_ONE_ANNOYED:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("Even though [npc.name] seems to be <i style='color:"+al.getColour().toWebHexString()+";'>annoyed</i> with you, you can tell that [npc.sheIs] still attracted to you.");
+					sb.append("Even though [npc.name] seems to be <i style='color:"+al.getColor().toWebHexString()+";'>annoyed</i> with you, you can tell that [npc.sheIs] still attracted to you.");
 				} else {
-					sb.append("[npc.Name] seems to be <i style='color:"+al.getColour().toWebHexString()+";'>annoyed</i> with you.");
+					sb.append("[npc.Name] seems to be <i style='color:"+al.getColor().toWebHexString()+";'>annoyed</i> with you.");
 				}
 				break;
 			case ZERO_NEUTRAL:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] is acting in an <i style='color:"+al.getColour().toWebHexString()+";'>amicable, flirtatious</i> manner towards you.");
+					sb.append("[npc.Name] is acting in an <i style='color:"+al.getColor().toWebHexString()+";'>amicable, flirtatious</i> manner towards you.");
 				} else {
-					sb.append("[npc.Name] is acting in an <i style='color:"+al.getColour().toWebHexString()+";'>amicable</i> manner towards you.");
+					sb.append("[npc.Name] is acting in an <i style='color:"+al.getColor().toWebHexString()+";'>amicable</i> manner towards you.");
 				}
 				break;
 			case POSITIVE_ONE_FRIENDLY:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColour().toWebHexString()+";'>friendly, flirtatious</i> manner towards you.");
+					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColor().toWebHexString()+";'>friendly, flirtatious</i> manner towards you.");
 				} else {
-					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColour().toWebHexString()+";'>friendly</i> manner towards you.");
+					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColor().toWebHexString()+";'>friendly</i> manner towards you.");
 				}
 				break;
 			case POSITIVE_TWO_LIKE:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>likes you</i>, and sees you as more than just a friend.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>likes you</i>, and sees you as more than just a friend.");
 				} else {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>likes you</i>, and sees you as a close friend.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>likes you</i>, and sees you as a close friend.");
 				}
 				break;
 			case POSITIVE_THREE_CARING:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>cares about you a lot</i>, and is deeply attracted towards you.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>cares about you a lot</i>, and is deeply attracted towards you.");
 				} else {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>cares about you a lot</i>, and considers you to be [npc.her] best friend.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>cares about you a lot</i>, and considers you to be [npc.her] best friend.");
 				}
 				break;
 			case POSITIVE_FOUR_LOVE:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("You can tell from the way that [npc.she] looks at you that [npc.name] <i style='color:"+al.getColour().toWebHexString()+";'>loves you</i>.");
+					sb.append("You can tell from the way that [npc.she] looks at you that [npc.name] <i style='color:"+al.getColor().toWebHexString()+";'>loves you</i>.");
 				} else {
-					sb.append("You can tell that [npc.name] <i style='color:"+al.getColour().toWebHexString()+";'>loves you</i> in a purely platonic manner.");
+					sb.append("You can tell that [npc.name] <i style='color:"+al.getColor().toWebHexString()+";'>loves you</i> in a purely platonic manner.");
 				}
 				break;
 			case POSITIVE_FIVE_WORSHIP:
 				if(occupant().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] <i style='color:"+al.getColour().toWebHexString()+";'>worships you</i>, and is head-over-heels in love with you.");
+					sb.append("[npc.Name] <i style='color:"+al.getColor().toWebHexString()+";'>worships you</i>, and is head-over-heels in love with you.");
 				} else {
-					sb.append("[npc.Name] <i style='color:"+al.getColour().toWebHexString()+";'>worships you</i>, and would do almost anything you asked of [npc.herHim].");
+					sb.append("[npc.Name] <i style='color:"+al.getColor().toWebHexString()+";'>worships you</i>, and would do almost anything you asked of [npc.herHim].");
 				}
 				break;
 		}
@@ -189,9 +189,9 @@ public class OccupantDialogue {
 			if(index == 0) {
 				return "Talk";
 			} else if(index == 1) {
-				return UtilText.parse("[style.colourSex(Sex)]");
+				return UtilText.parse("[style.colorSex(Sex)]");
 			} else if(index == 2) {
-				return UtilText.parse("[style.colourCompanion(Manage)]");
+				return UtilText.parse("[style.colorCompanion(Manage)]");
 			}
 			
 			return null;
@@ -893,9 +893,9 @@ public class OccupantDialogue {
 			if(index == 0) {
 				return "Talk";
 			} else if(index == 1) {
-				return UtilText.parse("[style.colourSex(Sex)]");
+				return UtilText.parse("[style.colorSex(Sex)]");
 			} else if(index == 2) {
-				return UtilText.parse("[style.colourCompanion(Manage)]");
+				return UtilText.parse("[style.colorCompanion(Manage)]");
 			}
 			
 			return null;

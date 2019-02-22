@@ -22,8 +22,8 @@ import com.lilithsthrone.game.inventory.AbstractCoreType;
 import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.enchanting.AbstractItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
-import com.lilithsthrone.utils.Colour;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.Color;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -47,20 +47,20 @@ public class AbstractTattooType extends AbstractCoreType {
 	private String name;
 	private String description;
 
-	private List<Colour> availablePrimaryColours;
-	private List<Colour> availableSecondaryColours;
-	private List<Colour> availableTertiaryColours;
+	private List<Color> availablePrimaryColors;
+	private List<Color> availableSecondaryColors;
+	private List<Color> availableTertiaryColors;
 	
 	private String pathName;
-	private Map<Colour, Map<Colour, Map<Colour, String>>> SVGStringMap;
+	private Map<Color, Map<Color, Map<Color, String>>> SVGStringMap;
 	
 	public AbstractTattooType(
 			String pathName,
 			String name,
 			String description,
-			List<Colour> availablePrimaryColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableTertiaryColours,
+			List<Color> availablePrimaryColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableTertiaryColors,
 			List<InventorySlot> slotAvailability) {
 
 		this.isMod = false;
@@ -72,21 +72,21 @@ public class AbstractTattooType extends AbstractCoreType {
 		this.name = name;
 		this.description = description;
 		
-		this.availablePrimaryColours = new ArrayList<>();
-		if (availablePrimaryColours == null) {
-			this.availablePrimaryColours.add(Colour.CLOTHING_BLACK);
+		this.availablePrimaryColors = new ArrayList<>();
+		if (availablePrimaryColors == null) {
+			this.availablePrimaryColors.add(Color.CLOTHING_BLACK);
 		} else {
-			this.availablePrimaryColours.addAll(availablePrimaryColours);
+			this.availablePrimaryColors.addAll(availablePrimaryColors);
 		}
 
-		this.availableSecondaryColours = new ArrayList<>();
-		if (availableSecondaryColours != null) {
-			this.availableSecondaryColours.addAll(availableSecondaryColours);
+		this.availableSecondaryColors = new ArrayList<>();
+		if (availableSecondaryColors != null) {
+			this.availableSecondaryColors.addAll(availableSecondaryColors);
 		}
 
-		this.availableTertiaryColours = new ArrayList<>();
-		if (availableTertiaryColours != null) {
-			this.availableTertiaryColours.addAll(availableTertiaryColours);
+		this.availableTertiaryColors = new ArrayList<>();
+		if (availableTertiaryColors != null) {
+			this.availableTertiaryColors.addAll(availableTertiaryColors);
 		}
 		
 		SVGStringMap = new HashMap<>();
@@ -147,32 +147,32 @@ public class AbstractTattooType extends AbstractCoreType {
 					System.err.println("AbstractTattooType loading failed. Cause: 'enchantmentLimit' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
 				}
 				
-				List<Colour> importedPrimaryColours = new ArrayList<>();
+				List<Color> importedPrimaryColors = new ArrayList<>();
 				try {
-					importedPrimaryColours = readColoursFromElement(coreAttributes, "primaryColours");
+					importedPrimaryColors = readColorsFromElement(coreAttributes, "primaryColors");
 				} catch(Exception ex) {
-					System.err.println("AbstractTattooType loading failed. Cause: 'primaryColours' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractTattooType loading failed. Cause: 'primaryColors' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
 				}
 
-				List<Colour> importedSecondaryColours = new ArrayList<>();
+				List<Color> importedSecondaryColors = new ArrayList<>();
 				try {
-					importedSecondaryColours = readColoursFromElement(coreAttributes, "secondaryColours");
+					importedSecondaryColors = readColorsFromElement(coreAttributes, "secondaryColors");
 				} catch(Exception ex) {
-					System.err.println("AbstractTattooType loading failed. Cause: 'secondaryColours' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractTattooType loading failed. Cause: 'secondaryColors' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
 				}
 
-				List<Colour> importedTertiaryColours = new ArrayList<>();
+				List<Color> importedTertiaryColors = new ArrayList<>();
 				try {
-					importedTertiaryColours = readColoursFromElement(coreAttributes, "tertiaryColours");
+					importedTertiaryColors = readColorsFromElement(coreAttributes, "tertiaryColors");
 				} catch(Exception ex) {
-					System.err.println("AbstractTattooType loading failed. Cause: 'tertiaryColours' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
+					System.err.println("AbstractTattooType loading failed. Cause: 'tertiaryColors' element unable to be parsed. (" + tattooXMLFile.getName() + ")\n" + ex);
 				}
 				
-				this.availablePrimaryColours = new ArrayList<>(importedPrimaryColours);
+				this.availablePrimaryColors = new ArrayList<>(importedPrimaryColors);
 
-				this.availableSecondaryColours = new ArrayList<>(importedSecondaryColours);
+				this.availableSecondaryColors = new ArrayList<>(importedSecondaryColors);
 
-				this.availableTertiaryColours = new ArrayList<>(importedTertiaryColours);
+				this.availableTertiaryColors = new ArrayList<>(importedTertiaryColors);
 				
 				SVGStringMap = new HashMap<>();
 
@@ -183,17 +183,17 @@ public class AbstractTattooType extends AbstractCoreType {
 	}
 
 
-	private List<Colour> readColoursFromElement(Element coreAttributes, String elementTagName) {
-		Element coloursElement = ((Element)coreAttributes.getElementsByTagName("primaryColours").item(0));
-		if(coloursElement.getAttribute("values").isEmpty()) {
-			NodeList coloursNodeList = coloursElement.getElementsByTagName("colour");
-			List<Colour> result = new ArrayList<>(coloursNodeList.getLength());
-			for(int i = 0; i < coloursNodeList.getLength(); i++){
-				result.add(Colour.valueOf(((Element)coloursNodeList.item(i)).getTextContent()));
+	private List<Color> readColorsFromElement(Element coreAttributes, String elementTagName) {
+		Element colorsElement = ((Element)coreAttributes.getElementsByTagName("primaryColors").item(0));
+		if(colorsElement.getAttribute("values").isEmpty()) {
+			NodeList colorsNodeList = colorsElement.getElementsByTagName("color");
+			List<Color> result = new ArrayList<>(colorsNodeList.getLength());
+			for(int i = 0; i < colorsNodeList.getLength(); i++){
+				result.add(Color.valueOf(((Element)colorsNodeList.item(i)).getTextContent()));
 			}
 			return result;
 		}
-		return ColourListPresets.valueOf(coloursElement.getAttribute("values")).getPresetColourList();
+		return ColorListPresets.valueOf(colorsElement.getAttribute("values")).getPresetColorList();
 	}
 	
 	@Override
@@ -204,9 +204,9 @@ public class AbstractTattooType extends AbstractCoreType {
 					&& ((AbstractTattooType)o).getSlotAvailability().equals(this.getSlotAvailability())
 					&& ((AbstractTattooType)o).getName().equals(this.getName())
 					&& ((AbstractTattooType)o).getDescription().equals(this.getDescription())
-					&& ((AbstractTattooType)o).getAvailablePrimaryColours().equals(this.getAvailablePrimaryColours())
-					&& ((AbstractTattooType)o).getAvailableSecondaryColours().equals(this.getAvailableSecondaryColours())
-					&& ((AbstractTattooType)o).getAvailableTertiaryColours().equals(this.getAvailableTertiaryColours())
+					&& ((AbstractTattooType)o).getAvailablePrimaryColors().equals(this.getAvailablePrimaryColors())
+					&& ((AbstractTattooType)o).getAvailableSecondaryColors().equals(this.getAvailableSecondaryColors())
+					&& ((AbstractTattooType)o).getAvailableTertiaryColors().equals(this.getAvailableTertiaryColors())
 					&& ((AbstractTattooType)o).getPathName().equals(this.getPathName());
 		} else {
 			return false;
@@ -222,9 +222,9 @@ public class AbstractTattooType extends AbstractCoreType {
 		result = 31 * result + getName().hashCode();
 		result = 31 * result + getDescription().hashCode();
 		
-		result = 31 * result + getAvailablePrimaryColours().hashCode();
-		result = 31 * result + getAvailableSecondaryColours().hashCode();
-		result = 31 * result + getAvailableTertiaryColours().hashCode();
+		result = 31 * result + getAvailablePrimaryColors().hashCode();
+		result = 31 * result + getAvailableSecondaryColors().hashCode();
+		result = 31 * result + getAvailableTertiaryColors().hashCode();
 		
 		result = 31 * result + getPathName().hashCode();
 		
@@ -248,16 +248,16 @@ public class AbstractTattooType extends AbstractCoreType {
 		return description;
 	}
 
-	public List<Colour> getAvailablePrimaryColours() {
-		return availablePrimaryColours;
+	public List<Color> getAvailablePrimaryColors() {
+		return availablePrimaryColors;
 	}
 
-	public List<Colour> getAvailableSecondaryColours() {
-		return availableSecondaryColours;
+	public List<Color> getAvailableSecondaryColors() {
+		return availableSecondaryColors;
 	}
 
-	public List<Colour> getAvailableTertiaryColours() {
-		return availableTertiaryColours;
+	public List<Color> getAvailableTertiaryColors() {
+		return availableTertiaryColors;
 	}
 
 	public List<InventorySlot> getSlotAvailability() {
@@ -276,41 +276,41 @@ public class AbstractTattooType extends AbstractCoreType {
 		return ItemEffectType.TATTOO;
 	}
 	
-	private void addSVGStringMapping(Colour colour, Colour colourSecondary, Colour colourTertiary, String s) {
-		if(SVGStringMap.get(colour)==null) {
-			SVGStringMap.put(colour, new HashMap<>());
-			SVGStringMap.get(colour).put(colourSecondary, new HashMap<>());
+	private void addSVGStringMapping(Color color, Color colorSecondary, Color colorTertiary, String s) {
+		if(SVGStringMap.get(color)==null) {
+			SVGStringMap.put(color, new HashMap<>());
+			SVGStringMap.get(color).put(colorSecondary, new HashMap<>());
 			
-		} else if(SVGStringMap.get(colour).get(colourSecondary)==null) {
-			SVGStringMap.get(colour).put(colourSecondary, new HashMap<>());
+		} else if(SVGStringMap.get(color).get(colorSecondary)==null) {
+			SVGStringMap.get(color).put(colorSecondary, new HashMap<>());
 		}
 		
-		SVGStringMap.get(colour).get(colourSecondary).put(colourTertiary, s);
+		SVGStringMap.get(color).get(colorSecondary).put(colorTertiary, s);
 	}
 	
-	private String getSVGStringFromMap(Colour colour, Colour colourSecondary, Colour colourTertiary) {
-		if(SVGStringMap.get(colour)==null) {
+	private String getSVGStringFromMap(Color color, Color colorSecondary, Color colorTertiary) {
+		if(SVGStringMap.get(color)==null) {
 			return null;
 		} else {
-			if(SVGStringMap.get(colour).get(colourSecondary)==null) {
+			if(SVGStringMap.get(color).get(colorSecondary)==null) {
 				return null;
 			} else {
-				return SVGStringMap.get(colour).get(colourSecondary).get(colourTertiary);
+				return SVGStringMap.get(color).get(colorSecondary).get(colorTertiary);
 			}
 		}
 	}
 	
-	public String getSVGImage(GameCharacter character, Colour colour, Colour colourSecondary, Colour colourTertiary) {
-		if (!availablePrimaryColours.contains(colour) || pathName==null || pathName.isEmpty()) {
+	public String getSVGImage(GameCharacter character, Color color, Color colorSecondary, Color colorTertiary) {
+		if (!availablePrimaryColors.contains(color) || pathName==null || pathName.isEmpty()) {
 			return "";
 		}
 		
-		String stringFromMap = getSVGStringFromMap(colour, colourSecondary, colourTertiary);
+		String stringFromMap = getSVGStringFromMap(color, colorSecondary, colorTertiary);
 		if (stringFromMap!=null) {
 			return stringFromMap;
 			
 		} else {
-			if (availablePrimaryColours.contains(colour)) {
+			if (availablePrimaryColors.contains(color)) {
 				try {
 					InputStream is;
 					String s;
@@ -328,9 +328,9 @@ public class AbstractTattooType extends AbstractCoreType {
 						is.close();
 					}
 					
-					s = SvgUtil.colourReplacement(this.getId(), colour, colourSecondary, colourTertiary, s);
+					s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 					
-					addSVGStringMapping(colour, colourSecondary, colourTertiary, s);
+					addSVGStringMapping(color, colorSecondary, colorTertiary, s);
 					
 					return s;
 				} catch (IOException e) {

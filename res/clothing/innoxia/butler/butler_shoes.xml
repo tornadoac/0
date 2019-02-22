@@ -56,12 +56,12 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours values="JUST_BLACK"/> 
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_BLACK"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours values="JUST_TAN"/>
-		<tertiaryColoursDye values="ALL"/>
+		<primaryColors values="JUST_BLACK"/> 
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_BLACK"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors values="JUST_TAN"/>
+		<tertiaryColorsDye values="ALL"/>
 		
 		<itemTags> 
 			<tag>SOLD_BY_NYAN</tag>

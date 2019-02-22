@@ -16,7 +16,7 @@ import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.positions.SexPositionBipeds;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.places.Population;
 
@@ -82,7 +82,7 @@ public class SMGloryHole extends SexManagerDefault {
 
 	@Override
 	public String getPublicSexStartingDescription() {
-		return "<p style='color:"+Colour.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
+		return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 					+ "As you let out [pc.a_moan+], several of the people in the toilets turn around to see what's happening."
 					+ " Seeing the door to your stall left wide open, and with you about to get started on servicing the cocks before you, a few of them step up and prepare to watch..."
 				+ "</p>";
@@ -94,7 +94,7 @@ public class SMGloryHole extends SexManagerDefault {
 		if(pop!=null && !pop.getSpecies().isEmpty()) {
 			Subspecies subspecies = Util.randomItemFrom(new ArrayList<>(Main.game.getPlayerCell().getPlace().getPlaceType().getPopulation().getSpecies().keySet()));
 			
-			return "<p style='color:"+Colour.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
+			return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 					+UtilText.parse(Sex.getActivePartner(),
 						UtilText.returnStringAtRandom(
 						"The people who've gathered to watch your lewd display laugh and cheer as they look on.",
@@ -106,9 +106,9 @@ public class SMGloryHole extends SexManagerDefault {
 						"The crowd cheers you on as you carry on servicing the glory holes.",
 						"The crowd laughs and cheers as you carry on acting like a desperate slut in front of them.",
 						"Several members of the crowd shout and cheer as you carry on servicing the glory holes.",
-						Util.capitaliseSentence(UtilText.generateSingularDeterminer(subspecies.getSingularFemaleName(null)))+" "+subspecies.getSingularFemaleName(null)+" steps forwards,"
+						Util.capitalizeSentence(UtilText.generateSingularDeterminer(subspecies.getSingularFemaleName(null)))+" "+subspecies.getSingularFemaleName(null)+" steps forwards,"
 								+ " stroking her exposed cock as she suddenly cums all over the floor in front of you.",
-						Util.capitaliseSentence(UtilText.generateSingularDeterminer(subspecies.getSingularMaleName(null)))+" "+subspecies.getSingularMaleName(null)+" steps forwards,"
+						Util.capitalizeSentence(UtilText.generateSingularDeterminer(subspecies.getSingularMaleName(null)))+" "+subspecies.getSingularMaleName(null)+" steps forwards,"
 								+ " stroking his exposed cock as he suddenly cums all over the floor in front of you."))
 					+"</p>";
 		}

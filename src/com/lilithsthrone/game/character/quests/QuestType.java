@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.quests;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.1
@@ -8,17 +8,17 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum QuestType {
-	MAIN(Colour.QUEST_MAIN),
-	SIDE(Colour.QUEST_SIDE),
-	RELATIONSHIP(Colour.QUEST_RELATIONSHIP);
+	MAIN(Color.QUEST_MAIN),
+	SIDE(Color.QUEST_SIDE),
+	RELATIONSHIP(Color.QUEST_RELATIONSHIP);
 
-	private Colour colour;
+	private Color color;
 
-	private QuestType(Colour colour) {
-		this.colour = colour;
+	private QuestType(Color color) {
+		this.color = color;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

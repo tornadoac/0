@@ -50,7 +50,7 @@ public class HandHolding {
 			return UtilText.returnStringAtRandom(
 					"Taking Rose's hand in one of yours, you gently press the [pc.fingers+] of your other hand down against the back of hers, rubbing and massaging her delicate skin.",
 					"You take hold of Rose's hand, and with slow, deliberate movements, start massaging giving her a gentle massage.",
-					"Holding Rose's hand in yours, you start to apply a gentle pressure, revelling in the feeling of her perfect, unblemished skin as you give her a loving massage.",
+					"Holding Rose's hand in yours, you start to apply a gentle pressure, reveling in the feeling of her perfect, unblemished skin as you give her a loving massage.",
 					"With a soft, tender care, you start massaging Rose's hands, letting out little [pc.moans] as you feel the softness of her angelic skin.");
 		}
 		@Override
@@ -156,7 +156,7 @@ public class HandHolding {
 		@Override
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
-					"Grasping one of Rose's slender, feminine fingers in your hand, you slowly slide your fingertips up and down its length, marvelling at how soft her perfect, unblemished skin is.",
+					"Grasping one of Rose's slender, feminine fingers in your hand, you slowly slide your fingertips up and down its length, marveling at how soft her perfect, unblemished skin is.",
 					"With a determined thrust of your hand, you grasp Rose's fingers, sliding your own digits up and down over their lengths as you fail to contain an ecstatic [pc.moan].",
 					"Sliding your fingers over Rose's, you let out a little whimper in excitement as you start stroking her soft, angelic skin.",
 					"Running your fingertips up and down the length of each of Rose's slender, feminine fingers, you struggle to comprehend just how perfectly formed her hands truly are.");
@@ -258,7 +258,7 @@ public class HandHolding {
 			return UtilText.returnStringAtRandom(
 					"You gently suck and kiss Rose's feminine digits, desperately running your tongue over her slender fingers as you taste her gentle combination of sweat and feminine perfume.",
 					"Sucking gently on Rose's perfect fingers, you run your tongue around each of her digits in turn, letting out [pc.moans+] as you orally pleasure her hand.",
-					"Determined to give Rose a good time, you gently suck and kiss at each of her feminine fingers, revelling in the feeling of being able to experience such a devious pleasure.",
+					"Determined to give Rose a good time, you gently suck and kiss at each of her feminine fingers, reveling in the feeling of being able to experience such a devious pleasure.",
 					"Wrapping your [pc.lips+] around Rose's angelic fingers, you gently suck and kiss at her perfectly-formed digits, making little [pc.moaning] noises as you notice the faint taste of her sweat hitting the back of your tongue.");
 		}
 	};
@@ -445,7 +445,7 @@ public class HandHolding {
 					"With a lewd [rose.moan], Rose starts sliding her fingering in and out of your mouth, causing you to experience levels of lewdness you couldn't imagine even in your wildest dreams.",
 					"Rose starts slowly sliding her fingers in and out of your mouth, and you let out a desperate whine as you feel her soft skin rubbing over your [pc.lips+].",
 					"Sliding her fingers in and out of your mouth, Rose swirls them around your tongue a little before letting out a desperate [rose.moan].",
-					"In an unparallelled display of outrageous sexual deviancy, Rose starts slowly sliding her fingers in and out of your mouth, allowing you to feel her unbelievably soft skin rubbing back and forth past your [pc.lips+].");
+					"In an unparalleled display of outrageous sexual deviancy, Rose starts slowly sliding her fingers in and out of your mouth, allowing you to feel her unbelievably soft skin rubbing back and forth past your [pc.lips+].");
 		}
 	};
 	

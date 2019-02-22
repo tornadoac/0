@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.combat.Attack;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -16,7 +16,7 @@ public enum Race {
 
 	NONE("none",
 			"none",
-			Colour.RACE_HUMAN,
+			Color.RACE_HUMAN,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(Attack.MAIN),
 			0.5f,
@@ -27,18 +27,18 @@ public enum Race {
 			FurryPreference.NORMAL,
 			FurryPreference.NORMAL,
 			false),
-	
+
 	// HUMAN:
 	HUMAN("human",
 			"human",
-			Colour.RACE_HUMAN,
-			
+			Color.RACE_HUMAN,
+
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(Attack.MAIN),
-			
+
 			0.5f,
 			1,
-			
+
 			1,
 			Attribute.DAMAGE_HUMAN,
 			Attribute.RESISTANCE_HUMAN,
@@ -49,7 +49,7 @@ public enum Race {
 	// ANGEL:
 	ANGEL("angel",
 			"angel",
-			Colour.CLOTHING_WHITE,
+			Color.CLOTHING_WHITE,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -67,7 +67,7 @@ public enum Race {
 	// DEMON:
 	DEMON("demon",
 			"demonic-horse",
-			Colour.RACE_DEMON,
+			Color.RACE_DEMON,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.SPECIAL_ATTACK,
@@ -86,7 +86,7 @@ public enum Race {
 	// BOVINES:
 	COW_MORPH("cow-morph",
 			"cow",
-			Colour.RACE_COW_MORPH,
+			Color.RACE_COW_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -104,7 +104,7 @@ public enum Race {
 	// CANINES:
 	DOG_MORPH("dog-morph",
 			"dog",
-			Colour.RACE_DOG_MORPH,
+			Color.RACE_DOG_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(Attack.MAIN),
 			0.5f,
@@ -119,24 +119,24 @@ public enum Race {
 
 	WOLF_MORPH("wolf-morph",
 			"wolf",
-			Colour.RACE_WOLF_MORPH,
+			Color.RACE_WOLF_MORPH,
 			Disposition.SAVAGE,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
 					Attack.SPECIAL_ATTACK),
 			0.5f,
 			1,
-			
+
 			2,
 			Attribute.DAMAGE_WOLF_MORPH,
 			Attribute.RESISTANCE_WOLF_MORPH,
 			FurryPreference.NORMAL,
 			FurryPreference.NORMAL,
 			true),
-	
+
 	FOX_MORPH("fox-morph",
 			"fox",
-			Colour.RACE_FOX_MORPH,
+			Color.RACE_FOX_MORPH,
 			Disposition.UNPREDICTABLE,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -144,7 +144,7 @@ public enum Race {
 					Attack.SPELL),
 			0.5f,
 			1,
-			
+
 			2,
 			Attribute.DAMAGE_FOX_MORPH,
 			Attribute.RESISTANCE_FOX_MORPH,
@@ -155,7 +155,7 @@ public enum Race {
 	// FELINES:
 	CAT_MORPH("cat-morph",
 			"cat",
-			Colour.RACE_CAT_MORPH,
+			Color.RACE_CAT_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.SEDUCTION,
@@ -173,14 +173,14 @@ public enum Race {
 	// EQUINE:
 	HORSE_MORPH("horse-morph",
 			"horse",
-			Colour.RACE_HORSE_MORPH,
+			Color.RACE_HORSE_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
 					Attack.SPECIAL_ATTACK),
 			0.5f,
 			1,
-			
+
 			1,
 			Attribute.DAMAGE_HORSE_MORPH,
 			Attribute.RESISTANCE_HORSE_MORPH,
@@ -190,25 +190,25 @@ public enum Race {
 
 	 REINDEER_MORPH("reindeer-morph",
 			"reindeer",
-			Colour.RACE_REINDEER_MORPH,
+			Color.RACE_REINDEER_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
 					Attack.SPECIAL_ATTACK),
 			0.5f,
 			1,
-		 
+
 			2,
 			Attribute.DAMAGE_REINDEER_MORPH,
 			Attribute.RESISTANCE_REINDEER_MORPH,
 			FurryPreference.NORMAL,
 			FurryPreference.NORMAL,
 			true),
-			
+
 
 	SQUIRREL_MORPH("squirrel-morph",
 			"squirrel",
-			Colour.RACE_SQUIRREL_MORPH,
+			Color.RACE_SQUIRREL_MORPH,
 			Disposition.CIVILIZED,
 			Util.newArrayListOfValues(
 					Attack.MAIN),
@@ -224,7 +224,7 @@ public enum Race {
 
 	RAT_MORPH("rat-morph",
 			"rat",
-			Colour.RACE_RAT_MORPH,
+			Color.RACE_RAT_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -241,7 +241,7 @@ public enum Race {
 
 	RABBIT_MORPH("rabbit-morph",
 			"rabbit",
-			Colour.RACE_RABBIT_MORPH,
+			Color.RACE_RABBIT_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.SEDUCTION,
@@ -255,10 +255,10 @@ public enum Race {
 			FurryPreference.NORMAL,
 			FurryPreference.NORMAL,
 			true),
-	
+
 	BAT_MORPH("bat-morph",
 			"bat",
-			Colour.RACE_BAT_MORPH,
+			Color.RACE_BAT_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -272,10 +272,10 @@ public enum Race {
 			FurryPreference.NORMAL,
 			FurryPreference.NORMAL,
 			true),
-	
+
 	ALLIGATOR_MORPH("alligator-morph",
 			"alligator",
-			Colour.RACE_ALLIGATOR_MORPH,
+			Color.RACE_ALLIGATOR_MORPH,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -293,7 +293,7 @@ public enum Race {
 	// SLIME:
 	SLIME("slime",
 			"slime",
-			Colour.RACE_SLIME,
+			Color.RACE_SLIME,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(Attack.SEDUCTION),
 			0.5f,
@@ -309,21 +309,21 @@ public enum Race {
 	// AVIAN:
 	HARPY("harpy",
 			"avian",
-			Colour.RACE_HARPY,
+			Color.RACE_HARPY,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.SEDUCTION,
 					Attack.SPECIAL_ATTACK),
 			0.5f,
 			3,
-			
+
 			4,
 			Attribute.DAMAGE_HARPY,
 			Attribute.RESISTANCE_HARPY,
 			FurryPreference.NORMAL,
 			FurryPreference.NORMAL,
 			false),
-	
+
 
 	// ELEMENTALS:
 //	ELEMENTAL_EARTH("earth elemental",
@@ -333,7 +333,7 @@ public enum Race {
 //			"earth elementals",
 //			"earth elementals",
 //
-//			Colour.SPELL_SCHOOL_EARTH,
+//			Color.SPELL_SCHOOL_EARTH,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -346,7 +346,7 @@ public enum Race {
 //			FurryPreference.MAXIMUM,
 //			FurryPreference.MAXIMUM,
 //			false),
-//	
+//
 //	ELEMENTAL_WATER("water elemental",
 //			"water elementals",
 //			"water elemental",
@@ -354,7 +354,7 @@ public enum Race {
 //			"water elementals",
 //			"water elementals",
 //
-//			Colour.SPELL_SCHOOL_WATER,
+//			Color.SPELL_SCHOOL_WATER,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -367,7 +367,7 @@ public enum Race {
 //			FurryPreference.MAXIMUM,
 //			FurryPreference.MAXIMUM,
 //			false),
-//	
+//
 //	ELEMENTAL_AIR("air elemental",
 //			"air elementals",
 //			"air elemental",
@@ -375,7 +375,7 @@ public enum Race {
 //			"air elementals",
 //			"air elementals",
 //
-//			Colour.SPELL_SCHOOL_AIR,
+//			Color.SPELL_SCHOOL_AIR,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -388,7 +388,7 @@ public enum Race {
 //			FurryPreference.MAXIMUM,
 //			FurryPreference.MAXIMUM,
 //			false),
-//	
+//
 //	ELEMENTAL_FIRE("fire elemental",
 //			"fire elementals",
 //			"fire elemental",
@@ -396,7 +396,7 @@ public enum Race {
 //			"fire elementals",
 //			"fire elementals",
 //
-//			Colour.SPELL_SCHOOL_FIRE,
+//			Color.SPELL_SCHOOL_FIRE,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.MAIN,
@@ -410,7 +410,7 @@ public enum Race {
 //			FurryPreference.MAXIMUM,
 //			FurryPreference.MAXIMUM,
 //			false),
-//	
+//
 //	ELEMENTAL_ARCANE("arcane elemental",
 //			"arcane elementals",
 //			"arcane elemental",
@@ -418,7 +418,7 @@ public enum Race {
 //			"arcane elementals",
 //			"arcane elementals",
 //
-//			Colour.SPELL_SCHOOL_ARCANE,
+//			Color.SPELL_SCHOOL_ARCANE,
 //			Disposition.NEUTRAL,
 //			Util.newArrayListOfValues(
 //					Attack.SEDUCTION,
@@ -434,7 +434,7 @@ public enum Race {
 
 	ELEMENTAL("elemental",
 			"elemental",
-			Colour.SPELL_SCHOOL_ARCANE,
+			Color.SPELL_SCHOOL_ARCANE,
 			Disposition.NEUTRAL,
 			Util.newArrayListOfValues(
 					Attack.MAIN,
@@ -453,7 +453,7 @@ public enum Race {
 
 	/*
 	 * // INSECTS: BEE_MORPH("bee-morph",
-	 * 
+	 *
 	 * "<p>Bee-morphs are one of the many demi-human races now populating the world."
 	 * +
 	 * " The vast majority of bee-morphs live outside of society in huge hives, consisting of up to 200 individuals."
@@ -461,14 +461,14 @@ public enum Race {
 	 * " Each hive is governed by a single King or Queen bee, who commands the complete loyalty of the hive's members."
 	 * +
 	 * " The hive is constructed and guarded by the hive's bee-boys, who will aggressively attack anyone who strays too close.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Bee-girls are responsible for gathering nectar, which they do by fucking the many phallic demonic plants."
 	 * +
 	 * " Their body then transforms the nectar into honey-milk, and as it does so, the bee-girl grows incredibly horny."
 	 * +
 	 * " When her abdomen is swollen with honey-milk, she will return to her hive to be fucked, secreting the sweet liquid from her breasts and pussy.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Bee-morphs are only aggressive when defending their hive, and will try to avoid contact with strangers wherever possible."
 	 * +
@@ -478,17 +478,17 @@ public enum Race {
 	 * +
 	 * " use the opportunity to deposit her eggs in the attacker, using an ovipositor located in their abdomen.</p>"
 	 * ,
-	 * 
+	 *
 	 * "Bee-boys are very rarely seen away from their hive.",
-	 * 
+	 *
 	 * "Bee-girls can commonly be found gathering nectar near their hive.",
-	 * 
+	 *
 	 * RacialBody.BEE_MORPH, Genus.INSECT, Disposition.NEUTRAL,
 	 * StatusEffect.BEE_MORPH, Utilities.newArrayListOfValues(new
 	 * ListValue<Attack>(Attack.SPECIAL_ATTACK), new
 	 * ListValue<Attack>(Attack.MELEE), new
 	 * ListValue<Attack>(Attack.SEDUCTION)), false), ROYAL_BEE("royal bee",
-	 * 
+	 *
 	 * "<p>Royal bees are a humanoid monster race, and are referred to as Queen or King bees."
 	 * +
 	 * " A Royal bee can be found leading a colony of bee-morphs, and they almost never leave the safety of their hive."
@@ -498,7 +498,7 @@ public enum Race {
 	 * " They spend most of their time seeing to the needs of the hive's bee-girls, and along with the bee-boys, fuck and pleasure the bee-girls in order to collect their honey-milk."
 	 * +
 	 * " Royal bees are able to convert honey-milk into royal jelly in their abdomens, which they are able to excrete as a thick, sticky cum.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Royal bees are created by transforming a bee-morph through use of Royal jelly."
 	 * +
@@ -507,17 +507,17 @@ public enum Race {
 	 * " The hive's current Queen or King will mate with the chosen bee-morph, forcing them to drink their Royal jelly."
 	 * +
 	 * " This causes the chosen bee-morph to transform into a new Royal bee, who will then leave the hive, taking about a third of the colony's members with them.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Royal bees almost never venture out of their hives, but will attack anyone that manages to break through the colony's bee-boy guards."
 	 * +
 	 * " Those that are foolish enough to enter an active bee hive are never heard from again. It has been speculated that such intruders are forcefully"
 	 * + " transformed into another member of the hive.</p>",
-	 * 
+	 *
 	 * "King bees, like all royal bees, will never leave their hive.",
-	 * 
+	 *
 	 * "Queen bees, like all royal bees, will never leave their hive.",
-	 * 
+	 *
 	 * RacialBody.ROYAL_BEE, Genus.INSECT, Disposition.SAVAGE,
 	 * StatusEffect.ROYAL_BEE, Utilities.newArrayListOfValues(new
 	 * ListValue<Attack>(Attack.SPECIAL_ATTACK), new
@@ -527,7 +527,7 @@ public enum Race {
 
 	/*
 	 * TIGER_MORPH("tiger-morph",
-	 * 
+	 *
 	 * "<p>Tiger-morphs are a dangerous humanoid monster race, primarily found in the demonic jungle."
 	 * +
 	 * " Tiger-morphs are extremely aggressive, and as a result have been driven out of Dominion's society."
@@ -537,17 +537,17 @@ public enum Race {
 	 * " Once a suitable target is found, the tiger-morph will stalk them, remaining concealed until the perfect moment to pounce."
 	 * +
 	 * " Any unfortunate person falling victim to a tiger-morph will not only be robbed, but will often also be subjected to extremely dominant and humiliating rape.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Tiger-morphs are always willing to assert their dominance through sex, but females will often prefer to force their prey to pleasure them orally,"
 	 * +
 	 * " refusing to let them penetrate her. When a magic storm hits, tiger-morphs become extremely promiscuous, and will go on a tireless lust-fuelled rampage,"
 	 * + " the females now mating with whatever they can find.</p>",
-	 * 
+	 *
 	 * "Tiger-boys will humiliate and rape their prey.",
-	 * 
+	 *
 	 * "Tiger-girls will force their prey to pleasure them orally.",
-	 * 
+	 *
 	 * RacialBody.TIGER_MORPH, Genus.FELINE, Disposition.SAVAGE,
 	 * StatusEffect.TIGER_MORPH, Utilities.newArrayListOfValues(new
 	 * ListValue<Attack>(Attack.SPECIAL_ATTACK), new
@@ -557,26 +557,26 @@ public enum Race {
 
 	/*
 	 * CENTAUR("centaur",
-	 * 
+	 *
 	 * "<p>Centaurs are an unpredictable monster race that is rarely seen in Dominion."
 	 * +
 	 * " Centaurs are usually quite civilized, but they can get extremely territorial, and as a result they don't feel comfortable living in Dominion."
 	 * +
 	 * " Outside of Dominion, centaurs group up to form herds of up to fifty individuals, although they are rarely all together at once,"
 	 * + " instead wandering their territory in search of intruders.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>There will usually only be a handful of males in the herd, who are responsible for taking decisions on behalf of the entire herd."
 	 * +
 	 * " All the females are part of their harem, and are happy to submit to being bred whenever the males feel like using them."
 	 * +
 	 * " Centaurs consider horse-morphs as having failed to reach their full potential, and each race strongly dislikes the other.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Centaurs are very aggressive towards intruders, and will attack anyone they consider to be encroaching on their territory."
 	 * +
 	 * " When outside of their territory, they are quite civilized, and will prefer to avoid conflict where possible.</p>"
-	 * 
+	 *
 	 * +
 	 * "<p>Male centaurs will try and impregnate anything they can catch on their territory, while the females will only want to breed with their herd's leaders."
 	 * +
@@ -584,13 +584,13 @@ public enum Race {
 	 * +
 	 * " her pregnant. Similarly, males will enter a powerful rut, and while under the storm's effects, their only concern is breeding as many people"
 	 * + " as they can catch.</p>",
-	 * 
+	 *
 	 * "Male centaurs are extremely dominant, and will attack anyone on their territory."
 	 * ,
-	 * 
+	 *
 	 * "Female centaurs are slightly more forgiving than their male counterparts, but will not hesitate to fight any intruders."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.CENTAUR, Genus.EQUINE, Disposition.UNPREDICTABLE,
 	 * StatusEffect.CENTAUR, Utilities.newArrayListOfValues(new
 	 * ListValue<Attack>(Attack.SPECIAL_ATTACK), new
@@ -599,7 +599,7 @@ public enum Race {
 
 	/*
 	 * SLIME_QUEEN("slime queen",
-	 * 
+	 *
 	 * "<p>A slime queen is a dangerous monster, having lost themselves to the desire for more cum."
 	 * +
 	 * " Slime queens will seek to absorb other slimes into their bodies, breaking their minds and forcing them to become a part of her."
@@ -613,19 +613,19 @@ public enum Race {
 	 * " Once she has found a victim, she will attempt to smother and seduce her prey and then feed off of them."
 	 * +
 	 * " Slime queens represent a threat to all races, and as a result Lilith's enforcers have driven them out of Dominion.</p>"
-	 * 
+	 *
 	 * +
-	 * "<p>A slime queen looks like a group of slimes all huddling together, with a particularly attractive individual at the centre."
+	 * "<p>A slime queen looks like a group of slimes all huddling together, with a particularly attractive individual at the center."
 	 * +
 	 * " This is an illusion however, and a closer inspection will reveal all the slimes are linked together into one slime queen."
 	 * +
 	 * " Each outer slime will take on the appearance of the slime that the queen absorbed, although none are permitted to be more attractive than the queen herself.</p>"
 	 * ,
-	 * 
+	 *
 	 * "Slime queens are only ever female in appearance.",
-	 * 
+	 *
 	 * "Slime queens are only ever female in appearance.",
-	 * 
+	 *
 	 * RacialBody.SLIME_QUEEN, Genus.SLIME, Disposition.SAVAGE,
 	 * StatusEffect.SLIME_QUEEN, Utilities.newArrayListOfValues(new
 	 * ListValue<Attack>(Attack.SPECIAL_ATTACK), new
@@ -643,13 +643,13 @@ public enum Race {
 	 * +
 	 * " When they are forced to interact with others, tengus display remarkable understanding and kindness, and will almost always avoid conflict where possible.</p>"
 	 * ,
-	 * 
+	 *
 	 * "Tengu males look like females, but are less attractive and have a small cock."
 	 * ,
-	 * 
+	 *
 	 * "Tengu females are extremely attractive and only really care about themselves."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.TENGU, Genus.AVIAN, Disposition.UNPREDICTABLE,
 	 * StatusEffect.TENGU, Utilities.newArrayListOfValues(new
 	 * ListValue<Attack>(Attack.SPECIAL_ATTACK), new
@@ -662,7 +662,7 @@ public enum Race {
 	 * -------------------------------------------------------------------------
 	 * ------------------------------- // AQUATIC: SHARK_MORPH("shark morph",
 	 * "",
-	 * 
+	 *
 	 * "Shark morphs are a humanoid race most commonly found in the city of Dominion."
 	 * +
 	 * " Shark morphs are typically very dominant, but can control their aggression."
@@ -673,7 +673,7 @@ public enum Race {
 	 * +
 	 * " Male shark morphs will attempt to build a harem of females, having to beat each female he wants to claim in a fight in order to show his dominance."
 	 * ,
-	 * 
+	 *
 	 * "Shark morphs are humanoid, with a human body and face." +
 	 * " Their legs and arms are covered in smooth grey skin, ending at the thigh and upper arm."
 	 * +
@@ -683,21 +683,21 @@ public enum Race {
 	 * +
 	 * " Females typically have very small breasts, streamlining them for swimming."
 	 * + " Males have a shark-like cock.",
-	 * 
+	 *
 	 * "Shark morphs are easy to provoke, and are always eager to fight." +
 	 * " They typically do not know any magic, and will prefer fighting using brute force."
 	 * ,
-	 * 
+	 *
 	 * "Female shark morphs will typically be part of a harem, being claimed by a strong male."
 	 * +
 	 * " Females in a harem will only mate with their leader, unless defeated in combat by another individual."
 	 * +
 	 * " Each shark morph pregnancy will result in up to three shark morphs, which will rapidly reach full maturity and leave to make their own way in Dominion."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.SHARK_MORPH, Genus.AQUATIC, Disposition.CIVILIZED,
 	 * StatusEffect.SHARK_MORPH, false, false), TIGER_SHARK("tiger shark", "",
-	 * 
+	 *
 	 * "Tiger sharks are a humanoid monster race." +
 	 * " Tiger sharks are extremely dominant and aggressive, and will attack almost anything on sight."
 	 * + " As a result, Tiger sharks have been driven out of Dominion society."
@@ -710,7 +710,7 @@ public enum Race {
 	 * +
 	 * " The Tiger shark will also typically forcefully transform the harem's male leader into a female shark morph before breeding her."
 	 * ,
-	 * 
+	 *
 	 * "Tiger sharks are humanoid monsters, with smooth shark-like skin covering their entire bodies."
 	 * +
 	 * " Their stomach and breasts are a creamy-white, while the rest of their skin is grey with dark-grey stripes, like a tiger."
@@ -721,31 +721,31 @@ public enum Race {
 	 * +
 	 * " Females typically have very small breasts, streamlining them for swimming."
 	 * + " Males have a huge shark-like cock.",
-	 * 
+	 *
 	 * "Tiger sharks will attack almost anything they see." +
 	 * " They typically do not know any magic, and will prefer fighting using brute force."
 	 * ,
-	 * 
+	 *
 	 * "Female Tiger sharks will seek to breed with any strong male they can catch."
 	 * + " Males will likewise seek to impregnate any female they see." +
 	 * " Each Tiger shark pregnancy will result in up to three Tiger sharks, which will rapidly reach full maturity and leave to find a body of water to claim as their own."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.TIGER_SHARK, Genus.AQUATIC, Disposition.SAVAGE,
 	 * StatusEffect.TIGER_SHARK, true, false);
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
 	 * MOUSE_MORPH("mouse morph",
-	 * 
+	 *
 	 * "Mouse-morphs are one of the most common races inhabiting Dominion." +
 	 * "Usually found in colonies numbering 10-20 individuals, mouse-morphs typically inhabit basements or burrows that they have dug out themselves."
 	 * +
@@ -755,7 +755,7 @@ public enum Race {
 	 * +
 	 * "A colony of mouse-morphs will have no clear leader, but work together as a whole to get things done."
 	 * ,
-	 * 
+	 *
 	 * "The average mouse-morph is about 5' tall, and possesses youthful features and a lithe frame."
 	 * +
 	 * " Like the other morphs inhabiting Dominion, their face and body remain human-looking."
@@ -768,24 +768,24 @@ public enum Race {
 	 * +
 	 * "The hands and feet are humanoid, but with little claws on the end of each digit, and the undersides have pads."
 	 * ,
-	 * 
+	 *
 	 * "Mouse-morphs are very timid, and will usually try to run from combat when able."
 	 * + "They are completely unable to harness any demon magic." +
 	 * "If forced to fight, a mouse-morph will usually rely on presenting themselves as a submissive sex-toy, hoping to fog the enemies' mind with lust."
 	 * ,
-	 * 
+	 *
 	 * "Mouse-morphs, along with rat-morphs, are the most prolific breeders in Dominion."
 	 * +
 	 * "Colonies of mouse-morphs are constantly engaged in sexual intercourse, trying to impregnate their friends."
 	 * +
 	 * "If an individual finds a partner outside of their colony, they will be expected to bring them back to the colony so everyone can try and breed their new partner."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.MOUSE_MORPH, Genus.RODENT, Disposition.CIVILIZED,
 	 * StatusEffect.MOUSE_MORPH),
-	 * 
+	 *
 	 * RAT_MORPH("rat morph",
-	 * 
+	 *
 	 * "Rat-morphs are the larger and more aggressive cousins of the mouse-morph."
 	 * +
 	 * " Found primarily in the undercity of Submission, a rat-morph is a rare sight on the surface."
@@ -804,7 +804,7 @@ public enum Race {
 	 * +
 	 * " These unlucky victims will be claimed by the leader first, with the rest of the gang soon to follow."
 	 * ,
-	 * 
+	 *
 	 * "A rat-morph usually stands at around 6\", with gang leaders typically being slightly taller."
 	 * +
 	 * " Rat-morphs are covered in a layer of hair, which thins out on their stomach and chest."
@@ -814,7 +814,7 @@ public enum Race {
 	 * " They possess a thick rat-like tail and their faces and ears are similarly morphed into the look of a rat."
 	 * + " Females have three pairs of breasts." +
 	 * " The average male cock size is 10\".",
-	 * 
+	 *
 	 * "Alone, a rat-morph is cowardly, and will likely try to avoid combat." +
 	 * " If backed into a corner, however, even a solo rat-morph will fight ferociously."
 	 * +
@@ -822,26 +822,26 @@ public enum Race {
 	 * +
 	 * " Rat-morphs cannot use magic, and will instead rely on physical attacks."
 	 * ,
-	 * 
+	 *
 	 * "Rat-morphs, along with mouse-morphs, are the most prolific breeders." +
 	 * "Gangs of rat-morphs are constantly engaged in sexual intercourse, trying to impregnate each other."
 	 * +
 	 * "Once they grow tired of fucking one another, the gang will seek out other rat-morph gangs to fight and fuck, and will sometimes even venture to the surface to breed an unlucky citizen."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.RAT_MORPH, Genus.RODENT, Disposition.UNPREDICTABLE,
 	 * StatusEffect.RAT_MORPH),
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
+	 *
 	 * // They bully bee-girls and drink their honey-milk WASP_MORPH(
 	 * "wasp morph",
-	 * 
+	 *
 	 * "Wasp morphs are aggressive monsters that inhabit the jungle." +
 	 * " Unlike bee morphs, wasp morphs are exclusively male, except for the colonies' leader, which is female."
 	 * +
@@ -851,7 +851,7 @@ public enum Race {
 	 * +
 	 * " Wasp morphs will typically attack others on sight, but will sometimes avoid individuals that look too strong to fight."
 	 * ,
-	 * 
+	 *
 	 * "Wasp morphs are humanoid monsters, covered in yellow and black chitin."
 	 * +
 	 * " They have a humanoid face, but have large insect-like eyes and mandibles on either side of their otherwise normal mouth."
@@ -860,80 +860,80 @@ public enum Race {
 	 * +
 	 * " A pair of antennae grow from underneath their hair, which is invariably a shiny yellow and black."
 	 * + " Wasp morphs have a shiny black penis, typically 12\" long.",
-	 * 
+	 *
 	 * "Like bee morphs, wasp morphs are unable to use magic, though the queen is able to use some spells."
 	 * +
 	 * " Wasp morphs will always use physical attacks to attempt to beat down their opponents."
 	 * +
 	 * " Their abdomen gives them the ability to deliver a powerful sting, which delivers a pain-inducing venom to their victims."
 	 * ,
-	 * 
+	 *
 	 * "Wasp morphs reproduce by willing being filled with eggs from their queen by use of her ovipositor."
 	 * +
-	 * " The queen fertilises her eggs by selecting members of the colony to fuck."
+	 * " The queen fertilizes her eggs by selecting members of the colony to fuck."
 	 * +
 	 * " If anyone is foolish enough to trespass into the colonies' hive, the queen will invariably forcefully transform the trespasser into a wasp morph drone."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.WASP_MORPH, Genus.INSECT, Disposition.SAVAGE,
 	 * StatusEffect.WASP_MORPH),
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * LIZARD_MORPH("lizard morph",
-	 * 
+	 *
 	 * "Lizard morphs are a humanoid race most commonly found in the city of Dominion."
 	 * +
 	 * " Lizard morphs are typically very laid back, and are one of the most docile races of Dominion."
 	 * +
 	 * " They enjoy heat, and will spend a large portion of the day sunbathing."
 	 * ,
-	 * 
+	 *
 	 * "Lizard morphs are humanoid, with a human body and face." +
 	 * " Their legs and arms are covered in scaly skin, ending at the thigh and upper arm."
 	 * + " A large lizard-like tail grows from above their ass." +
 	 * " Females typically have small breasts." +
 	 * " Males have a lizard-like cock.",
-	 * 
+	 *
 	 * "Lizard morphs are slow to anger, but will defend themselves from an attacker."
 	 * +
 	 * " They typically do not know any magic, and will prefer fighting using brute force or seduction."
 	 * ,
-	 * 
-	 * " Lizard morphs breed by laying eggs, that can be fertilised by any race."
+	 *
+	 * " Lizard morphs breed by laying eggs, that can be fertilized by any race."
 	 * +
 	 * " Once the eggs hatch, the new Lizard morphs will rapidly reach full maturity and leave to make their own way in Dominion."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.LIZARD_MORPH, Genus.REPTILE, Disposition.CIVILIZED,
 	 * StatusEffect.LIZARD_MORPH), LAMIA("lamia",
-	 * 
+	 *
 	 * "Lamias are a monster found everywhere except Dominion." +
 	 * " Lamias are typically very solitary, and the only time they gather is for reproduction."
 	 * +
-	 * " They are very dangerous and aggressive, and will attack travellers unprovoked."
+	 * " They are very dangerous and aggressive, and will attack travelers unprovoked."
 	 * +
 	 * " Lamias are known for using hypnotism to force their prey to do whatever they want."
-	 * + " Due to this behaviour, Lamias have been forced out of Dominion.",
-	 * 
+	 * + " Due to this behavior, Lamias have been forced out of Dominion.",
+	 *
 	 * "Lamias are humanoid/animal monsters, having a normal-looking Lizard morph upper body, but instead of legs and a tail they possess the lower body of a snake."
 	 * ,
-	 * 
+	 *
 	 * "Lamias are very aggressive, and will attack anyone they consider to be encroaching on their territory."
 	 * +
 	 * " They typically know some spells related to mind control, and will prefer to use these and seduction rather than brute force."
 	 * ,
-	 * 
+	 *
 	 * "Female Lamias will use their prey to breed with, forcing them to cum on demand by using hypnotism."
 	 * + " Males will try to impregnate anyone they catch.",
-	 * 
+	 *
 	 * RacialBody.LAMIA, Genus.REPTILE, Disposition.CIVILIZED,
 	 * StatusEffect.LAMIA),
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
 	 * FOX_MORPH("fox morph",
-	 * 
+	 *
 	 * "Vulpines are a humanoid race most commonly found in the city of Dominion."
 	 * +
 	 * " Vulpines are very cunning and mischievous, and love nothing more than playing practical jokes on others."
@@ -942,28 +942,28 @@ public enum Race {
 	 * +
 	 * " Vulpines make friends easily, and are one of the most common races in Dominion."
 	 * ,
-	 * 
+	 *
 	 * "Vulpines are humanoid, with a human body and face." +
 	 * " Their legs and arms are covered in dark orange fur, ending at the thigh and upper arm."
 	 * + " A large fox-like bushy tail grows from above their ass." +
 	 * " Vulpines have a pair of fox-like ears." +
 	 * " Females typically have three pairs of average sized breasts." +
 	 * " Males have a dog-like cock.",
-	 * 
+	 *
 	 * "Vulpines are not aggressive, but will defend themselves when attacked."
 	 * +
 	 * " They typically know a small amount of magic, which they primarily use to play tricks on others."
 	 * +
 	 * "When forced into confrontation, Vulpines will typically use magic or seduction."
 	 * ,
-	 * 
+	 *
 	 * " Vulpines will breed with any other race." +
 	 * " A Vulpine pregnancy results in up to 4 Vulpines, which will rapidly reach full maturity and leave to make their own way in Dominion."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.VULPINE, Genus.VULPINE, Disposition.CIVILIZED,
 	 * StatusEffect.FOX_MORPH), KITSUNE("kitsune",
-	 * 
+	 *
 	 * "Kitsunes are an exclusively female humanoid monster race found everywhere."
 	 * +
 	 * " Like Vulpines, Kitsunes are very cunning and mischievous, and love nothing more than playing practical jokes on others."
@@ -974,7 +974,7 @@ public enum Race {
 	 * +
 	 * " Due to this, there have been many attempts to force Kitsunes out of Dominion, but die to their strong illusion magic, all efforts have so far been in vain."
 	 * ,
-	 * 
+	 *
 	 * "Vulpines are humanoid monsters, covered in fur that ranges from dark orange to pure white."
 	 * +
 	 * " They have digitigrade legs, and their hands and feet have leathery pads, with each digit ending in little claws."
@@ -985,32 +985,32 @@ public enum Race {
 	 * +
 	 * " Their faces are of an anthropomorphic fox-like appearance, and they have a pair of fox-like ears."
 	 * + " Kitsunes have three pairs of large breasts.",
-	 * 
+	 *
 	 * "Kitsunes are not too aggressive, but will sometimes decide to attack individuals."
 	 * +
 	 * " They know a large amount amount of magic, which is limited to illusion-based spells."
 	 * + "When fighting, Kitsunes will typically use magic or seduction.",
-	 * 
+	 *
 	 * " Kitsunes will only rarely seek to breed with other races, instead inflicting orgasm-denial on their defeated foes."
 	 * +
 	 * " A Kitsune pregnancy results in up to 4 Kitsunes, which will rapidly reach full maturity and leave to make their own way."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.KITSUNE, Genus.VULPINE, Disposition.NEUTRAL,
 	 * StatusEffect.KITSUNE),
-	 * 
-	 * 
-	 * 
-	 * 
+	 *
+	 *
+	 *
+	 *
 	 * SPIDER_MORPH("spider morph",
-	 * 
+	 *
 	 * "Spider morphs are a humanoid race most commonly found in the city of Dominion."
 	 * +
 	 * " Spider morphs are a sly, tricky race, and have come close the being driven out of Dominion on several occasions due to their predatory ways."
 	 * + " They like to spin webs and trick people into them." +
 	 * " Once caught, they will inject their victims with venom, causing them to become filled with lust."
 	 * + " They will then engage in bondage sex using their webs.",
-	 * 
+	 *
 	 * "Spider morphs are humanoid, with a human body and face." +
 	 * " Their legs and arms are covered in a black chitin, ending at the thigh and upper arm."
 	 * +
@@ -1018,7 +1018,7 @@ public enum Race {
 	 * +
 	 * " They have a smaller pair of eyes above their normal eyes, which are typically jet black."
 	 * ,
-	 * 
+	 *
 	 * "Spider morphs are unable to use magic." +
 	 * " Spider morphs will typically vary between physical attacks and attempting to seduce their opponents."
 	 * +
@@ -1026,49 +1026,49 @@ public enum Race {
 	 * +
 	 * " They also have fangs that inject a lust-inducting venom into their prey."
 	 * ,
-	 * 
+	 *
 	 * "Spider morphs reproduce by depositing eggs in a target host by use of an ovipositor."
 	 * +
 	 * " They will not lay their eggs in anyone without permission, but after being injected with venom, not many partners refuse."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.SPIDER_MORPH, Genus.ARACHNID, Disposition.CIVILIZED,
 	 * StatusEffect.SPIDER_MORPH),
-	 * 
+	 *
 	 * ARACHNE("arachne",
-	 * 
+	 *
 	 * "Arachne are a monster race found in the jungle and ruins." +
 	 * " Arachne are very aggressive and territorial, and as a result have been driven out of Dominion's society."
 	 * +
 	 * " They lurk in dark places in the jungle and ruins, waiting for passersby to ensnare in their webs."
 	 * + " After catching their prey, Arachne will use them for breeding.",
-	 * 
+	 *
 	 * "Arachne are humanoid/animal monsters, having a normal-looking spider morph upper body, but instead of legs they possess the body of a spider."
 	 * ,
-	 * 
+	 *
 	 * "Arachne are very aggressive, and will prey on anyone passing near their web."
 	 * +
 	 * " Arachne will know some spells, and will prefer fighting using magic and seduction."
 	 * ,
-	 * 
+	 *
 	 * "Male Arachne will fuck anything they catch, and will keep females bound in their webs for days, continually breeding them before growing bored and dumping them in the wilderness."
 	 * +
-	 * " Females will deposit their eggs in whoever they catch, using their prey's cum to fertilise them beforehand."
+	 * " Females will deposit their eggs in whoever they catch, using their prey's cum to fertilize them beforehand."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.ARACHNE, Genus.ARACHNID, Disposition.SAVAGE,
 	 * StatusEffect.ARACHNE),
-	 * 
-	 * 
+	 *
+	 *
 	 * WYVERN("wyvern",
-	 * 
+	 *
 	 * "Wyverns are a humanoid race most commonly found in the city of Dominion."
 	 * +
 	 * " Wyverns are very arrogant, and will not tolerate any sleights against them."
 	 * +
 	 * " They resent being treated in a submissive manner, and will always seek to take charge of a situation."
 	 * ,
-	 * 
+	 *
 	 * "Wyverns are humanoid, with a human body and face." +
 	 * " The scaly arms of a Wyvern extend into large, leathery wings, giving them the ability to fly."
 	 * +
@@ -1076,25 +1076,25 @@ public enum Race {
 	 * +
 	 * " Wyverns have a crest instead of hair, and they have a long, lizard-like tail."
 	 * +
-	 * " Scale colour differs from Wyvern to Wyvern, but is usually a shade of red or green."
+	 * " Scale color differs from Wyvern to Wyvern, but is usually a shade of red or green."
 	 * + " Females have small breasts." + " Males have a lizard-like cock.",
-	 * 
+	 *
 	 * "Wyverns are not overly aggressive, but will take action against anyone who insults them."
 	 * +
-	 * " They typically know  small amount of magic, and will prefer fighting using brute force and spells."
+	 * " They typically know a small amount of magic, and will prefer fighting using brute force and spells."
 	 * ,
-	 * 
-	 * "Wyverns breed by laying eggs that can be fertilised by any race." +
-	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilised by what they consider inferior races."
+	 *
+	 * "Wyverns breed by laying eggs that can be fertilized by any race." +
+	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilized by what they consider inferior races."
 	 * +
-	 * " Once fertilised eggs hatch, the new Wyverns will rapidly reach full maturity and leave to make their own way in Dominion."
+	 * " Once fertilized eggs hatch, the new Wyverns will rapidly reach full maturity and leave to make their own way in Dominion."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.WYVERN, Genus.DRAGON, Disposition.CIVILIZED,
 	 * StatusEffect.WYVERN),
-	 * 
+	 *
 	 * DRAGON("dragon",
-	 * 
+	 *
 	 * "Dragons are a humanoid monster race most commonly found in the ruins." +
 	 * " Dragons are extremely proud and arrogant, and will not tolerate any sleights against them."
 	 * +
@@ -1102,39 +1102,39 @@ public enum Race {
 	 * +
 	 * " Dragons are considered the single most dangerous race, as they are extremely strong, tough and intelligent."
 	 * +
-	 * " They inhabit buildings in the ruins, and will seek to rob travellers and accumulate a hoard of wealth."
+	 * " They inhabit buildings in the ruins, and will seek to rob travelers and accumulate a hoard of wealth."
 	 * +
 	 * " Dragons will take a person prisoner, using them to breed and turning them into their submissive partner."
 	 * +
 	 * " They will quickly replace their partner if they manage to capture a more attractive or more important individual."
 	 * ,
-	 * 
+	 *
 	 * "Dragons are humanoid monsters, covered in hard scales." +
 	 * " They have a huge pair of scaly and leathery wings on their back, giving them the ability to fly."
 	 * + " Their feet and hands have claws on the end of their digits." +
 	 * " Dragons have a crest instead of hair, and they have a long, lizard-like tail."
 	 * +
-	 * " Scale colour differs from Dragon to Dragon, but is usually a shade of red or green."
+	 * " Scale color differs from Dragon to Dragon, but is usually a shade of red or green."
 	 * + " Females have huge breasts." +
 	 * " Males have a gigantic lizard-like cock.",
-	 * 
+	 *
 	 * "Dragons are extremely aggressive, and will attack anything that comes close to their lair."
 	 * +
 	 * " They typically know a large amount of magic, and will prefer fighting using brute force and spells."
 	 * ,
-	 * 
-	 * "Dragons breed by laying eggs that can be fertilised by any race." +
-	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilised by what they consider inferior races."
+	 *
+	 * "Dragons breed by laying eggs that can be fertilized by any race." +
+	 * " They will hate-fuck anyone they defeat in combat, with females refusing to become fertilized by what they consider inferior races."
 	 * +
-	 * " Once fertilised eggs hatch, the new Dragons will rapidly reach full maturity and leave to make their own way in the ruins."
+	 * " Once fertilized eggs hatch, the new Dragons will rapidly reach full maturity and leave to make their own way in the ruins."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.DRAGON, Genus.DRAGON, Disposition.UNPREDICTABLE,
 	 * StatusEffect.DRAGON),
-	 * 
-	 * 
-	 * LILIN("lilin",
-	 * 
+	 *
+	 *
+	 * LILIN("Lilin",
+	 *
 	 * "Lilin are a humanoid race found everywhere." +
 	 * " Lilin are physically indistinguishable from demons, as both species can alter their bodies at will."
 	 * +
@@ -1144,9 +1144,9 @@ public enum Race {
 	 * +
 	 * " Lilin are created by Lilith's own hand, being corrupted into her deviant minions."
 	 * ,
-	 * 
+	 *
 	 * "Lilin are humanoid, with a human-like face and body." +
-	 * " Their skin will range in colour from dark red to a light lilac." +
+	 * " Their skin will range in color from dark red to a light lilac." +
 	 * " Lilin can change the appearance of their bodies at will, but they will commonly have one or two pairs of horns and a thin spaded tail."
 	 * +
 	 * " When in succubus form, many Lilin like to morph their legs into black leather reaching up to their thighs, forming their feet into high heels."
@@ -1157,12 +1157,12 @@ public enum Race {
 	 * +
 	 * " Some Lilin prefer to never leave their Succubus form, and when ready to impregnate someone, will simply grow a demonic cock above their pussy."
 	 * ,
-	 * 
+	 *
 	 * "Lilin have the ability to cast extremely powerful spells, being able to corrupt people into demons."
 	 * +
 	 * " When in combat, a Lilin will mostly use seduction and spells in order to defeat their foe."
 	 * ,
-	 * 
+	 *
 	 * "A Lilin will take on their Succubus form and seek out males of any species to breed with."
 	 * +
 	 * " Once they have found and seduced a suitable mate, they will present themselves to be fucked, using demonic magic to force their partner to repeatedly orgasm."
@@ -1179,14 +1179,14 @@ public enum Race {
 	 * +
 	 * "Lilin are also able to create new demons by force-feeding them their corruptive cum over the course of a few days."
 	 * ,
-	 * 
+	 *
 	 * RacialBody.DEMON, Genus.DEMON, Disposition.UNPREDICTABLE,
 	 * StatusEffect.LILIN);
 	 */
 
 	private String name;
 	private String nameBestial;
-	private Colour colour;
+	private Color color;
 	private Disposition disposition;
 	private List<Attack> preferredAttacks;
 	private int numberOfOffspringLow;
@@ -1196,43 +1196,43 @@ public enum Race {
 	private FurryPreference defaultFemininePreference;
 	private FurryPreference defaultMasculinePreference;
 	private boolean affectedByFurryPreference;
-	
+
 	private Race(String name,
 			String nameBestial,
-			
-			Colour colour,
+
+			Color color,
 			Disposition disposition,
 			List<Attack> preferredAttacks,
 			float chanceForMaleOffspring,
 			int numberOfOffspringLow,
-			
+
 			int numberOfOffspringHigh,
 			Attribute damageMultiplier,
 			Attribute resistanceMultiplier,
-			
+
 			FurryPreference defaultFemininePreference,
 			FurryPreference defaultMasculinePreference,
 			boolean affectedByFurryPreference) {
-		
+
 		this.name = name;
 		this.nameBestial = nameBestial;
-		
-		this.colour = colour;
+
+		this.color = color;
 		this.disposition = disposition;
 
 		this.preferredAttacks = preferredAttacks;
 
 		this.chanceForMaleOffspring=chanceForMaleOffspring;
-		
+
 		this.numberOfOffspringLow = numberOfOffspringLow;
 		this.numberOfOffspringHigh = numberOfOffspringHigh;
-		
+
 		this.damageMultiplier = damageMultiplier;
 		this.resistanceMultiplier = resistanceMultiplier;
-		
+
 		this.defaultFemininePreference = defaultFemininePreference;
 		this.defaultMasculinePreference = defaultMasculinePreference;
-		
+
 		this.affectedByFurryPreference = affectedByFurryPreference;
 	}
 
@@ -1258,15 +1258,15 @@ public enum Race {
 	public int getNumberOfOffspringHigh() {
 		return numberOfOffspringHigh;
 	}
-	
-	public Colour getColour() {
-		return colour;
+
+	public Color getColor() {
+		return color;
 	}
-	
+
 	public boolean isAffectedByFurryPreference() {
 		return affectedByFurryPreference;
 	}
-	
+
 	public float getChanceForMaleOffspring() {
 		return chanceForMaleOffspring;
 	}

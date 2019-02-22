@@ -132,7 +132,7 @@ public class ReindeerOverseerDialogue {
 				
 			} else {
 				UtilText.nodeContentSB.append("<p>"
-							+ "You notice that there are quite a few reindeer-morphs in this part of Dominion; each one of them busily shovelling snow in order to keep the streets clear."
+							+ "You notice that there are quite a few reindeer-morphs in this part of Dominion; each one of them busily shoveling snow in order to keep the streets clear."
 							+ " Deciding that you'd like to have a chat, you walk up to several of them and say hello."
 							+ " You're somewhat discouraged, however, when you discover that they're so engrossed in their work that they pay no heed to your attempts to strike up a conversation."
 							+ " Just as you're about to give up, a [npc.feminine] voice rings out from behind you,"
@@ -165,7 +165,7 @@ public class ReindeerOverseerDialogue {
 							+ " [npc.speech(We travel here from our homeland out in the frozen tundra every winter."
 								+ " We stay here to work until the end of February, which is when it stops snowing, and then we migrate back to the tundra for the rest of the year, which is why you haven't seen us before."
 								+ " As to what goods I can offer, we've brought plenty of the food, drink, and clothing that we make in our homeland."
-								+ " We travelled through the Kitsune's forest this year, so I also have some of their traditional clothing which we traded for.)]"
+								+ " We traveled through the Kitsune's forest this year, so I also have some of their traditional clothing which we traded for.)]"
 						+ "</p>");
 				}
 			}
@@ -219,7 +219,7 @@ public class ReindeerOverseerDialogue {
 						+ "[npc.speech(Almost everything!)]"
 						+ " [npc.name] replies, laughing,"
 						+ " [npc.speech(but it'd be a lot easier to manage if you choose just one thing to focus on."
-							+ " If you're strong, you could help out directly by joining in and shovelling snow."
+							+ " If you're strong, you could help out directly by joining in and shoveling snow."
 							+ " If you're any good with the arcane, we've got a few heat-staves on the cart;"
 								+ " you can use them to channel your power into a beam of arcane fire, which is very useful for helping to break up sections of densely-packed snow."
 							+ " And, finally, if you're better with people than you are with physical or arcane work, then going around between the workers and delivering drinks and words of encouragement would be a great help.)]"
@@ -241,12 +241,12 @@ public class ReindeerOverseerDialogue {
 						
 						Main.game.getTextStartStringBuilder().append(
 								"<p>"
-									+ "Deciding that you'd be best at shovelling snow, you tell [npc.name] that that's what you'd like to do."
+									+ "Deciding that you'd be best at shoveling snow, you tell [npc.name] that that's what you'd like to do."
 									+ " [npc.She] then leads you over to a cart that's parked on one side of the street, where [npc.she] grabs a shovel and hands it over to you."
 									+ " [npc.speech(With your help, we should be finished in a few more hours. Thanks for the assistance!)]"
 								+ "</p>"
 								+ "<p>"
-									+ "Setting off to where the other reindeer-morphs are working, you get stuck in and start shovelling snow.");
+									+ "Setting off to where the other reindeer-morphs are working, you get stuck in and start shoveling snow.");
 						switch(PhysiqueLevel.getPhysiqueLevelFromValue(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_PHYSIQUE))) {
 							case ZERO_WEAK: case ONE_AVERAGE:
 								Main.game.getTextStartStringBuilder().append(
@@ -373,7 +373,7 @@ public class ReindeerOverseerDialogue {
 									+ "<p>"
 										+ "[npc.speech(Wow, [pc.name]!)]"
 										+ " The voice of [npc.name] calls out, and you turn around to see [npc.herHim] approach,"
-										+ " [npc.speech(I didn't even realise the heat-stave had that much power in it! I've never seen anyone use it quite like that! With your help, we should be finished in no time!)]"
+										+ " [npc.speech(I didn't even realize the heat-stave had that much power in it! I've never seen anyone use it quite like that! With your help, we should be finished in no time!)]"
 									+ "</p>"
 									+ "<p>"
 										+ "Encouraged by [npc.namePos] words, you set about harnessing the staff's power to break up the snow."

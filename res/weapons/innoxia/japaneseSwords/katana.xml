@@ -56,14 +56,14 @@
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_MELEE_WEAPON" timer="0"/>
 		</effects>
 		
-		<primaryColours>
-			<colour>CLOTHING_TAN</colour>
-		</primaryColours> 
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours> 
-			<colour>CLOTHING_GREEN_VERY_DARK</colour>
-		</secondaryColours> 
-		<secondaryColoursDye values="ALL"/>
+		<primaryColors>
+			<color>CLOTHING_TAN</color>
+		</primaryColors> 
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors> 
+			<color>CLOTHING_GREEN_VERY_DARK</color>
+		</secondaryColors> 
+		<secondaryColorsDye values="ALL"/>
 		
 		<itemTags> 
 			<tag>SOLD_BY_VICKY</tag>

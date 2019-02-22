@@ -54,7 +54,7 @@
 	<p>
 		You can see that even the mention of imps is getting Claire annoyed, and you can only imagine how much trouble they must cause for the enforcers down here.
 		 Before you can say anything to steer the conversation in a different direction, Claire moves on.
-		 [claire.speech(Anyway. The imps stick to the tunnels, which are also filled with muggers, hungry slimes, and all sorts of unsavoury folk. You should always stick to the well-populated walkways, where the majority of rat and alligator-morphs make their home. The alligators prefer to use the water ways to travel throughout Submission, while the rat-morphs, just like all the other races, stick to the walkways.)]
+		 [claire.speech(Anyway. The imps stick to the tunnels, which are also filled with muggers, hungry slimes, and all sorts of unsavory folk. You should always stick to the well-populated walkways, where the majority of rat and alligator-morphs make their home. The alligators prefer to use the water ways to travel throughout Submission, while the rat-morphs, just like all the other races, stick to the walkways.)]
 	</p>
 	<p>
 		[pc.speech(And the bat-morphs?)]
@@ -159,7 +159,7 @@
 	<p>
 		[claire.speech(Hmm... A Slime Queen...)]
 		 Claire mutters, before starting to pace back and forth. You can't help but notice the way her massive hips and huge breasts rhythmically sway from side to side as she struts back and forth, and look on in amusement as you notice that the other enforcers are all giving her a wide berth.
-		 [claire.speech(You know, we'd heard rumours of a slime calling herself a Queen before, but we've scoured every last inch of the tunnels, and haven't found any trace of her.)]
+		 [claire.speech(You know, we'd heard rumors of a slime calling herself a Queen before, but we've scoured every last inch of the tunnels, and haven't found any trace of her.)]
 	</p>
 	<p>
 		[pc.speech(Perhaps she isn't in the tunnels?)]
@@ -168,7 +168,7 @@
 	<p>
 		[claire.speech(Well, that's no good for us then.)]
 		 Claire sighs, stopping in front of you and placing her hands on her hips once more.
-		 [claire.speech(We're only authorised to patrol the tunnels and walkways. The only place where a Slime Queen could be hiding - if one even exists, that is - would be down in the Bat Caverns. We simply don't have the manpower to patrol down there, so who knows what could be hiding away down there in the dark...)]
+		 [claire.speech(We're only authorized to patrol the tunnels and walkways. The only place where a Slime Queen could be hiding - if one even exists, that is - would be down in the Bat Caverns. We simply don't have the manpower to patrol down there, so who knows what could be hiding away down there in the dark...)]
 	</p>
 	<p>
 		[pc.speech(So you want me to go down there and find evidence of the Slime Queen?)]
@@ -269,8 +269,8 @@
 	<htmlContent tag="WALKWAYS"><![CDATA[
 	<p>
 		The main tunnels of Submission are surprisingly spacious, clean and full of life.
-		 A deep channel of opaque, greenish water flows at a steady pace down the centre of each passage, and to either side, well-maintained wooden walkways have been built up against the grey stone walls.
-		 Numerous bridges cross the watery divide at regular intervals, and every hundred metres or so, a series of stone steps trails down into the murky river to provide easy access for Submission's aquatic inhabitants.
+		 A deep channel of opaque, greenish water flows at a steady pace down the center of each passage, and to either side, well-maintained wooden walkways have been built up against the grey stone walls.
+		 Numerous bridges cross the watery divide at regular intervals, and every hundred meters or so, a series of stone steps trails down into the murky river to provide easy access for Submission's aquatic inhabitants.
 	</p>
 	<p>
 		The damp atmosphere holds just enough chill to gently caress any exposed skin, but, thanks to the wide iron grates built into the ceiling, the air doesn't feel stagnant down here.
@@ -331,7 +331,7 @@
 	</htmlContent>
 
 	<htmlContent tag="TUNNEL_IMP_CONTROL"><![CDATA[
-	<p style='color:[#pc.getLocationPlace().getPlaceType().getColour().toWebHexString()];'>
+	<p style='color:[#pc.getLocationPlace().getPlaceType().getColor().toWebHexString()];'>
 		<i>This tunnel is part of a network that's currently being controlled by an imp fortress! Until the fortress is cleared, anyone who calls these tunnels home is sure to remain in hiding...</i>
 	</p>
 	]]>
@@ -344,7 +344,7 @@
 	</p>
 	<p style='text-align:center;'><i>
 		<b>Bat Caverns</b><br/>
-		In order to avoid exciting the resident bat-morphs, travellers are advised to extinguish all personal light sources.
+		In order to avoid exciting the resident bat-morphs, travelers are advised to extinguish all personal light sources.
 		 The luminescent lichen will provide you with enough illumination.
 	</i></p>
 	<p>
@@ -362,7 +362,7 @@
 	<p>
 		Instantly, the dark grey hue of the staircase beneath your [pc.feet] is replaced by a soft, turquoise glow.
 		 Looking down, you see that the stone steps are coated in a blanket of bioluminescent lichens and mosses, which, when pressure is applied to them, light up to illuminate their the area around them.
-		 Although bright enough to allow you to see your immediate surroundings, the lichen's light drops off at a distance of about fifteen metres or so, and you can't help but feel like it's painting you as a target to anyone lurking in the darkness beyond.
+		 Although bright enough to allow you to see your immediate surroundings, the lichen's light drops off at a distance of about fifteen meters or so, and you can't help but feel like it's painting you as a target to anyone lurking in the darkness beyond.
 	</p>
 	<p>
 		Determined to continue on your downwards journey, you proceed to the bottom of the staircase, and find yourself stepping forwards into pitch-black cavern.
@@ -373,7 +373,7 @@
 
 	<htmlContent tag="RAT_WARREN"><![CDATA[
 	<p>
-		This side tunnel looks just like all of the others that you've travelled through so far, but with one exception.
+		This side tunnel looks just like all of the others that you've traveled through so far, but with one exception.
 		 Built into the wall nearest to where you're standing, a large stone archway has been constructed.
 		 A pair of heavy oaken doors, firmly shut tight, fill the opening, leaving you to wonder what could possibly be on the other side.
 	</p>
@@ -386,16 +386,16 @@
 
 	<htmlContent tag="GAMBLING_DEN"><![CDATA[
 	<p>
-		Over the past several minutes, you've noticed that the walkways that you're travelling down have steadily been getting busier and busier.
-		 Up in the wide streets of Dominion, this volume of traffic wouldn't be a problem, but down here, there's not much room on the narrow pathways in which to manoeuvre, and you soon find yourself having to physically push your way through the bustling crowds.
+		Over the past several minutes, you've noticed that the walkways that you're traveling down have steadily been getting busier and busier.
+		 Up in the wide streets of Dominion, this volume of traffic wouldn't be a problem, but down here, there's not much room on the narrow pathways in which to maneuver, and you soon find yourself having to physically push your way through the bustling crowds.
 	</p>
 	<p>
-		Just as you're thinking about turning back in order to find another way past this area, the tunnel that you're travelling through starts to widen out, and, mercifully, so do the walkways.
-		 Afforded a little space at last, you're able to quickly weave through the crowds, and soon find yourself in a particularly large and spacious area of Submission, being at least double the height and four-times the width of all the other tunnels you've travelled through.
+		Just as you're thinking about turning back in order to find another way past this area, the tunnel that you're traveling through starts to widen out, and, mercifully, so do the walkways.
+		 Afforded a little space at last, you're able to quickly weave through the crowds, and soon find yourself in a particularly large and spacious area of Submission, being at least double the height and four-times the width of all the other tunnels you've traveled through.
 	</p>
 	<p>
 		As you step forwards onto the wide, well-maintained walkways, you quickly discover the reason behind the abnormal amount of people that are in this area.
-		 All around you, brightly coloured canvas stalls have been erected, and as you pass, you see that they're selling all sorts of different goods.
+		 All around you, brightly colored canvas stalls have been erected, and as you pass, you see that they're selling all sorts of different goods.
 		 This area is obviously Submission's main marketplace, and although the wares for sale aren't of any interest to you, they're enough to attract crowds of shoppers from all over Submission.
 	</p>
 	<p>
@@ -428,7 +428,7 @@
 
 	<htmlContent tag="LILIN_PALACE_CAVERN_MET_ELIZABETH"><![CDATA[
 	<p>
-		While you appear to be the only person making use of the path, you're not alone in this area. Up ahead, standing to attention beside the drawbridge, are the familiar figures of at least twenty of Lyssieth's royal guards. Although it's hard to see her clearly from this distance, you're still able to recognise Elizabeth at the head of them.
+		While you appear to be the only person making use of the path, you're not alone in this area. Up ahead, standing to attention beside the drawbridge, are the familiar figures of at least twenty of Lyssieth's royal guards. Although it's hard to see her clearly from this distance, you're still able to recognize Elizabeth at the head of them.
 	</p>
 	]]>
 	</htmlContent>
@@ -468,7 +468,7 @@
 		As you approach, you see the familiar figure of Elizabeth standing at the head of her group of guards. Catching sight of you, she narrows her eyes, before stating, [elizabeth.speech(We've had no news of the capture of Her Highness's daughter. Until you're able to deal with her, I'm afraid that you're not going to be getting past us.)]
 	</p>
 	<p>
-		You see that the demons around you are alert and ready to fight, and, realising that you stand no chance at gaining entry through force, there's nothing more for you to do here but turn around and leave. Then again, if you had anything else to ask of Elizabeth, you could do that first...
+		You see that the demons around you are alert and ready to fight, and, realizing that you stand no chance at gaining entry through force, there's nothing more for you to do here but turn around and leave. Then again, if you had anything else to ask of Elizabeth, you could do that first...
 	</p>
 	]]>
 	</htmlContent>
@@ -478,7 +478,7 @@
 		As you approach, the leader of the group, a light-skinned half-demon succubus, with crimson-skinned demonic parts, steps forwards to bar your passage. [elizabeth.speech(That's far enough, [pc.name]. Her Highness still isn't receiving visitors, so there really isn't anything for you here.)]
 	</p>
 	<p>
-		You see that the demons around you are alert and ready to fight, and, realising that you stand no chance at gaining entry through force, there's nothing more for you to do here but turn around and leave. Then again, if you had anything else to ask of Elizabeth, you could do that first...
+		You see that the demons around you are alert and ready to fight, and, realizing that you stand no chance at gaining entry through force, there's nothing more for you to do here but turn around and leave. Then again, if you had anything else to ask of Elizabeth, you could do that first...
 	</p>
 	]]>
 	</htmlContent>
@@ -488,7 +488,7 @@
 		As you approach, a light-skinned half-succubus, with crimson-skinned demonic parts, steps forwards to bar your passage. [elizabeth.speech(Stop right there, [pc.race]. Her Highness, Lyssieth, isn't receiving visitors at the moment, and it's quite out of the ordinary for someone to just waltz up to us like this. Identify yourself!)]
 	</p>
 	<p>
-		You notice that the small army of demons around you are alert and ready for a fight, and, realising that it would be best to cooperate, you decide to do as the half-succubus asks.
+		You notice that the small army of demons around you are alert and ready for a fight, and, realizing that it would be best to cooperate, you decide to do as the half-succubus asks.
 	</p>
 	]]>
 	</htmlContent>
@@ -520,10 +520,10 @@
 		Much to your delight, as you reveal that you're somewhat related to Lyssieth herself, Elizabeth raises her eyebrows. [elizabeth.speech(Hmm, you <i>do</i> fit the description of the one who's living with her...)]
 	</p>
 	<p>
-		[pc.speech(Does <i>everybody</i> know about my living arrangements?!)] you groan, thinking back to the way Zaranix also recognised you.
+		[pc.speech(Does <i>everybody</i> know about my living arrangements?!)] you groan, thinking back to the way Zaranix also recognized you.
 	</p>
 	<p>
-		[elizabeth.speech(Well, I can't speak for anyone else, but we of the royal guard always keep ourselves well-informed of who Lyssieth's recognised children are mingling with. As a final confirmation, may I ask the name of the gentleman who also recently moved in with Lilaya?)]
+		[elizabeth.speech(Well, I can't speak for anyone else, but we of the royal guard always keep ourselves well-informed of who Lyssieth's recognized children are mingling with. As a final confirmation, may I ask the name of the gentleman who also recently moved in with Lilaya?)]
 	</p>
 	<p>
 		[pc.speech(That'd be Arthur,)] You quickly reply, eager to get this over and done with so that you can finally meet Lyssieth.
@@ -535,19 +535,19 @@
 		You make a mental note to keep a closer look-out for anyone following you when you return to Dominion, before trying to encourage Elizabeth to move on to the business at hand, [pc.speech(Well, now that you know who exactly I am, can I please be allowed to see Lyssieth?)]
 	</p>
 	<p>
-		[elizabeth.speech(Ordinarily, no. When Her Highness says no visitors, she means it. As it turns out, however, we're in need of someone with your particular skills. You help us out, and we'll allow you to enter the palace,)] Elizabeth says, before continuing, [elizabeth.speech(Another of Her Highness's recognised daughters has been causing nothing but trouble for the local Enforcers ever since she was allowed to leave the palace. Perhaps you've seen the gangs of imps roaming parts of Submission? Those are all her doing.)]
+		[elizabeth.speech(Ordinarily, no. When Her Highness says no visitors, she means it. As it turns out, however, we're in need of someone with your particular skills. You help us out, and we'll allow you to enter the palace,)] Elizabeth says, before continuing, [elizabeth.speech(Another of Her Highness's recognized daughters has been causing nothing but trouble for the local Enforcers ever since she was allowed to leave the palace. Perhaps you've seen the gangs of imps roaming parts of Submission? Those are all her doing.)]
 	</p>
 	<p>
-		Realising where this is going, and used to having to sort out other people's problems by now, you sigh as you respond, [pc.speech(You want me to put an end to the trouble she's causing?)]
+		Realizing where this is going, and used to having to sort out other people's problems by now, you sigh as you respond, [pc.speech(You want me to put an end to the trouble she's causing?)]
 	</p>
 	<p>
-		[elizabeth.speech(That's right. Even if Her Highness did have the freedo- ~Ahem!~ That is, even if Her Highness did have the time to leave her palace, it would be a major scandal if she was heard to be having to discipline one of her recognised daughters. The amount of royal guards it would take to drag her kicking and screaming back to Her Highness's side is also simply unacceptable, and would leave the palace too vulnerable. No, we need someone like you to sort out this situation for us.)]
+		[elizabeth.speech(That's right. Even if Her Highness did have the freedo- ~Ahem!~ That is, even if Her Highness did have the time to leave her palace, it would be a major scandal if she was heard to be having to discipline one of her recognized daughters. The amount of royal guards it would take to drag her kicking and screaming back to Her Highness's side is also simply unacceptable, and would leave the palace too vulnerable. No, we need someone like you to sort out this situation for us.)]
 	</p>
 	<p>
 		[pc.speech(Fine. If that's what it's going to take,)] you say, resigning yourself to your fate.
 	</p>
 	<p>
-		[elizabeth.speech(Excellent. The demon you're after is going by the title 'the dark siren', and can be found somewhere in the tunnels in the very centre of Submission,)] Elizabeth explains, before reaching into one of her pockets and producing a rather curious-looking ring. Handing it over to you, she continues, [elizabeth.speech(This is one of Her Highness's signet rings, which normally carry some impressive enchantments. We've had this particular one altered, however, to enslave the person who puts it on. We've also registered Her Highness's daughter as a slave of special interest, so instead of being teleported to Slaver Alley, she'll be sent straight to Her Highness's room. I'm sure you can find some way to trick her into putting it on.)]
+		[elizabeth.speech(Excellent. The demon you're after is going by the title 'the dark siren', and can be found somewhere in the tunnels in the very center of Submission,)] Elizabeth explains, before reaching into one of her pockets and producing a rather curious-looking ring. Handing it over to you, she continues, [elizabeth.speech(This is one of Her Highness's signet rings, which normally carry some impressive enchantments. We've had this particular one altered, however, to enslave the person who puts it on. We've also registered Her Highness's daughter as a slave of special interest, so instead of being teleported to Slaver Alley, she'll be sent straight to Her Highness's room. I'm sure you can find some way to trick her into putting it on.)]
 	</p>
 	<p>
 		[pc.speech(OK, I'll get this sorted out,)] you reply, placing the ring in your inventory.
@@ -572,10 +572,10 @@
 		Much to your delight, as you reveal that you're somewhat related to Lyssieth herself, Elizabeth raises her eyebrows. [elizabeth.speech(Hmm, you <i>do</i> fit the description of the one who's living with her...)]
 	</p>
 	<p>
-		[pc.speech(Does <i>everybody</i> know about my living arrangements?!)] you groan, thinking back to the way Zaranix also recognised you.
+		[pc.speech(Does <i>everybody</i> know about my living arrangements?!)] you groan, thinking back to the way Zaranix also recognized you.
 	</p>
 	<p>
-		[elizabeth.speech(Well, I can't speak for anyone else, but we of the royal guard always keep ourselves well-informed of who Lyssieth's recognised children are mingling with. As a final confirmation, may I ask the name of the gentleman who also recently moved in with Lilaya?)]
+		[elizabeth.speech(Well, I can't speak for anyone else, but we of the royal guard always keep ourselves well-informed of who Lyssieth's recognized children are mingling with. As a final confirmation, may I ask the name of the gentleman who also recently moved in with Lilaya?)]
 	</p>
 	<p>
 		[pc.speech(That'd be Arthur,)] You quickly reply, eager to get this over and done with so that you can finally meet Lyssieth.
@@ -590,7 +590,7 @@
 		As you reveal the fact that it was you who defeated Lyssieth's daughter, Elizabeth raises her eyebrows and gazes at you in disbelief. [elizabeth.speech(Wait, that was <i>you</i> who beat her in a fight?! There's no way... T-Tell me how it happened! Her Highness has already informed us of her daughter's version of events, so we'll see if your stories match up!)]
 	</p>
 	<p>
-		You spend the next fifteen minutes or so explaining your methods, starting at how you got an arcane key from one of the surrounding imp fortress, and finishing with a description of how you bested Lyssieth's daughter in combat. As you finish recounting the battle you had in the stone keep, Elizabeth stammers and trips over her words as she realises that you were actually telling the truth. [elizabeth.speech(Wow... But Lyssieth herself taught her how to use the arcane... I-I mean, everyone in the palace knows about how she over-estimates her abilities, but she... I mean... Who <i>are</i> you?!)]
+		You spend the next fifteen minutes or so explaining your methods, starting at how you got an arcane key from one of the surrounding imp fortress, and finishing with a description of how you bested Lyssieth's daughter in combat. As you finish recounting the battle you had in the stone keep, Elizabeth stammers and trips over her words as she realizes that you were actually telling the truth. [elizabeth.speech(Wow... But Lyssieth herself taught her how to use the arcane... I-I mean, everyone in the palace knows about how she over-estimates her abilities, but she... I mean... Who <i>are</i> you?!)]
 	</p>
 	<p>
 		[pc.speech(As I told you at the start of all this, I'm Lilaya's [pc.niece]. Well, sort of, anyway. That's why I need to speak with Lyssieth so badly; I have a lot of questions that I need answered.)]
@@ -615,7 +615,7 @@
 		You spend the next fifteen minutes or so explaining your methods, starting at how you got an arcane key from one of the surrounding imp fortress, and finishing with a description of how you bested Lyssieth's daughter in combat. As you recount the battle you had in the stone keep, Elizabeth raises her eyebrows and gazes at you in disbelief. [elizabeth.speech(You actually beat her in a fight?! There's no way... But that would mean you still have the ring I gave you! Show it to me, and prove that you're not lying.)]
 	</p>
 	<p>
-		Producing Lyssieth's signet ring, you hand it over to Elizabeth, who stammers and trips over her words as she realises that you were actually telling the truth. [elizabeth.speech(Wow... But Lyssieth herself taught her how to use the arcane... i_I mean, everyone in the palace knows about how she over-estimates her abilities, but she... I mean... Who <i>are</i> you?!)]
+		Producing Lyssieth's signet ring, you hand it over to Elizabeth, who stammers and trips over her words as she realizes that you were actually telling the truth. [elizabeth.speech(Wow... But Lyssieth herself taught her how to use the arcane... i_I mean, everyone in the palace knows about how she over-estimates her abilities, but she... I mean... Who <i>are</i> you?!)]
 	</p>
 	<p>
 		[pc.speech(As I told you before, I'm Lilaya's [pc.niece]. Well, sort of, anyway. That's why I need to speak with Lyssieth so badly; I have a lot of questions that I need answered.)]
@@ -681,7 +681,7 @@
 		[pc.speech(Wait, you're all Lyssieth's daughters?!)] you exclaim. [pc.speech(So Lilaya is your sister as well?)]
 	</p>
 	<p>
-		[elizabeth.speech(Well, technically, yes,)] the half-succubus awkwardly replies. [elizabeth.speech(However, none of us are recognised daughters, you see, so we can't really call her that. Lyssieth can't recognise too many of us... Lilin politics, and all that...)]
+		[elizabeth.speech(Well, technically, yes,)] the half-succubus awkwardly replies. [elizabeth.speech(However, none of us are recognized daughters, you see, so we can't really call her that. Lyssieth can't recognize too many of us... Lilin politics, and all that...)]
 	</p>
 	<p>
 		Having got your answer, you wonder what you should do next...
@@ -697,7 +697,7 @@
 		A pair of masterfully-carved stone gargoyles, each one standing at well over eight feet tall, snarl down at anyone crossing the drawbridge. Every time you glance up at one of them, they seem to be wearing a slightly different expression, but whether this is some arcane-enchantment, or just your imagination, you can't tell. As you've come to expect from this world, the two sculptures are completely naked, and while each of the masculine figures are sporting balls large enough to put a horse to shame, it's what their cocks are buried in that catches your attention the most. Appearing to be carved out of the same jet-black obsidian, a rat-girl and succubus are being restrained in full-nelson holds; their legs lifted from the floor as the gargoyles' cocks slam deep into their exposed pussies.
 	</p>
 	<p>
-		Casting your gaze back down from the lewd expressions on each of the girls' faces, you turn your attention to the huge wooden gates before you. Set into the wall of the palace by about two or three feet, the only observable entrance boasts an extra line of defence, in the form of a thick metal portcullis. Thankfully, this has been raised, allowing Elizabeth to freely approach the doors before you.
+		Casting your gaze back down from the lewd expressions on each of the girls' faces, you turn your attention to the huge wooden gates before you. Set into the wall of the palace by about two or three feet, the only observable entrance boasts an extra line of defense, in the form of a thick metal portcullis. Thankfully, this has been raised, allowing Elizabeth to freely approach the doors before you.
 	</p>
 	]]>
 	</htmlContent>
@@ -734,10 +734,10 @@
 
 	<htmlContent tag="IMP_FORTRESS"><![CDATA[
 	<p>
-		As you turn a corner in the tunnel that you're travelling down, you find yourself stepping out into a huge, underground cave. Several holes in the high roof, which you see are covered in iron bars, let a generous amount of light into the cavern.
+		As you turn a corner in the tunnel that you're traveling down, you find yourself stepping out into a huge, underground cave. Several holes in the high roof, which you see are covered in iron bars, let a generous amount of light into the cavern.
 	</p>
 	<p>
-		In the very centre of the cavern's huge floor, a considerable amount of earth and rock has been dug out and piled up to form a large mound. On the top of this hill, a crude fence, made out of all sorts of old planks and bits of rubbish, has been erected. Within this circular enclosure, a squat wooden keep has been constructed - looking every bit as crude as its protective fence.
+		In the very center of the cavern's huge floor, a considerable amount of earth and rock has been dug out and piled up to form a large mound. On the top of this hill, a crude fence, made out of all sorts of old planks and bits of rubbish, has been erected. Within this circular enclosure, a squat wooden keep has been constructed - looking every bit as crude as its protective fence.
 	</p>
 	]]>
 	</htmlContent>
@@ -807,7 +807,7 @@
 		A worn path leads up to the entrance, and, walking down it, you discover that the citadel's gates are carved from dark black stone. Three small keyholes have been drilled into the very middle of them, and, looking up, you see that there's an inscription on the stonework above, which reads:
 	</p>
 	<p style='text-align:center'><i>
-		In this mighty citadel, resides the Dark Siren; Daughter of Lyssieth, Empress of the arcane, Bearer of cataclysmic terror, She who rends worlds; Those who seek her favour must first prove themselves, and with three keys, then enter.
+		In this mighty citadel, resides the Dark Siren; Daughter of Lyssieth, Empress of the arcane, Bearer of cataclysmic terror, She who rends worlds; Those who seek her favor must first prove themselves, and with three keys, then enter.
 	</i></p>
 	]]>
 	</htmlContent>
@@ -820,7 +820,7 @@
 		Walking over to where the citadel's ruins now lie, you take note of the fact that over half of the outer wall has crumbled into an impassable pile of loose rocks and shattered masonry. Thankfully, the citadel's main gates seem to have avoided taking significant damage, and have been left wide open. The surrounding structure hasn't been so lucky, however, and a significant amount of the inscribed stonework above the gates has been smashed to pieces, so that it now reads:
 	</p>
 	<p style='text-align:center'><i>
-		In ... citadel, ... Dark Siren; Daughter ... Lyssieth, Empress ... cataclysmic terror, She who ... favour ... first ... three keys, ... enter.
+		In ... citadel, ... Dark Siren; Daughter ... Lyssieth, Empress ... cataclysmic terror, She who ... favor ... first ... three keys, ... enter.
 	</i></p>
 	<p>
 		The ruins look dangerously unstable, which is obviously the reason why no imps have chosen to return to this place. If you were careful, however, you think that you could pass through the gates and explore the ruins without risking injury.

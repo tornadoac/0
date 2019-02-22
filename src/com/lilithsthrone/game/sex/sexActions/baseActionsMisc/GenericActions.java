@@ -26,7 +26,7 @@ import com.lilithsthrone.game.sex.sexActions.SexAction;
 import com.lilithsthrone.game.sex.sexActions.SexActionPriority;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -121,7 +121,7 @@ public class GenericActions {
 								+ " a bead of precum seeps out and drips from the tip."
 						:"[npc2.Name] lets out a little giggle, and as you look down at [npc2.her] groin, you see a huge bulge quickly forming in [npc2.her] "
 								+Sex.getActivePartner().getHighestZLayerCoverableArea(CoverableArea.VAGINA).getName()+"."
-								+ " Before you have any time to change your mind, [npc2.name] lets out [npc2.a_moan+], and you realise that [npc2.sheIs] now got a huge demonic cock hiding beneath [npc2.her] clothing.");
+								+ " Before you have any time to change your mind, [npc2.name] lets out [npc2.a_moan+], and you realize that [npc2.sheIs] now got a huge demonic cock hiding beneath [npc2.her] clothing.");
 		}
 
 		@Override
@@ -149,7 +149,7 @@ public class GenericActions {
 		
 		@Override
 		public String getActionTitle() {
-			return "[style.colourPsychoactive(Calming Suggestion)]";
+			return "[style.colorPsychoactive(Calming Suggestion)]";
 		}
 
 		@Override
@@ -201,7 +201,7 @@ public class GenericActions {
 		
 		@Override
 		public String getActionTitle() {
-			return "[style.colourPsychoactive(Lustful Suggestion)]";
+			return "[style.colorPsychoactive(Lustful Suggestion)]";
 		}
 
 		@Override
@@ -311,7 +311,7 @@ public class GenericActions {
 				return UtilText.returnStringAtRandom(
 						"You slap, hit, and kick [npc2.name] as you desperately try to struggle out of [npc2.her] grip, but your efforts prove to be in vain as [npc2.she] easily continues restraining you.",
 						"Struggling against [npc2.name], you let out [npc.a_sob+] as you weakly try to wriggle out of [npc2.her] grasp.",
-						"Begging for [npc2.herHim] to leave you alone, you desperately struggle against [npc2.name], [npc.sobbing] in distress as you realise that [npc2.her] grip is too strong.");
+						"Begging for [npc2.herHim] to leave you alone, you desperately struggle against [npc2.name], [npc.sobbing] in distress as you realize that [npc2.her] grip is too strong.");
 			}
 		}
 		
@@ -565,7 +565,7 @@ public class GenericActions {
 			if(UtilText.nodeContentSB.length()!=0)
 				UtilText.nodeContentSB.append("<br/><br/>");
 			UtilText.nodeContentSB.append("[npc.speech(I don't want to see you trying to get yourself off, understood?)] you growl at [npc2.name].<br/><br/>"
-					+ "<i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] will no longer use any self-penetrative actions.</i>");
+					+ "<i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] will no longer use any self-penetrative actions.</i>");
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -608,7 +608,7 @@ public class GenericActions {
 		@Override
 		public String getDescription() {
 			return "[npc.speech(I want to see you trying to get yourself off!)] you growl at [npc2.name].<br/><br/>"
-					+ "<i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] is now able to use any self-penetrative actions.</i>";
+					+ "<i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] is now able to use any self-penetrative actions.</i>";
 		}
 
 		@Override
@@ -647,7 +647,7 @@ public class GenericActions {
 		@Override
 		public String getDescription() {
 			return "[npc.speech(Don't you <i>dare</i> try and touch any of my clothes!)] you growl at [npc2.name].<br/><br/>"
-					+ "<i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] will not attempt to remove or displace any of your clothes.</i>";
+					+ "<i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] will not attempt to remove or displace any of your clothes.</i>";
 		}
 
 		@Override
@@ -686,7 +686,7 @@ public class GenericActions {
 		@Override
 		public String getDescription() {
 			return "[npc.speech(How about you help me take off some of these clothes?)] you [npc.moan].<br/><br/>"
-					+ "<i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] is now able to manage your clothing.</i>";
+					+ "<i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] is now able to manage your clothing.</i>";
 		}
 
 		@Override
@@ -725,7 +725,7 @@ public class GenericActions {
 		@Override
 		public String getDescription() {
 			return "[npc.speech(Don't you <i>dare</i> try and touch your clothes!)] you growl at [npc2.name].<br/><br/>"
-					+ "<i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] will not attempt to remove or displace any of [npc2.her] clothes.</i>";
+					+ "<i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] will not attempt to remove or displace any of [npc2.her] clothes.</i>";
 		}
 
 		@Override
@@ -764,7 +764,7 @@ public class GenericActions {
 		@Override
 		public String getDescription() {
 			return "[npc.speech(How about you start taking off some of your clothes?)] you [npc.moan].<br/><br/>"
-					+ "<i style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] is now able to manage [npc2.her] clothing.</i>";
+					+ "<i style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>[npc2.Name] is now able to manage [npc2.her] clothing.</i>";
 		}
 
 		@Override
@@ -854,7 +854,7 @@ public class GenericActions {
 		
 		@Override
 		public String getActionTitle() {
-			return "[style.colourPsychoactive(Calming Suggestion)]";
+			return "[style.colorPsychoactive(Calming Suggestion)]";
 		}
 
 		@Override
@@ -907,7 +907,7 @@ public class GenericActions {
 		
 		@Override
 		public String getActionTitle() {
-			return "[style.colourPsychoactive(Lustful Suggestion)]";
+			return "[style.colorPsychoactive(Lustful Suggestion)]";
 		}
 
 		@Override

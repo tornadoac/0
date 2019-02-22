@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.sex;
 
-import com.lilithsthrone.utils.BaseColour;
+import com.lilithsthrone.utils.BaseColor;
 
 /**
  * @since 0.1.69.9
@@ -9,22 +9,22 @@ import com.lilithsthrone.utils.BaseColour;
  */
 public enum SexPace {
 	
-	SUB_RESISTING(false, "resisting", BaseColour.CRIMSON),
-	SUB_NORMAL(false, "normal", BaseColour.PINK),
-	SUB_EAGER(false, "eager", BaseColour.PINK_DEEP),
+	SUB_RESISTING(false, "resisting", BaseColor.CRIMSON),
+	SUB_NORMAL(false, "normal", BaseColor.PINK),
+	SUB_EAGER(false, "eager", BaseColor.PINK_DEEP),
 	
-	DOM_GENTLE(true, "gentle", BaseColour.PINK_LIGHT),
-	DOM_NORMAL(true, "normal", BaseColour.PINK),
-	DOM_ROUGH(true, "rough", BaseColour.CRIMSON);
+	DOM_GENTLE(true, "gentle", BaseColor.PINK_LIGHT),
+	DOM_NORMAL(true, "normal", BaseColor.PINK),
+	DOM_ROUGH(true, "rough", BaseColor.CRIMSON);
 	
 	private boolean isDom;
 	private String name;
-	private BaseColour colour;
+	private BaseColor color;
 	
-	private SexPace(boolean isDom, String name, BaseColour colour) {
+	private SexPace(boolean isDom, String name, BaseColor color) {
 		this.isDom = isDom;
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 	}
 	
 	public SexPace getOppositeDomEquivalent() {
@@ -53,7 +53,7 @@ public enum SexPace {
 		return name;
 	}
 
-	public BaseColour getColour() {
-		return colour;
+	public BaseColor getColor() {
+		return color;
 	}
 }

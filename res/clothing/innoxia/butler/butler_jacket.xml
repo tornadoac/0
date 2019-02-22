@@ -77,12 +77,12 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours values="JUST_BLACK"/> 
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours/>
-		<secondaryColoursDye/>
-		<tertiaryColours/>
-		<tertiaryColoursDye/>
+		<primaryColors values="JUST_BLACK"/> 
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors/>
+		<secondaryColorsDye/>
+		<tertiaryColors/>
+		<tertiaryColorsDye/>
 		
 		<itemTags> 
 			<tag>SOLD_BY_NYAN</tag>

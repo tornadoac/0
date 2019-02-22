@@ -51,20 +51,20 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours>
-			<colour>CLOTHING_WHITE</colour>
-			<colour>CLOTHING_GREY</colour>
-			<colour>CLOTHING_BROWN_DARK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_BLACK"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours>
-			<colour>CLOTHING_GOLD</colour>
-			<colour>CLOTHING_SILVER</colour>
-			<colour>CLOTHING_COPPER</colour>
-		</tertiaryColours>
-		<tertiaryColoursDye values="ALL_METAL"/>
+		<primaryColors>
+			<color>CLOTHING_WHITE</color>
+			<color>CLOTHING_GREY</color>
+			<color>CLOTHING_BROWN_DARK</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_BLACK"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors>
+			<color>CLOTHING_GOLD</color>
+			<color>CLOTHING_SILVER</color>
+			<color>CLOTHING_COPPER</color>
+		</tertiaryColors>
+		<tertiaryColorsDye values="ALL_METAL"/>
 		
 		<itemTags/>
 	</coreAttributes>

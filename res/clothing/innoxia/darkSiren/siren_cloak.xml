@@ -15,7 +15,7 @@
 		<imageName>siren_cloak.svg</imageName>
 		<imageEquippedName/>
 		<enchantmentLimit>15</enchantmentLimit>
-		<effects> 
+		<effects>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="INTELLIGENCE" timer="0"/>
@@ -32,7 +32,7 @@
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="SPELL_COST_MODIFIER" timer="0"/>
 		</effects>
-		
+
 		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
@@ -44,22 +44,22 @@
 				<concealedSlots/>
 			</blockedParts>
 		</blockedPartsList>
-		
+
 		<incompatibleSlots/>
-		
-		<primaryColours>
-			<colour>CLOTHING_BLACK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours>
-			<colour>CLOTHING_PURPLE_VERY_DARK</colour>
-		</secondaryColours>
-		<secondaryColoursDye values="ALL_WITH_METALS"/>
-		<tertiaryColours>
-			<colour>CLOTHING_STEEL</colour>
-		</tertiaryColours>
-		<tertiaryColoursDye values="ALL_METAL"/>
-	
+
+		<primaryColors>
+			<color>CLOTHING_BLACK</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors>
+			<color>CLOTHING_PURPLE_VERY_DARK</color>
+		</secondaryColors>
+		<secondaryColorsDye values="ALL_WITH_METALS"/>
+		<tertiaryColors>
+			<color>CLOTHING_STEEL</color>
+		</tertiaryColors>
+		<tertiaryColorsDye values="ALL_METAL"/>
+
 		<itemTags/>
 	</coreAttributes>
 

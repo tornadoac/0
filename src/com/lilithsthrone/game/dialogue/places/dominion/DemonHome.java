@@ -14,7 +14,7 @@ import com.lilithsthrone.game.dialogue.places.dominion.zaranixHome.ZaranixHomeGr
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -47,7 +47,7 @@ public class DemonHome {
 			if(Main.game.getCurrentWeather()==Weather.MAGIC_STORM) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "<b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Arcane Storm:</b><br/>"
+							+ "<b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Arcane Storm:</b><br/>"
 							+ "The arcane storm that's raging overhead has brought out a heavy presence of demon Enforcers in this area."
 							+ " Unaffected by the arousing power of the storm's thunder, these elite Enforcers keep a close watch on you as you pass through the all-but-deserted area known as Demon Home."
 							+ " There's no way anyone would be able to assault you while under their watchful gaze, allowing you continue on your way in peace..."
@@ -57,7 +57,7 @@ public class DemonHome {
 			if(Main.game.getDateNow().getMonth()==Month.OCTOBER) {
 				UtilText.nodeContentSB.append(
 					"<p>"
-						+ "<b style='color:"+Colour.BASE_ORANGE.toWebHexString()+";'>October;</b> <b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Lilith's Month:</b><br/>"
+						+ "<b style='color:"+Color.BASE_ORANGE.toWebHexString()+";'>October;</b> <b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Lilith's Month:</b><br/>"
 						+ "Orange, black, and purple flags fly from almost every window, and you look up to see that large banners have been hung across the street, each one bearing a different slogan celebrating Lilith's rule."
 						+ " The occasional demon that you see is usually dressed up in a Halloween-esque costume for the occasion, which does nothing to help alleviate the eerie atmosphere."
 					+ "</p>");
@@ -65,7 +65,7 @@ public class DemonHome {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.hasSnowedThisWinter) && Main.game.getSeason()==Season.WINTER) {
 				UtilText.nodeContentSB.append(
 					"<p>"
-						+ "<b style='color:"+Colour.BASE_BLUE_LIGHT.toWebHexString()+";'>Snow:</b><br/>"
+						+ "<b style='color:"+Color.BASE_BLUE_LIGHT.toWebHexString()+";'>Snow:</b><br/>"
 						+ "The reindeer-morph workers are doing a good job of keeping Dominion's streets clear from the snow, but the rooftops, trees, and tops of lamp posts are all home to a thick layer of white."
 						+ " You see your breath exiting your mouth in a little cloud of condensation, but despite the clear evidence of the air's freezing temperature, your arcane aura protects your body from feeling the cold."
 					+ "</p>");
@@ -98,7 +98,7 @@ public class DemonHome {
 							+ " you assume that these sculptures are what gives this area its name."
 					+ "</p>"
 					+ "<p>"
-						+ "As you walk down the street, you pass several fenced-off private gardens; their lush splash of greenery helping to break up the monotony of the surrounding building's creamy-white stone facades."
+						+ "As you walk down the street, you pass several fenced-off private gardens; their lush splash of greenery helping to break up the monotony of the surrounding building's creamy-white stone façades."
 						+ " Despite the fact that Demon Home is a little quieter than most of the other areas of Dominion, you notice that there are slightly more enforcers patrolling the streets;"
 									+ " evidence that the wealthy and influential residents of the city are afforded extra protection."
 					+ "</p>");
@@ -106,7 +106,7 @@ public class DemonHome {
 			if(Main.game.getCurrentWeather()==Weather.MAGIC_STORM) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "<b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Arcane Storm:</b><br/>"
+							+ "<b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Arcane Storm:</b><br/>"
 							+ "The arcane storm that's raging overhead has brought out a heavy presence of demon Enforcers in this area."
 							+ " Unaffected by the arousing power of the storm's thunder, these elite Enforcers keep a close watch on you as you pass through the all-but-deserted area known as Demon Home."
 							+ " There's no way anyone would be able to assault you while under their watchful gaze, allowing you continue on your way in peace..."
@@ -116,7 +116,7 @@ public class DemonHome {
 			if(Main.game.getDateNow().getMonth()==Month.OCTOBER) {
 				UtilText.nodeContentSB.append(
 					"<p>"
-						+ "<b style='color:"+Colour.BASE_ORANGE.toWebHexString()+";'>October;</b> <b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Lilith's Month:</b><br/>"
+						+ "<b style='color:"+Color.BASE_ORANGE.toWebHexString()+";'>October;</b> <b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Lilith's Month:</b><br/>"
 						+ "Orange, black, and purple flags fly from almost every window, and you look up to see that large banners have been hung across the street, each one bearing a different slogan celebrating Lilith's rule."
 						+ " The occasional demon that you see is usually dressed up in a Halloween-esque costume for the occasion, which does nothing to help alleviate the eerie atmosphere."
 					+ "</p>");
@@ -124,7 +124,7 @@ public class DemonHome {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.hasSnowedThisWinter) && Main.game.getSeason()==Season.WINTER) {
 				UtilText.nodeContentSB.append(
 					"<p>"
-						+ "<b style='color:"+Colour.BASE_BLUE_LIGHT.toWebHexString()+";'>Snow:</b><br/>"
+						+ "<b style='color:"+Color.BASE_BLUE_LIGHT.toWebHexString()+";'>Snow:</b><br/>"
 						+ "The reindeer-morph workers are doing a good job of keeping Dominion's streets clear from the snow, but the rooftops, trees, and tops of lamp posts are all home to a thick layer of white."
 						+ " You see your breath exiting your mouth in a little cloud of condensation, but despite the clear evidence of the air's freezing temperature, your arcane aura protects your body from feeling the cold."
 					+ "</p>");
@@ -260,7 +260,7 @@ public class DemonHome {
 					+ "<h6 style='text-align:center;'>Dominion Enforcer Department</h6>"
 					+ "<h5 style='text-align:center;'>NOTICE OF ARREST</h5>"
 					+ "<p style='text-align:center;'>The occupant of this residence, namely the person of <i>Arthur Fairbanks</i>, has been issued with an arrest warrant.<br/>"
-					+ "These premises are therefore under investigation by Dominion's Enforcer Department, and any unauthorised entry beyond this point is in violation of the law."
+					+ "These premises are therefore under investigation by Dominion's Enforcer Department, and any unauthorized entry beyond this point is in violation of the law."
 					+ "<br/><br/>"
 					+ "Officer in charge of issuing the warrant: <i>Brax</i>"
 					+ "<br/><br/>"

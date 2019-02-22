@@ -26,16 +26,16 @@ public class FluidStored implements XMLSaving {
 	private FluidCum cum;
 	private FluidMilk milk;
 	private FluidGirlCum girlCum;
-	private int millilitres;
+	private int milliliters;
 
-	public FluidStored(GameCharacter character, FluidCum cum, int millilitres) {
+	public FluidStored(GameCharacter character, FluidCum cum, int milliliters) {
 		this.charactersFluidID = character.getId();
 
 		this.cumSubspecies = character.getSubspecies();
 		this.cum = new FluidCum(cum.getType());
 		this.cum.clearFluidModifiers();
 
-		this.cum.setFlavour(null, cum.getFlavour());
+		this.cum.setFlavor(null, cum.getFlavor());
 		for(FluidModifier fm : cum.getFluidModifiers()) {
 			this.cum.addFluidModifier(null, fm);
 		}
@@ -43,17 +43,17 @@ public class FluidStored implements XMLSaving {
 			this.cum.addTransformativeEffect(ie);
 		}
 
-		this.millilitres = millilitres;
+		this.milliliters = milliliters;
 	}
 
-	public FluidStored(String charactersFluidID, Subspecies cumSubspecies, FluidCum cum, int millilitres) {
+	public FluidStored(String charactersFluidID, Subspecies cumSubspecies, FluidCum cum, int milliliters) {
 		this.charactersFluidID = charactersFluidID;
 
 		this.cumSubspecies = cumSubspecies;
 		this.cum = new FluidCum(cum.getType());
 		this.cum.clearFluidModifiers();
 
-		this.cum.setFlavour(null, cum.getFlavour());
+		this.cum.setFlavor(null, cum.getFlavor());
 		for(FluidModifier fm : cum.getFluidModifiers()) {
 			this.cum.addFluidModifier(null, fm);
 		}
@@ -61,16 +61,16 @@ public class FluidStored implements XMLSaving {
 			this.cum.addTransformativeEffect(ie);
 		}
 
-		this.millilitres = millilitres;
+		this.milliliters = milliliters;
 	}
 
-	public FluidStored(String charactersFluidID, FluidMilk milk, int millilitres) {
+	public FluidStored(String charactersFluidID, FluidMilk milk, int milliliters) {
 		this.charactersFluidID = charactersFluidID;
 
 		this.milk = new FluidMilk(milk.getType());
 		this.milk.clearFluidModifiers();
 
-		this.milk.setFlavour(null, milk.getFlavour());
+		this.milk.setFlavor(null, milk.getFlavor());
 		for(FluidModifier fm : milk.getFluidModifiers()) {
 			this.milk.addFluidModifier(null, fm);
 		}
@@ -78,16 +78,16 @@ public class FluidStored implements XMLSaving {
 			this.milk.addTransformativeEffect(ie);
 		}
 
-		this.millilitres = millilitres;
+		this.milliliters = milliliters;
 	}
 
-	public FluidStored(String charactersFluidID, FluidGirlCum girlCum, int millilitres) {
+	public FluidStored(String charactersFluidID, FluidGirlCum girlCum, int milliliters) {
 		this.charactersFluidID = charactersFluidID;
 
 		this.girlCum = new FluidGirlCum(girlCum.getType());
 		this.girlCum.clearFluidModifiers();
 
-		this.girlCum.setFlavour(null, girlCum.getFlavour());
+		this.girlCum.setFlavor(null, girlCum.getFlavor());
 		for(FluidModifier fm : girlCum.getFluidModifiers()) {
 			this.girlCum.addFluidModifier(null, fm);
 		}
@@ -95,7 +95,7 @@ public class FluidStored implements XMLSaving {
 			this.girlCum.addTransformativeEffect(ie);
 		}
 
-		this.millilitres = millilitres;
+		this.milliliters = milliliters;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class FluidStored implements XMLSaving {
 		Element fluidStoredElement = doc.createElement("fluidStored");
 		parentElement.appendChild(fluidStoredElement);
 		CharacterUtils.addAttribute(doc, fluidStoredElement, "charactersFluidID", charactersFluidID);
-		CharacterUtils.addAttribute(doc, fluidStoredElement, "millilitres", String.valueOf(millilitres));
+		CharacterUtils.addAttribute(doc, fluidStoredElement, "milliliters", String.valueOf(milliliters));
 
 		if(isCum()) {
 			CharacterUtils.addAttribute(doc, fluidStoredElement, "cumSubspecies", cumSubspecies.toString());
@@ -123,10 +123,10 @@ public class FluidStored implements XMLSaving {
 
 	public static FluidStored loadFromXML(StringBuilder log, Element parentElement, Document doc) {
 		String ID = parentElement.getAttribute("charactersFluidID");
-		int millimetres = Integer.parseInt(parentElement.getAttribute("millilitres"));
+		int millimeters = Integer.parseInt(parentElement.getAttribute("milliliters"));
 
 		if(parentElement.getElementsByTagName("milk").item(0)!=null) {
-			return new FluidStored(ID, FluidMilk.loadFromXML(parentElement, doc), millimetres);
+			return new FluidStored(ID, FluidMilk.loadFromXML(parentElement, doc), millimeters);
 		}
 
 		if(parentElement.getElementsByTagName("cum").item(0)!=null) {
@@ -135,10 +135,10 @@ public class FluidStored implements XMLSaving {
 				subspecies = Subspecies.valueOf(parentElement.getAttribute("cumSubspecies"));
 			} catch(Exception ex) {
 			}
-			return new FluidStored(ID, subspecies, FluidCum.loadFromXML(parentElement, doc), millimetres);
+			return new FluidStored(ID, subspecies, FluidCum.loadFromXML(parentElement, doc), millimeters);
 		}
 
-		return new FluidStored(ID, FluidGirlCum.loadFromXML(parentElement, doc), millimetres);
+		return new FluidStored(ID, FluidGirlCum.loadFromXML(parentElement, doc), millimeters);
 
 	}
 
@@ -184,19 +184,19 @@ public class FluidStored implements XMLSaving {
 		return cumSubspecies;
 	}
 
-	public int getMillilitres() {
-		return millilitres;
+	public int getMilliliters() {
+		return milliliters;
 	}
 
-	public void setMillilitres(int millilitres) {
-		this.millilitres = millilitres;
-		if(this.millilitres<0) {
-			this.millilitres = 0;
+	public void setMilliliters(int milliliters) {
+		this.milliliters = milliliters;
+		if(this.milliliters<0) {
+			this.milliliters = 0;
 		}
 	}
 
-	public void incrementMillilitres(int increment) {
-		setMillilitres(this.millilitres + increment);
+	public void incrementMilliliters(int increment) {
+		setMilliliters(this.milliliters + increment);
 	}
 
 }

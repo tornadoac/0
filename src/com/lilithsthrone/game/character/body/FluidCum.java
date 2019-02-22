@@ -10,7 +10,7 @@ import com.lilithsthrone.game.character.CharacterUtils;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.character.body.types.FluidType;
-import com.lilithsthrone.game.character.body.valueEnums.FluidFlavour;
+import com.lilithsthrone.game.character.body.valueEnums.FluidFlavor;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
@@ -25,13 +25,13 @@ import com.lilithsthrone.utils.XMLSaving;
 public class FluidCum implements FluidInterface, XMLSaving {
 
 	protected FluidType type;
-	protected FluidFlavour flavour;
+	protected FluidFlavor flavor;
 	protected List<FluidModifier> fluidModifiers;
 	protected List<ItemEffect> transformativeEffects;
 
 	public FluidCum(FluidType type) {
 		this.type = type;
-		this.flavour = type.getFlavour();
+		this.flavor = type.getFlavor();
 		transformativeEffects = new ArrayList<>();
 		
 		fluidModifiers = new ArrayList<>();
@@ -43,7 +43,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		parentElement.appendChild(element);
 
 		CharacterUtils.addAttribute(doc, element, "type", this.type.toString());
-		CharacterUtils.addAttribute(doc, element, "flavour", this.flavour.toString());
+		CharacterUtils.addAttribute(doc, element, "flavor", this.flavor.toString());
 		
 		Element cumModifiers = doc.createElement("cumModifiers");
 		element.appendChild(cumModifiers);
@@ -82,7 +82,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		
 		FluidCum fluidCum = new FluidCum(fluidType);
 		
-		fluidCum.flavour = (FluidFlavour.valueOf(cum.getAttribute("flavour")));
+		fluidCum.flavor = (FluidFlavor.valueOf(cum.getAttribute("flavor")));
 		
 
 		Element cumModifiers = (Element)cum.getElementsByTagName("cumModifiers").item(0);
@@ -109,7 +109,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 	public boolean equals(Object o) {
 		if(o instanceof FluidCum){
 			if(((FluidCum)o).getType().equals(this.getType())
-				&& ((FluidCum)o).getFlavour() == this.getFlavour()
+				&& ((FluidCum)o).getFlavor() == this.getFlavor()
 				&& ((FluidCum)o).getFluidModifiers().equals(this.getFluidModifiers())
 				&& ((FluidCum)o).getTransformativeEffects().equals(this.getTransformativeEffects())){
 					return true;
@@ -122,7 +122,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 	public int hashCode() {
 		int result = 17;
 		result = 31 * result + this.getType().hashCode();
-		result = 31 * result + this.getFlavour().hashCode();
+		result = 31 * result + this.getFlavor().hashCode();
 		result = 31 * result + this.getFluidModifiers().hashCode();
 		result = 31 * result + this.getTransformativeEffects().hashCode();
 		return result;
@@ -170,7 +170,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 				(gc.getAttributeValue(Attribute.VIRILITY)>=20?"potent":""),
 				"hot",
 				modifierDescriptor,
-				flavour.getRandomFlavourDescriptor(),
+				flavor.getRandomFlavorDescriptor(),
 				(type.getDescriptor(gc).equals("human")?null:type.getDescriptor(gc)));
 	}
 
@@ -183,32 +183,32 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		this.type = type;
 	}
 
-	public FluidFlavour getFlavour() {
-		return flavour;
+	public FluidFlavor getFlavor() {
+		return flavor;
 	}
 
-	public String setFlavour(GameCharacter owner, FluidFlavour flavour) {
+	public String setFlavor(GameCharacter owner, FluidFlavor flavor) {
 		if(owner==null) {
-			this.flavour = flavour;
+			this.flavor = flavor;
 			return "";
 		}
 		
-		if(this.flavour == flavour || !owner.hasPenis()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		if(this.flavor == flavor || !owner.hasPenis()) {
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
-		this.flavour = flavour;
+		this.flavor = flavor;
 		
 		if(owner.isPlayer()) {
 			return "<p>"
 						+ "A soothing warmth spreads down into your [pc.balls], causing you to let out a contented little sigh.<br/>"
-						+ "Your [pc.cum] now tastes of <b style='color:"+flavour.getColour().toWebHexString()+";'>"+flavour.getName()+"</b>."
+						+ "Your [pc.cum] now tastes of <b style='color:"+flavor.getColor().toWebHexString()+";'>"+flavor.getName()+"</b>."
 					+ "</p>";
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
 						+ "A soothing warmth spreads down into [npc.namePos] [npc.balls], causing [npc.herHim] to let out a contented little sigh.<br/>"
-						+ "[npc.NamePos] [pc.cum] now tastes of <b style='color:"+flavour.getColour().toWebHexString()+";'>"+flavour.getName()+"</b>."
+						+ "[npc.NamePos] [pc.cum] now tastes of <b style='color:"+flavor.getColor().toWebHexString()+";'>"+flavor.getName()+"</b>."
 					+ "</p>");
 		}
 	}
@@ -224,7 +224,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		}
 		
 		if(fluidModifiers.contains(fluidModifier) || !owner.hasPenis()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		fluidModifiers.add(fluidModifier);
@@ -349,7 +349,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 				}
 		}
 		
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 	
 	public String removeFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
@@ -359,7 +359,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		}
 		
 		if(!fluidModifiers.contains(fluidModifier) || !owner.hasPenis()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		fluidModifiers.remove(fluidModifier);
@@ -484,7 +484,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 				}
 		}
 		
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 	
 	public List<ItemEffect> getTransformativeEffects() {
@@ -507,7 +507,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 	}
 
 	public float getValuePerMl() {
-		return 0.1f + this.getFluidModifiers().size()*0.1f + (this.getFlavour()!=FluidFlavour.CUM?0.5f:0);
+		return 0.1f + this.getFluidModifiers().size()*0.1f + (this.getFlavor()!=FluidFlavor.CUM?0.5f:0);
 	}
 
 	@Override

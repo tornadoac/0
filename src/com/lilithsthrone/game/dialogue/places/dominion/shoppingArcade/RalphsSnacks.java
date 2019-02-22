@@ -14,7 +14,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.managers.dominion.SexManagerRalphDiscount;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -94,7 +94,7 @@ public class RalphsSnacks {
 						+ "<p>"
 						+ (Main.game.getDialogueFlags().ralphDiscountStartTime>0
 								?"As you enter the shop, Ralph winks at you and calls out from behind the very-familiar counter,"
-									+" [ralph.speech(Ah, well if it isn't my favourite regular! If you need any help, you know how to ask!)]"
+									+" [ralph.speech(Ah, well if it isn't my favorite regular! If you need any help, you know how to ask!)]"
 								:"[ralph.speech(Hello again! If you need any help, just ask!)] the familiar horse-boy shouts to you from behind the counter.")
 						+ "</p>"
 						+ "<p>"
@@ -106,7 +106,7 @@ public class RalphsSnacks {
 					
 				if(((Ralph)Main.game.getNpc(Ralph.class)).isDiscountActive()){
 					UtilText.nodeContentSB.append("<p>"
-									+ "<b>Ralph is giving you a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>"+Main.game.getDialogueFlags().ralphDiscount+"%</b> <b>discount!</b>"
+									+ "<b>Ralph is giving you a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+Main.game.getDialogueFlags().ralphDiscount+"%</b> <b>discount!</b>"
 								+ "</p>");
 				}
 				
@@ -243,7 +243,7 @@ public class RalphsSnacks {
 						+ "</p>"
 						+ "<p>"
 							+ "By this time, Ralph's led you behind the shop's front desk, and you see that there's a hollow space beneath the counter-top, large enough for you to kneel inside quite comfortably."
-							+ " The desk's solid front conceals you from the rest of the shop, and you realise that if you keep quiet, any customers will be completely oblivious as to what's going on."
+							+ " The desk's solid front conceals you from the rest of the shop, and you realize that if you keep quiet, any customers will be completely oblivious as to what's going on."
 							+ " Ralph places his hands on your shoulders, and, feeling that it's too late to back out now, you allow him to push you to your knees."
 							+ " Shuffling back, you occupy the space under his desk, and Ralph steps forwards, bringing the massive bulge in his trousers right up to your face."
 						+ "</p>"
@@ -253,7 +253,7 @@ public class RalphsSnacks {
 						+ "<p>"
 							+ "Just as you're about to answer him, you hear the little bell over the shop's front door ring out, announcing the arrival of a customer."
 							+ " You hear Ralph calling out his friendly greeting, but as he does so, he pushes his hips forwards, making it quite clear that he wants you to get started."
-							+ " There isn't much room for you to move around, and you realise that you're going to be totally restricted to using just your mouth in order to earn your discount."
+							+ " There isn't much room for you to move around, and you realize that you're going to be totally restricted to using just your mouth in order to earn your discount."
 						+ "</p>"
 						+ "<p>"
 							+ "As the customer walks off to another part of the shop, Ralph reaches down and unbuttons his trousers."
@@ -262,8 +262,8 @@ public class RalphsSnacks {
 							+ " His huge pair of black-skinned balls droop down loosely at the base of his bestial shaft, and you gulp at the thought of what's about to happen..."
 						+ "</p>" 
 						+ "<p>" 
-							+ "<b>There are</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
-							+ " <b>You will earn a</b> <b style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>25%</b> <b>discount.</b>"
+							+ "<b>There are</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
+							+ " <b>You will earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>25%</b> <b>discount.</b>"
 						+ "</p>"){
 					@Override
 					public void effects() {

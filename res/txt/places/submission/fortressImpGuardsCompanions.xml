@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dialogue>
-	
+
 	<!-- ENTRANCE -->
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and gaze lustfully at both you and [npc.name] as the leader calls out, [npc2.speech(Ya can come an' go as yer please, but I can tell yer both hungry for imp #IFnpc2.hasPenis()#THENcock#ELSEpussy#ENDIF, so why don'cha get down on yer knees and put those mouths o' yours to use?)]
@@ -15,7 +15,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED_DEMON"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc2.speech(Oh, 'ey, it's the [pc.race] an' [pc.her] friend again... Y-Yer can come an' go as yer please, OK? J-Just don' cause any trouble... Please...)]
@@ -28,7 +28,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED_BY_SEX"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and gaze lustfully at both you and [npc.name] as the leader calls out, [npc2.speech(Ya can come an' go as yer please, but I can tell yer both still hungry for imp #IFnpc2.hasPenis()#THENcock#ELSEpussy#ENDIF, so why don'cha get down on yer knees and put those mouths o' yours to use again?)]
@@ -41,7 +41,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED_BY_SEX_DEMON"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and gaze lustfully at your body as the leader calls out, [npc2.speech(Ya can come an' go as yer please, [pc.race]. Yer still 'ungry fer imp #IFnpc2.hasPenis()#THENcock#ELSEpussy#ENDIF? I bet'cha are! Go on, get down on yer knees and put that mouth o' yours to use again!)]
@@ -54,21 +54,21 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_DESERTED"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The pair of alpha-imp guards who once stood here have long since run away, leaving the entrance to the fortress completely undefended.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_DESERTED_GUARD_RETURN_WARNING"><![CDATA[
 	<p>
 		[style.italicsBad(If you choose to leave the fortress now, you can be sure that there will be new guards at the gate when you return!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_DEMON"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc2.speech('Ey! You two! S-Stop right there! Y-You ain't comin' close to our base and gettin' away with it!)]
@@ -84,7 +84,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc2.speech('Ey! S-Stop right there! Y-You ain't comin' close to our base and gettin' away with it!)]
@@ -100,7 +100,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and, letting out a menacing snarl, the leader calls out, [npc2.speech('Old it right there, ya scum! You two ain't comin' close to our base and gettin' away with it!)]
@@ -117,20 +117,20 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LEAVE_FORTRESS"><![CDATA[
 	<p>
 		Having concluded the business you had here, you find yourself stepping out of the fortress's open gateway. Without a backwards glance, both you and [npc.name] head down the slight incline before you, ready to continue onwards into Submission's tunnels once again.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_GIVE_ORAL"><![CDATA[
 	<p>
 		Wanting to resolve this situation without resorting to violence, you hold up your [pc.hands] to show that you mean no harm, before smirking at the imps and asking, [pc.speech(Is there no way I can get in to speak to your boss? Surely there's <i>something</i> I could do to get on your good side...)]
 	</p>
 	<p>
-		The imps lower their weapons, and, [npc2.her] snarl turning into a wicked grin, the leader responds, [npc2.speech(What yer willin' ta do ta get in 'ere? Eh?)] 
+		The imps lower their weapons, and, [npc2.her] snarl turning into a wicked grin, the leader responds, [npc2.speech(What yer willin' ta do ta get in 'ere? Eh?)]
 	</p>
 	<p>
 		[pc.speech(Stand back, [npc.name]. Let me handle this,)] you say to your companion, before stepping forwards and sinking down onto your knees before the two guards. Winking at the leader, you put on your most seductive voice as you make your offer, [pc.speech(How about you let me use my mouth on the two of you?)]
@@ -150,13 +150,13 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_GIVE_ORAL_WITH_COMPANION"><![CDATA[
 	<p>
 		Wanting to resolve this situation without resorting to violence, you hold up your [pc.hands] to show that you mean no harm, before smirking at the imps and asking, [pc.speech(Is there no way we can get in to speak to your boss? Surely there's <i>something</i> the two of us could do to get on your good side...)]
 	</p>
 	<p>
-		The imps lower their weapons, and, [npc2.her] snarl turning into a wicked grin, the leader responds, [npc2.speech(What yer willin' ta do ta get in 'ere? Eh?)] 
+		The imps lower their weapons, and, [npc2.her] snarl turning into a wicked grin, the leader responds, [npc2.speech(What yer willin' ta do ta get in 'ere? Eh?)]
 	</p>
 	<p>
 		[pc.speech(Come on, [npc.name]. Let's have a little fun,)] you say to your companion, before stepping forwards and sinking down onto your knees before the two guards.
@@ -195,7 +195,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_GIVE_ORAL_PACIFIED"><![CDATA[
 	<p>
 		Finding yourself unable to resist the opportunity to #IFnpc2.hasPenis()#THENsuck imp cock#ELSEget a taste of imp pussy#ENDIF, you lick your [pc.lips+], before stepping forwards and sinking down onto your knees before the two guards. Winking at the leader, you put on your most seductive voice as you admit, [pc.speech(Yes... I can't stop thinking about your #IFnpc2.hasPenis()#THENhard cocks#ELSEwet pussies#ENDIF... Please, I want to #IFnpc2.hasPenis()#THENtaste your cum#ELSEeat you out#ENDIF again...)]
@@ -218,7 +218,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_GIVE_ORAL_PACIFIED_WITH_COMPANION"><![CDATA[
 	<p>
 		Finding yourself unable to resist the opportunity to #IFnpc2.hasPenis()#THENsuck imp cock#ELSEget a taste of imp pussy#ENDIF, you lick your [pc.lips+], before stepping forwards and sinking down onto your knees before the two guards. Winking at the leader, you put on your most seductive voice as you admit, [pc.speech(Yes... I can't stop thinking about your #IFnpc2.hasPenis()#THENhard cocks#ELSEwet pussies#ENDIF... Please, I want to #IFnpc2.hasPenis()#THENtaste your cum#ELSEeat you out#ENDIF again...)]
@@ -254,7 +254,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL_INTIMIDATE"><![CDATA[
 	<p>
 		[pc.speech([npc.Name],)] you ask, [pc.speech(How long would it take for you to clear these pests out of my way?)]
@@ -269,7 +269,7 @@
 		[npc.speech(In that case, please stand aside, [pc.master]. I'll be no more than thirty seconds.)]
 	</p>
 	<p>
-		As the two of you hold this conversation, you notice that the imp guards are getting more and more visibly terrified. As your elemental steps forwards, they let out a synchronised scream, and, stumbling over their own feet, they rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We'd make terrible slaves, honest! Y-You can come an' go as yer please, j-just don't hurt us!)]
+		As the two of you hold this conversation, you notice that the imp guards are getting more and more visibly terrified. As your elemental steps forwards, they let out a synchronized scream, and, stumbling over their own feet, they rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We'd make terrible slaves, honest! Y-You can come an' go as yer please, j-just don't hurt us!)]
 	</p>
 	<p>
 		[pc.speech(Hmm, I suppose I am feeling merciful today,)] you state, before turning towards [npc.name]. [pc.speech(Come along, these ones aren't worth your time.)]
@@ -279,20 +279,20 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL_SUMMON"><![CDATA[
 	<p>
 		Thinking that these imps look particularly cowardly, you think that simply summoning your elemental would be enough to intimidate them. Grinning down at the leader, you declare, [pc.speech(You really think you stand a chance against me?! Perhaps if you can defeat my elemental, you'll have earned the right to challenge me!)]
 	</p>
 	<p>
-		The colour instantly drains from [npc3.namePos] cheeks, and [npc3.she] hisses to [npc3.her] superior, [npc3.speech('Ey! A-An elemental?! Ain't that one o' those arcane thingies?! W-We can't fight that!)]
+		The color instantly drains from [npc3.namePos] cheeks, and [npc3.she] hisses to [npc3.her] superior, [npc3.speech('Ey! A-An elemental?! Ain't that one o' those arcane thingies?! W-We can't fight that!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL_SUMMON_END"><![CDATA[
 	<p>
-		As your elemental steps forwards, the two imps let out a synchronised scream, and, stumbling over their own feet, rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We don't want no trouble with one o' those arcane thingies! J-Just, please don't hurt us!)]
+		As your elemental steps forwards, the two imps let out a synchronized scream, and, stumbling over their own feet, rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We don't want no trouble with one o' those arcane thingies! J-Just, please don't hurt us!)]
 	</p>
 	<p>
 		[pc.speech(Hmm, I suppose I am feeling merciful today,)] you state, before turning towards [npc.name]. [pc.speech(Come along, these ones aren't worth your time.)]
@@ -302,9 +302,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_ORAL_FOR_ENTRY -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_ORAL_FOR_ENTRY"><![CDATA[
 	<p>
 		Stepping away from you, the two imps slip their tattered clothing back on, with the leader sneering as [npc2.she] does so, [npc2.speech(What a horny slut fer imp #IFnpc2.hasPenis()#THENcock#ELSEpussy#ENDIF! Heh, the way ya were moanin' fer it! We won't be fergettin' that fer a long time!)]
@@ -331,7 +331,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_ORAL_FOR_ENTRY_WITH_COMPANION"><![CDATA[
 	<p>
 		Stepping away from you and [npc.name], the two imps slip their tattered clothing back on, with the leader sneering as [npc2.she] does so, [npc2.speech(What horny sluts fer imp #IFnpc2.hasPenis()#THENcock#ELSEpussy#ENDIF! Heh, the way ya both were moanin' fer it! We won't be fergettin' that fer a long time!)]
@@ -366,9 +366,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- ENTRANCE_DEMONIC_COMMAND -->
-	
+
 	<htmlContent tag="ENTRANCE_DEMONIC_COMMAND"><![CDATA[
 	<p>
 		[pc.speech(You <i>dare</i> speak to a demon in such a way?)] you ask, taking on an icy, threatening tone. [pc.speech(It's almost as though you <i>want</i> to spend the rest of your existence as the lowest of my slaves.)]
@@ -377,7 +377,7 @@
 		[npc2.speech(N-No! W-Wait, we were just doin' as we were told!)] the leader stutters, stumbling backwards and lowering [npc2.her] weapon. [npc2.speech(T-There's no need fer ya ta be doin' that...)]
 	</p>
 	<p>
-		[npc3.Her] spirit instantly broken, [npc3.name] joins [npc3.her] superior in apologising as [npc3.she] hurriedly stands aside, [npc3.speech(That's right! W-We'd never normally be so rude! I-It's just that our boss told us ta say all that stuff!)]
+		[npc3.Her] spirit instantly broken, [npc3.name] joins [npc3.her] superior in apologizing as [npc3.she] hurriedly stands aside, [npc3.speech(That's right! W-We'd never normally be so rude! I-It's just that our boss told us ta say all that stuff!)]
 	</p>
 	<p>
 		[pc.speech(Move!)] you command, glaring down at the leader.
@@ -390,9 +390,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_COMBAT_VICTORY -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_VICTORY"><![CDATA[
 	<p>
 		The two guards slump to the floor, their weapons falling from their hands to clatter harmlessly against the rocks underfoot. Looking up at you as [npc2.she] gasps for breath, the leader pleads, [npc2.speech(N-No more... Y-Ya got us...)]
@@ -405,7 +405,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_VICTORY_SCARE_OFF"><![CDATA[
 	<p>
 		Not wanting anything more to do with these imps, you growl down to them, [pc.speech(Go on, get out of here, before I change my mind.)]
@@ -415,7 +415,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you tell [npc.name] to stand aside and keep watch as you reach down and start moving them into position. The leader lets out an erotic moan as [npc2.she] feels your hands on [npc2.her] body, and sighs, [npc2.speech(Mmm, yeah! Come on, babe, yer wanna give us a good fuck, right?)]
@@ -425,7 +425,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_GENTLE"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you tell [npc.name] to stand aside and keep watch as you reach down and start gently moving them into position. The leader lets out an erotic moan as [npc2.she] feels your soft touch on [npc2.her] body, and sighs, [npc2.speech(Mmm, yeah! Come on, babe, yer wanna give us a good fuck, right?)]
@@ -435,7 +435,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_ROUGH"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you tell [npc.name] to stand aside and keep watch as you reach down and start roughly shoving them into position. The leader lets out an erotic moan as [npc2.she] feels your harsh touch on [npc2.her] body, and sighs, [npc2.speech(Mmm, yeah! Come on, babe, yer wanna give us a good, hard fuck, right?)]
@@ -445,7 +445,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
 		Seeing the two imps pathetically sprawled out on the floor before you makes you feel immensely guilty about what you've just done. Dropping down onto your knees beside them, you ask, [pc.speech(Are you OK? I didn't mean to... I think I went a little too far...)]
@@ -476,7 +476,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_GROUP_SEX"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you tell [npc.name] to join you as you reach down and start moving them into position. The leader lets out an erotic moan as [npc2.she] feels your hands on [npc2.her] body, and sighs, [npc2.speech(Mmm, yeah! Come on, babe, yer wanna give us a good fuck, right?)]
@@ -494,7 +494,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_GROUP_SEX_SUBMISSION"><![CDATA[
 	<p>
 		Seeing the two imps pathetically sprawled out on the floor before you makes you feel immensely guilty about what you've just done. Dropping down onto your knees beside them, you ask, [pc.speech(Are you OK? I didn't mean to... I think I went a little too far...)]
@@ -502,9 +502,9 @@
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
 		#THEN
-			Following your lead, [npc.name] joins you in apologising to the imps, and kneels beside you as [npc.she] says, [npc.speech(That's right, we didn't mean to hurt you...)]
+			Following your lead, [npc.name] joins you in apologizing to the imps, and kneels beside you as [npc.she] says, [npc.speech(That's right, we didn't mean to hurt you...)]
 		#ELSE
-			Motioning for [npc.name] to join you in apologising to the imps, [npc.she] reluctantly kneels beside you as [npc.she] says, [npc.speech(Erm... Sure... Sorry I guess...)]
+			Motioning for [npc.name] to join you in apologizing to the imps, [npc.she] reluctantly kneels beside you as [npc.she] says, [npc.speech(Erm... Sure... Sorry I guess...)]
 		#ENDIF
 	</p>
 	<p>
@@ -543,7 +543,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_GIVE_TO_COMPANION"><![CDATA[
 	<p>
 		Wanting [npc.name] to have some fun with these once-insolent imps, you tell [npc.herHim] to fuck them in front of you. The leader lets out an erotic moan as [npc2.she] feels your companion obediently grabbing [npc2.her] body, and sighs, [npc2.speech(Mmm, yeah! Come on, babe, yer wanna give us a good fuck, right?)]
@@ -553,7 +553,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_OFFER_COMPANION"><![CDATA[
 	<p>
 		Wanting to watch these imps have their way with [npc.name], you turn to your companion and say, [pc.speech(You should get down and present yourself to them.)]
@@ -599,9 +599,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_COMBAT_DEFEAT -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_THROWN_OUT"><![CDATA[
 	<p>
 		With the last of your strength depleted, both you and [npc.name] slump to the floor with defeated sighs. Before you've even managed to take a breath, you feel the imps reach down and grab you under your [pc.arms]. As they start dragging you down the incline towards Submission's tunnels, the two of them start speaking to one another.
@@ -617,7 +617,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT"><![CDATA[
 	<p>
 		With the last of your strength depleted, both you and [npc.name] slump to the floor with defeated sighs. Before you've even managed to take a breath, you feel them reach down and start to grope and fondle your vulnerable body. As they start molesting you, the two imps start speaking to one another.
@@ -633,7 +633,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_SEX"><![CDATA[
 	<p>
 		Happy enough to let the imps have their fun, you [pc.moan], [pc.speech(Mmm, yes... I'll be good for you...)]
@@ -657,7 +657,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_SEX_EAGER"><![CDATA[
 	<p>
 		Feeling incredibly aroused at the prospect of being used by your conquerors, you [pc.moan], [pc.speech(Oh, yes! Come on, fuck me! Give me that imp #IFnpc2.hasPenis()#THENcock#ELSEpussy#ENDIF!)]
@@ -681,7 +681,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_SEX_RESIST"><![CDATA[
 	<p>
 		Disgusted by the thought of these imps taking advantage of you, you scream, [pc.speech(No! Get away from me! Stop!)]
@@ -708,9 +708,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_SEX_VICTORY -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_SEX_VICTORY"><![CDATA[
 	<p>
 		Having had your fun, you pull away from the imps, whose fatigue from the previous fight finally catches up with them. Slumping to the floor, the guards pant and sigh as they try to catch their breath.
@@ -723,9 +723,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- AFTER_DEFEAT_SEX -->
-	
+
 	<htmlContent tag="AFTER_DEFEAT_SEX"><![CDATA[
 	<p>
 		Having had their fun, the imps allow you and [npc.name] to slump to the floor with exhausted sighs. Before you've even managed to catch your breath, you feel them reach down and grab you under your [pc.arms]. As they start dragging you down the incline towards Submission's tunnels, the two imps start speaking to one another.
@@ -741,28 +741,28 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- COURTYARD -->
-	
+
 	<htmlContent tag="COURTYARD"><![CDATA[
 	<p>
 		Separating the gateway from the fortress's wooden keep, there's nothing but an empty, squalid courtyard. Empty bottles, assorted junk, and piles of refuse are scattered haphazardly across the area, giving this place a very run-down and ruinous look.
 	</p>
 	<p>
-		Over in one corner, there sits the main keep. While of better construction than the perimeter wall, it's nevertheless a very shabby structure. Made primarily out of crudely-formed wooden stakes, and covered with odd pieces of sheet metal and plywood boards, this solitary building is the only point of interest inside the fortress's walls. 
+		Over in one corner, there sits the main keep. While of better construction than the perimeter wall, it's nevertheless a very shabby structure. Made primarily out of crudely-formed wooden stakes, and covered with odd pieces of sheet metal and plywood boards, this solitary building is the only point of interest inside the fortress's walls.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="IMP_FORTRESS_FLY_EXIT"><![CDATA[
 	<p>
-		While the perimeter wall's hazardous construction prohibits anyone from climbing over it, there's nothing stopping you from utilising your ability to fly in order to get to the other side. Breaking out into a short sprint, you quickly launch yourself into the air, before flying over the defensive barrier and swooping back down to land on the floor of the cavern beyond. Looking back, you see [npc.name] following suit, and you smile at [npc.herHim] as [npc.she] lands just behind you.
+		While the perimeter wall's hazardous construction prohibits anyone from climbing over it, there's nothing stopping you from utilizing your ability to fly in order to get to the other side. Breaking out into a short sprint, you quickly launch yourself into the air, before flying over the defensive barrier and swooping back down to land on the floor of the cavern beyond. Looking back, you see [npc.name] following suit, and you smile at [npc.herHim] as [npc.she] lands just behind you.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP -->
-	
+
 	<htmlContent tag="KEEP"><![CDATA[
 	<p>
 		Despite the builders' liberal application of metal sheeting and wooden offcuts, there still exist many small gaps in the keep's walls. From these, slivers of light shine out to cast a pale golden glow on the floor and walls of the fortress's courtyard.
@@ -775,7 +775,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_DEFEATED"><![CDATA[
 	<p>
 		Having defeated [impAlphaLeader.name], the [impAlphaLeader.race] who led the imp gangs roaming the surrounding tunnels, [impAlphaLeader.her] keep is now completely deserted. The front doors have been left wide-open, and, taking a cursory glance inside, you see that there's absolutely nothing within that would be of interest to you. There's nothing more to do here except turn around and go back the way you came...
@@ -785,7 +785,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED"><![CDATA[
 	<p>
 		Despite the builders' liberal application of metal sheeting and wooden offcuts, there still exist many small gaps in the keep's walls. From these, slivers of light shine out to cast a pale golden glow on the floor and walls of the fortress's courtyard.
@@ -798,9 +798,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_ENTRY -->
-	
+
 	<htmlContent tag="KEEP_ENTRY"><![CDATA[
 	<p>
 		Pushing on the keep's crude wooden doors, you're pleased to discover that they're not locked, and, with a creak loud enough to make you flinch, they swing open before you. Stepping forwards into the building, you discover that the interior of the structure is just one big open hall. Numerous arcane-powered lanterns are fixed to the walls, which cast a light golden glow over the rickety wooden floor and the oddly-assorted tables and chairs that have been pushed up against the walls.
@@ -815,11 +815,11 @@
 		[npc2.Name] furiously hurls her chair back as she leaps to her feet, allowing you to see that she's wearing a pair of distressed jeans and knee-high gothic boots. These items of clothing are just as black as her leather jacket, which is unzipped to reveal a tight wrapping of black cloth around her modestly-sized C-cup breasts. She looks to have a silver piercing in almost every place imaginable, and, if it wasn't for her demonic tail and tribal-tattooed horns, she'd look just like a stereotypical angry goth girl. Not even giving you time to answer her previous question, she strides forwards, clenching a pair of brass knuckle-dusters in her fists and exclaiming, [npc2.speech(You're just begging for a beating, aren't you, bitches?!)]
 	</p>
 	<p>
-		The three alpha-imps rush to back their leader up, and you realise that you only have a moment in which to either diffuse the situation, or ready yourself for a fight...
+		The three alpha-imps rush to back their leader up, and you realize that you only have a moment in which to either diffuse the situation, or ready yourself for a fight...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_RETURN"><![CDATA[
 	<p>
 		Once again pushing on the keep's crude wooden doors, you discover that they're still not locked, and, with yet another loud creak, they swing open before you. The hall beyond appears much as it did the last time you were here, with the many wall-mounted arcane lanterns casting a soft golden glow over the rickety wooden floor and the numerous oddly-assorted tables and chairs that have been pushed up against the walls.
@@ -831,25 +831,25 @@
 		Furiously hurling [npc2.her] chair back as [npc2.she] leaps to her feet, [npc2.she] then strides forwards, clenching her brass knuckle-dusters in [npc2.her] fists as [npc2.she] exclaims, [npc2.speech(I'm gonna beat you to a pulp, you fucking bitches!)]
 	</p>
 	<p>
-		The three alpha-imps rush to back their leader up, and you realise that you only have a moment in which to either diffuse the situation, or ready yourself for a fight...
+		The three alpha-imps rush to back their leader up, and you realize that you only have a moment in which to either diffuse the situation, or ready yourself for a fight...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED"><![CDATA[
 	<p>
 		Once again pushing on the keep's crude wooden doors, you discover that they're still not locked, and, with yet another loud creak, they swing open before you. The hall beyond appears much as it did the last time you were here, with the many wall-mounted arcane lanterns casting a soft golden glow over the rickety wooden floor and the numerous oddly-assorted tables and chairs that have been pushed up against the walls.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_BOTH_ORAL"><![CDATA[
 	<p>
 		Near the opposite end from where you entered, you spot the familiar occupants of this fortress sitting around the usual wooden table. [npc2.Name] is the first to notice your arrival, and, pushing [npc2.her] chair back a little, [npc2.she] parts [npc2.her] legs and throws you and [npc.name] a sinister grin. As [npc2.her] imp guards turn to see what's caught their leader's attention, [npc2.she] calls out, [npc2.speech(Well, well, well, looks like the horny sluts have got a craving for my cum again! Get over here, bitches, and wrap those lips of yours around my cock!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		Near the opposite end from where you entered, you spot the familiar occupants of this fortress sitting around the usual wooden table. [npc2.Name] is the first to notice your arrival, and, pushing [npc2.her] chair back a little, [npc2.she] parts [npc2.her] legs and throws you a sinister grin. As [npc2.her] imp guards turn to see what's caught their leader's attention, [npc2.she] calls out, [npc2.speech(Well, well, well, looks like the horny slut's got a craving for my cum again! Get over here, bitch, and wrap those lips of yours around my cock!)]
@@ -859,7 +859,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		Near the opposite end from where you entered, you spot the familiar occupants of this fortress sitting around the usual wooden table. [npc2.Name] is the first to notice your arrival, and, pushing [npc2.her] chair back a little, [npc2.she] parts [npc2.her] legs and throws [npc.name] a sinister grin. As [npc2.her] imp guards turn to see what's caught their leader's attention, [npc2.she] calls out, [npc2.speech(Well, well, well, looks like the horny slut's got a craving for my cum again! Get over here, bitch, and wrap those lips of yours around my cock!)]
@@ -869,14 +869,14 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_BOTH_IMPS"><![CDATA[
 	<p>
 		Near the opposite end from where you entered, you spot the familiar occupants of this fortress sitting around the usual wooden table. [npc2.Name] is the first to notice your arrival, and, pushing [npc2.her] chair back a little, [npc2.she] nods towards [npc2.her] guards and throws you and [npc.name] a sinister grin. As the alpha-imps turn to see what's caught their leader's attention, [npc2.she] calls out, [npc2.speech(Well, well, well, you've both still got your mouths all sealed up, huh?! Seeing as you don't want a taste of my cock, I guess you're here for my girls! So go on then, bitches, get down on all fours like the dogs you are! You'll be filled with imp cock soon enough!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_LEAVE"><![CDATA[
 	<p>
 		Not wanting to suck [npc2.namePos] cock right now, you quickly blurt out, [pc.speech(Ah, sorry, [npc2.name], I was just checking everything was OK. I've got to go now!)]
@@ -886,7 +886,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX"><![CDATA[
 	<p>
 		Obediently doing as you're told, you hurry over to where [npc2.name] is sitting, and drop down onto your knees before [npc2.herHim]. Smirking down at you, the [npc2.race] raises [npc2.her] voice so that [npc2.she] can be heard over the chorus of mocking laughter coming from [npc2.her] imp guards, and commands, [npc2.speech(What a loyal #IFpc.isFeminine()#THENbitch#ELSEdog#ENDIF you are. I wonder, do you do other tricks on command as well? Go on, slut, beg.)]
@@ -902,7 +902,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX_IMPS"><![CDATA[
 	<p>
 		Obediently doing as you're told, you hurry over to where [npc2.name] and [npc2.her] imps are sitting, before dropping down onto your hands and knees in front of them. Smirking down at you, the [npc2.race] raises [npc2.her] voice so that [npc2.she] can be heard over the chorus of mocking laughter coming from [npc2.her] imp guards, and commands, [npc2.speech(What a loyal #IFpc.isFeminine()#THENbitch#ELSEdog#ENDIF you are. I wonder, do you do other tricks on command as well? Go on, slut, present yourself for my girls.)]
@@ -918,7 +918,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX_DOUBLE_ORAL"><![CDATA[
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
@@ -950,7 +950,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		Obediently doing as you're told, you hurry over to where [npc2.name] is sitting, and drop down onto your knees before [npc2.herHim]. Smirking down at you, the [npc2.race] raises [npc2.her] voice so that [npc2.she] can be heard over the chorus of mocking laughter coming from [npc2.her] imp guards, and commands, [npc2.speech(What a loyal #IFpc.isFeminine()#THENbitch#ELSEdog#ENDIF you are. I wonder, do you do other tricks on command as well? Go on, slut, beg.)]
@@ -982,7 +982,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		Obediently doing as [npc.sheIs] told, [npc.name] hurries over to where [npc2.name] is sitting, and drops down onto [npc.her] knees before [npc2.herHim]. Smirking down at your companion, the [npc2.race] raises [npc2.her] voice so that [npc2.she] can be heard over the chorus of mocking laughter coming from [npc2.her] imp guards, and commands, [npc2.speech(What a loyal #IFnpc.isFeminine()#THENbitch#ELSEdog#ENDIF you are. I wonder, do you do other tricks on command as well? Go on, slut, beg.)]
@@ -1009,7 +1009,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX_DOUBLE_IMPS"><![CDATA[
 	<p>
 		#IFnpc.isAttractedTo(npc3) || !game.isNonConEnabled()
@@ -1041,7 +1041,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX"><![CDATA[
 	<p>
 		The sight of this furious [npc2.race] and [npc2.her] imp guards storming towards you is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
@@ -1050,26 +1050,26 @@
 		Turning your head to look at your companion, you command, [pc.speech(Stand back, [npc.name]. I've got this.)]
 	</p>
 	<p>
-		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realises that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you, [npc2.she] reaches out to grab your wrist, and, before you can react, [npc2.she] yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for barging in here uninvited, you dumb bitch?!)]
+		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realizes that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you, [npc2.she] reaches out to grab your wrist, and, before you can react, [npc2.she] yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for barging in here uninvited, you dumb bitch?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, before roughly shoving you down onto your knees in front of [npc2.herHim] and thrusting [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...  
+		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX_IMPS"><![CDATA[
 	<p>
 		The sight of this furious [npc2.race] and [npc2.her] imp guards storming towards you is too much for you to handle, and you hold up your [pc.hands] as you mumble through the clothing blocking your mouth, [pc.speech(W-Wait! There's no need for violence!)]
@@ -1078,10 +1078,10 @@
 		Turning your head to look at your companion, you command, [pc.speech(Stand back, [npc.name]. I've got this.)]
 	</p>
 	<p>
-		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realises that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you, [npc2.she] reaches out to grab your wrist, and, before you can react, [npc2.she] yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for barging in here uninvited, you dumb bitch?!)]
+		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realizes that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you, [npc2.she] reaches out to grab your wrist, and, before you can react, [npc2.she] yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for barging in here uninvited, you dumb bitch?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(With your mouth all sealed up like that?!)] [npc2.Name] snaps, before roughly shoving you down onto all fours in front of [npc2.herHim]. [npc2.speech(No, if I can't fuck someone's throat, then I'm not interested. My girls, on the other hand...)]
@@ -1094,7 +1094,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX_DOUBLE_ORAL"><![CDATA[
 	<p>
 		The sight of this furious [npc2.race] and [npc2.her] imp guards storming towards you is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
@@ -1111,26 +1111,26 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realises that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for barging in here uninvited, you dumb bitches?!)]
+		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realizes that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for barging in here uninvited, you dumb bitches?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, before roughly shoving you both down onto your knees in front of [npc2.herHim] and thrusting [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Helping you with your task, [npc.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Helping you with your task, [npc.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitches,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...  
+		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		The sight of this furious [npc2.race] and [npc2.her] imp guards storming towards you is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
@@ -1147,16 +1147,16 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realises that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for barging in here uninvited, you dumb bitches?!)]
+		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realizes that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for barging in here uninvited, you dumb bitches?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, roughly shoving you both down onto all fours in front of [npc2.herHim], before dropping to [npc2.her] knees and thrusting [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut! And you, [npc.race], as your mouth's all sealed up, you can be a cum-dump for my girls!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -1174,7 +1174,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		The sight of this furious [npc2.race] and [npc2.her] imp guards storming towards you is too much for you to handle, and you hold up your [pc.hands] as you mumble through the clothing blocking your mouth, [pc.speech(W-Wait! There's no need for violence!)]
@@ -1191,16 +1191,16 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realises that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for barging in here uninvited, you dumb bitches?!)]
+		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realizes that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for barging in here uninvited, you dumb bitches?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, roughly shoving you both down onto all fours in front of [npc2.herHim], before dropping to [npc2.her] knees and thrusting [npc2.her] groin into [npc.namePos] face. [npc2.speech(Go on, get it out, slut! And you, [pc.race], as your mouth's all sealed up, you can be a cum-dump for my girls!)]
 	</p>
 	<p>
-		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -1213,7 +1213,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX_DOUBLE_IMPS"><![CDATA[
 	<p>
 		The sight of this furious [npc2.race] and [npc2.her] imp guards storming towards you is too much for you to handle, and you hold up your [pc.hands] as you mumble through the clothing blocking your mouth, [pc.speech(W-Wait! There's no need for violence!)]
@@ -1230,10 +1230,10 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realises that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for barging in here uninvited, you dumb bitches?!)]
+		[npc2.NamePos] menacing snarl quickly shifts into a devious grin as [npc2.she] realizes that you're not willing to fight [npc2.herHim]. Coming to a halt right in front of you and [npc.name], [npc2.she] reaches out to grab your wrists, and, before you can react, [npc2.she] yanks you both forwards, pressing the two of you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for barging in here uninvited, you dumb bitches?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(With your mouths all sealed up like that?!)] [npc2.Name] snaps, before roughly shoving you both down onto all fours in front of [npc2.herHim]. [npc2.speech(No, if I can't fuck someone's throat, then I'm not interested. My girls, on the other hand...)]
@@ -1251,9 +1251,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_ALPHA_BRAWLER -->
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER"><![CDATA[
 	<p>
 		Feeling confident in your abilities at hand-to-hand combat, you raise one hand and motion for [npc2.name] to approach. [pc.speech(Come on. Hit me, if you can. Oh, and stand back, [npc.name]. Just enjoy the show.)]
@@ -1285,7 +1285,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_KEY"><![CDATA[
 	<p>
 		Seeing their leader being humiliated in such a fashion, the three alpha-imps had already edged closer and closer to the keep's exit, and as they witness your crushing move, they sprint out of the doors and disappear off into Submission. Being left alone with the defeated [npc2.race], you ask [npc2.herHim], [pc.speech(Why do you do this? Getting all those imps to attack people in Submission, I mean.)]
@@ -1301,7 +1301,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_DEFEATED"><![CDATA[
 	<p>
 		Seeing their leader being humiliated in such a fashion, the three alpha-imps had already edged closer and closer to the keep's exit, and as they witness your crushing move, they sprint out of the doors and disappear off into Submission. Being left alone with the defeated [npc2.race], you ask [npc2.herHim], [pc.speech(Why did you come back? I told you to stay away from here!)]
@@ -1317,7 +1317,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_DEFEATED_DS_DEALT_WITH"><![CDATA[
 	<p>
 		Seeing their leader being humiliated in such a fashion, the three alpha-imps had already edged closer and closer to the keep's exit, and as they witness your crushing move, they sprint out of the doors and disappear off into Submission. Being left alone with the defeated [npc2.race], you ask [npc2.herHim], [pc.speech(Why did you come back? I've already dealt with your leader, and I told you to stay away from here!)]
@@ -1326,16 +1326,16 @@
 		[npc2.speech(The Dark Siren will return... )] [npc2.name] pants. [npc2.speech(So I need to carry out her last orders...)]
 	</p>
 	<p>
-		[pc.speech(You do realise that she's under lock and key in Lyssieth's palace, right?)] you ask.
+		[pc.speech(You do realize that she's under lock and key in Lyssieth's palace, right?)] you ask.
 	</p>
 	<p>
 		[npc2.speech(That doesn't matter... She'll find a way to escape... Now please, let me go...)] [npc2.name] begs. [npc2.speech(I won't cause any more trouble!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- Please don't do this O_O -->
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_SEX"><![CDATA[
 	<p>
 		Deciding that [npc2.name] needs to be taught a firm lesson before letting [npc2.herHim] go, you reach down and firmly tug the cloth wrappings from around her chest. As the [npc2.race]'s [npc2.breastShape] [npc2.cupSize]-cup breasts bounce free, [npc2.she] lets out a startled wail, [npc2.speech(Aaah! What are you doing?!)]
@@ -1354,7 +1354,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_SEX_WITH_COMPANION"><![CDATA[
 	<p>
 		Deciding that [npc2.name] needs to be taught a firm lesson before letting [npc2.herHim] go, you reach down and firmly tug the cloth wrappings from around her chest. As the [npc2.race]'s [npc2.breastShape] [npc2.cupSize]-cup breasts bounce free, [npc2.she] lets out a startled wail, [npc2.speech(Aaah! What are you doing?!)]
@@ -1378,7 +1378,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_SEX_WITH_BOTH"><![CDATA[
 	<p>
 		Deciding that [npc2.name] needs to be taught a firm lesson before letting [npc2.herHim] go, you reach down and firmly tug the cloth wrappings from around her chest. As the [npc2.race]'s [npc2.breastShape] [npc2.cupSize]-cup breasts bounce free, [npc2.she] lets out a startled wail, [npc2.speech(Aaah! What are you doing?!)]
@@ -1402,7 +1402,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ALPHA_BRAWLER_SCARED_OFF"><![CDATA[
 	<p>
 		Having dealt with [npc2.name], and not wanting to go any further, you stand before [npc2.herHim] and declare, [pc.speech(Go on then, get out of here! And don't come back!)]
@@ -1411,11 +1411,11 @@
 		[npc2.speech(I-I won't!)] [npc2.name] stutters as [npc2.she] stands up. Not even giving you another backwards glance, [npc2.she] then runs off down the length of the hallway, before dashing out through the open doors and disappearing off into Submission.
 	</p>
 	<p>
-		Letting out a sigh, you realise that [npc2.name] left [npc2.her] jacket behind. Despite your command, you get a strong feeling that [npc2.she]'ll be back to fetch it the moment you leave, but, if you wanted to, you could always confiscate it as an added punishment. Other than that item of clothing, the keep has absolutely nothing of value in it, so, with nothing more to do, you prepare to move off and continue on your way...
+		Letting out a sigh, you realize that [npc2.name] left [npc2.her] jacket behind. Despite your command, you get a strong feeling that [npc2.she]'ll be back to fetch it the moment you leave, but, if you wanted to, you could always confiscate it as an added punishment. Other than that item of clothing, the keep has absolutely nothing of value in it, so, with nothing more to do, you prepare to move off and continue on your way...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_ALPHA_FORCED"><![CDATA[
 	<p>
 		[npc2.Name] collapses to the floor, utterly exhausted. Standing up beside [npc2.herHim], you grin down at the well-used [npc2.race]. [pc.speech(Maybe now you'll think twice before ordering your gangs to attack people!)]
@@ -1425,7 +1425,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_ALPHA_FORCED_SCARED_OFF"><![CDATA[
 	<p>
 		Having dealt with [npc2.name], you call after [npc2.herHim], [pc.speech(Go on then, get out of here! And don't come back!)]
@@ -1434,13 +1434,13 @@
 		Not even giving you a backwards glance, [npc2.she] slips through the open doors and disappears off into Submission.
 	</p>
 	<p>
-		Letting out a sigh, you realise that [npc2.name] left [npc2.her] jacket behind. Despite your command, you get a strong feeling that [npc2.she]'ll be back to fetch it the moment you leave, but, if you wanted to, you could always confiscate it as an added punishment. Other than that item of clothing, the keep has absolutely nothing of value in it, so, with nothing more to do, you prepare to move off and continue on your way...
+		Letting out a sigh, you realize that [npc2.name] left [npc2.her] jacket behind. Despite your command, you get a strong feeling that [npc2.she]'ll be back to fetch it the moment you leave, but, if you wanted to, you could always confiscate it as an added punishment. Other than that item of clothing, the keep has absolutely nothing of value in it, so, with nothing more to do, you prepare to move off and continue on your way...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AUDIENCE -->
-	
+
 	<htmlContent tag="KEEP_AUDIENCE"><![CDATA[
 	<p>
 		[pc.speech(Wait, there's no need for violence,)] you say, holding up your [pc.hands]. [pc.speech(I just have some questions about the demon calling herself 'The Dark Siren'.)]
@@ -1453,7 +1453,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_DOUBLE_ORAL"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] hears what it is you're after. With a playful tone in [npc2.her] voice, [npc2.she] offers [npc2.her] terms, [npc2.speech(Well, my cock hasn't been sucked in a good long while, so if the two of you get down and show your submission by fixing that, then I'll give you my help in getting to meet with our boss.)]
@@ -1466,7 +1466,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] hears what it is you're after. With a playful tone in [npc2.her] voice, [npc2.she] offers [npc2.her] terms, [npc2.speech(Well, my cock hasn't been sucked in a good long while, so if you get down and show your submission by fixing that, then I'll give you my help in getting to meet with our boss. Oh, and as your little friend here's got [npc.her] mouth blocked, [npc.she] can make [npc.herself] useful as a cum-dump for my girls.)]
@@ -1479,7 +1479,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] hears what it is you're after. With a playful tone in [npc2.her] voice, [npc2.she] offers [npc2.her] terms, [npc2.speech(Well, my cock hasn't been sucked in a good long while, so if your friend here gets down and shows [npc.her] submission by fixing that, then I'll give you my help in getting to meet with our boss. Oh, and as you've got your mouth blocked, you can make yourself useful as a cum-dump for my girls.)]
@@ -1492,7 +1492,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_DOUBLE_IMPS"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] hears what it is you're after. With a playful tone in [npc2.her] voice, [npc2.she] offers [npc2.her] terms, [npc2.speech(Well, I'd have liked to have got you both sucking my cock, but it looks like that's not going to be happening. Instead, how about the two of you get down and show your submission by letting my girls here fuck you, and then I'll give you my help in getting to meet with our boss.)]
@@ -1505,7 +1505,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX"><![CDATA[
 	<p>
 		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, I'll do it.)]
@@ -1514,17 +1514,17 @@
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] laughs, before stepping forwards and roughly shoving you down onto your knees in front of [npc2.herHim]. Wasting no time, [npc2.she] thrusts [npc2.her] groin into your face as [npc2.she] sneers, [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...  
+		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX_IMPS"><![CDATA[
 	<p>
 		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, I'll do it.)]
@@ -1537,7 +1537,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX_DOUBLE_ORAL"><![CDATA[
 	<p>
 		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
@@ -1554,17 +1554,17 @@
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] laughs, before stepping forwards and roughly shoving you both down onto your knees in front of [npc2.herHim]. Wasting no time, [npc2.she] thrusts [npc2.her] groin into your face as [npc2.she] sneers, [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Helping you with your task, [npc.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Helping you with your task, [npc.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitches,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...  
+		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
@@ -1581,7 +1581,7 @@
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] laughs, before stepping forwards and roughly shoving you both down onto all fours in front of [npc2.herHim]. Wasting no time, [npc2.she] drops down onto [npc2.her] knees and thrusts [npc2.her] groin into your face as [npc2.she] sneers, [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -1596,7 +1596,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
@@ -1613,7 +1613,7 @@
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] laughs, before stepping forwards and roughly shoving you both down onto all fours in front of [npc2.herHim]. Wasting no time, [npc2.she] drops down onto [npc2.her] knees and thrusts [npc2.her] groin into [npc.namePos] face as [npc2.she] sneers, [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -1623,7 +1623,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX_DOUBLE_IMPS"><![CDATA[
 	<p>
 		Deciding to do as [npc2.name] asks, you sigh, [pc.speech(OK, we'll do it.)]
@@ -1644,37 +1644,37 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_AUDIENCE -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE"><![CDATA[
 	<p>
 		[npc2.speech(Good enough, I suppose,)] [npc2.name] says, smirking down at you as you collapse to the floor. [npc2.speech(A deal's a deal, and I'm sure our boss won't mind meeting someone as submissive as you.)]
 	</p>
 	<p>
-		Pushing yourself back up onto your [pc.feet], you start to get your things in order as [npc2.name] continues, [npc2.speech(This key is one of three that you need in order to gain access to the stone citadel in the middle of Submission's tunnels. That's where 'The Dark Siren' rules from, if you hadn't already figured it out. The other keys you should be able to get from our other fortresses. Oh, and pay the Dark Siren the proper respect. She's a recognised daughter of Lyssieth herself, and if you step out of line, she'll have you locked up and being fucked by her imps before you know what's happening.)]
+		Pushing yourself back up onto your [pc.feet], you start to get your things in order as [npc2.name] continues, [npc2.speech(This key is one of three that you need in order to gain access to the stone citadel in the middle of Submission's tunnels. That's where 'The Dark Siren' rules from, if you hadn't already figured it out. The other keys you should be able to get from our other fortresses. Oh, and pay the Dark Siren the proper respect. She's a recognized daughter of Lyssieth herself, and if you step out of line, she'll have you locked up and being fucked by her imps before you know what's happening.)]
 	</p>
 	<p>
 		Having finally got your belongings sorted out, you look up to see [npc2.name] holding out a slender silver key, which has to be no more than three inches in length.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE_WITH_COMPANION"><![CDATA[
 	<p>
 		[npc2.speech(Good enough, I suppose,)] [npc2.name] says, smirking down at you and [npc.name] as the two of you collapse to the floor. [npc2.speech(A deal's a deal, and I'm sure our boss won't mind meeting bitches as submissive as you two.)]
 	</p>
 	<p>
-		Pushing yourself back up onto your [pc.feet], you start to get your things in order as [npc2.name] continues, [npc2.speech(This key is one of three that you need in order to gain access to the stone citadel in the middle of Submission's tunnels. That's where 'The Dark Siren' rules from, if you hadn't already figured it out. The other keys you should be able to get from our other fortresses. Oh, and pay the Dark Siren the proper respect. She's a recognised daughter of Lyssieth herself, and if you step out of line, she'll have you locked up and being fucked by her imps before you know what's happening.)]
+		Pushing yourself back up onto your [pc.feet], you start to get your things in order as [npc2.name] continues, [npc2.speech(This key is one of three that you need in order to gain access to the stone citadel in the middle of Submission's tunnels. That's where 'The Dark Siren' rules from, if you hadn't already figured it out. The other keys you should be able to get from our other fortresses. Oh, and pay the Dark Siren the proper respect. She's a recognized daughter of Lyssieth herself, and if you step out of line, she'll have you locked up and being fucked by her imps before you know what's happening.)]
 	</p>
 	<p>
 		Having finally got your belongings sorted out, you look up to see [npc2.name] holding out a slender silver key, which has to be no more than three inches in length.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_JOINING_GAIN_KEY -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE_KEY"><![CDATA[
 	<p>
 		Taking the key, you thank [npc2.name] and turn to leave. As you and [npc.name] head towards the doors, the [npc2.race] calls after you, [npc2.speech(Come back any time. My girls and I can always do with a bit of fun!)]
@@ -1684,9 +1684,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_COMBAT_VICTORY -->
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY_KEY"><![CDATA[
 	<p>
 		You let out a relived sigh as [npc2.name] and [npc2.her] guards slump down onto the floor before you, defeated. Stepping forwards, you look down at the [npc2.race] and ask, [pc.speech(Why do you do this? Getting all those imps to attack people in Submission, I mean.)]
@@ -1702,7 +1702,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY"><![CDATA[
 	<p>
 		You let out a relived sigh as [npc2.name] and [npc2.her] guards slump down onto the floor before you, defeated. Stepping forwards, you look down at the [npc2.race] and ask, [pc.speech(Why did you come back? I told you to stay away from here!)]
@@ -1718,7 +1718,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY_DS_DEFEATED"><![CDATA[
 	<p>
 		You let out a relived sigh as [npc2.name] and [npc2.her] guards slump down onto the floor before you, defeated. Stepping forwards, you look down at the [npc2.race] and ask, [pc.speech(Why did you come back? I told you to stay away from here!)]
@@ -1727,14 +1727,14 @@
 		[npc2.speech(The Dark Siren will return... )] [npc2.name] pants. [npc2.speech(So I need to carry out her last orders...)]
 	</p>
 	<p>
-		[pc.speech(You do realise that she's under lock and key in Lyssieth's palace, right?)] you ask.
+		[pc.speech(You do realize that she's under lock and key in Lyssieth's palace, right?)] you ask.
 	</p>
 	<p>
 		[npc2.speech(That doesn't matter... She'll find a way to escape... Now please, let me go...)] [npc2.name] begs. [npc2.speech(I won't cause any more trouble!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY_SCARE_OFF"><![CDATA[
 	<p>
 		Having dealt with [npc2.name], and not wanting to go any further, you stand before [npc2.herHim] and [npc2.her] imps and declare, [pc.speech(Go on then, get out of here, all of you! And don't come back!)]
@@ -1747,7 +1747,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc2.name] and [npc2.her] imps before you let them go, you tell [npc.name] to stand back and watch before reaching down and starting to move them into position. As you do this, the [npc2.race] lets out a surprisingly erotic moan, before thrusting [npc2.her] [npc2.hips] towards you. [npc2.speech(Oh yeah, come on then, suck my cock!)]
@@ -1756,11 +1756,11 @@
 		[pc.speech(I'll do whatever I feel like,)] you respond, giving [npc2.her] [npc2.ass] a quick smack to remind [npc2.herHim] who's in charge.
 	</p>
 	<p>
-		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realise that she's getting turned on by being used like this...
+		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realize that she's getting turned on by being used like this...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_GENTLE"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc2.name] and [npc2.her] imps before you let them go, you tell [npc.name] to stand back and watch before reaching down and starting to gently move them into position. As you do this, the [npc2.race] lets out a surprisingly erotic moan, before thrusting [npc2.her] [npc2.hips] towards you. [npc2.speech(Oh yeah, come on then, suck my cock!)]
@@ -1769,11 +1769,11 @@
 		[pc.speech(I'll do as I please,)] you respond, giving [npc2.her] [npc2.ass] a soft smack to remind [npc2.herHim] who's in charge.
 	</p>
 	<p>
-		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realise that she's getting turned on by being used like this...
+		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realize that she's getting turned on by being used like this...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_ROUGH"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc2.name] and [npc2.her] imps before you let them go, you tell [npc.name] to stand back and watch before reaching down and starting to roughly force them into position. As you do this, the [npc2.race] lets out a surprisingly erotic moan, before thrusting [npc2.her] [npc2.hips] towards you. [npc2.speech(Oh yeah, come on then, suck my cock!)]
@@ -1782,11 +1782,11 @@
 		[pc.speech(Don't you <i>dare</i> try and tell me what to do!)] you angrily respond, giving [npc2.her] [npc2.ass] a sharp slap to remind [npc2.herHim] who's in charge.
 	</p>
 	<p>
-		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realise that she's getting turned on by being used like this...
+		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realize that she's getting turned on by being used like this...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc2.name] and [npc2.her] imps before you let them go, you tell [npc.name] to join you as you reach down and start to move them into position. As you do this, the [npc2.race] lets out a surprisingly erotic moan, before thrusting [npc2.her] [npc2.hips] towards you. [npc2.speech(Oh yeah, come on then, suck my cock!)]
@@ -1795,51 +1795,51 @@
 		[pc.speech(I'll do whatever I feel like,)] you respond, giving [npc2.her] [npc2.ass] a quick smack to remind [npc2.herHim] who's in charge.
 	</p>
 	<p>
-		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realise that she's getting turned on by being used like this...
+		Your disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realize that she's getting turned on by being used like this...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
 		Feeling sorry for [npc2.name] and [npc2.her] imps, you bend down next to [npc2.herHim] and ask, [pc.speech(Are you OK? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] snaps, [npc2.speech(No, I'm not OK! Now help me up already!)]
+		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] snaps, [npc2.speech(No, I'm not OK! Now help me up already!)]
 	</p>
 	<p>
-		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for what you did, you dumb bitch?!)]
+		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for what you did, you dumb bitch?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, before roughly shoving you down onto your knees in front of [npc2.herHim] and thrusting [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...  
+		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_SUBMIT_IMPS"><![CDATA[
 	<p>
 		Feeling sorry for [npc2.name] and [npc2.her] imps, you bend down next to [npc2.herHim] and ask, [pc.speech(Are you OK? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] snaps, [npc2.speech(No, I'm not OK! Now help me up already!)]
+		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] snaps, [npc2.speech(No, I'm not OK! Now help me up already!)]
 	</p>
 	<p>
-		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for what you did, you dumb bitch?!)]
+		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] suddenly yanks you forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for what you did, you dumb bitch?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(With your mouth all sealed up like that?!)] [npc2.Name] snaps, before roughly shoving you down onto all fours in front of [npc2.herHim]. [npc2.speech(No, if I can't fuck someone's throat, then I'm not interested. My girls, on the other hand...)]
@@ -1852,7 +1852,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX_SUBMISSION_APOLOGY"><![CDATA[
 	<p>
 		Feeling sorry for [npc2.name] and [npc2.her] imps, you bend down next to [npc2.herHim] and ask, [pc.speech(Are you OK? Sorry, I think my friend and I went a little too far, didn't we, [npc.name]?)]
@@ -1860,49 +1860,49 @@
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
 		#THEN
-			[npc.speech(Yeah, [pc.namePos] right, I'm sorry,)] [npc.name] says, joining you in apologising to [npc2.name].
+			[npc.speech(Yeah, [pc.namePos] right, I'm sorry,)] [npc.name] says, joining you in apologizing to [npc2.name].
 		#ELSE
-			[npc.speech(Eugh... I can't believe this... Sure, I'm sorry,)] [npc.name] sighs, realising what's about to happen and resigning [npc.herself] to [npc.her] fate.
+			[npc.speech(Eugh... I can't believe this... Sure, I'm sorry,)] [npc.name] sighs, realizing what's about to happen and resigning [npc.herself] to [npc.her] fate.
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] snaps, [npc2.speech(No, I'm not OK! Now help me up already!)]
+		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc2.she] snaps, [npc2.speech(No, I'm not OK! Now help me up already!)]
 	</p>
 	<p>
-		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] grabs hold of your companion and suddenly yanks you both forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you two going to apologise for what you did, you dumb bitches?!)]
+		Submissively doing as you're told, you assist [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of your wrists, [npc2.she] grabs hold of your companion and suddenly yanks you both forwards, pressing you tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you two going to apologize for what you did, you dumb bitches?!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX_SUBMISSION_DOUBLE_ORAL"><![CDATA[
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, before roughly shoving you both down onto your knees in front of [npc2.herHim] and thrusting [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Helping you with your task, [npc.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Helping you with your task, [npc.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitches,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...  
+		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX_SUBMISSION_ORAL_COMPANION_IMPS"><![CDATA[
-	
+
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, roughly shoving you both down onto all fours in front of [npc2.herHim], before dropping to [npc2.her] knees and thrusting [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut! And you, [npc.race], as your mouth's all sealed up, you can be a cum-dump for my girls!)]
 	</p>
 	<p>
-		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -1920,16 +1920,16 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX_SUBMISSION_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, roughly shoving you both down onto all fours in front of [npc2.herHim], before dropping to [npc2.her] knees and thrusting [npc2.her] groin into [npc.namePos] face. [npc2.speech(Go on, get it out, slut! And you, [pc.race], as your mouth's all sealed up, you can be a cum-dump for my girls!)]
 	</p>
 	<p>
-		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -1942,10 +1942,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GROUP_SEX_SUBMISSION_DOUBLE_IMPS"><![CDATA[
 	<p>
-		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
+		Being held so close to [npc2.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, you look back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [pc.speech(W-We could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(With your mouths all sealed up like that?!)] [npc2.Name] snaps, before roughly shoving you both down onto all fours in front of [npc2.herHim]. [npc2.speech(No, if I can't fuck someone's throat, then I'm not interested. My girls, on the other hand...)]
@@ -1963,7 +1963,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_GIVE_TO_COMPANION"><![CDATA[
 	<p>
 		Wanting [npc.name] to have some fun with [npc2.name] and [npc2.her] imps before you let them go, you tell [npc.herHim] to fuck them in front of you. [npc2.Name] lets out a surprisingly erotic moan as [npc2.she] hears this, before thrusting [npc2.her] [npc2.hips] towards your companion. [npc2.speech(Oh yeah, come on then, suck my cock!)]
@@ -1972,11 +1972,11 @@
 		[npc.speech(I'll do whatever I feel like,)] [npc.name] responds, giving [npc2.her] [npc2.ass] a quick smack to remind [npc2.herHim] who's in charge.
 	</p>
 	<p>
-		[npc.Her] disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realise that she's getting turned on by being used like this...
+		[npc.Her] disciplinary action causes [npc2.name] to let out another delighted moan, and you grin as you realize that she's getting turned on by being used like this...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_OFFER_COMPANION"><![CDATA[
 	<p>
 		Wanting to watch [npc2.name] have [npc2.her] way with your companion, you turn to [npc.name] and say, [pc.speech(You should give [npc2.name] a <i>special</i> apology for going too far.)]
@@ -1990,19 +1990,19 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realises what's happening. Grabbing hold of [npc.namePos] wrists, [npc2.she] snaps, [npc2.speech(Help me up already!)]
+		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realizes what's happening. Grabbing hold of [npc.namePos] wrists, [npc2.she] snaps, [npc2.speech(Help me up already!)]
 	</p>
 	<p>
-		Submissively doing as [npc.sheIs] told, [npc.name] assists [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of [npc.her] wrists, the [npc2.race] suddenly yanks you forwards, pressing your companion tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for what you did, you dumb bitch?!)]
+		Submissively doing as [npc.sheIs] told, [npc.name] assists [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of [npc.her] wrists, the [npc2.race] suddenly yanks you forwards, pressing your companion tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for what you did, you dumb bitch?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, [npc.nameIs] able to suddenly feel something hard pressing against [npc.her] [npc.leg], and [npc.she] glances down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, [npc.she] looks back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [npc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc2.her] body, [npc.nameIs] able to suddenly feel something hard pressing against [npc.her] [npc.leg], and [npc.she] glances down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, [npc.she] looks back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [npc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(Now that's what I like to hear!)] [npc2.Name] snaps, before roughly shoving [npc.name] down onto [npc.her] knees in front of [npc2.herHim] and thrusting [npc2.her] groin into [npc.her] face. [npc2.speech(Go on, get it out, slut!)]
 	</p>
 	<p>
-		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Doing as [npc.sheIs] told, your companion reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2010,14 +2010,14 @@
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
 		#THEN
-			Pushing the tip of [npc2.her] cock up against [npc.namePos] lips, [npc2.name] sneers as your companion eagerly starts to lick it...  
+			Pushing the tip of [npc2.her] cock up against [npc.namePos] lips, [npc2.name] sneers as your companion eagerly starts to lick it...
 		#ELSE
-			Pushing the tip of [npc2.her] cock up against [npc.namePos] lips, [npc2.name] sneers as your companion turns [npc.her] head away and lets out a disgruntled huff...  
+			Pushing the tip of [npc2.her] cock up against [npc.namePos] lips, [npc2.name] sneers as your companion turns [npc.her] head away and lets out a disgruntled huff...
 		#ENDIF
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_OFFER_COMPANION_IMPS"><![CDATA[
 	<p>
 		Wanting to watch [npc2.name] have [npc2.her] way with your companion, you turn to [npc.name] and say, [pc.speech(You should give [npc2.name] a <i>special</i> apology for going too far.)]
@@ -2031,13 +2031,13 @@
 		#ENDIF
 	</p>
 	<p>
-		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realises what's happening. Grabbing hold of [npc.namePos] wrists, [npc2.she] snaps, [npc2.speech(Help me up already!)]
+		[npc2.NamePos] worried expression quickly shifts into a devious grin as [npc2.she] realizes what's happening. Grabbing hold of [npc.namePos] wrists, [npc2.she] snaps, [npc2.speech(Help me up already!)]
 	</p>
 	<p>
-		Submissively doing as [npc.sheIs] told, [npc.name] assists [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of [npc.her] wrists, the [npc2.race] suddenly yanks you forwards, pressing your companion tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologise for what you did, you dumb bitch?!)]
+		Submissively doing as [npc.sheIs] told, [npc.name] assists [npc2.name] as [npc2.she] pushes [npc2.herself] to [npc2.her] feet. Refusing to let go of [npc.her] wrists, the [npc2.race] suddenly yanks you forwards, pressing your companion tightly against [npc2.herHim] as [npc2.she] growls, [npc2.speech(So how are you going to apologize for what you did, you dumb bitch?!)]
 	</p>
 	<p>
-		Being held so close to [npc2.her] body, [npc.nameIs] able to suddenly feel something hard pressing against [npc.her] [npc.leg], and [npc.she] glances down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, [npc.she] looks back up into the [npc2.race]'s [npc2.eyeColour] eyes, before offering, [npc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc2.her] body, [npc.nameIs] able to suddenly feel something hard pressing against [npc.her] [npc.leg], and [npc.she] glances down to see the distinctive bulge of a fat cock pressing out against the tight fabric of [npc2.namePos] jeans. Gulping at the sight of it, [npc.she] looks back up into the [npc2.race]'s [npc2.eyeColor] eyes, before offering, [npc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc2.speech(With your mouth all sealed up like that?!)] [npc2.Name] snaps, before roughly shoving [npc.name] down onto all fours in front of [npc2.herHim]. [npc2.speech(No, if I can't fuck someone's throat, then I'm not interested. My girls, on the other hand...)]
@@ -2055,9 +2055,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_COMBAT_DEFEAT -->
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_DOUBLE_ORAL"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] watches you and [npc.name] fall to the floor, defeated. With an evil tone in [npc2.her] voice, [npc2.she] steps forwards and growls, [npc2.speech(When's the last time you two sluts sucked demon cock?)]
@@ -2067,7 +2067,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] watches you and [npc.name] fall to the floor, defeated. With an evil tone in [npc2.her] voice, [npc2.she] steps forwards and growls, [npc2.speech(When's the last time you sucked demon cock, bitch?)]
@@ -2077,7 +2077,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] watches you and [npc.name] fall to the floor, defeated. With an evil tone in [npc2.her] voice, [npc2.she] steps forwards and growls at your companion, [npc2.speech(When's the last time you sucked demon cock, bitch?)]
@@ -2087,7 +2087,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_DOUBLE_IMPS"><![CDATA[
 	<p>
 		A wicked grin crosses [npc2.namePos] face as [npc2.she] watches you and [npc.name] fall to the floor, defeated. With an evil tone in [npc2.her] voice, [npc2.she] steps forwards and growls, [npc2.speech(Shame about your mouths being all sealed up like that. Looks like I'll just have to give you both to my girls.)]
@@ -2097,39 +2097,39 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX"><![CDATA[
 	<p>
-		Doing as you're told, you crawl forwards, before reaching up and unbuttoning [npc2.namePos] jeans. Tugging them down, you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Doing as you're told, you crawl forwards, before reaching up and unbuttoning [npc2.namePos] jeans. Tugging them down, you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...  
+		Pushing the tip of [npc2.her] cock up against your lips, [npc2.name] prepares for you to start giving [npc2.herHim] a blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_EAGER"><![CDATA[
 	<p>
-		Happily doing as you're told, you crawl forwards, before reaching up and quickly unbuttoning [npc2.namePos] jeans. Tugging them down, you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Eagerly continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Happily doing as you're told, you crawl forwards, before reaching up and quickly unbuttoning [npc2.namePos] jeans. Tugging them down, you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Eagerly continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Letting out [pc.a_moan+], you lean forwards and give the tip of [npc2.her] cock a hungry lick, desperate to start giving [npc2.herHim] a blowjob...  
+		Letting out [pc.a_moan+], you lean forwards and give the tip of [npc2.her] cock a hungry lick, desperate to start giving [npc2.herHim] a blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_RESIST"><![CDATA[
 	<p>
 		Refusing to do as you're told, you turn and try to crawl towards the exit, but before you've even managed to place one [pc.hand] in front of the other, [npc2.name] steps around in front of you and ruthlessly kicks you down onto your side. [npc2.speech(Dumb bitch! You'll pay for disobeying me!)]
 	</p>
 	<p>
-		Looking up at the cruel [npc2.race], you see [npc2.herHim] quickly unbuttoning [npc2.her] jeans. Tugging them down, [npc2.she] reveals a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Too exhausted to even manage to get to your feet, you're helpless to do anything but watch as [npc2.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Looking up at the cruel [npc2.race], you see [npc2.herHim] quickly unbuttoning [npc2.her] jeans. Tugging them down, [npc2.she] reveals a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Too exhausted to even manage to get to your feet, you're helpless to do anything but watch as [npc2.name] pulls down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(You're going to be <i>gagging</i> on it!)]
@@ -2148,7 +2148,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, before quickly surrounding you and starting to grope and squeeze your body. [npc2.Name] lets out a derisive laugh, before walking back over to [npc2.her] chair and leaving you with the horny imps. As you let out [pc.a_moan], the one groping your groin giggles, [npc3.speech(Mmm, yeah, you're gonna love my cock!)]
@@ -2158,7 +2158,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_EAGER"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, before quickly surrounding you and starting to grope and squeeze your body. [npc2.Name] lets out a derisive laugh, before walking back over to [npc2.her] chair and leaving you with the horny imps. As you let out [pc.a_moan+], the one groping your groin giggles, [npc3.speech(Mmm, yeah, you're gonna love my cock!)]
@@ -2168,7 +2168,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_RESIST"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, before quickly surrounding you and starting to grope and squeeze your body. [npc2.Name] lets out a derisive laugh, before walking back over to [npc2.her] chair and leaving you with the horny imps. As you struggle and try to crawl away, the one groping your groin giggles, [npc3.speech(You're goin' nowhere! Don't worry though, bitch, you're gonna love my cock!)]
@@ -2178,26 +2178,26 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_DOUBLE_ORAL"><![CDATA[
 	<p>
-		Doing as you're told, you and [npc.name] crawl forwards, before reaching up and clamouring to unbutton [npc2.namePos] jeans. Tugging them down, the two of you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
+		Doing as you're told, you and [npc.name] crawl forwards, before reaching up and clamoring to unbutton [npc2.namePos] jeans. Tugging them down, the two of you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitches,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...  
+		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_ORAL_COMPANION_IMPS"><![CDATA[
 	<p>
 		Doing as you're told, you crawl over to [npc.name] on all fours, where [npc2.she] drops to [npc2.her] knees and thrusts [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut! And you, [npc.race], present yourself to my girls!)]
 	</p>
 	<p>
-		Once more obeying the [npc2.name], you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Once more obeying the [npc2.name], you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2215,13 +2215,13 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_COMPANION_ORAL"><![CDATA[
 	<p>
 		Doing as [npc.sheIs] told, your companion crawls over to [npc2.name] on all fours, where [npc2.she] drops to [npc2.her] knees and thrusts [npc2.her] groin into [npc.her] face. [npc2.speech(Go on, get it out, slut! And you, [pc.race], present yourself to my girls!)]
 	</p>
 	<p>
-		Once more obeying the [npc2.name], [npc.name] reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Once more obeying the [npc2.name], [npc.name] reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2234,7 +2234,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_DOUBLE_IMPS"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, quickly surrounding you and [npc.name] as they start to grope and squeeze your bodies. [npc2.Name] lets out a derisive laugh, before walking back over to [npc2.her] chair and leaving you and your companion with the horny imps. As you let out [pc.a_moan], the one groping [npc.namePos] groin giggles, [npc3.speech(Mmm, yeah, you cunts are gonna love my cock!)]
@@ -2249,26 +2249,26 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_DOUBLE_ORAL_EAGER"><![CDATA[
 	<p>
-		Happily doing as you're told, you and [npc.name] crawl forwards, before reaching up and clamouring to unbutton [npc2.namePos] jeans. Tugging them down, the two of you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
+		Happily doing as you're told, you and [npc.name] crawl forwards, before reaching up and clamoring to unbutton [npc2.namePos] jeans. Tugging them down, the two of you reveal a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitches,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...  
+		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_ORAL_COMPANION_IMPS_EAGER"><![CDATA[
 	<p>
 		Happily doing as you're told, you crawl over to [npc.name] on all fours, where [npc2.she] drops to [npc2.her] knees and thrusts [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut! And you, [npc.race], present yourself to my girls!)]
 	</p>
 	<p>
-		Once more eagerly obeying the [npc2.name], you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Once more eagerly obeying the [npc2.name], you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2286,13 +2286,13 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_COMPANION_ORAL_EAGER"><![CDATA[
 	<p>
 		Happily doing as [npc.sheIs] told, your companion crawls over to [npc2.name] on all fours, where [npc2.she] drops to [npc2.her] knees and thrusts [npc2.her] groin into [npc.her] face. [npc2.speech(Go on, get it out, slut! And you, [pc.race], present yourself to my girls!)]
 	</p>
 	<p>
-		Once more obeying the [npc2.name], [npc.name] reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Once more obeying the [npc2.name], [npc.name] reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2305,7 +2305,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_DOUBLE_IMPS_EAGER"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, quickly surrounding you and [npc.name] as they start to grope and squeeze your bodies. [npc2.Name] lets out a derisive laugh, before walking back over to [npc2.her] chair and leaving you and your companion with the horny imps. As you let out [pc.a_moan], the one groping [npc.namePos] groin giggles, [npc3.speech(Mmm, yeah, you cunts are gonna love my cock!)]
@@ -2320,26 +2320,26 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_DOUBLE_ORAL_RESIST"><![CDATA[
 	<p>
-		You struggle against [npc2.namePos] imps as they force you and [npc.name] to unbutton [npc2.namePos] jeans. Threatened into coercion, the two of you then pull them down, revealing a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
+		You struggle against [npc2.namePos] imps as they force you and [npc.name] to unbutton [npc2.namePos] jeans. Threatened into coercion, the two of you then pull them down, revealing a black thong which is barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitches,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
 	</p>
 	<p>
-		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...  
+		Pushing the tip of [npc2.her] cock over first [npc.namePos] [npc.lips], and then yours, [npc2.name] prepares to receive [npc2.her] blowjob...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_ORAL_COMPANION_IMPS_RESIST"><![CDATA[
 	<p>
 		You struggle against [npc2.namePos] imps as they force you to crawl over to [npc.name] on all fours, where [npc2.she] drops to [npc2.her] knees and thrusts [npc2.her] groin into your face. [npc2.speech(Go on, get it out, slut! And you, [npc.race], present yourself to my girls!)]
 	</p>
 	<p>
-		Threatened into coercion, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
+		Threatened into coercion, you reach up and unbutton her jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. Your eyes open wide as you see that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with your task, you pull down [npc2.her] thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before you.
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2357,13 +2357,13 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_COMPANION_ORAL_RESIST"><![CDATA[
 	<p>
 		Happily doing as [npc.sheIs] told, your companion crawls over to [npc2.name] on all fours, where [npc2.she] drops to [npc2.her] knees and thrusts [npc2.her] groin into [npc.her] face. [npc2.speech(Go on, get it out, slut! And you, [pc.race], present yourself to my girls!)]
 	</p>
 	<p>
-		Once more obeying the [npc2.name], [npc.name] reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicised script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
+		Once more obeying the [npc2.name], [npc.name] reaches up and unbuttons [npc2.her] jeans, before tugging them down to reveal a black thong barely managing to contain the massive bulge of [npc2.her] erection. [npc.NamePos] eyes open wide as [npc.she] sees that just above [npc2.namePos] groin, [npc2.sheHas] got a black tribal tattoo, complete with the words 'Choke on it, bitch!' inked in flowing italicized script. Continuing with [npc.her] task, [npc.name] pulls down the [npc2.race]'s thong, allowing [npc2.her] [npc2.penisGirth], [npc2.penisInches]-inch cock, which has been pierced and fitted with a silver ring, to spring free before [npc.herHim].
 	</p>
 	<p>
 		[npc2.speech(That isn't just for show, bitch,)] [npc2.name] snarls, pointing to [npc2.her] tattoo. [npc2.speech(I want you <i>gagging</i> on it!)]
@@ -2376,7 +2376,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_DOUBLE_IMPS_RESIST"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, quickly surrounding you and [npc.name] and starting to grope and squeeze your bodies. [npc2.Name] lets out a derisive laugh, before walking back over to [npc2.her] chair and leaving you with the horny imps. As you struggle and try to crawl away, the one groping your groin giggles, [npc3.speech(You're goin' nowhere! Don't worry though, bitch, you're gonna love my cock!)]
@@ -2386,9 +2386,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_PACIFIED -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_PACIFIED_WITH_COMPANION"><![CDATA[
 	<p>
 		You and [npc.name] collapse to the floor, and with satisfied moans, the two of you look up to see [npc2.name] grinning down at you.
@@ -2401,7 +2401,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_PACIFIED"><![CDATA[
 	<p>
 		You collapse to the floor, and with a satisfied [pc.moan], you look up to see [npc2.name] grinning down at you.
@@ -2414,19 +2414,19 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_VICTORY -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_VICTORY"><![CDATA[
 	<p>
 		[npc2.Name] and [npc2.her] imps collapse to the floor, utterly exhausted. Quickly getting your things in order, you can't help but smile as you hear the [npc2.race] panting, [npc2.speech(Oh... Fuck...)]
-	</p>	
+	</p>
 	<p>
 		Grinning down at the worn out gang, you wonder if you should tell them to get out of here right away, or perhaps you could first take this opportunity to confiscate their belongs...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_VICTORY_SCARE_OFF"><![CDATA[
 	<p>
 		[pc.speech(Get out of here, all of you! And don't come back!)] you order, smirking down at the gang.
@@ -2439,9 +2439,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_DEFEAT -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_DEFEAT"><![CDATA[
 	#IF impAlphaLeader.isAbleToEquipGag(pc)
 	#THEN
@@ -2455,7 +2455,7 @@
 		With little option but to do as you're told, you open your mouth for [npc2.name], who immediately forces the golden ring into your mouth. Roughly fastening the straps around the back of your head, the [npc2.race] lets out an evil laugh as [npc2.she] then steps back to admire [npc2.her] handiwork. [npc2.speech(So, how is it, my little oral slut? Can you feel the craving to suck a big, juicy cock yet?)]
 	</p>
 	<p>
-		As [npc2.name] says this, you can't help but salivate a little at the thought of getting down on your knees to submissively suck a thick, throbbing cock. You instinctively bob your head forwards as you imagine taking the hot shaft deep down your throat, before suddenly realising what you're doing and shaking your head clear of the intrusive thoughts. Wiping away the drool that's leaked out of your now permanently-open mouth, you look up at [npc2.namePos] crotch and let out a pleading little whine.
+		As [npc2.name] says this, you can't help but salivate a little at the thought of getting down on your knees to submissively suck a thick, throbbing cock. You instinctively bob your head forwards as you imagine taking the hot shaft deep down your throat, before suddenly realizing what you're doing and shaking your head clear of the intrusive thoughts. Wiping away the drool that's leaked out of your now permanently-open mouth, you look up at [npc2.namePos] crotch and let out a pleading little whine.
 	</p>
 	<p>
 		[npc2.speech(Hah! Hungry for another round already, you horny little cock-sucker?)] [npc2.she] laughs, before dismissively shooing you away with one hand. [npc2.speech(Come back another time, I've got things to do. Your little accessory there will make sure you stay as a submissive oral slut, so I'm sure it won't be too long before I see you again.)]
@@ -2470,7 +2470,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_DEFEAT_WITH_COMPANION"><![CDATA[
 	#IF impAlphaLeader.isAbleToEquipGag(pc)
 	#THEN
@@ -2480,13 +2480,13 @@
 				You and [npc.name] collapse to the floor, and with an exhausted [pc.moan], you look up to see [npc2.name] grinning down at the two of you. [npc2.speech(Not bad, sluts,)] [npc2.she] says, [npc2.speech(but don't think I've forgotten about how all this started. You two need to be given something to remind you that you're just submissive, cock-sucking bitches, who shouldn't meddle in the affairs of their betters.)]
 			</p>
 			<p>
-				Looking up at the [npc2.race], you see [npc2.herHim] holding a small, white leather harness, with golden metalwork holding it together, and, most conspicuously of all, a golden ring fitted to the front. In [npc.her] other hand, [npc.sheIs] holding a similar harness, but this one is of a simpler colour, with dark brown leather, black metalwork, and a steel ring. [npc2.speech(Open wide, sluts. You can pretend you're sucking my cock again, if it helps.)]
+				Looking up at the [npc2.race], you see [npc2.herHim] holding a small, white leather harness, with golden metalwork holding it together, and, most conspicuously of all, a golden ring fitted to the front. In [npc.her] other hand, [npc.sheIs] holding a similar harness, but this one is of a simpler color, with dark brown leather, black metalwork, and a steel ring. [npc2.speech(Open wide, sluts. You can pretend you're sucking my cock again, if it helps.)]
 			</p>
 			<p>
 				With little option but to do as you're told, both you and [npc.name] obey [npc2.namePos] command, who then immediately forces the golden ring into your mouth. Roughly fastening the straps around the back of your head, [npc2.she] repeats the process on your companion using the brown harness. With [npc.her] punishment administered, [npc2.race] lets out an evil laugh as [npc2.she] steps back to admire [npc2.her] handiwork. [npc2.speech(So, how is it, my little cock-suckers? Can you feel the craving to have a big, juicy cock slide deep down your throat yet?)]
 			</p>
 			<p>
-				As [npc2.name] says this, you can't help but salivate a little at the thought of getting down on your knees to submissively suck a thick, throbbing cock. You instinctively bob your head forwards as you imagine taking the hot shaft deep down your throat, before suddenly realising what you're doing and shaking your head clear of the intrusive thoughts. Wiping away the drool that's leaked out of your now permanently-open mouth, you look up at [npc2.namePos] crotch and let out a pleading little whine.
+				As [npc2.name] says this, you can't help but salivate a little at the thought of getting down on your knees to submissively suck a thick, throbbing cock. You instinctively bob your head forwards as you imagine taking the hot shaft deep down your throat, before suddenly realizing what you're doing and shaking your head clear of the intrusive thoughts. Wiping away the drool that's leaked out of your now permanently-open mouth, you look up at [npc2.namePos] crotch and let out a pleading little whine.
 			</p>
 			<p>
 				Next to you, [npc.name] seems to be having a similar experience, and, staring lustfully at the bulge in [npc2.namePos] groin, [npc.she] absent-mindedly mutters, [npc.speech(Just... Just a quick lick... Please...)]
@@ -2505,7 +2505,7 @@
 				With little option but to do as you're told, you obey [npc2.namePos] command, who proceeds to immediately force the golden ring into your mouth. Roughly fastening the straps around the back of your head, the [npc2.race] lets out an evil laugh as [npc2.she] then steps back to admire [npc2.her] handiwork. [npc2.speech(So, how is it, my little cock-sucker? Can you feel the craving to have a big, juicy cock slide deep down your throat yet?)]
 			</p>
 			<p>
-				As [npc2.name] says this, you can't help but salivate a little at the thought of getting down on your knees to submissively suck a thick, throbbing cock. You instinctively bob your head forwards as you imagine taking the hot shaft deep down your throat, before suddenly realising what you're doing and shaking your head clear of the intrusive thoughts. Wiping away the drool that's leaked out of your now permanently-open mouth, you look up at [npc2.namePos] crotch and let out a pleading little whine.
+				As [npc2.name] says this, you can't help but salivate a little at the thought of getting down on your knees to submissively suck a thick, throbbing cock. You instinctively bob your head forwards as you imagine taking the hot shaft deep down your throat, before suddenly realizing what you're doing and shaking your head clear of the intrusive thoughts. Wiping away the drool that's leaked out of your now permanently-open mouth, you look up at [npc2.namePos] crotch and let out a pleading little whine.
 			</p>
 			<p>
 				[npc2.speech(Hah! Hungry for another round already, you horny little cock-sucker?)] [npc2.she] laughs, before dismissively shooing you and [npc.name] away with both hands. [npc2.speech(Come back another time, I've got things to do. Your little accessory there will make sure you stay as a submissive oral slut, so I'm sure it won't be too long before I see you again.)]
@@ -2521,5 +2521,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

@@ -48,8 +48,8 @@ import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.Pattern;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.Color;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 
@@ -81,8 +81,8 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	protected List<ItemEffect> effects;
 
 	// Images:
-	private Map<Colour, Map<Colour, Map<Colour, Map<String, Map<Colour, Map<Colour, Map<Colour, String>>>>>>> SVGStringMap;
-	private Map<Colour, Map<Colour, Map<Colour, Map<String, Map<Colour, Map<Colour, Map<Colour, String>>>>>>> SVGStringEquippedMap;
+	private Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> SVGStringMap;
+	private Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> SVGStringEquippedMap;
 	
 	// Pattern data:
 	private boolean isPatternAvailable;
@@ -93,17 +93,17 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 	private ClothingSet clothingSet;
 	private Rarity rarity;
-	private List<Colour> availablePrimaryColours;
-	private List<Colour> availablePrimaryDyeColours;
-	private List<Colour> allAvailablePrimaryColours;
+	private List<Color> availablePrimaryColors;
+	private List<Color> availablePrimaryDyeColors;
+	private List<Color> allAvailablePrimaryColors;
 	
-	private List<Colour> availableSecondaryColours;
-	private List<Colour> availableSecondaryDyeColours;
-	private List<Colour> allAvailableSecondaryColours;
+	private List<Color> availableSecondaryColors;
+	private List<Color> availableSecondaryDyeColors;
+	private List<Color> allAvailableSecondaryColors;
 	
-	private List<Colour> availableTertiaryColours;
-	private List<Colour> availableTertiaryDyeColours;
-	private List<Colour> allAvailableTertiaryColours;
+	private List<Color> availableTertiaryColors;
+	private List<Color> availableTertiaryDyeColors;
+	private List<Color> allAvailableTertiaryColors;
 
 	private List<DisplacementType> displacementTypesAvailableWithoutNONE;
 	
@@ -132,12 +132,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			List<ItemEffect> effects,
 			List<BlockedParts> blockedPartsList,
 			List<InventorySlot> incompatibleSlots,
-			List<Colour> availablePrimaryColours,
-			List<Colour> availablePrimaryDyeColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableSecondaryDyeColours,
-			List<Colour> availableTertiaryColours,
-			List<Colour> availableTertiaryDyeColours,
+			List<Color> availablePrimaryColors,
+			List<Color> availablePrimaryDyeColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableSecondaryDyeColors,
+			List<Color> availableTertiaryColors,
+			List<Color> availableTertiaryDyeColors,
 			List<ItemTag> itemTags) {
 		this(baseValue,
 				determiner,
@@ -155,12 +155,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				effects,
 				blockedPartsList,
 				incompatibleSlots,
-				availablePrimaryColours,
-				availablePrimaryDyeColours,
-				availableSecondaryColours,
-				availableSecondaryDyeColours,
-				availableTertiaryColours,
-				availableTertiaryDyeColours,
+				availablePrimaryColors,
+				availablePrimaryDyeColors,
+				availableSecondaryColors,
+				availableSecondaryDyeColors,
+				availableTertiaryColors,
+				availableTertiaryDyeColors,
 				itemTags);
 	}
 	
@@ -181,12 +181,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			List<ItemEffect> effects,
 			List<BlockedParts> blockedPartsList,
 			List<InventorySlot> incompatibleSlots,
-			List<Colour> availablePrimaryColours,
-			List<Colour> availablePrimaryDyeColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableSecondaryDyeColours,
-			List<Colour> availableTertiaryColours,
-			List<Colour> availableTertiaryDyeColours,
+			List<Color> availablePrimaryColors,
+			List<Color> availablePrimaryDyeColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableSecondaryDyeColors,
+			List<Color> availableTertiaryColors,
+			List<Color> availableTertiaryDyeColors,
 			List<ItemTag> itemTags) {
 		
 		this.baseValue = baseValue;
@@ -242,12 +242,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			this.incompatibleSlots = new ArrayList<>();
 		}
 		
-		setUpColours(availablePrimaryColours,
-				availablePrimaryDyeColours,
-				availableSecondaryColours,
-				availableSecondaryDyeColours,
-				availableTertiaryColours,
-				availableTertiaryDyeColours);
+		setUpColors(availablePrimaryColors,
+				availablePrimaryDyeColors,
+				availableSecondaryColors,
+				availableSecondaryDyeColors,
+				availableTertiaryColors,
+				availableTertiaryDyeColors);
 
 		this.itemTags = new ArrayList<>();
 		if(itemTags!=null) {
@@ -407,50 +407,50 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				.orElse(null);
 			
 
-			Function< Element, List<Colour> > getColoursFromElement = (colorsElement) -> { //Helper function to get the colors depending on if it's a specified group or a list of individual colors
+			Function< Element, List<Color> > getColorsFromElement = (colorsElement) -> { //Helper function to get the colors depending on if it's a specified group or a list of individual colors
 				String values = colorsElement.getAttribute("values");
 				try {
 					if (values.isEmpty()){
-						return colorsElement.getAllOf("colour").stream()
-								.map(Element::getTextContent).map(Colour::valueOf)
+						return colorsElement.getAllOf("color").stream()
+								.map(Element::getTextContent).map(Color::valueOf)
 								.collect(Collectors.toList());
 					}
 					else{
-						return ColourListPresets.valueOf(values)
-								.getPresetColourList();
+						return ColorListPresets.valueOf(values)
+								.getPresetColorList();
 					}
 				} catch (Exception e) {
 					printHelpfulErrorForEnumValueMismatches(e);
-					throw new IllegalStateException("Colour tag reading failure: "+colorsElement.getTagName()+" " + e.getMessage(), e);
+					throw new IllegalStateException("Color tag reading failure: "+colorsElement.getTagName()+" " + e.getMessage(), e);
 				}
 			};
 
-			List<Colour> importedPrimaryColours = getColoursFromElement
-				.apply(coreAttributes.getMandatoryFirstOf("primaryColours"));	
-			List<Colour> importedPrimaryColoursDye = getColoursFromElement
-				.apply(coreAttributes.getMandatoryFirstOf("primaryColoursDye"));		
+			List<Color> importedPrimaryColors = getColorsFromElement
+				.apply(coreAttributes.getMandatoryFirstOf("primaryColors"));	
+			List<Color> importedPrimaryColorsDye = getColorsFromElement
+				.apply(coreAttributes.getMandatoryFirstOf("primaryColorsDye"));		
 
-			List<Colour> importedSecondaryColours = coreAttributes.getOptionalFirstOf("secondaryColours")
-				.map(getColoursFromElement::apply)
+			List<Color> importedSecondaryColors = coreAttributes.getOptionalFirstOf("secondaryColors")
+				.map(getColorsFromElement::apply)
 				.orElseGet(ArrayList::new);
-			List<Colour> importedSecondaryColoursDye = coreAttributes.getOptionalFirstOf("secondaryColoursDye")
-				.map(getColoursFromElement::apply)
-				.orElseGet(ArrayList::new);
-
-			List<Colour> importedTertiaryColours = coreAttributes.getOptionalFirstOf("tertiaryColours")
-				.map(getColoursFromElement::apply)
-				.orElseGet(ArrayList::new);
-			List<Colour> importedTertiaryColoursDye = coreAttributes.getOptionalFirstOf("tertiaryColoursDye")
-				.map(getColoursFromElement::apply)
+			List<Color> importedSecondaryColorsDye = coreAttributes.getOptionalFirstOf("secondaryColorsDye")
+				.map(getColorsFromElement::apply)
 				.orElseGet(ArrayList::new);
 
-			setUpColours(
-				importedPrimaryColours,
-				importedPrimaryColoursDye,
-				importedSecondaryColours,
-				importedSecondaryColoursDye,
-				importedTertiaryColours,
-				importedTertiaryColoursDye
+			List<Color> importedTertiaryColors = coreAttributes.getOptionalFirstOf("tertiaryColors")
+				.map(getColorsFromElement::apply)
+				.orElseGet(ArrayList::new);
+			List<Color> importedTertiaryColorsDye = coreAttributes.getOptionalFirstOf("tertiaryColorsDye")
+				.map(getColorsFromElement::apply)
+				.orElseGet(ArrayList::new);
+
+			setUpColors(
+				importedPrimaryColors,
+				importedPrimaryColorsDye,
+				importedSecondaryColors,
+				importedSecondaryColorsDye,
+				importedTertiaryColors,
+				importedTertiaryColorsDye
 			);
 
 			finalSetUp();
@@ -479,82 +479,82 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 	}
 	
-	private void setUpColours(List<Colour> availablePrimaryColours,
-			List<Colour> availablePrimaryDyeColours,
-			List<Colour> availableSecondaryColours,
-			List<Colour> availableSecondaryDyeColours,
-			List<Colour> availableTertiaryColours,
-			List<Colour> availableTertiaryDyeColours) {
+	private void setUpColors(List<Color> availablePrimaryColors,
+			List<Color> availablePrimaryDyeColors,
+			List<Color> availableSecondaryColors,
+			List<Color> availableSecondaryDyeColors,
+			List<Color> availableTertiaryColors,
+			List<Color> availableTertiaryDyeColors) {
 		
-		this.availablePrimaryColours = new ArrayList<>();
-		if (availablePrimaryColours == null) {
-			this.availablePrimaryColours.add(Colour.CLOTHING_BLACK);
+		this.availablePrimaryColors = new ArrayList<>();
+		if (availablePrimaryColors == null) {
+			this.availablePrimaryColors.add(Color.CLOTHING_BLACK);
 		} else {
-			this.availablePrimaryColours.addAll(availablePrimaryColours);
+			this.availablePrimaryColors.addAll(availablePrimaryColors);
 		}
 
-		Set<Colour> colourSet = new HashSet<>();
+		Set<Color> colorSet = new HashSet<>();
 		
-		this.availablePrimaryDyeColours = new ArrayList<>();
-		if (availablePrimaryDyeColours != null) {
-			this.availablePrimaryDyeColours.addAll(availablePrimaryDyeColours);
+		this.availablePrimaryDyeColors = new ArrayList<>();
+		if (availablePrimaryDyeColors != null) {
+			this.availablePrimaryDyeColors.addAll(availablePrimaryDyeColors);
 		}
 		
-		this.allAvailablePrimaryColours = new ArrayList<>();
-		colourSet.addAll(availablePrimaryColours);
-		if(availablePrimaryDyeColours!=null) {
-			colourSet.addAll(availablePrimaryDyeColours);
+		this.allAvailablePrimaryColors = new ArrayList<>();
+		colorSet.addAll(availablePrimaryColors);
+		if(availablePrimaryDyeColors!=null) {
+			colorSet.addAll(availablePrimaryDyeColors);
 		}
-		this.allAvailablePrimaryColours.addAll(colourSet);
-		this.allAvailablePrimaryColours.sort((c1, c2) -> c1.compareTo(c2));
+		this.allAvailablePrimaryColors.addAll(colorSet);
+		this.allAvailablePrimaryColors.sort((c1, c2) -> c1.compareTo(c2));
 		
-		this.availableSecondaryColours = new ArrayList<>();
-		if (availableSecondaryColours != null) {
-			this.availableSecondaryColours.addAll(availableSecondaryColours);
+		this.availableSecondaryColors = new ArrayList<>();
+		if (availableSecondaryColors != null) {
+			this.availableSecondaryColors.addAll(availableSecondaryColors);
 		}
 		
-		this.availableSecondaryDyeColours = new ArrayList<>();
-		if (availableSecondaryDyeColours != null) {
-			this.availableSecondaryDyeColours.addAll(availableSecondaryDyeColours);
+		this.availableSecondaryDyeColors = new ArrayList<>();
+		if (availableSecondaryDyeColors != null) {
+			this.availableSecondaryDyeColors.addAll(availableSecondaryDyeColors);
 		}
 
-		colourSet.clear();
-		this.allAvailableSecondaryColours = new ArrayList<>();
-		if(availableSecondaryColours!=null) {
-			colourSet.addAll(availableSecondaryColours);
+		colorSet.clear();
+		this.allAvailableSecondaryColors = new ArrayList<>();
+		if(availableSecondaryColors!=null) {
+			colorSet.addAll(availableSecondaryColors);
 		}
-		if(availableSecondaryDyeColours!=null) {
-			colourSet.addAll(availableSecondaryDyeColours);
+		if(availableSecondaryDyeColors!=null) {
+			colorSet.addAll(availableSecondaryDyeColors);
 		}
-		this.allAvailableSecondaryColours.addAll(colourSet);
-		this.allAvailableSecondaryColours.sort((c1, c2) -> c1.compareTo(c2));
+		this.allAvailableSecondaryColors.addAll(colorSet);
+		this.allAvailableSecondaryColors.sort((c1, c2) -> c1.compareTo(c2));
 
-		this.availableTertiaryColours = new ArrayList<>();
-		if (availableTertiaryColours != null) {
-			this.availableTertiaryColours.addAll(availableTertiaryColours);
+		this.availableTertiaryColors = new ArrayList<>();
+		if (availableTertiaryColors != null) {
+			this.availableTertiaryColors.addAll(availableTertiaryColors);
 		}
 		
-		this.availableTertiaryDyeColours = new ArrayList<>();
-		if (availableTertiaryDyeColours != null) {
-			this.availableTertiaryDyeColours.addAll(availableTertiaryDyeColours);
+		this.availableTertiaryDyeColors = new ArrayList<>();
+		if (availableTertiaryDyeColors != null) {
+			this.availableTertiaryDyeColors.addAll(availableTertiaryDyeColors);
 		}
 
-		colourSet.clear();
-		this.allAvailableTertiaryColours = new ArrayList<>();
-		if(availableTertiaryColours!=null) {
-			colourSet.addAll(availableTertiaryColours);
+		colorSet.clear();
+		this.allAvailableTertiaryColors = new ArrayList<>();
+		if(availableTertiaryColors!=null) {
+			colorSet.addAll(availableTertiaryColors);
 		}
-		if(availableTertiaryDyeColours!=null) {
-			colourSet.addAll(availableTertiaryDyeColours);
+		if(availableTertiaryDyeColors!=null) {
+			colorSet.addAll(availableTertiaryDyeColors);
 		}
-		this.allAvailableTertiaryColours.addAll(colourSet);
-		this.allAvailableTertiaryColours.sort((c1, c2) -> c1.compareTo(c2));
+		this.allAvailableTertiaryColors.addAll(colorSet);
+		this.allAvailableTertiaryColors.sort((c1, c2) -> c1.compareTo(c2));
 	}
 
 	@SuppressWarnings("rawtypes")
 	private static void printHelpfulErrorForEnumValueMismatches(Exception ex) {
 		Map<Class, Object[]> possibleEnumValues = new HashMap<>();
-		possibleEnumValues.put(ColourListPresets.class, ColourListPresets.values());
+		possibleEnumValues.put(ColorListPresets.class, ColorListPresets.values());
 		String exMessage = ex.getMessage();
 		if (exMessage.startsWith("No enum constant")){
 			for (Map.Entry<Class, Object[]> possibleMatch : possibleEnumValues.entrySet()) {
@@ -657,104 +657,104 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	}
 	
 
-	public static AbstractClothing generateClothing(String clothingTypeId, Colour primaryColour, Colour secondaryColour, Colour tertiaryColour, boolean allowRandomEnchantment) {
-		return AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), primaryColour, secondaryColour, tertiaryColour, allowRandomEnchantment);
+	public static AbstractClothing generateClothing(String clothingTypeId, Color primaryColor, Color secondaryColor, Color tertiaryColor, boolean allowRandomEnchantment) {
+		return AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), primaryColor, secondaryColor, tertiaryColor, allowRandomEnchantment);
 	}
 	
-	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Colour primaryColour, Colour secondaryColour, Colour tertiaryColour, boolean allowRandomEnchantment) {
-		Colour c1 = primaryColour;
-		Colour c2 = secondaryColour;
-		Colour c3 = tertiaryColour;
+	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Color primaryColor, Color secondaryColor, Color tertiaryColor, boolean allowRandomEnchantment) {
+		Color c1 = primaryColor;
+		Color c2 = secondaryColor;
+		Color c3 = tertiaryColor;
 
-		if (clothingType.getAllAvailablePrimaryColours() != null) {
-			if (!clothingType.getAllAvailablePrimaryColours().contains(primaryColour)) {
-				c1 = clothingType.getAllAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAllAvailablePrimaryColours().size()));
+		if (clothingType.getAllAvailablePrimaryColors() != null) {
+			if (!clothingType.getAllAvailablePrimaryColors().contains(primaryColor)) {
+				c1 = clothingType.getAllAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAllAvailablePrimaryColors().size()));
 			}
 		}
 		
-		if (secondaryColour == null) {
-			if(clothingType.getAvailableSecondaryColours().isEmpty()) {
-				c2 = Colour.CLOTHING_BLACK;
+		if (secondaryColor == null) {
+			if(clothingType.getAvailableSecondaryColors().isEmpty()) {
+				c2 = Color.CLOTHING_BLACK;
 			} else {
-				c2 = clothingType.getAvailableSecondaryColours().get(Util.random.nextInt(clothingType.getAvailableSecondaryColours().size()));
+				c2 = clothingType.getAvailableSecondaryColors().get(Util.random.nextInt(clothingType.getAvailableSecondaryColors().size()));
 			}
-		} else if(!clothingType.getAllAvailableSecondaryColours().contains(secondaryColour)) {
-			if(clothingType.getAllAvailableSecondaryColours().isEmpty()) {
-				c2 = Colour.CLOTHING_BLACK;
+		} else if(!clothingType.getAllAvailableSecondaryColors().contains(secondaryColor)) {
+			if(clothingType.getAllAvailableSecondaryColors().isEmpty()) {
+				c2 = Color.CLOTHING_BLACK;
 			} else {
-				c2 = clothingType.getAllAvailableSecondaryColours().get(Util.random.nextInt(clothingType.getAllAvailableSecondaryColours().size()));
+				c2 = clothingType.getAllAvailableSecondaryColors().get(Util.random.nextInt(clothingType.getAllAvailableSecondaryColors().size()));
 			}
 		}
 		
-		if (tertiaryColour == null) {
-			if(clothingType.getAvailableTertiaryColours().isEmpty()) {
-				c3 = Colour.CLOTHING_BLACK;
+		if (tertiaryColor == null) {
+			if(clothingType.getAvailableTertiaryColors().isEmpty()) {
+				c3 = Color.CLOTHING_BLACK;
 			} else {
-				c3 = clothingType.getAvailableTertiaryColours().get(Util.random.nextInt(clothingType.getAvailableTertiaryColours().size()));
+				c3 = clothingType.getAvailableTertiaryColors().get(Util.random.nextInt(clothingType.getAvailableTertiaryColors().size()));
 			}
 			
-		} else if(!clothingType.getAllAvailableTertiaryColours().contains(tertiaryColour)) {
-			if(clothingType.getAllAvailableTertiaryColours().isEmpty()) {
-				c3 = Colour.CLOTHING_BLACK;
+		} else if(!clothingType.getAllAvailableTertiaryColors().contains(tertiaryColor)) {
+			if(clothingType.getAllAvailableTertiaryColors().isEmpty()) {
+				c3 = Color.CLOTHING_BLACK;
 			} else {
-				c3 = clothingType.getAllAvailableTertiaryColours().get(Util.random.nextInt(clothingType.getAllAvailableTertiaryColours().size()));
+				c3 = clothingType.getAllAvailableTertiaryColors().get(Util.random.nextInt(clothingType.getAllAvailableTertiaryColors().size()));
 			}
 		}
 		
 		return new AbstractClothing(clothingType, c1, c2, c3, allowRandomEnchantment) {};
 	}
 
-	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Colour colourShade, boolean allowRandomEnchantment) {
-		return AbstractClothingType.generateClothing(clothingType, colourShade, null, null, allowRandomEnchantment);
+	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Color colorShade, boolean allowRandomEnchantment) {
+		return AbstractClothingType.generateClothing(clothingType, colorShade, null, null, allowRandomEnchantment);
 	}
 
-	public static AbstractClothing generateClothing(String clothingTypeId, Colour colourShade, boolean allowRandomEnchantment) {
-		return AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), colourShade, null, null, allowRandomEnchantment);
+	public static AbstractClothing generateClothing(String clothingTypeId, Color colorShade, boolean allowRandomEnchantment) {
+		return AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), colorShade, null, null, allowRandomEnchantment);
 	}
 
-	/** Allows random enchantment. Uses random colour.*/
+	/** Allows random enchantment. Uses random color.*/
 	public static AbstractClothing generateClothing(AbstractClothingType clothingType) {
-		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAvailablePrimaryColours().size())), true);
+		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())), true);
 	}
 
-	/** Uses random colour.*/
+	/** Uses random color.*/
 	public static AbstractClothing generateClothing(AbstractClothingType clothingType, boolean allowRandomEnchantment) {
-		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAvailablePrimaryColours().size())), allowRandomEnchantment);
+		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())), allowRandomEnchantment);
 	}
 
-	/** Uses random colour.*/
+	/** Uses random color.*/
 	public static AbstractClothing generateClothing(String clothingTypeId, boolean allowRandomEnchantment) {
 		AbstractClothingType type = ClothingType.getClothingTypeFromId(clothingTypeId);
-		return AbstractClothingType.generateClothing(type, type.getAvailablePrimaryColours().get(Util.random.nextInt(type.getAvailablePrimaryColours().size())), allowRandomEnchantment);
+		return AbstractClothingType.generateClothing(type, type.getAvailablePrimaryColors().get(Util.random.nextInt(type.getAvailablePrimaryColors().size())), allowRandomEnchantment);
 	}
 	
 	/**
 	 * Generates clothing with the provided enchantments.
 	 */
-	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Colour primaryColour, Colour secondaryColour, Colour tertiaryColour, List<ItemEffect> effects) {
-		Colour c1 = primaryColour;
-		Colour c2 = secondaryColour;
-		Colour c3 = tertiaryColour;
+	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Color primaryColor, Color secondaryColor, Color tertiaryColor, List<ItemEffect> effects) {
+		Color c1 = primaryColor;
+		Color c2 = secondaryColor;
+		Color c3 = tertiaryColor;
 
-		if (clothingType.getAllAvailablePrimaryColours() != null) {
-			if (!clothingType.getAllAvailablePrimaryColours().contains(primaryColour)) {
-				c1 = clothingType.getAllAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAllAvailablePrimaryColours().size()));
+		if (clothingType.getAllAvailablePrimaryColors() != null) {
+			if (!clothingType.getAllAvailablePrimaryColors().contains(primaryColor)) {
+				c1 = clothingType.getAllAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAllAvailablePrimaryColors().size()));
 			}
 		}
 		
-		if (secondaryColour == null || !clothingType.getAllAvailableSecondaryColours().contains(secondaryColour)) {
-			if(clothingType.getAvailableSecondaryColours().isEmpty()) {
-				c2 = Colour.CLOTHING_BLACK;
+		if (secondaryColor == null || !clothingType.getAllAvailableSecondaryColors().contains(secondaryColor)) {
+			if(clothingType.getAvailableSecondaryColors().isEmpty()) {
+				c2 = Color.CLOTHING_BLACK;
 			} else {
-				c2 = clothingType.getAvailableSecondaryColours().get(Util.random.nextInt(clothingType.getAvailableSecondaryColours().size()));
+				c2 = clothingType.getAvailableSecondaryColors().get(Util.random.nextInt(clothingType.getAvailableSecondaryColors().size()));
 			}
 		}
 		
-		if (tertiaryColour == null || !clothingType.getAllAvailableTertiaryColours().contains(tertiaryColour)) {
-			if(clothingType.getAvailableTertiaryColours().isEmpty()) {
-				c3 = Colour.CLOTHING_BLACK;
+		if (tertiaryColor == null || !clothingType.getAllAvailableTertiaryColors().contains(tertiaryColor)) {
+			if(clothingType.getAvailableTertiaryColors().isEmpty()) {
+				c3 = Color.CLOTHING_BLACK;
 			} else {
-				c3 = clothingType.getAvailableTertiaryColours().get(Util.random.nextInt(clothingType.getAvailableTertiaryColours().size()));
+				c3 = clothingType.getAvailableTertiaryColors().get(Util.random.nextInt(clothingType.getAvailableTertiaryColors().size()));
 			}
 		}
 		
@@ -764,51 +764,51 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	/**
 	 * Generates clothing with the provided enchantments.
 	 */
-	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Colour colour, List<ItemEffect> effects) {
-		return generateClothing(clothingType, colour, null, null, effects);
+	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Color color, List<ItemEffect> effects) {
+		return generateClothing(clothingType, color, null, null, effects);
 	}
 	
-	public static AbstractClothing generateClothing(String clothingTypeId, Colour colour, List<ItemEffect> effects) {
-		return generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), colour, null, null, effects);
+	public static AbstractClothing generateClothing(String clothingTypeId, Color color, List<ItemEffect> effects) {
+		return generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), color, null, null, effects);
 	}
 	
 	/**
-	 * Uses random colour.
+	 * Uses random color.
 	 */
 	public static AbstractClothing generateClothing(AbstractClothingType clothingType, List<ItemEffect> effects) {
-		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAvailablePrimaryColours().size())), effects);
+		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())), effects);
 	}
 	
 	/**
 	 * Generates clothing with a random enchantment.
 	 */
-	public static AbstractClothing generateClothingWithEnchantment(AbstractClothingType clothingType, Colour colour) {
+	public static AbstractClothing generateClothingWithEnchantment(AbstractClothingType clothingType, Color color) {
 		List<ItemEffect> effects = new ArrayList<>();
 
 		TFModifier rndMod = TFModifier.getClothingAttributeList().get(Util.random.nextInt(TFModifier.getClothingAttributeList().size()));
 		effects.add(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, rndMod, TFPotency.getRandomWeightedPositivePotency(), 0));
 		
-		return generateClothing(clothingType, colour, effects);
+		return generateClothing(clothingType, color, effects);
 	}
 	
 	/**
-	 * Uses random colour.
+	 * Uses random color.
 	 */
 	public static AbstractClothing generateClothingWithEnchantment(AbstractClothingType clothingType) {
-		return AbstractClothingType.generateClothingWithEnchantment(clothingType, clothingType.getAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAvailablePrimaryColours().size())));
+		return AbstractClothingType.generateClothingWithEnchantment(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())));
 	}
 
-	public static AbstractClothing generateClothingWithNegativeEnchantment(AbstractClothingType clothingType, Colour colour) {
+	public static AbstractClothing generateClothingWithNegativeEnchantment(AbstractClothingType clothingType, Color color) {
 		List<ItemEffect> effects = new ArrayList<>();
 
 		TFModifier rndMod = TFModifier.getClothingAttributeList().get(Util.random.nextInt(TFModifier.getClothingAttributeList().size()));
 		effects.add(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, rndMod, TFPotency.getRandomWeightedNegativePotency(), 0));
 		
-		return generateClothing(clothingType, colour, effects);
+		return generateClothing(clothingType, color, effects);
 	}
 	
 	public static AbstractClothing generateClothingWithNegativeEnchantment(AbstractClothingType clothingType) {
-		return AbstractClothingType.generateClothingWithNegativeEnchantment(clothingType, clothingType.getAvailablePrimaryColours().get(Util.random.nextInt(clothingType.getAvailablePrimaryColours().size())));
+		return AbstractClothingType.generateClothingWithNegativeEnchantment(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())));
 	}
 	
 	public static AbstractClothing generateRareClothing(AbstractClothingType type) {
@@ -825,7 +825,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		
 		return AbstractClothingType.generateClothing(
 				type,
-				type.getAvailablePrimaryColours().get(Util.random.nextInt(type.getAvailablePrimaryColours().size())),
+				type.getAvailablePrimaryColors().get(Util.random.nextInt(type.getAvailablePrimaryColors().size())),
 				effects);
 	}
 	
@@ -1689,170 +1689,170 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		return clothingSet;
 	}
 
-	public List<Colour> getAvailablePrimaryColours() {
-		return availablePrimaryColours;
+	public List<Color> getAvailablePrimaryColors() {
+		return availablePrimaryColors;
 	}
 	
-	public List<Colour> getAvailablePrimaryDyeColours() {
-		return availablePrimaryDyeColours;
+	public List<Color> getAvailablePrimaryDyeColors() {
+		return availablePrimaryDyeColors;
 	}
 	
-	public List<Colour> getAllAvailablePrimaryColours() {
-		return allAvailablePrimaryColours;
+	public List<Color> getAllAvailablePrimaryColors() {
+		return allAvailablePrimaryColors;
 	}
 
-	public List<Colour> getAvailableSecondaryColours() {
-		return availableSecondaryColours;
+	public List<Color> getAvailableSecondaryColors() {
+		return availableSecondaryColors;
 	}
 
-	public List<Colour> getAvailableSecondaryDyeColours() {
-		return availableSecondaryDyeColours;
+	public List<Color> getAvailableSecondaryDyeColors() {
+		return availableSecondaryDyeColors;
 	}
 	
-	public List<Colour> getAllAvailableSecondaryColours() {
-		return allAvailableSecondaryColours;
+	public List<Color> getAllAvailableSecondaryColors() {
+		return allAvailableSecondaryColors;
 	}
 	
-	public List<Colour> getAvailableTertiaryColours() {
-		return availableTertiaryColours;
+	public List<Color> getAvailableTertiaryColors() {
+		return availableTertiaryColors;
 	}
 
-	public List<Colour> getAvailableTertiaryDyeColours() {
-		return availableTertiaryDyeColours;
+	public List<Color> getAvailableTertiaryDyeColors() {
+		return availableTertiaryDyeColors;
 	}
 	
-	public List<Colour> getAllAvailableTertiaryColours() {
-		return allAvailableTertiaryColours;
+	public List<Color> getAllAvailableTertiaryColors() {
+		return allAvailableTertiaryColors;
 	}
 	
-//	public Map<Colour, String> getSVGStringMap() {
+//	public Map<Color, String> getSVGStringMap() {
 //		return SVGStringMap;
 //	}
 //	
-//	public Map<Colour, String> getSVGStringEquippedMap() {
+//	public Map<Color, String> getSVGStringEquippedMap() {
 //		return SVGStringEquippedMap;
 //	}
 	
-	private void addSVGStringMapping(Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColourPrimary, Colour patternColourSecondary, Colour patternColourTertiary, String s) {
+	private void addSVGStringMapping(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary, String s) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
 		}
 		
-		initMapIfAbsent(SVGStringMap, colour, colourSecondary, colourTertiary, pattern, patternColourPrimary, patternColourSecondary, patternColourTertiary);
+		initMapIfAbsent(SVGStringMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
 		
-		SVGStringMap.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).get(patternColourPrimary).get(patternColourSecondary).put(patternColourTertiary, s);
+		SVGStringMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).put(patternColorTertiary, s);
 	}
 	
-	private void initMapIfAbsent(Map<Colour, Map<Colour, Map<Colour, Map<String, Map<Colour, Map<Colour, Map<Colour, String>>>>>>> map, 
-			Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColourPrimary, Colour patternColourSecondary, Colour patternColourTertiary) {
+	private void initMapIfAbsent(Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> map, 
+			Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary) {
 		
-		map.putIfAbsent(colour, new HashMap<>());
-		map.get(colour).putIfAbsent(colourSecondary, new HashMap<>());
-		map.get(colour).get(colourSecondary).putIfAbsent(colourTertiary, new HashMap<>());
-		map.get(colour).get(colourSecondary).get(colourTertiary).putIfAbsent(pattern, new HashMap<>());
-		map.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).putIfAbsent(patternColourPrimary, new HashMap<>());
-		map.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).get(patternColourPrimary).putIfAbsent(patternColourSecondary, new HashMap<>());
+		map.putIfAbsent(color, new HashMap<>());
+		map.get(color).putIfAbsent(colorSecondary, new HashMap<>());
+		map.get(color).get(colorSecondary).putIfAbsent(colorTertiary, new HashMap<>());
+		map.get(color).get(colorSecondary).get(colorTertiary).putIfAbsent(pattern, new HashMap<>());
+		map.get(color).get(colorSecondary).get(colorTertiary).get(pattern).putIfAbsent(patternColorPrimary, new HashMap<>());
+		map.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).putIfAbsent(patternColorSecondary, new HashMap<>());
 	}
 	
-	private void addSVGStringEquippedMapping(Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColourPrimary, Colour patternColourSecondary, Colour patternColourTertiary, String s) {
+	private void addSVGStringEquippedMapping(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary, String s) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
 		}
 
-		initMapIfAbsent(SVGStringEquippedMap, colour, colourSecondary, colourTertiary, pattern, patternColourPrimary, patternColourSecondary, patternColourTertiary);
+		initMapIfAbsent(SVGStringEquippedMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
 		
-		SVGStringEquippedMap.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).get(patternColourPrimary).get(patternColourSecondary).put(patternColourTertiary, s);
+		SVGStringEquippedMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).put(patternColorTertiary, s);
 	}
 	
-	private String getSVGStringFromMap(Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColourPrimary, Colour patternColourSecondary, Colour patternColourTertiary) {
+	private String getSVGStringFromMap(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
 		}
-		initMapIfAbsent(SVGStringMap, colour, colourSecondary, colourTertiary, pattern, patternColourPrimary, patternColourSecondary, patternColourTertiary);
-		return SVGStringMap.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).get(patternColourPrimary).get(patternColourSecondary).get(patternColourTertiary);
+		initMapIfAbsent(SVGStringMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
+		return SVGStringMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).get(patternColorTertiary);
 	}
 	
-	private String getSVGStringFromEquippedMap(Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColourPrimary, Colour patternColourSecondary, Colour patternColourTertiary) {
+	private String getSVGStringFromEquippedMap(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
 		}
-		initMapIfAbsent(SVGStringEquippedMap, colour, colourSecondary, colourTertiary, pattern, patternColourPrimary, patternColourSecondary, patternColourTertiary);
-		return SVGStringEquippedMap.get(colour).get(colourSecondary).get(colourTertiary).get(pattern).get(patternColourPrimary).get(patternColourSecondary).get(patternColourTertiary);
+		initMapIfAbsent(SVGStringEquippedMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
+		return SVGStringEquippedMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).get(patternColorTertiary);
 	}
 
 	public String getSVGImage() {
-		Colour pColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailablePrimaryColours()!=null && !this.getAllAvailablePrimaryColours().isEmpty()) {
-			pColour = this.getAllAvailablePrimaryColours().get(0);
+		Color pColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailablePrimaryColors()!=null && !this.getAllAvailablePrimaryColors().isEmpty()) {
+			pColor = this.getAllAvailablePrimaryColors().get(0);
 		}
-		Colour sColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailableSecondaryColours()!=null && !this.getAllAvailableSecondaryColours().isEmpty()) {
-			sColour = this.getAllAvailableSecondaryColours().get(0);
+		Color sColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailableSecondaryColors()!=null && !this.getAllAvailableSecondaryColors().isEmpty()) {
+			sColor = this.getAllAvailableSecondaryColors().get(0);
 		}
-		Colour tColour = Colour.CLOTHING_BLACK;
-		if(this.getAllAvailableTertiaryColours()!=null && !this.getAllAvailableTertiaryColours().isEmpty()) {
-			tColour = this.getAllAvailableTertiaryColours().get(0);
+		Color tColor = Color.CLOTHING_BLACK;
+		if(this.getAllAvailableTertiaryColors()!=null && !this.getAllAvailableTertiaryColors().isEmpty()) {
+			tColor = this.getAllAvailableTertiaryColors().get(0);
 		}
 		
-		return getSVGImage(null, pColour, sColour, tColour, false, null, null, null, null);
+		return getSVGImage(null, pColor, sColor, tColor, false, null, null, null, null);
 	}
 	
 	/**
-	 * @param colour You need to pass a colour in here.
-	 * @param colourSecondary This can be null.
-	 * @param colourTertiary This can be null.
+	 * @param color You need to pass a color in here.
+	 * @param colorSecondary This can be null.
+	 * @param colorTertiary This can be null.
 	 */
-	public String getSVGImage(Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColour, Colour patternSecondaryColour, Colour patternTertiaryColour) {
-		return getSVGImage(null, colour, colourSecondary, colourTertiary, false, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
+	public String getSVGImage(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
+		return getSVGImage(null, color, colorSecondary, colorTertiary, false, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 	}
 	
 	/**
 	 * @param character The character this clothing is equipped to.
-	 * @param colour You need to pass a colour in here.
-	 * @param colourSecondary This can be null.
-	 * @param colourTertiary This can be null.
+	 * @param color You need to pass a color in here.
+	 * @param colorSecondary This can be null.
+	 * @param colorTertiary This can be null.
 	 */
-	public String getSVGEquippedImage(GameCharacter character, Colour colour, Colour colourSecondary, Colour colourTertiary, String pattern, Colour patternColour, Colour patternSecondaryColour, Colour patternTertiaryColour) {
-		return getSVGImage(character, colour, colourSecondary, colourTertiary, true, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
+	public String getSVGEquippedImage(GameCharacter character, Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
+		return getSVGImage(character, color, colorSecondary, colorTertiary, true, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 	}
 	
-	private String getSVGImage(GameCharacter character, Colour colour, Colour colourSecondary, Colour colourTertiary, boolean equippedVariant, String pattern, Colour patternColour, Colour patternSecondaryColour, Colour patternTertiaryColour) {
-		if (!allAvailablePrimaryColours.contains(colour)) {
+	private String getSVGImage(GameCharacter character, Color color, Color colorSecondary, Color colorTertiary, boolean equippedVariant, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
+		if (!allAvailablePrimaryColors.contains(color)) {
 			return "";
 		}
 		
 		if(this.equals(ClothingType.HIPS_CONDOMS)) {
-			if (getAllAvailablePrimaryColours().contains(colour)) {
+			if (getAllAvailablePrimaryColors().contains(color)) {
 				try {
 					InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_base_back.svg");
 					String s = "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>"+Util.inputStreamToString(is)+"</div>";
 					is.close();
-					s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
-					s = SvgUtil.colourReplacement(this.getId(), colour, colourSecondary, colourTertiary, s);
+					s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
+					s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 
 					if(!equippedVariant) {
 						is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_base_front.svg");
 						s += "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>" + Util.inputStreamToString(is) + "</div>";
-						s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
-						s = SvgUtil.colourReplacement(this.getId(), colour, colourSecondary, colourTertiary, s);
+						s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
+						s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 						is.close();
 						
-						addSVGStringEquippedMapping(colour, colourSecondary, colourTertiary, pattern, patternColour, patternSecondaryColour, patternTertiaryColour, s);
+						addSVGStringEquippedMapping(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor, s);
 						
 						return s;
 						
 					} else {
-						List<Colour> condomColours = new ArrayList<>();
+						List<Color> condomColors = new ArrayList<>();
 						// Draw all backs:
 						for(AbstractItem item : character.getAllItemsInInventory()) {
 							if(item.getItemType().equals(ItemType.CONDOM_USED)) {
-								if(condomColours.size()<8) {
-									condomColours.add(item.getColour());
+								if(condomColors.size()<8) {
+									condomColors.add(item.getColor());
 									
-									is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_"+condomColours.size()+"_back.svg");
+									is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_"+condomColors.size()+"_back.svg");
 									s += "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>" + Util.inputStreamToString(is) + "</div>";
-									s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
-									s = SvgUtil.colourReplacement(this.getId(), item.getColour(), null, null, s);
+									s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
+									s = SvgUtil.colorReplacement(this.getId(), item.getColor(), null, null, s);
 									is.close();
 								}
 							}
@@ -1861,16 +1861,16 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						is.close();
 						is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_base_front.svg");
 						s += "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>" + Util.inputStreamToString(is) + "</div>";
-						s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
-						s = SvgUtil.colourReplacement(this.getId(), colour, colourSecondary, colourTertiary, s);
+						s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
+						s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 						is.close();
 						
 						int i = 1;
-						for(Colour c : condomColours) {
+						for(Color c : condomColors) {
 							is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_"+i+"_front.svg");
 							s += "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>" + Util.inputStreamToString(is) + "</div>";
-							s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
-							s = SvgUtil.colourReplacement(this.getId(), c, null, null, s);
+							s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
+							s = SvgUtil.colorReplacement(this.getId(), c, null, null, s);
 							is.close();
 							i++;
 						}
@@ -1885,12 +1885,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			
 		} else {
 			if(equippedVariant && pathNameEquipped!=null) {
-				String stringFromMap = getSVGStringFromEquippedMap(colour, colourSecondary, colourTertiary, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
+				String stringFromMap = getSVGStringFromEquippedMap(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 				if (stringFromMap!=null && !this.equals(ClothingType.WRIST_WOMENS_WATCH) && !this.equals(ClothingType.WRIST_MENS_WATCH)) {
 					return stringFromMap;
 					
 				} else {
-					if (getAllAvailablePrimaryColours().contains(colour)) {
+					if (getAllAvailablePrimaryColors().contains(color)) {
 						try {
 							
 							InputStream is;
@@ -1908,9 +1908,9 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								is.close();
 							}
 							
-							s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
+							s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 							
-							s = SvgUtil.colourReplacement(this.getId(), colour, colourSecondary, colourTertiary, s);
+							s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 							
 							// Add minute and hour hands to women's and men's watches:
 							s += (this.equals(ClothingType.WRIST_WOMENS_WATCH)
@@ -1926,7 +1926,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 											+ "deg);'>" + SVGImages.SVG_IMAGE_PROVIDER.getMensWatchMinuteHand() + "</div>"
 										: "");
 
-							addSVGStringEquippedMapping(colour, colourSecondary, colourTertiary, pattern, patternColour, patternSecondaryColour, patternTertiaryColour, s);
+							addSVGStringEquippedMapping(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor, s);
 							
 							return s;
 						} catch (IOException e) {
@@ -1936,12 +1936,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				}
 				
 			} else {
-				String stringFromMap = getSVGStringFromMap(colour, colourSecondary, colourTertiary, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
+				String stringFromMap = getSVGStringFromMap(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 				if (stringFromMap!=null && !this.equals(ClothingType.WRIST_WOMENS_WATCH) && !this.equals(ClothingType.WRIST_MENS_WATCH)) {
 					return stringFromMap;
 					
 				} else {
-					if (getAllAvailablePrimaryColours().contains(colour)) {
+					if (getAllAvailablePrimaryColors().contains(color)) {
 						try {
 							
 							InputStream is;
@@ -1959,9 +1959,9 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								is.close();
 							}
 							
-							s = getSVGWithHandledPattern(s, pattern, patternColour, patternSecondaryColour, patternTertiaryColour);
+							s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 							
-							s = SvgUtil.colourReplacement(this.getId(), colour, colourSecondary, colourTertiary, s);
+							s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 							
 							// Add minute and hour hands to women's and men's watches:
 							s += (this.equals(ClothingType.WRIST_WOMENS_WATCH)
@@ -1977,7 +1977,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 											+ "deg);'>" + SVGImages.SVG_IMAGE_PROVIDER.getMensWatchMinuteHand() + "</div>"
 										: "");
 							
-							addSVGStringMapping(colour, colourSecondary, colourTertiary, pattern, patternColour, patternSecondaryColour, patternTertiaryColour, s);
+							addSVGStringMapping(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor, s);
 		
 							return s;
 						} catch (IOException e) {
@@ -1990,7 +1990,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		return "";
 	}
 	
-	private String getSVGWithHandledPattern(String s, String pattern, Colour patternColour, Colour patternSecondaryColour, Colour patternTertiaryColour) {
+	private String getSVGWithHandledPattern(String s, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
 		if(!s.contains("patternLayer")) { // Making sure that the pattern layer exists.
 			return s;
 		}
@@ -2049,7 +2049,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		// Loading pattern
 			String loadedPattern;
 		try {
-			loadedPattern = Pattern.getPattern(pattern).getSVGString(patternColour, patternSecondaryColour, patternTertiaryColour);
+			loadedPattern = Pattern.getPattern(pattern).getSVGString(patternColor, patternSecondaryColor, patternTertiaryColor);
 		} catch(Exception ex) {
 			System.err.println("Error in pattern loading method getSVGWithHandledPattern(). Clothing causing error: "+this.getName());
 			return s;

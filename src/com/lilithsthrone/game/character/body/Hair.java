@@ -66,9 +66,9 @@ public class Hair implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if (owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.hair] of [pc.a_hairRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.hair] of [pc.a_hairRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.hair] of [npc.a_hairRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.hair] of [npc.a_hairRace], so nothing happens...)]</p>");
 			}
 			
 		} else {
@@ -96,12 +96,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with human-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldHuman(human hair)]."
+								+ "You now have [pc.hairColor] [style.boldHuman(human hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with human-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldHuman(human hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldHuman(human hair)]."
 							+ "</p>");
 				}
 				break;
@@ -109,12 +109,12 @@ public class Hair implements BodyPartInterface {
 				if (!owner.isShortStature()) {
 					UtilText.transformationContentSB.append(
 							" The transformation only lasts a matter of moments, leaving [npc.herHim] with silky, demonic hair.<br/>"
-							+ "[npc.Name] now [npc.has] [npc.hairColour] [style.boldDemon(demonic hair)]."
+							+ "[npc.Name] now [npc.has] [npc.hairColor] [style.boldDemon(demonic hair)]."
 						+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 							" The transformation only lasts a matter of moments, leaving [npc.herHim] with silky, impish hair.<br/>"
-							+ "[npc.Name] now [npc.has] [npc.hairColour] [style.boldImp(impish hair)]."
+							+ "[npc.Name] now [npc.has] [npc.hairColor] [style.boldImp(impish hair)]."
 						+ "</p>");
 				}
 				break;
@@ -122,12 +122,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldDogMorph(canine hair)]."
+								+ "You now have [pc.hairColor] [style.boldDogMorph(canine hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldDogMorph(canine hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldDogMorph(canine hair)]."
 							+ "</p>");
 				}
 				break;
@@ -135,12 +135,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.</br>"
-								+ "You now have [pc.hairColour] [style.boldFoxMorph(vulpine hair)]."
+								+ "You now have [pc.hairColor] [style.boldFoxMorph(vulpine hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.</br>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldFoxMorph(vulpine hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldFoxMorph(vulpine hair)]."
 							+ "</p>");
 				}
 				break;
@@ -148,12 +148,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldWolfMorph(lupine hair)]."
+								+ "You now have [pc.hairColor] [style.boldWolfMorph(lupine hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldWolfMorph(lupine hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldWolfMorph(lupine hair)]."
 							+ "</p>");
 				}
 				break;
@@ -161,12 +161,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldCatMorph(feline hair)]."
+								+ "You now have [pc.hairColor] [style.boldCatMorph(feline hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldCatMorph(feline hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldCatMorph(feline hair)]."
 							+ "</p>");
 				}
 				break;
@@ -174,12 +174,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair and a bunch of fluff on the sides of your face. </br>"
-								+ "You now have [pc.hairColour] [style.boldCatMorph(feline hair)] with side fluff."
+								+ "You now have [pc.hairColor] [style.boldCatMorph(feline hair)] with side fluff."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair and a bunch of fluff on the sides of [npc.her] face.</br>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldCatMorph(feline hair)] with side fluff."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldCatMorph(feline hair)] with side fluff."
 							+ "</p>");
 				}
 				break;
@@ -187,12 +187,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldCowMorph(bovine hair)]."
+								+ "You now have [pc.hairColor] [style.boldCowMorph(bovine hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldCowMorph(bovine hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldCowMorph(bovine hair)]."
 							+ "</p>");
 				}
 				break;
@@ -200,12 +200,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with a mass of scales in place of hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldGatorMorph(scales in place of hair)]."
+								+ "You now have [pc.hairColor] [style.boldGatorMorph(scales in place of hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with a mass of scales in place of hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldGatorMorph(scales in place of hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldGatorMorph(scales in place of hair)]."
 							+ "</p>");
 				}
 				break;
@@ -213,12 +213,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with coarse, horse-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldHorseMorph(equine hair)]."
+								+ "You now have [pc.hairColor] [style.boldHorseMorph(equine hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with coarse, horse-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldHorseMorph(equine hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldHorseMorph(equine hair)]."
 							+ "</p>");
 				}
 				break;
@@ -226,12 +226,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with coarse, reindeer-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldReindeerMorph(rangiferine hair)]."
+								+ "You now have [pc.hairColor] [style.boldReindeerMorph(rangiferine hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with coarse, reindeer-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldReindeerMorph(rangiferine hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldReindeerMorph(rangiferine hair)]."
 							+ "</p>");
 				}
 				break;
@@ -239,12 +239,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldSquirrelMorph(squirrel-like hair)]."
+								+ "You now have [pc.hairColor] [style.boldSquirrelMorph(squirrel-like hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldSquirrelMorph(squirrel-like hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldSquirrelMorph(squirrel-like hair)]."
 							+ "</p>");
 				}
 				break;
@@ -252,12 +252,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldRatMorph(rat-like hair)]."
+								+ "You now have [pc.hairColor] [style.boldRatMorph(rat-like hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldRatMorph(rat-like hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldRatMorph(rat-like hair)]."
 							+ "</p>");
 				}
 				break;
@@ -265,12 +265,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldRabbitMorph(rabbit-like hair)]."
+								+ "You now have [pc.hairColor] [style.boldRabbitMorph(rabbit-like hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldRabbitMorph(rabbit-like hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldRabbitMorph(rabbit-like hair)]."
 							+ "</p>");
 				}
 				break;
@@ -278,12 +278,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with fur-like hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldBatMorph(bat-like hair)]."
+								+ "You now have [pc.hairColor] [style.boldBatMorph(bat-like hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with fur-like hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldBatMorph(bat-like hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldBatMorph(bat-like hair)]."
 							+ "</p>");
 				}
 				break;
@@ -291,12 +291,12 @@ public class Hair implements BodyPartInterface {
 				if (owner.isPlayer()) {
 					UtilText.transformationContentSB.append(
 								" The feeling goes away almost as quickly as it came, leaving you with a plume of feathers in place of hair.<br/>"
-								+ "You now have [pc.hairColour] [style.boldHarpy(harpy feathers in place of hair)]."
+								+ "You now have [pc.hairColor] [style.boldHarpy(harpy feathers in place of hair)]."
 							+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 								" The transformation only lasts a matter of moments, leaving [npc.herHim] with a plume of feathers in place of hair.<br/>"
-								+ "[npc.Name] now has [npc.hairColour] [style.boldHarpy(harpy feathers in place of hair)]."
+								+ "[npc.Name] now has [npc.hairColor] [style.boldHarpy(harpy feathers in place of hair)]."
 							+ "</p>");
 				}
 				break;
@@ -347,9 +347,9 @@ public class Hair implements BodyPartInterface {
 		
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The length of your [pc.hair] doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The length of your [pc.hair] doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The length of [npc.namePos] [npc.hair] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The length of [npc.namePos] [npc.hair] doesn't change...)]</p>");
 			}
 		} else if (sizeChange < 0) {
 			if(owner.isPlayer()) {

@@ -57,7 +57,7 @@ public class Properties {
 
 	public String lastSaveLocation = "";
 	public String lastQuickSaveName = "";
-	public String nameColour = "";
+	public String nameColor = "";
 	public String name = "";
 	public String race = "";
 	public String quest = "";
@@ -220,7 +220,7 @@ public class Properties {
 			Element previousSave = doc.createElement("previousSave");
 			properties.appendChild(previousSave);
 			createXMLElementWithValue(doc, previousSave, "location", lastSaveLocation);
-			createXMLElementWithValue(doc, previousSave, "nameColour", nameColour);
+			createXMLElementWithValue(doc, previousSave, "nameColor", nameColor);
 			createXMLElementWithValue(doc, previousSave, "name", name);
 			createXMLElementWithValue(doc, previousSave, "race", race);
 			createXMLElementWithValue(doc, previousSave, "quest", quest);
@@ -548,7 +548,7 @@ public class Properties {
 				NodeList nodes = doc.getElementsByTagName("previousSave");
 				Element element = (Element) nodes.item(0);
 				lastSaveLocation = ((Element)element.getElementsByTagName("location").item(0)).getAttribute("value");
-				nameColour = ((Element)element.getElementsByTagName("nameColour").item(0)).getAttribute("value");
+				nameColor = ((Element)element.getElementsByTagName("nameColor").item(0)).getAttribute("value");
 				name = ((Element)element.getElementsByTagName("name").item(0)).getAttribute("value");
 				race = ((Element)element.getElementsByTagName("race").item(0)).getAttribute("value");
 				quest = ((Element)element.getElementsByTagName("quest").item(0)).getAttribute("value");
@@ -970,7 +970,7 @@ public class Properties {
 
 	public boolean addRaceDiscovered(Subspecies subspecies) {
 		if(subspeciesDiscovered.add(subspecies)) {
-			Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(subspecies.getName(null), subspecies.getColour(null)), true);
+			Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(subspecies.getName(null), subspecies.getColor(null)), true);
 			setValue(PropertyValue.newRaceDiscovered, true);
 			return true;
 		}
@@ -984,7 +984,7 @@ public class Properties {
 	public boolean addAdvancedRaceKnowledge(Subspecies subspecies) {
 		boolean added = subspeciesAdvancedKnowledge.add(subspecies);
 		if(added) {
-			Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(subspecies.getName(null)+" (Advanced)", subspecies.getColour(null)), true);
+			Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(subspecies.getName(null)+" (Advanced)", subspecies.getColor(null)), true);
 		}
 		return added;
 	}

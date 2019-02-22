@@ -25,7 +25,7 @@ import com.lilithsthrone.game.inventory.CharacterInventory;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -69,10 +69,10 @@ public class Pazu extends NPC {
 		if(!isImported) {
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
-			this.setEyeCovering(new Covering(BodyCoveringType.EYE_HARPY, Colour.EYE_PINK));
-			this.setHairCovering(new Covering(BodyCoveringType.HAIR_HARPY, Colour.COVERING_LILAC), true);
-			this.setSkinCovering(new Covering(BodyCoveringType.FEATHERS, Colour.COVERING_LILAC), true);
-			this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Colour.SKIN_LIGHT), true);
+			this.setEyeCovering(new Covering(BodyCoveringType.EYE_HARPY, Color.EYE_PINK));
+			this.setHairCovering(new Covering(BodyCoveringType.HAIR_HARPY, Color.COVERING_LILAC), true);
+			this.setSkinCovering(new Covering(BodyCoveringType.FEATHERS, Color.COVERING_LILAC), true);
+			this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
 	
 			this.setAssVirgin(true);
 			this.setFaceVirgin(true);
@@ -92,7 +92,7 @@ public class Pazu extends NPC {
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_ORAL_GIVING);
 	
-			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_SHORTS, Colour.CLOTHING_WHITE, false), true, this);
+			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_SHORTS, Color.CLOTHING_WHITE, false), true, this);
 		}
 	}
 	
@@ -117,7 +117,7 @@ public class Pazu extends NPC {
 	}
 	
 	@Override
-	public String getSpeechColour() {
+	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			return "#7000FA";
 		} else {

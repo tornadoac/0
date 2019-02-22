@@ -30,7 +30,7 @@
 	<htmlContent tag="GYM_ENTRY"><![CDATA[
 	<p>
 		Pushing open the door, you step into the gym's lobby, where you're immediately greeted by an extremely energetic dog-girl.
-		 Her fur is black with white markings, which, in combination with her folded ears, makes her look very much like an anthropomorphised border-collie.
+		 Her fur is black with white markings, which, in combination with her folded ears, makes her look very much like an anthropomorphized border-collie.
 	</p>
 	<p>
 		[pix.speech(Heya! Hi! How're ya doin'!)]
@@ -431,7 +431,7 @@
 	
 	<htmlContent tag="GYM_PIX_ASSAULT_ACCEPT_PUNISHMENT"><![CDATA[
 	<p>
-		You don't want Pix to think that you've been avoiding her, and you turn your head to one side as you apologise,
+		You don't want Pix to think that you've been avoiding her, and you turn your head to one side as you apologize,
 		 [pc.speech(Sorry, Pix, I wasn't trying to avoid you, I just didn't see you anywhere nearby!)]
 	</p>
 	<p>
