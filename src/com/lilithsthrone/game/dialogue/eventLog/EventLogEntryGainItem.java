@@ -4,7 +4,7 @@ import com.lilithsthrone.game.inventory.AbstractCoreItem;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -17,11 +17,11 @@ public class EventLogEntryGainItem extends EventLogEntry {
 	public EventLogEntryGainItem(AbstractCoreItem item) {
 		super(Main.game.getMinutesPassed(),
 				(item instanceof AbstractItem?"Gained Item":(item instanceof AbstractClothing?"Gained Clothing":"Gained Weapon")),
-				"<span style='color:"+item.getRarity().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(item.getName())+"</span>");
+				"<span style='color:"+item.getRarity().getColor().toWebHexString()+";'>"+Util.capitalizeSentence(item.getName())+"</span>");
 	}
 	
 	@Override
 	public String getFormattedEntry() {
-		return "<span style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>"+name+"</span>: "+description;
+		return "<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>"+name+"</span>: "+description;
 	}
 }

@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.combat;
 
 import com.lilithsthrone.game.character.attributes.Attribute;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.2.1
@@ -20,10 +20,10 @@ public enum SpellSchool {
 			+ "</p>"
 			+ "<p>"
 				+ "A prerequisite to harnessing Earth spells is the ability to freely manipulate solid, non-organic matter."
-				+ " Easily learned by anyone possessing a demon-strength aura, and outlined in the introduction of all Earth spell books, this ability allows the practitioner to change the colour and material of any object."
+				+ " Easily learned by anyone possessing a demon-strength aura, and outlined in the introduction of all Earth spell books, this ability allows the practitioner to change the color and material of any object."
 			+ "</p>",
 			"Dye clothing without a dye-brush.",
-			Colour.BASE_BROWN),
+			Color.BASE_BROWN),
 
 	WATER("water",
 			"<p>"
@@ -31,13 +31,13 @@ public enum SpellSchool {
 			+ "</p>"
 			+ "<p>"
 				+ "As with all schools of the arcane, the vast majority of Water practitioners are demons, and mainly use their spells to assist with the maintenance of waterways, and to repair and install plumbing."
-				+ " Despite the lack of glamour, a student of Water can complete these tasks in a fraction of the time that it would take a regular person to do manually, allowing them to earn a considerable amount of money for their work."
+				+ " Despite the lack of glamor, a student of Water can complete these tasks in a fraction of the time that it would take a regular person to do manually, allowing them to earn a considerable amount of money for their work."
 			+ "</p>"
 			+ "<p>"
 				+ "Students of the school of Water are able to effortlessly manipulate all fluids, allowing them to enchant any fluid-related potions without needing to expend arcane essences."
 			+ "</p>",
 			"All fluid-related enchantments are free.",
-			Colour.BASE_AQUA),
+			Color.BASE_AQUA),
 	
 	AIR("air",
 			"<p>"
@@ -52,7 +52,7 @@ public enum SpellSchool {
 				+ "Students of the school of Air are able to effortlessly control the temperature of air around them, making sure that they're never too hot or too cold."
 			+ "</p>",
 			"Passive energy and arcane regeneration is doubled.",
-			Colour.BASE_BLUE_LIGHT),
+			Color.BASE_BLUE_LIGHT),
 	
 	FIRE("fire",
 			"<p>"
@@ -66,7 +66,7 @@ public enum SpellSchool {
 				+ "Students of the school of Fire are able to temporarily envelop their melee weapons in arcane fire, which grants them additional fire damage on every attack."
 			+ "</p>",
 			"All melee attacks deal an additional 2 "+Attribute.DAMAGE_FIRE.getName()+".",
-			Colour.BASE_ORANGE),
+			Color.BASE_ORANGE),
 
 	ARCANE("arcane",
 			"<p>"
@@ -74,25 +74,25 @@ public enum SpellSchool {
 			+ "</p>"
 			+ "<p>"
 				+ "As the only publicly-available spells are the ones associated with influencing lust, the school of Arcane is overlooked by most demons, as their physical charms are more than adequate on this front."
-				+ " The vast majority of the students of the school of Arcane can be found in the ranks of the cult of Lilith, who view this school as the one favoured by Lilith herself."
+				+ " The vast majority of the students of the school of Arcane can be found in the ranks of the cult of Lilith, who view this school as the one favored by Lilith herself."
 			+ "</p>"
 			+ "<p>"
 				+ "Once a prospective student has a basic grasp of Arcane spells, they will find that they're able to feel the ebb and flow of the arcane currents woven throughout the world,"
 					+ " and will be able to accurately predict when the next arcane storm will break."
 			+ "</p>",
 			"Know the exact time until the next arcane storm breaks.",
-			Colour.GENERIC_ARCANE);
+			Color.GENERIC_ARCANE);
 	
 	private String name;
 	private String description;
 	private String passiveBuff;
-	private Colour colour;
+	private Color color;
 	
-	private SpellSchool(String name, String description, String passiveBuff, Colour colour) {
+	private SpellSchool(String name, String description, String passiveBuff, Color color) {
 		this.name = name;
 		this.description = description;
 		this.passiveBuff = passiveBuff;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public String getName() {
@@ -107,8 +107,8 @@ public enum SpellSchool {
 		return passiveBuff;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 }

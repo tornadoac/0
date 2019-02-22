@@ -422,7 +422,7 @@ public class SexSlotBipeds {
 	public static final SexSlot BACK_TO_WALL_FACING_TARGET = new SexSlot(
 			"Pinning against wall",
 			"pinning against wall",
-			"Realising that [npc1.sheIs] about to reach [npc1.her] climax, [npc1.name] [npc1.verb(step)] forwards, letting out [npc1.a_moan+] as [npc1.she] [npc1.verb(press)] [npc2.name] back against the wall.",
+			"Realizing that [npc1.sheIs] about to reach [npc1.her] climax, [npc1.name] [npc1.verb(step)] forwards, letting out [npc1.a_moan+] as [npc1.she] [npc1.verb(press)] [npc2.name] back against the wall.",
 			true);
 
 

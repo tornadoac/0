@@ -5,16 +5,16 @@
 	
 	<htmlContent tag="COURTYARD"><![CDATA[
 	<p>
-		Separating the gateway from the fortress's wooden keep, there's a deserted courtyard, which has a very militarised feel to it. Numerous straw dummies are lined up in front of the far-side wall, with all but one missing a limb or two. 
+		Separating the gateway from the fortress's wooden keep, there's a deserted courtyard, which has a very militarized feel to it. Numerous straw dummies are lined up in front of the far-side wall, with all but one missing a limb or two. 
 		#IF pc.hasTraitActivated(PERK_OBSERVANT)
 		#THEN
-		 Thanks to your observant nature, you're able to pick up on the fact that the damage they've sustained looks to have been caused by a bladed weapon, and, lacking any obvious burn, freeze, or corrosive marks, you deduce that the one practising their sword-work has a blade that deals physical damage.
+		 Thanks to your observant nature, you're able to pick up on the fact that the damage they've sustained looks to have been caused by a bladed weapon, and, lacking any obvious burn, freeze, or corrosive marks, you deduce that the one practicing their sword-work has a blade that deals physical damage.
 		#ELSE
 		 You assume that the one who set up, and subsequently destroyed, these dummies must be the leader of this keep, who obviously is in possession of a bladed weapon.
 		#ENDIF
 	</p>
 	<p>
-		Over in one corner of the courtyard, a row of archery targets have been set up; their bright rings add a splash of colour to the otherwise drab and grey surroundings. Although there are no stray arrows in sight, the conspicuous burn marks scarring their surface inform you that they must, at one time, have seen regular use as a focal point for arcane archery practice.
+		Over in one corner of the courtyard, a row of archery targets have been set up; their bright rings add a splash of color to the otherwise drab and grey surroundings. Although there are no stray arrows in sight, the conspicuous burn marks scarring their surface inform you that they must, at one time, have seen regular use as a focal point for arcane archery practice.
 	</p>
 	<p>
 		In the opposite corner to these targets, sits the main keep. Being of significantly better construction than the perimeter wall, you find yourself thinking that the leader of this fortress must have put all of their construction efforts into making this structure as presentable as possible. With the framework made primarily out of dark wooden boards, and the areas in-between covered with very oriental-looking paper sheeting, this solitary building strongly reminds you of Japanese architecture. 
@@ -24,7 +24,7 @@
 	
 	<htmlContent tag="IMP_FORTRESS_FLY_EXIT"><![CDATA[
 	<p>
-		While the perimeter wall's hazardous construction prohibits anyone from climbing over it, there's nothing stopping you from utilising your ability to fly in order to get to the other side. Breaking out into a short sprint, you quickly launch yourself into the air, before flying over the defensive barrier and swooping back down to land on the floor of the cavern beyond.
+		While the perimeter wall's hazardous construction prohibits anyone from climbing over it, there's nothing stopping you from utilizing your ability to fly in order to get to the other side. Breaking out into a short sprint, you quickly launch yourself into the air, before flying over the defensive barrier and swooping back down to land on the floor of the cavern beyond.
 	</p>
 	]]>
 	</htmlContent>
@@ -79,13 +79,13 @@
 		Stepping up to the keep's paper doors, you're pleased to discover that there's no way to lock them, and, sliding them aside, you step forwards into the building. You see that the interior of the structure is one big open hall, with the polished, perfectly-level wooden flooring broken only by a series of dark, carved wooden beams which run around the edge of the room and hold up the ceiling. Numerous arcane-powered lanterns are fixed to these pillars, which cast a light golden glow over the curious display in the middle of the room.
 	</p>
 	<p>
-		In the very centre of the hall, the four occupants of this fortress are gathered around a series of thick, upright bamboo poles, several of which have been sliced to pieces. While the three masculine alpha-imps are much the same as the guards at the gate, their leader is a muscular red-skinned incubus, who, apart from the white cloth wrapping around his hands and torso, is clad only in very oriental-looking, black, skirt-like leggings. Two red horns point out from his forehead, and as he turns to see who's entered his home, you see that his messy, black, shoulder-length hair is framing a very rugged, handsome face. As his yellow eyes lock on to yours, he swipes the dangerous-looking arcane katana in his hands to one side, before sheathing it in the decorative scabbard at his waist. Placing his hands on his hips, the incubus's huge pecs rise and fall as he booms, [npc.speech(What have we here, hmm?! A new challenger come to test [npc.namePos] mettle?!)]
+		In the very center of the hall, the four occupants of this fortress are gathered around a series of thick, upright bamboo poles, several of which have been sliced to pieces. While the three masculine alpha-imps are much the same as the guards at the gate, their leader is a muscular red-skinned incubus, who, apart from the white cloth wrapping around his hands and torso, is clad only in very oriental-looking, black, skirt-like leggings. Two red horns point out from his forehead, and as he turns to see who's entered his home, you see that his messy, black, shoulder-length hair is framing a very rugged, handsome face. As his yellow eyes lock on to yours, he swipes the dangerous-looking arcane katana in his hands to one side, before sheathing it in the decorative scabbard at his waist. Placing his hands on his hips, the incubus's huge pecs rise and fall as he booms, [npc.speech(What have we here, hmm?! A new challenger come to test [npc.namePos] mettle?!)]
 	</p>
 	<p>
-		As the incubus, who you now know is called [npc.name], says this, you notice that he has an additional, smaller sword fastened at his waist, and you realise that the sounds you heard while outside the keep were of this swordsman testing the power of his two blades on the unfortunate poles of bamboo standing behind him. Impatient to hear who you might be, [npc.name] doesn't give you enough time to answer, and quickly continues, [npc.speech(None who enter my dojo uninvited may be permitted to leave without being duly punished. Fifteen years have I spent training with the youkos of the Shinrin Highlands. You stand no chance against my katana and I. Submit to me!)]
+		As the incubus, who you now know is called [npc.name], says this, you notice that he has an additional, smaller sword fastened at his waist, and you realize that the sounds you heard while outside the keep were of this swordsman testing the power of his two blades on the unfortunate poles of bamboo standing behind him. Impatient to hear who you might be, [npc.name] doesn't give you enough time to answer, and quickly continues, [npc.speech(None who enter my dojo uninvited may be permitted to leave without being duly punished. Fifteen years have I spent training with the youkos of the Shinrin Highlands. You stand no chance against my katana and I. Submit to me!)]
 	</p>
 	<p>
-		As he says this, the incubus places one hand on the grip of the larger of his two swords, and readies himself for a fight. The three alpha-imps rush to back their leader up, and you realise that you only have a moment in which to either diffuse the situation, or ready yourself for combat...
+		As he says this, the incubus places one hand on the grip of the larger of his two swords, and readies himself for a fight. The three alpha-imps rush to back their leader up, and you realize that you only have a moment in which to either diffuse the situation, or ready yourself for combat...
 	</p>
 	]]>
 	</htmlContent>
@@ -95,10 +95,10 @@
 		Once again sliding the keep's paper doors aside, you step forwards into the building. The hall beyond appears much as it did the last time you were here, with the many pillar-mounted arcane lanterns casting a soft golden glow over both the polished, perfectly-level wooden flooring, as well as the bamboo 'test cutting' setup in the middle of the room.
 	</p>
 	<p>
-		In the very centre of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! You stand no chance against me!)]
+		In the very center of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! You stand no chance against me!)]
 	</p>
 	<p>
-		As he says this, the [npc.race] places one hand on the grip of the larger of his two swords, and readies himself for a fight. The three alpha-imps rush to back their leader up, and you realise that you only have a moment in which to either diffuse the situation, or ready yourself for combat...
+		As he says this, the [npc.race] places one hand on the grip of the larger of his two swords, and readies himself for a fight. The three alpha-imps rush to back their leader up, and you realize that you only have a moment in which to either diffuse the situation, or ready yourself for combat...
 	</p>
 	]]>
 	</htmlContent>
@@ -112,14 +112,14 @@
 	
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_BREEDING"><![CDATA[
 	<p>
-		In the very centre of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! And with a flat stomach! Good! I was just thinking that I need a break, so come over here and let me put some imps in that belly of yours!)]
+		In the very center of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! And with a flat stomach! Good! I was just thinking that I need a break, so come over here and let me put some imps in that belly of yours!)]
 	</p>
 	]]>
 	</htmlContent>
 	
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_IMPS"><![CDATA[
 	<p>
-		In the very centre of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! But it looks like you're not one to be bred... Damn! Well, I was just thinking that I need a break anyway, so come over here and entertain my imps while I rest!)]
+		In the very center of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! But it looks like you're not one to be bred... Damn! Well, I was just thinking that I need a break anyway, so come over here and entertain my imps while I rest!)]
 	</p>
 	]]>
 	</htmlContent>
@@ -171,10 +171,10 @@
 		The prospect of having to fight such a fearsome opponent is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
 	</p>
 	<p>
-		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] realises that you're not willing to face [npc.herHim] in combat. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(How dishonourable! The only way you're getting out of here now is by surrendering your womb to me!)]
+		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] realizes that you're not willing to face [npc.herHim] in combat. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(How dishonorable! The only way you're getting out of here now is by surrendering your womb to me!)]
 	</p>
 	<p>
-		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColour] eyes, before stuttering, [pc.speech(M-My womb?)]
+		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColor] eyes, before stuttering, [pc.speech(M-My womb?)]
 	</p>
 	<p>
 		[npc.speech(That's right!)] [npc.Name] bellows, before dropping to [npc.her] knees before you and firmly pushing you down onto your back. [npc.speech(For one such as you, the only suitable punishment is having your belly filled with imps!)]
@@ -190,10 +190,10 @@
 		The prospect of having to fight such a fearsome opponent is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
 	</p>
 	<p>
-		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] realises that you're not willing to face [npc.herHim] in combat. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(How dishonourable! The only way you're getting out of here now is by using your body to satisfy my guards!)]
+		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] realizes that you're not willing to face [npc.herHim] in combat. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(How dishonorable! The only way you're getting out of here now is by using your body to satisfy my guards!)]
 	</p>
 	<p>
-		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColour] eyes, before stuttering, [pc.speech(W-What?)]
+		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColor] eyes, before stuttering, [pc.speech(W-What?)]
 	</p>
 	<p>
 		[npc.speech(That's right!)] [npc.Name] bellows, before beckoning [npc.her] imps forwards. [npc.speech(I prefer to breed insolent trespassers, but as that's not possible with you, I'll just let my guards have some fun!)]
@@ -220,7 +220,7 @@
 		[pc.speech(Not particularly, but anything you and your flimsy swords can do, my [pc.mainWeapon] can do better,)] you reply, stepping up to the bamboo poles. [pc.speech(Which one's the hardest?)]
 	</p>
 	<p>
-		The [npc.race] points to a blackened bamboo pole at the far end of the dojo. Its sides have been scored with countless cuts and gashes, and you realise that [npc.name] has repeatedly tried, and failed, to slice through it with [npc.her] katana. [npc.speech(Your pathetic [pc.mainWeapon] is likely to shatter if you try cutting it! One of the eight-tailed youkos themselves enchanted it to be resistant to bladed weapons! If you even manage to make a mark, I'd be impressed! Not that it'd be enough to escape without a punishment! Hah!)]
+		The [npc.race] points to a blackened bamboo pole at the far end of the dojo. Its sides have been scored with countless cuts and gashes, and you realize that [npc.name] has repeatedly tried, and failed, to slice through it with [npc.her] katana. [npc.speech(Your pathetic [pc.mainWeapon] is likely to shatter if you try cutting it! One of the eight-tailed youkos themselves enchanted it to be resistant to bladed weapons! If you even manage to make a mark, I'd be impressed! Not that it'd be enough to escape without a punishment! Hah!)]
 	</p>
 	<p>
 		Walking up to the enchanted target, you notice a faint purple shimmer rippling across the blackened surface. Determined to show this [npc.race] how powerful you are, you raise your [pc.mainWeapon] and slice it down with full force into the bamboo pole. [pc.speech(Hyah!)]
@@ -242,7 +242,7 @@
 		[pc.speech(Not particularly, but anything you and your flimsy swords can do, my [pc.secondaryWeapon] can do better,)] you reply, stepping up to the bamboo poles. [pc.speech(Which one's the hardest?)]
 	</p>
 	<p>
-		The [npc.race] points to a blackened bamboo pole at the far end of the dojo. Its sides have been scored with countless cuts and gashes, and you realise that [npc.name] has repeatedly tried, and failed, to slice through it with [npc.her] katana. [npc.speech(Your pathetic [pc.secondaryWeapon] is likely to shatter if you try cutting it! One of the eight-tailed youkos themselves enchanted it to be resistant to bladed weapons! If you even manage to make a mark, I'd be impressed! Not that it'd be enough to escape without a punishment! Hah!)]
+		The [npc.race] points to a blackened bamboo pole at the far end of the dojo. Its sides have been scored with countless cuts and gashes, and you realize that [npc.name] has repeatedly tried, and failed, to slice through it with [npc.her] katana. [npc.speech(Your pathetic [pc.secondaryWeapon] is likely to shatter if you try cutting it! One of the eight-tailed youkos themselves enchanted it to be resistant to bladed weapons! If you even manage to make a mark, I'd be impressed! Not that it'd be enough to escape without a punishment! Hah!)]
 	</p>
 	<p>
 		Walking up to the enchanted target, you notice a faint purple shimmer rippling across the blackened surface. Determined to show this [npc.race] how powerful you are, you raise your [pc.secondaryWeapon] and slice it down with full force into the bamboo pole. [pc.speech(Hyah!)]
@@ -270,7 +270,7 @@
 		[pc.speech(I see. So you're just following orders, huh?)] you ask, the tone of your voice making it clear that you don't approve of such an excuse.
 	</p>
 	<p>
-		[npc.speech(Well, I was, until now. If I give you one of the keys needed to get inside that place, you'll agree to let me leave with my honour intact. Deal?)] [npc.name] offers, reaching into a hidden pocket of [npc.her] hakama and producing a thick steel key, which, despite its considerable girth, is no more than five inches in length. Throwing it to you, [npc.name] continues, [npc.speech(There's no need for us to fight. You've already proven you're a foe beyond my level.)]
+		[npc.speech(Well, I was, until now. If I give you one of the keys needed to get inside that place, you'll agree to let me leave with my honor intact. Deal?)] [npc.name] offers, reaching into a hidden pocket of [npc.her] hakama and producing a thick steel key, which, despite its considerable girth, is no more than five inches in length. Throwing it to you, [npc.name] continues, [npc.speech(There's no need for us to fight. You've already proven you're a foe beyond my level.)]
 	</p>
 	<p>
 		You don't believe for one moment that [npc.name] intends to leave and never return, and you doubt that even beating [npc.herHim] in combat would change that...
@@ -305,7 +305,7 @@
 		[npc.speech(The Dark Siren will return... )] [npc.name] stutters, [npc.her] voice lowering to the volume of a regular person for the first time since you entered [npc.her] dojo. [npc.speech(S-So I need to carry out her last orders!)]
 	</p>
 	<p>
-		[pc.speech(You do realise that she's under lock and key in Lyssieth's palace, right?)] you ask.
+		[pc.speech(You do realize that she's under lock and key in Lyssieth's palace, right?)] you ask.
 	</p>
 	<p>
 		[npc.speech(That doesn't matter. She'll find a way to escape,)] [npc.name] says. [npc.speech(But until [npc.she] does, I'll leave this place. Just let me go, and we can avoid a fight.)]
@@ -324,7 +324,7 @@
 		Letting out a dismissive grunt, [npc.name] beckons for [npc.her] imps to follow [npc.herHim] as [npc.she] retreats out through the sliding doors and disappears off into Submission.
 	</p>
 	<p>
-		Despite its impressive construction, you quickly realise that [npc.namePos] dojo has absolutely nothing of value in it, so, with nothing more to do, you prepare to move off and continue on your way...
+		Despite its impressive construction, you quickly realize that [npc.namePos] dojo has absolutely nothing of value in it, so, with nothing more to do, you prepare to move off and continue on your way...
 	</p>
 	]]>
 	</htmlContent>
@@ -378,7 +378,7 @@
 		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] hears your reply. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(Excellent! Now surrender your womb to me!)]
 	</p>
 	<p>
-		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColour] eyes, before answering, [pc.speech(Yes... I'll be the mother to your imps...)]
+		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColor] eyes, before answering, [pc.speech(Yes... I'll be the mother to your imps...)]
 	</p>
 	<p>
 		[npc.speech(That's what I like to hear!)] [npc.Name] bellows, before dropping to [npc.her] knees before you and firmly pushing you down onto your back. [npc.speech(Now, let's get started!)]
@@ -397,7 +397,7 @@
 		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] hears your reply. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(Excellent! Now make sure to satisfy all three of them!)]
 	</p>
 	<p>
-		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColour] eyes, before sighing, [pc.speech(I will...)]
+		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColor] eyes, before sighing, [pc.speech(I will...)]
 	</p>
 	<p>
 		[npc.speech(That's what I like to hear!)] [npc.Name] bellows, before beckoning [npc.her] imps forwards. [npc.speech(Come on, it's not every day I let you three have fun like this!)]
@@ -418,7 +418,7 @@
 		[npc.speech(Good enough, I suppose,)] [npc.name] says, smirking down at you as you pant and sigh on the floor. [npc.speech(A deal's a deal, and I'm sure our boss won't mind meeting someone as submissive as you.)]
 	</p>
 	<p>
-		Pushing yourself back up onto your [pc.feet], you start to get your things in order as [npc.name] continues, [npc.speech(This key is one of three that you need in order to gain access to the stone citadel in the middle of Submission's tunnels. That's where our 'Dark Siren' rules from, if you hadn't already figured it out. The other keys you should be able to get from our other fortresses. Oh, and pay her the proper respect when you meet her. She's a recognised daughter of Lyssieth herself, and if you step out of line, she'll have you locked up and being fucked by her imps before you know what's happening.)]
+		Pushing yourself back up onto your [pc.feet], you start to get your things in order as [npc.name] continues, [npc.speech(This key is one of three that you need in order to gain access to the stone citadel in the middle of Submission's tunnels. That's where our 'Dark Siren' rules from, if you hadn't already figured it out. The other keys you should be able to get from our other fortresses. Oh, and pay her the proper respect when you meet her. She's a recognized daughter of Lyssieth herself, and if you step out of line, she'll have you locked up and being fucked by her imps before you know what's happening.)]
 	</p>
 	<p>
 		Having finally got your belongings sorted out, you look up to see [npc.name] holding out a thick steel key, which, despite its considerable girth, is no more than five inches in length.
@@ -480,7 +480,7 @@
 		[npc.speech(The Dark Siren will return... )] [npc.name] pants. [npc.speech(So I need to carry out her last orders...)]
 	</p>
 	<p>
-		[pc.speech(You do realise that she's under lock and key in Lyssieth's palace, right?)] you ask.
+		[pc.speech(You do realize that she's under lock and key in Lyssieth's palace, right?)] you ask.
 	</p>
 	<p>
 		[npc.speech(That doesn't matter... She'll find a way to escape... Now please, let me go...)] [npc.name] begs. [npc.speech(I won't cause any more trouble!)]
@@ -545,19 +545,19 @@
 		Feeling sorry for [npc.name] and [npc.her] imps, you bend down next to [npc.herHim] and ask, [pc.speech(Are you ok? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not ok! Now help me up!)]
+		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not ok! Now help me up!)]
 	</p>
 	<p>
-		Submissively doing as you're told, you assist [npc.name] as [npc.she] pushes [npc.herself] to [npc.her] feet. Refusing to let go of your wrists, [npc.she] suddenly yanks you forwards, pressing you tightly against [npc.herHim] as [npc.she] growls, [npc.speech(So, how are you going to apologise for what you did?!)]
+		Submissively doing as you're told, you assist [npc.name] as [npc.she] pushes [npc.herself] to [npc.her] feet. Refusing to let go of your wrists, [npc.she] suddenly yanks you forwards, pressing you tightly against [npc.herHim] as [npc.she] growls, [npc.speech(So, how are you going to apologize for what you did?!)]
 	</p>
 	<p>
-		Being held so close to [npc.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the folds of [npc.namePos] hakama. Gulping at the sight of it, you look back up into the [npc.race]'s [npc.eyeColour] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the folds of [npc.namePos] hakama. Gulping at the sight of it, you look back up into the [npc.race]'s [npc.eyeColor] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc.speech(Now that's what I like to hear!)] [npc.Name] bellows, before reaching out to grab you by the shoulders. Before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(The only way to earn my forgiveness is by surrendering your womb to me!)]
 	</p>
 	<p>
-		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColour] eyes, before stuttering, [pc.speech(M-My womb?)]
+		As you're now in such a submissive position, all you can do is look up into the [npc.race]'s [npc.eyeColor] eyes, before stuttering, [pc.speech(M-My womb?)]
 	</p>
 	<p>
 		[npc.speech(That's right!)] [npc.Name] bellows, before dropping to [npc.her] knees before you and firmly pushing you down onto your back. [npc.speech(For one such as you, the only suitable punishment for what you've done is to have your belly filled with imps!)]
@@ -573,13 +573,13 @@
 		Feeling sorry for [npc.name] and [npc.her] imps, you bend down next to [npc.herHim] and ask, [pc.speech(Are you ok? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realises that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not ok! Now help me up!)]
+		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not ok! Now help me up!)]
 	</p>
 	<p>
-		Submissively doing as you're told, you assist [npc.name] as [npc.she] pushes [npc.herself] to [npc.her] feet. Refusing to let go of your wrists, [npc.she] suddenly yanks you forwards, pressing you tightly against [npc.herHim] as [npc.she] growls, [npc.speech(So, how are you going to apologise for what you did?!)]
+		Submissively doing as you're told, you assist [npc.name] as [npc.she] pushes [npc.herself] to [npc.her] feet. Refusing to let go of your wrists, [npc.she] suddenly yanks you forwards, pressing you tightly against [npc.herHim] as [npc.she] growls, [npc.speech(So, how are you going to apologize for what you did?!)]
 	</p>
 	<p>
-		Being held so close to [npc.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the folds of [npc.namePos] hakama. Gulping at the sight of it, you look back up into the [npc.race]'s [npc.eyeColour] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
+		Being held so close to [npc.her] body, you're able to suddenly feel something hard pressing against your [pc.leg], and you glance down to see the distinctive bulge of a fat cock pressing out against the folds of [npc.namePos] hakama. Gulping at the sight of it, you look back up into the [npc.race]'s [npc.eyeColor] eyes, before offering, [pc.speech(I-I could take care of that for you...)]
 	</p>
 	<p>
 		[npc.speech(I'm only interested in those I can impregnate!)] [npc.Name] bellows, before roughly shoving you down onto your back in front of [npc.herHim]. [npc.speech(No, if I can't fill your belly with imps, then I'm not interested. My guards, on the other hand...)]
@@ -620,7 +620,7 @@
 	
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX"><![CDATA[
 	<p>
-		Submissively allowing [npc.name] to spread your [pc.legs], you can't help but let out a small [pc.moan] as you realise that you're about to be bred by this strong, dominant [npc.race].
+		Submissively allowing [npc.name] to spread your [pc.legs], you can't help but let out a small [pc.moan] as you realize that you're about to be bred by this strong, dominant [npc.race].
 	</p>
 	<p>
 		[npc.speech(Eager to get knocked up, are you?)] [npc.name] laughs, before shuffling forwards and bumping [npc.her] bulge against your groin. [npc.speech(I'll have you know that my seed's extra virile, so you're all but guaranteed to get pregnant from this!)]
@@ -633,7 +633,7 @@
 	
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_EAGER"><![CDATA[
 	<p>
-		Submissively spreading your [pc.legs] for [npc.name], you can't help but let out a desperate [pc.moan] as you realise that you're about to be bred by this strong, dominant [npc.race]. [pc.speech(Oh, yes! Come on, breed me!)]
+		Submissively spreading your [pc.legs] for [npc.name], you can't help but let out a desperate [pc.moan] as you realize that you're about to be bred by this strong, dominant [npc.race]. [pc.speech(Oh, yes! Come on, breed me!)]
 	</p>
 	<p>
 		[npc.speech(My, my, so eager to get knocked up!)] [npc.name] laughs, before shuffling forwards and bumping [npc.her] bulge against your groin. [npc.speech(In that case, I'm sure you'll be pleased to hear that my seed's extra virile, so you're all but guaranteed to get pregnant from this!)]
@@ -646,7 +646,7 @@
 	
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_RESIST"><![CDATA[
 	<p>
-		You frantically try to close your [pc.legs], but [npc.name] is far too strong, and easily manages to force them open. Realising that you're about to be bred by this strong, dominant [npc.race], you let out a frantic scream, before trying to shuffle away from [npc.herHim].
+		You frantically try to close your [pc.legs], but [npc.name] is far too strong, and easily manages to force them open. Realizing that you're about to be bred by this strong, dominant [npc.race], you let out a frantic scream, before trying to shuffle away from [npc.herHim].
 	</p>
 	<p>
 		[npc.speech(Not liking the idea of being knocked up, eh?)] [npc.name] laughs, before shuffling forwards and bumping [npc.her] bulge against your groin. [npc.speech(Well, you should have thought about that before barging in here uninvited! I'll have you know that my seed's extra virile, so you're all but guaranteed to get pregnant from this!)]

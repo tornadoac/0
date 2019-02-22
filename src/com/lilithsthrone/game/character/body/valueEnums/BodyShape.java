@@ -32,7 +32,7 @@ public enum BodyShape {
 	SLENDER_LIGHTLY_MUSCLED("thin", BodySize.ONE_SLENDER, Muscle.ONE_LIGHTLY_MUSCLED, Util.newArrayListOfValues("slim", "slender")),
 	SLENDER_TONED("spry", BodySize.ONE_SLENDER, Muscle.TWO_TONED, Util.newArrayListOfValues("slim", "slender", "toned")),
 	SLENDER_MUSCULAR("lithe", BodySize.ONE_SLENDER, Muscle.THREE_MUSCULAR, Util.newArrayListOfValues("slim", "toned")),
-	SLENDER_RIPPED("aerobicised", BodySize.ONE_SLENDER, Muscle.FOUR_RIPPED, Util.newArrayListOfValues("slim", "toned")),
+	SLENDER_RIPPED("aerobicized", BodySize.ONE_SLENDER, Muscle.FOUR_RIPPED, Util.newArrayListOfValues("slim", "toned")),
 	
 	// BodySize == TWO_AVERAGE
 	AVERAGE_SOFT("chubby", BodySize.TWO_AVERAGE, Muscle.ZERO_SOFT, Util.newArrayListOfValues("chubby", "soft")),
@@ -93,10 +93,10 @@ public enum BodyShape {
 	}
 	
 	public Color getDerivedColor() {
-		return Util.midpointColor(relatedBodySize.getColour().getColor(), relatedMuscle.getColour().getColor());
+		return Util.midpointColor(relatedBodySize.getColor().getColor(), relatedMuscle.getColor().getColor());
 	}
 	
-	public String toWebHexStringColour() {
+	public String toWebHexStringColor() {
 		return Util.toWebHexString(getDerivedColor());
 	}
 

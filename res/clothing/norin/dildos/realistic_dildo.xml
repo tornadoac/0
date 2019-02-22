@@ -41,16 +41,16 @@
     
     <incompatibleSlots/> <!-- slot(s) not compatible -->
     
-    <!-- colourList presets: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColourListPresets.java -->
-    <!-- Colour values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/Colour.java -->
-    <primaryColours values="ALL"/>
-    <primaryColoursDye values="ALL"/>
-    <secondaryColours>
-      <colour>CLOTHING_BLACK</colour>
-    </secondaryColours>
-    <secondaryColoursDye values="ALL"/>
-    <tertiaryColours/>
-    <tertiaryColoursDye/>
+    <!-- colorList presets: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColorListPresets.java -->
+    <!-- Color values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/Color.java -->
+    <primaryColors values="ALL"/>
+    <primaryColorsDye values="ALL"/>
+    <secondaryColors>
+      <color>CLOTHING_BLACK</color>
+    </secondaryColors>
+    <secondaryColorsDye values="ALL"/>
+    <tertiaryColors/>
+    <tertiaryColorsDye/>
     
     <itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
       <tag>SOLD_BY_FINCH</tag>

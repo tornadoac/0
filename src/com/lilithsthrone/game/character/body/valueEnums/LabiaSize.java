@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -10,20 +10,20 @@ import com.lilithsthrone.utils.Util;
  */
 public enum LabiaSize {
 
-	ZERO_TINY(0, "tiny", Colour.GENERIC_SIZE_ONE),
-	ONE_SMALL(1, "small", Colour.GENERIC_SIZE_TWO),
-	TWO_AVERAGE(2, "average-sized", Colour.GENERIC_SIZE_THREE),
-	THREE_LARGE(3, "large", Colour.GENERIC_SIZE_FOUR),
-	FOUR_MASSIVE(4, "massive", Colour.GENERIC_SIZE_FIVE);
+	ZERO_TINY(0, "tiny", Color.GENERIC_SIZE_ONE),
+	ONE_SMALL(1, "small", Color.GENERIC_SIZE_TWO),
+	TWO_AVERAGE(2, "average-sized", Color.GENERIC_SIZE_THREE),
+	THREE_LARGE(3, "large", Color.GENERIC_SIZE_FOUR),
+	FOUR_MASSIVE(4, "massive", Color.GENERIC_SIZE_FIVE);
 	
 	private int value;
 	private String descriptor;
-	private Colour colour;
+	private Color color;
 
-	private LabiaSize(int value, String descriptor, Colour colour) {
+	private LabiaSize(int value, String descriptor, Color color) {
 		this.value = value;
 		this.descriptor = descriptor;
-		this.colour=colour;
+		this.color=color;
 	}
 
 	public int getValue() {
@@ -47,7 +47,7 @@ public enum LabiaSize {
 		return ZERO_TINY;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

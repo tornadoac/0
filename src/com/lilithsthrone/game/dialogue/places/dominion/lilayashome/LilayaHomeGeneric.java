@@ -31,8 +31,8 @@ import com.lilithsthrone.game.occupantManagement.SlavePermissionSetting;
 import com.lilithsthrone.game.sex.managers.dominion.SMRoseHands;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.BaseColour;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.BaseColor;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SizedStack;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -69,7 +69,7 @@ public class LilayaHomeGeneric {
 		@Override
 		public String getContent() {
 			return "<p>"
-						+ "Positioned near the very centre of Dominion, Lilaya's home would be more aptly described as a palace, rather than a town-house."
+						+ "Positioned near the very center of Dominion, Lilaya's home would be more aptly described as a palace, rather than a town-house."
 						+ " While the surrounding buildings are of an impressive size, you reckon that you could  fit at least two or three of them into the plot which your [lilaya.relation(pc)]'s dwelling occupies."
 					+ "</p>"
 					+ "<p>"
@@ -121,7 +121,7 @@ public class LilayaHomeGeneric {
 			
 			UtilText.nodeContentSB.append("<p>"
 						+ "The many corridors running through Lilaya's house are, while extremely impressive, all much of the same."
-						+ " Immaculately-clean red carpet runs down the centre of each one, while fine paintings and masterfully-carved marble busts line the walls."
+						+ " Immaculately-clean red carpet runs down the center of each one, while fine paintings and masterfully-carved marble busts line the walls."
 					+ "</p>"
 					+ "<p>"
 						+ (Main.game.isDayTime()
@@ -137,7 +137,7 @@ public class LilayaHomeGeneric {
 				for(NPC slave : charactersPresent) {
 					UtilText.nodeContentSB.append(UtilText.parse(slave,
 							"<p>"
-								+ "Having been assigned to work as a "+(SlaveJob.CLEANING.getName(slave))+", <b style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>[npc.name]</b> is present in this area."));
+								+ "Having been assigned to work as a "+(SlaveJob.CLEANING.getName(slave))+", <b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>[npc.name]</b> is present in this area."));
 					
 					if(slave.hasSlavePermissionSetting(SlavePermissionSetting.GENERAL_CRAWLING)) {
 						UtilText.nodeContentSB.append(UtilText.parse(slave,
@@ -253,7 +253,7 @@ public class LilayaHomeGeneric {
 			
 			if(index==3) {
 				if(room.isAutoSellMilk()) {
-					return new ResponseEffectsOnly("Milk: [style.colourGold(Selling)]", "Any milk that's collected in this room is being automatically sold.") {
+					return new ResponseEffectsOnly("Milk: [style.colorGold(Selling)]", "Any milk that's collected in this room is being automatically sold.") {
 						@Override
 						public void effects() {
 							room.setAutoSellMilk(false);
@@ -262,7 +262,7 @@ public class LilayaHomeGeneric {
 					};
 					
 				} else {
-					return new ResponseEffectsOnly("Milk: [style.colourOrange(Storing)]", "Any milk that's collected in this room is being stored.") {
+					return new ResponseEffectsOnly("Milk: [style.colorOrange(Storing)]", "Any milk that's collected in this room is being stored.") {
 						@Override
 						public void effects() {
 							room.setAutoSellMilk(true);
@@ -273,7 +273,7 @@ public class LilayaHomeGeneric {
 				
 			} else if(index==4) {
 				if(room.isAutoSellCum()) {
-					return new ResponseEffectsOnly("Cum: [style.colourGold(Selling)]", "Any cum that's collected in this room is being automatically sold.") {
+					return new ResponseEffectsOnly("Cum: [style.colorGold(Selling)]", "Any cum that's collected in this room is being automatically sold.") {
 						@Override
 						public void effects() {
 							room.setAutoSellCum(false);
@@ -282,7 +282,7 @@ public class LilayaHomeGeneric {
 					};
 					
 				} else {
-					return new ResponseEffectsOnly("Cum: [style.colourOrange(Storing)]", "Any cum that's collected in this room is being stored.") {
+					return new ResponseEffectsOnly("Cum: [style.colorOrange(Storing)]", "Any cum that's collected in this room is being stored.") {
 						@Override
 						public void effects() {
 							room.setAutoSellCum(true);
@@ -293,7 +293,7 @@ public class LilayaHomeGeneric {
 				
 			} else if(index==5) {
 				if(room.isAutoSellGirlcum()) {
-					return new ResponseEffectsOnly("Girlcum: [style.colourGold(Selling)]", "Any girlcum that's collected in this room is being automatically sold.") {
+					return new ResponseEffectsOnly("Girlcum: [style.colorGold(Selling)]", "Any girlcum that's collected in this room is being automatically sold.") {
 						@Override
 						public void effects() {
 							room.setAutoSellGirlcum(false);
@@ -302,7 +302,7 @@ public class LilayaHomeGeneric {
 					};
 					
 				} else {
-					return new ResponseEffectsOnly("Girlcum: [style.colourOrange(Storing)]", "Any girlcum that's collected in this room is being stored.") {
+					return new ResponseEffectsOnly("Girlcum: [style.colorOrange(Storing)]", "Any girlcum that's collected in this room is being stored.") {
 						@Override
 						public void effects() {
 							room.setAutoSellGirlcum(true);
@@ -381,7 +381,7 @@ public class LilayaHomeGeneric {
 								"<p>"
 									+ "Before you know it, an hour has passed, and, reaching over to flick the switch off, you unstrap yourself and stand up."
 								+ "</p>"
-								+ "<p style='text-align:center; color:"+Colour.MILK.toWebHexString()+";'>"
+								+ "<p style='text-align:center; color:"+Color.MILK.toWebHexString()+";'>"
 										+ milked+"ml of [pc.milk] added to this room's storage!"
 								+ "</p>");
 						}
@@ -462,7 +462,7 @@ public class LilayaHomeGeneric {
 								+ "<p>"
 									+ "Before you know it, an hour has passed, and, reaching over to flick the switch off, you unstrap yourself and stand up on shaking [pc.legs]."
 								+ "</p>"
-								+ "<p style='text-align:center; color:"+Colour.CUM.toWebHexString()+";'>"
+								+ "<p style='text-align:center; color:"+Color.CUM.toWebHexString()+";'>"
 										+ milked+"ml of [pc.cum] added to this room's storage!"
 								+ "</p>");
 						}
@@ -543,7 +543,7 @@ public class LilayaHomeGeneric {
 								+ "<p>"
 									+ "Before you know it, an hour has passed, and, reaching over to flick the switch off, you unstrap yourself and stand up on your still-quivering [pc.legs]."
 								+ "</p>"
-								+ "<p style='text-align:center; color:"+Colour.GIRLCUM.toWebHexString()+";'>"
+								+ "<p style='text-align:center; color:"+Color.GIRLCUM.toWebHexString()+";'>"
 									+ milked+"ml of [pc.girlcum] added to this room's storage!"
 								+ "</p>");
 						}
@@ -623,7 +623,7 @@ public class LilayaHomeGeneric {
 								"<p>"
 									+ "Before you know it, an hour has passed, and, reaching over to flick the switch off, you unstrap yourself and stand up."
 								+ "</p>"
-								+ "<p style='text-align:center; color:"+Colour.MILK.toWebHexString()+";'>"
+								+ "<p style='text-align:center; color:"+Color.MILK.toWebHexString()+";'>"
 										+ milked+"ml of [pc.crotchMilk] added to this room's storage!"
 								+ "</p>");
 						}
@@ -702,7 +702,7 @@ public class LilayaHomeGeneric {
 
 	private static String formatRoomUpgrade(PlaceUpgrade upgrade) {
 		return "<p>"
-				+ "<b style='color:"+upgrade.getColour().toWebHexString()+";'>"+upgrade.getName()+"</b><br/>"
+				+ "<b style='color:"+upgrade.getColor().toWebHexString()+";'>"+upgrade.getName()+"</b><br/>"
 				+ upgrade.getRoomDescription(Main.game.getPlayerCell())
 			+ "</p>";
 	}
@@ -950,7 +950,7 @@ public class LilayaHomeGeneric {
 					+ "<p>"
 						+ "Arthur falls into silence for a moment again, before shaking his head and looking up at you."
 						+ " [arthur.speech(Anyway, that's the whole reason for Lilaya living alone like this."
-							+ " You see, Lyssieth only has a few recognised children, and amongst them, Lilaya was clearly her favourite."
+							+ " You see, Lyssieth only has a few recognized children, and amongst them, Lilaya was clearly her favorite."
 							+ " When Lilaya told her mother that she never wanted to see her again, Lyssieth really took it hard."
 							+ " Although she'd been appointed by Lilith to govern the undercity of Submission, she'd never really taken her duties seriously before, but after all this, she retreated to her official residence down there."
 							+ " I don't think she's been seen up here in Dominion since....)]"
@@ -1065,7 +1065,7 @@ public class LilayaHomeGeneric {
 						+ " [arthur.speech(Of course, as you'd expect from a Lilin, she's practically dripping with sex appeal."
 							+ " She also has a thing for humans, which explains why most of her daughters are half-demons; if a Lilin's partner isn't corrupted into a demon before having sex, then their offspring end up like Lilaya."
 							+ " Not that that's a bad thing, of course, but society does typically treat half-demons as the lowest of all the demonic races."
-							+ " That is, of course, unless they've been recognised by their mother, like Lilaya...)]"
+							+ " That is, of course, unless they've been recognized by their mother, like Lilaya...)]"
 					+ "<p>"
 					+ "</p>"
 						+ "Arthur turns to one side to check on his experiment, making a satisfied humming noise before facing you once more and continuing,"
@@ -1141,7 +1141,7 @@ public class LilayaHomeGeneric {
 		@Override
 		public String getContent() {
 			return "<p>"
-						+ "The sight of the numerous arcane instruments and beakers of bubbling, brightly-coloured liquid that are scattered over every surface fills you with curiosity, and you can't help but ask,"
+						+ "The sight of the numerous arcane instruments and beakers of bubbling, brightly-colored liquid that are scattered over every surface fills you with curiosity, and you can't help but ask,"
 						+ " [pc.speech(What sort of experiments are you working on?"+((Main.game.getPlayer().getName().equals("Eru") && Main.game.getPlayer().getSurname().equals("Chitanda"))?" Watashi ki ni narimasu!":"")+")]"
 					+ "</p>"
 					+ "<p>"
@@ -1348,7 +1348,7 @@ public class LilayaHomeGeneric {
 							+ "</p>"
 							+ "<p>"
 								+ "Holding the watch by the chain in one hand, Lilaya reaches up with her other, and, with a little flash of lilac, enchants the watch as Arthur instructs."
-								+ " The swirling purple face slowly shifts into a light purple, and, instructed by Arthur to keep focused on the watch, you fix your gaze on the mesmerising surface as Lilaya starts slowly swaying it back and forth."
+								+ " The swirling purple face slowly shifts into a light purple, and, instructed by Arthur to keep focused on the watch, you fix your gaze on the mesmerizing surface as Lilaya starts slowly swaying it back and forth."
 								+ " You feel your head rocking from side to side in time with each swing, and, starting to feel quite light-headed, you begin to find it very hard to remember what it is you're doing..."
 							+ "</p>"
 							+ "<i><p>"
@@ -1371,7 +1371,7 @@ public class LilayaHomeGeneric {
 							+ "<p>"
 								+ "Holding the watch by the chain in one hand, Lilaya reaches up with her other, and, with a little flash of turquoise, enchants the watch as Arthur instructs."
 								+ " The swirling purple face slowly shifts into a deep shade of blue, and, instructed by Arthur to keep focused on the watch,"
-									+ " you fix your gaze on the mesmerising surface as Lilaya starts slowly swaying it back and forth."
+									+ " you fix your gaze on the mesmerizing surface as Lilaya starts slowly swaying it back and forth."
 								+ " You feel your head rocking from side to side in time with each swing, and, starting to feel quite light-headed, you begin to find it very hard to remember what it is you're doing..."
 							+ "</p>"
 							+ "<i><p>"
@@ -1397,7 +1397,7 @@ public class LilayaHomeGeneric {
 							+ "<p>"
 								+ "Holding the watch by the chain in one hand, Lilaya reaches up with her other, and, with a little flash of scarlet, enchants the watch as Arthur instructs."
 								+ " The swirling purple face slowly shifts into a deep shade of pink, and, instructed by Arthur to keep focused on the watch,"
-									+ " you fix your gaze on the mesmerising surface as Lilaya starts slowly swaying it back and forth."
+									+ " you fix your gaze on the mesmerizing surface as Lilaya starts slowly swaying it back and forth."
 								+ " You feel your head rocking from side to side in time with each swing, and, starting to feel quite light-headed, you begin to find it very hard to remember what it is you're doing..."
 							+ "</p>"
 							+ "<i><p>"
@@ -1589,7 +1589,7 @@ public class LilayaHomeGeneric {
 					+ "</p>"
 					+ "<p>"
 						+ "There's an open doorway set into one side of the room, and, looking through the opening, you see a series of fridges, freezers and larder units."
-						+ " Ingredients and foodstuffs of all shapes and sizes sit on open shelves, and you find yourself marvelling at the quantity and variety of supplies that are kept in stock."
+						+ " Ingredients and foodstuffs of all shapes and sizes sit on open shelves, and you find yourself marveling at the quantity and variety of supplies that are kept in stock."
 					+ "</p>");
 			
 			if(charactersPresent.isEmpty()) {
@@ -1600,7 +1600,7 @@ public class LilayaHomeGeneric {
 				for(NPC slave : charactersPresent) {
 					UtilText.nodeContentSB.append(UtilText.parse(slave,
 							"<p>"
-								+ "Having been assigned to work as a "+(SlaveJob.KITCHEN.getName(slave))+", <b style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>[npc.name]</b> is present in this area."));
+								+ "Having been assigned to work as a "+(SlaveJob.KITCHEN.getName(slave))+", <b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>[npc.name]</b> is present in this area."));
 					
 					if(slave.hasSlavePermissionSetting(SlavePermissionSetting.GENERAL_CRAWLING)) {
 						UtilText.nodeContentSB.append(UtilText.parse(slave,
@@ -1679,7 +1679,7 @@ public class LilayaHomeGeneric {
 		public String getContent() {
 			return "<p>"
 					+ "Evidence of Rose's close relationship with Lilaya is apparent as you approach the cat-girl's room."
-					+ " Hanging on the door, there's a little home-made sign bearing her name, and underneath, in what is clearly Lilaya's handwriting, a little message reads: <i>'Lilaya's favourite pet'</i>."
+					+ " Hanging on the door, there's a little home-made sign bearing her name, and underneath, in what is clearly Lilaya's handwriting, a little message reads: <i>'Lilaya's favorite pet'</i>."
 				+ "</p>"
 				+ "<p>"
 					+ "The door appears to be locked at the moment, and there's no sound of anyone stirring within."
@@ -1702,7 +1702,7 @@ public class LilayaHomeGeneric {
 								+ "</p>"
 								+ "<p>"
 									+ "As she approaches, you see her cat-like tail swishing from side to side, and you notice one of her ears twitch as she sees you standing outside her bedroom waiting for her."
-									+ " Realising that you're obviously wanting to have a talk, she curtsies before issuing a greeting."
+									+ " Realizing that you're obviously wanting to have a talk, she curtsies before issuing a greeting."
 								+ "</p>"
 								+ "<p>"
 									+ "[rose.speech("+(Main.game.isDayTime() ? "Good day," : "Good evening,")+")]"
@@ -1731,7 +1731,7 @@ public class LilayaHomeGeneric {
 		@Override
 		public String getContent() {
 			return "<p>"
-					+ "The garden courtyard consists of a series of wide, perfectly trimmed grass pathways, each one lined with beds of brightly-coloured flowers."
+					+ "The garden courtyard consists of a series of wide, perfectly trimmed grass pathways, each one lined with beds of brightly-colored flowers."
 					+ " Although Rose is now the one responsible for maintaining it, you guess that Lilaya must have hired a professional company in order to have had this area landscaped so perfectly."
 				+ "</p>";
 		}
@@ -1752,7 +1752,7 @@ public class LilayaHomeGeneric {
 		@Override
 		public String getContent() {
 			return "<p>"
-					+ "In the very centre of the garden courtyard, a huge, ornate water fountain happily bubbles away with a mind of its own."
+					+ "In the very center of the garden courtyard, a huge, ornate water fountain happily bubbles away with a mind of its own."
 					+ " The structure is made up of a collection of intricate statues; each one of a beautiful woman in some manner of indecent pose."
 				+ "</p>";
 		}
@@ -1833,7 +1833,7 @@ public class LilayaHomeGeneric {
 					+ "</p>"
 					+ "<p>"
 						+ "A huge portrait of two women hangs on the wall of the landing area, overlooking the entire entrance hall."
-						+ " You immediately recognise the half-demon sitting in the chair as Lilaya, and you can only assume that the gorgeous figure standing behind her is her Lilin mother, Lyssieth."
+						+ " You immediately recognize the half-demon sitting in the chair as Lilaya, and you can only assume that the gorgeous figure standing behind her is her Lilin mother, Lyssieth."
 						+ " Although Lilin can change their appearance at will, Lyssieth has chosen to appear as a beautiful half-demon in her mid-forties,"
 							+ " and you wonder if she did this to make Lilaya feel more comfortable, or whether that's simply the form she prefers to take."
 					+ "</p>"
@@ -2027,7 +2027,7 @@ public class LilayaHomeGeneric {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new ResponseSex("Hand-holding", "Warning: This content contains extreme descriptions of hand-holding, finger sucking, and even palm-licking."
-						+ " <b>Please remember that you need to have read the disclaimer before playing this game!</b> <b style='color:"+BaseColour.CRIMSON.toWebHexString()+";'>18+ only!</b>",
+						+ " <b>Please remember that you need to have read the disclaimer before playing this game!</b> <b style='color:"+BaseColor.CRIMSON.toWebHexString()+";'>18+ only!</b>",
 						true, false,
 						new SMRoseHands(
 								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.HAND_SEX_DOM_ROSE)),

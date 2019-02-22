@@ -95,7 +95,7 @@ public enum DialogueFlagValue {
 	braxTransformedPlayer,
 	braxBeaten,
 	seenBraxAfterQuest,
-	feminisedBrax,
+	feminizedBrax,
 	bimbofiedBrax,
 	
 	// Harpy Nests:

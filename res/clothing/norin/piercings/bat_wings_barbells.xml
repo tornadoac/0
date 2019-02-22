@@ -38,14 +38,14 @@
     
     <incompatibleSlots/> <!-- slot(s) not compatible -->
     
-    <primaryColours values="ALL_METAL"/>
-    <primaryColoursDye values="ALL_METAL"/>
-    <secondaryColours>
-      <colour>CLOTHING_BLACK</colour>
-    </secondaryColours>
-    <secondaryColoursDye values="ALL"/>
-    <tertiaryColours/>
-    <tertiaryColoursDye/>
+    <primaryColors values="ALL_METAL"/>
+    <primaryColorsDye values="ALL_METAL"/>
+    <secondaryColors>
+      <color>CLOTHING_BLACK</color>
+    </secondaryColors>
+    <secondaryColorsDye values="ALL"/>
+    <tertiaryColors/>
+    <tertiaryColorsDye/>
     
     <itemTags>
       <tag>SOLD_BY_KATE</tag>

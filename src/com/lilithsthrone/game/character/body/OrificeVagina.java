@@ -58,27 +58,27 @@ public class OrificeVagina implements OrificeInterface {
 		
 		if (!owner.hasVagina()) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You lack a vagina, so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You lack a vagina, so nothing happens...)]</p>";
 				
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] lacks a vagina, so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] lacks a vagina, so nothing happens...)]</p>");
 			}
 		}
 		
 		if(this.wetness < Wetness.SEVEN_DROOLING.getValue() && owner.getBodyMaterial().isOrificesAlwaysMaximumWetness()) {
 			this.wetness = Wetness.SEVEN_DROOLING.getValue();
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourSex(Due to being made out of "+owner.getBodyMaterial().getName()+", your [pc.pussy] can't be anything but "+Wetness.SEVEN_DROOLING.getDescriptor()+"...)]</p>";
+				return "<p style='text-align:center;'>[style.colorSex(Due to being made out of "+owner.getBodyMaterial().getName()+", your [pc.pussy] can't be anything but "+Wetness.SEVEN_DROOLING.getDescriptor()+"...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourSex(Due to being made out of "+owner.getBodyMaterial().getName()+", [npc.namePos] [npc.pussy] can't be anything but "+Wetness.SEVEN_DROOLING.getDescriptor()+"...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorSex(Due to being made out of "+owner.getBodyMaterial().getName()+", [npc.namePos] [npc.pussy] can't be anything but "+Wetness.SEVEN_DROOLING.getDescriptor()+"...)]</p>");
 			}
 		}
 		
 		if(wetnessChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your [pc.pussy]'s wetness doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your [pc.pussy]'s wetness doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The wetness of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The wetness of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
 			}
 		}
 		
@@ -86,13 +86,13 @@ public class OrificeVagina implements OrificeInterface {
 		if (wetnessChange > 0) {
 			if (owner.isPlayer()) {
 				return "<p>"
-							+ "Your [pc.eyes] widen as you feel moisture beading around your [pc.pussy], and you let out [pc.a_moan+] as you realise that it's lubricating itself and [style.boldGrow(getting wetter)].<br/>"
+							+ "Your [pc.eyes] widen as you feel moisture beading around your [pc.pussy], and you let out [pc.a_moan+] as you realize that it's lubricating itself and [style.boldGrow(getting wetter)].<br/>"
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " pussy)]!"
 						+ "</p>";
 			} else {
 				return UtilText.parse(owner, 
 						"<p>"
-							+ "[npc.NamePos] [npc.eyes] widen as [npc.she] feels moisture beading around [npc.her] [npc.pussy], and [npc.she] lets out [npc.a_moan+] as [npc.she] realises that it's lubricating itself and [style.boldGrow(getting wetter)].<br/>"
+							+ "[npc.NamePos] [npc.eyes] widen as [npc.she] feels moisture beading around [npc.her] [npc.pussy], and [npc.she] lets out [npc.a_moan+] as [npc.she] realizes that it's lubricating itself and [style.boldGrow(getting wetter)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " pussy)]!"
 						+ "</p>");
 			}
@@ -127,10 +127,10 @@ public class OrificeVagina implements OrificeInterface {
 	public String setCapacity(GameCharacter owner, float capacity, boolean setStretchedValueToNewValue) {
 		if (!owner.hasVagina()) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You lack a vagina, so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You lack a vagina, so nothing happens...)]</p>";
 				
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] lacks a vagina, so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] lacks a vagina, so nothing happens...)]</p>");
 			}
 		}
 		
@@ -143,9 +143,9 @@ public class OrificeVagina implements OrificeInterface {
 		
 		if (capacityChange == 0) {
 			if (owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your [pc.pussy]'s capacity doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your [pc.pussy]'s capacity doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The capacity of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The capacity of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
 			}
 		}
 		
@@ -205,9 +205,9 @@ public class OrificeVagina implements OrificeInterface {
 		
 		if (elasticityChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your [pc.pussy]'s elasticity doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your [pc.pussy]'s elasticity doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The elasticity of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The elasticity of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
 			}
 		}
 		
@@ -250,14 +250,14 @@ public class OrificeVagina implements OrificeInterface {
 	@Override
 	public String setPlasticity(GameCharacter owner, int plasticity) {
 		int oldPlasticity = this.plasticity;
-		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOULDABLE.getValue()));
+		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOLDABLE.getValue()));
 		int plasticityChange = this.plasticity - oldPlasticity;
 		
 		if (plasticityChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(Your [pc.pussy]'s plasticity doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(Your [pc.pussy]'s plasticity doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The plasticity of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The plasticity of [npc.namePos] [npc.pussy] doesn't change...)]</p>");
 			}
 		}
 		
@@ -265,13 +265,13 @@ public class OrificeVagina implements OrificeInterface {
 		if (plasticityChange > 0) {
 			if (owner.isPlayer()) {
 				return "<p>"
-							+ "You let out a little gasp as you feel a strange moulding sensation pulsating deep within your [pc.pussy] as its [style.boldGrow(plasticity increases)].<br/>"
+							+ "You let out a little gasp as you feel a strange molding sensation pulsating deep within your [pc.pussy] as its [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " pussy)]!"
 						+ "</p>";
 			} else {
 				return UtilText.parse(owner, 
 						"<p>"
-							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange moulding sensation pulsating deep within [npc.her] [npc.pussy] as its [style.boldGrow(plasticity increases)].<br/>"
+							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange molding sensation pulsating deep within [npc.her] [npc.pussy] as its [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " pussy)]!"
 						+ "</p>");
 			}
@@ -310,7 +310,7 @@ public class OrificeVagina implements OrificeInterface {
 	@Override
 	public String addOrificeModifier(GameCharacter owner, OrificeModifier modifier) {
 		if(hasOrificeModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		orificeModifiers.add(modifier);
@@ -379,13 +379,13 @@ public class OrificeVagina implements OrificeInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	@Override
 	public String removeOrificeModifier(GameCharacter owner, OrificeModifier modifier) {
 		if(!hasOrificeModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		orificeModifiers.remove(modifier);
@@ -453,7 +453,7 @@ public class OrificeVagina implements OrificeInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	public Set<OrificeModifier> getOrificeModifiers() {
@@ -474,7 +474,7 @@ public class OrificeVagina implements OrificeInterface {
 			return "";
 		}
 		if(this.squirter == squirter || !owner.hasVagina()) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.squirter = squirter;

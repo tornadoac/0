@@ -6,8 +6,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.lilithsthrone.game.character.CharacterUtils;
-import com.lilithsthrone.utils.Colour;
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.Color;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.XMLSaving;
 
 /**
@@ -19,18 +19,18 @@ public class TattooCounter implements XMLSaving {
 
 	private TattooCounterType type;
 	private TattooCountType countType;
-	private Colour colour;
+	private Color color;
 	private boolean glow;
 	
-	public TattooCounter(TattooCounterType type, TattooCountType countType, Colour colour, boolean glow) {
+	public TattooCounter(TattooCounterType type, TattooCountType countType, Color color, boolean glow) {
 		this.type = type;
 		this.countType = countType;
-		this.colour = colour;
+		this.color = color;
 		this.glow = glow;
 	}
 	
-	public static List<Colour> getAvailableColours() {
-		return ColourListPresets.ALL.getPresetColourList();
+	public static List<Color> getAvailableColors() {
+		return ColorListPresets.ALL.getPresetColorList();
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class TattooCounter implements XMLSaving {
 			return (o instanceof TattooCounter)
 					&& ((TattooCounter)o).getType().equals(this.getType())
 					&& ((TattooCounter)o).getCountType().equals(this.getCountType())
-					&& ((TattooCounter)o).getColour().equals(this.getColour())
+					&& ((TattooCounter)o).getColor().equals(this.getColor())
 					&& ((TattooCounter)o).isGlow()==glow;
 		} else {
 			return false;
@@ -51,7 +51,7 @@ public class TattooCounter implements XMLSaving {
 		int result = super.hashCode();
 		result = 31 * result + getType().hashCode();
 		result = 31 * result + getCountType().hashCode();
-		result = 31 * result + getColour().hashCode();
+		result = 31 * result + getColor().hashCode();
 		result = 31 * result + (isGlow() ? 1 : 0);
 		return result;
 	}
@@ -62,7 +62,7 @@ public class TattooCounter implements XMLSaving {
 
 		CharacterUtils.addAttribute(doc, element, "type", this.getType().toString());
 		CharacterUtils.addAttribute(doc, element, "countType", this.getCountType().toString());
-		CharacterUtils.addAttribute(doc, element, "colour", this.getColour().toString());
+		CharacterUtils.addAttribute(doc, element, "color", this.getColor().toString());
 		CharacterUtils.addAttribute(doc, element, "glow", String.valueOf(this.isGlow()));
 		
 		return element;
@@ -73,7 +73,7 @@ public class TattooCounter implements XMLSaving {
 			return new TattooCounter(
 					TattooCounterType.valueOf(parentElement.getAttribute("type")),
 					TattooCountType.valueOf(parentElement.getAttribute("countType")),
-					Colour.valueOf(parentElement.getAttribute("colour")),
+					Color.valueOf(parentElement.getAttribute("color")),
 					Boolean.valueOf(parentElement.getAttribute("glow")));
 			
 		} catch(Exception ex) {
@@ -90,8 +90,8 @@ public class TattooCounter implements XMLSaving {
 		return countType;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public boolean isGlow() {
@@ -106,8 +106,8 @@ public class TattooCounter implements XMLSaving {
 		this.countType = countType;
 	}
 
-	public void setColour(Colour colour) {
-		this.colour = colour;
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	public void setGlow(boolean glow) {

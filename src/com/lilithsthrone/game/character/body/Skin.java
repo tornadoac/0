@@ -60,9 +60,9 @@ public class Skin implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if (owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.skin] of [pc.a_skinRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.skin] of [pc.a_skinRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.skin] of [npc.a_skinRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.skin] of [npc.a_skinRace], so nothing happens...)]</p>");
 			}
 			
 		} else {
@@ -105,14 +105,14 @@ public class Skin implements BodyPartInterface {
 				if (!owner.isShortStature()) {
 					UtilText.transformationContentSB.append(
 							" After just a few moments, the transformation comes to an end, and [npc.she] [npc.verb(let)] out a deep sigh as the itching finally stops, leaving [npc.her] torso covered with demonic skin."
-							+ " It's far smoother than regular human skin, and the colour tones all over [npc.her] body have become perfectly balanced in order to help show off [npc.her] figure."
+							+ " It's far smoother than regular human skin, and the color tones all over [npc.her] body have become perfectly balanced in order to help show off [npc.her] figure."
 							+ "<br/>"
 							+ "[npc.Name] now [npc.has] [style.boldDemon(demonic)], [npc.skinFullDescription]."
 						+ "</p>");
 				} else {
 					UtilText.transformationContentSB.append(
 							" After just a few moments, the transformation comes to an end, and [npc.she] [npc.verb(let)] out a deep sigh as the itching finally stops, leaving [npc.her] torso covered with impish skin."
-							+ " It's far smoother than regular human skin, and the colour tones all over [npc.her] body have become perfectly balanced in order to help show off [npc.her] figure."
+							+ " It's far smoother than regular human skin, and the color tones all over [npc.her] body have become perfectly balanced in order to help show off [npc.her] figure."
 							+ "<br/>"
 							+ "[npc.Name] now [npc.has] [style.boldImp(impish)], [npc.skinFullDescription]."
 						+ "</p>");

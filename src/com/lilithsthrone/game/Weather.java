@@ -1,6 +1,6 @@
 package com.lilithsthrone.game;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -9,31 +9,31 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum Weather {
 	
-	CLOUD("cloudy", Colour.GENERIC_GOOD),
+	CLOUD("cloudy", Color.GENERIC_GOOD),
 	
-	CLEAR("clear", Colour.GENERIC_GOOD),
+	CLEAR("clear", Color.GENERIC_GOOD),
 	
-	RAIN("raining", Colour.GENERIC_BAD),
+	RAIN("raining", Color.GENERIC_BAD),
 
-	SNOW("snowing", Colour.GENERIC_BAD),
+	SNOW("snowing", Color.GENERIC_BAD),
 	
-	MAGIC_STORM_GATHERING("stormy sky", Colour.GENERIC_ARCANE),
+	MAGIC_STORM_GATHERING("stormy sky", Color.GENERIC_ARCANE),
 	
-	MAGIC_STORM("arcane storm", Colour.GENERIC_ARCANE);
+	MAGIC_STORM("arcane storm", Color.GENERIC_ARCANE);
 
 	private String name;
-	private Colour colour;
+	private Color color;
 
-	private Weather(String name, Colour colour) {
+	private Weather(String name, Color color) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

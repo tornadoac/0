@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.attributes;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.95
@@ -10,23 +10,23 @@ import com.lilithsthrone.utils.Colour;
 public enum ObedienceLevelBasic {
 
 	/** -100 to -30*/
-	DISOBEDIENT("disobedient", -100, -30, Colour.AFFECTION_NEGATIVE_FIVE),
+	DISOBEDIENT("disobedient", -100, -30, Color.AFFECTION_NEGATIVE_FIVE),
 
 	/** -30 to 30*/
-	NEUTRAL("neutral", -30, 30, Colour.AFFECTION_NEUTRAL),
+	NEUTRAL("neutral", -30, 30, Color.AFFECTION_NEUTRAL),
 
 	/** 30 to 100*/
-	OBEDIENT("obedient", 30, 100, Colour.AFFECTION_POSITIVE_FIVE);
+	OBEDIENT("obedient", 30, 100, Color.AFFECTION_POSITIVE_FIVE);
 	
 	private String name;
 	private int minimumValue, maximumValue;
-	private Colour colour;
+	private Color color;
 
-	private ObedienceLevelBasic(String name, int minimumValue, int maximumValue, Colour colour) {
+	private ObedienceLevelBasic(String name, int minimumValue, int maximumValue, Color color) {
 		this.name = name;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 	}
 	
 	public String getName() {
@@ -45,8 +45,8 @@ public enum ObedienceLevelBasic {
 		return (minimumValue + maximumValue) / 2;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public static ObedienceLevelBasic getObedienceLevelFromValue(float value){

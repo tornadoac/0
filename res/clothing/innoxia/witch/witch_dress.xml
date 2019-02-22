@@ -81,12 +81,12 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours values="BLACK_OR_WHITE"/>
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_GOLD"/>
-		<secondaryColoursDye values="ALL_METAL"/>
-		<tertiaryColours/>
-		<tertiaryColoursDye/>
+		<primaryColors values="BLACK_OR_WHITE"/>
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_GOLD"/>
+		<secondaryColorsDye values="ALL_METAL"/>
+		<tertiaryColors/>
+		<tertiaryColorsDye/>
 		
 		<itemTags> 
 			<tag>DRESS</tag>

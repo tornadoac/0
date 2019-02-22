@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.attributes;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.95
@@ -10,23 +10,23 @@ import com.lilithsthrone.utils.Colour;
 public enum AffectionLevelBasic {
 	
 	/** -100 to -30*/
-	DISLIKE("dislikes", -100, -30, Colour.AFFECTION_NEGATIVE_TWO),
+	DISLIKE("dislikes", -100, -30, Color.AFFECTION_NEGATIVE_TWO),
 
 	/** -30 to 30*/
-	NEUTRAL("neutral", -30, 30, Colour.AFFECTION_POSITIVE_ONE),
+	NEUTRAL("neutral", -30, 30, Color.AFFECTION_POSITIVE_ONE),
 
 	/** -30 to 100*/
-	LIKE("likes", 30, 100, Colour.AFFECTION_POSITIVE_FIVE);
+	LIKE("likes", 30, 100, Color.AFFECTION_POSITIVE_FIVE);
 	
 	private String name;
 	private int minimumValue, maximumValue;
-	private Colour colour;
+	private Color color;
 
-	private AffectionLevelBasic(String name, int minimumValue, int maximumValue, Colour colour) {
+	private AffectionLevelBasic(String name, int minimumValue, int maximumValue, Color color) {
 		this.name = name;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 	}
 	
 	public String getName() {
@@ -45,8 +45,8 @@ public enum AffectionLevelBasic {
 		return (minimumValue + maximumValue) / 2;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public static AffectionLevelBasic getAffectionLevelFromValue(float value){

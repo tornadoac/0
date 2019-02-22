@@ -69,7 +69,7 @@ import com.lilithsthrone.game.sex.sexActions.SexActionOrgasmOverride;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.GenericOrgasms;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SizedStack;
 import com.lilithsthrone.utils.TreeNode;
 import com.lilithsthrone.utils.Util;
@@ -624,14 +624,14 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			
 			if (questLine.getQuestTree().getFirstNodeWithData(quest).getChildren().isEmpty()) { // QuestLine complete (No more children in the tree)
 				return "<p style='text-align:center;'>"
-						+ "<b style='color:" + questLine.getType().getColour().toWebHexString() + ";'>Quest - " + questLine.getName() + "</b><br/>"
-						+ "<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Task Completed</b><b> - "+currentQuest.getName()+"</b><br/>"
+						+ "<b style='color:" + questLine.getType().getColor().toWebHexString() + ";'>Quest - " + questLine.getName() + "</b><br/>"
+						+ "<b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>Task Completed</b><b> - "+currentQuest.getName()+"</b><br/>"
 						+ "<b>All Tasks Completed!</b></p>"
 						+ experienceUpdate;
 			} else {
 				return "<p style='text-align:center;'>"
-						+ "<b style='color:" + questLine.getType().getColour().toWebHexString() + ";'>Quest - " + questLine.getName() + "</b><br/>"
-						+ "<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Task Completed</b><br/>"
+						+ "<b style='color:" + questLine.getType().getColor().toWebHexString() + ";'>Quest - " + questLine.getName() + "</b><br/>"
+						+ "<b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>Task Completed</b><br/>"
 						+ "<b>New Task - " + quest.getName() + "</b></p>"
 						+ experienceUpdate;
 			}
@@ -640,7 +640,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			quests.put(questLine, quest);
 			
 			return "<p style='text-align:center;'>"
-					+ "<b style='color:" + questLine.getType().getColour().toWebHexString() + ";'>New Quest - " + questLine.getName() + "</b><br/>"
+					+ "<b style='color:" + questLine.getType().getColor().toWebHexString() + ";'>New Quest - " + questLine.getName() + "</b><br/>"
 					+ "<b>New Task - " + quest.getName() + "</b></p>";
 		}
 		
@@ -807,7 +807,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			if(this.isFeminine()) {
 				return UtilText.parse(Combat.getTargetedCombatant(this),
 						UtilText.returnStringAtRandom(
-								"You put on a smouldering look, and as your [pc.eyes] meet [npc.namePos], you project an extremely lewd moan into [npc.her] head,"
+								"You put on a smoldering look, and as your [pc.eyes] meet [npc.namePos], you project an extremely lewd moan into [npc.her] head,"
 										+ " [pc.thought(~Aaah!~ "
 											+(this.hasVagina()
 													?"You're making me so wet!"
@@ -855,7 +855,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			description = UtilText.parse(Combat.getTargetedCombatant(this),
 					UtilText.returnStringAtRandom(
 					"You blow a kiss at [npc.name] and wink suggestively at [npc.herHim].",
-					"Biting your lip and putting on your most smouldering look, you run your hands slowly up your inner thighs.",
+					"Biting your lip and putting on your most smoldering look, you run your hands slowly up your inner thighs.",
 					"As you give [npc.name] your most innocent look, you blow [npc.herHim] a little kiss.",
 					"Turning around, you let out a playful giggle as you give your [pc.ass+] a slap.",
 					"You slowly run your hands up the length of your body, before pouting at [npc.name]."));
@@ -880,7 +880,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		return true;
 	}
 	
-	// This behaviour is overridden for unique scenes in which the player's orgasm requires special dialogue or effects.
+	// This behavior is overridden for unique scenes in which the player's orgasm requires special dialogue or effects.
 	// At the time of this comment (v0.3.1), it's only used for Lilaya's creampie reaction and Lyssieth's demon TF scene.
 	@Override
 	public SexActionOrgasmOverride getSexActionOrgasmOverride(SexActionInterface sexAction, OrgasmCumTarget target, boolean applyExtraEffects) {

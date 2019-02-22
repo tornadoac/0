@@ -13,7 +13,7 @@ import com.lilithsthrone.game.sex.managers.dominion.SMPixShowerTime;
 import com.lilithsthrone.game.sex.managers.universal.SMFaceToWall;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -41,7 +41,7 @@ public class PixsPlayground {
 						Main.game.getPlayer().incrementHealth(-Main.game.getPlayer().getAttributeValue(Attribute.HEALTH_MAXIMUM) * 0.4f);
 						Main.game.getTextEndStringBuilder().append(
 //								Main.game.getPlayer().incrementAttribute(Attribute.MAJOR_PHYSIQUE, 0.25f)+ 
-								"<p style='text-align:center'>[style.boldBad(-5)] <b style='color:"+Colour.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
+								"<p style='text-align:center'>[style.boldBad(-5)] <b style='color:"+Color.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
 								+Main.game.getPlayer().incrementBodySize(-5));
 					}
 				};
@@ -57,7 +57,7 @@ public class PixsPlayground {
 					public void effects(){
 						Main.game.getPlayer().incrementHealth(-Main.game.getPlayer().getAttributeValue(Attribute.HEALTH_MAXIMUM) * 0.4f);
 						Main.game.getTextEndStringBuilder().append(
-								"<p style='text-align:center'>[style.boldGood(+5)] <b style='color:"+Colour.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
+								"<p style='text-align:center'>[style.boldGood(+5)] <b style='color:"+Color.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
 								+Main.game.getPlayer().incrementMuscle(5));
 					}
 				};
@@ -77,7 +77,7 @@ public class PixsPlayground {
 						public void effects(){
 							Main.game.getPlayer().incrementHealth(-Main.game.getPlayer().getAttributeValue(Attribute.HEALTH_MAXIMUM) * 0.1f);
 							Main.game.getTextEndStringBuilder().append(
-									"<p style='text-align:center'>[style.boldGood(+4)] <b style='color:"+Colour.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
+									"<p style='text-align:center'>[style.boldGood(+4)] <b style='color:"+Color.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
 									+Main.game.getPlayer().incrementMuscle(4));
 						}
 					};
@@ -185,7 +185,7 @@ public class PixsPlayground {
 			if (!Main.game.getDialogueFlags().values.contains(DialogueFlagValue.gymIsMember)) {
 				if (index == 1) {
 					if (Main.game.getPlayer().getMoney() < SINGLE_PAYMENT_VALUE)
-						return new Response("Single (" + UtilText.formatAsMoneyUncoloured(SINGLE_PAYMENT_VALUE, "span") + ")", "You don't have enough money!", null);
+						return new Response("Single (" + UtilText.formatAsMoneyUncolored(SINGLE_PAYMENT_VALUE, "span") + ")", "You don't have enough money!", null);
 					else
 						return new Response("Single (" + UtilText.formatAsMoney(SINGLE_PAYMENT_VALUE, "span") + ")",
 								"Tell Pix that you'd like to pay for a single entry to the gym. <b>This will cost</b> "+UtilText.formatAsMoney(SINGLE_PAYMENT_VALUE, "b")+".", GYM_SINGLE_PAYMENT){
@@ -197,7 +197,7 @@ public class PixsPlayground {
 					
 				} else if (index == 2) {
 					if (Main.game.getPlayer().getMoney() < MEMBERSHIP_VALUE)
-						return new Response("Membership (" + UtilText.formatAsMoneyUncoloured(MEMBERSHIP_VALUE, "span") + ")", "You don't have enough money!", null);
+						return new Response("Membership (" + UtilText.formatAsMoneyUncolored(MEMBERSHIP_VALUE, "span") + ")", "You don't have enough money!", null);
 					else
 						return new Response("Membership ("+ UtilText.formatAsMoney(MEMBERSHIP_VALUE, "span") +")",
 								"Tell Pix that you'd like to sign up for the lifetime membership option. <b>This will cost</b> "+UtilText.formatAsMoney(MEMBERSHIP_VALUE, "b")+".",
@@ -410,10 +410,10 @@ public class PixsPlayground {
 								+ "<p>"
 									+ "The routine isn't over just yet, however, and, once you're done with the weights, Pix leads you over towards the cardio section."
 								+ "</p>"
-								+ "<p style='text-align:center'>[style.boldGood(+6)] <b style='color:"+Colour.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
+								+ "<p style='text-align:center'>[style.boldGood(+6)] <b style='color:"+Color.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
 								+Main.game.getPlayer().incrementMuscle(6));
 						Main.game.getTextEndStringBuilder().append(
-								"<p style='text-align:center'>[style.boldBad(-4)] <b style='color:"+Colour.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
+								"<p style='text-align:center'>[style.boldBad(-4)] <b style='color:"+Color.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
 								+Main.game.getPlayer().incrementBodySize(-4));
 					}
 				};
@@ -432,10 +432,10 @@ public class PixsPlayground {
 								+ "<p>"
 									+ "Pix doesn't seem to pick up on the fact that you're holding back, and, once you're done with the weights, she leads you over towards the cardio section."
 								+ "</p>"
-								+ "<p style='text-align:center'>[style.boldGood(+2)] <b style='color:"+Colour.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
+								+ "<p style='text-align:center'>[style.boldGood(+2)] <b style='color:"+Color.MUSCLE_THREE.toWebHexString()+";'>Muscle Definition</b></p>"
 								+Main.game.getPlayer().incrementMuscle(2));
 						Main.game.getTextEndStringBuilder().append(
-								"<p style='text-align:center'>[style.boldBad(-4)] <b style='color:"+Colour.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
+								"<p style='text-align:center'>[style.boldBad(-4)] <b style='color:"+Color.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
 								+Main.game.getPlayer().incrementBodySize(-4));
 					}
 				};
@@ -476,7 +476,7 @@ public class PixsPlayground {
 									+ " Pix lets out an impressed hum as she sees what speed you're setting the machine to,"
 									+ " [pix.speech(Mmm... You're eager to show off for me, aren't ya?)]"
 								+ "</p>"
-								+ "<p style='text-align:center'>[style.boldBad(-6)] <b style='color:"+Colour.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
+								+ "<p style='text-align:center'>[style.boldBad(-6)] <b style='color:"+Color.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
 								+Main.game.getPlayer().incrementBodySize(-6));
 					}
 				};
@@ -492,7 +492,7 @@ public class PixsPlayground {
 									+ " Pix lets out a mildly annoyed huff as she sees what speed you're setting the machine to,"
 									+ " [pix.speech(Huh... You're more exhausted than I thought! You're gonna need to get fitter, aren't ya?)]"
 								+ "</p>"
-								+ "<p style='text-align:center'>[style.boldBad(-2)] <b style='color:"+Colour.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
+								+ "<p style='text-align:center'>[style.boldBad(-2)] <b style='color:"+Color.BODY_SIZE_THREE.toWebHexString()+";'>Body Size</b></p>"
 								+Main.game.getPlayer().incrementBodySize(-2));
 					}
 				};
@@ -593,7 +593,7 @@ public class PixsPlayground {
 				
 			} else if(index==3) {
 				return new ResponseSex("Accept punishment",
-						"Apologise to Pix and accept her punishment.",
+						"Apologize to Pix and accept her punishment.",
 						false, false,
 						new SMPixShowerTime(
 								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Pix.class), SexSlotBipeds.FACE_TO_WALL_FACING_TARGET_SHOWER_PIX)),

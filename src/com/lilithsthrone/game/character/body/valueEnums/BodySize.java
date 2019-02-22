@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.83
@@ -9,21 +9,21 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public enum BodySize {
-	ZERO_SKINNY("skinny", 0, 20, Colour.BODY_SIZE_ZERO),
-	ONE_SLENDER("slender", 20, 40, Colour.BODY_SIZE_ONE),
-	TWO_AVERAGE("average", 40, 60, Colour.BODY_SIZE_TWO),
-	THREE_LARGE("large", 60, 80, Colour.BODY_SIZE_THREE),
-	FOUR_HUGE("huge", 80, 100, Colour.BODY_SIZE_FOUR);
+	ZERO_SKINNY("skinny", 0, 20, Color.BODY_SIZE_ZERO),
+	ONE_SLENDER("slender", 20, 40, Color.BODY_SIZE_ONE),
+	TWO_AVERAGE("average", 40, 60, Color.BODY_SIZE_TWO),
+	THREE_LARGE("large", 60, 80, Color.BODY_SIZE_THREE),
+	FOUR_HUGE("huge", 80, 100, Color.BODY_SIZE_FOUR);
 
 	private String name;
 	private int minimumBodySize, maximumBodySize;
-	private Colour colour;
+	private Color color;
 
-	private BodySize(String name, int minimumBodySize, int maximumBodySize, Colour colour) {
+	private BodySize(String name, int minimumBodySize, int maximumBodySize, Color color) {
 		this.name = name;
 		this.minimumBodySize = minimumBodySize;
 		this.maximumBodySize = maximumBodySize;
-		this.colour = colour;
+		this.color = color;
 	}
 
 	public int getMinimumValue() {
@@ -55,7 +55,7 @@ public enum BodySize {
 		}
 	}
 	
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

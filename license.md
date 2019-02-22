@@ -22,9 +22,9 @@ Although this Project is publicly available, it is not open source software. All
 Redistribution, use, and modification of the Project and its Content, with or without modification, are permitted provided that the following conditions are met:
 1. The Project must retain the above copyright notice and this license as is.
 2. The Binaries must reproduce the above copyright notice (i.e. leave Innoxia's name in the credits page).
-3. The Project, its Content, and Binaries:  
-3a. must carry prominent notices stating it is modified, and not endorsed by Innoxia, if applicable.  
-3b. must be available free of charge, if distributed.  
+3. The Project, its Content, and Binaries:
+3a. must carry prominent notices stating it is modified, and not endorsed by Innoxia, if applicable.
+3b. must be available free of charge, if distributed.
 3c. may not be used for commercial purposes.
 
 *Points 3b and 3c are to protect the player base from having to pay for modded copies of the game. I don't want modders to try and take advantage of players (by adding a paywall to their mods).*
@@ -33,6 +33,6 @@ Redistribution, use, and modification of the Project and its Content, with or wi
 
 **On Content submissions and Contributions:**
 
-By making any Contribution to the Project, potential contributers agree to give the project creator(s) and/or maintainers a perpetual, unlimited, royalty-free license to reuse, incorporate, distribute, modify, or extend the aforementioned Contribution in any fashion they see fit.
+By making any Contribution to the Project, potential contributors agree to give the project creator(s) and/or maintainers a perpetual, unlimited, royalty-free license to reuse, incorporate, distribute, modify, or extend the aforementioned Contribution in any fashion they see fit.
 
 *This is to prevent the case of someone submitting code or content to the game, then coming back at a later date and demanding removal unless certain conditions are met. I need to retain control over all of the game's content, and, while I will always do my very best to respect your submitted content's themes and intentions, I need to be able to have the final say in the event of any conflicts.*

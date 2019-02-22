@@ -43,7 +43,7 @@ import com.lilithsthrone.game.occupantManagement.SlavePermission;
 import com.lilithsthrone.game.occupantManagement.SlavePermissionSetting;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.rendering.SVGImages;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.Cell;
 import com.lilithsthrone.world.WorldType;
@@ -139,7 +139,7 @@ public class OccupantManagementDialogue {
 			
 		} else if (index == 5) {
 			if(Main.game.getOccupancyUtil().getGeneratedBalance()==0) {
-				return new Response("Collect: "+UtilText.formatAsMoneyUncoloured(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Your current balance is 0...",  null);
+				return new Response("Collect: "+UtilText.formatAsMoneyUncolored(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Your current balance is 0...",  null);
 				
 			} else if(Main.game.getOccupancyUtil().getGeneratedBalance()>0) {
 				return new Response("Collect: "+UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Collect the money that you've earned through your slaves' activities.",  OCCUPANT_OVERVIEW) {
@@ -155,11 +155,11 @@ public class OccupantManagementDialogue {
 				
 			} else {
 				if(Main.game.getPlayer().getMoney()<Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance())) {
-					return new Response("Pay: "+UtilText.formatAsMoneyUncoloured(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span"),
+					return new Response("Pay: "+UtilText.formatAsMoneyUncolored(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span"),
 							"You don't have enough money to pay off the accumulated debt from the upkeep of your slaves and rooms.",  null);
 				}
 				
-				return new Response("Pay: "+UtilText.formatAsMoney(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span", Colour.GENERIC_BAD), "Pay off the accumulated debt from the upkeep of your slaves and rooms.",  OCCUPANT_OVERVIEW) {
+				return new Response("Pay: "+UtilText.formatAsMoney(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span", Color.GENERIC_BAD), "Pay off the accumulated debt from the upkeep of your slaves and rooms.",  OCCUPANT_OVERVIEW) {
 					@Override
 					public DialogueNode getNextDialogue() {
 						return Main.game.getCurrentDialogueNode();
@@ -206,28 +206,28 @@ public class OccupantManagementDialogue {
 			// Overview:
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.GENERIC_EXPERIENCE.toWebHexString()+"; text-align:center;'>Totals</h6>"
+						+ "<h6 style='color:"+Color.GENERIC_EXPERIENCE.toWebHexString()+"; text-align:center;'>Totals</h6>"
 						+ "<div class='container-full-width' style='text-align:center; margin-bottom:0;'>"
 							+ "<div style='width:10%; float:left; font-weight:bold; margin:0; padding:0;'>"
 								+ "Slaves"
 							+ "</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Income</b>"
+								+ "<b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>Income</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Upkeep</b>"
+								+ "<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Upkeep</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Profit</b>"
+								+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Profit</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Funds</b>"
+								+ "<b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>Funds</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Payments</b>"
+								+ "<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Payments</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Balance</b>"
+								+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Balance</b>"
 							+"</div>"
 						+ "</div>"
 						+ "<div class='container-full-width inner' style='text-align:center;'>"
@@ -238,20 +238,20 @@ public class OccupantManagementDialogue {
 								+ UtilText.formatAsMoney(income)+"/day"
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-								+ UtilText.formatAsMoney(upkeep, "b", Colour.GENERIC_BAD)+"/day"
+								+ UtilText.formatAsMoney(upkeep, "b", Color.GENERIC_BAD)+"/day"
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-								+ UtilText.formatAsMoney(income-upkeep, "b", (income-upkeep<0?Colour.GENERIC_BAD:Colour.TEXT))+"/day"
+								+ UtilText.formatAsMoney(income-upkeep, "b", (income-upkeep<0?Color.GENERIC_BAD:Color.TEXT))+"/day"
 							+"</div>"
 							+ "<div style='width:15%; float:left; font-weight:bold; margin:0; padding:0;'>"
 								+ UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedIncome(), "b")
 							+ "</div>"
 							+ "<div style='width:15%; float:left; font-weight:bold; margin:0; padding:0;'>"
-								+ UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedUpkeep(), "b", Colour.GENERIC_BAD)
+								+ UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedUpkeep(), "b", Color.GENERIC_BAD)
 							+ "</div>"
 							+ "<div style='width:15%; float:left; font-weight:bold; margin:0; padding:0;'>"
 								+ (Main.game.getOccupancyUtil().getGeneratedBalance()<0
-										? UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedBalance(), "b", Colour.GENERIC_BAD)
+										? UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedBalance(), "b", Color.GENERIC_BAD)
 										: UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedBalance(), "b"))
 							+ "</div>"
 						+ "</div>"
@@ -260,7 +260,7 @@ public class OccupantManagementDialogue {
 			// Logs:
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+"; text-align:center;'>Activity Log</h6>"
+						+ "<h6 style='color:"+Color.GENERIC_ARCANE.toWebHexString()+"; text-align:center;'>Activity Log</h6>"
 									+ "<div id='PREVIOUS_DAY' class='normal-button' style='width:15%; margin-right:8px;'>Previous</div>"
 									+ "<b>Day: "+dayNumber+(dayNumber==Main.game.getDayNumber()?" (Today)":"")+(dayNumber==Main.game.getDayNumber()-1?" (Yesterday)":"")+"</b>"
 									+ "<div id='NEXT_DAY' class='normal-button' style='width:15%; margin-left:8px;'>Next</div>"
@@ -288,9 +288,9 @@ public class OccupantManagementDialogue {
 			if(Main.game.getSlaveryEventLog().get(dayNumber)!=null) {
 				for(SlaveryEventLogEntry entry : Main.game.getSlaveryEventLog().get(dayNumber)) {
 					if(count%2==0) {
-						UtilText.nodeContentSB.append("<div class='container-full-width inner' style='background:"+Colour.BACKGROUND.toWebHexString()+";'>");
+						UtilText.nodeContentSB.append("<div class='container-full-width inner' style='background:"+Color.BACKGROUND.toWebHexString()+";'>");
 					} else {
-						UtilText.nodeContentSB.append("<div class='container-full-width inner' style='background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>");
+						UtilText.nodeContentSB.append("<div class='container-full-width inner' style='background:"+Color.BACKGROUND_ALT.toWebHexString()+";'>");
 					}
 					
 					UtilText.nodeContentSB.append(
@@ -319,7 +319,7 @@ public class OccupantManagementDialogue {
 //						}
 //					}
 //					if(!effectsAdded) {
-//						UtilText.nodeContentSB.append("[style.colourDisabled(-)]");
+//						UtilText.nodeContentSB.append("[style.colorDisabled(-)]");
 //					}
 //					
 //					UtilText.nodeContentSB.append("</div>"
@@ -328,7 +328,7 @@ public class OccupantManagementDialogue {
 				}
 			}
 			if(count==0) {
-				UtilText.nodeContentSB.append("<div class='container-full-width inner' style='background:"+Colour.BACKGROUND.toWebHexString()+";'>[style.colourDisabled(No events for this day...)]</div>");
+				UtilText.nodeContentSB.append("<div class='container-full-width inner' style='background:"+Color.BACKGROUND.toWebHexString()+";'>[style.colorDisabled(No events for this day...)]</div>");
 			}
 			
 			UtilText.nodeContentSB.append("</div>"
@@ -361,7 +361,7 @@ public class OccupantManagementDialogue {
 			float obedienceChange = place.getHourlyObedienceChange();
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Current Location</h6>"
+						+ "<h6 style='color:"+Color.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Current Location</h6>"
 						+ getRoomHeader()
 						+ getRoomEntry(!place.isAbleToBeUpgraded(), true, cell, charactersPresent, affectionChange, obedienceChange)
 					+"</div>");
@@ -399,13 +399,13 @@ public class OccupantManagementDialogue {
 						+ "<b>Capacity</b>"
 					+"</div>"
 					+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</b>"
+						+ "<b style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</b>"
 					+"</div>"
 					+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+						+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 					+"</div>"
 					+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Upkeep</b>"
+						+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Upkeep</b>"
 					+"</div>"
 					+ "<div style='float:left; width:10%; font-weight:bold; margin:0; padding:0;'>"
 						+ "Actions"
@@ -419,21 +419,21 @@ public class OccupantManagementDialogue {
 		GenericPlace place = cell.getPlace();
 		
 		miscDialogueSB.append(
-				"<div class='container-full-width inner' style='margin-bottom:4px; margin-top:4px; "+(!occupants.isEmpty()?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
+				"<div class='container-full-width inner' style='margin-bottom:4px; margin-top:4px; "+(!occupants.isEmpty()?"background:"+Color.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
 						+ "<div style='width:15%; float:left; margin:0; padding:0;'>"
-							+ "<span style='color:"+place.getColour().toWebHexString()+";'>"+place.getName()+"</span><br/>"
+							+ "<span style='color:"+place.getColor().toWebHexString()+";'>"+place.getName()+"</span><br/>"
 						+ "</div>"
 						+ "<div style='width:20%; float:left; margin:0; padding:0;'>");
 		
 		int i=0;
 		for(NPC occupant : occupants) {
 			if(occupant.isSlave()) {
-				miscDialogueSB.append("<b style='color:"+occupant.getFemininity().getColour().toWebHexString()+";'>"+occupant.getName()+"</b>"+(i+1==occupants.size()?"":"<br/>"));
+				miscDialogueSB.append("<b style='color:"+occupant.getFemininity().getColor().toWebHexString()+";'>"+occupant.getName()+"</b>"+(i+1==occupants.size()?"":"<br/>"));
 				i++;
 			}
 		}
 		if(i==0) {
-			miscDialogueSB.append("<b style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>Empty</b>");
+			miscDialogueSB.append("<b style='color:"+Color.TEXT_GREY.toWebHexString()+";'>Empty</b>");
 		}
 		
 		miscDialogueSB.append("</div>"
@@ -441,21 +441,21 @@ public class OccupantManagementDialogue {
 							+ i+"/"+place.getCapacity()
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<span style='color:"+(affectionChange==0?Colour.BASE_GREY:(affectionChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
+							+ "<span style='color:"+(affectionChange==0?Color.BASE_GREY:(affectionChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
 								+decimalFormat.format(affectionChange)+"</span>/hour"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<span style='color:"+(obedienceChange==0?Colour.BASE_GREY:(obedienceChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
+							+ "<span style='color:"+(obedienceChange==0?Color.BASE_GREY:(obedienceChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
 								+decimalFormat.format(obedienceChange)+"</span>/hour"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 							+ (disabled
-									?"[style.colourDisabled(N/A)]"
+									?"[style.colorDisabled(N/A)]"
 									:(place.getUpkeep()>0
-										?UtilText.formatAsMoney(-place.getUpkeep(), "span", Colour.GENERIC_BAD)
+										?UtilText.formatAsMoney(-place.getUpkeep(), "span", Color.GENERIC_BAD)
 										:(place.getUpkeep()==0
-											?UtilText.formatAsMoney(-place.getUpkeep(), "span", Colour.TEXT_GREY)
-											:UtilText.formatAsMoney(-place.getUpkeep(), "span", Colour.GENERIC_GOOD))))+"/day"
+											?UtilText.formatAsMoney(-place.getUpkeep(), "span", Color.TEXT_GREY)
+											:UtilText.formatAsMoney(-place.getUpkeep(), "span", Color.GENERIC_GOOD))))+"/day"
 						+"</div>"
 						+ "<div style='float:left; width:10%; margin:0 auto; padding:0; display:inline-block; text-align:center;'>"
 							+ (disabled
@@ -497,7 +497,7 @@ public class OccupantManagementDialogue {
 		
 		worldRoomSB.append(
 				"<div class='container-full-width' style='text-align:center;'>"
-					+ "<h6 style='color:"+worldType.getColour().toWebHexString()+"; text-align:center;'>"+worldType.getName()+"</h6>"
+					+ "<h6 style='color:"+worldType.getColor().toWebHexString()+"; text-align:center;'>"+worldType.getName()+"</h6>"
 					+ getRoomHeader());
 		
 		Cell[][] cellGrid = Main.game.getWorlds().get(worldType).getCellGrid();
@@ -543,7 +543,7 @@ public class OccupantManagementDialogue {
 			
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-							+ "<h6 style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+"; text-align:center;'>Overview (Total Values for this Room)</h6>"
+							+ "<h6 style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+"; text-align:center;'>Overview (Total Values for this Room)</h6>"
 							+"<div class='container-full-width' style='margin-bottom:0;'>"
 								+ "<div style='width:20%; float:left; font-weight:bold; margin:0; padding:0;'>"
 									+ "Name"
@@ -555,13 +555,13 @@ public class OccupantManagementDialogue {
 									+ "<b>Capacity</b>"
 								+"</div>"
 								+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-									+ "<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</b>"
+									+ "<b style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</b>"
 								+"</div>"
 								+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-									+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+									+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 								+"</div>"
 								+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-									+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Upkeep</b>"
+									+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Upkeep</b>"
 								+"</div>"
 							+ "</div>");
 			
@@ -583,12 +583,12 @@ public class OccupantManagementDialogue {
 			List<NPC> occupants = Main.game.getCharactersTreatingCellAsHome(cellToInspect);
 			for(NPC occupant : occupants) {
 				if(occupant.isSlave()) {
-					UtilText.nodeContentSB.append("<b style='color:"+occupant.getFemininity().getColour().toWebHexString()+";'>"+occupant.getName()+"</b>"+(i+1==occupants.size()?"":"<br/>"));
+					UtilText.nodeContentSB.append("<b style='color:"+occupant.getFemininity().getColor().toWebHexString()+";'>"+occupant.getName()+"</b>"+(i+1==occupants.size()?"":"<br/>"));
 					i++;
 				}
 			}
 			if(i==0) {
-				UtilText.nodeContentSB.append("<b style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>Empty</b>");
+				UtilText.nodeContentSB.append("<b style='color:"+Color.TEXT_GREY.toWebHexString()+";'>Empty</b>");
 			}
 			
 			UtilText.nodeContentSB.append(
@@ -597,24 +597,24 @@ public class OccupantManagementDialogue {
 								+ i+"/"+place.getCapacity()
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-								+ "<span style='color:"+(affectionChange==0?Colour.BASE_GREY:(affectionChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
+								+ "<span style='color:"+(affectionChange==0?Color.BASE_GREY:(affectionChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
 									+decimalFormat.format(affectionChange)+"</span>/hour"
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-								+ "<span style='color:"+(obedienceChange==0?Colour.BASE_GREY:(obedienceChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
+								+ "<span style='color:"+(obedienceChange==0?Color.BASE_GREY:(obedienceChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
 									+decimalFormat.format(obedienceChange)+"</span>/hour"
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 								+ (place.getUpkeep()>0
-											?UtilText.formatAsMoney(-place.getUpkeep(), "span", Colour.GENERIC_BAD)
-											:UtilText.formatAsMoney(-place.getUpkeep(), "span", Colour.GENERIC_GOOD))+"/day"
+											?UtilText.formatAsMoney(-place.getUpkeep(), "span", Color.GENERIC_BAD)
+											:UtilText.formatAsMoney(-place.getUpkeep(), "span", Color.GENERIC_GOOD))+"/day"
 							+"</div>"
 						+ "</div>"
 						+ "</div>");
 			
 			// Normal upgrades:
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-											+ "<h6 style='color:"+Colour.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Modifications</h6>"
+											+ "<h6 style='color:"+Color.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Modifications</h6>"
 											+ getRoomUpgradeHeader());
 			
 			List<PlaceUpgrade> coreUpgrades = new ArrayList<>();
@@ -628,8 +628,8 @@ public class OccupantManagementDialogue {
 			}
 			if(i==0) {
 				UtilText.nodeContentSB.append(
-						"<div class='container-full-width inner' style='background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>"
-								+ "<b style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>No Modifications Available</b>"
+						"<div class='container-full-width inner' style='background:"+Color.BACKGROUND_ALT.toWebHexString()+";'>"
+								+ "<b style='color:"+Color.TEXT_GREY.toWebHexString()+";'>No Modifications Available</b>"
 						+ "</div>");
 			}
 			
@@ -637,7 +637,7 @@ public class OccupantManagementDialogue {
 			
 			// Core upgrades:
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-					+ "<h6 style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+"; text-align:center;'>Core Modifications</h6>"
+					+ "<h6 style='color:"+Color.GENERIC_ARCANE.toWebHexString()+"; text-align:center;'>Core Modifications</h6>"
 					+"<p><i>Purchasing a [style.boldArcane(core modification)] will remove [style.boldBad(all)] other modifications in this room!</i></p>"
 					+ getRoomUpgradeHeader());
 
@@ -654,8 +654,8 @@ public class OccupantManagementDialogue {
 			}
 			if(i==0) {
 				UtilText.nodeContentSB.append(
-						"<div class='container-full-width inner' style='background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>"
-								+ "<b style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>No Core Modifications Available</b>"
+						"<div class='container-full-width inner' style='background:"+Color.BACKGROUND_ALT.toWebHexString()+";'>"
+								+ "<b style='color:"+Color.TEXT_GREY.toWebHexString()+";'>No Core Modifications Available</b>"
 						+ "</div>");
 			}
 			
@@ -669,7 +669,7 @@ public class OccupantManagementDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 5) {
 				if(Main.game.getOccupancyUtil().getGeneratedBalance()==0) {
-					return new Response("Collect: "+UtilText.formatAsMoneyUncoloured(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Your current balance is 0...",  null);
+					return new Response("Collect: "+UtilText.formatAsMoneyUncolored(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Your current balance is 0...",  null);
 					
 				} else if(Main.game.getOccupancyUtil().getGeneratedBalance()>0) {
 					return new Response("Collect: "+UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"),
@@ -686,11 +686,11 @@ public class OccupantManagementDialogue {
 					
 				} else {
 					if(Main.game.getPlayer().getMoney()<Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance())) {
-						return new Response("Pay: "+UtilText.formatAsMoneyUncoloured(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span"),
+						return new Response("Pay: "+UtilText.formatAsMoneyUncolored(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span"),
 								"You don't have enough money to pay off the accumulated debt from the upkeep of your slaves and rooms.",  null);
 					}
 					
-					return new Response("Pay: "+UtilText.formatAsMoney(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span", Colour.GENERIC_BAD),
+					return new Response("Pay: "+UtilText.formatAsMoney(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span", Color.GENERIC_BAD),
 							"Pay off the accumulated debt from the upkeep of your slaves and rooms.",  ROOM_UPGRADES) {
 						@Override
 						public DialogueNode getNextDialogue() {
@@ -737,7 +737,7 @@ public class OccupantManagementDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 5) {
 				if(Main.game.getOccupancyUtil().getGeneratedBalance()==0) {
-					return new Response("Collect: "+UtilText.formatAsMoneyUncoloured(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Your current balance is 0...",  null);
+					return new Response("Collect: "+UtilText.formatAsMoneyUncolored(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"), "Your current balance is 0...",  null);
 					
 				} else if(Main.game.getOccupancyUtil().getGeneratedBalance()>0) {
 					return new Response("Collect: "+UtilText.formatAsMoney(Main.game.getOccupancyUtil().getGeneratedBalance(), "span"),
@@ -754,11 +754,11 @@ public class OccupantManagementDialogue {
 					
 				} else {
 					if(Main.game.getPlayer().getMoney()<Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance())) {
-						return new Response("Pay: "+UtilText.formatAsMoneyUncoloured(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span"),
+						return new Response("Pay: "+UtilText.formatAsMoneyUncolored(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span"),
 								"You don't have enough money to pay off the accumulated debt from the upkeep of your slaves and rooms.",  null);
 					}
 					
-					return new Response("Pay: "+UtilText.formatAsMoney(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span", Colour.GENERIC_BAD),
+					return new Response("Pay: "+UtilText.formatAsMoney(Math.abs(Main.game.getOccupancyUtil().getGeneratedBalance()), "span", Color.GENERIC_BAD),
 							"Pay off the accumulated debt from the upkeep of your slaves and rooms.",  ROOM_UPGRADES_MANAGEMENT) {
 						@Override
 						public DialogueNode getNextDialogue() {
@@ -788,16 +788,16 @@ public class OccupantManagementDialogue {
 						+ "Capacity"
 					+"</div>"
 					+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<span style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</span>"
+						+ "<span style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</span>"
 					+"</div>"
 					+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<span style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</span>"
+						+ "<span style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</span>"
 					+"</div>"
 					+ "<div style='float:left; width:10%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<span style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Upkeep</span>"
+						+ "<span style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Upkeep</span>"
 					+"</div>"
 					+ "<div style='float:left; width:10%; font-weight:bold; margin:0; padding:0;'>"
-						+ "<span style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Cost</span>"
+						+ "<span style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Cost</span>"
 					+"</div>"
 					+ "<div style='float:left; width:10%; font-weight:bold; margin:0; padding:0;'>"
 						+ "Actions"
@@ -815,57 +815,57 @@ public class OccupantManagementDialogue {
 		boolean canBuy = availableForPurchase;
 		
 		miscDialogueSB.append(
-				"<div class='container-full-width inner' style='margin-bottom:4px; margin-top:4px;"+(owned?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
+				"<div class='container-full-width inner' style='margin-bottom:4px; margin-top:4px;"+(owned?"background:"+Color.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
 						+ "<div style='width:5%; float:left; margin:0; padding:0;'>"
 							+ "<div class='title-button no-select' id='ROOM_MOD_INFO_"+upgrade+"' style='position:relative; top:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getInformationIcon()+"</div>"
 						+ "</div>"
 						+ "<div style='width:25%; float:left; margin:0; padding:0;'>"
 							+ (owned
-									?"<b style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>"+Util.capitaliseSentence(upgrade.getName())+"</b>"
+									?"<b style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>"+Util.capitalizeSentence(upgrade.getName())+"</b>"
 									:(!availableForPurchase
-											?"<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+Util.capitaliseSentence(upgrade.getName())+"</b>"
-											:"<b>"+Util.capitaliseSentence(upgrade.getName())+"</b>"))
+											?"<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+Util.capitalizeSentence(upgrade.getName())+"</b>"
+											:"<b>"+Util.capitalizeSentence(upgrade.getName())+"</b>"))
 //							+ "<div class='item-inline' id='ROOM_MOD_INFO_"+upgrade+"' style='float:right;'>"+SVGImages.SVG_IMAGE_PROVIDER.getInformationIcon()+"</div>"
 //							+"<div class='overlay' id=''></div>"
 						+ "</div>"
 						+ "<div style='width:10%; float:left; margin:0; padding:0;'>"
 							+ (upgrade.getCapacity()>0
-									?"<b style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>+"+upgrade.getCapacity()+"</b>"
+									?"<b style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>+"+upgrade.getCapacity()+"</b>"
 									:(upgrade.getCapacity()<0
-											?"<b style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>"+upgrade.getCapacity()+"</b>"
-											:"[style.colourDisabled(0)]"))
+											?"<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>"+upgrade.getCapacity()+"</b>"
+											:"[style.colorDisabled(0)]"))
 						+ "</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 							+ (affectionChange>0
-									?"<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>+"+decimalFormat.format(affectionChange)+ "</b>/hour"
+									?"<b style='color:"+Color.AFFECTION.toWebHexString()+";'>+"+decimalFormat.format(affectionChange)+ "</b>/hour"
 									:(affectionChange<0
-											?"<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(affectionChange)+ "</b>/hour"
-											:"[style.colourDisabled(0)]/hour"))
+											?"<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(affectionChange)+ "</b>/hour"
+											:"[style.colorDisabled(0)]/hour"))
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 							+ (obedienceChange>0
-									?"<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>+"+decimalFormat.format(obedienceChange)+ "</b>/hour"
+									?"<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>+"+decimalFormat.format(obedienceChange)+ "</b>/hour"
 									:(obedienceChange<0
-											?"<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(obedienceChange)+ "</b>/hour"
-											:"[style.colourDisabled(0)]/hour"))
+											?"<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(obedienceChange)+ "</b>/hour"
+											:"[style.colorDisabled(0)]/hour"))
 						+"</div>"
 						+ "<div style='float:left; width:10%; margin:0; padding:0;'>"
 							+ (upgrade.getUpkeep()>0
-									?UtilText.formatAsMoney(upgrade.getUpkeep(), "b", Colour.GENERIC_BAD)
-									:UtilText.formatAsMoney(upgrade.getUpkeep(), "b", Colour.GENERIC_GOOD))+"/day"
+									?UtilText.formatAsMoney(upgrade.getUpkeep(), "b", Color.GENERIC_BAD)
+									:UtilText.formatAsMoney(upgrade.getUpkeep(), "b", Color.GENERIC_GOOD))+"/day"
 						+"</div>"
 						+ "<div style='float:left; width:10%; margin:0; padding:0;'>"
 							+ (owned
 									?(upgrade.getRemovalCost()<0
-											?UtilText.formatAsMoney(upgrade.getRemovalCost(), "b", Colour.GENERIC_GOOD)
+											?UtilText.formatAsMoney(upgrade.getRemovalCost(), "b", Color.GENERIC_GOOD)
 											:(upgrade.getRemovalCost() < Main.game.getPlayer().getMoney()
 													?UtilText.formatAsMoney(upgrade.getRemovalCost(), "b")
-													:UtilText.formatAsMoney(upgrade.getRemovalCost(), "b", Colour.GENERIC_BAD)))
+													:UtilText.formatAsMoney(upgrade.getRemovalCost(), "b", Color.GENERIC_BAD)))
 									:(upgrade.getInstallCost()<0
-											?UtilText.formatAsMoney(upgrade.getInstallCost(), "b", Colour.GENERIC_GOOD)
+											?UtilText.formatAsMoney(upgrade.getInstallCost(), "b", Color.GENERIC_GOOD)
 											:(upgrade.getInstallCost() < Main.game.getPlayer().getMoney()
 													?UtilText.formatAsMoney(upgrade.getInstallCost(), "b")
-													:UtilText.formatAsMoney(upgrade.getInstallCost(), "b", Colour.GENERIC_BAD))))
+													:UtilText.formatAsMoney(upgrade.getInstallCost(), "b", Color.GENERIC_BAD))))
 						+"</div>"
 						+ "<div style='float:left; width:10%; margin:0 auto; padding:0; display:inline-block; text-align:center;'>");
 		
@@ -903,7 +903,7 @@ public class OccupantManagementDialogue {
 //					+ "<p>"
 //						+ "<i>"
 //							+(!owned
-//								?"[style.colourDisabled("+upgrade.getDescriptionForPurchase()+")]"
+//								?"[style.colorDisabled("+upgrade.getDescriptionForPurchase()+")]"
 //								:upgrade.getDescriptionAfterPurchase())
 //						+"</i>"
 //					+ "</p>"
@@ -915,7 +915,7 @@ public class OccupantManagementDialogue {
 		if(!canBuy) {
 			miscDialogueSB.append("<p>"
 				+ "<i>"
-				+ "[style.colourBad("+ getPurchaseAvailabilityTooltipText(OccupantManagementDialogue.cellToInspect, upgrade)+")]"
+				+ "[style.colorBad("+ getPurchaseAvailabilityTooltipText(OccupantManagementDialogue.cellToInspect, upgrade)+")]"
 				+"</i>"
 			+ "</p>");
 		}
@@ -934,25 +934,25 @@ public class OccupantManagementDialogue {
 		
 		if(owned) {
 			if(Main.game.getPlayer().getMoney()<upgrade.getRemovalCost()) {
-				purchaseAvailability.append("<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>You cannot afford to remove this modification.</span>");
+				purchaseAvailability.append("<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>You cannot afford to remove this modification.</span>");
 			}
 			
 		} else {
 			if(Main.game.getOccupancyUtil().getGeneratedBalance()<0) {
-				purchaseAvailability.append("<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>You cannot purchase any modifications while your slavery balance is negative.</b>");
+				purchaseAvailability.append("<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>You cannot purchase any modifications while your slavery balance is negative.</b>");
 			}
 			
 			if(Main.game.getPlayer().getMoney()<upgrade.getInstallCost()) {
-				purchaseAvailability.append("<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>You cannot afford this modification.</span>");
+				purchaseAvailability.append("<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>You cannot afford this modification.</span>");
 			}
 			
 			if(!upgrade.getPrerequisites().isEmpty()) {
 				purchaseAvailability.append("You need to purchase the following first:");
 				for(PlaceUpgrade prereq : upgrade.getPrerequisites()) {
 					if(place.getPlaceUpgrades().contains(prereq)) {
-						purchaseAvailability.append("<br/><span style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>"+prereq.getName()+"</span>");
+						purchaseAvailability.append("<br/><span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>"+prereq.getName()+"</span>");
 					} else {
-						purchaseAvailability.append("<br/><span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+prereq.getName()+"</span>");
+						purchaseAvailability.append("<br/><span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+prereq.getName()+"</span>");
 					}
 				}
 			}
@@ -960,7 +960,7 @@ public class OccupantManagementDialogue {
 		
 		String availabilityDescription = upgrade.getAvailabilityDescription(OccupantManagementDialogue.cellToInspect);
 		if(availabilityDescription!=null && availabilityDescription.length()>0) {
-			purchaseAvailability.append("<br/><span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+availabilityDescription+"</span>");
+			purchaseAvailability.append("<br/><span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+availabilityDescription+"</span>");
 		}
 		
 		return purchaseAvailability.toString();
@@ -980,7 +980,7 @@ public class OccupantManagementDialogue {
 			if(Main.game.getDialogueFlags().getSlaveTrader()!=null) {
 				// Append for sale first:
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+"; text-align:center;'>Slaves For Sale</h6>"
+						+ "<h6 style='color:"+Color.CURRENCY_GOLD.toWebHexString()+"; text-align:center;'>Slaves For Sale</h6>"
 						
 						+ getSlaveryHeader());
 				int i=0;
@@ -1001,21 +1001,21 @@ public class OccupantManagementDialogue {
 					}
 				}
 				if(i==0) {
-					UtilText.nodeContentSB.append("<div class='container-full-width inner'><h4 style='color:"+Colour.TEXT_GREY.toWebHexString()+";'>No slaves for sale!</h4></div>");
+					UtilText.nodeContentSB.append("<div class='container-full-width inner'><h4 style='color:"+Color.TEXT_GREY.toWebHexString()+";'>No slaves for sale!</h4></div>");
 				}
 				UtilText.nodeContentSB.append("</div>");
 				
 			} else { // Don't show occupants if trading slaves.
 				// Friendly occupants:
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Friendly Occupants</h6>"
+						+ "<h6 style='color:"+Color.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Friendly Occupants</h6>"
 						
 						+ getOccupantHeader());
 				
 				if(Main.game.getPlayer().getFriendlyOccupants().isEmpty()) {
 					UtilText.nodeContentSB.append(
 							"<div class='container-full-width' style='text-align:center;'>"
-									+"<p style='color:"+Colour.BASE_GREY.toWebHexString()+";'>You do not have anyone living with you...</p>"
+									+"<p style='color:"+Color.BASE_GREY.toWebHexString()+";'>You do not have anyone living with you...</p>"
 							+ "</div>");
 					
 				} else {
@@ -1045,14 +1045,14 @@ public class OccupantManagementDialogue {
 			
 			// Your slaves:
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
-					+ "<h6 style='color:"+Colour.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Slaves Owned</h6>"
+					+ "<h6 style='color:"+Color.GENERIC_GOOD.toWebHexString()+"; text-align:center;'>Slaves Owned</h6>"
 					
 					+ getSlaveryHeader());
 			
 			if(Main.game.getPlayer().getSlavesOwned().isEmpty()) {
 				UtilText.nodeContentSB.append(
 						"<div class='container-full-width' style='text-align:center;'>"
-								+"<p style='color:"+Colour.BASE_GREY.toWebHexString()+";'>You do not own any slaves...</p>"
+								+"<p style='color:"+Color.BASE_GREY.toWebHexString()+";'>You do not own any slaves...</p>"
 						+ "</div>");
 				
 			} else {
@@ -1284,13 +1284,13 @@ public class OccupantManagementDialogue {
 					+ "Location"
 				+ "</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-					+ "<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</b>"
+					+ "<b style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</b>"
 				+"</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-					+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+					+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 				+"</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-					+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Value</b>"
+					+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Value</b>"
 				+"</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
 					+ "Actions"
@@ -1307,13 +1307,13 @@ public class OccupantManagementDialogue {
 					+ "Location"
 				+ "</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-					+ "<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</b>"
+					+ "<b style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</b>"
 				+"</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-					+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+					+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 				+"</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-					+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Value</b>"
+					+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Value</b>"
 				+"</div>"
 				+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
 					+ "Actions"
@@ -1325,39 +1325,39 @@ public class OccupantManagementDialogue {
 		miscDialogueSB.setLength(0);
 		
 		miscDialogueSB.append(
-				"<div class='container-full-width inner' style='margin-bottom:0;"+(alternateBackground?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
+				"<div class='container-full-width inner' style='margin-bottom:0;"+(alternateBackground?"background:"+Color.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
 						+ "<div style='width:20%; float:left; margin:0; padding:0;'>"
-							+ "<b style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>"+slave.getName()+"</b><br/>"
-							+ "<span style='color:"+slave.getRace().getColour().toWebHexString()+";'>"
-								+Util.capitaliseSentence((slave.isFeminine()?slave.getSubspecies().getSingularFemaleName(slave):slave.getSubspecies().getSingularMaleName(slave)))+"</span><br/>"
-							+ "<span style='color:"+slave.getFemininity().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(slave.getGender().getName())+"</span>"
+							+ "<b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>"+slave.getName()+"</b><br/>"
+							+ "<span style='color:"+slave.getRace().getColor().toWebHexString()+";'>"
+								+Util.capitalizeSentence((slave.isFeminine()?slave.getSubspecies().getSingularFemaleName(slave):slave.getSubspecies().getSingularMaleName(slave)))+"</span><br/>"
+							+ "<span style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>"+Util.capitalizeSentence(slave.getGender().getName())+"</span>"
 						+ "</div>"
 						+ "<div style='width:20%; float:left; margin:0; padding:0;'>"
-							+ "<b style='color:"+slave.getLocationPlace().getColour().toWebHexString()+";'>"+slave.getLocationPlace().getName()+"</b>"
+							+ "<b style='color:"+slave.getLocationPlace().getColor().toWebHexString()+";'>"+slave.getLocationPlace().getName()+"</b>"
 							+",<br/>"
-							+ "<span style='color:"+slave.getWorldLocation().getColour().toWebHexString()+";'>"+slave.getWorldLocation().getName()+"</span>"
+							+ "<span style='color:"+slave.getWorldLocation().getColor().toWebHexString()+";'>"+slave.getWorldLocation().getName()+"</span>"
 						+ "</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<b style='color:"+affection.getColour().toWebHexString()+";'>"+slave.getAffection(Main.game.getPlayer())+ "</b>"
-							+ "<br/><span style='color:"+(affectionChange==0?Colour.BASE_GREY:(affectionChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
+							+ "<b style='color:"+affection.getColor().toWebHexString()+";'>"+slave.getAffection(Main.game.getPlayer())+ "</b>"
+							+ "<br/><span style='color:"+(affectionChange==0?Color.BASE_GREY:(affectionChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
 								+decimalFormat.format(affectionChange)+"</span>/day"
 							+ "<br/>"
-							+ "<span style='color:"+affection.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(affection.getName())+"</span>"
+							+ "<span style='color:"+affection.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(affection.getName())+"</span>"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<b style='color:"+obedience.getColour().toWebHexString()+";'>"+slave.getObedienceValue()+ "</b>"
-							+ "<br/><span style='color:"+(obedienceChange==0?Colour.BASE_GREY:(obedienceChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
+							+ "<b style='color:"+obedience.getColor().toWebHexString()+";'>"+slave.getObedienceValue()+ "</b>"
+							+ "<br/><span style='color:"+(obedienceChange==0?Color.BASE_GREY:(obedienceChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
 								+decimalFormat.format(obedienceChange)+"</span>/day"
 							+ "<br/>"
-							+ "<span style='color:"+obedience.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(obedience.getName())+"</span>"
+							+ "<span style='color:"+obedience.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(obedience.getName())+"</span>"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 							+ (Main.game.getDialogueFlags().getSlaveTrader()!=null
 								?(slaveOwned
-										?UtilText.formatAsMoney((int) (slave.getValueAsSlave()*Main.game.getDialogueFlags().getSlaveTrader().getBuyModifier()), "b", Colour.GENERIC_ARCANE)
-										:UtilText.formatAsMoney((int) (slave.getValueAsSlave()*Main.game.getDialogueFlags().getSlaveTrader().getSellModifier()), "b", Colour.GENERIC_ARCANE))
+										?UtilText.formatAsMoney((int) (slave.getValueAsSlave()*Main.game.getDialogueFlags().getSlaveTrader().getBuyModifier()), "b", Color.GENERIC_ARCANE)
+										:UtilText.formatAsMoney((int) (slave.getValueAsSlave()*Main.game.getDialogueFlags().getSlaveTrader().getSellModifier()), "b", Color.GENERIC_ARCANE))
 								:UtilText.formatAsMoney(slave.getValueAsSlave()))+"<br/>"
-							+ "<b>"+Util.capitaliseSentence(slave.getSlaveJob().getName(slave))+"</b><br/>"
+							+ "<b>"+Util.capitalizeSentence(slave.getSlaveJob().getName(slave))+"</b><br/>"
 							+ UtilText.formatAsMoney(slave.getSlaveJob().getFinalDailyIncomeAfterModifiers(slave))+"/day"
 						+"</div>");
 		
@@ -1419,38 +1419,38 @@ public class OccupantManagementDialogue {
 		miscDialogueSB.setLength(0);
 		
 		miscDialogueSB.append(
-				"<div class='container-full-width inner' style='margin-bottom:0;"+(alternateBackground?"background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
+				"<div class='container-full-width inner' style='margin-bottom:0;"+(alternateBackground?"background:"+Color.BACKGROUND_ALT.toWebHexString()+";'":"'")+"'>"
 						+ "<div style='width:20%; float:left; margin:0; padding:0;'>"
-							+ "<b style='color:"+occupant.getFemininity().getColour().toWebHexString()+";'>"+occupant.getName()+"</b><br/>"
-							+ "<span style='color:"+occupant.getRace().getColour().toWebHexString()+";'>"
-								+Util.capitaliseSentence((occupant.isFeminine()?occupant.getSubspecies().getSingularFemaleName(occupant):occupant.getSubspecies().getSingularMaleName(occupant)))+"</span><br/>"
-							+ "<span style='color:"+occupant.getFemininity().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(occupant.getGender().getName())+"</span>"
+							+ "<b style='color:"+occupant.getFemininity().getColor().toWebHexString()+";'>"+occupant.getName()+"</b><br/>"
+							+ "<span style='color:"+occupant.getRace().getColor().toWebHexString()+";'>"
+								+Util.capitalizeSentence((occupant.isFeminine()?occupant.getSubspecies().getSingularFemaleName(occupant):occupant.getSubspecies().getSingularMaleName(occupant)))+"</span><br/>"
+							+ "<span style='color:"+occupant.getFemininity().getColor().toWebHexString()+";'>"+Util.capitalizeSentence(occupant.getGender().getName())+"</span>"
 						+ "</div>"
 						+ "<div style='width:20%; float:left; margin:0; padding:0;'>"
 							+ (occupant.getWorldLocation()==WorldType.EMPTY
-								?"<b style='color:"+Colour.BASE_GREY.toWebHexString()+";'>At Work</b>"
+								?"<b style='color:"+Color.BASE_GREY.toWebHexString()+";'>At Work</b>"
 										+",<br/>"
-										+ "<span style='color:"+WorldType.DOMINION.getColour().toWebHexString()+";'>"+WorldType.DOMINION.getName()+"</span>"
-								:"<b style='color:"+occupant.getLocationPlace().getColour().toWebHexString()+";'>"+occupant.getLocationPlace().getName()+"</b>"
+										+ "<span style='color:"+WorldType.DOMINION.getColor().toWebHexString()+";'>"+WorldType.DOMINION.getName()+"</span>"
+								:"<b style='color:"+occupant.getLocationPlace().getColor().toWebHexString()+";'>"+occupant.getLocationPlace().getName()+"</b>"
 									+",<br/>"
-									+ "<span style='color:"+occupant.getWorldLocation().getColour().toWebHexString()+";'>"+occupant.getWorldLocation().getName()+"</span>")
+									+ "<span style='color:"+occupant.getWorldLocation().getColor().toWebHexString()+";'>"+occupant.getWorldLocation().getName()+"</span>")
 						+ "</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<b style='color:"+affection.getColour().toWebHexString()+";'>"+occupant.getAffection(Main.game.getPlayer())+ "</b>"
-							+ "<br/><span style='color:"+(affectionChange==0?Colour.BASE_GREY:(affectionChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
+							+ "<b style='color:"+affection.getColor().toWebHexString()+";'>"+occupant.getAffection(Main.game.getPlayer())+ "</b>"
+							+ "<br/><span style='color:"+(affectionChange==0?Color.BASE_GREY:(affectionChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
 								+decimalFormat.format(affectionChange)+"</span>/day"
 							+ "<br/>"
-							+ "<span style='color:"+affection.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(affection.getName())+"</span>"
+							+ "<span style='color:"+affection.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(affection.getName())+"</span>"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<b style='color:"+obedience.getColour().toWebHexString()+";'>"+occupant.getObedienceValue()+ "</b>"
-							+ "<br/><span style='color:"+(obedienceChange==0?Colour.BASE_GREY:(obedienceChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
+							+ "<b style='color:"+obedience.getColor().toWebHexString()+";'>"+occupant.getObedienceValue()+ "</b>"
+							+ "<br/><span style='color:"+(obedienceChange==0?Color.BASE_GREY:(obedienceChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
 								+decimalFormat.format(obedienceChange)+"</span>/day"
 							+ "<br/>"
-							+ "<span style='color:"+obedience.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(obedience.getName())+"</span>"
+							+ "<span style='color:"+obedience.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(obedience.getName())+"</span>"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
-							+ "<b>"+Util.capitaliseSentence(occupant.getSlaveJob().getName(occupant))+"</b><br/>"
+							+ "<b>"+Util.capitalizeSentence(occupant.getSlaveJob().getName(occupant))+"</b><br/>"
 							+ UtilText.formatAsMoney(occupant.getSlaveJob().getFinalDailyIncomeAfterModifiers(occupant))+"/day"
 						+"</div>"
 							
@@ -1530,13 +1530,13 @@ public class OccupantManagementDialogue {
 							+ "Location"
 						+ "</div>"
 						+ "<div style='float:left; width:20%; font-weight:bold; margin:0; padding:0;'>"
-							+ "<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</b>"
+							+ "<b style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</b>"
 						+"</div>"
 						+ "<div style='float:left; width:20%; font-weight:bold; margin:0; padding:0;'>"
-							+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+							+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 						+"</div>"
 						+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-							+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Income</b>"
+							+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Income</b>"
 						+"</div>"
 						+ "<div style='width:15%; float:left; font-weight:bold; margin:0; padding:0;'>"
 							+ "Value"
@@ -1544,23 +1544,23 @@ public class OccupantManagementDialogue {
 					+ "</div>"
 					+"<div class='container-full-width'>"
 						+"<div style='width:30%; float:left; margin:0; padding:0;'>"
-							+ "<b style='color:"+character.getLocationPlace().getColour().toWebHexString()+";'>"+character.getLocationPlace().getName()+"</b>"
+							+ "<b style='color:"+character.getLocationPlace().getColor().toWebHexString()+";'>"+character.getLocationPlace().getName()+"</b>"
 							+",<br/>"
-							+ "<span style='color:"+character.getWorldLocation().getColour().toWebHexString()+";'>"+character.getWorldLocation().getName()+"</span>"
+							+ "<span style='color:"+character.getWorldLocation().getColor().toWebHexString()+";'>"+character.getWorldLocation().getName()+"</span>"
 						+ "</div>"
 						+ "<div style='float:left; width:20%; margin:0; padding:0;'>"
-							+ "<b style='color:"+affection.getColour().toWebHexString()+";'>"+character.getAffection(Main.game.getPlayer())+ "</b>" //TODO
-							+ "<br/><span style='color:"+(affectionChange==0?Colour.BASE_GREY:(affectionChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
+							+ "<b style='color:"+affection.getColor().toWebHexString()+";'>"+character.getAffection(Main.game.getPlayer())+ "</b>" //TODO
+							+ "<br/><span style='color:"+(affectionChange==0?Color.BASE_GREY:(affectionChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(affectionChange>0?"+":"")
 								+decimalFormat.format(affectionChange)+"</span>/day"
 							+ "<br/>"
-							+ "<span style='color:"+affection.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(affection.getName())+"</span>"
+							+ "<span style='color:"+affection.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(affection.getName())+"</span>"
 						+"</div>"
 						+ "<div style='float:left; width:20%; margin:0; padding:0;'>"
-							+ "<b style='color:"+obedience.getColour().toWebHexString()+";'>"+character.getObedienceValue()+ "</b>"
-							+ "<br/><span style='color:"+(obedienceChange==0?Colour.BASE_GREY:(obedienceChange>0?Colour.GENERIC_GOOD:Colour.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
+							+ "<b style='color:"+obedience.getColor().toWebHexString()+";'>"+character.getObedienceValue()+ "</b>"
+							+ "<br/><span style='color:"+(obedienceChange==0?Color.BASE_GREY:(obedienceChange>0?Color.GENERIC_GOOD:Color.GENERIC_BAD)).toWebHexString()+";'>"+(obedienceChange>0?"+":"")
 								+decimalFormat.format(obedienceChange)+"</span>/day"
 							+ "<br/>"
-							+ "<span style='color:"+obedience.getColour().toWebHexString()+";'>"+Util.capitaliseSentence(obedience.getName())+"</span>"
+							+ "<span style='color:"+obedience.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(obedience.getName())+"</span>"
 						+"</div>"
 						+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 							+ UtilText.formatAsMoney(character.getSlaveJob().getFinalDailyIncomeAfterModifiers(character))+"/day"
@@ -1572,10 +1572,10 @@ public class OccupantManagementDialogue {
 
 		// Job:
 		headerSB.append("<div class='container-half-width inner' style='width:50%; margin:0;'>"
-				+ "<b>Job:</b> <b style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>"+Util.capitaliseSentence(character.getSlaveJob().getName(character))+"</b><br/>");
+				+ "<b>Job:</b> <b style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>"+Util.capitalizeSentence(character.getSlaveJob().getName(character))+"</b><br/>");
 		int count=0;
 		for(SlaveJobSetting setting : character.getSlaveJobSettings()) {
-			headerSB.append((count==0?"":", ")+"<span style='color:"+setting.getColour().toWebHexString()+";'>"+setting.getName()+"</span>");
+			headerSB.append((count==0?"":", ")+"<span style='color:"+setting.getColor().toWebHexString()+";'>"+setting.getName()+"</span>");
 			count++;
 		}
 		if(count>0) {
@@ -1585,12 +1585,12 @@ public class OccupantManagementDialogue {
 		
 		// Permissions:
 		headerSB.append("<div class='container-half-width inner' style='width:50%; margin:0;'>"
-				+ "<b style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>Permissions:</b><br/>");
+				+ "<b style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Permissions:</b><br/>");
 		int permissionCount=0;
 		for(SlavePermission permission : SlavePermission.values()) {
 			for(SlavePermissionSetting setting : permission.getSettings()) {
 				if(character.getSlavePermissionSettings().get(permission).contains(setting)) {
-					headerSB.append((permissionCount==0?"":", ")+"<span style='color:"+permission.getColour().toWebHexString()+";'>"+setting.getName()+"</span>");
+					headerSB.append((permissionCount==0?"":", ")+"<span style='color:"+permission.getColor().toWebHexString()+";'>"+setting.getName()+"</span>");
 					permissionCount++;
 				}
 			}
@@ -1604,7 +1604,7 @@ public class OccupantManagementDialogue {
 	}
 	
 	/**
-	 * <b>Use getSlaveryManagementDetailedDialogue(NPC slave) to initialise this!!!</b>
+	 * <b>Use getSlaveryManagementDetailedDialogue(NPC slave) to initialize this!!!</b>
 	 */
 	public static final DialogueNode SLAVE_MANAGEMENT_INSPECT = new DialogueNode("Slave Management", ".", true) {
 
@@ -1630,7 +1630,7 @@ public class OccupantManagementDialogue {
 			
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width'>"
-							+ "<h6 style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+"; text-align:center;'>Inspection</h6>"
+							+ "<h6 style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+"; text-align:center;'>Inspection</h6>"
 							+ "<div class='container-full-width inner'>"
 								+character.getCharacterInformationScreen()
 							+"</div>"
@@ -1681,7 +1681,7 @@ public class OccupantManagementDialogue {
 			// Job hours
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='text-align:center;'><span style='color:"+Colour.BASE_YELLOW.toWebHexString()+";'>Work Hours</span></h6>"
+						+ "<h6 style='text-align:center;'><span style='color:"+Color.BASE_YELLOW.toWebHexString()+";'>Work Hours</span></h6>"
 						+ "<div class='container-full-width inner'>");
 							for(int i=0 ; i< 24; i++) {
 								UtilText.nodeContentSB.append("<div class='normal-button hour "+(character.getWorkHours()[i]?" selected":"")+"' id='"+i+"_WORK'>"+String.format("%02d", i)+":00</div>");
@@ -1702,7 +1702,7 @@ public class OccupantManagementDialogue {
 			// TODO description box explaining that setting just influence random events
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.GENERIC_EXPERIENCE.toWebHexString()+"; text-align:center;'>Jobs</h6>"
+						+ "<h6 style='color:"+Color.GENERIC_EXPERIENCE.toWebHexString()+"; text-align:center;'>Jobs</h6>"
 						+"<div class='container-full-width' style='margin-bottom:0;'>"
 							+ "<div style='width:20%; float:left; font-weight:bold; margin:0; padding:0;'>"
 								+ "Job"
@@ -1711,14 +1711,14 @@ public class OccupantManagementDialogue {
 								+ "<b>Workers</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>Affection</b>"
+								+ "<b style='color:"+Color.AFFECTION.toWebHexString()+";'>Affection</b>"
 							+"</div>"
 							+ "<div style='float:left; width:15%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
+								+ "<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience</b>"
 							+"</div>"
 							+ "<div style='float:left; width:30%; font-weight:bold; margin:0; padding:0;'>"
-								+ "<b style='color:"+Colour.CURRENCY_GOLD.toWebHexString()+";'>Income</b>"
-										+ " (+<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>Obedience Bonus</b>)"
+								+ "<b style='color:"+Color.CURRENCY_GOLD.toWebHexString()+";'>Income</b>"
+										+ " (+<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>Obedience Bonus</b>)"
 							+"</div>"
 							+ "<div style='float:left; width:10%; font-weight:bold; margin:0; padding:0;'>"
 								+ "Actions"
@@ -1732,42 +1732,42 @@ public class OccupantManagementDialogue {
 				boolean isCurrentJob = character.getSlaveJob() == job;
 				
 				UtilText.nodeContentSB.append(
-						"<div class='container-full-width inner' "+(isCurrentJob?"style='background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'":"")+">"
+						"<div class='container-full-width inner' "+(isCurrentJob?"style='background:"+Color.BACKGROUND_ALT.toWebHexString()+";'":"")+">"
 							+ "<div style='width:5%; float:left; margin:0; padding:0;'>"
 								+ "<div class='title-button no-select' id='SLAVE_JOB_INFO_"+job+"' style='position:relative; top:0;'>"+SVGImages.SVG_IMAGE_PROVIDER.getInformationIcon()+"</div>"
 							+ "</div>"
 							+"<div style='width:15%; float:left; margin:0; padding:0;'>"
 								+ (isCurrentJob
-									? "[style.boldGood("+Util.capitaliseSentence(job.getName(character))+")]"
+									? "[style.boldGood("+Util.capitalizeSentence(job.getName(character))+")]"
 									: (job.isAvailable(character)
-										? Util.capitaliseSentence(job.getName(character))
-										: "[style.colourBad("+Util.capitaliseSentence(job.getName(character))+")]"))
+										? Util.capitalizeSentence(job.getName(character))
+										: "[style.colorBad("+Util.capitalizeSentence(job.getName(character))+")]"))
 							+ "</div>"
 							+ "<div style='float:left; width:10%; font-weight:bold; margin:0; padding:0;'>"
 								+ Main.game.getPlayer().getSlavesWorkingJob(job)+"/"+(job.getSlaveLimit()<0?"&#8734;":job.getSlaveLimit())
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 								+ (affectionChange>0
-										?"<b style='color:"+Colour.AFFECTION.toWebHexString()+";'>+"+decimalFormat.format(affectionChange)+ "</b>"
+										?"<b style='color:"+Color.AFFECTION.toWebHexString()+";'>+"+decimalFormat.format(affectionChange)+ "</b>"
 										:(affectionChange<0
-												?"<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(affectionChange)+ "</b>"
-												:"[style.colourDisabled(0)]"))+"/hour"
+												?"<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(affectionChange)+ "</b>"
+												:"[style.colorDisabled(0)]"))+"/hour"
 							+"</div>"
 							+ "<div style='float:left; width:15%; margin:0; padding:0;'>"
 								+ (obedienceChange>0
-										?"<b style='color:"+Colour.OBEDIENCE.toWebHexString()+";'>+"+decimalFormat.format(obedienceChange)+ "</b>"
+										?"<b style='color:"+Color.OBEDIENCE.toWebHexString()+";'>+"+decimalFormat.format(obedienceChange)+ "</b>"
 										:(obedienceChange<0
-												?"<b style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(obedienceChange)+ "</b>"
-												:"[style.colourDisabled(0)]"))+"/hour"
+												?"<b style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>"+decimalFormat.format(obedienceChange)+ "</b>"
+												:"[style.colorDisabled(0)]"))+"/hour"
 							+"</div>"
 							+ "<div style='float:left; width:30%; margin:0; padding:0;'>"
 								+ UtilText.formatAsMoney(job.getIncome())
 								+ " + ("
 								+ (job.getObedienceIncomeModifier()>0
-										?"[style.colourObedience("+job.getObedienceIncomeModifier()+")]"
-										:"[style.colourDisabled("+job.getObedienceIncomeModifier()+")]")
-										+ "*<span style='color:"+obedience.getColour().toWebHexString()+";'>"+character.getObedienceValue()+"</span>)"
-								+ " = "+UtilText.formatAsMoney(income, "b", (income>0?null:Colour.GENERIC_BAD))+"/hour"
+										?"[style.colorObedience("+job.getObedienceIncomeModifier()+")]"
+										:"[style.colorDisabled("+job.getObedienceIncomeModifier()+")]")
+										+ "*<span style='color:"+obedience.getColor().toWebHexString()+";'>"+character.getObedienceValue()+"</span>)"
+								+ " = "+UtilText.formatAsMoney(income, "b", (income>0?null:Color.GENERIC_BAD))+"/hour"
 							+"</div>"
 							+ "<div style='float:left; width:10%; margin:0; padding:0;'>"
 								+ (!job.isAvailable(character) || isCurrentJob
@@ -1778,7 +1778,7 @@ public class OccupantManagementDialogue {
 							+ (!isCurrentJob && !job.isAvailable(character)
 								?"<div class='container-full-width' style='background:transparent; margin:0;'>"
 										+ "<i>"
-											+ "[style.colourBad("+job.getAvailabilityText(character)+")]"
+											+ "[style.colorBad("+job.getAvailabilityText(character)+")]"
 										+"</i>"
 									+ "</div>"
 								:""));
@@ -1789,7 +1789,7 @@ public class OccupantManagementDialogue {
 						boolean settingActive = character.getSlaveJobSettings().contains(setting);
 						
 						UtilText.nodeContentSB.append("<div class='container-full-width inner' style='"+(!isCurrentJob?"background:#1B1B1B;":"")+"'>"
-														+"<div style='width:20%; float:left; margin:0; padding:0;"+(!isCurrentJob?"color:#777;":(settingActive?"color:"+Colour.GENERIC_GOOD.toWebHexString()+";":""))+"'>"
+														+"<div style='width:20%; float:left; margin:0; padding:0;"+(!isCurrentJob?"color:#777;":(settingActive?"color:"+Color.GENERIC_GOOD.toWebHexString()+";":""))+"'>"
 															+ setting.getName()
 														+ "</div>"
 														+"<div style='width:70%; float:left; margin:0; padding:0;"+(!settingActive?"color:#777;":"")+"'>"
@@ -1808,13 +1808,13 @@ public class OccupantManagementDialogue {
 					for(Entry<String, List<SlaveJobSetting>> entry : job.getMutuallyExclusiveSettings().entrySet()) {
 						UtilText.nodeContentSB.append("<div class='container-full-width inner' style='"+(!isCurrentJob?"background:#1B1B1B;":"")+"'>"
 														+ "<div style='width:100%; float:left; margin:0; padding:0;"+(isCurrentJob?"":"color:#777;")+"'><b>"
-															+ Util.capitaliseSentence(entry.getKey())
+															+ Util.capitalizeSentence(entry.getKey())
 														+"</b></div>");
 						
 						for(SlaveJobSetting setting : entry.getValue()) {
 							boolean settingActive = character.getSlaveJobSettings().contains(setting);
 							
-							UtilText.nodeContentSB.append("<div style='width:20%; float:left; margin:0; padding:0;"+(!isCurrentJob?"color:#777;":(settingActive?"color:"+Colour.GENERIC_GOOD.toWebHexString()+";":""))+"'>"
+							UtilText.nodeContentSB.append("<div style='width:20%; float:left; margin:0; padding:0;"+(!isCurrentJob?"color:#777;":(settingActive?"color:"+Color.GENERIC_GOOD.toWebHexString()+";":""))+"'>"
 																+ setting.getName()
 															+ "</div>"
 															+"<div style='width:70%; float:left; margin:0; padding:0;"+(!settingActive?"color:#777;":"")+"'>"
@@ -1879,19 +1879,19 @@ public class OccupantManagementDialogue {
 			// Permissions:
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
-						+ "<h6 style='color:"+Colour.GENERIC_ARCANE.toWebHexString()+"; text-align:center;'>Permissions</h6>");
+						+ "<h6 style='color:"+Color.GENERIC_ARCANE.toWebHexString()+"; text-align:center;'>Permissions</h6>");
 			
 			for(SlavePermission permission : SlavePermission.values()) {
 				UtilText.nodeContentSB.append(
-						"<div class='container-full-width inner' style='background:"+Colour.BACKGROUND_ALT.toWebHexString()+";'>"
-								+ "<h6 style='color:"+permission.getColour().toWebHexString()+"; text-align:center;'>"+permission.getName()+"</h6>");
+						"<div class='container-full-width inner' style='background:"+Color.BACKGROUND_ALT.toWebHexString()+";'>"
+								+ "<h6 style='color:"+permission.getColor().toWebHexString()+"; text-align:center;'>"+permission.getName()+"</h6>");
 				
 				// Job Settings:
 				for(SlavePermissionSetting setting : permission.getSettings()) {
 					boolean settingActive = character.getSlavePermissionSettings().get(permission).contains(setting);
 					
 					UtilText.nodeContentSB.append("<div class='container-full-width inner'>"
-													+"<div style='width:20%; float:left; margin:0; padding:0;"+(settingActive?"color:"+Colour.GENERIC_GOOD.toWebHexString()+";":"")+"'>"
+													+"<div style='width:20%; float:left; margin:0; padding:0;"+(settingActive?"color:"+Color.GENERIC_GOOD.toWebHexString()+";":"")+"'>"
 														+ setting.getName()
 													+ "</div>"
 													+"<div style='width:70%; float:left; margin:0; padding:0;"+(!settingActive?"color:#777;":"")+"'>"
@@ -1943,7 +1943,7 @@ public class OccupantManagementDialogue {
 				
 			} else {
 				return new Response("Makeup",
-						"Kate offers a wide range of different cosmetic services, and several pages of the brochure are devoted to images displaying different styles and colours of lipstick, nail polish, and other forms of makeup.",
+						"Kate offers a wide range of different cosmetic services, and several pages of the brochure are devoted to images displaying different styles and colors of lipstick, nail polish, and other forms of makeup.",
 						SLAVE_MANAGEMENT_COSMETICS_MAKEUP);
 			}
 			
@@ -1959,12 +1959,12 @@ public class OccupantManagementDialogue {
 
 		}  else if (index == 4) {
 				return new Response("Eyes",
-						"There's a special page near the front of the brochure, advertising Kate's ability to recolour a person's eyes."
-						+ " Just like skin recolourings, this is quite demanding on her aura, and is therefore very expensive.", SLAVE_MANAGEMENT_COSMETICS_EYES);
+						"There's a special page near the front of the brochure, advertising Kate's ability to recolor a person's eyes."
+						+ " Just like skin recolorings, this is quite demanding on her aura, and is therefore very expensive.", SLAVE_MANAGEMENT_COSMETICS_EYES);
 
 		} else if (index == 5) {
 			return new Response("Coverings",
-					"There's a special page in the middle of the brochure, advertising Kate's special ability to harness the arcane in order to recolour a person's skin or fur."
+					"There's a special page in the middle of the brochure, advertising Kate's special ability to harness the arcane in order to recolor a person's skin or fur."
 					+ " Apparently, this is quite demanding on her aura, and is therefore very expensive.",
 					SLAVE_MANAGEMENT_COSMETICS_COVERINGS){
 				@Override
@@ -2050,10 +2050,10 @@ public class OccupantManagementDialogue {
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to colour the cheeks so as to provide a more youthful appearance, and to emphasise the cheekbones.", true, true)
+							true, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to color the cheeks so as to provide a more youthful appearance, and to emphasise the cheekbones.", true, true)
 					
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_LIPSTICK, "Lipstick", "Lipstick is used to provide colour, texture, and protection to the wearer's lips.", true, true)
+							true, BodyCoveringType.MAKEUP_LIPSTICK, "Lipstick", "Lipstick is used to provide color, texture, and protection to the wearer's lips.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.MAKEUP_EYE_LINER, "Eyeliner", "Eyeliner is applied around the contours of the eyes to help to define shape or highlight different features.", true, true)
@@ -2062,10 +2062,10 @@ public class OccupantManagementDialogue {
 							true, BodyCoveringType.MAKEUP_EYE_SHADOW, "Eye shadow", "Eye shadow is used to make the wearer's eyes stand out or look more attractive.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, "Nail polish", "Nail polish is used to colour and protect the nails on [npc.namePos] [npc.hands].", true, true)
+							true, BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, "Nail polish", "Nail polish is used to color and protect the nails on [npc.namePos] [npc.hands].", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, "Toenail polish", "Toenail polish is used to colour and protect the nails on [npc.namePos] [npc.feet].", true, true)
+							true, BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, "Toenail polish", "Toenail polish is used to color and protect the nails on [npc.namePos] [npc.feet].", true, true)
 					);
 		}
 		
@@ -2113,8 +2113,8 @@ public class OccupantManagementDialogue {
 					+(BodyChanging.getTarget().getBodyMaterial()!=BodyMaterial.SLIME
 						?CharacterModificationUtils.getKatesDivCoveringsNew(
 								true, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHairCovering()).getType(),
-								UtilText.parse(BodyChanging.getTarget(), "[npc.Hair] Colour"),
-								"All hair recolourings are permanent, so if you want to change your colour again at a later time, you'll have to visit Kate again.", true, true)
+								UtilText.parse(BodyChanging.getTarget(), "[npc.Hair] Color"),
+								"All hair recolorings are permanent, so if you want to change your color again at a later time, you'll have to visit Kate again.", true, true)
 						:"")
 					);
 		}
@@ -2157,21 +2157,21 @@ public class OccupantManagementDialogue {
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
 
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.EAR, "Ear Piercing", "Ears are the most common area of the body that are pierced, and enable the equipping of earrings and other ear-related jewellery.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.EAR, "Ear Piercing", "Ears are the most common area of the body that are pierced, and enable the equipping of earrings and other ear-related jewelry.")
 
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NOSE, "Nose Piercing", "Having a nose piercing will allow [npc.name] to equip jewellery such as nose rings or studs.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NOSE, "Nose Piercing", "Having a nose piercing will allow [npc.name] to equip jewelry such as nose rings or studs.")
 				
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.LIP, "Lip Piercing", "A lip piercing will allow [npc.name] to wear lip rings.")
 				
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NAVEL, "Navel Piercing", "Getting [npc.her] navel (belly button) pierced will allow [npc.name] to equip navel-related jewellery.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NAVEL, "Navel Piercing", "Getting [npc.her] navel (belly button) pierced will allow [npc.name] to equip navel-related jewelry.")
 				
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.TONGUE, "Tongue Piercing", "Getting a tongue piercing will allow [npc.name] to equip tongue bars.")
 				
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NIPPLE, "Nipple Piercing", "Nipple piercings will allow [npc.name] to equip nipple bars.")
 				
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.PENIS, "Penis Piercing", "Having a penis piercing will allow [npc.name] to equip penis-related jewellery.")
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.PENIS, "Penis Piercing", "Having a penis piercing will allow [npc.name] to equip penis-related jewelry.")
 				
-				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.VAGINA, "Vagina Piercing", "Having a vagina piercing will allow [npc.name] to equip vagina-related jewellery."));
+				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.VAGINA, "Vagina Piercing", "Having a vagina piercing will allow [npc.name] to equip vagina-related jewelry."));
 		}
 		
 		@Override
@@ -2213,10 +2213,10 @@ public class OccupantManagementDialogue {
 					+ "</h6>"
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyChanging.getTarget().getEyeCovering(), "Irises", "The iris is the coloured part of the eye that's responsible for controlling the diameter and size of the pupil.", true, true)
+							true, BodyChanging.getTarget().getEyeCovering(), "Irises", "The iris is the colored part of the eye that's responsible for controlling the diameter and size of the pupil.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.EYE_PUPILS, "Pupils", "The pupil is a hole located in the centre of the iris that allows light to strike the retina.", true, true)
+							true, BodyCoveringType.EYE_PUPILS, "Pupils", "The pupil is a hole located in the center of the iris that allows light to strike the retina.", true, true)
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.EYE_SCLERA, "Sclera", "The sclera is the (typically white) part of the eye that surrounds the iris.", true, true));
@@ -2262,31 +2262,31 @@ public class OccupantManagementDialogue {
 			for(Entry<BodyCoveringType, List<String>> entry : CoveringsNamesMap.entrySet()){
 				BodyCoveringType bct = entry.getKey();
 				
-				String title = Util.capitaliseSentence(bct.getName(BodyChanging.getTarget()));
+				String title = Util.capitalizeSentence(bct.getName(BodyChanging.getTarget()));
 				String description = "This is the "+bct.getName(BodyChanging.getTarget())+" that's currently covering [npc.namePos] "+Util.stringsToStringList(entry.getValue(), false)+".";
 				
 				if(bct == BodyCoveringType.ANUS) {
 					title = "Anus";
-					description = "This is the skin that's currently covering [npc.namePos] anal rim. The secondary colour determines what [npc.her] anus's inner-walls look like.";
+					description = "This is the skin that's currently covering [npc.namePos] anal rim. The secondary color determines what [npc.her] anus's inner-walls look like.";
 					
 				} else if(bct == BodyCoveringType.VAGINA) {
 					title = "Vagina";
-					description = "This is the skin that's currently covering [npc.namePos] labia. The secondary colour determines what [npc.her] vagina's inner-walls look like.";
+					description = "This is the skin that's currently covering [npc.namePos] labia. The secondary color determines what [npc.her] vagina's inner-walls look like.";
 					
 				} else if(bct == BodyCoveringType.PENIS) {
 					title = "Penis";
-					description = "This is the skin that's currently covering [npc.namePos] penis. The secondary colour determines what the inside of [npc.her] urethra looks like (if it's fuckable).";
+					description = "This is the skin that's currently covering [npc.namePos] penis. The secondary color determines what the inside of [npc.her] urethra looks like (if it's fuckable).";
 					
 				} else if(bct == BodyCoveringType.NIPPLES) {
 					title = "Nipples";
-					description = "This is the skin that's currently covering [npc.namePos] nipples and areolae. The secondary colour determines what [npc.her] nipples' inner-walls look like (if they are fuckable).";
+					description = "This is the skin that's currently covering [npc.namePos] nipples and areolae. The secondary color determines what [npc.her] nipples' inner-walls look like (if they are fuckable).";
 					
 				} else if(bct == BodyCoveringType.MOUTH) {
 					title = "Lips & Throat";
 					if(BodyChanging.getTarget().getFaceType() == FaceType.HARPY) {
-						description = "This is the colour of [npc.namePos] beak. The secondary colour determines what the insides of [npc.her] mouth and throat look like.";
+						description = "This is the color of [npc.namePos] beak. The secondary color determines what the insides of [npc.her] mouth and throat look like.";
 					} else {
-						description = "This is the skin that's currently covering [npc.namePos] lips. The secondary colour determines what the insides of [npc.her] mouth and throat look like.";
+						description = "This is the skin that's currently covering [npc.namePos] lips. The secondary color determines what the insides of [npc.her] mouth and throat look like.";
 					}
 					
 				} else if(bct == BodyCoveringType.TONGUE) {
@@ -2343,7 +2343,7 @@ public class OccupantManagementDialogue {
 			UtilText.nodeContentSB.append("<h6 style='text-align:center;'>"
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
-					+CharacterModificationUtils.getKatesDivAnalBleaching("Anal bleaching", "Anal bleaching is the process of lightening the colour of the skin around the anus, to make it more uniform with the surrounding area.")
+					+CharacterModificationUtils.getKatesDivAnalBleaching("Anal bleaching", "Anal bleaching is the process of lightening the color of the skin around the anus, to make it more uniform with the surrounding area.")
 
 					+(Main.game.isFacialHairEnabled()
 							? CharacterModificationUtils.getKatesDivFacialHair("Facial hair", "The body hair found on [npc.namePos] face." 
@@ -2418,8 +2418,8 @@ public class OccupantManagementDialogue {
 					@Override
 					public String getTitle() {
 						return "Confirmations: "+(Main.getProperties().hasValue(PropertyValue.tattooRemovalConfirmations)
-									?"<span style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>ON</span>"
-									:"<span style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>OFF</span>");
+									?"<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>ON</span>"
+									:"<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>OFF</span>");
 					}
 					
 					@Override
@@ -2444,7 +2444,7 @@ public class OccupantManagementDialogue {
 
 		@Override
 		public String getLabel() {
-			return "Succubi's Secrets - "+Util.capitaliseSentence(CharacterModificationUtils.tattooInventorySlot.getName()) +" Tattoo";
+			return "Succubi's Secrets - "+Util.capitalizeSentence(CharacterModificationUtils.tattooInventorySlot.getName()) +" Tattoo";
 		}
 		
 		@Override
@@ -2458,13 +2458,13 @@ public class OccupantManagementDialogue {
 			
 			if (index == 1) {
 				if(Main.game.getPlayer().getMoney()<value) {
-					return new Response("Apply ("+UtilText.formatAsMoneyUncoloured(value, "span")+")",
+					return new Response("Apply ("+UtilText.formatAsMoneyUncolored(value, "span")+")",
 							UtilText.parse(BodyChanging.getTarget(), "You don't have enough money to give [npc.name] a tattoo!"),  null);
 					
 				} else if(CharacterModificationUtils.tattoo.getType().equals(TattooType.NONE)
 						&& CharacterModificationUtils.tattoo.getWriting().getText().isEmpty()
 						&& CharacterModificationUtils.tattoo.getCounter().getType()==TattooCounterType.NONE) {
-					return new Response("Apply ("+UtilText.formatAsMoneyUncoloured(value, "span")+")", "You need to select a tattoo type, add some writing, or add a counter in order to make a tattoo!", null);
+					return new Response("Apply ("+UtilText.formatAsMoneyUncolored(value, "span")+")", "You need to select a tattoo type, add some writing, or add a counter in order to make a tattoo!", null);
 					
 				} else {
 					return new Response("Apply ("+UtilText.formatAsMoney(value, "span")+")", 
@@ -2512,8 +2512,8 @@ public class OccupantManagementDialogue {
 			
 			UtilText.nodeContentSB.append(UtilText.parse(characterSelected(),
 					"<div class='container-full-width' style='padding:8px;'>"
-						+ "<span style='color:"+Colour.PERK.toWebHexString()+";'>Perks</span> (circular icons) apply permanent boosts to [npc.namePos] attributes.<br/>"
-						+ "<span style='color:"+Colour.TRAIT.toWebHexString()+";'>Traits</span> (square icons) provide unique effects for [npc.name]."
+						+ "<span style='color:"+Color.PERK.toWebHexString()+";'>Perks</span> (circular icons) apply permanent boosts to [npc.namePos] attributes.<br/>"
+						+ "<span style='color:"+Color.TRAIT.toWebHexString()+";'>Traits</span> (square icons) provide unique effects for [npc.name]."
 							+ " Unlike perks, <b>traits will have no effect on [npc.name] until they're slotted into [npc.her] 'Active Traits' bar</b>.<br/>"
 						+ "Perks require perk points to unlock. [npc.Name] earns one perk point each time [npc.she] levels up, and an extra two perk points every five levels."
 					+ "</div>"
@@ -2521,7 +2521,7 @@ public class OccupantManagementDialogue {
 					+ "<h6 style='text-align:center;'>Active Traits</h6>"));
 
 			UtilText.nodeContentSB.append(
-					"<div id='OCCUPATION_" + characterSelected().getHistory().getAssociatedPerk()+ "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Colour.TRAIT.toWebHexString() + ";'>"
+					"<div id='OCCUPATION_" + characterSelected().getHistory().getAssociatedPerk()+ "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Color.TRAIT.toWebHexString() + ";'>"
 						+ "<div class='square-button-content'>"+characterSelected().getHistory().getAssociatedPerk().getSVGString()+"</div>"
 					+ "</div>");
 			
@@ -2531,7 +2531,7 @@ public class OccupantManagementDialogue {
 					p = characterSelected().getTraits().get(i);
 				}
 				if(p!=null) {
-					UtilText.nodeContentSB.append("<div id='TRAIT_" + p + "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Colour.TRAIT.toWebHexString() + ";'>"
+					UtilText.nodeContentSB.append("<div id='TRAIT_" + p + "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Color.TRAIT.toWebHexString() + ";'>"
 							+ "<div class='square-button-content'>"+p.getSVGString()+"</div>"
 							+ "</div>");
 					

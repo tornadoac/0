@@ -17,7 +17,7 @@ import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.game.sex.positions.SexSlotOther;
 
 /**
- * A generic sex manager, meant to be used for initialising generic sex scenes. Will typically start in the 'standing' position.
+ * A generic sex manager, meant to be used for initializing generic sex scenes. Will typically start in the 'standing' position.
  * 
  * @since 0.3.1
  * @version 0.3.1

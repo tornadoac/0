@@ -29,7 +29,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.managers.universal.SMMissionary;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -63,7 +63,7 @@ public class SlimeQueensLair {
 			if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.slimeGuardsIntroduced)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
-							+ "[style.italicsBad(You realise that it's not going to be possible to escape if you find yourself in a fight in here!)]"
+							+ "[style.italicsBad(You realize that it's not going to be possible to escape if you find yourself in a fight in here!)]"
 						+ "</p>");
 			}
 			
@@ -1136,8 +1136,8 @@ public class SlimeQueensLair {
 				} else {
 					return new Response("Slime Bath", "Have a bath with [slimeQueen.name]. <b>This will transform you into a slime!</b>", SLIME_QUEEN_BATH_TRANSFORM) {
 						@Override
-						public Colour getHighlightColour() {
-							return Colour.TRANSFORMATION_GENERIC;
+						public Color getHighlightColor() {
+							return Color.TRANSFORMATION_GENERIC;
 						}
 						@Override
 						public void effects() {

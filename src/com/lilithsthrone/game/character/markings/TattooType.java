@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.lilithsthrone.utils.ColourListPresets;
+import com.lilithsthrone.utils.ColorListPresets;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -21,7 +21,7 @@ public class TattooType {
 			"none",
 			"none",
 			"This tattoo has no particular pattern, and simply displays either writing or a counter.",
-			ColourListPresets.JUST_GREY.getPresetColourList(),
+			ColorListPresets.JUST_GREY.getPresetColorList(),
 			null,
 			null,
 			null);
@@ -30,16 +30,16 @@ public class TattooType {
 			"flowers",
 			"flowers",
 			"This tattoo depicts a flowing series of intertwined flowers.",
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
 			null);
 
 	public static AbstractTattooType TRIBAL = new AbstractTattooType(
 			"tribal",
 			"tribal",
 			"A series of flowing lines and intricate patterns.",
-			ColourListPresets.ALL.getPresetColourList(),
+			ColorListPresets.ALL.getPresetColorList(),
 			null,
 			null,
 			null);
@@ -48,16 +48,16 @@ public class TattooType {
 			"butterflies",
 			"butterflies",
 			"An artistic depiction of a trio of butterflies in mid-flight.",
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
+			ColorListPresets.ALL.getPresetColorList(),
 			null);
 	
 	public static AbstractTattooType LINES = new AbstractTattooType(
 			"lines",
 			"lines",
 			"A series of flowing, swirling lines.",
-			ColourListPresets.ALL.getPresetColourList(),
+			ColorListPresets.ALL.getPresetColorList(),
 			null,
 			null,
 			null);

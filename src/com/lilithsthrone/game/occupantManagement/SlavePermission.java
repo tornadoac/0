@@ -2,7 +2,7 @@ package com.lilithsthrone.game.occupantManagement;
 
 import java.util.List;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -12,7 +12,7 @@ import com.lilithsthrone.utils.Util;
  */
 public enum SlavePermission {
 	
-	GENERAL(Colour.TRANSFORMATION_GENERIC,
+	GENERAL(Color.TRANSFORMATION_GENERIC,
 			"General",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.GENERAL_SILENCE,
@@ -21,7 +21,7 @@ public enum SlavePermission {
 					SlavePermissionSetting.GENERAL_OUTSIDE_FREEDOM),
 			false),
 
-	SEX(Colour.GENERIC_SEX,
+	SEX(Color.GENERIC_SEX,
 			"Sex",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.SEX_MASTURBATE,
@@ -32,7 +32,7 @@ public enum SlavePermission {
 					SlavePermissionSetting.SEX_IMPREGNATE),
 			false),
 
-	PREGNANCY(Colour.ATTRIBUTE_LUST,
+	PREGNANCY(Color.ATTRIBUTE_LUST,
 			"Pregnancy",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.PREGNANCY_PROMISCUITY_PILLS,
@@ -40,7 +40,7 @@ public enum SlavePermission {
 					SlavePermissionSetting.PREGNANCY_VIXENS_VIRILITY),
 			true),
 	
-	DIET(Colour.BODY_SIZE_TWO,
+	DIET(Color.BODY_SIZE_TWO,
 			"Diet",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.FOOD_DIET_EXTREME,
@@ -50,7 +50,7 @@ public enum SlavePermission {
 					SlavePermissionSetting.FOOD_LAVISH),
 			true),
 
-	EXERCISE(Colour.MUSCLE_TWO,
+	EXERCISE(Color.MUSCLE_TWO,
 			"Exercise",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.EXERCISE_FORBIDDEN,
@@ -60,27 +60,27 @@ public enum SlavePermission {
 					SlavePermissionSetting.EXERCISE_BODY_BUILDING),
 			true),
 	
-	CLEANLINESS(Colour.BASE_AQUA,
+	CLEANLINESS(Color.BASE_AQUA,
 			"Cleanliness",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.CLEANLINESS_WASH_CLOTHES,
 					SlavePermissionSetting.CLEANLINESS_WASH_BODY),
 			false);
 	
-	private Colour colour;
+	private Color color;
 	private String name;
 	private List<SlavePermissionSetting> settings;
 	private boolean mutuallyExclusiveSettings;
 	
-	private SlavePermission(Colour colour, String name, List<SlavePermissionSetting> settings, boolean mutuallyExclusiveSettings) {
-		this.colour = colour;
+	private SlavePermission(Color color, String name, List<SlavePermissionSetting> settings, boolean mutuallyExclusiveSettings) {
+		this.color = color;
 		this.name = name;
 		this.settings = settings;
 		this.mutuallyExclusiveSettings = mutuallyExclusiveSettings;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public String getName() {

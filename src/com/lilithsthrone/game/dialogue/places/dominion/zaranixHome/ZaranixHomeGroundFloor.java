@@ -82,7 +82,7 @@ public class ZaranixHomeGroundFloor {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixMaidsHostile)) {
-					return new Response("Knock door", "Zaranix's maids will recognise you on sight, and won't let you in. You'll have to find another way to get inside.", null);
+					return new Response("Knock door", "Zaranix's maids will recognize you on sight, and won't let you in. You'll have to find another way to get inside.", null);
 				}
 				return new Response("Knock door", "Knock on the door and wait for someone to answer.", OUTSIDE_KNOCK_ON_DOOR) {
 					@Override
@@ -558,7 +558,7 @@ public class ZaranixHomeGroundFloor {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new Response("Leave", "Refuse to perform any sexual favours for Zaranix or Amber and take your leave.",  PlaceType.DOMINION_DEMON_HOME_ARTHUR.getDialogue(false)) {
+				return new Response("Leave", "Refuse to perform any sexual favors for Zaranix or Amber and take your leave.",  PlaceType.DOMINION_DEMON_HOME_ARTHUR.getDialogue(false)) {
 					@Override
 					public void effects() {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "MEETING_ZARANIX_ARTHUR_REFUSE_SEX"));

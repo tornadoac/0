@@ -24,7 +24,7 @@ import com.lilithsthrone.game.inventory.enchanting.ItemEffectType;
 import com.lilithsthrone.game.inventory.enchanting.TFEssence;
 import com.lilithsthrone.game.inventory.enchanting.TFModifier;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.SvgUtil;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.XMLSaving;
@@ -39,9 +39,9 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 
 	private AbstractTattooType type;
 	
-	private Colour primaryColour;
-	private Colour secondaryColour;
-	private Colour tertiaryColour;
+	private Color primaryColor;
+	private Color secondaryColor;
+	private Color tertiaryColor;
 
 	private boolean glowing;
 	
@@ -53,27 +53,27 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 	
 	protected Map<Attribute, Integer> attributeModifiers;
 	
-	private static Map<Colour, String> SVGGlowMap = new HashMap<>();
+	private static Map<Color, String> SVGGlowMap = new HashMap<>();
 
 	public Tattoo(AbstractTattooType type,
-			Colour primaryColour,
-			Colour secondaryColour,
-			Colour tertiaryColour,
+			Color primaryColor,
+			Color secondaryColor,
+			Color tertiaryColor,
 			boolean glowing,
 			TattooWriting writing,
 			TattooCounter counter) {
 		super(type.getName(),
 				type.getName(),
 				type.getPathName(),
-				primaryColour,
+				primaryColor,
 				Rarity.COMMON,
 				null);
 		
 		this.type = type;
 		
-		this.primaryColour = primaryColour;
-		this.secondaryColour = secondaryColour;
-		this.tertiaryColour = tertiaryColour;
+		this.primaryColor = primaryColor;
+		this.secondaryColor = secondaryColor;
+		this.tertiaryColor = tertiaryColor;
 		
 		this.glowing = glowing;
 		
@@ -91,9 +91,9 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 		if(super.equals(o)) {
 			return (o instanceof Tattoo)
 					&& ((Tattoo)o).getType()==type
-					&& ((Tattoo)o).getPrimaryColour()==primaryColour
-					&& ((Tattoo)o).getPrimaryColour()==secondaryColour
-					&& ((Tattoo)o).getPrimaryColour()==tertiaryColour
+					&& ((Tattoo)o).getPrimaryColor()==primaryColor
+					&& ((Tattoo)o).getPrimaryColor()==secondaryColor
+					&& ((Tattoo)o).getPrimaryColor()==tertiaryColor
 					&& ((Tattoo)o).isGlowing()==glowing
 					&& ((Tattoo)o).getWriting().equals(this.getWriting())
 					&& ((Tattoo)o).getCounter().equals(this.getCounter())
@@ -107,12 +107,12 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 	public int hashCode() {
 		int result = super.hashCode();
 		result = 31 * result + type.hashCode();
-		result = 31 * result + this.getPrimaryColour().hashCode();
-		if(this.getSecondaryColour()!=null) {
-			result = 31 * result + this.getSecondaryColour().hashCode();
+		result = 31 * result + this.getPrimaryColor().hashCode();
+		if(this.getSecondaryColor()!=null) {
+			result = 31 * result + this.getSecondaryColor().hashCode();
 		}
-		if(this.getTertiaryColour()!=null) {
-			result = 31 * result + this.getTertiaryColour().hashCode();
+		if(this.getTertiaryColor()!=null) {
+			result = 31 * result + this.getTertiaryColor().hashCode();
 		}
 		result = 31 * result + (this.isGlowing() ? 1 : 0);
 		result = 31 * result + this.getWriting().hashCode();
@@ -129,14 +129,14 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 
 		CharacterUtils.addAttribute(doc, element, "name", this.getName());
 		
-		CharacterUtils.addAttribute(doc, element, "primaryColour", this.getPrimaryColour().toString());
+		CharacterUtils.addAttribute(doc, element, "primaryColor", this.getPrimaryColor().toString());
 
-		if(this.getSecondaryColour()!=null) {
-			CharacterUtils.addAttribute(doc, element, "secondaryColour", this.getSecondaryColour().toString());
+		if(this.getSecondaryColor()!=null) {
+			CharacterUtils.addAttribute(doc, element, "secondaryColor", this.getSecondaryColor().toString());
 		}
 
-		if(this.getTertiaryColour()!=null) {
-			CharacterUtils.addAttribute(doc, element, "tertiaryColour", this.getTertiaryColour().toString());
+		if(this.getTertiaryColor()!=null) {
+			CharacterUtils.addAttribute(doc, element, "tertiaryColor", this.getTertiaryColor().toString());
 		}
 		
 		CharacterUtils.addAttribute(doc, element, "glowing", String.valueOf(this.isGlowing()));
@@ -172,9 +172,9 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 			}
 			Tattoo tat = new Tattoo(
 					TattooType.getTattooTypeFromId(parentElement.getAttribute("id")),
-					Colour.valueOf(parentElement.getAttribute("primaryColour")),
-					parentElement.getAttribute("secondaryColour").isEmpty()?null:Colour.valueOf(parentElement.getAttribute("secondaryColour")),
-					parentElement.getAttribute("tertiaryColour").isEmpty()?null:Colour.valueOf(parentElement.getAttribute("tertiaryColour")),
+					Color.valueOf(parentElement.getAttribute("primaryColor")),
+					parentElement.getAttribute("secondaryColor").isEmpty()?null:Color.valueOf(parentElement.getAttribute("secondaryColor")),
+					parentElement.getAttribute("tertiaryColor").isEmpty()?null:Color.valueOf(parentElement.getAttribute("tertiaryColor")),
 					Boolean.valueOf(parentElement.getAttribute("glowing")),
 					writing,
 					counter);
@@ -211,15 +211,15 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 	
 	public String getSVGImage(GameCharacter character) {
 		if(this.isGlowing()) {
-			return getSVGGlow() + "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>"+type.getSVGImage(character, primaryColour, secondaryColour, tertiaryColour)+"</div>";
+			return getSVGGlow() + "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>"+type.getSVGImage(character, primaryColor, secondaryColor, tertiaryColor)+"</div>";
 			
 		} else {
-			return type.getSVGImage(character, primaryColour, secondaryColour, tertiaryColour);
+			return type.getSVGImage(character, primaryColor, secondaryColor, tertiaryColor);
 		}
 	}
 	
 	private String getSVGGlow() {
-		String stringFromMap = SVGGlowMap.get(this.getPrimaryColour());
+		String stringFromMap = SVGGlowMap.get(this.getPrimaryColor());
 		if (stringFromMap!=null) {
 			return stringFromMap;
 			
@@ -232,9 +232,9 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 				s = Util.inputStreamToString(is);
 				is.close();
 				
-				s = SvgUtil.colourReplacement("tattooGlow"+this.getPrimaryColour().toString(), this.getPrimaryColour(), this.getPrimaryColour(), this.getPrimaryColour(), s);
+				s = SvgUtil.colorReplacement("tattooGlow"+this.getPrimaryColor().toString(), this.getPrimaryColor(), this.getPrimaryColor(), this.getPrimaryColor(), s);
 				
-				SVGGlowMap.put(this.getPrimaryColour(), s);
+				SVGGlowMap.put(this.getPrimaryColor(), s);
 				
 				return s;
 			} catch (IOException e) {
@@ -263,38 +263,38 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 		}
 	}
 
-	public String getDisplayName(boolean withRarityColour) {
-		return Util.capitaliseSentence(this.getPrimaryColour().getName()) + " "
-				+ (withRarityColour
-					?" <span style='color: " + this.getRarity().getColour().toWebHexString() + ";'>"
+	public String getDisplayName(boolean withRarityColor) {
+		return Util.capitalizeSentence(this.getPrimaryColor().getName()) + " "
+				+ (withRarityColor
+					?" <span style='color: " + this.getRarity().getColor().toWebHexString() + ";'>"
 						+ (this.getType()==TattooType.NONE
 							?"tattoo"
 							:this.getName() + " tattoo")
 						+ "</span>"
 					: this.getName()+" tattoo")
 				+(!this.getEffects().isEmpty()
-						? " "+getEnchantmentPostfix(withRarityColour, "b")
+						? " "+getEnchantmentPostfix(withRarityColor, "b")
 						: "");
 	}
 	
-	public String getEnchantmentPostfix(boolean coloured, String tag) {
+	public String getEnchantmentPostfix(boolean colored, String tag) {
 		if(!this.getEffects().isEmpty()) {
 			for(ItemEffect ie : this.getEffects()) {
 				if(ie.getPrimaryModifier() == TFModifier.CLOTHING_ENSLAVEMENT) {
-					return "of "+(coloured?"<"+tag+" style='color:"+TFModifier.CLOTHING_ENSLAVEMENT.getColour().toWebHexString()+";'>enslavement</"+tag+">":"enslavement");
+					return "of "+(colored?"<"+tag+" style='color:"+TFModifier.CLOTHING_ENSLAVEMENT.getColor().toWebHexString()+";'>enslavement</"+tag+">":"enslavement");
 					
-				} else if(ie.getPrimaryModifier() == TFModifier.TF_MOD_FETISH_BEHAVIOUR || ie.getPrimaryModifier() == TFModifier.TF_MOD_FETISH_BODY_PART) {
-					return "of "+(coloured?"<"+tag+" style='color:"+Colour.FETISH.toWebHexString()+";'>"+ie.getSecondaryModifier().getDescriptor()+"</"+tag+">":ie.getSecondaryModifier().getDescriptor());
+				} else if(ie.getPrimaryModifier() == TFModifier.TF_MOD_FETISH_BEHAVIOR || ie.getPrimaryModifier() == TFModifier.TF_MOD_FETISH_BODY_PART) {
+					return "of "+(colored?"<"+tag+" style='color:"+Color.FETISH.toWebHexString()+";'>"+ie.getSecondaryModifier().getDescriptor()+"</"+tag+">":ie.getSecondaryModifier().getDescriptor());
 					
 				} else if(ie.getPrimaryModifier() == TFModifier.CLOTHING_ATTRIBUTE) {
 					String name = (this.isBadEnchantment()?this.getCoreEnchantment().getNegativeEnchantment():this.getCoreEnchantment().getPositiveEnchantment());
-					return "of "+(coloured?"<"+tag+" style='color:"+this.getCoreEnchantment().getColour().toWebHexString()+";'>"+name+"</"+tag+">":name);
+					return "of "+(colored?"<"+tag+" style='color:"+this.getCoreEnchantment().getColor().toWebHexString()+";'>"+name+"</"+tag+">":name);
 					
 				} else if(ie.getPrimaryModifier() == TFModifier.CLOTHING_SEALING) {
-					return "of "+(coloured?"<"+tag+" style='color:"+Colour.SEALED.toWebHexString()+";'>sealing</"+tag+">":"sealing");
+					return "of "+(colored?"<"+tag+" style='color:"+Color.SEALED.toWebHexString()+";'>sealing</"+tag+">":"sealing");
 					
 				} else {
-					return "of "+(coloured?"<"+tag+" style='color:"+Colour.TRANSFORMATION_GENERIC.toWebHexString()+";'>transformation</"+tag+">":"transformation");
+					return "of "+(colored?"<"+tag+" style='color:"+Color.TRANSFORMATION_GENERIC.toWebHexString()+";'>transformation</"+tag+">":"transformation");
 				}
 			}
 		}
@@ -350,16 +350,16 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 		effects.add(effect);
 	}
 
-	public Colour getPrimaryColour() {
-		return primaryColour;
+	public Color getPrimaryColor() {
+		return primaryColor;
 	}
 
-	public Colour getSecondaryColour() {
-		return secondaryColour;
+	public Color getSecondaryColor() {
+		return secondaryColor;
 	}
 
-	public Colour getTertiaryColour() {
-		return tertiaryColour;
+	public Color getTertiaryColor() {
+		return tertiaryColor;
 	}
 
 	public boolean isGlowing() {
@@ -375,18 +375,18 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 	 */
 	public String getFormattedWritingOutput(String input) {
 		return (this.getWriting().getStyles().contains(TattooWritingStyle.BOLD)?"<b>":"")
-				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICISED)?"<i>":"")
-				+"<span style='color:"+getWriting().getColour().toWebHexString()+";'>"+(getWriting().isGlow()?UtilText.applyGlow(input, getWriting().getColour()):input)+"</span>"
+				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICIZED)?"<i>":"")
+				+"<span style='color:"+getWriting().getColor().toWebHexString()+";'>"+(getWriting().isGlow()?UtilText.applyGlow(input, getWriting().getColor()):input)+"</span>"
 				+(this.getWriting().getStyles().contains(TattooWritingStyle.BOLD)?"</b>":"")
-				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICISED)?"</i>":"");
+				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICIZED)?"</i>":"");
 	}
 	
 	public String getFormattedWritingOutput() {
 		return (this.getWriting().getStyles().contains(TattooWritingStyle.BOLD)?"<b>":"")
-				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICISED)?"<i>":"")
-				+"<span style='color:"+getWriting().getColour().toWebHexString()+";'>"+(getWriting().isGlow()?UtilText.applyGlow(getWriting().getText(), getWriting().getColour()):getWriting().getText())+"</span>"
+				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICIZED)?"<i>":"")
+				+"<span style='color:"+getWriting().getColor().toWebHexString()+";'>"+(getWriting().isGlow()?UtilText.applyGlow(getWriting().getText(), getWriting().getColor()):getWriting().getText())+"</span>"
 				+(this.getWriting().getStyles().contains(TattooWritingStyle.BOLD)?"</b>":"")
-				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICISED)?"</i>":"");
+				+ (this.getWriting().getStyles().contains(TattooWritingStyle.ITALICIZED)?"</i>":"");
 	}
 
 	public TattooCounter getCounter() {
@@ -397,28 +397,28 @@ public class Tattoo extends AbstractCoreItem implements XMLSaving {
 	 * For examples.
 	 */
 	public String getFormattedCounterOutput(int input) {
-		return "<span style='color:"+getCounter().getColour().toWebHexString()+";'>"+(getCounter().isGlow()?UtilText.applyGlow(getCounter().getCountType().convertInt(input), getCounter().getColour()):getCounter().getCountType().convertInt(input))+"</span>";
+		return "<span style='color:"+getCounter().getColor().toWebHexString()+";'>"+(getCounter().isGlow()?UtilText.applyGlow(getCounter().getCountType().convertInt(input), getCounter().getColor()):getCounter().getCountType().convertInt(input))+"</span>";
 	}
 	
 	public String getFormattedCounterOutput(GameCharacter equippedToCharacter) {
 		String convertedInt = getCounter().getCountType().convertInt(getCounter().getType().getCount(equippedToCharacter));
-		return "<span style='color:"+getCounter().getColour().toWebHexString()+";'>"+(getCounter().isGlow()?UtilText.applyGlow(convertedInt, getCounter().getColour()):convertedInt)+"</span>";
+		return "<span style='color:"+getCounter().getColor().toWebHexString()+";'>"+(getCounter().isGlow()?UtilText.applyGlow(convertedInt, getCounter().getColor()):convertedInt)+"</span>";
 	}
 
 	public void setType(AbstractTattooType type) {
 		this.type = type;
 	}
 
-	public void setPrimaryColour(Colour primaryColour) {
-		this.primaryColour = primaryColour;
+	public void setPrimaryColor(Color primaryColor) {
+		this.primaryColor = primaryColor;
 	}
 
-	public void setSecondaryColour(Colour secondaryColour) {
-		this.secondaryColour = secondaryColour;
+	public void setSecondaryColor(Color secondaryColor) {
+		this.secondaryColor = secondaryColor;
 	}
 
-	public void setTertiaryColour(Colour tertiaryColour) {
-		this.tertiaryColour = tertiaryColour;
+	public void setTertiaryColor(Color tertiaryColor) {
+		this.tertiaryColor = tertiaryColor;
 	}
 
 	public void setGlowing(boolean glowing) {

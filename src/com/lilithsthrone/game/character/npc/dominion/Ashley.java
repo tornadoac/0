@@ -36,7 +36,7 @@ import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeaponType;
 import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -118,25 +118,25 @@ public class Ashley extends NPC {
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
 		
 		// Coverings:
-		this.setEyeCovering(new Covering(BodyCoveringType.EYE_ANGEL, Colour.EYE_BLUE));
-		this.setSkinCovering(new Covering(BodyCoveringType.ANGEL, Colour.SKIN_LIGHT), true);
+		this.setEyeCovering(new Covering(BodyCoveringType.EYE_ANGEL, Color.EYE_BLUE));
+		this.setSkinCovering(new Covering(BodyCoveringType.ANGEL, Color.SKIN_LIGHT), true);
 
-//		this.setHairCovering(new Covering(BodyCoveringType.HAIR_HUMAN, Colour.COVERING_BLONDE), false);
+//		this.setHairCovering(new Covering(BodyCoveringType.HAIR_HUMAN, Color.COVERING_BLONDE), false);
 //		this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
 //		this.setHairStyle(HairStyle.WAVY);
 
-//		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Colour.COVERING_BLACK), false);
+//		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Color.COVERING_BLACK), false);
 //		this.setUnderarmHair(BodyHair.ZERO_NONE);
 //		this.setAssHair(BodyHair.ZERO_NONE);
 //		this.setPubicHair(BodyHair.ZERO_NONE);
 //		this.setFacialHair(BodyHair.ZERO_NONE);
 
-//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Colour.COVERING_RED));
-//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Colour.COVERING_RED));
-//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Colour.COVERING_RED));
-//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Colour.COVERING_RED));
-//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Colour.COVERING_BLACK));
-//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Colour.COVERING_PURPLE));
+//		this.setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, Color.COVERING_RED));
+//		this.setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, Color.COVERING_RED));
+//		this.setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, Color.COVERING_RED));
+//		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
+//		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
+//		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
 		
 		// Face:
 //		this.setFaceVirgin(false);
@@ -176,7 +176,7 @@ public class Ashley extends NPC {
 //		this.setVaginaCapacity(Capacity.SEVEN_GAPING, true);
 //		this.setVaginaWetness(Wetness.FIVE_SLOPPY);
 //		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
-//		this.setVaginaPlasticity(OrificePlasticity.SEVEN_MOULDABLE.getValue());
+//		this.setVaginaPlasticity(OrificePlasticity.SEVEN_MOLDABLE.getValue());
 		
 		// Feet:
 		// Foot shape
@@ -191,7 +191,7 @@ public class Ashley extends NPC {
 		
 		// No tattoos or scars
 
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_CLOAK, Colour.CLOTHING_BLACK, Colour.CLOTHING_SILVER, null, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_CLOAK, Color.CLOTHING_BLACK, Color.CLOTHING_SILVER, null, false), true, this);
 
 	}
 

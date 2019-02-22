@@ -66,11 +66,11 @@ public class HarpyNestDominant {
 							+ "<p>"
 								+ "Looking closer at the nest's peculiar podiums, you see that there's a red-and-black feathered harpy perched on top of each one."
 								+ " Around the base of each one of these podiums, a crowd of harpies can be seen huddling together, and upon further inspection you notice that they're all bowing down in submission."
-								+ " Curiously, although you can see harpies of almost every colour, the only ones with red or black feathers seem to be those who are sitting on top of those podiums,"
-									+ " leading you to believe that those particular colours designate the important members of this particular flock."
+								+ " Curiously, although you can see harpies of almost every color, the only ones with red or black feathers seem to be those who are sitting on top of those podiums,"
+									+ " leading you to believe that those particular colors designate the important members of this particular flock."
 							+ "</p>"
 							+ "<p>"
-								+ "At the very centre of the platform, you see a podium that's higher than all the rest, and, lounging about on top of it, you see the familiar shape of [harpyDominant.name]."
+								+ "At the very center of the platform, you see a podium that's higher than all the rest, and, lounging about on top of it, you see the familiar shape of [harpyDominant.name]."
 								+ " The group surrounding her is unlike all the others, as it's made up solely of the same red-and-black feathered harpies that you can see on top of the other podiums."
 								+ " Despite their somewhat aggressive appearance, the harpies of this flock don't seem to be too bothered by your presence, allowing you to approach [harpyDominant.name] if you had any business with her."
 							+ "</p>";
@@ -86,11 +86,11 @@ public class HarpyNestDominant {
 					+ "<p>"
 						+ "Looking closer at the nest's peculiar podiums, you see that there's a red-and-black feathered harpy perched on top of each one."
 						+ " Around the base of each one of these podiums, a crowd of harpies can be seen huddling together, and upon further inspection you notice that they're all bowing down in submission."
-						+ " Curiously, although you can see harpies of almost every colour, the only ones with red or black feathers seem to be those who are sitting on top of those podiums,"
-							+ " leading you to believe that those particular colours designate the important members of this particular flock."
+						+ " Curiously, although you can see harpies of almost every color, the only ones with red or black feathers seem to be those who are sitting on top of those podiums,"
+							+ " leading you to believe that those particular colors designate the important members of this particular flock."
 					+ "</p>"
 					+ "<p>"
-						+ "At the very centre of the platform, you see a podium that's higher than all the rest, and, lounging about on top of it, you see what must be this nest's matriarch."
+						+ "At the very center of the platform, you see a podium that's higher than all the rest, and, lounging about on top of it, you see what must be this nest's matriarch."
 						+ " The group surrounding her is unlike all the others, as it's made up solely of the same red-and-black feathered harpies that you can see on top of the other podiums."
 						+ " Despite their somewhat aggressive appearance, the harpies of this flock don't seem to be too bothered by your presence, allowing you to approach their matriarch if you had any business with her."
 					+ "</p>";
@@ -113,9 +113,9 @@ public class HarpyNestDominant {
 					
 				} else {
 					if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.dominantEncountered)) {
-						return new Response("Approach [harpyDominant.name]", "Walk to the centre of the nest and talk to [harpyDominant.name].", HARPY_NEST_DOMINANT_APPROACH);
+						return new Response("Approach [harpyDominant.name]", "Walk to the center of the nest and talk to [harpyDominant.name].", HARPY_NEST_DOMINANT_APPROACH);
 					} else {
-						return new Response("Approach matriarch", "Walk to the centre of the nest and talk to the matriarch.", HARPY_NEST_DOMINANT_APPROACH);
+						return new Response("Approach matriarch", "Walk to the center of the nest and talk to the matriarch.", HARPY_NEST_DOMINANT_APPROACH);
 					}
 				}
 					
@@ -138,12 +138,12 @@ public class HarpyNestDominant {
 				if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.dominantPacified)) {
 					//TODO ordered to stop abuse
 					return "<p>"
-							+ "Deciding to pay [harpyDominant.Name] another visit, you set off towards the centre podium."
+							+ "Deciding to pay [harpyDominant.Name] another visit, you set off towards the center podium."
 							+ " As you make your way towards the dominant matriarch, you get a good look at the harpies that make up her flock."
 							+ " Just as you've seen before, there's a red-and-black-feathered harpy sitting on top of each of the small podiums that are scattered about the area."
 						+ "</p>"
 						+ "<p>"
-							+ "The groups that are huddled around each one of these podiums are, unlike their apparent leaders, made up of all sorts of differently coloured harpies."
+							+ "The groups that are huddled around each one of these podiums are, unlike their apparent leaders, made up of all sorts of differently colored harpies."
 							+ " Most of them are on their knees, preening each other's feathers, or talking in hushed tones to one another."
 							+ " Those that aren't on their knees are found at the very base of these podiums, and as you pass, you get yet another look at these unfortunate few."
 						+ "</p>"
@@ -153,7 +153,7 @@ public class HarpyNestDominant {
 							+ " From light spanking and tickling, all the way up to rough group sex, these harpies are being used and abused by rest of their flock."
 						+ "</p>"
 						+ "<p>"
-							+ "You don't have much time to dwell on any thoughts about this, however, as before you know it, you've reached the centre of the platform."
+							+ "You don't have much time to dwell on any thoughts about this, however, as before you know it, you've reached the center of the platform."
 							+ " Although larger and made up solely of the red-and-black 'leader' harpies, the group surrounding [harpyDominant.NamePos] podium is similar to all those that you've previously passed."
 							+ " Most are on their knees, talking to one another, but there are several others, not all of them red-and-black, who are locked up in this podium's stocks."
 						+ "</p>"
@@ -176,12 +176,12 @@ public class HarpyNestDominant {
 					
 				} else {
 					return "<p>"
-								+ "Deciding to pay [harpyDominant.Name] another visit, you set off towards the centre podium."
+								+ "Deciding to pay [harpyDominant.Name] another visit, you set off towards the center podium."
 								+ " As you make your way towards the dominant matriarch, you get a good look at the harpies that make up her flock."
 								+ " Just as you've seen before, there's a red-and-black-feathered harpy sitting on top of each of the small podiums that are scattered about the area."
 							+ "</p>"
 							+ "<p>"
-								+ "The groups that are huddled around each one of these podiums are, unlike their apparent leaders, made up of all sorts of differently coloured harpies."
+								+ "The groups that are huddled around each one of these podiums are, unlike their apparent leaders, made up of all sorts of differently colored harpies."
 								+ " Most of them are on their knees, preening each other's feathers, or talking in hushed tones to one another."
 								+ " Those that aren't on their knees are found at the very base of these podiums, and as you pass, you get yet another look at these unfortunate few."
 							+ "</p>"
@@ -191,7 +191,7 @@ public class HarpyNestDominant {
 								+ " From light spanking and tickling, all the way up to rough group sex, these harpies are being used and abused by rest of their flock."
 							+ "</p>"
 							+ "<p>"
-								+ "You don't have much time to dwell on any thoughts about this, however, as before you know it, you've reached the centre of the platform."
+								+ "You don't have much time to dwell on any thoughts about this, however, as before you know it, you've reached the center of the platform."
 								+ " Although larger and made up solely of the red-and-black 'leader' harpies, the group surrounding [harpyDominant.NamePos] podium is similar to all those that you've previously passed."
 								+ " Most are on their knees, talking to one another, but there are several others, not all of them red-and-black, who are locked up in this podium's stocks."
 							+ "</p>"
@@ -220,13 +220,13 @@ public class HarpyNestDominant {
 			
 			} else {
 				return "<p>"
-							+ "Recognising this as one of the nests that you agreed to pacify, you start walking towards the centre podium."
+							+ "Recognizing this as one of the nests that you agreed to pacify, you start walking towards the center podium."
 							+ " As you make your way towards the matriarch, you get a good look at the harpies that reside in this particular nest."
 							+ " Just as you saw from the outskirts, there's a red-feathered harpy sitting on top of each of the small podiums that are scattered about the area."
-							+ " Each one has a plume of jet-black feathers on top of their heads, and the skin that covers their human parts is exclusively a dark ebony colour."
+							+ " Each one has a plume of jet-black feathers on top of their heads, and the skin that covers their human parts is exclusively a dark ebony color."
 						+ "</p>"
 						+ "<p>"
-							+ "The groups that are huddled around each one of these podiums are, unlike their apparent leaders, made up of all sorts of differently coloured harpies."
+							+ "The groups that are huddled around each one of these podiums are, unlike their apparent leaders, made up of all sorts of differently colored harpies."
 							+ " Most of them are on their knees, preening each other's feathers, or talking in hushed tones to one another."
 							+ " Those that aren't on their knees are found at the very base of these podiums, and as you get closer, you find yourself staring, wide-eyed, at these unfortunate few."
 						+ "</p>"
@@ -236,7 +236,7 @@ public class HarpyNestDominant {
 							+ " From light spanking and tickling, all the way up to rough group sex, these harpies are being used and abused by rest of their flock."
 						+ "</p>"
 						+ "<p>"
-							+ "You don't have much time to dwell on any thoughts about this, however, as before you know it, you've reached the centre of the platform."
+							+ "You don't have much time to dwell on any thoughts about this, however, as before you know it, you've reached the center of the platform."
 							+ " Although larger and made up solely of the red-and-black 'leader' harpies, the group surrounding the matriarch's podium is similar to all those that you've previously passed."
 							+ " Most are on their knees, talking to one another, but there are several others, not all of them red-and-black, who are locked up in this podium's stocks."
 						+ "</p>"
@@ -827,7 +827,7 @@ public class HarpyNestDominant {
 				+ "</p>"
 				+ "<p>"
 					+ "Seeing their matriarch submit to you, the rest of the harpies bow their heads down as you issue your orders,"
-					+ " [pc.speech(You're all going to calm down, got it?! No more feuds, and no more attacking travellers through the Harpy Nests!)]"
+					+ " [pc.speech(You're all going to calm down, got it?! No more feuds, and no more attacking travelers through the Harpy Nests!)]"
 				+ "</p>"
 				+ "<p>"
 					+ "You can't help but grin as the harpies all call out in agreement."
@@ -964,11 +964,11 @@ public class HarpyNestDominant {
 					+ " Scrambling to your knees, you find yourself looking up at [harpyDominant.Name] as she continues towering over you."
 				+ "</p>"
 				+ "<p>"
-					+ "[harpyDominant.speech(Good little harpy! Now, after you apologise, you can fuck off and make your own flock!)]"
+					+ "[harpyDominant.speech(Good little harpy! Now, after you apologize, you can fuck off and make your own flock!)]"
 				+ "</p>"
 				+ "<p>"
 					+ "With the effects of the perfume still lingering in your mind, you find yourself blurting out,"
-					+ " [pc.speech(I'm not apologising to you! Fucking bitch, I'm out of here!)]"
+					+ " [pc.speech(I'm not apologizing to you! Fucking bitch, I'm out of here!)]"
 				+ "</p>"
 				+ "<p>"
 					+ "[harpyDominant.Name] grins down at you, and, to the background noise of dozens of harpies' laughter, she shouts,"
@@ -1026,7 +1026,7 @@ public class HarpyNestDominant {
 						+ "</p>";
 			} else {
 				return "<p>"
-							+ "As you step back from [harpyDominant.name], she sinks to the floor, letting out a desperate whine as she realises that you've finished with her."
+							+ "As you step back from [harpyDominant.name], she sinks to the floor, letting out a desperate whine as she realizes that you've finished with her."
 							+ " Her feathered hands dart down between her legs, and she frantically starts masturbating as she seeks to finish what you started."
 							+ " The surrounding harpies, having watched the whole thing, kneel in submission as you finish with their matriarch."
 						+ "</p>";

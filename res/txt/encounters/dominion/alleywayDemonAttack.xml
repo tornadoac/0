@@ -9,17 +9,17 @@
 		Deciding that it's better to be safe than sorry, you start to take a step backwards, with the intention of doubling back on yourself and finding another route through the maze-like lanes. As you turn to leave, a familiar, [npc.feminine] laughter suddenly rings out, echoing off the walls and leaving you turning this way and that as you try to locate the source of the sound.
 	</p>
 	<p>
-		Looking in the direction that you were going to be travelling in, you see the [npc.feminine] figure of a [npc.race] suddenly materialise out of thin air. A huge web, glistening pink with arcane energy, shimmers into life all around [npc.herHim], and with a snap of [npc.her] fingers, it falls harmlessly to the ground.
+		Looking in the direction that you were going to be traveling in, you see the [npc.feminine] figure of a [npc.race] suddenly materialize out of thin air. A huge web, glistening pink with arcane energy, shimmers into life all around [npc.herHim], and with a snap of [npc.her] fingers, it falls harmlessly to the ground.
 	</p>
 	<p>
-		As [npc.she] steps over the fallen webbing, you recognise your tormentor as the [npc.fullRace(true)] you've run into before.
+		As [npc.she] steps over the fallen webbing, you recognize your tormentor as the [npc.fullRace(true)] you've run into before.
 	</p>
 	]]>
 	</htmlContent>
 	
 	<htmlContent tag="ALLEY_ATTACK_REPEAT_PREGNANCY_REVEAL"><![CDATA[
 	<p>
-		As [npc.she] steps out from the shadows, you notice that there's definitely something different about [npc.herHim] this time. The consequence of ejaculating inside of [npc.herHim] is staring you right in the face, and you gulp as you see [npc.herHim] pointing down at [npc.her] [style.colourSex(pregnant belly)].
+		As [npc.she] steps out from the shadows, you notice that there's definitely something different about [npc.herHim] this time. The consequence of ejaculating inside of [npc.herHim] is staring you right in the face, and you gulp as you see [npc.herHim] pointing down at [npc.her] [style.colorSex(pregnant belly)].
 	</p>
 	<p>
 		#IF npc.getPregnantLitter().isFatherId(pc.getId())
@@ -60,16 +60,16 @@
 		#THEN
 			#IF npc.hasFetish(FETISH_PREGNANCY)
 			#THEN
-				You see that [npc.sheIs] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs, [npc.speech(That's right, I'm still pregnant with our brood of imps!)]
+				You see that [npc.sheIs] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs, [npc.speech(That's right, I'm still pregnant with our brood of imps!)]
 			#ELSE
-				You see that [npc.sheIs] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] scowls, [npc.speech(That's right, I'm still pregnant, and it's all your fault!)]
+				You see that [npc.sheIs] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] scowls, [npc.speech(That's right, I'm still pregnant, and it's all your fault!)]
 			#ENDIF
 		#ELSE
 			#IF npc.hasFetish(FETISH_PREGNANCY)
 			#THEN
-				You see that [npc.sheIs] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs, [npc.speech(That's right, I'm still pregnant, all thanks to [#npc.getPregnantLitter().getFather().getName()]!)]
+				You see that [npc.sheIs] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs, [npc.speech(That's right, I'm still pregnant, all thanks to [#npc.getPregnantLitter().getFather().getName()]!)]
 			#ELSE
-				You see that [npc.sheIs] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] scowls, [npc.speech(That's right, I'm still pregnant,and it's all your and [#npc.getPregnantLitter().getFather().getName()]'s fault!)]
+				You see that [npc.sheIs] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] scowls, [npc.speech(That's right, I'm still pregnant,and it's all your and [#npc.getPregnantLitter().getFather().getName()]'s fault!)]
 			#ENDIF
 		#ENDIF
 	</p>
@@ -115,7 +115,7 @@
 	
 	<htmlContent tag="ALLEY_ATTACK_REPEAT_END"><![CDATA[
 	<p>
-		It doesn't look like [npc.sheIs] any more capable than [npc.she] was the last time you fought [npc.herHim], and you still don't see any arcane elements materialising around [npc.her] arms. Either due to spending too much energy on setting up that trap, or perhaps because [npc.sheIs] too horny to focus on using the arcane in combat, this demon's arcane ability doesn't seem quite as potent as it should be. Perhaps you can beat [npc.herHim] if you were to choose to fight? But then again, you could always kneel and submit...
+		It doesn't look like [npc.sheIs] any more capable than [npc.she] was the last time you fought [npc.herHim], and you still don't see any arcane elements materializing around [npc.her] arms. Either due to spending too much energy on setting up that trap, or perhaps because [npc.sheIs] too horny to focus on using the arcane in combat, this demon's arcane ability doesn't seem quite as potent as it should be. Perhaps you can beat [npc.herHim] if you were to choose to fight? But then again, you could always kneel and submit...
 	</p>
 	]]>
 	</htmlContent>
@@ -128,7 +128,7 @@
 		[pc.speech(Hello?)] you call out to announce your presence.
 	</p>
 	<p>
-		Looking in the direction of the webbing, you see the [npc.feminine] figure of a [npc.race] suddenly materialise out of thin air. You instantly recognise [npc.herHim] as [npc.name], and as [npc.she] sees that it's you, [npc.she] quickly takes a step forwards, before greeting you, [npc.speech(Oh, it's you, [pc.name]! I thought I was finally going to catch someone...)]
+		Looking in the direction of the webbing, you see the [npc.feminine] figure of a [npc.race] suddenly materialize out of thin air. You instantly recognize [npc.herHim] as [npc.name], and as [npc.she] sees that it's you, [npc.she] quickly takes a step forwards, before greeting you, [npc.speech(Oh, it's you, [pc.name]! I thought I was finally going to catch someone...)]
 	</p>
 	]]>
 	</htmlContent>
@@ -137,7 +137,7 @@
 	#IF npc.getPregnantLitter().isFatherId(pc.getId())
 	#THEN
 		<p>
-			As you step forwards and start to say hello, you immediately notice that there's something very different about [npc.name]. [npc.SheIs] cradling [npc.her] stomach with both [npc.hands], and as you look down, you see the consequence of ejaculating inside of [npc.herHim], as [npc.sheIs] now sporting a [style.colourSex(pregnant belly)].
+			As you step forwards and start to say hello, you immediately notice that there's something very different about [npc.name]. [npc.SheIs] cradling [npc.her] stomach with both [npc.hands], and as you look down, you see the consequence of ejaculating inside of [npc.herHim], as [npc.sheIs] now sporting a [style.colorSex(pregnant belly)].
 		</p>
 		#IF npc.hasFetish(FETISH_PREGNANCY)
 		#THEN
@@ -159,7 +159,7 @@
 		#ENDIF
 	#ELSE
 		<p>
-			As you step forwards and start to say hello, you immediately notice that there's something very different about [npc.name]. [npc.SheIs] cradling [npc.her] stomach with both [npc.hands], and as you look down, you see the consequence of [#npc.getPregnantLitter().getFather().getName()] having ejaculated inside of [npc.herHim], as [npc.sheIs] now sporting a [style.colourSex(pregnant belly)].
+			As you step forwards and start to say hello, you immediately notice that there's something very different about [npc.name]. [npc.SheIs] cradling [npc.her] stomach with both [npc.hands], and as you look down, you see the consequence of [#npc.getPregnantLitter().getFather().getName()] having ejaculated inside of [npc.herHim], as [npc.sheIs] now sporting a [style.colorSex(pregnant belly)].
 		</p>
 		#IF npc.hasFetish(FETISH_PREGNANCY)
 		#THEN
@@ -189,13 +189,13 @@
 		#THEN
 			#IF npc.hasFetish(FETISH_PREGNANCY)
 			#THEN
-				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs,
+				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs,
 					#IF npc.isAttractedTo(pc)
 					#THEN [npc.speech(That's right, I'm still pregnant, all thanks to you! If you wanted to take responsibility, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too! And, well, if anything, now that I'm pregnant, I'm hornier than ever, so if you've got a thing for pregnant [npc.girl]s, then just say the word...)]
 					#ELSE [npc.speech(That's right, I'm still pregnant, all thanks to you! If you wanted to take responsibility, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too!)])
 					#ENDIF
 			#ELSE
-				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] sighs,
+				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] sighs,
 					#IF npc.isAttractedTo(pc)
 					#THEN [npc.speech(That's right, I'm still pregnant... If you wanted to take responsibility, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too! And, well, even though I'm pregnant, I'm still getting really horny, so if you've got a thing for pregnant [npc.girl]s, then just say the word...)]
 					#ELSE [npc.speech(That's right, I'm still pregnant... If you wanted to take responsibility, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too!)])
@@ -204,13 +204,13 @@
 		#ELSE
 			#IF npc.hasFetish(FETISH_PREGNANCY)
 			#THEN
-				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs,
+				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] laughs,
 					#IF npc.isAttractedTo(pc)
 					#THEN [npc.speech(That's right, I'm still pregnant, all thanks to [#npc.getPregnantLitter().getFather().getName()]! If you wanted to take responsibility for what they've done, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too! And, well, if anything, now that I'm pregnant, I'm hornier than ever, so if you've got a thing for pregnant [npc.girl]s, then just say the word...)]
 					#ELSE [npc.speech(That's right, I'm still pregnant, all thanks to [#npc.getPregnantLitter().getFather().getName()]! If you wanted to take responsibility for what they've done, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too!)])
 					#ENDIF
 			#ELSE
-				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colourSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] sighs,
+				As you step forwards and start to say hello, you see that [npc.name] still sporting a round, [style.colorSex(pregnant belly)], and [npc.she] absent-mindedly strokes [npc.her] swollen bump as [npc.she] sighs,
 					#IF npc.isAttractedTo(pc)
 					#THEN [npc.speech(That's right, I'm still pregnant with [#npc.getPregnantLitter().getFather().getName()]'s children... If you wanted to take responsibility for what they've done, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too! And, well, even though I'm pregnant, I'm still getting really horny, so if you've got a thing for pregnant [npc.girl]s, then just say the word...)]
 					#ELSE [npc.speech(That's right, I'm still pregnant with [#npc.getPregnantLitter().getFather().getName()]'s children... If you wanted to take responsibility for what they've done, then some flames would always be appreciated. Then again, if you wanted to spend some time with me, that would be great too!)])
@@ -277,7 +277,7 @@
 	
 	<htmlContent tag="ALLEY_ATTACK_PEACEFUL_SEX_AS_DOM"><![CDATA[
 	<p>
-		[npc.Name] is quite clearly attracted to you, and, as you're harbouring similar feelings towards [npc.herHim], you step forwards and take hold of [npc.her] [npc.hips]. [pc.speech(I know what you really want, [npc.name]. There's no use denying it, I've noticed the lust in your [npc.eyes]...)]
+		[npc.Name] is quite clearly attracted to you, and, as you're harboring similar feelings towards [npc.herHim], you step forwards and take hold of [npc.her] [npc.hips]. [pc.speech(I know what you really want, [npc.name]. There's no use denying it, I've noticed the lust in your [npc.eyes]...)]
 	</p>
 	<p>
 		Before [npc.she] can respond, you press your [pc.lips] against [npc.hers], before slipping your [pc.hands] around to grab [npc.her] [npc.ass+] and pull [npc.her] in against you. Just as you already knew, [npc.name] is desperate to have sex with you, and happily throws [npc.her] [npc.arms] around you, passionately returning your kiss as [npc.she] fully submits to you...
@@ -287,7 +287,7 @@
 	
 	<htmlContent tag="ALLEY_ATTACK_PEACEFUL_SEX_AS_SUB"><![CDATA[
 	<p>
-		[npc.Name] is quite clearly attracted to you, and, as you're harbouring similar feelings towards [npc.herHim], you step forwards and tease, [pc.speech(I know what you really want, [npc.name]. All you have to do is come and take it...)]
+		[npc.Name] is quite clearly attracted to you, and, as you're harboring similar feelings towards [npc.herHim], you step forwards and tease, [pc.speech(I know what you really want, [npc.name]. All you have to do is come and take it...)]
 	</p>
 	<p>
 		Encouraged by your words, [npc.name] steps up against you, and, placing [npc.her] [npc.hands] on your [pc.hips], presses [npc.her] [npc.lips] against yours. As you lean in and return the sudden kiss, you feel [npc.her] grip slipping around to grab your [pc.ass+], and with a firm tug, [npc.name] pulls you in against [npc.herHim]. Happily throwing your [pc.arms] around [npc.herHim], you passionately return [npc.namePos] kiss as you fully submit to [npc.herHim]...
@@ -460,10 +460,10 @@
 		[npc.speech(W-What?)] the [npc.race] stammers, caught off guard by the amicable tone of your voice. [npc.speech(Y-You're not going to punish me?)]
 	</p>
 	<p>
-		[pc.speech(No, I just want to find out why you're attempting to assault innocent travellers.)]
+		[pc.speech(No, I just want to find out why you're attempting to assault innocent travelers.)]
 	</p>
 	<p>
-		[npc.speech(W-Well...)] the [npc.race] stammers. [npc.speech(I-I just get so horny all the time... I don't have a partner, and my Lilin mother never recognised me as one of her own, so I'm all by myself most of the time. I-It just kind of build up within me...)]
+		[npc.speech(W-Well...)] the [npc.race] stammers. [npc.speech(I-I just get so horny all the time... I don't have a partner, and my Lilin mother never recognized me as one of her own, so I'm all by myself most of the time. I-It just kind of build up within me...)]
 	</p>
 	<p>
 		You let out a sigh as you hear [npc.her] reason for attacking you. [pc.speech(Right... What's your name?)]
@@ -608,16 +608,16 @@
 		Deciding that it's better to be safe than sorry, you start to take a step backwards, with the intention of doubling back on yourself and finding another route through the maze-like lanes. As you turn to leave, a high-pitched, [npc.feminine] laughter suddenly rings out, echoing off the walls and leaving you turning this way and that as you try to locate the source of the sound. For a brief instant, you're reminded of that fateful night back at the museum, but just as you remind yourself that Lilith sounded nothing like this, you catch a glimpse of your elusive tormentor.
 	</p>
 	<p>
-		Looking in the direction that you were going to be travelling in, you see a [npc.feminine] figure suddenly materialise out of thin air. A huge web, glistening pink with arcane energy, shimmers into life all around [npc.herHim], and with a snap of [npc.her] fingers, it falls harmlessly to the ground.
+		Looking in the direction that you were going to be traveling in, you see a [npc.feminine] figure suddenly materialize out of thin air. A huge web, glistening pink with arcane energy, shimmers into life all around [npc.herHim], and with a snap of [npc.her] fingers, it falls harmlessly to the ground.
 	</p>
 	<p>
 		As [npc.she] steps over the fallen webbing, you see that your tormentor is, in fact, [npc.a_fullRace(true)]. Unlike the ones that you've seen peacefully walking the streets of Dominion, this demon has a hungry, primal look in [npc.her] eyes, and as [npc.she] moves closer, [npc.she] starts to talk, [npc.speech(Aww, how did you see my little surprise? You must know how to use the arcane! Y'know, I'm not angry, but that little trick takes me quite a while to set up, so when someone comes along and ruins it... Actually, no, I <i>am</i> pretty angry! Do you know how long it's been since I fucked someone?!)]
 	</p>
 	<p>
-		Although [npc.sheHas] been steadily walking towards you this whole time, [npc.she] comes to a halt about three metres in front of you, and you realise that [npc.sheIs] a little unsure of what you're capable of.
+		Although [npc.sheHas] been steadily walking towards you this whole time, [npc.she] comes to a halt about three meters in front of you, and you realize that [npc.sheIs] a little unsure of what you're capable of.
 	</p>
 	<p>
-		[npc.thought(So you're going to make it up to me for ruining my trap, understand?)] [npc.she] demands, but this time, [npc.she] doesn't speak out loud, and you realise that you're hearing [npc.her] voice in your head. [npc.thought(Get down on your knees, <b>right now</b>, and beg for me to fuck you!)]
+		[npc.thought(So you're going to make it up to me for ruining my trap, understand?)] [npc.she] demands, but this time, [npc.she] doesn't speak out loud, and you realize that you're hearing [npc.her] voice in your head. [npc.thought(Get down on your knees, <b>right now</b>, and beg for me to fuck you!)]
 	</p>
 	]]>
 	</htmlContent>
@@ -670,7 +670,7 @@
 		Looking a little surprised for a moment, [npc.name] quickly regains [npc.her] composure and strides towards you. [npc.speech(Hah! Well, that was easy! What a good little submissive thing you are!)]
 	</p>
 	<p>
-		Quickly coming to a halt just in front of you, [npc.she] leans down and grabs your arm, pulling you back up to your feet before pressing [npc.her] body up tightly against yours. As [npc.she] starts to affectionately grind up against you, you feel a bulge pressing against your leg. Looking down, your eyes go wide as you see the distinctive shape of a massive erection forming beneath the fabric of [npc.her] clothes. You didn't see any signs of a bulge between [npc.her] legs a moment ago, and you gulp as you suddenly realise that [npc.sheIs] using [npc.her] demonic powers to grow [npc.herself] a huge cock to fuck you with.
+		Quickly coming to a halt just in front of you, [npc.she] leans down and grabs your arm, pulling you back up to your feet before pressing [npc.her] body up tightly against yours. As [npc.she] starts to affectionately grind up against you, you feel a bulge pressing against your leg. Looking down, your eyes go wide as you see the distinctive shape of a massive erection forming beneath the fabric of [npc.her] clothes. You didn't see any signs of a bulge between [npc.her] legs a moment ago, and you gulp as you suddenly realize that [npc.sheIs] using [npc.her] demonic powers to grow [npc.herself] a huge cock to fuck you with.
 	</p>
 	<p>
 		Seeing what you're looking at, the [npc.race] lets out a playful laugh, [npc.speech(What? You didn't seriously think a submissive little bitch like you would be the one doing the fucking, did you? But you're an obedient little thing, I just know that you're going to love my cock!)]
@@ -798,7 +798,7 @@
 		[npc.Name] suddenly rocks forwards, pressing [npc.her] lips against yours as [npc.she] pulls you into a passionate kiss. [npc.Her] whining instantly stopped as you started to offer your body to [npc.herHim], and as [npc.she] grinds up against you, the only noises that come from [npc.her] mouth are deep, pleasurable moans.
 	</p>
 	<p>
-		Before you really know what's going on, [npc.sheIs] pulled you up to your feet, and as [npc.her] body presses up tightly against yours, you feel a strange bulge digging into your leg. Breaking off the kiss for a moment, you look down, and your eyes go wide as you see the distinctive shape of a massive erection between [npc.namePos] legs. You gulp as you remember what [npc.she] said just moments ago, and you realise that [npc.sheIs] growing [npc.herself] a cock to fuck you with.
+		Before you really know what's going on, [npc.sheIs] pulled you up to your feet, and as [npc.her] body presses up tightly against yours, you feel a strange bulge digging into your leg. Breaking off the kiss for a moment, you look down, and your eyes go wide as you see the distinctive shape of a massive erection between [npc.namePos] legs. You gulp as you remember what [npc.she] said just moments ago, and you realize that [npc.sheIs] growing [npc.herself] a cock to fuck you with.
 	</p>
 	<p>
 		Seeing what you're looking at, the [npc.race] lets out a playful laugh. [npc.speech(What? You didn't seriously think I'd let you fuck me, did you? You're the one who's offering to help here, remember?! If you didn't want to be my little fuck-toy, perhaps you should have just walked away!)]
@@ -811,7 +811,7 @@
 	
 	<htmlContent tag="AFTER_COMBAT_VICTORY_BANISH_NPC"><![CDATA[
 	<p>
-		Disgusted by the fact that this [npc.race] is assaulting innocent travellers, you step forwards, and, frowning down at [npc.herHim], you state, [pc.speech(I don't want to ever catch you doing this again. The next time I see you, I'll be with the Enforcers, and you can find out for yourself how they'll deal with you.)]
+		Disgusted by the fact that this [npc.race] is assaulting innocent travelers, you step forwards, and, frowning down at [npc.herHim], you state, [pc.speech(I don't want to ever catch you doing this again. The next time I see you, I'll be with the Enforcers, and you can find out for yourself how they'll deal with you.)]
 	</p>
 	<p>
 		[npc.speech(W-Wait, I-I just needed the money! Y-You can't do th-)] [npc.name] starts to stammer, brought to [npc.her] senses by the threat of the Enforcers getting involved.
@@ -820,7 +820,7 @@
 		Not interested in listening to anything this criminal has to say, you cut [npc.herHim] off, [pc.speech(Be quiet! If you need money, go and get a job! How dare you try to justify your criminal activities! Now get out of here, before I decide to get the Enforcers right now!)]
 	</p>
 	<p>
-		You see tears welling up in [npc.namePos] [npc.eyes], but, realising that [npc.sheIs] in no position to argue, quietly stands up and runs off, not even casting a backwards glance your way.
+		You see tears welling up in [npc.namePos] [npc.eyes], but, realizing that [npc.sheIs] in no position to argue, quietly stands up and runs off, not even casting a backwards glance your way.
 	</p>
 	<p>
 		With the way [npc.she] reacted to the threat of the Enforcers, you can be sure that you won't see [npc.herHim] in this alleyway ever again. Feeling pleased with the way you dealt with that lowlife, you set off and continue on your way...
@@ -857,7 +857,7 @@
 		Moving up close before starting to grind [npc.herself] up against your leg, [npc.she] moans in your ear, [npc.speech(~Aah!~ Yes! Finally, I can get some release!)]
 	</p>
 	<p>
-		As [npc.her] body presses tightly against yours, you feel a bulge pressing against your leg. Looking down, your eyes go wide as you see the distinctive shape of a massive erection forming beneath the fabric of [npc.her] clothes. You didn't see any signs of a bulge between [npc.her] legs while you were fighting [npc.herHim], and you gulp as you suddenly realise that [npc.sheIs] using [npc.her] demonic powers to grow [npc.herself] a huge cock to fuck you with.
+		As [npc.her] body presses tightly against yours, you feel a bulge pressing against your leg. Looking down, your eyes go wide as you see the distinctive shape of a massive erection forming beneath the fabric of [npc.her] clothes. You didn't see any signs of a bulge between [npc.her] legs while you were fighting [npc.herHim], and you gulp as you suddenly realize that [npc.sheIs] using [npc.her] demonic powers to grow [npc.herself] a huge cock to fuck you with.
 	</p>
 	<p>
 		Seeing what you're looking at, the [npc.race] lets out a playful laugh, [npc.speech(What? You didn't seriously think I'd grow a pussy for you to fuck, did you? Perhaps if you didn't want to be my little fuck-toy, you should have fought harder, hmm?)]
@@ -895,7 +895,7 @@
 		Pulling you to your feet, [npc.name] roughly pushes you against a nearby wall, [npc.her] sorrow quickly turning to anger as [npc.she] violently forces you hand over some of your cash. Having taken your money, [npc.she] then roughly pushes you to the floor once more.
 	</p>
 	<p>
-		[npc.speech(I hate you! <i>I hate you!</i>)] [npc.she] screams, tears running down [npc.her] face once more as [npc.she] fails to control [npc.her] emotions. Before you can say anything in your defence, [npc.she] turns around and sprints off at full speed, leaving you all alone once again...
+		[npc.speech(I hate you! <i>I hate you!</i>)] [npc.she] screams, tears running down [npc.her] face once more as [npc.she] fails to control [npc.her] emotions. Before you can say anything in your defense, [npc.she] turns around and sprints off at full speed, leaving you all alone once again...
 	</p>
 	<p style='text-align:center;'>
 		[style.italicsBad(After betraying [npc.namePos] trust in such a brutal manner, you can be sure that this was be the last time you'll ever see [npc.herHim].)]
@@ -905,21 +905,21 @@
 	
 	<htmlContent tag="AFTER_COMBAT_DEFEAT_SEX"><![CDATA[
 	<p>
-		[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away. Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realise that [npc.sheIs] probably not going to be content with just a kiss...
+		[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away. Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss...
 	</p>
 	]]>
 	</htmlContent>
 	
 	<htmlContent tag="AFTER_COMBAT_DEFEAT_SEX_EAGER"><![CDATA[
 	<p>
-		[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you. Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realise that [npc.sheIs] going to want more than just a kiss...
+		[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you. Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss...
 	</p>
 	]]>
 	</htmlContent>
 	
 	<htmlContent tag="AFTER_COMBAT_DEFEAT_SEX_RESIST"><![CDATA[
 	<p>
-		[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss. Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop. Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realise that [npc.sheIs] not going to let you go...
+		[npc.NamePos] [npc.arms] wrap around your back, and you let out a distressed cry as [npc.she] pulls you into a forceful kiss. Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop. Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go...
 	</p>
 	]]>
 	</htmlContent>
@@ -972,7 +972,7 @@
 	
 	<htmlContent tag="AFTER_SEX_VICTORY_RAPE"><![CDATA[
 	<p>
-		As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realises that you've finished. [npc.She] starts frantically gathering [npc.her] belongings, obviously quite keen to make [npc.her] exit before you decide to do anything else...
+		As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished. [npc.She] starts frantically gathering [npc.her] belongings, obviously quite keen to make [npc.her] exit before you decide to do anything else...
 	</p>
 	]]>
 	</htmlContent>
@@ -981,14 +981,14 @@
 	#IF game.isNonConEnabled()
 	#THEN
 		<p>
-			As you step back from [npc.name], [npc.she] sinks to the floor, letting out a pitiful wail as [npc.she] realises that you've finished. Completely broken by the sudden betrayal and rape, [npc.she] starts uncontrollably sobbing and crying.
+			As you step back from [npc.name], [npc.she] sinks to the floor, letting out a pitiful wail as [npc.she] realizes that you've finished. Completely broken by the sudden betrayal and rape, [npc.she] starts uncontrollably sobbing and crying.
 		</p>
 		<p>
 			Letting out a triumphant laugh, you start gathering your things, but before taking your leave, you wonder if you should help yourself to any of [npc.namePos] belongings...
 		</p>
 	#ELSE
 		<p>
-			As you step back from [npc.name], [npc.she] sinks to the floor, letting out a deep sigh as [npc.she] realises that you've finished. Still deeply upset at the way you betrayed [npc.her] trust, [npc.she] quickly starts gathering [npc.her] things, intent on leaving this place for good.
+			As you step back from [npc.name], [npc.she] sinks to the floor, letting out a deep sigh as [npc.she] realizes that you've finished. Still deeply upset at the way you betrayed [npc.her] trust, [npc.she] quickly starts gathering [npc.her] things, intent on leaving this place for good.
 		</p>
 		<p>
 			Similarly getting your things back in order, you wonder if you should help yourself to any of [npc.namePos] belongings before you move on...
@@ -1006,7 +1006,7 @@
 	
 	<htmlContent tag="AFTER_SEX_VICTORY_NO_ORGASM"><![CDATA[
 	<p>
-		As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realises that you've finished. [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started.
+		As you step back from [npc.name], [npc.she] sinks to the floor, letting out a desperate whine as [npc.she] realizes that you've finished. [npc.Her] [npc.hands] dart down between [npc.her] [npc.legs], and [npc.she] frantically starts masturbating as [npc.she] seeks to finish what you started.
 	</p>
 	]]>
 	</htmlContent>
@@ -1042,7 +1042,7 @@
 		Wanting [npc.name] to transform [npc.herself] so that [npc.she] has a very masculine face and body, you command, [pc.speech(Make yourself as manly as you can! I want you to be the ideal image of masculinity!)]
 	</p>
 	<p>
-		[npc.speech(R-Really?)] [npc.name] mumbles, before realising that [npc.she] has no say in the matter. [npc.speech(Fine...)]
+		[npc.speech(R-Really?)] [npc.name] mumbles, before realizing that [npc.she] has no say in the matter. [npc.speech(Fine...)]
 	</p>
 	<p>
 		With that, [npc.she] focuses [npc.her] energy on transforming [npc.her] body to become as masculine as [npc.she] can manage, and within just a moment, you find yourself smiling at his extremely-manly body and handsome face.
@@ -1062,7 +1062,7 @@
 		Wanting [npc.name] to transform [npc.herself] so that [npc.she] has a masculine face and body, you command, [pc.speech(Make yourself masculine, but not too over-the-top!)]
 	</p>
 	<p>
-		[npc.speech(R-Really?)] [npc.name] mumbles, before realising that [npc.she] has no say in the matter. [npc.speech(Fine...)]
+		[npc.speech(R-Really?)] [npc.name] mumbles, before realizing that [npc.she] has no say in the matter. [npc.speech(Fine...)]
 	</p>
 	<p>
 		With that, [npc.she] focuses [npc.her] energy on transforming [npc.her] body to become masculine, and within just a moment, you find yourself smiling at his manly body and handsome face.
@@ -1082,7 +1082,7 @@
 		Wanting [npc.name] to transform [npc.herself] so that [npc.she] has an androgynous face and body, you command, [pc.speech(Make yourself androgynous!)]
 	</p>
 	<p>
-		[npc.speech(R-Really?)] [npc.name] mumbles, before realising that [npc.she] has no say in the matter. [npc.speech(Fine...)]
+		[npc.speech(R-Really?)] [npc.name] mumbles, before realizing that [npc.she] has no say in the matter. [npc.speech(Fine...)]
 	</p>
 	<p>
 		With that, [npc.she] focuses [npc.her] energy on transforming [npc.her] body to become androgynous, and within just a moment, you find yourself smiling at their gender-neutral body and face.
@@ -1102,7 +1102,7 @@
 		Wanting [npc.name] to transform [npc.herself] so that [npc.she] has a feminine face and body, you command, [pc.speech(Make yourself feminine, but not too over-the-top!)]
 	</p>
 	<p>
-		[npc.speech(R-Really?)] [npc.name] mumbles, before realising that [npc.she] has no say in the matter. [npc.speech(Fine...)]
+		[npc.speech(R-Really?)] [npc.name] mumbles, before realizing that [npc.she] has no say in the matter. [npc.speech(Fine...)]
 	</p>
 	<p>
 		With that, [npc.she] focuses [npc.her] energy on transforming [npc.her] body to become feminine, and within just a moment, you find yourself smiling at her girly body and pretty face.
@@ -1122,7 +1122,7 @@
 		Wanting [npc.name] to transform [npc.herself] so that [npc.she] has a very feminine face and body, you command, [pc.speech(Make yourself as womanly as you can! I want you to be the ideal image of femininity!)]
 	</p>
 	<p>
-		[npc.speech(R-Really?)] [npc.name] mumbles, before realising that [npc.she] has no say in the matter. [npc.speech(Fine...)]
+		[npc.speech(R-Really?)] [npc.name] mumbles, before realizing that [npc.she] has no say in the matter. [npc.speech(Fine...)]
 	</p>
 	<p>
 		With that, [npc.she] focuses [npc.her] energy on transforming [npc.her] body to become as feminine as [npc.she] can manage, and within just a moment, you find yourself smiling at her extremely womanly body and beautiful face.
@@ -1169,7 +1169,7 @@
 		Trying to wriggle out of your grasp, the [npc.race] moans, [npc.speech(Fine! Just... Aah... Hold on... Ok, all done, can we start now?!)]
 	</p>
 	<p>
-		Looking down at [npc.her] crotch, you see a small bulge beneath [npc.her] clothes, and you find yourself smiling in delight as you realise that the [npc.race] is going to do anything you command.
+		Looking down at [npc.her] crotch, you see a small bulge beneath [npc.her] clothes, and you find yourself smiling in delight as you realize that the [npc.race] is going to do anything you command.
 	</p>
 	]]>
 	</htmlContent>
@@ -1182,7 +1182,7 @@
 		Trying to wriggle out of your grasp, the [npc.race] moans, [npc.speech(Fine! Just... Aah... Hold on... Ok, all done, can we start now?!)]
 	</p>
 	<p>
-		Looking down at [npc.her] crotch, you see a large bulge beneath [npc.her] clothes, and you find yourself smiling in delight as you realise that the [npc.race] is going to do anything you command.
+		Looking down at [npc.her] crotch, you see a large bulge beneath [npc.her] clothes, and you find yourself smiling in delight as you realize that the [npc.race] is going to do anything you command.
 	</p>
 	]]>
 	</htmlContent>
@@ -1195,7 +1195,7 @@
 		Trying to wriggle out of your grasp, the [npc.race] moans, [npc.speech(Fine! Just... Aah... Hold on... Ok, all done, can we start now?!)]
 	</p>
 	<p>
-		Looking down at [npc.her] crotch, you see a massive bulge beneath [npc.her] clothing, and you find yourself smiling in delight as you realise that the [npc.race] is going to do anything you command.
+		Looking down at [npc.her] crotch, you see a massive bulge beneath [npc.her] clothing, and you find yourself smiling in delight as you realize that the [npc.race] is going to do anything you command.
 	</p>
 	]]>
 	</htmlContent>
@@ -1332,7 +1332,7 @@
 			Wanting to make [npc.her] breasts a little bigger, you order [npc.herHim] to make the change, [pc.speech(I thought [npc.races] liked having big breasts? I don't know what you'd call those things, but they're definitely not big by my standards. Make them at least an H-cup.)]
 		</p>
 		<p>
-			You see the [npc.race]'s cheeks flash red, and you realise that you've obviously touched a nerve. [npc.speech(W-What?! But everyone always says that these are big enough! F-Fine... I can make them bigger for you...)]
+			You see the [npc.race]'s cheeks flash red, and you realize that you've obviously touched a nerve. [npc.speech(W-What?! But everyone always says that these are big enough! F-Fine... I can make them bigger for you...)]
 		</p>
 		<p>
 			Looking down at [npc.her] chest, you see [npc.her] [npc.breastSize], [npc.cupSize]-cup breasts start to expand, and after just a couple of seconds, [npc.sheIs] left with a massive, H-cup bust.
@@ -1358,7 +1358,7 @@
 			Wanting to make [npc.her] breasts a little bigger, you order [npc.herHim] to make the change, [pc.speech(I thought [npc.races] liked having big breasts? I don't know what you'd call those things, but they're definitely not big by my standards. Make them at least an N-cup.)]
 		</p>
 		<p>
-			You see the [npc.race]'s cheeks flash red, and you realise that you've obviously touched a nerve. [npc.speech(W-What?! But everyone always says that these are big enough! F-Fine... I can make them bigger for you...)]
+			You see the [npc.race]'s cheeks flash red, and you realize that you've obviously touched a nerve. [npc.speech(W-What?! But everyone always says that these are big enough! F-Fine... I can make them bigger for you...)]
 		</p>
 		<p>
 			Looking down at [npc.her] chest, you see [npc.her] [npc.breastSize], [npc.cupSize]-cup breasts start to expand, and after just a couple of seconds, [npc.sheIs] left with a massive, N-cup bust.

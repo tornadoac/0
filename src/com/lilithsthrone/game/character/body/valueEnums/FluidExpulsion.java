@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.2.7
@@ -9,25 +9,25 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum FluidExpulsion {
 	
-	ZERO_NONE("tiny", 0, 20, Colour.GENERIC_SIZE_ONE),
+	ZERO_NONE("tiny", 0, 20, Color.GENERIC_SIZE_ONE),
 
-	ONE_SMALL("small", 20, 40, Colour.GENERIC_SIZE_TWO),
+	ONE_SMALL("small", 20, 40, Color.GENERIC_SIZE_TWO),
 
-	TWO_MODERATE("moderate", 40, 60, Colour.GENERIC_SIZE_THREE),
+	TWO_MODERATE("moderate", 40, 60, Color.GENERIC_SIZE_THREE),
 
-	THREE_LARGE("large", 60, 80, Colour.GENERIC_SIZE_FOUR),
+	THREE_LARGE("large", 60, 80, Color.GENERIC_SIZE_FOUR),
 
-	FOUR_HUGE("huge", 80, 100, Colour.GENERIC_SIZE_FIVE);
+	FOUR_HUGE("huge", 80, 100, Color.GENERIC_SIZE_FIVE);
 
 	private int minimumValue, maximumValue;
 	private String descriptor;
-	private Colour colour;
+	private Color color;
 
-	private FluidExpulsion(String descriptor, int minimumValue, int maximumValue, Colour colour) {
+	private FluidExpulsion(String descriptor, int minimumValue, int maximumValue, Color color) {
 		this.descriptor = descriptor;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour=colour;
+		this.color=color;
 	}
 
 	public int getMinimumValue() {
@@ -55,7 +55,7 @@ public enum FluidExpulsion {
 		return descriptor;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 }

@@ -97,7 +97,7 @@ public class GamblingDenPatron extends NPC {
 			CharacterUtils.addFetishes(this);
 			this.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.TWO_NEUTRAL);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			

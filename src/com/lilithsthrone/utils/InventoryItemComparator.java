@@ -24,7 +24,7 @@ public class InventoryItemComparator implements Comparator<AbstractItem> {
 			if(result!=0) {
 				return result;
 			} else {
-				return first.getColour().getName().compareTo(second.getColour().getName());
+				return first.getColor().getName().compareTo(second.getColor().getName());
 			}
 		}
 	}

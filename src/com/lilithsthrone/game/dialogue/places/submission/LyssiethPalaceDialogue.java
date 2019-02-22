@@ -43,7 +43,7 @@ import com.lilithsthrone.game.sex.sexActions.baseActions.TongueAnus;
 import com.lilithsthrone.game.sex.sexActions.baseActions.TongueVagina;
 import com.lilithsthrone.game.sex.sexActions.submission.SALyssiethSpecials;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -216,8 +216,8 @@ public class LyssiethPalaceDialogue {
 					&& Main.game.getNpc(DarkSiren.class).getRaceStage()!=RaceStage.GREATER) {
 				return new Response("Demon", "Tell Meraxis that she should go through with the process of becoming a full demon.<br/>[style.italicsDemon(This will permanently transform Meraxis into a full demon!)]", MERAXIS_DEMON_TF_START) {
 					@Override
-					public Colour getHighlightColour() {
-						return Colour.RACE_DEMON;
+					public Color getHighlightColor() {
+						return Color.RACE_DEMON;
 					}
 					@Override
 					public void effects() {
@@ -647,12 +647,12 @@ public class LyssiethPalaceDialogue {
 						+ " You also understand that she will need to completely strip you of your clothes and fuck you in order to do this...",
 						DEMON_TF_START) {
 					@Override
-					public Colour getHighlightColour() {
-						return Colour.RACE_DEMON;
+					public Color getHighlightColor() {
+						return Color.RACE_DEMON;
 					}
 					@Override
 					public void effects() {
-						// Lyssieth strips and transforms to full lilin
+						// Lyssieth strips and transforms to full Lilin
 						((Lyssieth) Main.game.getNpc(Lyssieth.class)).setLilinBody();
 						for(AbstractClothing c : Main.game.getPlayer().getClothingCurrentlyEquipped()) {
 							c.setSealed(false);
@@ -721,7 +721,7 @@ public class LyssiethPalaceDialogue {
 						"Refuse to do as Lyssieth says, and force her to be the one to perform oral on you.<br/>"
 						+ (!Main.game.getPlayer().isFeminine()
 								?"[style.italicsMasculine(Lyssieth will make you more masculine when she orgasms!)]"
-								:"[style.italicsDisabled(This will have no extra feminising effect.)]")
+								:"[style.italicsDisabled(This will have no extra feminizing effect.)]")
 						+(!Main.game.getPlayer().hasPenis() && !Main.game.getPlayer().hasVagina()
 								?(Main.game.getPlayer().isFeminine()
 										?"<br/>[style.italicsTfSexual(Lyssieth will give you a demonic vagina.)]"

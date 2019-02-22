@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.body.types.BodyPartType;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.?
@@ -12,26 +12,26 @@ import com.lilithsthrone.utils.Colour;
  * @author Innoxia
  */
 public abstract class ParserCommand {
-	private boolean allowsCapitalisation, allowPronoun;
+	private boolean allowsCapitalization, allowPronoun;
 	private String description, arguments;
 	private List<String> tags;
 	private BodyPartType relatedBodyPart;
 	
-	public ParserCommand(List<String> tags, boolean allowsCapitalisation, boolean allowPronoun, String arguments, String description) {
-		this(tags, allowsCapitalisation, allowPronoun, arguments, description, BodyPartType.GENERIC);
+	public ParserCommand(List<String> tags, boolean allowsCapitalization, boolean allowPronoun, String arguments, String description) {
+		this(tags, allowsCapitalization, allowPronoun, arguments, description, BodyPartType.GENERIC);
 	}
 	
-	public ParserCommand(List<String> tags, boolean allowsCapitalisation, boolean allowPronoun, String arguments, String description, BodyPartType relatedBodyPart) {
+	public ParserCommand(List<String> tags, boolean allowsCapitalization, boolean allowPronoun, String arguments, String description, BodyPartType relatedBodyPart) {
 		this.tags=tags;
-		this.allowsCapitalisation=allowsCapitalisation;
+		this.allowsCapitalization=allowsCapitalization;
 		this.allowPronoun=allowPronoun;
 		this.description=description;
 		this.arguments=arguments;
 		this.relatedBodyPart=relatedBodyPart;
 	}
 	
-	public boolean isAllowsCapitalisation() {
-		return allowsCapitalisation;
+	public boolean isAllowsCapitalization() {
+		return allowsCapitalization;
 	}
 	
 	public boolean isAllowsPronoun() {
@@ -59,8 +59,8 @@ public abstract class ParserCommand {
 	}
 
 	public String getExampleBeforeParse(String target, String arguments) {
-		return "[<i style='color:"+Colour.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>"+target+"</i>.<i style='color:"+Colour.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+tags.get(0)+"</i>"
-				+(arguments==""?"":"<i style='color:"+Colour.CLOTHING_YELLOW.toWebHexString()+";'>("+arguments+")</i>")+"]";
+		return "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>"+target+"</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+tags.get(0)+"</i>"
+				+(arguments==""?"":"<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>("+arguments+")</i>")+"]";
 	}
 	
 	public abstract String parse(String command, String arguments, String target, GameCharacter character);

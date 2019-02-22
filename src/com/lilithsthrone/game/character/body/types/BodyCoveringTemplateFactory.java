@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.lilithsthrone.game.character.body.valueEnums.CoveringModifier;
 import com.lilithsthrone.game.character.body.valueEnums.CoveringPattern;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -15,7 +15,7 @@ import com.lilithsthrone.utils.Util;
  */
 public class BodyCoveringTemplateFactory {
 	
-	public static BodyCoveringTemplate createSkin(List<CoveringPattern> coverPatterns, List<Colour> naturalPrimaryColors, List<Colour> naturalSecondaryColours, List<Colour> dyeColours) {
+	public static BodyCoveringTemplate createSkin(List<CoveringPattern> coverPatterns, List<Color> naturalPrimaryColors, List<Color> naturalSecondaryColors, List<Color> dyeColors) {
 		return new BodyCoveringTemplate("a layer of",
 				false,
 				"skin",
@@ -25,17 +25,17 @@ public class BodyCoveringTemplateFactory {
 				coverPatterns,
 				CoveringPattern.allStandardCoveringPatterns,
 				naturalPrimaryColors,
-				dyeColours,
-				naturalSecondaryColours,
-				dyeColours);
+				dyeColors,
+				naturalSecondaryColors,
+				dyeColors);
 	}
 	
-	public static BodyCoveringTemplate createTopSkin(List<CoveringPattern> coverPatterns, List<Colour> skinColors) {
+	public static BodyCoveringTemplate createTopSkin(List<CoveringPattern> coverPatterns, List<Color> skinColors) {
 		return createSkin(coverPatterns, skinColors, skinColors, null);
 	}
 	
-	public static BodyCoveringTemplate createBottomSkin(List<Colour> skinColors) {
-		return createSkin(Util.newArrayListOfValues(CoveringPattern.NONE), skinColors, null, Colour.allSkinColours);
+	public static BodyCoveringTemplate createBottomSkin(List<Color> skinColors) {
+		return createSkin(Util.newArrayListOfValues(CoveringPattern.NONE), skinColors, null, Color.allSkinColors);
 	}
 	
 	public static BodyCoveringTemplate createSlime(CoveringPattern basePattern, List<CoveringPattern> coverPatterns) {
@@ -47,10 +47,10 @@ public class BodyCoveringTemplateFactory {
 				null,
 				Util.newArrayListOfValues(basePattern),
 				coverPatterns,
-				Colour.naturalSlimeColours,
-				Colour.dyeSlimeColours,
-				Colour.naturalSlimeColours,
-				Colour.dyeSlimeColours);
+				Color.naturalSlimeColors,
+				Color.dyeSlimeColors,
+				Color.naturalSlimeColors,
+				Color.dyeSlimeColors);
 	}
 	
 	public static BodyCoveringTemplate createFurSkin(List<CoveringModifier> modifiers, List<CoveringPattern> patterns) {
@@ -66,10 +66,10 @@ public class BodyCoveringTemplateFactory {
 				null,
 				patterns,
 				CoveringPattern.allStandardCoveringPatterns,
-				Colour.naturalFurColours,
-				Colour.allCoveringColours,
-				Colour.naturalFurColours,
-				Colour.allCoveringColours);
+				Color.naturalFurColors,
+				Color.allCoveringColors,
+				Color.naturalFurColors,
+				Color.allCoveringColors);
 	}
 	
 	private static BodyCoveringTemplate createHair(String determiner, String name, List<CoveringModifier> modifiers, List<CoveringPattern> patterns) {
@@ -81,10 +81,10 @@ public class BodyCoveringTemplateFactory {
 				null,
 				patterns,
 				CoveringPattern.allHairCoveringPatterns,
-				Colour.naturalHairColours,
-				Colour.allCoveringColours,
-				Colour.naturalHairColours,
-				Colour.allCoveringColours);
+				Color.naturalHairColors,
+				Color.allCoveringColors,
+				Color.naturalHairColors,
+				Color.allCoveringColors);
 	}
 	
 	private static BodyCoveringTemplate createHairWithoutPatterns(String determiner, String name, CoveringModifier modifier) {
@@ -103,7 +103,7 @@ public class BodyCoveringTemplateFactory {
 		return createHairWithoutPatterns("a layer of", "hair", modifier);
 	}
 	
-	public static BodyCoveringTemplate createElemental(String name, CoveringModifier modifier, Colour... naturalHairColours) {
+	public static BodyCoveringTemplate createElemental(String name, CoveringModifier modifier, Color... naturalHairColors) {
 		return new BodyCoveringTemplate("",
 				false,
 				name,
@@ -112,7 +112,7 @@ public class BodyCoveringTemplateFactory {
 				null,
 				Util.newArrayListOfValues(CoveringPattern.NONE),
 				null,
-				Arrays.asList(naturalHairColours),
+				Arrays.asList(naturalHairColors),
 				null,
 				null,
 				null);
@@ -127,10 +127,10 @@ public class BodyCoveringTemplateFactory {
 				null,
 				pattern == null ? null : Util.newArrayListOfValues(pattern),
 				null,
-				Colour.allSkinColours,
+				Color.allSkinColors,
 				null,
-				Util.newArrayListOfValues(Colour.ORIFICE_INTERIOR),
-				Colour.allSkinColours);
+				Util.newArrayListOfValues(Color.ORIFICE_INTERIOR),
+				Color.allSkinColors);
 	}
 	
 	public static BodyCoveringTemplate createPenisSkin() {
@@ -147,13 +147,13 @@ public class BodyCoveringTemplateFactory {
 						CoveringPattern.MOTTLED,
 						CoveringPattern.SPOTTED,
 						CoveringPattern.STRIPED),
-				Colour.allSkinColours,
+				Color.allSkinColors,
 				null,
-				Util.newArrayListOfValues(Colour.ORIFICE_INTERIOR),
-				Colour.allSkinColours);
+				Util.newArrayListOfValues(Color.ORIFICE_INTERIOR),
+				Color.allSkinColors);
 	}
 	
-	public static BodyCoveringTemplate createEyeIrisesWithCustomColors(List<Colour> naturalIrisColors, List<Colour> dyeIrisColours, boolean heteroIsExtra) {
+	public static BodyCoveringTemplate createEyeIrisesWithCustomColors(List<Color> naturalIrisColors, List<Color> dyeIrisColors, boolean heteroIsExtra) {
 		List<CoveringPattern> natural = Util.newArrayListOfValues(CoveringPattern.EYE_IRISES, CoveringPattern.EYE_IRISES_HETEROCHROMATIC);
 		List<CoveringPattern> extra = null;
 		if (heteroIsExtra) {
@@ -169,20 +169,20 @@ public class BodyCoveringTemplateFactory {
 				natural,
 				extra,
 				naturalIrisColors,
-				dyeIrisColours,
+				dyeIrisColors,
 				naturalIrisColors,
-				dyeIrisColours);
+				dyeIrisColors);
 	}
 	
-	public static BodyCoveringTemplate createEyeIrisesWithCustomColors(List<Colour> naturalIrisColours, List<Colour> dyeIrisColours) {
-		return createEyeIrisesWithCustomColors(naturalIrisColours, dyeIrisColours, true);
+	public static BodyCoveringTemplate createEyeIrisesWithCustomColors(List<Color> naturalIrisColors, List<Color> dyeIrisColors) {
+		return createEyeIrisesWithCustomColors(naturalIrisColors, dyeIrisColors, true);
 	}
 	
 	public static BodyCoveringTemplate createEyeIrises() {
-		return createEyeIrisesWithCustomColors(Colour.naturalIrisColours, Colour.dyeIrisColours, true);
+		return createEyeIrisesWithCustomColors(Color.naturalIrisColors, Color.dyeIrisColors, true);
 	}
 	
 	public static BodyCoveringTemplate createEyeIrisesHeterochromiaNaturallyOccurring() {
-		return createEyeIrisesWithCustomColors(Colour.naturalIrisColours, Colour.dyeIrisColours, false);
+		return createEyeIrisesWithCustomColors(Color.naturalIrisColors, Color.dyeIrisColors, false);
 	}
 }

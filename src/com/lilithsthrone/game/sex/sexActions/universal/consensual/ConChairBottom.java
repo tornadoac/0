@@ -1165,7 +1165,7 @@ public class ConChairBottom {
 		@Override
 		public String getDescription() {
 			return "Reaching down, [npc.name] suddenly grabs your [pc.tail+]."
-					+ " Guiding it around between [npc.her] [npc.legs], [npc.she] presses the tip up against [npc.her] exposed [npc.asshole], and you let out a happy cry as you realise what [npc.she] wants."
+					+ " Guiding it around between [npc.her] [npc.legs], [npc.she] presses the tip up against [npc.her] exposed [npc.asshole], and you let out a happy cry as you realize what [npc.she] wants."
 					+ " With a determined, forceful thrust, you eagerly spear your [pc.tail] deep into [npc.her] [npc.ass], causing [npc.herHim] to let out [npc.a_moan+]."
 					+ (Sex.getActivePartner().hasPenis()
 						?" [npc.Her] [npc.moans] soon turn into a desperate gasp as you purposefully press your [pc.tail] up and start to massage and stroke [npc.her] prostate."
@@ -1198,7 +1198,7 @@ public class ConChairBottom {
 		@Override
 		public String getDescription() {
 			return "Reaching down, [npc.name] suddenly grabs your [pc.tail+]."
-					+ " Guiding it up between [npc.her] [npc.legs], [npc.she] presses the tip up against [npc.her] exposed [npc.pussy], and you let out a happy cry as you realise what [npc.she] wants."
+					+ " Guiding it up between [npc.her] [npc.legs], [npc.she] presses the tip up against [npc.her] exposed [npc.pussy], and you let out a happy cry as you realize what [npc.she] wants."
 					+ " With a determined, forceful thrust, you eagerly spear your [pc.tail] deep into [npc.her] [npc.pussy+], causing [npc.herHim] to let out [npc.a_moan+]."
 					+ " [npc.Her] [npc.legs] shudder, and [npc.she] grips down tightly on your [pc.tail] for a moment, [npc.moaning] in pleasure as you start thrusting it in and out of [npc.her] [npc.pussy+].";
 		}
@@ -1656,7 +1656,7 @@ public class ConChairBottom {
 		}
 	};
 	
-	public static final SexAction PLAYER_SMOULDERING_LOOK = new SexAction(
+	public static final SexAction PLAYER_SMOLDERING_LOOK = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FIVE_EXTREME,
@@ -1669,7 +1669,7 @@ public class ConChairBottom {
 		}
 		@Override
 		public String getActionTitle() {
-			return "Smouldering look";
+			return "Smoldering look";
 		}
 
 		@Override
@@ -1687,7 +1687,7 @@ public class ConChairBottom {
 		@Override
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
-					"Looking up at [npc.name], you put on a smouldering look as you lock your [pc.eyes] onto [npc.hers]."
+					"Looking up at [npc.name], you put on a smoldering look as you lock your [pc.eyes] onto [npc.hers]."
 							+ " Concentrating on your demonic aura, you send a series of lewd moaning noises up into [npc.her] mind, and from the flushed look that suddenly crosses [npc.her] face, you know that they're having quite a strong effect.",
 					
 					"You let out a little pleading whine, and as [npc.name] looks down at you, you bite your [pc.lip] and send a series of psychic moans into [npc.her] mind.",

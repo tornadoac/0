@@ -4,7 +4,7 @@ import com.lilithsthrone.game.Weather;
 import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -23,7 +23,7 @@ public class DominionEncounterDialogue {
 					+ " You can't see any signs of a trap, and the package looks to be completely abandoned, so you decide to take a closer look.</p>"
 
 					+ "<p>You bend down to see that it's a square, medium-sized box, covered in brown packaging paper and sealed with sticky tape." + " The label on the side has been smeared by some sort of liquid, leaving it totally illegible."
-					+ " A musky smell suddenly fills your nostrils, and you realise that the liquid is in fact sticky white cum."
+					+ " A musky smell suddenly fills your nostrils, and you realize that the liquid is in fact sticky white cum."
 					+ " As you wonder what series of events led to this package being abandoned here, you notice that there's splatters of cum all over the floor and up part of the wall."
 					+ " There's no way to find out who the package was originally intended for, so, not wanting it to go to waste, you gingerly peel back the brown paper to reveal:" + "</p>" + "<p style='text-align:center;'>" + "<b>"
 					+ Encounter.getRandomItem().getDisplayName(true) + "</b>" + "</p>";
@@ -57,11 +57,11 @@ public class DominionEncounterDialogue {
 					+ " You can't see any signs of a trap, and the package looks to be completely abandoned, so you decide to take a closer look.</p>"
 
 					+ "<p>You bend down to see that it's a square, medium-sized box, covered in brown packaging paper and sealed with sticky tape." + " The label on the side has been smeared by some sort of liquid, leaving it totally illegible."
-					+ " A musky smell suddenly fills your nostrils, and you realise that the liquid is in fact sticky white cum."
+					+ " A musky smell suddenly fills your nostrils, and you realize that the liquid is in fact sticky white cum."
 					+ " As you wonder what series of events led to this package being abandoned here, you notice that there's splatters of cum all over the floor and up part of the wall."
 					+ " There's no way to find out who the package was originally intended for, so, not wanting it to go to waste, you gingerly peel back the brown paper to reveal:" + "</p>" + "<p style='text-align:center;'>"
 					+ "<b>"
-					+ Util.capitaliseSentence(Encounter.getRandomClothing().getName(true, true)) + "</b>" + "</p>";
+					+ Util.capitalizeSentence(Encounter.getRandomClothing().getName(true, true)) + "</b>" + "</p>";
 		}
 		
 		@Override
@@ -92,10 +92,10 @@ public class DominionEncounterDialogue {
 					+ " You can't see any signs of a trap, and the package looks to be completely abandoned, so you decide to take a closer look.</p>"
 
 					+ "<p>You bend down to see that it's a square, medium-sized box, covered in brown packaging paper and sealed with sticky tape." + " The label on the side has been smeared by some sort of liquid, leaving it totally illegible."
-					+ " A musky smell suddenly fills your nostrils, and you realise that the liquid is in fact sticky white cum."
+					+ " A musky smell suddenly fills your nostrils, and you realize that the liquid is in fact sticky white cum."
 					+ " As you wonder what series of events led to this package being abandoned here, you notice that there's splatters of cum all over the floor and up part of the wall."
 					+ " There's no way to find out who the package was originally intended for, so, not wanting it to go to waste, you gingerly peel back the brown paper to reveal:" + "</p>" + "<p style='text-align:center;'>" + "<b>"
-					+ Util.capitaliseSentence(Encounter.getRandomWeapon().getName(true, true)) + "</b>" + "</p>";
+					+ Util.capitalizeSentence(Encounter.getRandomWeapon().getName(true, true)) + "</b>" + "</p>";
 		}
 
 		@Override
@@ -123,7 +123,7 @@ public class DominionEncounterDialogue {
 		public String getContent() {
 			return "<p>"
 						+ "As you travel down the winding walkways, you suddenly catch sight of a flash of pink on the path ahead."
-						+ " Walking up to the splash of colour, you look down to see:"
+						+ " Walking up to the splash of color, you look down to see:"
 					+ "</p>"
 					
 					+ "<p style='text-align:center;'><b>"
@@ -165,7 +165,7 @@ public class DominionEncounterDialogue {
 							+ " The bright flash of purple-hued arcane lightning occasionally illuminates your surroundings, and it's just as one of these happens to strike that you spot something strange up ahead."
 						+ "</p>"
 						+ "<p>"
-							+ "About fifty metres in front of you, standing alone in the middle of the road, is a small, silver-furred fox."
+							+ "About fifty meters in front of you, standing alone in the middle of the road, is a small, silver-furred fox."
 							+ " It appears to have spotted you at the exact same moment that you saw it, and, raising its head, it turns to face in your direction."
 						+ "</p>"
 						+ "<p>"
@@ -177,7 +177,7 @@ public class DominionEncounterDialogue {
 							+ " It doesn't display any malice or hint of aggression in its stride, and, not one to be intimidated by such a small, cute creature, you stand your ground and wait for it to approach."
 						+ "</p>"
 						+ "<p>"
-							+ "As it gets closer, you see that its eyes are a marvellous shade of bright blue, and, kneeling down to encourage it to approach, you can't help but smile as it walks right up to you and nudges its head into your hands."
+							+ "As it gets closer, you see that its eyes are a marvelous shade of bright blue, and, kneeling down to encourage it to approach, you can't help but smile as it walks right up to you and nudges its head into your hands."
 							+ " Letting out a little laugh, you playfully stroke and scratch the silver fox's ears, before moving down to ruffle the soft fur around its neck."
 							+ " As you do so, you feel that there's a band of soft fabric around the animal's neck, and, tilting your head to take a closer look, you see that the fox is wearing a cute little collar."
 							+ " A round, metallic tag is attached to the front, and, tilting it to the light, you see that it reads:"
@@ -190,7 +190,7 @@ public class DominionEncounterDialogue {
 							+ " Much to your surprise, Happiness instantly moves to follow you, and, as you continue walking down Dominion's empty streets, the fox shows no sign of leaving your side..."
 						+ "</p>"
 						+ "<p style='text-align:center'>"
-							+ "<i style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>You've found Happiness!</i>"
+							+ "<i style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>You've found Happiness!</i>"
 						+ "</p>";
 			
 			} else {
@@ -199,7 +199,7 @@ public class DominionEncounterDialogue {
 						+ " Weaving your way through the throngs of shoppers and passersby, you suddenly spot something strange through a gap in the crowds up ahead."
 					+ "</p>"
 					+ "<p>"
-						+ "About fifty metres in front of you, standing alone in the middle of the road, is a small, silver-furred fox."
+						+ "About fifty meters in front of you, standing alone in the middle of the road, is a small, silver-furred fox."
 						+ " It appears to have spotted you at the exact same moment that you saw it, and, raising its head, it turns to face in your direction."
 					+ "</p>"
 					+ "<p>"
@@ -212,7 +212,7 @@ public class DominionEncounterDialogue {
 						+ " It doesn't display any malice or hint of aggression in its stride, and, not one to be intimidated by such a small, cute creature, you stand your ground and wait for it to approach."
 					+ "</p>"
 					+ "<p>"
-						+ "As it gets closer, you see that its eyes are a marvellous shade of bright blue, and, kneeling down to encourage it to approach, you can't help but smile as it walks right up to you and nudges its head into your hands."
+						+ "As it gets closer, you see that its eyes are a marvelous shade of bright blue, and, kneeling down to encourage it to approach, you can't help but smile as it walks right up to you and nudges its head into your hands."
 						+ " Letting out a little laugh, you playfully stroke and scratch the silver fox's ears, before moving down to ruffle the soft fur around its neck."
 						+ " As you do so, you feel that there's a band of soft fabric around the animal's neck, and, tilting your head to take a closer look, you see that the fox is wearing a cute little collar."
 						+ " A round, metallic tag is attached to the front, and, tilting it to the light, you see that it reads:"
@@ -225,7 +225,7 @@ public class DominionEncounterDialogue {
 						+ " Much to your surprise, Happiness instantly moves to follow you, and, as you continue walking down Dominion's bustling streets, the fox shows no sign of leaving your side..."
 					+ "</p>"
 					+ "<p style='text-align:center'>"
-						+ "<i style='color:"+Colour.GENERIC_EXCELLENT.toWebHexString()+";'>You've found Happiness!</i>"
+						+ "<i style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>You've found Happiness!</i>"
 					+ "</p>";
 			}
 		}

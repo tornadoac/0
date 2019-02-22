@@ -1,7 +1,7 @@
 package com.lilithsthrone.game.character.attributes;
 
 import com.lilithsthrone.game.character.effects.StatusEffect;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.65
@@ -11,7 +11,7 @@ import com.lilithsthrone.utils.Colour;
 public enum CorruptionLevel {
 
 	/**A character at this level: Will not want any sexual relations with anyone but the person they love.*/
-	ZERO_PURE("pure", 0, 5, Colour.CORRUPTION_STAGE_ZERO, 0) {
+	ZERO_PURE("pure", 0, 5, Color.CORRUPTION_STAGE_ZERO, 0) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.CORRUPTION_PERK_0;
@@ -38,7 +38,7 @@ public enum CorruptionLevel {
 		}
 	},
 	/**A character at this level: Will be open to the idea of having multiple sexual partners, and will be willing to have sex with defeated enemies. Their in-sex options will be limited, however, to quite vanilla acts.*/
-	ONE_VANILLA("vanilla", 5, 15, Colour.CORRUPTION_STAGE_ONE, 0.1f) {
+	ONE_VANILLA("vanilla", 5, 15, Color.CORRUPTION_STAGE_ONE, 0.1f) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.CORRUPTION_PERK_1;
@@ -65,7 +65,7 @@ public enum CorruptionLevel {
 		}
 	},
 	/**A character at this level: Will have sex with pretty much anything, but won't do anything too crazy.*/
-	TWO_HORNY("horny", 15, 35, Colour.CORRUPTION_STAGE_TWO, 0.25f) {
+	TWO_HORNY("horny", 15, 35, Color.CORRUPTION_STAGE_TWO, 0.25f) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.CORRUPTION_PERK_2;
@@ -92,7 +92,7 @@ public enum CorruptionLevel {
 		}
 	},
 	/**A character at this level: This is where the character starts to really lose themselves to corruption. Rough sex.*/
-	THREE_DIRTY("dirty", 35, 65, Colour.CORRUPTION_STAGE_THREE, 0.5f) {
+	THREE_DIRTY("dirty", 35, 65, Color.CORRUPTION_STAGE_THREE, 0.5f) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.CORRUPTION_PERK_3;
@@ -104,7 +104,7 @@ public enum CorruptionLevel {
 		}
 	},
 	/**A character at this level: A complete sex fiend. Will do anything, with anyone, anywhere and anyhow.*/
-	FOUR_LUSTFUL("lustful", 65, 95, Colour.CORRUPTION_STAGE_FOUR, 1f) {
+	FOUR_LUSTFUL("lustful", 65, 95, Color.CORRUPTION_STAGE_FOUR, 1f) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.CORRUPTION_PERK_4;
@@ -116,7 +116,7 @@ public enum CorruptionLevel {
 		}
 	},
 	/**A character at this level: Is completely lost to corruption.*/
-	FIVE_CORRUPT("corrupt", 95, 100, Colour.CORRUPTION_STAGE_FIVE, 2f) {
+	FIVE_CORRUPT("corrupt", 95, 100, Color.CORRUPTION_STAGE_FIVE, 2f) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.CORRUPTION_PERK_5;
@@ -130,14 +130,14 @@ public enum CorruptionLevel {
 	
 	private String name;
 	private int minimumValue, maximumValue;
-	private Colour colour;
+	private Color color;
 	private float corruptionBypass;
 
-	private CorruptionLevel(String name, int minimumValue, int maximumValue, Colour colour, float corruptionBypass) {
+	private CorruptionLevel(String name, int minimumValue, int maximumValue, Color color, float corruptionBypass) {
 		this.name = name;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 		this.corruptionBypass=corruptionBypass;
 	}
 	
@@ -157,8 +157,8 @@ public enum CorruptionLevel {
 		return maximumValue;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public float getCorruptionBypass() {

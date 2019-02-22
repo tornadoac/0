@@ -11,7 +11,7 @@ import com.lilithsthrone.game.character.CharacterUtils;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.body.types.BodyPartTypeInterface;
 import com.lilithsthrone.game.character.body.types.FluidType;
-import com.lilithsthrone.game.character.body.valueEnums.FluidFlavour;
+import com.lilithsthrone.game.character.body.valueEnums.FluidFlavor;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
@@ -25,13 +25,13 @@ import com.lilithsthrone.utils.Util;
 public class FluidMilk implements FluidInterface {
 
 	protected FluidType type;
-	protected FluidFlavour flavour;
+	protected FluidFlavor flavor;
 	protected List<FluidModifier> fluidModifiers;
 	protected List<ItemEffect> transformativeEffects;
 
 	public FluidMilk(FluidType type) {
 		this.type = type;
-		this.flavour = type.getFlavour();
+		this.flavor = type.getFlavor();
 		transformativeEffects = new ArrayList<>();
 		
 		fluidModifiers = new ArrayList<>();
@@ -43,7 +43,7 @@ public class FluidMilk implements FluidInterface {
 		parentElement.appendChild(element);
 
 		CharacterUtils.addAttribute(doc, element, "type", this.type.toString());
-		CharacterUtils.addAttribute(doc, element, "flavour", this.flavour.toString());
+		CharacterUtils.addAttribute(doc, element, "flavor", this.flavor.toString());
 		Element cumModifiers = doc.createElement("milkModifiers");
 		element.appendChild(cumModifiers);
 		for(FluidModifier fm : FluidModifier.values()) {
@@ -81,7 +81,7 @@ public class FluidMilk implements FluidInterface {
 		
 		FluidMilk fluidMilk = new FluidMilk(fluidType);
 		
-		fluidMilk.flavour = (FluidFlavour.valueOf(milk.getAttribute("flavour")));
+		fluidMilk.flavor = (FluidFlavor.valueOf(milk.getAttribute("flavor")));
 		
 		Element milkModifiersElement = (Element)milk.getElementsByTagName("milkModifiers").item(0);
 		Collection<FluidModifier> milkFluidModifiers = fluidMilk.fluidModifiers;
@@ -94,7 +94,7 @@ public class FluidMilk implements FluidInterface {
 	public boolean equals(Object o) {
 		if(o instanceof FluidMilk){
 			if(((FluidMilk)o).getType().equals(this.getType())
-				&& ((FluidMilk)o).getFlavour() == this.getFlavour()
+				&& ((FluidMilk)o).getFlavor() == this.getFlavor()
 				&& ((FluidMilk)o).getFluidModifiers().equals(this.getFluidModifiers())
 				&& ((FluidMilk)o).getTransformativeEffects().equals(this.getTransformativeEffects())){
 					return true;
@@ -107,7 +107,7 @@ public class FluidMilk implements FluidInterface {
 	public int hashCode() {
 		int result = 17;
 		result = 31 * result + this.getType().hashCode();
-		result = 31 * result + this.getFlavour().hashCode();
+		result = 31 * result + this.getFlavor().hashCode();
 		result = 31 * result + this.getFluidModifiers().hashCode();
 		result = 31 * result + this.getTransformativeEffects().hashCode();
 		return result;
@@ -142,7 +142,7 @@ public class FluidMilk implements FluidInterface {
 		
 		return UtilText.returnStringAtRandom(
 				modifierDescriptor,
-				flavour.getRandomFlavourDescriptor(),
+				flavor.getRandomFlavorDescriptor(),
 				(type.getDescriptor(gc).equals("human")?null:type.getDescriptor(gc)));
 	}
 
@@ -155,32 +155,32 @@ public class FluidMilk implements FluidInterface {
 		this.type = (FluidType) type;
 	}
 
-	public FluidFlavour getFlavour() {
-		return flavour;
+	public FluidFlavor getFlavor() {
+		return flavor;
 	}
 
-	public String setFlavour(GameCharacter owner, FluidFlavour flavour) {
+	public String setFlavor(GameCharacter owner, FluidFlavor flavor) {
 		if(owner==null) {
-			this.flavour = flavour;
+			this.flavor = flavor;
 			return "";
 		}
 		
-		if(this.flavour == flavour) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		if(this.flavor == flavor) {
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 
-		this.flavour = flavour;
+		this.flavor = flavor;
 		
 		if(owner.isPlayer()) {
 			return "<p>"
 						+ "A soothing warmth spreads up through your [pc.breasts], causing you to let out a contented little sigh.<br/>"
-						+ "Your [pc.milk] now tastes of <b style='color:"+flavour.getColour().toWebHexString()+";'>"+flavour.getName()+"</b>."
+						+ "Your [pc.milk] now tastes of <b style='color:"+flavor.getColor().toWebHexString()+";'>"+flavor.getName()+"</b>."
 					+ "</p>";
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
 						+ "A soothing warmth spreads up through [npc.namePos] [npc.breasts], causing [npc.herHim] to let out a contented little sigh.<br/>"
-						+ "[npc.NamePos] [npc.milk] now tastes of <b style='color:"+flavour.getColour().toWebHexString()+";'>"+flavour.getName()+"</b>."
+						+ "[npc.NamePos] [npc.milk] now tastes of <b style='color:"+flavor.getColor().toWebHexString()+";'>"+flavor.getName()+"</b>."
 					+ "</p>");
 		}
 	}
@@ -191,7 +191,7 @@ public class FluidMilk implements FluidInterface {
 	
 	public String addFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
 		if(fluidModifiers.contains(fluidModifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		fluidModifiers.add(fluidModifier);
@@ -320,12 +320,12 @@ public class FluidMilk implements FluidInterface {
 				}
 		}
 		
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 	
 	public String removeFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
 		if(!fluidModifiers.contains(fluidModifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		fluidModifiers.remove(fluidModifier);
@@ -454,7 +454,7 @@ public class FluidMilk implements FluidInterface {
 				}
 		}
 		
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 	
 	public List<ItemEffect> getTransformativeEffects() {
@@ -477,7 +477,7 @@ public class FluidMilk implements FluidInterface {
 	}
 	
 	public float getValuePerMl() {
-		return 0.1f + this.getFluidModifiers().size()*0.4f + (this.getFlavour()!=FluidFlavour.MILK?0.5f:0);
+		return 0.1f + this.getFluidModifiers().size()*0.4f + (this.getFlavor()!=FluidFlavor.MILK?0.5f:0);
 	}
 
 	@Override

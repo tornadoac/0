@@ -34,12 +34,12 @@
 	
 	<incompatibleSlots/>
 	
-	<primaryColours values="LEATHER"/>
-	<primaryColoursDye values="ALL"/>
-	<secondaryColours values="ALL_METAL"/>
-	<secondaryColoursDye values="ALL_METAL"/>
-	<tertiaryColours/>
-	<tertiaryColoursDye/>
+	<primaryColors values="LEATHER"/>
+	<primaryColorsDye values="ALL"/>
+	<secondaryColors values="ALL_METAL"/>
+	<secondaryColorsDye values="ALL_METAL"/>
+	<tertiaryColors/>
+	<tertiaryColorsDye/>
 	
 	<itemTags>
 	  <tag>SOLD_BY_NYAN</tag>

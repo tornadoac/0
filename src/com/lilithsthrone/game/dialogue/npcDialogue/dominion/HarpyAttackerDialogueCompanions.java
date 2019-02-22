@@ -28,7 +28,7 @@ import com.lilithsthrone.game.occupantManagement.OccupancyUtil;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.Cell;
@@ -91,37 +91,37 @@ public class HarpyAttackerDialogueCompanions {
 				break;
 			case POSITIVE_ONE_FRIENDLY:
 				if(getHarpy().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColour().toWebHexString()+";'>friendly, flirtatious</i> manner towards you.");
+					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColor().toWebHexString()+";'>friendly, flirtatious</i> manner towards you.");
 				} else {
-					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColour().toWebHexString()+";'>friendly</i> manner towards you.");
+					sb.append("[npc.Name] is acting in a <i style='color:"+al.getColor().toWebHexString()+";'>friendly</i> manner towards you.");
 				}
 				break;
 			case POSITIVE_TWO_LIKE:
 				if(getHarpy().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>likes you</i>, and sees you as more than just a friend.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>likes you</i>, and sees you as more than just a friend.");
 				} else {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>likes you</i>, and sees you as a close friend.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>likes you</i>, and sees you as a close friend.");
 				}
 				break;
 			case POSITIVE_THREE_CARING:
 				if(getHarpy().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>cares about you a lot</i>, and is deeply attracted towards you.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>cares about you a lot</i>, and is deeply attracted towards you.");
 				} else {
-					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColour().toWebHexString()+";'>cares about you a lot</i>, and considers you to be [npc.her] best friend.");
+					sb.append("[npc.Name] quite clearly <i style='color:"+al.getColor().toWebHexString()+";'>cares about you a lot</i>, and considers you to be [npc.her] best friend.");
 				}
 				break;
 			case POSITIVE_FOUR_LOVE:
 				if(getHarpy().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("You can tell from the way that [npc.she] looks at you that [npc.name] <i style='color:"+al.getColour().toWebHexString()+";'>loves you</i>.");
+					sb.append("You can tell from the way that [npc.she] looks at you that [npc.name] <i style='color:"+al.getColor().toWebHexString()+";'>loves you</i>.");
 				} else {
-					sb.append("You can tell that [npc.name] <i style='color:"+al.getColour().toWebHexString()+";'>loves you</i> in a purely platonic manner.");
+					sb.append("You can tell that [npc.name] <i style='color:"+al.getColor().toWebHexString()+";'>loves you</i> in a purely platonic manner.");
 				}
 				break;
 			case POSITIVE_FIVE_WORSHIP:
 				if(getHarpy().isAttractedTo(Main.game.getPlayer())) {
-					sb.append("[npc.Name] <i style='color:"+al.getColour().toWebHexString()+";'>worships you</i>, and is head-over-heels in love with you.");
+					sb.append("[npc.Name] <i style='color:"+al.getColor().toWebHexString()+";'>worships you</i>, and is head-over-heels in love with you.");
 				} else {
-					sb.append("[npc.Name] <i style='color:"+al.getColour().toWebHexString()+";'>worships you</i>, and would do almost anything you asked of [npc.herHim].");
+					sb.append("[npc.Name] <i style='color:"+al.getColor().toWebHexString()+";'>worships you</i>, and would do almost anything you asked of [npc.herHim].");
 				}
 				break;
 		}
@@ -1326,7 +1326,7 @@ public class HarpyAttackerDialogueCompanions {
 				if (index == 1) {
 					if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
 						return new Response("Spit",
-								"Due to your <b style='color:"+Colour.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
+								"Due to your <b style='color:"+Color.FETISH.toWebHexString()+";'>"+Fetish.FETISH_TRANSFORMATION_RECEIVING.getName(Main.game.getPlayer())
 									+"</b> fetish, you love being transformed so much that you can't bring yourself to spit out the transformative liquid!",
 								null);
 					} else {

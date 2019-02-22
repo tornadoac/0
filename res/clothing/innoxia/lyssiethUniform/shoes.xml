@@ -56,16 +56,16 @@
 		
 		<incompatibleSlots/> 
 		
-		<primaryColours>
-			<colour>CLOTHING_BROWN_VERY_DARK</colour>
-		</primaryColours> 
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_BLACK"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours>
-			<colour>CLOTHING_OLIVE</colour>
-		</tertiaryColours>
-		<tertiaryColoursDye values="ALL"/>
+		<primaryColors>
+			<color>CLOTHING_BROWN_VERY_DARK</color>
+		</primaryColors> 
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_BLACK"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors>
+			<color>CLOTHING_OLIVE</color>
+		</tertiaryColors>
+		<tertiaryColorsDye values="ALL"/>
 		
 		<itemTags/>
 	</coreAttributes>

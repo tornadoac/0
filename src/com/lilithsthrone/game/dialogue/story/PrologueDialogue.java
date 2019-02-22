@@ -32,7 +32,7 @@ import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
@@ -122,7 +122,7 @@ public class PrologueDialogue {
 						@Override
 						public void effects() {
 							if(Main.game.getPlayer().hasPenis()) {
-								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Colour.CLOTHING_WHITE, false), false);
+								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Color.CLOTHING_WHITE, false), false);
 							}
 						}
 					};
@@ -142,9 +142,9 @@ public class PrologueDialogue {
 						@Override
 						public void effects() {
 							if(Main.game.getPlayer().hasPenis()) {
-								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Colour.CLOTHING_WHITE, false), false);
+								Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Color.CLOTHING_WHITE, false), false);
 							}
-							Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Colour.CLOTHING_WHITE, false), false);
+							Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_penis_condom", Color.CLOTHING_WHITE, false), false);
 						}
 					};
 				}
@@ -387,7 +387,7 @@ public class PrologueDialogue {
 			} else if (index == 2) {
 				return new Response("Furries?! Yes!",
 						"Furries are real?! You <b>love</b> furries!<br/>"
-						+ "<b>This will set all of your starting furry preferences to </b><b style='color:"+ RaceStage.GREATER.getColour().toWebHexString()+ ";'>"+FurryPreference.MAXIMUM.getName()+"</b><b>."
+						+ "<b>This will set all of your starting furry preferences to </b><b style='color:"+ RaceStage.GREATER.getColor().toWebHexString()+ ";'>"+FurryPreference.MAXIMUM.getName()+"</b><b>."
 						+ " This can be changed at any time from the options menu.</b>", 
 						INTRO_NEW_WORLD_1_BY_THE_POWER_OF_LOVING_FURRIES){
 					@Override
@@ -403,7 +403,7 @@ public class PrologueDialogue {
 			} else if (index == 3) {
 				return new Response("Furries?! No!",
 						"Why are furries real?! You <b>hate</b> furries! Channel your rage and try to break free.<br/>"
-						+ "<b>This will set all of your starting furry preferences to </b><b style='color:"+ RaceStage.HUMAN.getColour().toWebHexString()+ ";'>"+FurryPreference.HUMAN.getName()+"</b><b>."
+						+ "<b>This will set all of your starting furry preferences to </b><b style='color:"+ RaceStage.HUMAN.getColor().toWebHexString()+ ";'>"+FurryPreference.HUMAN.getName()+"</b><b>."
 						+ " This can be changed at any time from the options menu.</b>", 
 						INTRO_NEW_WORLD_1_BY_THE_POWER_OF_HATING_FURRIES){
 					@Override

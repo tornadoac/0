@@ -44,7 +44,7 @@ import com.lilithsthrone.game.sex.managers.submission.SMRoxyPussyLicker;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
 import com.lilithsthrone.world.WorldType;
@@ -289,19 +289,19 @@ public class GamblingDenDialogue {
 								
 								for(Subspecies r : results) {
 									Main.game.getTextEndStringBuilder().append(
-											"<div class='modifier-icon' style='width:31.3%; margin:0 1%; border:3px solid "+(winner?Colour.GENERIC_EXCELLENT.toWebHexString():"")+"; display:inline-block;'>"
+											"<div class='modifier-icon' style='width:31.3%; margin:0 1%; border:3px solid "+(winner?Color.GENERIC_EXCELLENT.toWebHexString():"")+"; display:inline-block;'>"
 													+"<div class='modifier-icon-content'>"+r.getSVGString(null)+"</div>"
 											+ "</div>");
 								}
 								if(winner) {
 									Main.game.getTextEndStringBuilder().append(
 											"<p style='text-align:center;'>"
-													+ "[style.colourExcellent(You won!)]<br/>Three "+results.get(0).getNamePlural(null)+" pay out "+UtilText.formatAsMoney(slotMachineValues.get(results.get(0)), "span")+"!"
+													+ "[style.colorExcellent(You won!)]<br/>Three "+results.get(0).getNamePlural(null)+" pay out "+UtilText.formatAsMoney(slotMachineValues.get(results.get(0)), "span")+"!"
 											+ "</p>");
 								} else {
 									Main.game.getTextEndStringBuilder().append(
 											"<p style='text-align:center;'>"
-													+ "[style.colourTerrible(You lost!)]"
+													+ "[style.colorTerrible(You lost!)]"
 											+ "</p>");
 								}
 								
@@ -310,7 +310,7 @@ public class GamblingDenDialogue {
 										+"<p style='text-align:center;'>");
 							
 									for(Entry<Subspecies, Integer> entry : slotMachineValues.entrySet()) {
-										Main.game.getTextEndStringBuilder().append("<span style='color:"+entry.getKey().getColour(null).toWebHexString()+";'>"+Util.capitaliseSentence(entry.getKey().getNamePlural(null))+"</span>: "
+										Main.game.getTextEndStringBuilder().append("<span style='color:"+entry.getKey().getColor(null).toWebHexString()+";'>"+Util.capitalizeSentence(entry.getKey().getNamePlural(null))+"</span>: "
 												+UtilText.formatAsMoney(entry.getValue(), "span")+"<br/>");
 									}
 												
@@ -430,10 +430,10 @@ public class GamblingDenDialogue {
 					
 					if(ratGCumAdd!=null && ratGCumAdd.getProviderIDs().contains(Main.game.getNpc(Roxy.class).getId())) {
 						if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
-							return new Response("Get fix ("+UtilText.formatAsMoneyUncoloured(1000, "span")+")", "You can only service Roxy if you're able to gain access to your mouth!", null);
+							return new Response("Get fix ("+UtilText.formatAsMoneyUncolored(1000, "span")+")", "You can only service Roxy if you're able to gain access to your mouth!", null);
 							
 						} else if(Main.game.getPlayer().getMoney()<1000) {
-							return new Response("Get fix ("+UtilText.formatAsMoneyUncoloured(1000, "span")+")", "You don't have the one thousand flames that Roxy is asking for!", null);
+							return new Response("Get fix ("+UtilText.formatAsMoneyUncolored(1000, "span")+")", "You don't have the one thousand flames that Roxy is asking for!", null);
 							
 						} else {
 							return new ResponseSex("Get fix ("+UtilText.formatAsMoney(1000, "span")+")", "Desperate to get another fix of her addictive girl cum, you agree to <b>pay Roxy 1000 flames</b> to get her to sit on your face for an hour.",
@@ -634,7 +634,7 @@ public class GamblingDenDialogue {
 					}
 					int buyIn = table.getInitialBet()+table.getRaiseAmount();
 					if(Main.game.getPlayer().getMoney()>=buyIn) {
-						return new ResponseEffectsOnly("<span style='color:"+table.getColour().toWebHexString()+";'>"+gambler.getName()+"</span> ("+UtilText.formatAsMoney(buyIn, "span")+")",
+						return new ResponseEffectsOnly("<span style='color:"+table.getColor().toWebHexString()+";'>"+gambler.getName()+"</span> ("+UtilText.formatAsMoney(buyIn, "span")+")",
 								"Start playing dice poker with "+gambler.getName()+". The buy-in amount is "+UtilText.formatAsMoney(table.getInitialBet(), "span")
 									+", but you'll also need "+UtilText.formatAsMoney(table.getRaiseAmount(), "span")+" for any raises.") {
 							@Override
@@ -644,7 +644,7 @@ public class GamblingDenDialogue {
 						};
 						
 					} else {
-						return new Response("<span style='color:"+table.getColour().toWebHexString()+";'>"+gambler.getName()+"</span> ("+UtilText.formatAsMoney(buyIn, "span")+")",
+						return new Response("<span style='color:"+table.getColor().toWebHexString()+";'>"+gambler.getName()+"</span> ("+UtilText.formatAsMoney(buyIn, "span")+")",
 								"The buy-in amount is "+UtilText.formatAsMoney(table.getInitialBet(), "span")
 								+", but you'll also need "+UtilText.formatAsMoney(table.getRaiseAmount(), "span")+" for any raises. As a result, you don't have enough money to play at this table!",
 								null);
@@ -858,25 +858,25 @@ public class GamblingDenDialogue {
 					
 				} else if(index==2) {
 					if(Main.game.getPlayer().isPregnant()) {
-						return new Response("Male Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You are already pregnant, so you can't sign up to be the mother!", null);
+						return new Response("Male Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You are already pregnant, so you can't sign up to be the mother!", null);
 						
 					} else if(Main.game.getPlayer().getTotalFluidInArea(SexAreaOrifice.VAGINA)>0) {
-						return new Response("Male Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You can't sign up for pregnancy roulette if your pussy already is filled with cum!", null);
+						return new Response("Male Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You can't sign up for pregnancy roulette if your pussy already is filled with cum!", null);
 						
 					} else if(!Main.game.getPlayer().hasVagina()) {
-						return new Response("Male Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You don't have a vagina, so you can't sign up to be the mother!", null);
+						return new Response("Male Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You don't have a vagina, so you can't sign up to be the mother!", null);
 						
 					} else if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
-						return new Response("Male Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You aren't able to gain access to your vagina, so you can't sign up to be the mother!", null);
+						return new Response("Male Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You aren't able to gain access to your vagina, so you can't sign up to be the mother!", null);
 						
 					} else if(Main.game.getPlayer().getMoney()<10000) {
-						return new Response("Male Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You don't have enough money, so you can't sign up to be the mother!", null);
+						return new Response("Male Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You don't have enough money, so you can't sign up to be the mother!", null);
 						
 					} else {
 						return new Response("Male Bred ("+UtilText.formatAsMoney(10000, "span")+")", "Sign up as the mother for pregnancy roulette, asking to bred by the males.", PREGNANCY_ROULETTE_MOTHER_PRE_SELECTION) {
 							@Override
-							public Colour getHighlightColour() {
-								return Colour.GENERIC_SEX;
+							public Color getHighlightColor() {
+								return Color.GENERIC_SEX;
 							}
 							@Override
 							public void effects() {
@@ -901,25 +901,25 @@ public class GamblingDenDialogue {
 					
 				} else if(index==3) {
 					if(Main.game.getPlayer().isPregnant()) {
-						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You are already pregnant, so you can't sign up to be the mother!", null);
+						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You are already pregnant, so you can't sign up to be the mother!", null);
 						
 					} else if(Main.game.getPlayer().getTotalFluidInArea(SexAreaOrifice.VAGINA)>0) {
-						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You can't sign up for pregnancy roulette if your pussy already is filled with cum!", null);
+						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You can't sign up for pregnancy roulette if your pussy already is filled with cum!", null);
 						
 					} else if(!Main.game.getPlayer().hasVagina()) {
-						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You don't have a vagina, so you can't sign up to be the mother!", null);
+						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You don't have a vagina, so you can't sign up to be the mother!", null);
 						
 					} else if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
-						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You aren't able to gain access to your vagina, so you can't sign up to be the mother!", null);
+						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You aren't able to gain access to your vagina, so you can't sign up to be the mother!", null);
 						
 					} else if(Main.game.getPlayer().getMoney()<10000) {
-						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You don't have enough money, so you can't sign up to be the mother!", null);
+						return new Response("Futa Bred ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You don't have enough money, so you can't sign up to be the mother!", null);
 						
 					} else {
 						return new Response("Futa Bred ("+UtilText.formatAsMoney(10000, "span")+")", "Sign up as the mother for pregnancy roulette, asking to bred by the futas.", PREGNANCY_ROULETTE_MOTHER_PRE_SELECTION) {
 							@Override
-							public Colour getHighlightColour() {
-								return Colour.GENERIC_SEX;
+							public Color getHighlightColor() {
+								return Color.GENERIC_SEX;
 							}
 							@Override
 							public void effects() {
@@ -944,26 +944,26 @@ public class GamblingDenDialogue {
 					
 				} else if(index==4) {
 					if(!Main.game.getPlayer().hasPenisIgnoreDildo()) {
-						return new Response("Breeder ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You don't have a penis, so you can't sign up to be one of the breeders!", null);
+						return new Response("Breeder ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You don't have a penis, so you can't sign up to be one of the breeders!", null);
 						
 					} else if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.PENIS, true)) {
-						return new Response("Breeder ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You aren't able to gain access to your penis, so you can't sign up to be one of the breeders!", null);
+						return new Response("Breeder ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You aren't able to gain access to your penis, so you can't sign up to be one of the breeders!", null);
 						
 					} else if(Main.game.getPlayer().getMoney()<10000) {
-						return new Response("Breeder ("+UtilText.formatAsMoneyUncoloured(10000, "span")+")", "You don't have enough money, so you can't sign up to be one of the breeders!", null);
+						return new Response("Breeder ("+UtilText.formatAsMoneyUncolored(10000, "span")+")", "You don't have enough money, so you can't sign up to be one of the breeders!", null);
 						
 					} else {
 						return new Response("Breeder ("+UtilText.formatAsMoney(10000, "span")+")", "Sign up as one of the breeders for pregnancy roulette.", PREGNANCY_ROULETTE_BREEDER) {
 							@Override
-							public Colour getHighlightColour() {
-								return Colour.GENERIC_SEX;
+							public Color getHighlightColor() {
+								return Color.GENERIC_SEX;
 							}
 							@Override
 							public void effects() {
 								Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().incrementMoney(-10000));
 								Main.game.getDialogueFlags().eponaStamps+=1;
 								
-								// Skew the dice roll in the player's favour (lowest number goes first):
+								// Skew the dice roll in the player's favor (lowest number goes first):
 								Dice d = new Dice(Util.newHashMapOfValues(
 										new Value<>(DiceFace.ONE, 4f),
 										new Value<>(DiceFace.TWO, 3f),
@@ -1101,7 +1101,7 @@ public class GamblingDenDialogue {
 		
 		sb.append("<div class='container-half-width'>"
 				+ "[npc.Name] - [npc.FullRace(true)]<br/>"
-				+ "[npc.CockGirth], [npc.penisInches]-inch, [npc.cockColour(true)] [npc.cockRace] [npc.cock], with [npc.ballSize] balls."
+				+ "[npc.CockGirth], [npc.penisInches]-inch, [npc.cockColor(true)] [npc.cockRace] [npc.cock], with [npc.ballSize] balls."
 				+ "</div>");
 		
 		return UtilText.parse(breeder, sb.toString());

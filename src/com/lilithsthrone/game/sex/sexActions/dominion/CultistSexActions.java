@@ -28,7 +28,7 @@ public class CultistSexActions {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "[style.boldArcane(Sealed!)]";
@@ -48,14 +48,14 @@ public class CultistSexActions {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[npc.Name] [npc.verb(try)] to make a move, but the Witch's Seal is too strong, and [npc.she] [npc.verb(collapse)] back onto the altar, stunned.",
-					"The purple glow of a pentagram materialises beneath [npc.namePos] body as [npc.she] [npc.verb(try)] to make a move; proof that the Witch's Seal is still keeping [npc.herHim] bound in place.",
-					"[npc.Name] [npc.verb(try)] to sit up on the altar, but [npc.sheIs] only able to squirm about a little under the immobilising effects of the Witch's Seal.",
+					"The purple glow of a pentagram materializes beneath [npc.namePos] body as [npc.she] [npc.verb(try)] to make a move; proof that the Witch's Seal is still keeping [npc.herHim] bound in place.",
+					"[npc.Name] [npc.verb(try)] to sit up on the altar, but [npc.sheIs] only able to squirm about a little under the immobilizing effects of the Witch's Seal.",
 					"The soft purple glow of the Witch's Seal can be seen all around [npc.name] as [npc.she] [npc.verb(struggle)] to make a move.",
 					"[npc.speech(~Mmm!~)] [npc.name] [npc.verb(moan)], struggling in vain against the Witch's Seal.",
-					"[npc.speech(~Aah!~)] [npc.name] [npc.verb(whimper)], squirming about on the altar as the With's Seal keeps [npc.herHim] locked in place.");
+					"[npc.speech(~Aah!~)] [npc.name] [npc.verb(whimper)], squirming about on the altar as the Witch's Seal keeps [npc.herHim] locked in place.");
 		}
 	};
-	
+
 	public static final SexAction FORCE_POSITION_MISSIONARY = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -63,7 +63,7 @@ public class CultistSexActions {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isPositionChangingAllowed(Sex.getCharacterPerformingAction())
@@ -71,7 +71,7 @@ public class CultistSexActions {
 					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()) != SexSlotBipeds.MISSIONARY_ALTAR_SEALED_STANDING_BETWEEN_LEGS
 					&& Sex.isDom(Sex.getCharacterPerformingAction());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Missionary";
@@ -95,18 +95,18 @@ public class CultistSexActions {
 				Sex.setSexManager(new SMAltarMissionarySealed(
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterPerformingAction(), SexSlotBipeds.MISSIONARY_ALTAR_SEALED_STANDING_BETWEEN_LEGS)),
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterTargetedForSexAction(this), SexSlotBipeds.MISSIONARY_ALTAR_SEALED_LYING_ON_ALTAR))));
-				
+
 			} else {
 				Sex.setSexManager(new SMAltarMissionary(
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterPerformingAction(), SexSlotBipeds.MISSIONARY_ALTAR_STANDING_BETWEEN_LEGS)),
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterTargetedForSexAction(this), SexSlotBipeds.MISSIONARY_ALTAR_LYING_ON_ALTAR))));
-				
+
 			}
-			
+
 			Sex.addCharacterBannedFromPositioning(Sex.getActivePartner());
 		}
 	};
-	
+
 	public static final SexAction FORCE_POSITION_MISSIONARY_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -122,7 +122,7 @@ public class CultistSexActions {
 					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()) != SexSlotBipeds.MISSIONARY_ALTAR_SEALED_KNEELING_BETWEEN_LEGS
 					&& Sex.isDom(Sex.getCharacterPerformingAction());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Missionary Oral";
@@ -146,7 +146,7 @@ public class CultistSexActions {
 				Sex.setSexManager(new SMAltarMissionarySealed(
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterPerformingAction(), SexSlotBipeds.MISSIONARY_ALTAR_SEALED_KNEELING_BETWEEN_LEGS)),
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterTargetedForSexAction(this), SexSlotBipeds.MISSIONARY_ALTAR_SEALED_LYING_ON_ALTAR))));
-				
+
 			} else {
 				Sex.setSexManager(new SMAltarMissionary(
 						Util.newHashMapOfValues(new Value<>(Sex.getCharacterPerformingAction(), SexSlotBipeds.MISSIONARY_ALTAR_KNEELING_BETWEEN_LEGS)),
@@ -156,5 +156,5 @@ public class CultistSexActions {
 			Sex.addCharacterBannedFromPositioning(Sex.getActivePartner());
 		}
 	};
-	
+
 }

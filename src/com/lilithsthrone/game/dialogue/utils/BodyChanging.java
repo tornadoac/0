@@ -328,24 +328,24 @@ public class BodyChanging {
 						+ "<div class='container-full-width' style='text-align:center;'>"
 						+ (BodyChanging.getTarget().isPlayer()
 								?"Your muscle and body size values result in your appearance being:<br/>"
-									+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColour()+";'>"+Util.capitaliseSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
+									+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
 								:UtilText.parse(BodyChanging.getTarget(), "[npc.NamePos] muscle and body size values result in [npc.her] appearance being:<br/>"
-										+ "<b style='color:"+getTarget().getBodyShape().toWebHexStringColour()+";'>"+Util.capitaliseSentence(getTarget().getBodyShape().getName(false))+"</b>"))
+										+ "<b style='color:"+getTarget().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(getTarget().getBodyShape().getName(false))+"</b>"))
 						+ "</div>"
 					
 					+"</div>");
 				
 
-//				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getSkinCovering()).getType(), "Skin Colour",
+//				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getSkinCovering()).getType(), "Skin Color",
 //						(BodyChanging.getTarget().isPlayer()
-//							?"The colour of the skin that's covering your body."
-//							:UtilText.parse(BodyChanging.getTarget(), "The colour of the skin that's covering [npc.namePos] body.")),
+//							?"The color of the skin that's covering your body."
+//							:UtilText.parse(BodyChanging.getTarget(), "The color of the skin that's covering [npc.namePos] body.")),
 //						true, true)
 //				
-//				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getBodyHairCoveringType(), "Body Hair Colour",
+//				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getBodyHairCoveringType(), "Body Hair Color",
 //							(BodyChanging.getTarget().isPlayer()
-//								?"The colour of your demonic body hair."
-//								:UtilText.parse(BodyChanging.getTarget(), "The colour of the [npc.namePos] body hair.")),
+//								?"The color of your demonic body hair."
+//								:UtilText.parse(BodyChanging.getTarget(), "The color of the [npc.namePos] body hair.")),
 //							true, true)
 //				;
 
@@ -407,25 +407,25 @@ public class BodyChanging {
 							+ "<div class='container-full-width' style='text-align:center;'>"
 							+ (BodyChanging.getTarget().isPlayer()
 									?"Your muscle and body size values result in your appearance being:<br/>"
-										+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColour()+";'>"+Util.capitaliseSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
+										+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
 									:UtilText.parse(BodyChanging.getTarget(), "[npc.NamePos] muscle and body size values result in [npc.her] appearance being:<br/>"
-											+ "<b style='color:"+getTarget().getBodyShape().toWebHexStringColour()+";'>"+Util.capitaliseSentence(getTarget().getBodyShape().getName(false))+"</b>"))
+											+ "<b style='color:"+getTarget().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(getTarget().getBodyShape().getName(false))+"</b>"))
 							+ "</div>"
 						
 						+"</div>");
 						
-//						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getSkinCovering()).getType(), "Skin Colour",
+//						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getSkinCovering()).getType(), "Skin Color",
 //								(BodyChanging.getTarget().isPlayer()
-//									?"The colour of the demonic skin that's covering your body."
-//									:UtilText.parse(BodyChanging.getTarget(), "The colour of the demonic skin that's covering [npc.namePos] body.")),
+//									?"The color of the demonic skin that's covering your body."
+//									:UtilText.parse(BodyChanging.getTarget(), "The color of the demonic skin that's covering [npc.namePos] body.")),
 //								true, true)
 //						
 //						+ (BodyChanging.getTarget() instanceof Elemental //TODO handle better (blocking elemental body hair)
 //								?""
-//								:CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getBodyHairCoveringType(), "Body Hair Colour",
+//								:CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getBodyHairCoveringType(), "Body Hair Color",
 //									(BodyChanging.getTarget().isPlayer()
-//										?"The colour of your demonic body hair."
-//										:UtilText.parse(BodyChanging.getTarget(), "The colour of the [npc.namePos] demonic body hair.")),
+//										?"The color of your demonic body hair."
+//										:UtilText.parse(BodyChanging.getTarget(), "The color of the [npc.namePos] demonic body hair.")),
 //									true, true));
 			// Slime:
 			} else {
@@ -478,24 +478,24 @@ public class BodyChanging {
 						+ "<div class='container-full-width' style='text-align:center;'>"
 						+ (BodyChanging.getTarget().isPlayer()
 								?"Your muscle and body size values result in your appearance being:<br/>"
-									+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColour()+";'>"+Util.capitaliseSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
+									+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
 								:UtilText.parse(BodyChanging.getTarget(), "[npc.NamePos] muscle and body size values result in [npc.her] appearance being:<br/>"
-										+ "<b style='color:"+getTarget().getBodyShape().toWebHexStringColour()+";'>"+Util.capitaliseSentence(getTarget().getBodyShape().getName(false))+"</b>"))
+										+ "<b style='color:"+getTarget().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(getTarget().getBodyShape().getName(false))+"</b>"))
 						+ "</div>"
 					
 					+"</div>");
 					
-//					+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME, "Slime Colour",
+//					+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME, "Slime Color",
 //							(BodyChanging.getTarget().isPlayer()
-//								?"The colour of the slime that your body is made up of."
-//								:UtilText.parse(BodyChanging.getTarget(), "The colour of the slime that [npc.namePos] body is made up of.")),
+//								?"The color of the slime that your body is made up of."
+//								:UtilText.parse(BodyChanging.getTarget(), "The color of the slime that [npc.namePos] body is made up of.")),
 //							true, true);
 			}
 			
 			for(Entry<BodyCoveringType, List<String>> entry : getMainCoveringsMap().entrySet()){
 				BodyCoveringType bct = entry.getKey();
 				
-				String title = Util.capitaliseSentence(bct.getName(getTarget()));
+				String title = Util.capitalizeSentence(bct.getName(getTarget()));
 				String description = UtilText.parse(getTarget(), "This is the "+bct.getName(getTarget())+" that's currently covering [npc.namePos] "+Util.stringsToStringList(entry.getValue(), false)+".");
 				
 				if(bct == BodyCoveringType.SLIME) {
@@ -520,8 +520,8 @@ public class BodyChanging {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivUnderarmHair("Underarm hair",
 						UtilText.parse(BodyChanging.getTarget(), "Change the amount of hair in [npc.namePos] underarms."))
 				
-				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getUnderarmHairType().getType(), "Underarm hair colour",
-						UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] underarm hair."),
+				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getUnderarmHairType().getType(), "Underarm hair color",
+						UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] underarm hair."),
 						true, true));
 			}
 			
@@ -593,10 +593,10 @@ public class BodyChanging {
 						+"</div>"
 
 						+ (BodyChanging.getTarget().getHornType()!=HornType.NONE
-								?CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHornCovering()).getType(), "Horn Colour",
+								?CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHornCovering()).getType(), "Horn Color",
 									(BodyChanging.getTarget().isPlayer()
-										?"The colour of your horns."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] horns.")),
+										?"The color of your horns."
+										:UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] horns.")),
 									true, true)
 								:"")
 						
@@ -610,22 +610,22 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformTongueModifiersDiv()
 						+"</div>"
 							
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.MOUTH).getType(), "Lip & Throat colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.MOUTH).getType(), "Lip & Throat color",
 								UtilText.parse(BodyChanging.getTarget(),
-										"The natural colour of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."
-										+ "Lipstick can be used to conceal [npc.her] natural lip colour."),
+										"The natural color of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."
+										+ "Lipstick can be used to conceal [npc.her] natural lip color."),
 								true, true)
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.TONGUE).getType(), "Tongue colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.TONGUE).getType(), "Tongue color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour of your tongue."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] tongue.")),
+										?"The color of your tongue."
+										:UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] tongue.")),
 								true, true)
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHairCovering()).getType(), "Hair colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHairCovering()).getType(), "Hair color",
 								(BodyChanging.getTarget().isPlayer()
-										?"Change the colour of your hair."
-										:UtilText.parse(BodyChanging.getTarget(), "Change the colour of [npc.her] hair.")), true, true));
+										?"Change the color of your hair."
+										:UtilText.parse(BodyChanging.getTarget(), "Change the color of [npc.her] hair.")), true, true));
 
 			} else if(isDemonTFMenu()) {
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -644,22 +644,22 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformPupilChoiceDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getEyeCovering()).getType(), "Iris colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getEyeCovering()).getType(), "Iris color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour and pattern of your irises."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour and pattern of [npc.namePos] irises.")),
+										?"The color and pattern of your irises."
+										:UtilText.parse(BodyChanging.getTarget(), "The color and pattern of [npc.namePos] irises.")),
 								true, true)
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.EYE_PUPILS).getType(), "Pupil colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.EYE_PUPILS).getType(), "Pupil color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour and pattern of your pupils."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour and pattern of [npc.namePos] pupils.")),
+										?"The color and pattern of your pupils."
+										:UtilText.parse(BodyChanging.getTarget(), "The color and pattern of [npc.namePos] pupils.")),
 								true, true)
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.EYE_SCLERA).getType(), "Sclerae colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.EYE_SCLERA).getType(), "Sclerae color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour and pattern of your sclerae."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour and pattern of [npc.namePos] sclerae.")),
+										?"The color and pattern of your sclerae."
+										:UtilText.parse(BodyChanging.getTarget(), "The color and pattern of [npc.namePos] sclerae.")),
 								true, true)
 						
 						+"<div style='clear:left;'>"
@@ -683,10 +683,10 @@ public class BodyChanging {
 						+"</div>"
 
 						+ (BodyChanging.getTarget().getHornType()!=HornType.NONE
-								?CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHornCovering()).getType(), "Horn Colour",
+								?CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHornCovering()).getType(), "Horn Color",
 									(BodyChanging.getTarget().isPlayer()
-										?"The colour of your horns."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] horns.")),
+										?"The color of your horns."
+										:UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] horns.")),
 									true, true)
 								:"")
 						
@@ -700,20 +700,20 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformTongueModifiersDiv()
 						+"</div>"
 							
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.MOUTH).getType(), "Lip & Throat colour",
-								UtilText.parse(BodyChanging.getTarget(), "The natural colour of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."),
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.MOUTH).getType(), "Lip & Throat color",
+								UtilText.parse(BodyChanging.getTarget(), "The natural color of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."),
 								true, true)
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.TONGUE).getType(), "Tongue colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.TONGUE).getType(), "Tongue color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour of your tongue."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] tongue.")),
+										?"The color of your tongue."
+										:UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] tongue.")),
 								true, true)
 	
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHairCovering()).getType(), "Hair colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyChanging.getTarget().getHairCovering()).getType(), "Hair color",
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your hair."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] hair.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your hair."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] hair.")), true, true));
 				
 			// Slime:
 			} else {
@@ -763,33 +763,33 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformTongueModifiersDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_MOUTH, "Lip & Throat colour",
-								UtilText.parse(BodyChanging.getTarget(), "The natural colour of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."),
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_MOUTH, "Lip & Throat color",
+								UtilText.parse(BodyChanging.getTarget(), "The natural color of [npc.namePos] slimy "+(getTarget().getFaceType() == FaceType.HARPY?"beak":"lips")+" (top options) and [npc.her] throat (bottom options)."),
 								true, true)
 						
 						+ CharacterModificationUtils.getSelfDivHairStyles("Hair Style", "You can change the style of your slimy hair at will!")
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_HAIR, "Hair colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_HAIR, "Hair color",
 								(BodyChanging.getTarget().isPlayer()
-										?"You can freely change the colour of your slimy hair."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the colour of [npc.her] slimy hair.")), true, true)
+										?"You can freely change the color of your slimy hair."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the color of [npc.her] slimy hair.")), true, true)
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_EYE, "Iris colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_EYE, "Iris color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour and pattern of your irises."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour and pattern of [npc.namePos] irises.")),
+										?"The color and pattern of your irises."
+										:UtilText.parse(BodyChanging.getTarget(), "The color and pattern of [npc.namePos] irises.")),
 								true, true)
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_PUPILS, "Pupil colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_PUPILS, "Pupil color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour and pattern of your pupils."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour and pattern of [npc.namePos] pupils.")),
+										?"The color and pattern of your pupils."
+										:UtilText.parse(BodyChanging.getTarget(), "The color and pattern of [npc.namePos] pupils.")),
 								true, true)
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_SCLERA, "Sclerae colour",
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_SCLERA, "Sclerae color",
 								(BodyChanging.getTarget().isPlayer()
-										?"The colour and pattern of your sclerae."
-										:UtilText.parse(BodyChanging.getTarget(), "The colour and pattern of [npc.namePos] sclerae.")),
+										?"The color and pattern of your sclerae."
+										:UtilText.parse(BodyChanging.getTarget(), "The color and pattern of [npc.namePos] sclerae.")),
 								true, true));
 						
 	//					+ CharacterModificationUtils.getSelfTransformTongueLengthChoiceDiv() TODO
@@ -802,8 +802,8 @@ public class BodyChanging {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivFacialHair("Beard length",
 						UtilText.parse(BodyChanging.getTarget(), "Change the length of [npc.namePos] beard."))
 				
-				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getFacialHairType().getType(), "Beard colour",
-						UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] beard."),
+				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getFacialHairType().getType(), "Beard color",
+						UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] beard."),
 						true, true));
 			}
 			
@@ -863,10 +863,10 @@ public class BodyChanging {
 						
 						+ CharacterModificationUtils.getSelfTransformAnusModifiersDiv()
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.ANUS).getType(), "Anus Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.ANUS).getType(), "Anus Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your asshole."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] asshole.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your asshole."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] asshole.")), true, true));
 				
 			} else if(isDemonTFMenu()) {
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -894,10 +894,10 @@ public class BodyChanging {
 						
 						+ CharacterModificationUtils.getSelfTransformAnusModifiersDiv()
 							
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.ANUS).getType(), "Anus Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.ANUS).getType(), "Anus Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your asshole."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] asshole.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your asshole."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] asshole.")), true, true));
 				
 			// Slime:
 			} else {
@@ -926,18 +926,18 @@ public class BodyChanging {
 						
 						+ CharacterModificationUtils.getSelfTransformAnusModifiersDiv()
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_ANUS, "Anus Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_ANUS, "Anus Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can freely change the colour of your slimy asshole."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the colour of [npc.her] slimy asshole.")), true, true));
+										?"You can freely change the color of your slimy asshole."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the color of [npc.her] slimy asshole.")), true, true));
 			}
 
 			if(Main.getProperties().hasValue(PropertyValue.assHairContent)) {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivAssHair("Ass hair",
 						UtilText.parse(BodyChanging.getTarget(), "Change the amount of hair around [npc.namePos] anus."))
 				
-				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getAssHairType().getType(), "Ass hair colour",
-						UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] ass hair."),
+				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getAssHairType().getType(), "Ass hair color",
+						UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] ass hair."),
 						true, true));
 			}
 			
@@ -1008,10 +1008,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNipplePlasticityDiv()
 						+"</div>"
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES, "Nipple Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES, "Nipple Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"Change the colour of your nipples."
-										:UtilText.parse(BodyChanging.getTarget(), "Change the colour of [npc.her] nipples.")),
+										?"Change the color of your nipples."
+										:UtilText.parse(BodyChanging.getTarget(), "Change the color of [npc.her] nipples.")),
 								true, true);
 				
 			} else if(isDemonTFMenu()) {
@@ -1052,10 +1052,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNipplePlasticityDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES, "Nipple Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES, "Nipple Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your nipples."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] nipples.")),
+										?"You can harness the power of your demonic form to change the color of your nipples."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] nipples.")),
 								true, true);
 			
 			// Slime:
@@ -1098,10 +1098,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNipplePlasticityDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_NIPPLES, "Nipple Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_NIPPLES, "Nipple Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can freely change the colour of your slimy nipples."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the colour of [npc.her] slimy nipples.")),
+										?"You can freely change the color of your slimy nipples."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the color of [npc.her] slimy nipples.")),
 								true, true);
 			}
 		}
@@ -1170,10 +1170,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformVaginaUrethraPlasticityDiv()
 						+"</div>"
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.VAGINA).getType(), "Vagina Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.VAGINA).getType(), "Vagina Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your vagina."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] vagina.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your vagina."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] vagina.")), true, true));
 				
 			} else if(isDemonTFMenu()) {
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -1212,10 +1212,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformVaginaUrethraPlasticityDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.VAGINA).getType(), "Vagina Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.VAGINA).getType(), "Vagina Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your vagina."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] vagina.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your vagina."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] vagina.")), true, true));
 				
 			// Slime:
 			} else {
@@ -1255,18 +1255,18 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformVaginaUrethraPlasticityDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_VAGINA, "Vagina Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_VAGINA, "Vagina Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can freely change the colour of your slimy vagina."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the colour of [npc.her] slimy vagina.")), true, true));
+										?"You can freely change the color of your slimy vagina."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the color of [npc.her] slimy vagina.")), true, true));
 			}
 
 			if(Main.getProperties().hasValue(PropertyValue.assHairContent)) {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivPubicHair("Pubic hair",
 						UtilText.parse(BodyChanging.getTarget(), "Change the amount of hair around [npc.namePos] genitals."))
 				
-				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getPubicHairType().getType(), "Pubic hair colour",
-						UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] pubic hair."),
+				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getPubicHairType().getType(), "Pubic hair color",
+						UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] pubic hair."),
 						true, true));
 			}
 			
@@ -1336,10 +1336,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformUrethraModifiersDiv()
 						+"</div>"
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.PENIS).getType(), "Penis Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.PENIS).getType(), "Penis Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your penis."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] penis.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your penis."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] penis.")), true, true));
 				
 			} else if(isDemonTFMenu()) {
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
@@ -1377,10 +1377,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformUrethraModifiersDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.PENIS).getType(), "Penis Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyChanging.getTarget().getCovering(BodyCoveringType.PENIS).getType(), "Penis Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your penis."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] penis.")), true, true));
+										?"You can harness the power of your demonic form to change the color of your penis."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] penis.")), true, true));
 				
 			// Slime:
 			} else {
@@ -1419,18 +1419,18 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformUrethraModifiersDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_PENIS, "Penis Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_PENIS, "Penis Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can freely change the colour of your slimy penis."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the colour of [npc.her] slimy penis.")), true, true));
+										?"You can freely change the color of your slimy penis."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the color of [npc.her] slimy penis.")), true, true));
 			}
 
 			if(Main.getProperties().hasValue(PropertyValue.assHairContent)) {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivPubicHair("Pubic hair",
 						UtilText.parse(BodyChanging.getTarget(), "Change the amount of hair around [npc.namePos] genitals."))
 				
-				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getPubicHairType().getType(), "Pubic hair colour",
-						UtilText.parse(BodyChanging.getTarget(), "The colour of [npc.namePos] pubic hair."),
+				+ CharacterModificationUtils.getKatesDivCoveringsNew(false, getTarget().getPubicHairType().getType(), "Pubic hair color",
+						UtilText.parse(BodyChanging.getTarget(), "The color of [npc.namePos] pubic hair."),
 						true, true));
 			}
 			
@@ -1502,10 +1502,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNippleCrotchPlasticityDiv()
 						+"</div>"
 
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES_CROTCH, "Nipple Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES_CROTCH, "Nipple Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"Change the colour of your nipples."
-										:UtilText.parse(BodyChanging.getTarget(), "Change the colour of [npc.her] nipples.")),
+										?"Change the color of your nipples."
+										:UtilText.parse(BodyChanging.getTarget(), "Change the color of [npc.her] nipples.")),
 								true, true);
 				
 			} else if(isDemonTFMenu()) {
@@ -1546,10 +1546,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNippleCrotchPlasticityDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES_CROTCH, "Nipple Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.NIPPLES_CROTCH, "Nipple Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can harness the power of your demonic form to change the colour of your nipples."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the colour of [npc.her] nipples.")),
+										?"You can harness the power of your demonic form to change the color of your nipples."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can harness the power of [npc.her] demonic form to change the color of [npc.her] nipples.")),
 								true, true);
 			
 			// Slime:
@@ -1592,10 +1592,10 @@ public class BodyChanging {
 							+ CharacterModificationUtils.getSelfTransformNippleCrotchPlasticityDiv()
 						+"</div>"
 						
-						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_NIPPLES_CROTCH, "Nipple Colour", 
+						+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.SLIME_NIPPLES_CROTCH, "Nipple Color", 
 								(BodyChanging.getTarget().isPlayer()
-										?"You can freely change the colour of your slimy nipples."
-										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the colour of [npc.her] slimy nipples.")),
+										?"You can freely change the color of your slimy nipples."
+										:UtilText.parse(BodyChanging.getTarget(), "[npc.Name] can freely change the color of [npc.her] slimy nipples.")),
 								true, true);
 			}
 		}

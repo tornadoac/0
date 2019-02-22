@@ -622,7 +622,7 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 			// --- Stop foreplay actions: ---
 			for(SexActionInterface action : availableActions) {
 				if(action.getActionType() == SexActionType.STOP_ONGOING) {
-					// Don't stop kissing or fetishised oral actions:
+					// Don't stop kissing or fetishized oral actions:
 					if(!((action.getPerformingCharacterPenetrations().contains(SexAreaPenetration.TONGUE)
 							|| action.getPerformingCharacterOrifices().contains(SexAreaOrifice.MOUTH))
 							&& (action.getTargetedCharacterPenetrations().contains(SexAreaPenetration.TONGUE)
@@ -824,7 +824,7 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 			return;
 		}
 		
-		// If positioning is blocked, then only prioritise characters that actually have actions available that the targeter wants to perform:
+		// If positioning is blocked, then only prioritize characters that actually have actions available that the targeter wants to perform:
 		if(!this.isPositionChangingAllowed(targeter)) {
 			Map<GameCharacter, SexType> sexPreferences = new HashMap<>();
 			
@@ -851,7 +851,7 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 								&& (action.getTargetedCharacterOrifices().contains(preference.getTargetedSexArea())
 										|| action.getTargetedCharacterPenetrations().contains(preference.getTargetedSexArea()))) {
 							priorityTargets.add(character);
-//							System.out.println(targeter.getName()+" prioritising "+character.getName());
+//							System.out.println(targeter.getName()+" prioritizing "+character.getName());
 							continue characterLoop;
 						}
 					}
@@ -886,7 +886,7 @@ public abstract class SexManagerDefault implements SexManagerInterface {
 				
 				if(!availableActions.isEmpty()) {
 					if(Sex.isDom(targeter) != Sex.isDom(character)) {
-						weightedTargets.put(character, 5*attractionModifier*availableActions.size()); // Prioritise targeting opposite character by a factor of five (i.e subs target doms and vice versa).
+						weightedTargets.put(character, 5*attractionModifier*availableActions.size()); // Prioritize targeting opposite character by a factor of five (i.e subs target doms and vice versa).
 						
 					} else {
 						if(Sex.getSexPace(targeter)!=SexPace.SUB_RESISTING) { // If resisting, don't target a sub (as resisting actions are targeted towards doms).

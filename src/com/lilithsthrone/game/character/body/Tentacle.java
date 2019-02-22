@@ -64,15 +64,15 @@ public class Tentacle implements BodyPartInterface {
 		if (type == getType()) {
 			if(type == TentacleType.NONE) {
 				if(owner.isPlayer()) {
-					return "<p style='text-align:center;'>[style.colourDisabled(You already lack tentacles, so nothing happens...)]</p>";
+					return "<p style='text-align:center;'>[style.colorDisabled(You already lack tentacles, so nothing happens...)]</p>";
 				} else {
-					return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already lacks tentacles, so nothing happens...)]</p>");
+					return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already lacks tentacles, so nothing happens...)]</p>");
 				}
 			} else {
 				if(owner.isPlayer()) {
-					return "<p style='text-align:center;'>[style.colourDisabled(You already have the [pc.tentacles] of [pc.a_tentacleRace], so nothing happens...)]</p>";
+					return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.tentacles] of [pc.a_tentacleRace], so nothing happens...)]</p>";
 				} else {
-					return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the [npc.tentacles] of [npc.a_tentacleRace], so nothing happens...)]</p>");
+					return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.tentacles] of [npc.a_tentacleRace], so nothing happens...)]</p>");
 				}
 			}
 		}
@@ -138,14 +138,14 @@ public class Tentacle implements BodyPartInterface {
 		tentacleCount = Math.max(1, Math.min(tentacleCount, 9));
 		
 		if(owner.getTentacleCount() == tentacleCount) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		boolean removingTentacles = owner.getTentacleCount() > tentacleCount;
 		this.tentacleCount = tentacleCount;
 		
 		if (owner.getTentacleType() == TentacleType.NONE) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		if(removingTentacles) {

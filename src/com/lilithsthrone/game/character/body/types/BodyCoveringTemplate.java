@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 import com.lilithsthrone.game.character.body.valueEnums.CoveringModifier;
 import com.lilithsthrone.game.character.body.valueEnums.CoveringPattern;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.2.8
@@ -22,10 +22,10 @@ public class BodyCoveringTemplate {
 	public final String nameSingular;
 	public final List<CoveringModifier> naturalModifiers;
 	public final List<CoveringModifier> extraModifiers;
-	public final List<Colour> naturalColoursPrimary;
-	public final List<Colour> dyeColoursPrimary;
-	public final List<Colour> naturalColoursSecondary;
-	public final List<Colour> dyeColoursSecondary;
+	public final List<Color> naturalColorsPrimary;
+	public final List<Color> dyeColorsPrimary;
+	public final List<Color> naturalColorsSecondary;
+	public final List<Color> dyeColorsSecondary;
 	public final List<CoveringPattern> naturalPatterns;
 	public final List<CoveringPattern> dyePatterns;
 	public final boolean isDefaultPlural;
@@ -39,10 +39,10 @@ public class BodyCoveringTemplate {
 			List<CoveringModifier> extraModifiers,
 			List<CoveringPattern> naturalPatterns,
 			List<CoveringPattern> dyePatterns,
-			List<Colour> naturalColoursPrimary,
-			List<Colour> dyeColoursPrimary,
-			List<Colour> naturalColoursSecondary,
-			List<Colour> dyeColoursSecondary) {
+			List<Color> naturalColorsPrimary,
+			List<Color> dyeColorsPrimary,
+			List<Color> naturalColorsSecondary,
+			List<Color> dyeColorsSecondary) {
 		
 		this.determiner = determiner;
 		this.namePlural = namePlural;
@@ -57,10 +57,10 @@ public class BodyCoveringTemplate {
 		dyePatternsList.removeAll(this.naturalPatterns);
 		this.dyePatterns = Collections.unmodifiableList(dyePatternsList);
 		
-		this.naturalColoursPrimary = getImmutableListFromNullableList(naturalColoursPrimary);
-		this.dyeColoursPrimary = getImmutableListFromNullableList(dyeColoursPrimary);
-		this.naturalColoursSecondary = getImmutableListFromNullableList(naturalColoursSecondary);
-		this.dyeColoursSecondary = getImmutableListFromNullableList(dyeColoursSecondary);
+		this.naturalColorsPrimary = getImmutableListFromNullableList(naturalColorsPrimary);
+		this.dyeColorsPrimary = getImmutableListFromNullableList(dyeColorsPrimary);
+		this.naturalColorsSecondary = getImmutableListFromNullableList(naturalColorsSecondary);
+		this.dyeColorsSecondary = getImmutableListFromNullableList(dyeColorsSecondary);
 	}
 	
 	private <T> List<T> getImmutableListFromNullableList(List<T> nullableList) {

@@ -2,7 +2,7 @@ package com.lilithsthrone.game.character.body.valueEnums;
 
 import java.util.List;
 
-import com.lilithsthrone.utils.BaseColour;
+import com.lilithsthrone.utils.BaseColor;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -10,87 +10,87 @@ import com.lilithsthrone.utils.Util;
  * @version 0.1.83
  * @author Innoxia
  */
-public enum FluidFlavour {
+public enum FluidFlavor {
 	
-	CUM("cum", BaseColour.WHITE,
+	CUM("cum", BaseColor.WHITE,
 			Util.newArrayListOfValues(
 					"salty")),
 	
-	MILK("milk", BaseColour.WHITE,
+	MILK("milk", BaseColor.WHITE,
 			Util.newArrayListOfValues(
 					"creamy")),
 	
-	GIRL_CUM("girl-cum", BaseColour.WHITE,
+	GIRL_CUM("girl-cum", BaseColor.WHITE,
 			Util.newArrayListOfValues(
 					"sweet")),
 
-	SLIME("slime", BaseColour.GREEN_LIGHT,
+	SLIME("slime", BaseColor.GREEN_LIGHT,
 			Util.newArrayListOfValues(
 					"sweet")),
 	
-	BEER("beer", BaseColour.TAN,
+	BEER("beer", BaseColor.TAN,
 			Util.newArrayListOfValues(
 					"yeasty",
-					"beer-flavoured")),
+					"beer-flavored")),
 	
-	VANILLA("vanilla", BaseColour.YELLOW_LIGHT,
+	VANILLA("vanilla", BaseColor.YELLOW_LIGHT,
 			Util.newArrayListOfValues(
 					"sweet",
-					"vanilla-flavoured")),
+					"vanilla-flavored")),
 	
-	STRAWBERRY("strawberries", BaseColour.ROSE,
+	STRAWBERRY("strawberries", BaseColor.ROSE,
 			Util.newArrayListOfValues(
 					"sweet",
-					"strawberry-flavoured")),
+					"strawberry-flavored")),
 	
-	CHOCOLATE("chocolate", BaseColour.BROWN,
+	CHOCOLATE("chocolate", BaseColor.BROWN,
 			Util.newArrayListOfValues(
 					"chocolatey",
-					"chocolate-flavoured")),
+					"chocolate-flavored")),
 	
-	PINEAPPLE("pineapple", BaseColour.YELLOW_LIGHT,
+	PINEAPPLE("pineapple", BaseColor.YELLOW_LIGHT,
 			Util.newArrayListOfValues(
 					"tart",
 					"sour",
 					"tangy",
-					"pineapple-flavoured")),
+					"pineapple-flavored")),
 	
-	HONEY("honey", BaseColour.YELLOW,
+	HONEY("honey", BaseColor.YELLOW,
 			Util.newArrayListOfValues(
 					"sweet",
-					"honey-flavoured")),
+					"honey-flavored")),
 	
-	MINT("mint", BaseColour.GREEN_LIME,
+	MINT("mint", BaseColor.GREEN_LIME,
 			Util.newArrayListOfValues(
 					"minty"));
 	
 	private String name;
-	private BaseColour colour;
-	private List<String> flavourDescriptors;
+	private BaseColor color;
+	private List<String> flavorDescriptors;
 
-	private FluidFlavour(String name, BaseColour colour, List<String> flavourDescriptors) {
+	private FluidFlavor(String name, BaseColor color, List<String> flavorDescriptors) {
 		this.name = name;
-		this.colour=colour;
-		this.flavourDescriptors = flavourDescriptors;
+		this.color=color;
+		this.flavorDescriptors = flavorDescriptors;
 	}
 	
 	/**
 	 * To go into: "You can't get the rich strawberry taste out of your mouth."<br/>
-	 * Or: "Strawberry-flavoured"
+	 * Or: "Strawberry-flavored"
 	 */
 	public String getName() {
 		return name;
 	}
 	
-	public BaseColour getColour() {
-		return colour;
+	public BaseColor getColor() {
+		return color;
 	}
 
-	public List<String> getFlavourDescriptors() {
-		return flavourDescriptors;
+	public List<String> getFlavorDescriptors() {
+		return flavorDescriptors;
 	}
 	
-	public String getRandomFlavourDescriptor() {
-		return flavourDescriptors.get(Util.random.nextInt(flavourDescriptors.size()));
+	public String getRandomFlavorDescriptor() {
+		return flavorDescriptors.get(Util.random.nextInt(flavorDescriptors.size()));
 	}
 }

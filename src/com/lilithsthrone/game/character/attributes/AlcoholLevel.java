@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.attributes;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.2.8
@@ -9,27 +9,27 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum AlcoholLevel {
 	
-	ZERO_SOBER("sober", 0, 0.01f, Colour.ALCOHOL_LEVEL_ZERO),
+	ZERO_SOBER("sober", 0, 0.01f, Color.ALCOHOL_LEVEL_ZERO),
 	
-	ONE_TIPSY("tipsy", 0.01f, 0.2f, Colour.ALCOHOL_LEVEL_ONE),
+	ONE_TIPSY("tipsy", 0.01f, 0.2f, Color.ALCOHOL_LEVEL_ONE),
 	
-	TWO_MERRY("merry", 0.2f, 0.4f, Colour.ALCOHOL_LEVEL_TWO),
+	TWO_MERRY("merry", 0.2f, 0.4f, Color.ALCOHOL_LEVEL_TWO),
 	
-	THREE_DRUNK("drunk", 0.4f, 0.6f, Colour.ALCOHOL_LEVEL_THREE),
+	THREE_DRUNK("drunk", 0.4f, 0.6f, Color.ALCOHOL_LEVEL_THREE),
 	
-	FOUR_HAMMERED("hammered", 0.6f, 0.8f, Colour.ALCOHOL_LEVEL_FOUR),
+	FOUR_HAMMERED("hammered", 0.6f, 0.8f, Color.ALCOHOL_LEVEL_FOUR),
 	
-	FIVE_WASTED("wasted", 0.8f, 1, Colour.ALCOHOL_LEVEL_FIVE);
+	FIVE_WASTED("wasted", 0.8f, 1, Color.ALCOHOL_LEVEL_FIVE);
 	
 	private String name;
 	private float minimumValue, maximumValue;
-	private Colour colour;
+	private Color color;
 
-	private AlcoholLevel(String name, float minimumValue, float maximumValue, Colour colour) {
+	private AlcoholLevel(String name, float minimumValue, float maximumValue, Color color) {
 		this.name = name;
 		this.minimumValue = minimumValue;
 		this.maximumValue = maximumValue;
-		this.colour = colour;
+		this.color = color;
 	}
 	
 	public String getName() {
@@ -44,8 +44,8 @@ public enum AlcoholLevel {
 		return maximumValue;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public static AlcoholLevel getAlcoholLevelFromValue(float value){

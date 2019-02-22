@@ -35,7 +35,7 @@ import com.lilithsthrone.game.sex.SexType;
 import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Vector2i;
 import com.lilithsthrone.world.WorldType;
@@ -106,7 +106,7 @@ public class GenericSexualPartner extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			
@@ -238,16 +238,16 @@ public class GenericSexualPartner extends NPC {
 			StringBuilderSB.append(
 							"<p>"
 								+"As [npc.namePos] [npc.cock+] thrusts forwards into your [pc.pussy+], you can't help but let out a desperate, shuddering wail."
-								+ " Being so enamoured with the idea of being a pure virgin, you don't know what on Earth possessed you to sign up for pregnancy roulette,"
+								+ " Being so enamored with the idea of being a pure virgin, you don't know what on Earth possessed you to sign up for pregnancy roulette,"
 									+ " but as [npc.namePos] [npc.cock+] claims your previous virginity, you don't have any time to reflect on your poor choice."
-								+ " The only thing that's on your mind is the agonising pain of having your hymen torn by a person you've never even spoken to."
+								+ " The only thing that's on your mind is the agonizing pain of having your hymen torn by a person you've never even spoken to."
 							+ "</p>"
 							+ "<p>"
 								+ "As your wail turns into a shuddering cry, you hear the [npc.race] on the other side of the wall let out a surprised shout,"
 								+ " [npc.speech(Holy shit! This slut was a virgin!)]"
 							+ "</p>"
 							+ "<p>"
-								+ "The room beyond the wall is suddenly filled with laughs and lewd remarks, and you can't help but shed a tear as you realise that you've lost your precious,"
+								+ "The room beyond the wall is suddenly filled with laughs and lewd remarks, and you can't help but shed a tear as you realize that you've lost your precious,"
 									+ " pure virginity to some stranger who signed up to try and get you pregnant."
 							+ "</p>"
 							+ "<p>"
@@ -261,7 +261,7 @@ public class GenericSexualPartner extends NPC {
 			StringBuilderSB.append(
 					"<p>"
 						+"As [npc.namePos] [npc.cock+] thrusts forwards into your [pc.pussy+], you can't help but let out a desperate, shuddering wail."
-						+ " As [npc.namePos] [npc.cock+] claims your virginity, the only thing that's on your mind is the agonising pain of having your hymen torn by a person you've never even spoken to."
+						+ " As [npc.namePos] [npc.cock+] claims your virginity, the only thing that's on your mind is the agonizing pain of having your hymen torn by a person you've never even spoken to."
 					+ "</p>"
 					+ (Main.game.getPlayer().hasFetish(Fetish.FETISH_MASOCHIST)
 							?"<p>"
@@ -276,7 +276,7 @@ public class GenericSexualPartner extends NPC {
 					+ "</p>"
 					+ "<p>"
 						+ "The room beyond the wall is suddenly filled with laughs and lewd remarks,"
-							+ " and you can't help but let out a defeated sigh as you realise that you've lost your virginity to some stranger who signed up to try and get you pregnant."
+							+ " and you can't help but let out a defeated sigh as you realize that you've lost your virginity to some stranger who signed up to try and get you pregnant."
 					+ "</p>"
 					+ "<p>"
 						+ "[pc.thought(Pregnant... Me... I-I'm sure that's not possible...)] you think to yourself, trying to suppress your whimpers as [npc.name] pulls back, before thrusting into you once more."
@@ -291,10 +291,10 @@ public class GenericSexualPartner extends NPC {
 		
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN))
 			StringBuilderSB.append("<p style='text-align:center;'>"
-					+ "<b style='color:"+Colour.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
+					+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
 				+ "</p>"
 				+ "<p>"
-					+ "As the [npc.race] carries on pounding away at your pussy, the sudden realisation of what's just happened hits you like a sledgehammer."
+					+ "As the [npc.race] carries on pounding away at your pussy, the sudden realization of what's just happened hits you like a sledgehammer."
 				+ "</p>"
 				+ "<p style='text-align:center;'>"
 					+ UtilText.parsePlayerThought("I-I've lost my virginity?!<br/>"
@@ -312,7 +312,7 @@ public class GenericSexualPartner extends NPC {
 				+ "<p>"
 					+ "You're vaguely aware of [npc.namePos] taunts fading away as [npc.she] starts to focus [npc.her] attention on fucking you."
 					+ " With a desperate moan, you spread your legs and resign yourself to the fact that you're now nothing more than a"
-					+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColour().toWebHexString()+";'>broken virgin</b>..."
+					+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 				+ "</p>");
 		
 		return StringBuilderSB.toString();

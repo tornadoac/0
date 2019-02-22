@@ -17,13 +17,13 @@
 		<!-- The name of this clothing. -->
 		<name><![CDATA[Rental-Mommy T-shirt]]></name>
 		
-		<!-- The plural form of the name. The attribute 'pluralByDefault' determines whther this item is naturally referred to as a plural (use true for things like socks or gloves).-->
+		<!-- The plural form of the name. The attribute 'pluralByDefault' determines whether this item is naturally referred to as a plural (use true for things like socks or gloves).-->
 		<namePlural pluralByDefault="false"><![CDATA[Rental-Mommy T-shirts]]></namePlural> 
 		
 		<!-- The description that's shown in tooltips and on the item's inspection page. -->
 		<description><![CDATA[A T-shirt that bears the words 'Rental Mommy', with the price of fifty flames displayed below that.]]></description> 
 		
-		<!-- The default physical resistance for this piece of clothing. Usually use 0 or 1, but if it's armour, then values up to 5 would be fitting (any more than that might be very OP). -->
+		<!-- The default physical resistance for this piece of clothing. Usually use 0 or 1, but if it's armor, then values up to 5 would be fitting (any more than that might be very OP). -->
 		<physicalResistance>1</physicalResistance> 
 		
 		<!-- Use FEMININE for if this clothing is intended for feminine characters, MASCULINE for masculine, and ANDROGYNOUS if it's able to be worn by anyone without penalties. -->
@@ -38,7 +38,7 @@
 		<!-- The set that this clothing belongs to. I will add a way to define your own sets, but for now, existing sets can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/clothing/ClothingSet.java -->
 		<clothingSet/> 
 		
-		<!-- The file path for this clothing's image. All images MUST BE .svg format. Colours to be used are described below, above the 'primaryColours' element. I use the free program 'InkScape' to make my .svg images.
+		<!-- The file path for this clothing's image. All images MUST BE .svg format. Colors to be used are described below, above the 'primaryColors' element. I use the free program 'InkScape' to make my .svg images.
 		 .svg images scale perfectly up and down to any size, so, while it should be a square, it doesn't really matter what size your canvas is (although I use 256x256 as a personal preference).-->
 		<imageName>rental_mommy.svg</imageName> 
 		
@@ -56,7 +56,7 @@
               <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
               <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="FERTILITY" timer="0"/>
               <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="FERTILITY" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="TF_MOD_FETISH_BEHAVIOUR" secondaryModifier="TF_MOD_FETISH_PREGNANCY" timer="0"/>
+              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="TF_MOD_FETISH_BEHAVIOR" secondaryModifier="TF_MOD_FETISH_PREGNANCY" timer="0"/>
 		</effects>
 		
 		<!-- This section determines how the clothing interacts with other clothing and the wearer's body.-->
@@ -115,63 +115,63 @@
 		<!-- Inventory slots that are incompatible with this clothing. The game's swimsuit makes use of this, and, while fitting into the 'CHEST' slot, also blocks 'GROIN' and 'STOMACH'. Possible slots are found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/InventorySlot.java -->
 		<incompatibleSlots/> 
 		
-		<!-- Your clothing can be coloured any way you like, but if you'd like the player to be able to dye your clothing, you can specify available colours here. primaryColours, secondaryColours, and tertiaryColours can all spawn in as a default colour, while their 'Dye' counterparts are only available if the player chooses to dye the clothing in that colour. The game detects specific colour values, and recolours them to the value chosen by the player. These values are as follows:
-		Red is used as base colour for changing the primary colour of the graphic in-game, and the game will only recognise and change the following colours:
+		<!-- Your clothing can be colored any way you like, but if you'd like the player to be able to dye your clothing, you can specify available colors here. primaryColors, secondaryColors, and tertiaryColors can all spawn in as a default color, while their 'Dye' counterparts are only available if the player chooses to dye the clothing in that color. The game detects specific color values, and recolors them to the value chosen by the player. These values are as follows:
+		Red is used as base color for changing the primary color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ff2a2a
 			#ff5555
 			#ff8080
 			#ffaaaa
 			#ffd5d5
-		Orange is used as base colour for changing the secondary colour of the graphic in-game, and the game will only recognise and change the following colours:
+		Orange is used as base color for changing the secondary color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ff7f2a
 			#ff9955
 			#ffb380
 			#ffccaa
 			#ffe6d5
-		Yellow is used as base colour for changing the tertiary colour of the graphic in-game, and the game will only recognise and change the following colours:
+		Yellow is used as base color for changing the tertiary color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ffd42a
 			#ffdd55
 			#ffe680
 			#ffeeaa
 			#fff6d5
 		ANY GRADIENTS THAT YOU USE SHOULD BE CALLED: "innoGrad1", "innoGrad2", etc.
-		You can see a visual representation of these colours here: https://www.lilithsthrone.com/wiki/doku.php?id=modding_wiki:modding:creating_clothes
-		Colour lists to be used can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColourListPresets.java -->
-		<primaryColours values="JUST_WHITE"/> 
-		<primaryColoursDye values="ALL"/>
-		<secondaryColours values="JUST_BLACK"/>
-		<secondaryColoursDye values="ALL"/>
-		<tertiaryColours values="JUST_WHITE"/>
-		<!-- You can also make your own, custom list of colours to be used. The following colours in 'tertiaryColoursDye' are all found within the list preset 'ALL', but this is for a demonstration.
-		 If you want to include custom colours, do not define a 'values' attribute, and instead, list each Colour.
-		 Colour types can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/Colour.java
-		 PLEASE USE THE 'Colour' VALUES THAT SATRT WITH 'CLOTHING-'-->
-		<tertiaryColoursDye>
-			<colour>CLOTHING_WHITE</colour>
-			<colour>CLOTHING_BLACK</colour>
-			<colour>CLOTHING_GREY</colour>
-			<colour>CLOTHING_RED</colour>
-			<colour>CLOTHING_RED_BRIGHT</colour>
-			<colour>CLOTHING_RED_DARK</colour>
-			<colour>CLOTHING_ORANGE</colour>
-			<colour>CLOTHING_ORANGE_BRIGHT</colour>
-			<colour>CLOTHING_ORANGE_DARK</colour>
-			<colour>CLOTHING_BROWN</colour>
-			<colour>CLOTHING_TAN</colour>
-			<colour>CLOTHING_YELLOW</colour>
-			<colour>CLOTHING_GREEN_LIME</colour>
-			<colour>CLOTHING_GREEN</colour>
-			<colour>CLOTHING_GREEN_DARK</colour>
-			<colour>CLOTHING_TURQUOISE</colour>
-			<colour>CLOTHING_BLUE_LIGHT</colour>
-			<colour>CLOTHING_BLUE</colour>
-			<colour>CLOTHING_BLUE_DARK</colour>
-			<colour>CLOTHING_PURPLE</colour>
-			<colour>CLOTHING_PURPLE_DARK</colour>
-			<colour>CLOTHING_PURPLE_LIGHT</colour>
-			<colour>CLOTHING_PINK</colour>
-			<colour>CLOTHING_PINK_LIGHT</colour>
-		</tertiaryColoursDye>
+		You can see a visual representation of these colors here: https://www.lilithsthrone.com/wiki/doku.php?id=modding_wiki:modding:creating_clothes
+		Color lists to be used can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColorListPresets.java -->
+		<primaryColors values="JUST_WHITE"/> 
+		<primaryColorsDye values="ALL"/>
+		<secondaryColors values="JUST_BLACK"/>
+		<secondaryColorsDye values="ALL"/>
+		<tertiaryColors values="JUST_WHITE"/>
+		<!-- You can also make your own, custom list of colors to be used. The following colors in 'tertiaryColorsDye' are all found within the list preset 'ALL', but this is for a demonstration.
+		 If you want to include custom colors, do not define a 'values' attribute, and instead, list each Color.
+		 Color types can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/Color.java
+		 PLEASE USE THE 'Color' VALUES THAT SATRT WITH 'CLOTHING-'-->
+		<tertiaryColorsDye>
+			<color>CLOTHING_WHITE</color>
+			<color>CLOTHING_BLACK</color>
+			<color>CLOTHING_GREY</color>
+			<color>CLOTHING_RED</color>
+			<color>CLOTHING_RED_BRIGHT</color>
+			<color>CLOTHING_RED_DARK</color>
+			<color>CLOTHING_ORANGE</color>
+			<color>CLOTHING_ORANGE_BRIGHT</color>
+			<color>CLOTHING_ORANGE_DARK</color>
+			<color>CLOTHING_BROWN</color>
+			<color>CLOTHING_TAN</color>
+			<color>CLOTHING_YELLOW</color>
+			<color>CLOTHING_GREEN_LIME</color>
+			<color>CLOTHING_GREEN</color>
+			<color>CLOTHING_GREEN_DARK</color>
+			<color>CLOTHING_TURQUOISE</color>
+			<color>CLOTHING_BLUE_LIGHT</color>
+			<color>CLOTHING_BLUE</color>
+			<color>CLOTHING_BLUE_DARK</color>
+			<color>CLOTHING_PURPLE</color>
+			<color>CLOTHING_PURPLE_DARK</color>
+			<color>CLOTHING_PURPLE_LIGHT</color>
+			<color>CLOTHING_PINK</color>
+			<color>CLOTHING_PINK_LIGHT</color>
+		</tertiaryColorsDye>
 		
 		<!-- These tags determine where in the world your clothing can be found. Possible tags are found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 		<itemTags> 

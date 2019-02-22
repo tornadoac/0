@@ -18,7 +18,7 @@ public enum ItemTag {
 	REINDEER_GIFT(false), // Can be found in the presents that the reindeer sell (who appear in DOminion during winter months).
 	SOLD_BY_RALPH(false), // Will also be used for any future consumable and miscellaneous item vendors.
 	SOLD_BY_NYAN(false), // Clothing
-	SOLD_BY_KATE(false), // Jewellery
+	SOLD_BY_KATE(false), // Jewelry
 	SOLD_BY_FINCH(false), // BDSM and sex-related stuff
 	SOLD_BY_VICKY(false), // Weapons
 
@@ -40,7 +40,7 @@ public enum ItemTag {
 
 	TRANSPARENT( // This item of clothing does not conceal any areas. Used for chastity cages & condoms (so penis is still visible). Could also be used for sheer clothing material.
 			Util.newArrayListOfValues(
-					"[style.colourSex(Cannot conceal any body parts)]"),
+					"[style.colorSex(Cannot conceal any body parts)]"),
 			false),
 	
 	WEAPON_BLADE(false), // Should be added to all weapons that use an arcane blade
@@ -49,162 +49,162 @@ public enum ItemTag {
 
 	SPREADS_FEET( // Prevents double foot actions, like wrap-around footjobs
 			Util.newArrayListOfValues(
-					"[style.colourBad(Restricts sex actions)]"),
+					"[style.colorBad(Restricts sex actions)]"),
 			false),
 
 	MUFFLES_SPEECH( // Causes the wearer to not be able to talk. E.g. Ball gags
 			Util.newArrayListOfValues(
-					"[style.colourBad(Muffles speech)]"),
+					"[style.colorBad(Muffles speech)]"),
 			false),
 
 	HINDERS_ARM_MOVEMENT( // Hinders the ability of the wearer to use their arms. E.g. Hand cuffs
 			Util.newArrayListOfValues(
-					"[style.colourBad(Hinders arm movement)]",
-					"[style.colourTerrible(Blocks arm-wing flight)]"),
+					"[style.colorBad(Hinders arm movement)]",
+					"[style.colorTerrible(Blocks arm-wing flight)]"),
 			false),
 
 	HINDERS_LEG_MOVEMENT(  // Hinders the ability of the wearer to run or use their legs properly. E.g. Spreader bar
 			Util.newArrayListOfValues(
-					"[style.colourBad(Hinders leg movement)]",
-					"[style.colourTerrible(Blocks non-flight combat escape)]"),
+					"[style.colorBad(Hinders leg movement)]",
+					"[style.colorTerrible(Blocks non-flight combat escape)]"),
 			false),
 
 	DISCARDED_WHEN_UNEQUIPPED( //  Makes the clothing be thrown away when unequipped. E.g. Condoms
 			Util.newArrayListOfValues(
-					"[style.colourMinorBad(Discarded when unequipped)]"),
+					"[style.colorMinorBad(Discarded when unequipped)]"),
 			false),
 
 	ENABLE_SEX_EQUIP( // Allows this clothing to be equipped during sex. E.g. Condoms or strapons
 			Util.newArrayListOfValues(
-					"[style.colourSex(Sex-equip enabled)]"),
+					"[style.colorSex(Sex-equip enabled)]"),
 			false),
 	
 	// Self-explanatory requirements in order to equip this clothing:
 	REQUIRES_PENIS(
 			Util.newArrayListOfValues(
-					"[style.colourSex(Requires penis)]"),
+					"[style.colorSex(Requires penis)]"),
 			false),
 	REQUIRES_NO_PENIS(
 			Util.newArrayListOfValues(
-					"[style.colourSex(Requires no penis)]"),
+					"[style.colorSex(Requires no penis)]"),
 			false),
 	REQUIRES_VAGINA(
 			Util.newArrayListOfValues(
-					"[style.colourSex(Requires vagina)]"),
+					"[style.colorSex(Requires vagina)]"),
 			false),
 	REQUIRES_NO_VAGINA(
 			Util.newArrayListOfValues(
-					"[style.colourSex(Requires no vagina)]"),
+					"[style.colorSex(Requires no vagina)]"),
 			false),
 	REQUIRES_FUCKABLE_NIPPLES(
 			Util.newArrayListOfValues(
-					"[style.colourSex(Requires fuckable nipples)]"),
+					"[style.colorSex(Requires fuckable nipples)]"),
 			false),
 	
 	// These 'FITS' tags are used to check for whether clothing is suitable for certain body parts. They should be pretty self-explanatory.
 	FITS_HOOFS(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits hoofs)]"),
+					"[style.colorBestial(Only fits hoofs)]"),
 			false),
 	FITS_TALONS(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits talons)]"),
+					"[style.colorBestial(Only fits talons)]"),
 			false),
 	FITS_HARPY_WINGS(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits arm-wings)]"),
+					"[style.colorBestial(Only fits arm-wings)]"),
 			false),
 	FITS_NON_BIPED_BODY_HUMANOID(
 			Util.newArrayListOfValues(
-					"[style.colourHuman(Fits humanoid parts of non-biped bodies)]"),
+					"[style.colorHuman(Fits humanoid parts of non-biped bodies)]"),
 			false),
 	FITS_TAUR_BODY(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits taur bodies)]"),
+					"[style.colorBestial(Only fits taur bodies)]"),
 			false),
 	FITS_LONG_TAIL_BODY(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits long-tailed bodies)]"),false), //lamia, eels
+					"[style.colorBestial(Only fits long-tailed bodies)]"),false), //lamia, eels
 	FITS_TAIL_BODY(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits tailed bodies)]"),false), //mermaids
+					"[style.colorBestial(Only fits tailed bodies)]"),false), //mermaids
 	FITS_ARACHNID_BODY(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits arachnid bodies)]"),false), //spiders and scorpions
+					"[style.colorBestial(Only fits arachnid bodies)]"),false), //spiders and scorpions
 	FITS_CEPHALOPOD_BODY(
 			Util.newArrayListOfValues(
-					"[style.colourBestial(Only fits cephalopod bodies)]"),false), //octopuses and squids
+					"[style.colorBestial(Only fits cephalopod bodies)]"),false), //octopuses and squids
 	
 	PREVENTS_ERECTION_PHYSICAL( // Prevents the wearer from getting an erection during sex, by means of physically limiting the space into which the erection could take shape (i.e. chastity cages). As of 0.3.1, only affects descriptors.
 			Util.newArrayListOfValues(
-					"[style.colourTerrible(Prevents erection)]"),
+					"[style.colorTerrible(Prevents erection)]"),
 			false),
 	PREVENTS_ERECTION_OTHER( // Prevents the wearer from getting an erection during sex, by means other than physical limitations. As of 0.3.1, only affects descriptors.
 			Util.newArrayListOfValues(
-					"[style.colourTerrible(Prevents erection)]"),
+					"[style.colorTerrible(Prevents erection)]"),
 			false),
 	
 	// Sex-related clothing:
 
 	/**<b>IMPORTANT</b> This tag should only ever be given to clothing going into the PENIS InventorySlot, as otherwise it will throw errors.*/
-	CONDOM(true), // Gives this clothing condom behaviour
+	CONDOM(true), // Gives this clothing condom behavior
 	
 	// To detect whether creampies should leak out or not:
 	
 	PLUGS_ANUS( // Counts as being inserted into the wearer's anus. E.g. butt plugs or anal beads
 			Util.newArrayListOfValues(
-					"[style.colourSex(Plugs asshole)]"),
+					"[style.colorSex(Plugs asshole)]"),
 			true),
 	SEALS_ANUS( // Counts as sealing(false), but not inserted into(false), the wearer's anus. E.g. Tape
 			Util.newArrayListOfValues(
-					"[style.colourSex(Seals asshole)]"),
+					"[style.colorSex(Seals asshole)]"),
 			true),
 	
 	PLUGS_VAGINA( // Counts as being inserted into the wearer's vagina. E.g. insertable dildo
 			Util.newArrayListOfValues(
-					"[style.colourSex(Plugs pussy)]"),
+					"[style.colorSex(Plugs pussy)]"),
 			true),
 	SEALS_VAGINA( // Counts as sealing, but not inserted into, the wearer's vagina. E.g. Tape
 			Util.newArrayListOfValues(
-					"[style.colourSex(Seals pussy)]"),
+					"[style.colorSex(Seals pussy)]"),
 			true),
 	
 	PLUGS_NIPPLES( // Counts as being inserted into the wearer's nipples. E.g. insertable nipple-dildos
 			Util.newArrayListOfValues(
-					"[style.colourSex(Plugs nipples)]"),
+					"[style.colorSex(Plugs nipples)]"),
 			true),
 	SEALS_NIPPLES( // Counts as sealing, but not inserted into, the wearer's nipples. E.g. Pasties
 			Util.newArrayListOfValues(
-					"[style.colourSex(Seals nipples)]"),
+					"[style.colorSex(Seals nipples)]"),
 			true),
 
 	DILDO_TINY( // 3 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(3-inch dildo)]"),
+					"[style.colorSex(3-inch dildo)]"),
 			true),
 	DILDO_AVERAGE( // 6 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(6-inch dildo)]"),
+					"[style.colorSex(6-inch dildo)]"),
 			true),
 	DILDO_LARGE( // 10 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(10-inch dildo)]"),
+					"[style.colorSex(10-inch dildo)]"),
 			true),
 	DILDO_HUGE( // 14 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(14-inch dildo)]"),
+					"[style.colorSex(14-inch dildo)]"),
 			true),
 	DILDO_ENORMOUS( // 18 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(18-inch dildo)]"),
+					"[style.colorSex(18-inch dildo)]"),
 			true),
 	DILDO_GIGANTIC( // 22 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(22-inch dildo)]"),
+					"[style.colorSex(22-inch dildo)]"),
 			true),
 	DILDO_STALLION( // 32 inches
 			Util.newArrayListOfValues(
-					"[style.colourSex(32-inch dildo)]"),
+					"[style.colorSex(32-inch dildo)]"),
 			true),
 	;
 

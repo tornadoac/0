@@ -84,9 +84,9 @@ public class Ass implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(You already have the ass of [pc.a_assRace], so nothing happens...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(You already have the ass of [pc.a_assRace], so nothing happens...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already has the ass of [npc.a_assRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the ass of [npc.a_assRace], so nothing happens...)]</p>");
 			}
 			
 		} else {
@@ -144,9 +144,9 @@ public class Ass implements BodyPartInterface {
 		
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The size of your ass doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The size of your ass doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The size of [npc.namePos] ass doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] ass doesn't change...)]</p>");
 			}
 		}
 		
@@ -199,9 +199,9 @@ public class Ass implements BodyPartInterface {
 		
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The size of your hips doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The size of your hips doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The size of [npc.namePos] hips doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] hips doesn't change...)]</p>");
 			}
 		}
 		

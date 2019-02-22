@@ -2,7 +2,7 @@ package com.lilithsthrone.game.character.persona;
 
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /***
  * @since 0.2.4
@@ -15,7 +15,7 @@ public enum PersonalityTrait {
 	 * Cautious -> Average -> Curious*/
 	ADVENTUROUSNESS("Adventurousness",
 			"This reflects the level of creativity, imagination, and curiosity in a person. It is an indicator of how willing a person is to try out new things or to take risks.",
-			Colour.BASE_GOLD,
+			Color.BASE_GOLD,
 			"Cautious", "[npc.Name] is risk-averse, and unwilling to try out new things.",
 			"Average", "[npc.Name] doesn't hold any particular aversion or willingness to try out new things.",
 			"Curious", "[npc.Name] is willing to take risks in order to feed [npc.her] love of experiencing new things.",
@@ -27,19 +27,19 @@ public enum PersonalityTrait {
 	 * Selfish -> Average -> Trusting*/
 	AGREEABLENESS("Agreeableness",
 			"How compassionate, cooperative, and friendly someone is towards others. It is an indication of how trusting, helpful, and well-tempered someone is.",
-			Colour.BASE_GREEN,
+			Color.BASE_GREEN,
 			"Selfish", "[npc.Name] treats others in an unfriendly, hostile manner, and rather than showing any signs of wanting to cooperate, [npc.sheIs] far more likely to act in a competitive manner.",
-			"Average", "[npc.Name] is friendly towards new people, but is also liable to drop any pretence of cooperation and compassion if that person turns out to be less-than-amicable.",
+			"Average", "[npc.Name] is friendly towards new people, but is also liable to drop any pretense of cooperation and compassion if that person turns out to be less-than-amicable.",
 			"Trusting", "[npc.Name] is very trusting, and always tries [npc.her] best to be friendly towards other people.",
 			"Selfish", "You treat others in an unfriendly, hostile manner, and rather than showing any signs of wanting to cooperate, you're far more likely to act in a competitive manner.",
-			"Average", "You are friendly towards new people, but are also liable to drop any pretence of cooperation and compassion if that person turns out to be less-than-amicable.",
+			"Average", "You are friendly towards new people, but are also liable to drop any pretense of cooperation and compassion if that person turns out to be less-than-amicable.",
 			"Trusting", "You are very trusting, and always try your best to be friendly towards other people."),
 	
-	/**How organised and willing to plan ahead a person is. It indicates the level of self-discipline a person has, and how seriously they treat their obligations to others.<br/>
+	/**How organized and willing to plan ahead a person is. It indicates the level of self-discipline a person has, and how seriously they treat their obligations to others.<br/>
 	 * Careless -> Average -> Vigilant*/
 	CONSCIENTIOUSNESS("Conscientiousness",
-			"How organised and willing to plan ahead a person is. It indicates the level of self-discipline a person has, and how seriously they treat their obligations to others.",
-			Colour.BASE_BLUE_LIGHT,
+			"How organized and willing to plan ahead a person is. It indicates the level of self-discipline a person has, and how seriously they treat their obligations to others.",
+			Color.BASE_BLUE_LIGHT,
 			"Careless", "[npc.Name] doesn't really care for plans or commitments. [npc.She] prefers to stay flexible, and will often spontaneously decide to do things.",
 			"Average", "[npc.Name] will plan ahead when [npc.she] feels that it's the right thing to do, but will also sometimes make impulsive decisions.",
 			"Vigilant", "[npc.Name] always plans ahead, and never rushes into anything without first weighing the pros and cons.",
@@ -52,7 +52,7 @@ public enum PersonalityTrait {
 	 * Introverted -> Average -> Extroverted*/
 	EXTROVERSION("Extroversion",
 			"How sociable and confident a person feels when in the company of others.",
-			Colour.BASE_PINK,
+			Color.BASE_PINK,
 			"Introverted", "[npc.Name] is not very sociable, and feels awkward and shy when in the company of others.",
 			"Average", "[npc.Name] enjoys the company of others, but [npc.she] doesn't seek to be the life of the party.",
 			"Extroverted", "[npc.Name] loves being in social situations, and always seeks to be the life of the party.",
@@ -64,7 +64,7 @@ public enum PersonalityTrait {
 	 * Confident -> Average -> Neurotic*/
 	NEUROTICISM("Neuroticism",
 			"How prone this character is to experiencing unpleasant emotions, such as anxiety, frustration, fear, and loneliness. Neurotic characters are often shy, lack emotional stability, and suffer from low control over their impulses.",
-			Colour.BASE_PURPLE,
+			Color.BASE_PURPLE,
 			"Confident", "[npc.Name] is very emotionally stable, and always feels calm and in control.",
 			"Average", "[npc.Name] has [npc.her] emotions under control, for the most part.",
 			"Neurotic", "[npc.Name] has a tendency to interpret situations in the worst possible manner, and often feels anxious, frustrated, and worried.",
@@ -75,7 +75,7 @@ public enum PersonalityTrait {
 
 	private String name;
 	private String description;
-	private Colour colour;
+	private Color color;
 	
 	private String nameLow;
 	private String descriptionLow;
@@ -91,7 +91,7 @@ public enum PersonalityTrait {
 	private String nameHighPlayer;
 	private String descriptionHighPlayer;
 	
-	private PersonalityTrait(String name, String description, Colour colour,
+	private PersonalityTrait(String name, String description, Color color,
 			String nameLow, String descriptionLow,
 			String nameAverage, String descriptionAverage,
 			String nameHigh, String descriptionHigh,
@@ -101,7 +101,7 @@ public enum PersonalityTrait {
 		
 		this.name = name;
 		this.description = description;
-		this.colour = colour;
+		this.color = color;
 
 		this.nameLow = nameLow;
 		this.descriptionLow = descriptionLow;
@@ -148,8 +148,8 @@ public enum PersonalityTrait {
 		}
 	}
 	
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 	
 	public String getNameLow(GameCharacter character) {

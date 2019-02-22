@@ -80,7 +80,7 @@ public class HarpyNestsAttacker extends NPC {
 			// Add fetishes:
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			CharacterUtils.randomiseBody(this, true);
 			
 			// INVENTORY:

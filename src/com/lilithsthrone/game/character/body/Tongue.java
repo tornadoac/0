@@ -84,7 +84,7 @@ public class Tongue implements BodyPartInterface {
 
 	public String setPierced(GameCharacter owner, boolean pierced) {
 		if(this.pierced == pierced) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		this.pierced = pierced;
@@ -135,9 +135,9 @@ public class Tongue implements BodyPartInterface {
 		
 		if(sizeChange == 0) {
 			if(owner.isPlayer()) {
-				return "<p style='text-align:center;'>[style.colourDisabled(The length of your [pc.tongue] doesn't change...)]</p>";
+				return "<p style='text-align:center;'>[style.colorDisabled(The length of your [pc.tongue] doesn't change...)]</p>";
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The length of [npc.namePos] [npc.tongue] doesn't change...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The length of [npc.namePos] [npc.tongue] doesn't change...)]</p>");
 			}
 		}
 		
@@ -167,7 +167,7 @@ public class Tongue implements BodyPartInterface {
 
 	public String addTongueModifier(GameCharacter owner, TongueModifier modifier) {
 		if(hasTongueModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		tongueModifiers.add(modifier);
@@ -213,12 +213,12 @@ public class Tongue implements BodyPartInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	public String removeTongueModifier(GameCharacter owner, TongueModifier modifier) {
 		if(!hasTongueModifier(modifier)) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		tongueModifiers.remove(modifier);
@@ -263,7 +263,7 @@ public class Tongue implements BodyPartInterface {
 		}
 		
 		// Catch:
-		return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
 
 	@Override

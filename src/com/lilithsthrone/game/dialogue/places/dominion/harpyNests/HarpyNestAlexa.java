@@ -34,7 +34,7 @@ public class HarpyNestAlexa {
 			if(Main.game.getCurrentWeather() == Weather.MAGIC_STORM) {
 				return "<p>"
 						+ "Making your way down one of the the many walkways that criss-cross Dominion's rooftops, you find yourself approaching an exceptionally large Harpy Nest."
-						+ " Spanning several buildings, and with an elaborate system of multi-level platforms built on top of each one, you instantly recognise this as a nest of particular importance."
+						+ " Spanning several buildings, and with an elaborate system of multi-level platforms built on top of each one, you instantly recognize this as a nest of particular importance."
 					+ "</p>"
 					+ "<p>"
 						+ "Due to the ongoing arcane storm, the nest is completed deserted; its residents having retreated down into the safety of the buildings below."
@@ -57,19 +57,19 @@ public class HarpyNestAlexa {
 			} else {
 				return "<p>"
 						+ "Making your way down one of the the many walkways that criss-cross Dominion's rooftops, you find yourself approaching an exceptionally large Harpy Nest."
-						+ " Spanning several buildings, and with an elaborate system of multi-level platforms built on top of each one, you instantly recognise this as a nest of particular importance."
+						+ " Spanning several buildings, and with an elaborate system of multi-level platforms built on top of each one, you instantly recognize this as a nest of particular importance."
 					+ "</p>"
 					+ "<p>"
 						+ (Main.game.isDayTime()
-								?"The platforms are covered in countless groups of harpies; lounging around and talking amongst one another, their lazy behaviour is in stark contrast to those flying around in the skies above."
-									+ " Looking up, you see a multitude of colours dashing through the sky as yet more of this nest's residents swoop and dart around in the "
+								?"The platforms are covered in countless groups of harpies; lounging around and talking amongst one another, their lazy behavior is in stark contrast to those flying around in the skies above."
+									+ " Looking up, you see a multitude of colors dashing through the sky as yet more of this nest's residents swoop and dart around in the "
 										+(Main.game.isMorning()
 											?"morning's cool air"
 											:"afternoon's warm air")
 									+", their energetic dives and loops threatening to make your head spin if you try to watch them for too long."
 								:"The platforms are covered in countless groups of harpies; illuminated under soft white lights, you see them lounging around and talking amongst one another,"
-										+ " their lazy behaviour in stark contrast to those flying around in the skies above."
-									+ " Looking up, you see a multitude of colours dashing through the sky as yet more of this nest's residents swoop and dart around in the cool night air;"
+										+ " their lazy behavior in stark contrast to those flying around in the skies above."
+									+ " Looking up, you see a multitude of colors dashing through the sky as yet more of this nest's residents swoop and dart around in the cool night air;"
 										+ " their feathers lit up by the arcane-powered lights that are covering this nest.")
 					+ "</p>"
 					+ "<p>"

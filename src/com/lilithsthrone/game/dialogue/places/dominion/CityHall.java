@@ -9,7 +9,7 @@ import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.0
@@ -28,7 +28,7 @@ public class CityHall {
 		@Override
 		public String getContent() {
 			return "<p>"
-					+ "Before you stands City Hall; the centre of administration for the city of Dominion."
+					+ "Before you stands City Hall; the center of administration for the city of Dominion."
 					+ " A sign near the entrance of the impressive building informs you that it's open twenty-four hours a day."
 					+ "</p>";
 		}
@@ -125,8 +125,8 @@ public class CityHall {
 						+ "</div>"
 						+ "<br/>"
 						+ "<i>Your name must be between 2 and 16 characters long. You cannot use the square bracket characters or full stops. (Surname may be left blank.)</i>"
-						+ (unsuitableName ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Colour.GENERIC_BAD.toWebHexString()+ ";'>Invalid name.</b></p>" : "")
-						+ (unsuitableSurname ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Colour.GENERIC_BAD.toWebHexString()+ ";'>Invalid Surname.</b></p>" : "")
+						+ (unsuitableName ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Invalid name.</b></p>" : "")
+						+ (unsuitableSurname ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Invalid Surname.</b></p>" : "")
 					+ "</div>"
 					
 					+ "<p id='hiddenFieldName' style='display:none;'></p>"
@@ -138,7 +138,7 @@ public class CityHall {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				if (Main.game.getPlayer().getMoney() < 100) {
-					return new Response("Confirm ("+UtilText.formatAsMoneyUncoloured(100, "span")+")",
+					return new Response("Confirm ("+UtilText.formatAsMoneyUncolored(100, "span")+")",
 							"Have your name changed.<br/>[style.italicsBad(You cannot afford this!)]",
 							null);
 					
@@ -153,11 +153,11 @@ public class CityHall {
 				
 			} else if(index==2) {
 				if(Main.game.getPlayer().getAllCharactersOfRelationType(Relationship.Parent).isEmpty()) {
-					return new Response("Offspring ("+UtilText.formatAsMoneyUncoloured(5000, "span")+")",
+					return new Response("Offspring ("+UtilText.formatAsMoneyUncolored(5000, "span")+")",
 							"Change your name, and also have all lines of your offspring update their surnames to your surname.<br/>[style.italicsBad(You do not have any children, so you can't do this!)]", null);
 					
 				} else if (Main.game.getPlayer().getMoney() < 5000) {
-					return new Response("Offspring ("+UtilText.formatAsMoneyUncoloured(5000, "span")+")",
+					return new Response("Offspring ("+UtilText.formatAsMoneyUncolored(5000, "span")+")",
 							"Change your name, and also have all lines of your offspring update their surnames to your surname.<br/>[style.italicsBad(You cannot afford this!)]", null);
 					
 				} else {

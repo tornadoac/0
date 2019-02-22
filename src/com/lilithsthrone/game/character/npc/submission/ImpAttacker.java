@@ -106,7 +106,7 @@ public class ImpAttacker extends NPC {
 			
 			CharacterUtils.addFetishes(this);
 			
-			// BODY RANDOMISATION:
+			// BODY RANDOMIZATION:
 			
 			CharacterUtils.randomiseBody(this, true);
 			
@@ -178,7 +178,7 @@ public class ImpAttacker extends NPC {
 				this.equipClothingFromNowhere(
 						AbstractClothingType.generateClothing(Util.randomItemFrom(underwear), false), true, this);
 
-				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_loinCloth_ragged_chest_wrap"), skirt.getColour(), false), true, this);
+				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_loinCloth_ragged_chest_wrap"), skirt.getColor(), false), true, this);
 			}
 			
 		} else {
@@ -205,7 +205,7 @@ public class ImpAttacker extends NPC {
 	public String getDescription() {
 		if(this.isSlave()) {
 			return (UtilText.parse(this,
-					"[npc.NamePos] days of prowling the tunnels of Submission and assaulting innocent travellers are now over. Having run afoul of the law, [npc.sheIs] now a slave, and is no more than [npc.her] owner's property."));
+					"[npc.NamePos] days of prowling the tunnels of Submission and assaulting innocent travelers are now over. Having run afoul of the law, [npc.sheIs] now a slave, and is no more than [npc.her] owner's property."));
 		} else {
 			return (UtilText.parse(this, description));
 		}

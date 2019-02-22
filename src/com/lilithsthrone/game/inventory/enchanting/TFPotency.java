@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 
 /**
  * @since 0.1.83
@@ -13,12 +13,12 @@ import com.lilithsthrone.utils.Colour;
  */
 public enum TFPotency {
 	
-	MAJOR_DRAIN("Major Drain", Colour.GENERIC_TERRIBLE, 8, -5),
-	DRAIN("Drain", Colour.GENERIC_BAD, 4, -3),
-	MINOR_DRAIN("Minor Drain", Colour.GENERIC_MINOR_BAD, 1, -1),
-	MINOR_BOOST("Minor Boost", Colour.GENERIC_MINOR_GOOD, 1, 1),
-	BOOST("Boost", Colour.GENERIC_GOOD, 4, 3),
-	MAJOR_BOOST("Major Boost", Colour.GENERIC_EXCELLENT, 8, 5);
+	MAJOR_DRAIN("Major Drain", Color.GENERIC_TERRIBLE, 8, -5),
+	DRAIN("Drain", Color.GENERIC_BAD, 4, -3),
+	MINOR_DRAIN("Minor Drain", Color.GENERIC_MINOR_BAD, 1, -1),
+	MINOR_BOOST("Minor Boost", Color.GENERIC_MINOR_GOOD, 1, 1),
+	BOOST("Boost", Color.GENERIC_GOOD, 4, 3),
+	MAJOR_BOOST("Major Boost", Color.GENERIC_EXCELLENT, 8, 5);
 	
 	private static List<TFPotency> allPotencies = new ArrayList<>();
 
@@ -27,13 +27,13 @@ public enum TFPotency {
 	}
 	
 	private String name;
-	private Colour colour;
+	private Color color;
 	private int value;
 	private int clothingBonusValue;
 	
-	private TFPotency(String name, Colour colour, int value, int clothingBonusValue) {
+	private TFPotency(String name, Color color, int value, int clothingBonusValue) {
 		this.name = name;
-		this.colour = colour;
+		this.color = color;
 		this.value = value;
 		this.clothingBonusValue = clothingBonusValue;
 	}
@@ -42,8 +42,8 @@ public enum TFPotency {
 		return name;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public Color getColor() {
+		return color;
 	}
 
 	public int getValue() {

@@ -72,9 +72,9 @@ public class Horn implements BodyPartInterface {
 		
 		if (type == getType()) {
 			if(type == HornType.NONE) {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already [npc.verb(lack)] horns, so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.verb(lack)] horns, so nothing happens...)]</p>");
 			} else {
-				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] already [npc.has] the [npc.horns] of [npc.a_hornRace], so nothing happens...)]</p>");
+				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the [npc.horns] of [npc.a_hornRace], so nothing happens...)]</p>");
 			}
 		}
 		
@@ -117,14 +117,14 @@ public class Horn implements BodyPartInterface {
 		}
 		
 		if(owner.getHornRows() == rows) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		boolean removingHorns = owner.getHornRows() > rows;
 		this.rows = rows;
 		
 		if (owner.getHornType() == HornType.NONE) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		if(removingHorns) {
@@ -157,14 +157,14 @@ public class Horn implements BodyPartInterface {
 		}
 		
 		if(owner.getHornsPerRow() == hornsPerRow) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		boolean removingHorns = owner.getHornsPerRow() > hornsPerRow;
 		this.hornsPerRow = hornsPerRow;
 		
 		if (owner.getHornType() == HornType.NONE) {
-			return "<p style='text-align:center;'>[style.colourDisabled(Nothing happens...)]</p>";
+			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 		
 		if(removingHorns) {
@@ -199,11 +199,11 @@ public class Horn implements BodyPartInterface {
 		int sizeChange = this.length - oldLength;
 		
 		if(owner.getHornType()==HornType.NONE) {
-			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled([npc.Name] [npc.do]n't have any horns, so nothing seems to happen...)]</p>");
+			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] [npc.do]n't have any horns, so nothing seems to happen...)]</p>");
 		}
 		
 		if(sizeChange == 0) {
-			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colourDisabled(The length of [npc.namePos] [npc.horns] doesn't change...)]</p>");
+			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The length of [npc.namePos] [npc.horns] doesn't change...)]</p>");
 		}
 		
 		if(sizeChange < 0) {

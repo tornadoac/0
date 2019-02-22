@@ -31,18 +31,18 @@
 		
 		<incompatibleSlots/>
 		
-		<primaryColours>
-			<colour>CLOTHING_BROWN_DARK</colour>
-		</primaryColours>
-		<primaryColoursDye values="ALL_WITH_METALS"/>
-		<secondaryColours>
-			<colour>CLOTHING_STEEL</colour>
-		</secondaryColours>
-		<secondaryColoursDye values="ALL_METAL"/>
-		<tertiaryColours>
-			<colour>CLOTHING_GREY</colour>
-		</tertiaryColours>
-		<tertiaryColoursDye values="ALL"/>
+		<primaryColors>
+			<color>CLOTHING_BROWN_DARK</color>
+		</primaryColors>
+		<primaryColorsDye values="ALL_WITH_METALS"/>
+		<secondaryColors>
+			<color>CLOTHING_STEEL</color>
+		</secondaryColors>
+		<secondaryColorsDye values="ALL_METAL"/>
+		<tertiaryColors>
+			<color>CLOTHING_GREY</color>
+		</tertiaryColors>
+		<tertiaryColorsDye values="ALL"/>
 	
 		<itemTags> 
 			<tag>SOLD_BY_NYAN</tag>

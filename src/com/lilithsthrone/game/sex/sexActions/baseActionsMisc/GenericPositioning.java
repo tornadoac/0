@@ -1520,11 +1520,11 @@ public class GenericPositioning {
 				if(positionPreferences.contains(SexSlotBipeds.DOGGY_ON_ALL_FOURS) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
 						case DOM_ROUGH:
-							return "A devious grin spreads across [npc.namePos] face as [npc.she] realises what it is you want."
+							return "A devious grin spreads across [npc.namePos] face as [npc.she] realizes what it is you want."
 									+ " Much to your delight, [npc.she] does exactly what you want, and drops down onto all fours in front of you, before shuffling back and rubbing [npc.her] [npc.ass+] against your crotch,"
 									+ " [npc.speech(You want to fuck me, you little bitch?! Come on then, let's see if you've got what to takes to satisfy me!)]";
 						default:
-							return "A devious grin spreads across [npc.namePos] face as [npc.she] realises what it is you want."
+							return "A devious grin spreads across [npc.namePos] face as [npc.she] realizes what it is you want."
 									+ " Much to your delight, [npc.she] does exactly what you want, and drops down onto all fours in front of you, before shuffling back and rubbing [npc.her] [npc.ass+] against your crotch,"
 									+ " [npc.speech(Come on then! This is what you wanted, isn't it?!)]";
 					}
@@ -1539,11 +1539,11 @@ public class GenericPositioning {
 				if(positionPreferences.contains(SexSlotBipeds.DOGGY_ON_ALL_FOURS) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
 						case DOM_ROUGH:
-							return "A devious grin spreads across [npc.namePos] face as [npc.she] realises what it is you want."
+							return "A devious grin spreads across [npc.namePos] face as [npc.she] realizes what it is you want."
 									+ " Much to your delight, [npc.she] does exactly what you want, and drops down onto all fours in front of you, before shuffling back and rubbing [npc.her] [npc.ass+] against your [pc.face],"
 									+ " [npc.speech(You want to use your mouth, you little bitch?! Come on then, let's see if you've got what to takes to satisfy me!)]";
 						default:
-							return "A devious grin spreads across [npc.namePos] face as [npc.she] realises what it is you want."
+							return "A devious grin spreads across [npc.namePos] face as [npc.she] realizes what it is you want."
 									+ " Much to your delight, [npc.she] does exactly what you want, and drops down onto all fours in front of you, before shuffling back and rubbing [npc.her] [npc.ass+] against your [pc.face],"
 									+ " [npc.speech(Come on then! This is what you wanted, isn't it?!)]";
 					}

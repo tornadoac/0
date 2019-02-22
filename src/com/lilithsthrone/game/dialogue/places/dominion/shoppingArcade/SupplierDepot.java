@@ -453,7 +453,7 @@ public class SupplierDepot {
 						}
 					};
 				} else {
-					return new Response("Pay ("+UtilText.formatAsMoneyUncoloured(500, "span")+")", "", null);
+					return new Response("Pay ("+UtilText.formatAsMoneyUncolored(500, "span")+")", "", null);
 				}
 				
 			} else if (index == 5) {

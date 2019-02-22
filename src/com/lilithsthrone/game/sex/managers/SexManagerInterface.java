@@ -27,7 +27,7 @@ import com.lilithsthrone.game.sex.positions.SexSlot;
 import com.lilithsthrone.game.sex.sexActions.SexActionInterface;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Color;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.places.Population;
 
@@ -272,19 +272,19 @@ public interface SexManagerInterface {
 				raceNames.add("many other races");
 			}
 			
-			return "<p style='color:"+Colour.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
+			return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 					+ "A crowd of "+Util.stringsToStringList(raceNames, false)+" quickly forms around you and [npc.name], eager to watch your erotic display..."
 					+ "</p>";
 			
 		} else {
-			return "<p style='color:"+Colour.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
+			return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 						+ "A crowd quickly forms around you and [npc.name], eager to watch your erotic display..."
 					+ "</p>";
 		}
 	}
 	
 	public default String getRandomPublicSexDescription() {
-		return "<p style='color:"+Colour.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
+		return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 					+UtilText.parse(Sex.getActivePartner(),
 							UtilText.returnStringAtRandom(
 							"The crowd of onlookers laugh and cheer as they look on.",

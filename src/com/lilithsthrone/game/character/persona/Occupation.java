@@ -52,7 +52,7 @@ public enum Occupation {
 	
 	NPC_SLIME_QUEEN_GUARD(Perk.JOB_MISC, "slime queen's guard", "-", OccupationTag.HAS_PREREQUISITES),
 	
-	NPC_LILIN(Perk.JOB_MISC, "lilin", "-", OccupationTag.HAS_PREREQUISITES),
+	NPC_LILIN(Perk.JOB_MISC, "Lilin", "-", OccupationTag.HAS_PREREQUISITES),
 	
 	// NPC histories:
 
@@ -192,7 +192,7 @@ public enum Occupation {
 	
 	OFFICE_WORKER(Perk.JOB_OFFICE_WORKER,
 			"office worker",
-			"You work in a local office, handling paperwork, answering phonecalls and emails, and generally doing a little bit of everything.", OccupationTag.PLAYER_ONLY),
+			"You work in a local office, handling paperwork, answering phone calls and emails, and generally doing a little bit of everything.", OccupationTag.PLAYER_ONLY),
 	
 	STUDENT(Perk.JOB_STUDENT,
 			"student",

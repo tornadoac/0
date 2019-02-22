@@ -36,7 +36,7 @@ public class RentalMommyDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				if(Main.game.getPlayer().getMoney()<50) {
-					return new Response("Hire "+UtilText.formatAsMoneyUncoloured(50, "span"), "You don't have enough money for this!", null);
+					return new Response("Hire "+UtilText.formatAsMoneyUncolored(50, "span"), "You don't have enough money for this!", null);
 				}
 				return new Response("Hire "+UtilText.formatAsMoney(50, "span"), "Hire the rental Mommy.", MOMMYS_EXTRAS) {
 					@Override
@@ -83,7 +83,7 @@ public class RentalMommyDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				if(Main.game.getPlayer().getMoney()<1000) {
-					return new Response("Submissive Sex "+UtilText.formatAsMoneyUncoloured(1000, "span"), "You don't have enough money for this!", null);
+					return new Response("Submissive Sex "+UtilText.formatAsMoneyUncolored(1000, "span"), "You don't have enough money for this!", null);
 				}
 				return new ResponseSex("Submissive Sex "+UtilText.formatAsMoney(1000, "span"), "Follow Mommy into her house, before letting her take the dominant role in having sex with you.",
 						true, true,
@@ -109,7 +109,7 @@ public class RentalMommyDialogue {
 				
 			} else if(index==2) {
 				if(Main.game.getPlayer().getMoney()<2000) {
-					return new Response("Dominant Sex "+UtilText.formatAsMoneyUncoloured(2000, "span"), "You don't have enough money for this!", null);
+					return new Response("Dominant Sex "+UtilText.formatAsMoneyUncolored(2000, "span"), "You don't have enough money for this!", null);
 				}
 				return new ResponseSex("Dominant Sex "+UtilText.formatAsMoney(2000, "span"), "Follow Mommy into her house, before taking the dominant role and having sex with her.",
 						true, true,
@@ -135,10 +135,10 @@ public class RentalMommyDialogue {
 				
 			} else if(index==3) {
 				if(Main.game.getPlayer().getMoney()<500) {
-					return new Response("Breastfeeding "+UtilText.formatAsMoneyUncoloured(500, "span"), "You don't have enough money for this!", null);
+					return new Response("Breastfeeding "+UtilText.formatAsMoneyUncolored(500, "span"), "You don't have enough money for this!", null);
 				}
 				if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
-					return new Response("Breastfeeding "+UtilText.formatAsMoneyUncoloured(500, "span"), "You can't access your mouth, so you can't be breastfed by Mommy!", null);
+					return new Response("Breastfeeding "+UtilText.formatAsMoneyUncolored(500, "span"), "You can't access your mouth, so you can't be breastfed by Mommy!", null);
 				}
 				return new Response("Breastfeeding "+UtilText.formatAsMoney(500, "span"), "Follow Mommy into her house and be breastfed by her.", MOMMYS_EXTRAS_BREASTFEEDING) {
 					@Override
@@ -152,10 +152,10 @@ public class RentalMommyDialogue {
 				
 			} else if(index==4) {
 				if(Main.game.getPlayer().getMoney()<1000) {
-					return new Response("Public Breastfeeding "+UtilText.formatAsMoneyUncoloured(1000, "span"), "You don't have enough money for this!", null);
+					return new Response("Public Breastfeeding "+UtilText.formatAsMoneyUncolored(1000, "span"), "You don't have enough money for this!", null);
 				}
 				if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
-					return new Response("Public Breastfeeding "+UtilText.formatAsMoneyUncoloured(1000, "span"), "You can't access your mouth, so you can't be breastfed by Mommy!", null);
+					return new Response("Public Breastfeeding "+UtilText.formatAsMoneyUncolored(1000, "span"), "You can't access your mouth, so you can't be breastfed by Mommy!", null);
 				}
 				return new Response("Public Breastfeeding "+UtilText.formatAsMoney(1000, "span"), "Remain out here on the bench, and, in full sight of the public, be breastfed by Mommy.", MOMMYS_EXTRAS_BREASTFEEDING_PUBLIC) {
 					@Override

@@ -40,16 +40,16 @@
 
     <incompatibleSlots/>
 
-    <primaryColours>
-		<colour>CLOTHING_GOLD</colour>
-    </primaryColours>
-    <primaryColoursDye values="ALL_WITH_METALS"/>
-    <secondaryColours>
-		<colour>CLOTHING_BLACK</colour>
-	</secondaryColours>
-    <secondaryColoursDye values="ALL_WITH_METALS"/>
-    <tertiaryColours/>
-    <tertiaryColoursDye/>
+    <primaryColors>
+		<color>CLOTHING_GOLD</color>
+    </primaryColors>
+    <primaryColorsDye values="ALL_WITH_METALS"/>
+    <secondaryColors>
+		<color>CLOTHING_BLACK</color>
+	</secondaryColors>
+    <secondaryColorsDye values="ALL_WITH_METALS"/>
+    <tertiaryColors/>
+    <tertiaryColorsDye/>
 
     <itemTags>
       <tag>CONDOM</tag>
