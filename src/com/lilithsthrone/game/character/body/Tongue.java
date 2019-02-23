@@ -29,9 +29,9 @@ public class Tongue implements BodyPartInterface {
 	public Tongue(TongueType type) {
 		this.type = type;
 		pierced = false;
-		
+
 		tongueLength = type.getDefaultTongueLength();
-		
+
 		this.tongueModifiers = new HashSet<>(type.getDefaultRacialTongueModifiers());
 	}
 
@@ -39,7 +39,7 @@ public class Tongue implements BodyPartInterface {
 	public TongueType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -49,7 +49,7 @@ public class Tongue implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -59,18 +59,18 @@ public class Tongue implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	public String getDescriptor(GameCharacter owner) {
 		List<String> list = new ArrayList<>();
-		
+
 		for(TongueModifier tm : tongueModifiers) {
 			list.add(tm.getName());
 		}
 		list.add(type.getDescriptor(owner));
-		
+
 		return UtilText.returnStringAtRandom(list.toArray(new String[]{}));
 	}
-	
+
 	/**
 	 * Tongue type is set when FaceType changes.
 	 */
@@ -86,9 +86,9 @@ public class Tongue implements BodyPartInterface {
 		if(this.pierced == pierced) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.pierced = pierced;
-		
+
 		if(pierced) {
 			if(owner.isPlayer()) {
 				return "<p>Your [pc.tongue] is now [style.boldGrow(pierced)]!</p>";
@@ -96,7 +96,7 @@ public class Tongue implements BodyPartInterface {
 				return UtilText.parse(owner,
 						"<p>[npc.NamePos] [npc.tongue] is now [style.boldGrow(pierced)]!</p>");
 			}
-			
+
 		} else {
 			AbstractClothing c = owner.getClothingInSlot(InventorySlot.PIERCING_TONGUE);
 			String piercingUnequip = "";
@@ -104,7 +104,7 @@ public class Tongue implements BodyPartInterface {
 				owner.forceUnequipClothingIntoVoid(owner, c);
 				piercingUnequip = owner.addClothing(c, false);
 			}
-			
+
 			if(owner.isPlayer()) {
 				return "<p>"
 							+ "Your [pc.tongue] is [style.boldShrink(no longer pierced)]!"
@@ -119,11 +119,11 @@ public class Tongue implements BodyPartInterface {
 			}
 		}
 	}
-	
+
 	public TongueLength getTongueLength() {
 		return TongueLength.getTongueLengthFromInt(tongueLength);
 	}
-	
+
 	public int getTongueLengthValue() {
 		return tongueLength;
 	}
@@ -132,7 +132,7 @@ public class Tongue implements BodyPartInterface {
 		int oldTongueLength = this.tongueLength;
 		this.tongueLength = Math.max(0, Math.min(tongueLength, TongueLength.FOUR_ABSURDLY_LONG.getMaximumValue()));
 		int sizeChange = this.tongueLength - oldTongueLength;
-		
+
 		if(sizeChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The length of your [pc.tongue] doesn't change...)]</p>";
@@ -140,7 +140,7 @@ public class Tongue implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The length of [npc.namePos] [npc.tongue] doesn't change...)]</p>");
 			}
 		}
-		
+
 		if(sizeChange < 0) {
 			if(owner.isPlayer()) {
 				return "<p>A soothing coolness rises up into your [pc.tongue], causing you to let out a surprised gasp as you feel it [style.boldShrink(getting shorter)].<br/>"
@@ -149,7 +149,7 @@ public class Tongue implements BodyPartInterface {
 				return UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a soothing coolness rise up into [npc.her] [npc.tongue], before it suddenly [style.boldShrink(gets shorter)].<br/>"
 						+ "[npc.Name] now has "+UtilText.generateSingularDeterminer(Util.intToString(this.tongueLength))+" [style.boldTfGeneric("+this.tongueLength+"-inch [npc.tongue])]!</p>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				return "<p>A pulsating warmth rises up into your [pc.tongue], causing you to let out a surprised gasp as you feel it [style.boldGrow(growing longer)].<br/>"
@@ -160,7 +160,7 @@ public class Tongue implements BodyPartInterface {
 			}
 		}
 	}
-	
+
 	public boolean hasTongueModifier(TongueModifier modifier) {
 		return tongueModifiers.contains(modifier);
 	}
@@ -169,9 +169,9 @@ public class Tongue implements BodyPartInterface {
 		if(hasTongueModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		tongueModifiers.add(modifier);
-		
+
 		switch(modifier) {
 			case RIBBED:
 				if(owner.isPlayer()) {
@@ -211,7 +211,7 @@ public class Tongue implements BodyPartInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
@@ -220,9 +220,9 @@ public class Tongue implements BodyPartInterface {
 		if(!hasTongueModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		tongueModifiers.remove(modifier);
-		
+
 		switch(modifier) {
 			case RIBBED:
 				if(owner.isPlayer()) {
@@ -261,7 +261,7 @@ public class Tongue implements BodyPartInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}

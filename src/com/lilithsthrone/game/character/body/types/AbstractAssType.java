@@ -18,16 +18,16 @@ public abstract class AbstractAssType implements BodyPartTypeInterface {
 	private BodyCoveringType skinType;
 	private Race race;
 	private AnusType anusType;
-	
+
 	private List<String> names;
 	private List<String> namesPlural;
-	
+
 	private List<String> descriptorsMasculine;
 	private List<String> descriptorsFeminine;
-	
+
 	private String assTransformationDescription;
 	private String assBodyDescription;
-	
+
 	/**
 	 * @param skinType What covers this ass type (i.e skin/fur/feather type). This is never used, as skin type covering ass is determined by torso covering.
 	 * @param race What race has this ass type.
@@ -48,21 +48,21 @@ public abstract class AbstractAssType implements BodyPartTypeInterface {
 			List<String> descriptorsFeminine,
 			String assTransformationDescription,
 			String assBodyDescription) {
-		
+
 		this.skinType = skinType;
 		this.race = race;
 		this.anusType = anusType;
-		
+
 		this.names = names;
 		this.namesPlural = namesPlural;
-		
+
 		this.descriptorsMasculine = descriptorsMasculine;
 		this.descriptorsFeminine = descriptorsFeminine;
-		
+
 		this.assTransformationDescription = assTransformationDescription;
 		this.assBodyDescription = assBodyDescription;
 	}
-	
+
 	public AnusType getAnusType() {
 		return anusType;
 	}
@@ -84,7 +84,7 @@ public abstract class AbstractAssType implements BodyPartTypeInterface {
 		}
 		return Util.randomItemFrom(names);
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		if(namesPlural==null) {
@@ -122,7 +122,7 @@ public abstract class AbstractAssType implements BodyPartTypeInterface {
 	public String getBodyDescription(GameCharacter owner) {
 		return UtilText.parse(owner, assBodyDescription);
 	}
-	
+
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
 		return UtilText.parse(owner, assTransformationDescription);

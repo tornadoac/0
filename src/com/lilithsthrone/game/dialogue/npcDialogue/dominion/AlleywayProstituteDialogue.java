@@ -30,36 +30,36 @@ public class AlleywayProstituteDialogue {
 	private static int prostitutePrice() {
 		return CharacterUtils.getProstitutePrice(Main.game.getActiveNPC());
 	}
-	
+
 	private static boolean isCanal() {
 		PlaceType pt = Main.game.getActiveNPC().getLocationPlace().getPlaceType();
 		return (pt == PlaceType.DOMINION_ALLEYS_CANAL_CROSSING
 				|| pt == PlaceType.DOMINION_CANAL
 				|| pt == PlaceType.DOMINION_CANAL_END);
 	}
-	
+
 	public static final DialogueNode ALLEY_PROSTITUTE = new DialogueNode("Prostitute", "You run into someone who's selling their body.", true) {
-		
+
 		@Override
 		public String getLabel(){
 			return "Prostitute";
 		}
-		
+
 		@Override
 		public String getContent() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			// You've encountered them before:
 			if(Main.game.getActiveNPC().getLastTimeEncountered() != -1) {
-				
+
 				if(isCanal()) {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "You find yourself wandering down the path that runs alongside Dominion's canal, staying alert for any sign of trouble."
 								+ " Up ahead, you suddenly spot the familiar figure of [npc.name], [npc.a_fullRace(true)], leaning back against a brick wall."
 							+ "</p>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(
 							"<p>"
@@ -67,7 +67,7 @@ public class AlleywayProstituteDialogue {
 								+ " Reaching a turn in your path, you step around the corner to see a rare sign of life, taking the form of the familiar figure of [npc.name], [npc.a_fullRace(true)], leaning back against one wall."
 							+ "</p>");
 				}
-				
+
 				if(Main.game.getActiveNPC().getFoughtPlayerCount()>0) { // You've fought them before, so they're a little scared:
 					if(Main.game.getActiveNPC().isVisiblyPregnant()){ // Pregnant encounters:
 						if(!Main.game.getActiveNPC().isCharacterReactedToPregnancy(Main.game.getPlayer())) {
@@ -107,7 +107,7 @@ public class AlleywayProstituteDialogue {
 										+ " [npc.speech(So, you wanna fuck a pregnant "+(Main.game.getActiveNPC().isFeminine()?"chick":"dude")+"? I'll even give you a discount; twenty percent off for the father of our kids!)]"
 									+ "</p>");
 						}
-						
+
 					} else {
 						UtilText.nodeContentSB.append("<p>"
 									+ "Looking over at you, [npc.she] smiles and steps back, clearly nervous about what your intentions are, "
@@ -165,7 +165,7 @@ public class AlleywayProstituteDialogue {
 										+ " [npc.speech(So, you wanna fuck a pregnant "+(Main.game.getActiveNPC().isFeminine()?"chick":"dude")+"? I'll even give you a discount; twenty percent off for the father of our kids!)]"
 									+ "</p>");
 						}
-						
+
 					} else {
 						UtilText.nodeContentSB.append("<p>"
 									+ "Looking over at you, [npc.she] smiles and steps forwards, blocking your way. "
@@ -185,16 +185,16 @@ public class AlleywayProstituteDialogue {
 								+ "</p>");
 					}
 				}
-				
+
 			} else {
-				
+
 				if(isCanal()) {
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "You find yourself wandering down the path that runs alongside Dominion's canal, staying alert for any sign of trouble."
 								+ " Up ahead, you suddenly spot a rare sign of life, taking the form of [npc.a_fullRace(true)], leaning back against a brick wall."
 							+ "</p>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(
 							"<p>"
@@ -202,7 +202,7 @@ public class AlleywayProstituteDialogue {
 								+ " Reaching a turn in your path, you step around the corner to see a rare sign of life, taking the form of [npc.a_fullRace(true)], leaning back against one wall."
 							+ "</p>");
 				}
-				
+
 				UtilText.nodeContentSB.append("<p>"
 						+ "Looking over at you, [npc.she] smiles and steps forwards, blocking your way. "
 						+ UtilText.returnStringAtRandom(
@@ -220,7 +220,7 @@ public class AlleywayProstituteDialogue {
 						+ " [npc.speech(Come on! Only "+Util.intToString(prostitutePrice())+" flames, and [npc.namePos] all yours!)]"
 					+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -243,13 +243,13 @@ public class AlleywayProstituteDialogue {
 								+ "</p>");
 					}
 				};
-				
+
 			} else if (index == 2) {
 				int cost = prostitutePrice();
-				
+
 				if(Main.game.getPlayer().getMoney()<cost) {
 					return new Response("Dominant Sex ("+UtilText.formatAsMoney(cost, "span")+")", "You don't have "+cost+" flames, so you can't afford a good time with [npc.name].", null);
-					
+
 				} else {
 					return new ResponseSex("Dominant Sex ("+UtilText.formatAsMoney(cost, "span")+")",
 							"Pay [npc.name] "+cost+" flames to have a good time with [npc.herHim].",
@@ -292,13 +292,13 @@ public class AlleywayProstituteDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 3) {
 				int cost = prostitutePrice();
-				
+
 				if(Main.game.getPlayer().getMoney()<cost) {
 					return new Response("Submissive Sex ("+UtilText.formatAsMoney(cost, "span")+")", "You don't have "+cost+" flames, so you can't afford a good time with [npc.name].", null);
-					
+
 				} else {
 					return new ResponseSex("Submissive Sex ("+UtilText.formatAsMoney(cost, "span")+")",
 							"Pay [npc.name] "+cost+" flames to have a good time with [npc.herHim].",
@@ -344,7 +344,7 @@ public class AlleywayProstituteDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 4) {
 				return new Response("Attack",
 						"If you really wanted to, there's nothing stopping you from attacking [npc.name]. After all, if [npc.sheIs] run afoul of the law, as you assume [npc.she] has, then [npc.sheIs] fair game!",
@@ -360,7 +360,7 @@ public class AlleywayProstituteDialogue {
 						return true;
 					}
 				};
-				
+
 			} else if (index == 5 && Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.prostitutionLicenseObtained)) {
 				if(RedLightDistrict.isSpaceForMoreProstitutes()) {
 					return new Response("Angel's Kiss", "Offer [npc.name] a job at Angel's Kiss.", ALLEY_PROSTITUTE_SAVED) {
@@ -376,19 +376,19 @@ public class AlleywayProstituteDialogue {
 							Main.game.getActiveNPC().setRandomUnoccupiedLocation(WorldType.ANGELS_KISS_GROUND_FLOOR, PlaceType.ANGELS_KISS_BEDROOM, true);
 						}
 					};
-					
+
 				} else {
 					return new Response("Angel's Kiss", "There's no room available at Angel's Kiss for another prostitute...", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALLEY_PROSTITUTE_SAVED = new DialogueNode("", "", true, true) {
-		
+
 		@Override
 		public String getContent() {
 			return "<p>"
@@ -433,15 +433,15 @@ public class AlleywayProstituteDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Continue", "Continue on your way through Dominion's alleyways...", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALLEY_PROSTITUTE_FIGHT = new DialogueNode("", "", true, true) {
-		
+
 		@Override
 		public String getContent() {
 				return "<p>"
@@ -466,7 +466,7 @@ public class AlleywayProstituteDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new ResponseCombat("Fight", "[npc.Name] is determined not to be caught, leaving you with no choice but to defend yourself!", Main.game.getActiveNPC());
-				
+
 			} else {
 				return null;
 			}
@@ -498,7 +498,7 @@ public class AlleywayProstituteDialogue {
 						+ "<i>Now that you've revealed [npc.namePos] status as a fugitive from the law, you realize that this will be the last time you ever see [npc.herHim], as [npc.sheIs] sure to move on once you leave.</i>"
 					+ "</p>");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -508,7 +508,7 @@ public class AlleywayProstituteDialogue {
 						Main.game.banishNPC(Main.game.getActiveNPC());
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new ResponseSex("Have some fun",
 						"It's clear that [npc.she] wants you. Have some fun with [npc.name].",
@@ -520,7 +520,7 @@ public class AlleywayProstituteDialogue {
 						null),
 						AFTER_SEX_VICTORY,
 						"");
-				
+
 			} else if (index == 3) {
 				return new ResponseSex("Gentle fun",
 						"It's clear that [npc.she] wants you. Have some fun with [npc.name]. (Start the sex scene in the 'gentle' pace.)",
@@ -532,7 +532,7 @@ public class AlleywayProstituteDialogue {
 								ResponseTag.START_PACE_PLAYER_DOM_GENTLE),
 						AFTER_SEX_VICTORY,
 						"");
-				
+
 			} else if (index == 4) {
 				return new ResponseSex("Rough fun",
 						"It's clear that [npc.she] wants you. Have some fun with [npc.name]. (Start the sex scene in the 'rough' pace.)",
@@ -544,7 +544,7 @@ public class AlleywayProstituteDialogue {
 								ResponseTag.START_PACE_PLAYER_DOM_ROUGH),
 						AFTER_SEX_VICTORY,
 						"");
-				
+
 			} else if (index == 5) {
 				return new ResponseSex("Submit",
 						"You're not really sure what to do now...<br/>"
@@ -576,7 +576,7 @@ public class AlleywayProstituteDialogue {
 							+ " You let out a muffled yelp as your opponent takes charge, but as you feel [npc.her] [npc.hands] reaching down to start roughly groping your ass,"
 								+ " you realize that you couldn't be happier with how things have turned out..."
 						+ "</p>");
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Inventory", "Now that you've defeated [npc.name], there's nothing stopping you from helping yourself to [npc.her] clothing and items..."){
 					@Override
@@ -584,7 +584,7 @@ public class AlleywayProstituteDialogue {
 						Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -592,7 +592,7 @@ public class AlleywayProstituteDialogue {
 	};
 
 	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeat", "", true) {
-		
+
 		@Override
 		public String getDescription() {
 			return "You have been defeated by [npc.name]!";
@@ -636,7 +636,7 @@ public class AlleywayProstituteDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.getActiveNPC().isWillingToRape(Main.game.getPlayer())) {
@@ -652,7 +652,7 @@ public class AlleywayProstituteDialogue {
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>");
-					
+
 				} else if (index == 2) {
 					return new ResponseSex("Eager Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -668,7 +668,7 @@ public class AlleywayProstituteDialogue {
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>");
-					
+
 				} else if (index == 3 && Main.game.isNonConEnabled()) {
 					return new ResponseSex("Resist Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -685,11 +685,11 @@ public class AlleywayProstituteDialogue {
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
 								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 							+ "</p>");
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Continue", "Carry on your way.", AFTER_COMBAT_DEFEAT){
@@ -698,16 +698,16 @@ public class AlleywayProstituteDialogue {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_PAID = new DialogueNode("Step back", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Now that you've had your fun, you can step back and leave [npc.name] to recover.";
@@ -745,7 +745,7 @@ public class AlleywayProstituteDialogue {
 								+ "</p>");
 					}
 				};
-				
+
 			} if (index == 2) {
 				return new Response("Attack", "If you really wanted to, there's nothing stopping you from attacking [npc.name]. After all, if [npc.sheIs] run afoul of the law, as you assume [npc.she] has, then [npc.sheIs] fair game!", AFTER_SEX_PAID_FIGHT) {
 					@Override
@@ -753,7 +753,7 @@ public class AlleywayProstituteDialogue {
 						return true;
 					}
 				};
-				
+
 			} else if (index == 10) {
 				if(Main.game.getPlayer().getMoney()<5000) {
 					return new Response("Remove character ("+UtilText.formatAsMoney(5000, "span")+")", "You don't have 5000 flames, so you can't afford to pay [npc.name] to leave this area.", null);
@@ -769,15 +769,15 @@ public class AlleywayProstituteDialogue {
 						}
 					};
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_PAID_FIGHT = new DialogueNode("", "", true, true) {
-		
+
 		@Override
 		public String getContent() {
 				return "<p>"
@@ -802,15 +802,15 @@ public class AlleywayProstituteDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new ResponseCombat("Defend yourself", "[npc.Name] is determined not to be caught, leaving you with no choice but to defend yourself!", Main.game.getActiveNPC());
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_PAID_PAY_THEM_TO_LEAVE = new DialogueNode("", "", true, true) {
-		
+
 		@Override
 		public String getContent() {
 				return "<p>"
@@ -867,15 +867,15 @@ public class AlleywayProstituteDialogue {
 						Main.game.banishNPC(Main.game.getActiveNPC());
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Step back", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Now that you've had your fun, you can step back and leave [npc.name] to recover.";
@@ -902,7 +902,7 @@ public class AlleywayProstituteDialogue {
 							+ "<i>Now that you've revealed [npc.namePos] status as a fugitive from the law, you realize that this will be the last time you ever see [npc.herHim], as [npc.sheIs] sure to move on once you leave.</i>"
 						+ "</p>");
 			}
-			
+
 		}
 
 		@Override
@@ -914,7 +914,7 @@ public class AlleywayProstituteDialogue {
 						Main.game.banishNPC(Main.game.getActiveNPC());
 					}
 				};
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Inventory", "There's nothing stopping you from helping yourself to [npc.namePos] clothing and items..."){
 					@Override
@@ -922,20 +922,20 @@ public class AlleywayProstituteDialogue {
 						Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Collapse", "", true) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 15;
 		}
-		
+
 		@Override
 		public String getDescription(){
 			return "You're completely worn out from [npc.namePos] dominant treatment, and need a while to recover.";
@@ -968,11 +968,11 @@ public class AlleywayProstituteDialogue {
 						Main.game.banishNPC(Main.game.getActiveNPC());
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 }

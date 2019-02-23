@@ -31,7 +31,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class ArcaneArts {
-	
+
 	public static final DialogueNode EXTERIOR = new DialogueNode("Arcane Arts (Exterior)", "-", false) {
 
 		@Override
@@ -42,12 +42,12 @@ public class ArcaneArts {
 						+ " Wanting to take a closer look, you walk up to the entrance, and, looking through the glass into the shop's gloomy interior, you see signs of movement behind the counter."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Enter", "Step inside Arcane Arts.", SHOP_WEAPONS);
-				
+
 			} else if (index == 6) {
 				return new Response("Arcade Entrance", "Fast travel to the entrance to the arcade.", ShoppingArcadeDialogue.ENTRY){
 					@Override
@@ -61,12 +61,12 @@ public class ArcaneArts {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_WEAPONS = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
 		public String getContent() {
-			
+
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.vickyIntroduced)) {
 				return "<p>"
 						+ "Pushing open the door to Arcane Arts once again, your arrival is announced by the familiar sound of a little bell ringing above you."
@@ -81,7 +81,7 @@ public class ArcaneArts {
 					+ "<p>"
 						+ "The toothy, menacing grin on Vicky's wolf-like face is extremely worrying, but surely she isn't going to attack a customer..."
 					+ "</p>";
-				
+
 			} else {
 				return "<p>"
 						+ "Pushing open the door, your arrival is announced by the sound of a little bell ringing above you."
@@ -101,7 +101,7 @@ public class ArcaneArts {
 						+ " The toothy grin on her wolf-like face is extremely worrying, but surely she isn't going to attack a customer..."
 					+ "</p>";
 			}
-			
+
 		}
 
 		@Override
@@ -113,13 +113,13 @@ public class ArcaneArts {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.vickyIntroduced, true);
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursPackageObtained)) {
 					if(Main.game.getPlayer().getQuest(QuestLine.SIDE_HYPNO_WATCH)==Quest.SIDE_HYPNO_WATCH_VICKY) {
 						if(Main.game.getPlayer().isInventoryFull()) {
 							return new Response("Arthur's package", "You don't have enough room in your inventory for the package!", null);
-							
+
 						} else {
 							return new Response("Arthur's package", "Tell Vicky that you're here to collect Arthur's package.", ARTHURS_PACKAGE) {
 								@Override
@@ -128,7 +128,7 @@ public class ArcaneArts {
 								}
 							};
 						}
-						
+
 					} else {
 						return null;
 					}
@@ -161,10 +161,10 @@ public class ArcaneArts {
 						return new Response("Offer body", "Vicky needs to be able to access your anus"+(Main.game.getPlayer().hasVagina()?" or vagina":"")+"!", null);
 					}
 				}
-				
+
 			} else if (index == 3 && Main.getProperties().hasValue(PropertyValue.nonConContent) && Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursPackageObtained)) {
 				if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true) || (Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true) && Main.game.getPlayer().hasVagina())) {
-					
+
 					return new ResponseSex("Nervously leave", "Vicky is far too intimidating for you... Turn around and try to escape from her gaze. [style.boldBad(You get the feeling that this will result in non-consensual sex...)]",
 							Util.newArrayListOfValues(
 									Fetish.FETISH_SUBMISSIVE,
@@ -204,11 +204,11 @@ public class ArcaneArts {
 								+ "Stepping forwards, she [npc.verb(position)] herself between your legs, making a point to grind her huge erection up against your crotch as she snarls,"
 								+ " [vicky.speech(Scream and cry as much as you want! I hope you like it rough, because I don't go easy with pathetic bitches like you!)]"
 							+ "</p>");
-					
+
 				} else {
 					return new Response("Nervously leave", "Vicky needs to be able to access your anus"+(Main.game.getPlayer().hasVagina()?" or vagina":"")+"!", null);
 				}
-				
+
 			} else if (index == 0) {
 				return new Response("Leave", "Leave Arcane Arts and head back out into the arcade.", EXTERIOR) {
 					@Override
@@ -222,7 +222,7 @@ public class ArcaneArts {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ARTHURS_PACKAGE = new DialogueNode("Arcane Arts", "-", true, true) {
 
 		@Override
@@ -263,7 +263,7 @@ public class ArcaneArts {
 						+ " [vicky.speech(So what's it going to be? You got the flames? Or am I going to have to fuck the payment out of you?)]"
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -277,9 +277,9 @@ public class ArcaneArts {
 						}
 					};
 				} else {
-					return new Response("Pay ("+UtilText.formatAsMoneyUncolored(100, "span")+")", "You don't have enough money to pay the fee!", null);	
+					return new Response("Pay ("+UtilText.formatAsMoneyUncolored(100, "span")+")", "You don't have enough money to pay the fee!", null);
 				}
-				
+
 			} else if (index == 2) {
 				if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true) || (Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true) && Main.game.getPlayer().hasVagina())) {
 					return new ResponseSex("Offer body", "Let Vicky use your body as payment for the fee.",
@@ -306,10 +306,10 @@ public class ArcaneArts {
 				} else {
 					return new Response("Offer body", "Vicky needs to be able to access your anus"+(Main.game.getPlayer().hasVagina()?" or vagina":"")+"!", null);
 				}
-				
+
 			} else if (index == 3 && Main.getProperties().hasValue(PropertyValue.nonConContent)) {
 				if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true) || (Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true) && Main.game.getPlayer().hasVagina())) {
-					
+
 					return new ResponseSex("Weakly refuse", "You can't bring yourself to say no to such an intimidating person... Try to wriggle free and leave... [style.boldBad(You get the feeling that this will result in non-consensual sex...)]",
 							Util.newArrayListOfValues(
 									Fetish.FETISH_SUBMISSIVE,
@@ -348,11 +348,11 @@ public class ArcaneArts {
 								+ "Stepping forwards, she [npc.verb(position)] herself between your legs, making a point to grind her huge erection up against your crotch as she snarls,"
 								+ " [vicky.speech(Scream and cry as much as you want! I hope you like it rough, because I don't go easy with pathetic bitches like you!)]"
 							+ "</p>");
-					
+
 				} else {
 					return new Response("Weakly refuse", "Vicky needs to be able to access your anus"+(Main.game.getPlayer().hasVagina()?" or vagina":"")+"!", null);
 				}
-				
+
 			} else if (index == 0) {
 				return new Response("Leave", "Leave Arcane Arts and head back out into the arcade.", EXTERIOR) {
 					@Override
@@ -368,13 +368,13 @@ public class ArcaneArts {
 								+ "</p>");
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ARTHURS_PACKAGE_BOUGHT = new DialogueNode("Arcane Arts", "-", true, true) {
 
 		@Override
@@ -392,13 +392,13 @@ public class ArcaneArts {
 						+ "Vicky leans back against the wall as you take the package, before fixing her gaze onto your face as she waits to see what you'll do next..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_WEAPONS.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode VICKY_POST_SEX_PACKAGE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
@@ -415,13 +415,13 @@ public class ArcaneArts {
 						+ " Vicky leans back against the wall, fixing her gaze onto your face as she waits to see what you'll do next..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_WEAPONS.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode VICKY_POST_SEX_RAPE_PACKAGE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
@@ -438,13 +438,13 @@ public class ArcaneArts {
 					+ " Vicky leans back against the wall, fixing her gaze onto your face as she waits to see what you'll do next..."
 				+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_WEAPONS.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode VICKY_POST_SEX = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
@@ -460,13 +460,13 @@ public class ArcaneArts {
 						+ " Vicky leans back against the wall, fixing her gaze onto your face as she waits to see what you'll do next..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_WEAPONS.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode VICKY_POST_SEX_RAPE = new DialogueNode("Arcane Arts", "-", true) {
 
 		@Override
@@ -482,7 +482,7 @@ public class ArcaneArts {
 					+ " Vicky leans back against the wall, fixing her gaze onto your face as she waits to see what you'll do next..."
 				+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_WEAPONS.getResponse(responseTab, index);

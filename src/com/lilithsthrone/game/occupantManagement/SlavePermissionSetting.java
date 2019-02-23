@@ -6,19 +6,19 @@ package com.lilithsthrone.game.occupantManagement;
  * @author Innoxia
  */
 public enum SlavePermissionSetting {
-	
+
 	GENERAL_SILENCE("Silence", "Forbid this slave from talking.", false),
 	GENERAL_CRAWLING("Crawling", "Forbid this slave from walking, forcing them to crawl around on all fours.", false),
 	GENERAL_HOUSE_FREEDOM("House Freedom", "Grant this slave the freedom to walk around Lilaya's house in their free time.", false),
 	GENERAL_OUTSIDE_FREEDOM("Outside Freedom", "Grant this slave the freedom to leave Lilaya's house in their free time.", false),
-	
+
 	SEX_MASTURBATE("Masturbation", "Allow this slave to masturbate.", false),
 	SEX_INITIATE_SLAVES("Initiate Sex", "Allow this slave to initiate sex with any other slave that has the 'Sex Toy' permission enabled.", false),
 	SEX_INITIATE_PLAYER("Use You", "Allow this slave to use you for sexual relief. This will allow them to initiate sex with you at any time.", false),
 	SEX_RECEIVE_SLAVES("Sex Toy", "Allow this slave to be used for sexual relief by any of your slaves with the 'Initiate Sex' permission enabled.", false),
 	SEX_IMPREGNATED("Breeding Bitch", "Allow this slave to be impregnated during sexual events with any other slave that has the 'Slave Stud' permission enabled.", false),
 	SEX_IMPREGNATE("Slave Stud", "Allow this slave to impregnate any other slave that has the 'Breeding Bitch' permission enabled during sexual events.", false),
-	
+
 	PREGNANCY_PROMISCUITY_PILLS("Promiscuity Pills", "Keep this slave on Promiscuity Pills, ensuring that they won't get pregnant.", false),
 	PREGNANCY_NO_PILLS("No Pills", "Don't give this slave any sort of fertility modification pills, resulting in a natural chance of them getting pregnant.", true),
 	PREGNANCY_VIXENS_VIRILITY("Vixen's Virility", "Keep this slave on Vixen's Virility, greatly increasing both their fertility and virility.", false),
@@ -34,15 +34,15 @@ public enum SlavePermissionSetting {
 	EXERCISE_NORMAL("Maintain Muscle", "Set this slave to perform the right amount of exercise needed in order to maintain their muscles.", true),
 	EXERCISE_TRAINING("Workout Routine", "Give this slave a workout routine, which will result in their muscles getting a little bigger every day.", false),
 	EXERCISE_BODY_BUILDING("Bodybuilding", "Give this slave a strenuous exercise routine, which will result in their muscles getting a lot bigger every day.", false),
-	
+
 	CLEANLINESS_WASH_CLOTHES("Wash Clothing", "Tell this slave to keep their clothing washed and clean.", true),
 	CLEANLINESS_WASH_BODY("Wash Body", "Tell this slave to keep their body washed and clean, which will keep their orifices free of creampies.", true)
 	;
-	
+
 	private String name;
 	private String description;
 	private boolean defaultValue;
-	
+
 	private SlavePermissionSetting(String name, String description, boolean defaultValue) {
 		this.name = name;
 		this.description = description;
@@ -60,5 +60,5 @@ public enum SlavePermissionSetting {
 	public boolean isDefaultValue() {
 		return defaultValue;
 	}
-	
+
 }

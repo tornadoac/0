@@ -26,7 +26,7 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public class Nipples implements BodyPartInterface {
-	
+
 	protected NippleType type;
 	protected OrificeNipples orificeNipples;
 	protected NippleShape nippleShape;
@@ -45,7 +45,7 @@ public class Nipples implements BodyPartInterface {
 		orificeNipples = new OrificeNipples(wetness, capacity, elasticity, plasticity, virgin, type.getDefaultRacialOrificeModifiers());
 		this.crotchNipples = crotchNipples;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -77,11 +77,11 @@ public class Nipples implements BodyPartInterface {
 	@Override
 	public String getDescriptor(GameCharacter owner) {
 		List<String> descriptorList = new ArrayList<>();
-		
+
 		for(OrificeModifier om : orificeNipples.getOrificeModifiers()) {
 			descriptorList.add(om.getName());
 		}
-		
+
 		if(owner.isBreastFuckableNipplePenetration()) {
 			switch(owner.getBreastMilkStorage().getAssociatedWetness()) {
 				case ONE_SLIGHTLY_MOIST:
@@ -97,18 +97,18 @@ public class Nipples implements BodyPartInterface {
 					break;
 			}
 		}
-		
+
 		if(Main.game.isInSex() && Sex.getAllParticipants().contains(owner)) {
 			if(Sex.hasLubricationTypeFromAnyone(owner, SexAreaOrifice.NIPPLE)) {
 				descriptorList.add("wet");
 			}
 		}
-		
+
 		descriptorList.add(type.getDescriptor(owner));
 		if(orificeNipples.getCapacity()!= Capacity.ZERO_IMPENETRABLE) {
 			descriptorList.add(orificeNipples.getCapacity().getDescriptor());
 		}
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
 
@@ -124,7 +124,7 @@ public class Nipples implements BodyPartInterface {
 	public NippleSize getNippleSize() {
 		return NippleSize.getNippleSizeFromInt(nippleSize);
 	}
-	
+
 	public int getNippleSizeValue() {
 		return nippleSize;
 	}
@@ -138,16 +138,16 @@ public class Nipples implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
 			}
 		}
-		
+
 		String transformation = "";
-		
+
 		if(this.nippleSize > boundNippleSize) {
 			if(owner.isPlayer()) {
 				transformation = "<p>A soothing coolness rises up into your [pc.nipples], causing you to let out a surprised gasp as you feel them [style.boldShrink(shrinking)].<br/>";
 			} else {
 				transformation = UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a soothing coolness rise up into [npc.her] [npc.nipples], before they suddenly [style.boldShrink(shrink)].<br/>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				transformation = "<p>A pulsating warmth rises up into your [pc.nipples], causing you to let out a surprised gasp as you feel them [style.boldGrow(growing larger)].<br/>";
@@ -155,7 +155,7 @@ public class Nipples implements BodyPartInterface {
 				transformation = UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a pulsating warmth rise up into [npc.her] [npc.nipples], before they suddenly [style.boldGrow(grow larger)].<br/>");
 			}
 		}
-		
+
 		this.nippleSize = boundNippleSize;
 
 		if(owner.isPlayer()) {
@@ -169,9 +169,9 @@ public class Nipples implements BodyPartInterface {
 	public NippleShape getNippleShape() {
 		return nippleShape;
 	}
-	
+
 	public String setNippleShape(GameCharacter owner, NippleShape nippleShape) {
-		
+
 		if(this.nippleShape == nippleShape) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The shape of your [pc.nipples] doesn't change...)]</p>");
@@ -179,9 +179,9 @@ public class Nipples implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The shape of [npc.namePos] [npc.nipples] doesn't change...)]</p>");
 			}
 		}
-		
+
 		String transformation = "";
-		
+
 		switch(nippleShape) {
 			case NORMAL:
 				if(owner.isPlayer()) {
@@ -223,21 +223,21 @@ public class Nipples implements BodyPartInterface {
 				}
 				break;
 		}
-		
+
 		// Parse TF before changing nipple type:
 		transformation = UtilText.parse(owner, transformation);
-		
+
 		this.nippleShape = nippleShape;
-		
+
 		return transformation;
 	}
-	
+
 	public AreolaeShape getAreolaeShape() {
 		return areolaeShape;
 	}
-	
+
 	public String setAreolaeShape(GameCharacter owner, AreolaeShape areolaeShape) {
-		
+
 		if(this.areolaeShape == areolaeShape) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The shape of your areolae doesn't change...)]</p>");
@@ -247,7 +247,7 @@ public class Nipples implements BodyPartInterface {
 		}
 
 		this.areolaeShape = areolaeShape;
-		
+
 		String transformation = "";
 		switch(areolaeShape) {
 			case NORMAL:
@@ -278,7 +278,7 @@ public class Nipples implements BodyPartInterface {
 				}
 				break;
 		}
-		
+
 		return UtilText.parse(owner, transformation);
 	}
 
@@ -289,7 +289,7 @@ public class Nipples implements BodyPartInterface {
 	public AreolaeSize getAreolaeSize() {
 		return AreolaeSize.getAreolaeSizeFromInt(areolaeSize);
 	}
-	
+
 	public int getAreolaeSizeValue() {
 		return areolaeSize;
 	}
@@ -303,16 +303,16 @@ public class Nipples implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] areolae doesn't change...)]</p>");
 			}
 		}
-		
+
 		String transformation = "";
-		
+
 		if (this.areolaeSize > boundAreolaeSize) {
 			if(owner.isPlayer()) {
 				transformation = "<p>You feel a strange tingling sensation suddenly build up around your [pc.nipples], and you let out a little cry as you feel your areolae [style.boldShrink(shrinking)].<br/>";
 			} else {
 				transformation = UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a strange tingling sensation suddenly build up around [npc.her] [npc.nipples], before [npc.her] areolae suddenly [style.boldShrink(shrink)].<br/>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				transformation = "<p>You feel a strange tingling sensation suddenly build up around your [pc.nipples], and you let out a little cry as you feel your areolae [style.boldGrow(getting larger)].<br/>";
@@ -320,7 +320,7 @@ public class Nipples implements BodyPartInterface {
 				transformation = UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a strange tingling sensation suddenly build up around [npc.her] [npc.nipples], before [npc.her] areolae suddenly [style.boldGrow(grow larger)].<br/>");
 			}
 		}
-		
+
 		this.areolaeSize = boundAreolaeSize;
 
 		if(owner.isPlayer()) {
@@ -335,14 +335,14 @@ public class Nipples implements BodyPartInterface {
 	public boolean isPierced() {
 		return pierced;
 	}
-	
+
 	public String setPierced(GameCharacter owner, boolean pierced) {
 		if(this.pierced == pierced) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.pierced = pierced;
-		
+
 		if(pierced) {
 			if(owner.isPlayer()) {
 				return "<p>Your [pc.nipples] are now [style.boldGrow(pierced)]!</p>";
@@ -350,7 +350,7 @@ public class Nipples implements BodyPartInterface {
 				return UtilText.parse(owner,
 						"<p>[npc.NamePos] [npc.nipples] are now [style.boldGrow(pierced)]!</p>");
 			}
-			
+
 		} else {
 			AbstractClothing c = owner.getClothingInSlot(InventorySlot.PIERCING_NIPPLE);
 			String piercingUnequip = "";
@@ -358,7 +358,7 @@ public class Nipples implements BodyPartInterface {
 				owner.forceUnequipClothingIntoVoid(owner, c);
 				piercingUnequip = owner.addClothing(c, false);
 			}
-			
+
 			if(owner.isPlayer()) {
 				return "<p>"
 							+ "Your [pc.nipples] are [style.boldShrink(no longer pierced)]!"
@@ -372,7 +372,7 @@ public class Nipples implements BodyPartInterface {
 						+piercingUnequip);
 			}
 		}
-		
+
 	}
 
 	public boolean isCrotchNipples() {
@@ -394,7 +394,7 @@ public class Nipples implements BodyPartInterface {
 		}
 		return BodyCoveringType.NIPPLES;
 	}
-	
+
 	@Override
 	public boolean isBestial(GameCharacter owner) {
 		if(owner==null) {

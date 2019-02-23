@@ -96,19 +96,19 @@ public class Amber extends NPC {
 	public Amber() {
 		this(false);
 	}
-	
+
 	public Amber(boolean isImported) {
 		super(isImported, new NameTriplet("Amber"), "Acerbi",
 				"The highest-ranking of Zaranix's maids, Amber is clearly outraged by the fact that you're wandering around her master's house unsupervised.",
 				39, Month.OCTOBER, 17,
 				12, Gender.F_P_V_B_FUTANARI, Subspecies.DEMON, RaceStage.GREATER, new CharacterInventory(10), WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -119,34 +119,34 @@ public class Amber extends NPC {
 			this.setBodyMaterial(BodyMaterial.FLESH);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 75);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 40);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MAID);
-	
+
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_SADIST);
 			this.addFetish(Fetish.FETISH_DEFLOWERING);
 			this.addFetish(Fetish.FETISH_FOOT_GIVING);
 		}
-		
+
 		// Body:
 		// Add full body reset as this method is called after leaving Zaranix's house:
 		this.setAgeAppearanceDifferenceToAppearAsAge(28);
@@ -161,20 +161,20 @@ public class Amber extends NPC {
 		this.setFemininity(85);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, CoveringPattern.NONE, Color.EYE_AMBER, true, Color.EYE_AMBER, true));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_EBONY), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.VAGINA, CoveringPattern.ORIFICE_VAGINA, Color.SKIN_EBONY, false, Color.COVERING_AMBER, true), false);
 		this.setSkinCovering(new Covering(BodyCoveringType.ANUS, CoveringPattern.ORIFICE_ANUS, Color.SKIN_EBONY, false, Color.COVERING_AMBER, true), false);
 		this.setSkinCovering(new Covering(BodyCoveringType.NIPPLES, CoveringPattern.ORIFICE_NIPPLE, Color.COVERING_AMBER, true, Color.COVERING_AMBER, true), false);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_BLACK), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, CoveringPattern.NONE, Color.COVERING_AMBER, true, Color.COVERING_AMBER, true), true);
 		this.setHairLength(HairLength.FIVE_ABOVE_ASS.getMedianValue());
 		this.setHairStyle(HairStyle.WAVY);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, CoveringPattern.NONE, Color.COVERING_AMBER, true, Color.COVERING_AMBER, true), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.ZERO_NONE);
@@ -187,7 +187,7 @@ public class Amber extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -195,7 +195,7 @@ public class Amber extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(false);
 		this.setBreastSize(CupSize.G.getMeasurement());
@@ -203,14 +203,14 @@ public class Amber extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(false);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FOUR_WOMANLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.FOUR_FAT);
@@ -218,7 +218,7 @@ public class Amber extends NPC {
 		this.setTesticleSize(TesticleSize.FOUR_HUGE);
 		this.setPenisCumStorage(550);
 		this.fillCumToMaxStorage();
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -228,18 +228,18 @@ public class Amber extends NPC {
 		this.setVaginaWetness(Wetness.FOUR_SLIMY);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-		
+
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_EPIC, DamageType.FIRE));
-		
+
 		// Tattoos
 		// Scars
 
@@ -258,17 +258,17 @@ public class Amber extends NPC {
 	public String getName() {
 		if(!playerKnowsName) {
 			return "Fiery Maid";
-			
+
 		} else {
 			return "Amber";
 		}
 	}
-	
+
 	@Override
 	public String getDescription() {
 		if(!playerKnowsName) {
 			return "This fiery maid is clearly outraged by the fact that you're wandering around her master's house unsupervised";
-			
+
 		} else {
 			return "The highest-ranking of Zaranix's maids, Amber is one of the most striking succubi you've ever seen."
 					+ " Her amber hair and eyes, from which she gets her name, glow with a brilliant luminosity, providing a stark contrast to her jet-black ebony skin."
@@ -276,39 +276,39 @@ public class Amber extends NPC {
 					+ "Amber is ruthlessly sadistic, and delights in imposing her dominance over her subordinates.";
 		}
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		return "#FFB38A";
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public void endSex() {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.MAID_DRESS, Color.CLOTHING_BLACK, false), true, this);
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 
 	// Combat:
-	
+
 	@Override
 	public String getMainAttackDescription(boolean isHit) {
 		return "<p>"
@@ -316,20 +316,20 @@ public class Amber extends NPC {
 							"Amber's eyes burn with an incandescent fury as she delivers a kick straight into your side!",
 							"With a furious cry, Amber punches you square in the chest!",
 							"Spitting curses, Amber furiously kicks at your shins!",
-							"Amber's hair, burning with the same fiery fury as her eyes, swishes through the air as she spins to one side and delivers a solid punch to your [pc.arm]!") 
+							"Amber's hair, burning with the same fiery fury as her eyes, swishes through the air as she spins to one side and delivers a solid punch to your [pc.arm]!")
 				+ "</p>";
 	}
-			
+
 	@Override
 	public String getSpellDescription() {
 		return "<p>"
 				+ UtilText.returnStringAtRandom(
 						"Letting out a wild scream, Amber thrusts her arm into mid air as she casts a spell!",
 						"Spitting curses, Amber locks her blazing eyes onto yours, before casting a spell!",
-						"With an angry curse, Amber steps forwards and casts a spell!") 
+						"With an angry curse, Amber steps forwards and casts a spell!")
 			+ "</p>";
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_1_H_THE_GREAT_ESCAPE)) {
@@ -338,7 +338,7 @@ public class Amber extends NPC {
 			} else {
 				return new Response("", "", ZaranixHomeGroundFloorRepeat.COMBAT_LOSS);
 			}
-			
+
 		} else {
 			if (victory) {
 				return new Response("", "", AFTER_COMBAT_VICTORY) {
@@ -350,10 +350,10 @@ public class Amber extends NPC {
 			} else {
 				return new Response("", "", AFTER_COMBAT_DEFEAT);
 			}
-			
+
 		}
 	}
-	
+
 	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
@@ -385,7 +385,7 @@ public class Amber extends NPC {
 						return Main.game.getPlayer().getLocationPlace().getDialogue(false);
 					}
 				};
-				
+
 			} if(index==2) {
 				return new ResponseSex("Use Amber",
 						"Have some fun with this fiery maid.",
@@ -406,7 +406,7 @@ public class Amber extends NPC {
 							+ "She pushes herself off from the wall, wrapping her arms around your back and desperately pressing her [amber.lips+] against yours."
 							+ " You reciprocate the gesture, and after spending a few moments of sliding your tongues into one another's mouths, you pull back, grinning..."
 						+ "</p>");
-				
+
 			} else if(index==3) {
 				return new ResponseSex("Submit",
 						"Amber's fiery personality is seriously turning you on. You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with her. Perhaps if you submitted, she'd be willing to fuck you?",
@@ -431,7 +431,7 @@ public class Amber extends NPC {
 							+ "You reciprocate the gesture, but only spend a few moments sliding your tongues into one another's mouths before Amber pulls back, moaning,"
 							+ " [amber.speech(Good bitch! Fuck... I'm so fucking horny! I <i>need</i> you!)]"
 						+ "</p>");
-				
+
 			} else if (index == 4) {
 				return new Response("Transformations",
 						"Get Amber to use [amber.her] demonic powers to transform [amber.herself]...",
@@ -442,13 +442,13 @@ public class Amber extends NPC {
 						BodyChanging.setTarget(Main.game.getNpc(Amber.class));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Continue", "", true) {
 
 		@Override
@@ -461,7 +461,7 @@ public class Amber extends NPC {
 							+ " Despite her fatigue, you see one of her hands slip down between her legs, and, quite clearly still overwhelmed by lust, she starts masturbating in front of you."
 							+ " She's obviously not going to pose much of a threat like this, so you turn your attention back towards the task at hand; that of finding Zaranix and rescuing Arthur."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -470,12 +470,12 @@ public class Amber extends NPC {
 							+ " She's obviously not going to pose much of a threat like this, so you turn your attention back towards the task at hand; that of finding Zaranix and rescuing Arthur."
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 							+ "Conscious of the fact that there are other maids to look out for, you prepare to set off further into the house..."
 					+ "</p>");
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -488,13 +488,13 @@ public class Amber extends NPC {
 						return Main.game.getPlayer().getLocationPlace().getDialogue(false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeated", "", true) {
 
 		@Override
@@ -535,7 +535,7 @@ public class Amber extends NPC {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Used", "", true) {
 
 		@Override
@@ -560,24 +560,24 @@ public class Amber extends NPC {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
 	}
-	
+
 	public int getLootMoney() {
 		return 5000;
 	}
-	
+
 	// Sex:
-	
+
 	@Override
 	public List<Class<?>> getUniqueSexClasses() {
 		return Util.newArrayListOfValues(AmberSpecials.class);
@@ -592,7 +592,7 @@ public class Amber extends NPC {
 				return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.FINGER, SexAreaOrifice.ANUS);
 			}
 		}
-		
+
 		return super.getForeplayPreference(target);
 	}
 
@@ -612,12 +612,12 @@ public class Amber extends NPC {
 	@Override
 	public Set<SexSlot> getSexPositionPreferences(GameCharacter target) {
 		sexPositionPreferences.clear();
-		
+
 		sexPositionPreferences.add(SexSlotBipeds.DOGGY_BEHIND);
-		
+
 		return sexPositionPreferences;
 	}
-	
+
 	@Override
 	public SexPace getSexPaceDomPreference(){
 		return SexPace.DOM_ROUGH;

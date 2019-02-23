@@ -89,7 +89,7 @@ public class Nyan extends NPC {
 	public Nyan() {
 		this(false);
 	}
-	
+
 	public Nyan(boolean isImported) {
 		super(isImported, new NameTriplet("Nyan"), "Rey",
 				"Nyan is the owner of the store 'Nyan's Clothing Emporium', found in Dominion's shopping arcade."
@@ -97,7 +97,7 @@ public class Nyan extends NPC {
 				21, Month.APRIL, 12,
 				10, Gender.F_V_B_FEMALE, Subspecies.CAT_MORPH, RaceStage.LESSER,
 				new CharacterInventory(10), WorldType.SHOPPING_ARCADE, PlaceType.SHOPPING_ARCADE_NYANS_SHOP, true);
-		
+
 		commonFemaleClothing = new ArrayList<>();
 		commonFemaleUnderwear = new ArrayList<>();
 		commonFemaleAccessories = new ArrayList<>();
@@ -110,7 +110,7 @@ public class Nyan extends NPC {
 		specials = new ArrayList<>();
 		dailyReset();
 	}
-	
+
 	private Map<String, List<AbstractClothing>> getAllClothingListsMap() {
 		return Util.newHashMapOfValues(
 				new Value<>("commonFemaleClothing", commonFemaleClothing),
@@ -124,11 +124,11 @@ public class Nyan extends NPC {
 				new Value<>("commonAndrogynousAccessories", commonAndrogynousAccessories),
 				new Value<>("specials", specials));
 	}
-	
+
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element properties = super.saveAsXML(parentElement, doc);
-		
+
 		for(Entry<String, List<AbstractClothing>> entry : getAllClothingListsMap().entrySet()) {
 			Element clothingElement = doc.createElement(entry.getKey());
 			properties.appendChild(clothingElement);
@@ -141,7 +141,7 @@ public class Nyan extends NPC {
 		}
 		return properties;
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -152,12 +152,12 @@ public class Nyan extends NPC {
 		if(this.getSexCount(Main.game.getPlayer().getId()).getTotalTimesHadSex()==0) {
 			this.setVaginaVirgin(true);
 		}
-		
+
 		for(Entry<String, List<AbstractClothing>> entry : this.getAllClothingListsMap().entrySet()) {
 			Element npcSpecificElement = (Element) parentElement.getElementsByTagName(entry.getKey()).item(0);
 			if(npcSpecificElement!=null) {
 				entry.getValue().clear();
-				
+
 				NodeList nodeList = npcSpecificElement.getElementsByTagName("clothing");
 				for(int i=0; i < nodeList.getLength(); i++){
 					Element e = (Element) nodeList.item(i);
@@ -166,38 +166,38 @@ public class Nyan extends NPC {
 					} catch(Exception ex) {
 					}
 				}
-				
+
 			}
 		}
 	}
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 25);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 50);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.LOW)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_CLOTHING_STORE_OWNER);
-	
+
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.setFetishDesire(Fetish.FETISH_SUBMISSIVE, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.ONE_DISLIKE);
 			this.setFetishDesire(Fetish.FETISH_MASOCHIST, FetishDesire.ZERO_HATE);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -228,7 +228,7 @@ public class Nyan extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED_LIGHT));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -236,7 +236,7 @@ public class Nyan extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.B.getMeasurement());
@@ -244,7 +244,7 @@ public class Nyan extends NPC {
 		this.setNippleSize(NippleSize.ONE_SMALL.getValue());
 		this.setAreolaeSize(AreolaeSize.TWO_BIG.getValue());
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -255,10 +255,10 @@ public class Nyan extends NPC {
 		this.setAssElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(true);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -268,16 +268,16 @@ public class Nyan extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 //		this.setFootStructure(FootStructure.PLANTIGRADE);
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_MINI_SKIRT, Color.CLOTHING_BLACK, false), true, this);
@@ -292,7 +292,7 @@ public class Nyan extends NPC {
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
@@ -301,21 +301,21 @@ public class Nyan extends NPC {
 	@Override
 	public void dailyReset() {
 		clearNonEquippedInventory();
-		
+
 		Main.game.getDialogueFlags().resetNyanActions();
-		
+
 		commonFemaleClothing.clear();
 		commonFemaleUnderwear.clear();
 		commonFemaleAccessories.clear();
-		
+
 		commonMaleClothing.clear();
 		commonMaleLingerie.clear();
 		commonMaleAccessories.clear();
-		
+
 		commonAndrogynousClothing.clear();
 		commonAndrogynousLingerie.clear();
 		commonAndrogynousAccessories.clear();
-		
+
 		specials.clear();
 
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
@@ -325,62 +325,62 @@ public class Nyan extends NPC {
 						if(clothing.getFemininityRestriction()==Femininity.FEMININE) {
 							if(ClothingType.getCoreClothingSlots().contains(clothing.getSlot())) {
 								commonFemaleClothing.add(AbstractClothingType.generateClothing(clothing, false));
-								
+
 							} else if(ClothingType.getLingerieSlots().contains(clothing.getSlot())) {
 								commonFemaleUnderwear.add(AbstractClothingType.generateClothing(clothing, false));
-								
+
 							} else {
 								commonFemaleAccessories.add(AbstractClothingType.generateClothing(clothing, false));
 							}
-							
+
 						} else if(clothing.getFemininityRestriction()==Femininity.MASCULINE) {
 							if(ClothingType.getCoreClothingSlots().contains(clothing.getSlot())) {
 								commonMaleClothing.add(AbstractClothingType.generateClothing(clothing, false));
-								
+
 							} else if(ClothingType.getLingerieSlots().contains(clothing.getSlot())) {
 								commonMaleLingerie.add(AbstractClothingType.generateClothing(clothing, false));
-								
+
 							} else {
 								commonMaleAccessories.add(AbstractClothingType.generateClothing(clothing, false));
 							}
-							
+
 						} else {
 							if(ClothingType.getCoreClothingSlots().contains(clothing.getSlot())) {
 								commonAndrogynousClothing.add(AbstractClothingType.generateClothing(clothing, false));
-								
+
 							} else if(ClothingType.getLingerieSlots().contains(clothing.getSlot())) {
 								commonAndrogynousLingerie.add(AbstractClothingType.generateClothing(clothing, false));
-								
+
 							} else {
 								commonAndrogynousAccessories.add(AbstractClothingType.generateClothing(clothing, false));
 							}
 						}
-						
+
 					} else {
 						specials.add(AbstractClothingType.generateClothing(clothing, false));
 					}
-				} 
-				
+				}
+
 			} catch(Exception ex) {
 				ex.printStackTrace();
 			}
 		}
-		
+
 		if(Main.game.getPlayer().isQuestCompleted(QuestLine.RELATIONSHIP_NYAN_HELP)) {
 			addEnchantedClothing(commonFemaleClothing);
 			addEnchantedClothing(commonFemaleUnderwear);
 			addEnchantedClothing(commonFemaleAccessories);
-	
+
 			addEnchantedClothing(commonMaleClothing);
 			addEnchantedClothing(commonMaleLingerie);
 			addEnchantedClothing(commonMaleAccessories);
-	
+
 			addEnchantedClothing(commonAndrogynousClothing);
 			addEnchantedClothing(commonAndrogynousLingerie);
 			addEnchantedClothing(commonAndrogynousAccessories);
 		}
 	}
-	
+
 	/**
 	 * Adds three uncommon clothing items to the list, and one rare item.
 	 */
@@ -389,7 +389,7 @@ public class Nyan extends NPC {
 		for(int i=0;i<4;i++) {
 			typesToAdd.add(Util.randomItemFrom(clothingList).getClothingType());
 		}
-		
+
 		for(int i=0; i<typesToAdd.size(); i++) {
 			if(i==typesToAdd.size()-1) {
 				clothingList.add(AbstractClothingType.generateRareClothing(typesToAdd.get(i)));
@@ -402,28 +402,28 @@ public class Nyan extends NPC {
 			c.setEnchantmentKnown(true);
 		}
 	}
-	
+
 	@Override
 	public void handleSellingEffects(AbstractCoreItem item, int count, int itemPrice){
 		commonFemaleClothing.remove(item);
 		commonFemaleUnderwear.remove(item);
 		commonFemaleAccessories.remove(item);
-		
+
 		commonMaleClothing.remove(item);
 		commonMaleLingerie.remove(item);
 		commonMaleAccessories.remove(item);
-		
+
 		commonAndrogynousClothing.remove(item);
 		commonAndrogynousLingerie.remove(item);
 		commonAndrogynousAccessories.remove(item);
-		
+
 		specials.remove(item);
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
@@ -441,45 +441,45 @@ public class Nyan extends NPC {
 	public boolean isTrader() {
 		return true;
 	}
-	
+
 	@Override
 	public String getGiftReaction(AbstractCoreItem gift, boolean applyEffects) {
 		String text = null;
 		if(gift instanceof AbstractItem) {
 			AbstractItemType type = ((AbstractItem)gift).getItemType();
 			if(type.equals(ItemType.GIFT_CHOCOLATES)) {
-				text =  UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_CHOCOLATES")
+				text = UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_CHOCOLATES")
 						+(applyEffects
 								?Main.game.getNpc(Nyan.class).incrementAffection(Main.game.getPlayer(), 5)
 								:"");
-				
+
 			} else if(type.equals(ItemType.GIFT_PERFUME)) {
-				text =  UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_PERFUME")
+				text = UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_PERFUME")
 					+(applyEffects
 							?Main.game.getNpc(Nyan.class).incrementAffection(Main.game.getPlayer(), 5)
 							:"");
-				
+
 			} else if(type.equals(ItemType.GIFT_ROSE)) {
-				text =  UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_SINGLE_ROSE")
+				text = UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_SINGLE_ROSE")
 						+(applyEffects
 								?Main.game.getNpc(Nyan.class).incrementAffection(Main.game.getPlayer(), 5)
 								:"");
-					
+
 				} else if(type.equals(ItemType.GIFT_ROSE_BOUQUET)) {
-				text =  UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_ROSES")
+				text = UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_ROSES")
 					+(applyEffects
 							?Main.game.getNpc(Nyan.class).incrementAffection(Main.game.getPlayer(), 10)
 							:"");
-				
+
 			} else if(type.equals(ItemType.GIFT_TEDDY_BEAR)) {
-				text =  UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_TEDDY_BEAR")
+				text = UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_GIFT_TEDDY_BEAR")
 					+(applyEffects
 							?Main.game.getNpc(Nyan.class).incrementAffection(Main.game.getPlayer(), 15)
 							:"");
-				
+
 			}
 		}
-		
+
 		if(applyEffects) {
 			if(text!=null) {
 				Main.game.getDialogueFlags().setFlag(DialogueFlagValue.nyanGift, true);
@@ -487,12 +487,12 @@ public class Nyan extends NPC {
 		}
 		return text;
 	}
-	
+
 	@Override
 	public boolean willBuy(AbstractCoreItem item) {
 		return item instanceof AbstractClothing;
 	}
-	
+
 	public List<AbstractClothing> getCommonFemaleClothing() {
 		Collections.shuffle(commonFemaleClothing);
 		return commonFemaleClothing;

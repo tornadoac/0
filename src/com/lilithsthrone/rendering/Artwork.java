@@ -20,54 +20,54 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public class Artwork {
-	
+
 	private Artist artist;
-	
+
 	private int index;
-	
+
 	private List<String> clothedImages;
 	private List<String> partialImages;
 	private List<String> nakedImages;
-	
+
 	public static List<Artist> allArtists;
 	static {
 		allArtists = new ArrayList<>();
-		
+
 		File dir = new File("res/images/characters");
-		
+
 		if(dir.exists()) {
 			FilenameFilter textFilter = new FilenameFilter() {
 				public boolean accept(File dir, String name) {
 					return name.toLowerCase().endsWith(".xml");
 				}
 			};
-			
+
 			for(File subFile : dir.listFiles(textFilter)) {
 				if (subFile.exists()) {
 					try {
 						DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 						DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 						Document doc = dBuilder.parse(subFile);
-						
+
 						// Cast magic:
 						doc.getDocumentElement().normalize();
-						
+
 						Element artistElement = (Element) doc.getElementsByTagName("artist").item(0);
-						
+
 						String artistName = artistElement.getAttribute("name");
 						Color color = Color.valueOf(artistElement.getAttribute("color"));
 						String folderName = artistElement.getAttribute("folderName");
-								
+
 						List<ArtistWebsite> websites = new ArrayList<>();
-						
+
 						NodeList nodes = artistElement.getElementsByTagName("website");
 						for(int i=0; i < nodes.getLength(); i++){
 							Element websiteNode = (Element) nodes.item(i);
 							websites.add(new ArtistWebsite(websiteNode.getAttribute("title"), websiteNode.getAttribute("url")));
 						}
-						
+
 						allArtists.add(new Artist(artistName, color, folderName, websites));
-						
+
 					} catch(Exception ex) {
 					}
 				}
@@ -77,7 +77,7 @@ public class Artwork {
 			allArtists.add(new Artist("Custom", Color.BASE_GREY, "custom", new ArrayList<>()));
 		}
 	}
-	
+
 	public Artwork(File folder, Artist artist) {
 		this.artist = artist;
 
@@ -101,7 +101,7 @@ public class Artwork {
 	public Artist getArtist() {
 		return artist;
 	}
-	
+
 	public int getIndex() {
 		return index;
 	}
@@ -121,19 +121,19 @@ public class Artwork {
 	public int getTotalArtworkCount() {
 		return clothedImages.size() + partialImages.size() + nakedImages.size();
 	}
-	
+
 	public boolean isCurrentImageClothed() {
 		return index < getClothedImages().size();
 	}
-	
+
 	public File getCurrentImage() {
 		String path;
 		if(index < getClothedImages().size()) {
 			path = getClothedImages().get(index);
-			
+
 		} else if(index < getClothedImages().size() + getPartialImages().size()){
 			path = getPartialImages().get(index - getClothedImages().size());
-			
+
 		} else {
 			path = getNakedImages().get(index - getClothedImages().size() - getPartialImages().size());
 		}
@@ -141,7 +141,7 @@ public class Artwork {
 		if (path.isEmpty()) return null;
 		return new File(path);
 	}
-	
+
 	public List<String> getClothedImages() {
 		return clothedImages;
 	}
@@ -153,5 +153,5 @@ public class Artwork {
 	public List<String> getNakedImages() {
 		return nakedImages;
 	}
-	
+
 }

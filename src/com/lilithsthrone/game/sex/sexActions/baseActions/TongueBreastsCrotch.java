@@ -20,7 +20,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class TongueBreastsCrotch {
-	
+
 	public static final SexAction KISS_BREAST_CROTCH = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.TWO_LOW,
@@ -28,7 +28,7 @@ public class TongueBreastsCrotch {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.TONGUE, SexAreaOrifice.BREAST_CROTCH)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).getBreastCrotchShape()==BreastShape.UDDERS) {
@@ -52,7 +52,7 @@ public class TongueBreastsCrotch {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -167,9 +167,9 @@ public class TongueBreastsCrotch {
 				default:
 					break;
 			}
-		
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
 }

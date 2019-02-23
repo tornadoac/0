@@ -23,7 +23,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PlayerSelfFingerVagina {
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_VAGINA_SPREAD_PUSSY = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.TWO_LOW,
@@ -31,12 +31,12 @@ public class PlayerSelfFingerVagina {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.VAGINA)),
 			SexParticipantType.SELF) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.getSexPace(Main.game.getPlayer())!=SexPace.SUB_RESISTING && Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Spread pussy";
@@ -63,7 +63,7 @@ public class PlayerSelfFingerVagina {
 							"Sliding your fingertips over your [pc.pussy+], you let out [pc.a_moan+] as you use your digits to spread out your pussy lips.",
 							"You eagerly slide your fingers over your needy [pc.pussy], [pc.moaning+] as you use your digits to part your soft folds and present yourself for penetration.");
 				}
-				
+
 			} else {
 				if((Sex.getPosition()==SexPositionBipeds.DOGGY_STYLE && Sex.getSexPositionSlot(Main.game.getPlayer())==SexSlotBipeds.DOGGY_ON_ALL_FOURS)) {
 					return UtilText.parse(Sex.getCharacterTargetedForSexAction(this),
@@ -82,14 +82,14 @@ public class PlayerSelfFingerVagina {
 				}
 			}
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			Sex.transferLubrication(Main.game.getPlayer(), SexAreaPenetration.FINGER, Main.game.getPlayer(), SexAreaOrifice.VAGINA);
 		}
-		
+
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_VAGINA_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -101,7 +101,7 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Finger yourself";
@@ -116,16 +116,16 @@ public class PlayerSelfFingerVagina {
 		public String getDescription() {
 			return (UtilText.returnStringAtRandom(
 					"Reaching down between your [pc.legs], you tease your fingers over the entrance to your [pc.pussy+], before letting out [pc.a_moan+] as you push your digits deep inside.",
-					
+
 					"You probe your fingers down between your [pc.legs], moaning softly as you push two of your digits into your inviting [pc.pussy+].",
-					
+
 					"Sliding your fingertips over your neglected [pc.pussy], you let out [pc.a_moan+] as you push your digits inside and start fingering yourself.",
-					
+
 					"You eagerly push your fingers into your needy [pc.pussy], [pc.moaning+] as you curl your digits up inside yourself and start stroking in a 'come-hither' motion."));
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_VAGINA_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -138,12 +138,12 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle fingering (self)";
@@ -158,16 +158,16 @@ public class PlayerSelfFingerVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you slowly push your [pc.fingers] deep inside your [pc.pussy+].",
-					
+
 					"Gently pumping your [pc.fingers] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically finger yourself.",
-					
+
 					"Curling your [pc.fingers] up inside your [pc.pussy], you let out a little whimper as you start stroking your vaginal walls.",
-					
+
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start gently pumping your [pc.fingers] in and out of your [pc.pussy+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_VAGINA_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -180,12 +180,12 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Finger self";
@@ -200,16 +200,16 @@ public class PlayerSelfFingerVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you greedily push your [pc.fingers] deep inside your [pc.pussy+].",
-					
+
 					"Pumping your [pc.fingers] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically finger yourself.",
-					
+
 					"Curling your [pc.fingers] up inside your [pc.pussy], you let out [pc.a_moan] as you start stroking your vaginal walls.",
-					
+
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start pumping your [pc.fingers] in and out of your [pc.pussy+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_FINGER_VAGINA_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -222,12 +222,12 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Rough fingering (self)";
@@ -242,16 +242,16 @@ public class PlayerSelfFingerVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you roughly slam your [pc.fingers] deep inside your [pc.pussy+], before starting to roughly finger yourself.",
-					
+
 					"Roughly pumping your [pc.fingers] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you ruthlessly finger yourself.",
-					
+
 					"Forcefully curling your [pc.fingers] up inside your [pc.pussy], you let out [pc.a_moan] as you start roughly grinding your fingertips up against your vaginal walls.",
-					
+
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start roughly slamming your [pc.fingers] in and out of your [pc.pussy+].");
 		}
 
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_FINGER_VAGINA_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -264,12 +264,12 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Finger self";
@@ -284,16 +284,16 @@ public class PlayerSelfFingerVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you greedily push your [pc.fingers] deep inside your [pc.pussy+].",
-					
+
 					"Pumping your [pc.fingers] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically finger yourself.",
-					
+
 					"Curling your [pc.fingers] up inside your [pc.pussy], you let out [pc.a_moan] as you start stroking your vaginal walls.",
-					
+
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start pumping your [pc.fingers] in and out of your [pc.pussy+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_FINGER_VAGINA_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -306,12 +306,12 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager fingering (self)";
@@ -326,16 +326,16 @@ public class PlayerSelfFingerVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you eagerly slam your [pc.fingers] deep inside your [pc.pussy+], before starting to desperately finger yourself.",
-					
+
 					"Enthusiastically pumping your [pc.fingers] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you frantically finger yourself.",
-					
+
 					"Desperately curling your [pc.fingers] up inside your [pc.pussy], you let out [pc.a_moan] as you start eagerly grinding your fingertips up against your vaginal walls.",
-					
+
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you eagerly start slamming your [pc.fingers] in and out of your [pc.pussy+].");
 		}
 
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_VAGINA_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -347,7 +347,7 @@ public class PlayerSelfFingerVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop fingering (self)";

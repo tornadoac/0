@@ -10,15 +10,15 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum ObedienceLevel {
-	
+
 	NEGATIVE_FIVE_REBELLIOUS("rebellious", -100, -90, Color.AFFECTION_NEGATIVE_FIVE),
-	
+
 	NEGATIVE_FOUR_DEFIANT("defiant", -90, -70, Color.AFFECTION_NEGATIVE_FOUR),
-	
+
 	NEGATIVE_THREE_STRONG_INSUBORDINATE("insubordinate", -70, -50, Color.AFFECTION_NEGATIVE_THREE),
-	
+
 	NEGATIVE_TWO_UNRULY("unruly", -50, -30, Color.AFFECTION_NEGATIVE_TWO),
-	
+
 	NEGATIVE_ONE_DISOBEDIENT("disobedient", -30, -10, Color.AFFECTION_NEGATIVE_ONE),
 
 	ZERO_FREE_WILLED("free-willed", -10, 10, Color.AFFECTION_NEUTRAL),
@@ -32,7 +32,7 @@ public enum ObedienceLevel {
 	POSITIVE_FOUR_DUTIFUL("dutiful", 70, 90, Color.AFFECTION_POSITIVE_FOUR),
 
 	POSITIVE_FIVE_SUBSERVIENT("subservient", 90, 100, Color.AFFECTION_POSITIVE_FIVE);
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -43,7 +43,7 @@ public enum ObedienceLevel {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	private static StringBuilder sb = new StringBuilder();
 	public static String getDescription(GameCharacter character, ObedienceLevel affectionLevel, boolean withColor, boolean longDescription) {
 		sb.setLength(0);
@@ -54,7 +54,7 @@ public enum ObedienceLevel {
 				return "You are free-willed"+(longDescription?" and will do whatever you want.":".");
 			}
 		}
-		
+
 		switch(affectionLevel) {
 			case NEGATIVE_FIVE_REBELLIOUS:
 				if(withColor) {
@@ -135,10 +135,10 @@ public enum ObedienceLevel {
 				}
 				break;
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -150,7 +150,7 @@ public enum ObedienceLevel {
 	public int getMaximumValue() {
 		return maximumValue;
 	}
-	
+
 	public int getMedianValue() {
 		return (minimumValue + maximumValue) / 2;
 	}

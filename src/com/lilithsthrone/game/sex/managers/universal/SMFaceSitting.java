@@ -13,11 +13,11 @@ import com.lilithsthrone.game.sex.positions.SexPositionBipeds;
  * @author Innoxia
  */
 public class SMFaceSitting extends SexManagerDefault {
-	
+
 	public SMFaceSitting(Map<GameCharacter, SexSlot> dominants, Map<GameCharacter, SexSlot> submissives) {
 		super(SexPositionBipeds.FACE_SITTING,
 				dominants,
 				submissives);
 	}
-	
+
 }

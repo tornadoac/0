@@ -24,13 +24,13 @@ public class ItemEffect implements XMLSaving {
 	public static final int SEALED_COST_MINOR_DRAIN = 25;
 	public static final int SEALED_COST_DRAIN = 100;
 	public static final int SEALED_COST_MAJOR_DRAIN = 500;
-	
+
 	private AbstractItemEffectType itemEffectType;
 	private TFModifier primaryModifier, secondaryModifier;
 	private TFPotency potency;
 	private int limit;
 	private ItemEffectTimer timer;
-	
+
 	public ItemEffect(AbstractItemEffectType itemEffectType) {
 		this.itemEffectType = itemEffectType;
 		this.primaryModifier = null;
@@ -39,7 +39,7 @@ public class ItemEffect implements XMLSaving {
 		this.limit = 0;
 		this.timer = new ItemEffectTimer();
 	}
-	
+
 	public ItemEffect(AbstractItemEffectType itemEffectType, TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit) {
 		this.itemEffectType = itemEffectType;
 		this.primaryModifier = primaryModifier;
@@ -48,7 +48,7 @@ public class ItemEffect implements XMLSaving {
 		this.limit = limit;
 		this.timer = new ItemEffectTimer();
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(o instanceof ItemEffect){
@@ -63,7 +63,7 @@ public class ItemEffect implements XMLSaving {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 17;
@@ -82,7 +82,7 @@ public class ItemEffect implements XMLSaving {
 		result = 31 * result + limit;
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element effect = doc.createElement("effect");
 		parentElement.appendChild(effect);
@@ -93,17 +93,17 @@ public class ItemEffect implements XMLSaving {
 		CharacterUtils.addAttribute(doc, effect, "potency", (getPotency()==null?"null":getPotency().toString()));
 		CharacterUtils.addAttribute(doc, effect, "limit", String.valueOf(getLimit()));
 		CharacterUtils.addAttribute(doc, effect, "timer", String.valueOf(getTimer().getTimePassed()));
-		
+
 		return effect;
 	}
-	
+
 	public static ItemEffect loadFromXML(Element parentElement, Document doc) {
 		String itemEffectType = parentElement.getAttribute("itemEffectType");
-		
+
 		if(itemEffectType.equals("RACE_DEMON")) {
 			throw new NullPointerException();
 		}
-		
+
 		switch(itemEffectType) {
 			case "ATTRIBUTE_STRENGTH":
 			case "ATTRIBUTE_FITNESS":
@@ -127,16 +127,16 @@ public class ItemEffect implements XMLSaving {
 				secondaryMod = "TF_MOD_FETISH_PREGNANCY";
 				break;
 		}
-		
+
 		ItemEffect ie;
 		try { // Wrap this in a try, as the TFModifier.valueof might fail, due to removing Broodmother/Seeder fetish modifiers in 0.2.7.5.
 			TFModifier primary = (parentElement.getAttribute("primaryModifier").equals("null")?null:TFModifier.valueOf(parentElement.getAttribute("primaryModifier")));
 			TFModifier secondary = (secondaryMod.equals("null")?null:TFModifier.valueOf(parentElement.getAttribute("secondaryModifier")));
-			
+
 			if(secondary!=null && TFModifier.getWeaponMajorAttributeList().contains(secondary)) {
 				primary = TFModifier.CLOTHING_MAJOR_ATTRIBUTE;
 			}
-			
+
 			ie = new ItemEffect(
 					ItemEffectType.getItemEffectTypeFromId(itemEffectType),
 					primary,
@@ -149,7 +149,7 @@ public class ItemEffect implements XMLSaving {
 			System.err.println(ex);
 			return null;
 		}
-		
+
 		try {
 			if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.6.5")) {
 				int timer = Integer.valueOf(parentElement.getAttribute("timer"))/60;
@@ -160,10 +160,10 @@ public class ItemEffect implements XMLSaving {
 		} catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		
+
 		return ie;
 	}
-	
+
 	public String applyEffect(GameCharacter user, GameCharacter target, long timePassed) {
 		this.timer.incrementTimePassed((int)timePassed);
 		if(target.getRace()==Race.DEMON
@@ -186,11 +186,11 @@ public class ItemEffect implements XMLSaving {
 		}
 		return getItemEffectType().applyEffect(getPrimaryModifier(), getSecondaryModifier(), getPotency(), getLimit(), user, target, this.timer);
 	}
-	
+
 	public List<String> getEffectsDescription(GameCharacter user, GameCharacter target) {
 		return getItemEffectType().getEffectsDescription(getPrimaryModifier(), getSecondaryModifier(), getPotency(), getLimit(), user, target);
 	}
-	
+
 	public int getCost() {
 		int cost = 1;
 		if(getPrimaryModifier()!=null) {
@@ -209,10 +209,10 @@ public class ItemEffect implements XMLSaving {
 		if(getLimit() != -1) {
 			cost+=1;
 		}
-		
+
 		return cost;
 	}
-	
+
 	public AbstractItemEffectType getItemEffectType() {
 		return itemEffectType;
 	}
@@ -256,5 +256,5 @@ public class ItemEffect implements XMLSaving {
 	public void setTimer(ItemEffectTimer timer) {
 		this.timer = timer;
 	}
-	
+
 }

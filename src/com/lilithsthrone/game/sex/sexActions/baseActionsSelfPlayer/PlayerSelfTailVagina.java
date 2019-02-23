@@ -21,7 +21,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PlayerSelfTailVagina {
-	
+
 	public static final SexAction PLAYER_SELF_TAIL_VAGINA_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -33,7 +33,7 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Tail-fuck (self)";
@@ -48,16 +48,16 @@ public class PlayerSelfTailVagina {
 		public String getDescription() {
 			return (UtilText.returnStringAtRandom(
 					"Snaking your [pc.tail] around between your [pc.legs], you tease the tip over the entrance to your [pc.pussy], [pc.moaning] in delight before thrusting it deep inside your [pc.pussy+].",
-					
+
 					"You snake your [pc.tail] up between your legs, [pc.moaning] in delight as you force it deep into your inviting [pc.pussy].",
-					
+
 					"Sliding the tip of your [pc.tail+] between the folds of your neglected [pc.pussy], you suddenly thrust it deep inside, letting out [pc.a_moan+] as you start tail-fucking yourself.",
-					
+
 					"You eagerly thrust your [pc.tail+] deep into your needy [pc.pussy], letting out a series of [pc.moans+] as you start tail-fucking yourself."));
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_TAIL_VAGINA_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -70,12 +70,12 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle tail-fuck (self)";
@@ -90,16 +90,16 @@ public class PlayerSelfTailVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you slowly push your [pc.tail] deep inside your [pc.pussy+].",
-					
+
 					"Gently pumping your [pc.tail] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically fuck yourself.",
-					
+
 					"Slowly driving your [pc.tail] deep inside your [pc.pussy], you let out a little whimper as you start gently fucking yourself.",
 
 					"Focusing on pleasuring yourself, you start gently pumping your [pc.tail] in and out of your [pc.pussy+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_TAIL_VAGINA_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -112,12 +112,12 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Tail-fuck (self)";
@@ -132,16 +132,16 @@ public class PlayerSelfTailVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you greedily push your [pc.tail] deep inside your [pc.pussy+].",
-					
+
 					"Pumping your [pc.tail] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically fuck yourself.",
-					
+
 					"Driving your [pc.tail] deep inside your [pc.pussy], you let out [pc.a_moan] as you start happily fucking yourself.",
 
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start pumping your [pc.tail] in and out of your [pc.pussy+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction DOM_PLAYER_SELF_TAIL_VAGINA_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -154,12 +154,12 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Rough tail-fuck (self)";
@@ -174,16 +174,16 @@ public class PlayerSelfTailVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you roughly slam your [pc.tail] deep inside your [pc.pussy+], before starting to roughly fuck yourself.",
-					
+
 					"Roughly pumping your [pc.tail] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you ruthlessly fuck yourself.",
-					
+
 					"Driving your [pc.tail] deep inside your [pc.pussy], you let out [pc.a_moan] as you start roughly grinding it up inside yourself.",
 
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start roughly slamming your [pc.tail] in and out of your [pc.pussy+].");
 		}
 
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_TAIL_VAGINA_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -196,12 +196,12 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Tail-fuck (self)";
@@ -216,16 +216,16 @@ public class PlayerSelfTailVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you greedily push your [pc.tail] deep inside your [pc.pussy+].",
-					
+
 					"Pumping your [pc.tail] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you rhythmically fuck yourself.",
-					
+
 					"Driving your [pc.tail] deep inside your [pc.pussy], you let out [pc.a_moan] as you start happily fucking yourself.",
 
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you start pumping your [pc.tail] in and out of your [pc.pussy+].");
 		}
-		
+
 	};
-	
+
 	public static final SexAction SUB_PLAYER_SELF_TAIL_VAGINA_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -238,12 +238,12 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isDom(Main.game.getPlayer());
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager tail-fuck (self)";
@@ -258,16 +258,16 @@ public class PlayerSelfTailVagina {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"[pc.A_moan+] escapes from between your [pc.lips+] as you eagerly slam your [pc.tail] deep inside your [pc.pussy+], before starting to desperately fuck yourself.",
-					
+
 					"Enthusiastically pumping your [pc.tail] in and out of your [pc.pussy+], you find yourself letting out a series of delighted [pc.moans] as you frantically fuck yourself.",
-					
+
 					"Desperately driving your [pc.tail] deep inside your [pc.pussy], you let out [pc.a_moan] as you start eagerly grinding it up inside yourself.",
 
 					"Focusing on the pleasure you're giving yourself between your [pc.legs], you eagerly start slamming your [pc.tail] in and out of your [pc.pussy+].");
 		}
 
 	};
-	
+
 	public static final SexAction PLAYER_SELF_TAIL_VAGINA_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -279,7 +279,7 @@ public class PlayerSelfTailVagina {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop tail-fuck (self)";

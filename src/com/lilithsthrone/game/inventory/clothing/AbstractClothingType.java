@@ -59,7 +59,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia, BlazingMagpie@gmail.com (or ping BlazingMagpie in Discord), Pimgd
  */
 public abstract class AbstractClothingType extends AbstractCoreType {
-	
+
 	private String determiner;
 	private String name;
 	private String namePlural;
@@ -83,10 +83,10 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	// Images:
 	private Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> SVGStringMap;
 	private Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> SVGStringEquippedMap;
-	
+
 	// Pattern data:
 	private boolean isPatternAvailable;
-	
+
 	// Access and block stuff:
 	private List<BlockedParts> blockedPartsList;
 	private List<InventorySlot> incompatibleSlots;
@@ -96,26 +96,26 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	private List<Color> availablePrimaryColors;
 	private List<Color> availablePrimaryDyeColors;
 	private List<Color> allAvailablePrimaryColors;
-	
+
 	private List<Color> availableSecondaryColors;
 	private List<Color> availableSecondaryDyeColors;
 	private List<Color> allAvailableSecondaryColors;
-	
+
 	private List<Color> availableTertiaryColors;
 	private List<Color> availableTertiaryDyeColors;
 	private List<Color> allAvailableTertiaryColors;
 
 	private List<DisplacementType> displacementTypesAvailableWithoutNONE;
-	
+
 	private List<ItemTag> itemTags;
 
 	@Deprecated
 	private Map<DisplacementType, Map<DisplacementDescriptionType, String>> displacementDescriptionsPlayer;
 	@Deprecated
 	private Map<DisplacementType, Map<DisplacementDescriptionType, String>> displacementDescriptionsNPC;
-	
+
 	private Map<DisplacementType, Map<DisplacementDescriptionType, String>> displacementDescriptions;
-	
+
 	protected AbstractClothingType(
 			int baseValue,
 			String determiner,
@@ -163,7 +163,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				availableTertiaryDyeColors,
 				itemTags);
 	}
-	
+
 	public AbstractClothingType(
 			int baseValue,
 			String determiner,
@@ -188,11 +188,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			List<Color> availableTertiaryColors,
 			List<Color> availableTertiaryDyeColors,
 			List<ItemTag> itemTags) {
-		
+
 		this.baseValue = baseValue;
-		
+
 		this.isMod = false;
-		
+
 		this.determiner = determiner;
 		this.plural = plural;
 		this.name = name;
@@ -200,9 +200,9 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		this.description = description;
 
 		this.physicalResistance = physicalResistance;
-		
+
 		setUpFemininity(femininityRestriction);
-		
+
 		this.femininityRestriction = femininityRestriction;
 
 		this.slot = slot;
@@ -211,37 +211,37 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 		this.pathName = pathName;
 		this.pathNameEquipped = pathNameEquipped;
-		
+
 		this.isPatternAvailable = false;
 
 		enchantmentLimit = -1;
-		
+
 		// Attribute modifiers:
 		if (effects != null) {
 			this.effects = new ArrayList<>(effects);
 		} else {
 			this.effects = new ArrayList<>();
 		}
-		
+
 		// Blocked Parts:
 		if (blockedPartsList != null) {
 			this.blockedPartsList = blockedPartsList;
 		} else {
 			this.blockedPartsList = new ArrayList<>();
 		}
-		
+
 		// Make sure that clothing can't conceal itself (in case I made an error in defining concealed slots):
 		for(BlockedParts bp : this.blockedPartsList) {
 			bp.concealedSlots.removeIf((concealedSlot) -> concealedSlot == this.slot);
 		}
-		
+
 		// Incompatible slots:
 		if (incompatibleSlots != null) {
 			this.incompatibleSlots = incompatibleSlots;
 		} else {
 			this.incompatibleSlots = new ArrayList<>();
 		}
-		
+
 		setUpColors(availablePrimaryColors,
 				availablePrimaryDyeColors,
 				availableSecondaryColors,
@@ -256,12 +256,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 		finalSetUp();
 	}
-	
+
 
 	@SuppressWarnings("deprecation")
 	public AbstractClothingType(File clothingXMLFile) throws XMLLoadException { // Be sure to catch this exception correctly - if it's thrown mod is invalid and should not be continued to load
 		boolean debug = false;//clothingXMLFile.getName().contains("distressed");
-		
+
 		try{
 			Element clothingElement = Element.getDocumentRootElement(clothingXMLFile); // Loads the document and returns the root element - in clothing mods it's <clothing>
 			Element coreAttributes = null;
@@ -272,17 +272,17 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			}
 
 			this.effects = coreAttributes
-				.getMandatoryFirstOf("effects") 
+				.getMandatoryFirstOf("effects")
 				.getAllOf("effect") // Get all child elements with this tag (checking only contents of parent element) and return them as List<Element>
 				.stream() // Convert this list to Stream<Element>, which lets us do some nifty operations on every element at once
 				.map( e -> ItemEffect.loadFromXML(e.getInnerElement(), e.getDocument())) // Take every element and do something with them, return a Stream of results after this action. Here we load item effects and get Stream<ItemEffect>
 				.filter(Objects::nonNull) // Ensure that we only add non-null effects
-				.collect(Collectors.toList()); // Collect stream back into a list, but this time we get List<ItemEffect> we need! 
-			
+				.collect(Collectors.toList()); // Collect stream back into a list, but this time we get List<ItemEffect> we need!
+
 			if(debug) {
 				System.out.println("1");
 			}
-			
+
 			this.blockedPartsList = coreAttributes
 				.getMandatoryFirstOf("blockedPartsList")
 				.getAllOf("blockedParts").stream()
@@ -304,7 +304,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			if(debug) {
 				System.out.println("2");
 			}
-			
+
 			this.displacementDescriptionsPlayer = new HashMap<>();
 			this.displacementDescriptionsNPC = new HashMap<>();
 			this.displacementDescriptions = new HashMap<>();
@@ -313,18 +313,18 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				clothingElement.getAllOf(repositionDescListTag).stream() // <clothing>, not <coreAttributes>!
 				.forEach( descriptionList ->{
 					DisplacementType type = DisplacementType.valueOf(descriptionList.getAttribute("type"));
-					
+
 					displacementDescriptionsPlayer.putIfAbsent(type, new HashMap<>());
 					displacementDescriptionsNPC.putIfAbsent(type, new HashMap<>());
 					displacementDescriptions.putIfAbsent(type, new HashMap<>());
-					
+
 					Map<DisplacementDescriptionType, String> playerMap = displacementDescriptionsPlayer.get(type);
 					Map<DisplacementDescriptionType, String> npcMap = displacementDescriptionsNPC.get(type);
 					Map<DisplacementDescriptionType, String> universalMap = displacementDescriptions.get(type);
 
 					Function<Map<DisplacementDescriptionType, String>, Consumer<String>> putTagContentTo = mapToPutIn -> tagName ->{ // try to get element by tag, if it exists, put in specified map
 					descriptionList.getOptionalFirstOf(tagName)
-						.ifPresent(desc -> 
+						.ifPresent(desc ->
 						mapToPutIn.put(DisplacementDescriptionType.byTagsPath(repositionDescListTag+" "+desc.getTagName()), desc.getTextContent()));
 					};
 					Consumer<String> toPlayerMap = putTagContentTo.apply(playerMap);
@@ -341,16 +341,16 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 					toNPCMap.accept("NPCOtherNPC");
 					toNPCMap.accept("NPCOtherNPCRough");
-					
+
 					toUniversalMap.accept("self");
 					toUniversalMap.accept("other");
 					toUniversalMap.accept("otherRough");
-					
+
 					if(displacementDescriptions.get(type).isEmpty()) {
 						displacementDescriptions.remove(type);
 					}
 				});
-				
+
 			};
 
 			loadItemMoveDescriptions.accept("replacementText");
@@ -360,21 +360,21 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			if(debug) {
 				System.out.println("3");
 			}
-			
+
 			this.isMod = true;
 
 			this.name =		coreAttributes.getMandatoryFirstOf("name").getTextContent();
-			this.namePlural =  coreAttributes.getMandatoryFirstOf("namePlural").getTextContent();
+			this.namePlural = coreAttributes.getMandatoryFirstOf("namePlural").getTextContent();
 			this.description = coreAttributes.getMandatoryFirstOf("description").getTextContent();
-			this.determiner =  coreAttributes.getMandatoryFirstOf("determiner").getTextContent();
+			this.determiner = coreAttributes.getMandatoryFirstOf("determiner").getTextContent();
 
 			if(debug) {
 				System.out.println("4");
 			}
-			
+
 			this.plural =			 Boolean.valueOf(coreAttributes.getMandatoryFirstOf("namePlural").getAttribute("pluralByDefault"));
 			this.baseValue =		  Integer.valueOf(coreAttributes.getMandatoryFirstOf("value").getTextContent());
-			this.physicalResistance = Integer.valueOf(coreAttributes.getMandatoryFirstOf("physicalResistance").getTextContent());	
+			this.physicalResistance = Integer.valueOf(coreAttributes.getMandatoryFirstOf("physicalResistance").getTextContent());
 			this.slot =	   		  InventorySlot.valueOf(coreAttributes.getMandatoryFirstOf("slot").getTextContent());
 			this.rarity =			 Rarity.valueOf(coreAttributes.getMandatoryFirstOf("rarity").getTextContent());
 
@@ -384,12 +384,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			if(debug) {
 				System.out.println("5");
 			}
-			
+
 			Predicate<Element> filterEmptyElements = element -> !element.getTextContent().isEmpty(); //helper function to filter out empty elements.
 
 			this.enchantmentLimit = coreAttributes.getOptionalFirstOf("enchantmentLimit") // three possible cases
 				.filter(filterEmptyElements) // <enchantmentLimit> or <enchantmentLimit></enchantmentLimit> - text content is "" - trying to convert to Integer throws  - filter it out so default value gets assigned
-				.map(Element::getTextContent).map(Integer::valueOf) //<enchantmentLimit>x</enchantmentLimit>, x being Integer		
+				.map(Element::getTextContent).map(Integer::valueOf) //<enchantmentLimit>x</enchantmentLimit>, x being Integer
 				.orElse(-1);// empty element or no value in element, assign default value;
 
 			this.clothingSet = coreAttributes.getOptionalFirstOf("clothingSet")
@@ -405,7 +405,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				.map(e -> clothingXMLFile.getParentFile().getAbsolutePath() + "/" + e.getTextContent())
 				.filter(s -> !s.equals(this.pathName)) // if imageEquippedName is the same as imageName, we don't need to load it twice
 				.orElse(null);
-			
+
 
 			Function< Element, List<Color> > getColorsFromElement = (colorsElement) -> { //Helper function to get the colors depending on if it's a specified group or a list of individual colors
 				String values = colorsElement.getAttribute("values");
@@ -426,9 +426,9 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			};
 
 			List<Color> importedPrimaryColors = getColorsFromElement
-				.apply(coreAttributes.getMandatoryFirstOf("primaryColors"));	
+				.apply(coreAttributes.getMandatoryFirstOf("primaryColors"));
 			List<Color> importedPrimaryColorsDye = getColorsFromElement
-				.apply(coreAttributes.getMandatoryFirstOf("primaryColorsDye"));		
+				.apply(coreAttributes.getMandatoryFirstOf("primaryColorsDye"));
 
 			List<Color> importedSecondaryColors = coreAttributes.getOptionalFirstOf("secondaryColors")
 				.map(getColorsFromElement::apply)
@@ -463,29 +463,29 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			throw new XMLLoadException(e, clothingXMLFile);
 		}
 	}
-	
+
 	private void setUpFemininity(Femininity femininity) {
 		if (femininity == null || femininity == Femininity.ANDROGYNOUS) {
 			femininityMinimum = 0;
 			femininityMaximum = 100;
-			
+
 		} else if (femininity == Femininity.FEMININE) {
 			femininityMinimum = Femininity.ANDROGYNOUS.getMinimumFemininity();
 			femininityMaximum = 100;
-			
+
 		} else if (femininity == Femininity.MASCULINE) {
 			femininityMinimum = 0;
 			femininityMaximum = Femininity.ANDROGYNOUS.getMaximumFemininity();
 		}
 	}
-	
+
 	private void setUpColors(List<Color> availablePrimaryColors,
 			List<Color> availablePrimaryDyeColors,
 			List<Color> availableSecondaryColors,
 			List<Color> availableSecondaryDyeColors,
 			List<Color> availableTertiaryColors,
 			List<Color> availableTertiaryDyeColors) {
-		
+
 		this.availablePrimaryColors = new ArrayList<>();
 		if (availablePrimaryColors == null) {
 			this.availablePrimaryColors.add(Color.CLOTHING_BLACK);
@@ -494,12 +494,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 
 		Set<Color> colorSet = new HashSet<>();
-		
+
 		this.availablePrimaryDyeColors = new ArrayList<>();
 		if (availablePrimaryDyeColors != null) {
 			this.availablePrimaryDyeColors.addAll(availablePrimaryDyeColors);
 		}
-		
+
 		this.allAvailablePrimaryColors = new ArrayList<>();
 		colorSet.addAll(availablePrimaryColors);
 		if(availablePrimaryDyeColors!=null) {
@@ -507,12 +507,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		this.allAvailablePrimaryColors.addAll(colorSet);
 		this.allAvailablePrimaryColors.sort((c1, c2) -> c1.compareTo(c2));
-		
+
 		this.availableSecondaryColors = new ArrayList<>();
 		if (availableSecondaryColors != null) {
 			this.availableSecondaryColors.addAll(availableSecondaryColors);
 		}
-		
+
 		this.availableSecondaryDyeColors = new ArrayList<>();
 		if (availableSecondaryDyeColors != null) {
 			this.availableSecondaryDyeColors.addAll(availableSecondaryDyeColors);
@@ -533,7 +533,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		if (availableTertiaryColors != null) {
 			this.availableTertiaryColors.addAll(availableTertiaryColors);
 		}
-		
+
 		this.availableTertiaryDyeColors = new ArrayList<>();
 		if (availableTertiaryDyeColors != null) {
 			this.availableTertiaryDyeColors.addAll(availableTertiaryDyeColors);
@@ -566,7 +566,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			}
 		}
 	}
-	
+
 	private void finalSetUp() {
 		displacementTypesAvailableWithoutNONE = new ArrayList<>();
 		for (BlockedParts bp : this.blockedPartsList) {
@@ -578,7 +578,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 		SVGStringMap = new HashMap<>();
 		SVGStringEquippedMap = new HashMap<>();
-		
+
 		// Add blocked parts due to sealing or plugging:
 		for(ItemTag tag : this.itemTags) {
 			switch(tag) {
@@ -610,11 +610,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					break;
 			}
 		}
-		
+
 		// Causes crash if done from here for some reason.
 		//this.isPatternAvailable = this.getSVGImage().contains("id=\"patternLayer\"");
 	}
-	
+
 	@Override
 	public boolean equals(Object o) { // I know it doesn't include everything, but this should be enough to check for equality.
 		if(super.equals(o)){
@@ -636,7 +636,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() { // I know it doesn't include everything, but this should be enough to check for equality.
 		int result = super.hashCode();
@@ -655,12 +655,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		result = 31 * result + getRarity().hashCode();
 		return result;
 	}
-	
+
 
 	public static AbstractClothing generateClothing(String clothingTypeId, Color primaryColor, Color secondaryColor, Color tertiaryColor, boolean allowRandomEnchantment) {
 		return AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), primaryColor, secondaryColor, tertiaryColor, allowRandomEnchantment);
 	}
-	
+
 	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Color primaryColor, Color secondaryColor, Color tertiaryColor, boolean allowRandomEnchantment) {
 		Color c1 = primaryColor;
 		Color c2 = secondaryColor;
@@ -671,7 +671,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				c1 = clothingType.getAllAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAllAvailablePrimaryColors().size()));
 			}
 		}
-		
+
 		if (secondaryColor == null) {
 			if(clothingType.getAvailableSecondaryColors().isEmpty()) {
 				c2 = Color.CLOTHING_BLACK;
@@ -685,14 +685,14 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				c2 = clothingType.getAllAvailableSecondaryColors().get(Util.random.nextInt(clothingType.getAllAvailableSecondaryColors().size()));
 			}
 		}
-		
+
 		if (tertiaryColor == null) {
 			if(clothingType.getAvailableTertiaryColors().isEmpty()) {
 				c3 = Color.CLOTHING_BLACK;
 			} else {
 				c3 = clothingType.getAvailableTertiaryColors().get(Util.random.nextInt(clothingType.getAvailableTertiaryColors().size()));
 			}
-			
+
 		} else if(!clothingType.getAllAvailableTertiaryColors().contains(tertiaryColor)) {
 			if(clothingType.getAllAvailableTertiaryColors().isEmpty()) {
 				c3 = Color.CLOTHING_BLACK;
@@ -700,7 +700,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				c3 = clothingType.getAllAvailableTertiaryColors().get(Util.random.nextInt(clothingType.getAllAvailableTertiaryColors().size()));
 			}
 		}
-		
+
 		return new AbstractClothing(clothingType, c1, c2, c3, allowRandomEnchantment) {};
 	}
 
@@ -727,7 +727,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		AbstractClothingType type = ClothingType.getClothingTypeFromId(clothingTypeId);
 		return AbstractClothingType.generateClothing(type, type.getAvailablePrimaryColors().get(Util.random.nextInt(type.getAvailablePrimaryColors().size())), allowRandomEnchantment);
 	}
-	
+
 	/**
 	 * Generates clothing with the provided enchantments.
 	 */
@@ -741,7 +741,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				c1 = clothingType.getAllAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAllAvailablePrimaryColors().size()));
 			}
 		}
-		
+
 		if (secondaryColor == null || !clothingType.getAllAvailableSecondaryColors().contains(secondaryColor)) {
 			if(clothingType.getAvailableSecondaryColors().isEmpty()) {
 				c2 = Color.CLOTHING_BLACK;
@@ -749,7 +749,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				c2 = clothingType.getAvailableSecondaryColors().get(Util.random.nextInt(clothingType.getAvailableSecondaryColors().size()));
 			}
 		}
-		
+
 		if (tertiaryColor == null || !clothingType.getAllAvailableTertiaryColors().contains(tertiaryColor)) {
 			if(clothingType.getAvailableTertiaryColors().isEmpty()) {
 				c3 = Color.CLOTHING_BLACK;
@@ -757,28 +757,28 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				c3 = clothingType.getAvailableTertiaryColors().get(Util.random.nextInt(clothingType.getAvailableTertiaryColors().size()));
 			}
 		}
-		
+
 		return new AbstractClothing(clothingType, c1, c2, c3, effects) {};
 	}
-	
+
 	/**
 	 * Generates clothing with the provided enchantments.
 	 */
 	public static AbstractClothing generateClothing(AbstractClothingType clothingType, Color color, List<ItemEffect> effects) {
 		return generateClothing(clothingType, color, null, null, effects);
 	}
-	
+
 	public static AbstractClothing generateClothing(String clothingTypeId, Color color, List<ItemEffect> effects) {
 		return generateClothing(ClothingType.getClothingTypeFromId(clothingTypeId), color, null, null, effects);
 	}
-	
+
 	/**
 	 * Uses random color.
 	 */
 	public static AbstractClothing generateClothing(AbstractClothingType clothingType, List<ItemEffect> effects) {
 		return AbstractClothingType.generateClothing(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())), effects);
 	}
-	
+
 	/**
 	 * Generates clothing with a random enchantment.
 	 */
@@ -787,10 +787,10 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 		TFModifier rndMod = TFModifier.getClothingAttributeList().get(Util.random.nextInt(TFModifier.getClothingAttributeList().size()));
 		effects.add(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, rndMod, TFPotency.getRandomWeightedPositivePotency(), 0));
-		
+
 		return generateClothing(clothingType, color, effects);
 	}
-	
+
 	/**
 	 * Uses random color.
 	 */
@@ -803,32 +803,32 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 		TFModifier rndMod = TFModifier.getClothingAttributeList().get(Util.random.nextInt(TFModifier.getClothingAttributeList().size()));
 		effects.add(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, rndMod, TFPotency.getRandomWeightedNegativePotency(), 0));
-		
+
 		return generateClothing(clothingType, color, effects);
 	}
-	
+
 	public static AbstractClothing generateClothingWithNegativeEnchantment(AbstractClothingType clothingType) {
 		return AbstractClothingType.generateClothingWithNegativeEnchantment(clothingType, clothingType.getAvailablePrimaryColors().get(Util.random.nextInt(clothingType.getAvailablePrimaryColors().size())));
 	}
-	
+
 	public static AbstractClothing generateRareClothing(AbstractClothingType type) {
 		List<ItemEffect> effects = new ArrayList<>();
-		
+
 		List<TFModifier> attributeMods = new ArrayList<>(TFModifier.getClothingAttributeList());
-		
+
 		TFModifier rndMod = attributeMods.get(Util.random.nextInt(attributeMods.size()));
 		attributeMods.remove(rndMod);
 		TFModifier rndMod2 = attributeMods.get(Util.random.nextInt(attributeMods.size()));
-		
+
 		effects.add(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, rndMod, TFPotency.MAJOR_BOOST, 0));
 		effects.add(new ItemEffect(ItemEffectType.CLOTHING, TFModifier.CLOTHING_ATTRIBUTE, rndMod2, TFPotency.MAJOR_BOOST, 0));
-		
+
 		return AbstractClothingType.generateClothing(
 				type,
 				type.getAvailablePrimaryColors().get(Util.random.nextInt(type.getAvailablePrimaryColors().size())),
 				effects);
 	}
-	
+
 	public String getId() {
 		return ClothingType.getIdFromClothingType(this);
 	}
@@ -853,7 +853,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 
 		return setOfClothing;
 	}
-	
+
 	public static String getEquipDescriptions(GameCharacter clothingOwner, GameCharacter clothingEquipper, boolean rough,
 			String playerEquipping,
 			String playerEquippingNpc,
@@ -863,7 +863,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			String npcEquippingPlayerRough,
 			String npcEquippingOtherNPC,
 			String npcEquippingOtherNPCRough) {
-		
+
 		if (clothingEquipper.isPlayer()) {
 			if(clothingOwner.isPlayer()) {
 				return UtilText.parse(clothingOwner, playerEquipping);
@@ -874,7 +874,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingOwner, playerEquippingNpc);
 				}
 			}
-			
+
 		} else {
 			if (clothingOwner.isPlayer()) {
 				if(rough && npcEquippingPlayerRough!=null) {
@@ -897,14 +897,14 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			}
 		}
 	}
-	
+
 	public String equipText(GameCharacter clothingOwner, GameCharacter clothingEquipper, boolean rough, AbstractClothing clothing, boolean applyEffects) {
 		if(this.isCondom() && applyEffects) {
 			if(InventoryDialogue.getInventoryNPC()!=null) {
 				return ((NPC) InventoryDialogue.getInventoryNPC()).getCondomEquipEffects(clothingEquipper, clothingOwner, rough);
 			}
 		}
-		
+
 		if(displacementDescriptions!=null && !displacementDescriptions.isEmpty()) {
 			if(clothingOwner.equals(clothingEquipper)) {
 				if(displacementDescriptions.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -912,7 +912,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingOwner, displacementDescriptions.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.REPLACEMENT_SELF));
 				}
 				return UtilText.parse(clothingOwner, "[npc.name] [npc.verb(equip)] the "+clothing.getName());
-				
+
 			} else {
 				if(rough) {
 					if(displacementDescriptions.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -920,7 +920,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingEquipper, clothingOwner, displacementDescriptions.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.REPLACEMENT_ROUGH));
 					}
 					return UtilText.parse(clothingEquipper, clothingOwner, "[npc.name] [npc.verb(get)] [npc2.name] to equip the "+clothing.getName());
-					
+
 				} else {
 					if(displacementDescriptions.containsKey(DisplacementType.REMOVE_OR_EQUIP)
 							&& displacementDescriptions.get(DisplacementType.REMOVE_OR_EQUIP).containsKey(DisplacementDescriptionType.REPLACEMENT)) {
@@ -929,7 +929,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingEquipper, clothingOwner, "[npc.name] roughly [npc.verb(force)] [npc2.name] to equip the "+clothing.getName());
 				}
 			}
-			
+
 		} else {
 			if (clothingEquipper.isPlayer()) {
 				if(clothingOwner.isPlayer()) {
@@ -939,7 +939,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return displacementDescriptionsPlayer.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.REPLACEMENT_SELF);
 					}
 					return "You equip the "+clothing.getName()+"";
-					
+
 				} else {
 					if(rough) {
 						if(displacementDescriptionsPlayer!=null
@@ -948,7 +948,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingOwner, displacementDescriptionsPlayer.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.REPLACEMENT_ROUGH));
 						}
 						return UtilText.parse(clothingOwner, "You roughly force "+clothing.getName(true)+" onto [npc.name].");
-						
+
 					} else {
 						if(displacementDescriptionsPlayer!=null
 								&& displacementDescriptionsPlayer.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -958,7 +958,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingOwner, "You put "+clothing.getName(true)+" on [npc.name].");
 					}
 				}
-				
+
 			} else {
 				if (clothingOwner.isPlayer()) {
 					if(rough) {
@@ -968,7 +968,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingEquipper, displacementDescriptionsNPC.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.REPLACEMENT_ROUGH));
 						}
 						return UtilText.parse(clothingEquipper, "[npc.Name] roughly forces "+clothing.getName(true)+" onto you.");
-						
+
 					} else {
 						if(displacementDescriptionsNPC!=null
 								&& displacementDescriptionsNPC.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -985,7 +985,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingOwner, displacementDescriptionsNPC.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.REPLACEMENT_SELF));
 						}
 						return UtilText.parse(clothingOwner, "[npc.Name] equips "+clothing.getName(true)+".");
-						
+
 					} else {
 						if(rough) {
 							if(displacementDescriptionsNPC!=null
@@ -994,7 +994,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								return UtilText.parse(clothingEquipper, clothingOwner,displacementDescriptionsNPC.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.NPC_ON_NPC_REPLACEMENT_ROUGH));
 							}
 							return UtilText.parse(clothingEquipper, clothingOwner, "[npc.Name] roughly forces [npc2.name] to equip "+clothing.getName(true)+".");
-							
+
 						} else {
 							if(displacementDescriptionsNPC!=null
 									&& displacementDescriptionsNPC.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -1017,7 +1017,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingOwner, displacementDescriptions.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.DISPLACEMENT_SELF));
 				}
 				return UtilText.parse(clothingOwner, "[npc.name] [npc.verb(unequip)] [npc.her] "+clothing.getName());
-				
+
 			} else {
 				if(rough) {
 					if(displacementDescriptions.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -1025,7 +1025,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingRemover, clothingOwner, displacementDescriptions.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.DISPLACEMENT));
 					}
 					return UtilText.parse(clothingRemover, clothingOwner, "[npc.name] [npc.verb(get)] [npc2.name] to unequip [npc2.her] "+clothing.getName());
-					
+
 				} else {
 					if(displacementDescriptions.containsKey(DisplacementType.REMOVE_OR_EQUIP)
 							&& displacementDescriptions.get(DisplacementType.REMOVE_OR_EQUIP).containsKey(DisplacementDescriptionType.DISPLACEMENT_ROUGH)) {
@@ -1034,7 +1034,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingRemover, clothingOwner, "[npc.name] roughly [npc.verb(unequip)] [npc2.namePos] "+clothing.getName());
 				}
 			}
-			
+
 		} else {
 			if (clothingRemover.isPlayer()) {
 				if(clothingOwner.isPlayer()) {
@@ -1061,7 +1061,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingOwner, "You take off [npc.namePos] "+clothing.getName()+".");
 					}
 				}
-				
+
 			} else {
 				if (clothingOwner.isPlayer()) {
 					if(rough) {
@@ -1087,7 +1087,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingOwner, displacementDescriptionsNPC.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.DISPLACEMENT_SELF));
 						}
 						return UtilText.parse(clothingOwner, "[npc.Name] unequips [npc.her] "+clothing.getName()+".");
-						
+
 					} else {
 						if(rough) {
 							if(displacementDescriptionsNPC!=null
@@ -1096,7 +1096,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								return UtilText.parse(clothingRemover, clothingOwner,displacementDescriptionsNPC.get(DisplacementType.REMOVE_OR_EQUIP).get(DisplacementDescriptionType.NPC_ON_NPC_DISPLACEMENT_ROUGH));
 							}
 							return UtilText.parse(clothingRemover, clothingOwner, "[npc.Name] roughly forces [npc2.name] to equip "+clothing.getName(true)+".");
-							
+
 						} else {
 							if(displacementDescriptionsNPC!=null
 									&& displacementDescriptionsNPC.containsKey(DisplacementType.REMOVE_OR_EQUIP)
@@ -1119,7 +1119,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingOwner, displacementDescriptions.get(dt).get(DisplacementDescriptionType.DISPLACEMENT_SELF));
 				}
 				return UtilText.parse(clothingOwner, "[npc.name] "+(clothingRemover.isPlayer()?dt.getDescription():dt.getDescriptionThirdPerson())+" [npc.her] "+this.getName());
-				
+
 			} else {
 				if(rough) {
 					if(displacementDescriptions.containsKey(dt)
@@ -1127,7 +1127,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingRemover, clothingOwner, displacementDescriptions.get(dt).get(DisplacementDescriptionType.DISPLACEMENT));
 					}
 					return UtilText.parse(clothingRemover, clothingOwner, "[npc.name] "+(clothingRemover.isPlayer()?dt.getDescription():dt.getDescriptionThirdPerson())+" [npc2.namePos] "+this.getName());
-					
+
 				} else {
 					if(displacementDescriptions.containsKey(dt)
 							&& displacementDescriptions.get(dt).containsKey(DisplacementDescriptionType.DISPLACEMENT_ROUGH)) {
@@ -1136,7 +1136,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingRemover, clothingOwner, "[npc.name] roughly "+(clothingRemover.isPlayer()?dt.getDescription():dt.getDescriptionThirdPerson())+" [npc2.namePos] "+this.getName());
 				}
 			}
-			
+
 		} else {
 			if (clothingRemover.isPlayer()) {
 				if(clothingOwner.isPlayer()) {
@@ -1163,7 +1163,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingOwner, "You "+dt.getDescription()+" [npc.namePos] "+this.getName()+".");
 					}
 				}
-				
+
 			} else {
 				if (clothingOwner.isPlayer()) {
 					if(rough) {
@@ -1173,7 +1173,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingRemover, displacementDescriptionsNPC.get(dt).get(DisplacementDescriptionType.DISPLACEMENT_ROUGH));
 						}
 						return UtilText.parse(clothingRemover, "[npc.Name] roughly "+dt.getDescriptionThirdPerson()+" your "+this.getName()+".");
-						
+
 					} else {
 						if(displacementDescriptionsNPC!=null
 								&& displacementDescriptionsNPC.containsKey(dt)
@@ -1190,7 +1190,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingRemover, displacementDescriptionsNPC.get(dt).get(DisplacementDescriptionType.DISPLACEMENT_SELF));
 						}
 						return UtilText.parse(clothingOwner, "[npc.Name] "+dt.getDescriptionThirdPerson()+" [npc.her] "+this.getName()+".");
-						
+
 					} else {
 						if(rough) {
 							if(displacementDescriptionsNPC!=null
@@ -1199,7 +1199,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								return UtilText.parse(clothingRemover, clothingOwner,displacementDescriptionsNPC.get(dt).get(DisplacementDescriptionType.NPC_ON_NPC_DISPLACEMENT_ROUGH));
 							}
 							return UtilText.parse(clothingRemover, clothingOwner, "[npc.Name] roughly "+dt.getDescriptionThirdPerson()+" [npc2.namePos] "+this.getName()+".");
-							
+
 						} else {
 							if(displacementDescriptionsNPC!=null
 									&& displacementDescriptionsNPC.containsKey(dt)
@@ -1222,7 +1222,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingOwner, displacementDescriptions.get(dt).get(DisplacementDescriptionType.REPLACEMENT_SELF));
 				}
 				return UtilText.parse(clothingOwner, "[npc.name] "+(clothingRemover.isPlayer()?dt.getOppositeDescription():dt.getOppositeDescriptionThirdPerson())+" [npc.her] "+this.getName());
-				
+
 			} else {
 				if(rough) {
 					if(displacementDescriptions.containsKey(dt)
@@ -1230,7 +1230,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingRemover, clothingOwner, displacementDescriptions.get(dt).get(DisplacementDescriptionType.REPLACEMENT_ROUGH));
 					}
 					return UtilText.parse(clothingRemover, clothingOwner, "[npc.name] "+(clothingRemover.isPlayer()?dt.getOppositeDescription():dt.getOppositeDescriptionThirdPerson())+" [npc2.namePos] "+this.getName());
-					
+
 				} else {
 					if(displacementDescriptions.containsKey(dt)
 							&& displacementDescriptions.get(dt).containsKey(DisplacementDescriptionType.REPLACEMENT)) {
@@ -1239,7 +1239,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 					return UtilText.parse(clothingRemover, clothingOwner, "[npc.name] roughly "+(clothingRemover.isPlayer()?dt.getOppositeDescription():dt.getOppositeDescriptionThirdPerson())+" [npc2.namePos] "+this.getName());
 				}
 			}
-			
+
 		} else {
 			if (clothingRemover.isPlayer()) {
 				if(clothingOwner.isPlayer()) {
@@ -1266,7 +1266,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						return UtilText.parse(clothingOwner, "You "+dt.getOppositeDescription()+" [npc.namePos] "+this.getName()+".");
 					}
 				}
-				
+
 			} else {
 				if (clothingOwner.isPlayer()) {
 					if(rough) {
@@ -1276,7 +1276,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingRemover, displacementDescriptionsNPC.get(dt).get(DisplacementDescriptionType.REPLACEMENT_ROUGH));
 						}
 						return UtilText.parse(clothingRemover, "[npc.Name] roughly "+dt.getOppositeDescriptionThirdPerson()+" your "+this.getName()+".");
-						
+
 					} else {
 						if(displacementDescriptionsNPC!=null
 								&& displacementDescriptionsNPC.containsKey(dt)
@@ -1293,7 +1293,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							return UtilText.parse(clothingRemover, displacementDescriptionsNPC.get(dt).get(DisplacementDescriptionType.REPLACEMENT_SELF));
 						}
 						return UtilText.parse(clothingOwner, "[npc.Name] "+dt.getOppositeDescriptionThirdPerson()+" [npc.her] "+this.getName()+".");
-						
+
 					} else {
 						if(rough) {
 							if(displacementDescriptionsNPC!=null
@@ -1302,7 +1302,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								return UtilText.parse(clothingRemover, clothingOwner,displacementDescriptionsNPC.get(dt).get(DisplacementDescriptionType.NPC_ON_NPC_REPLACEMENT_ROUGH));
 							}
 							return UtilText.parse(clothingRemover, clothingOwner, "[npc.Name] roughly "+dt.getOppositeDescriptionThirdPerson()+" [npc2.namePos] "+this.getName()+".");
-							
+
 						} else {
 							if(displacementDescriptionsNPC!=null
 									&& displacementDescriptionsNPC.containsKey(dt)
@@ -1316,7 +1316,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			}
 		}
 	}
-	
+
 	public boolean isCanBeEquipped(GameCharacter clothingOwner) {
 		// This might not be the most efficient way of making this method, but I found it to be easily-readable:
 		if(getItemTags().contains(ItemTag.FITS_ARACHNID_BODY) && clothingOwner.getLegConfiguration()!=LegConfiguration.ARACHNID) {
@@ -1359,7 +1359,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			return false;
 		}
 		return true;
-	}	
+	}
 
 	public String getCannotBeEquippedText(GameCharacter clothingOwner) { // ...
 		if(getItemTags().contains(ItemTag.FITS_ARACHNID_BODY) && clothingOwner.getLegConfiguration()!=LegConfiguration.ARACHNID) {
@@ -1401,32 +1401,32 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		if(!clothingOwner.isBreastFuckableNipplePenetration() && this.getItemTags().contains(ItemTag.REQUIRES_FUCKABLE_NIPPLES)) {
 			return UtilText.parse(clothingOwner, "[npc.NamePos] nipples are not fuckable, so [npc.she] can't wear the "+this.getName()+"!");
 		}
-		
+
 		return UtilText.parse(clothingOwner, "[npc.Name] cannot wear the "+this.getName()+"!");
 	}
-	
+
 	public boolean isMufflesSpeech() {
 		return getItemTags().contains(ItemTag.MUFFLES_SPEECH);
 	}
-	
+
 	public boolean isHindersLegMovement() {
 		return getItemTags().contains(ItemTag.HINDERS_LEG_MOVEMENT);
 	}
-	
+
 	public boolean isHindersArmMovement() {
 		return getItemTags().contains(ItemTag.HINDERS_ARM_MOVEMENT);
 	}
-	
+
 	// Getters & setters:
-	
+
 	public boolean isDiscardedOnUnequip() {
 		return getItemTags().contains(ItemTag.DISCARDED_WHEN_UNEQUIPPED);
 	}
-	
+
 	public boolean isAbleToBeEquippedDuringSex() {
 		return getItemTags().contains(ItemTag.ENABLE_SEX_EQUIP);
 	}
-	
+
 	public String getDeterminer() {
 		return determiner;
 	}
@@ -1500,7 +1500,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				List<BlockedParts> modifiedBlockedParts = new ArrayList<>();
 				for(BlockedParts blockedparts : blockedPartsList) {
 					BlockedParts copy = new BlockedParts(blockedparts);
-					
+
 					copy.blockedBodyParts = copy.blockedBodyParts.stream().filter(
 						bp ->
 							bp!=CoverableArea.ANUS && bp!=CoverableArea.ASS
@@ -1509,7 +1509,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& bp!=CoverableArea.TESTICLES && bp!=CoverableArea.THIGHS
 							&& bp!=CoverableArea.VAGINA && (!cAccess || (bp!=CoverableArea.BREASTS_CROTCH && bp!=CoverableArea.NIPPLES_CROTCH))
 						).collect(Collectors.toList());
-					
+
 					copy.clothingAccessRequired = copy.clothingAccessRequired.stream().filter(
 						ca ->
 							ca!=ClothingAccess.ANUS && ca!=ClothingAccess.GROIN
@@ -1517,7 +1517,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& ca!=ClothingAccess.LEGS_UP_TO_GROIN && ca!=ClothingAccess.LEGS_UP_TO_GROIN_LOW_LEVEL
 							&& ca!=ClothingAccess.WAIST
 						).collect(Collectors.toList());
-					
+
 					copy.clothingAccessBlocked = copy.clothingAccessBlocked.stream().filter(
 						ca ->
 							ca!=ClothingAccess.ANUS && ca!=ClothingAccess.GROIN
@@ -1525,7 +1525,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& ca!=ClothingAccess.LEGS_UP_TO_GROIN && ca!=ClothingAccess.LEGS_UP_TO_GROIN_LOW_LEVEL
 							&& ca!=ClothingAccess.WAIST
 						).collect(Collectors.toList());
-					
+
 					copy.concealedSlots = copy.concealedSlots.stream().filter(
 						cs ->
 							cs!=InventorySlot.ANKLE && cs!=InventorySlot.ANUS
@@ -1535,7 +1535,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& cs!=InventorySlot.SOCK && cs!=InventorySlot.TAIL
 							&& cs!=InventorySlot.VAGINA // There is no slot for crotch boobs, and is handled in CharacterInventory.isCoverableAreaExposed()
 						).collect(Collectors.toList());
-					
+
 					modifiedBlockedParts.add(copy);
 				}
 				return modifiedBlockedParts;
@@ -1543,7 +1543,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		return blockedPartsList;
 	}
-	
+
 	public boolean isConcealsSlot(GameCharacter character, InventorySlot slot) {
 		for(BlockedParts blockedPart : this.getBlockedPartsList(character)) {
 			if(blockedPart.concealedSlots.contains(slot)) {
@@ -1576,19 +1576,19 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			}
 			if(replace) {
 				List<InventorySlot> modifiedIncompatibleSlots = new ArrayList<>(incompatibleSlots);
-				
+
 				if(InventorySlot.getHumanoidSlots().contains(this.getSlot())) {
 					modifiedIncompatibleSlots.removeIf(slot -> !InventorySlot.getHumanoidSlots().contains(slot));
 				} else {
 					modifiedIncompatibleSlots.removeIf(slot -> InventorySlot.getHumanoidSlots().contains(slot));
 				}
-				
+
 				return modifiedIncompatibleSlots;
 			}
 		}
 		return incompatibleSlots;
 	}
-	
+
 	public List<DisplacementType> getBlockedPartsKeysAsListWithoutNONE(GameCharacter character) {
 		if(character!=null) {
 			boolean replaceCrotchBoobAccess = false;
@@ -1623,7 +1623,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				List<BlockedParts> modifiedBlockedParts = new ArrayList<>();
 				for(BlockedParts blockedparts : blockedPartsList) {
 					BlockedParts copy = new BlockedParts(blockedparts);
-					
+
 					copy.blockedBodyParts = copy.blockedBodyParts.stream().filter(
 						bp ->
 							bp!=CoverableArea.ANUS && bp!=CoverableArea.ASS
@@ -1632,7 +1632,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& bp!=CoverableArea.TESTICLES && bp!=CoverableArea.THIGHS
 							&& bp!=CoverableArea.VAGINA && (!cAccess || (bp!=CoverableArea.BREASTS_CROTCH && bp!=CoverableArea.NIPPLES_CROTCH))
 						).collect(Collectors.toList());
-					
+
 					copy.clothingAccessRequired = copy.clothingAccessRequired.stream().filter(
 						ca ->
 							ca!=ClothingAccess.ANUS && ca!=ClothingAccess.GROIN
@@ -1640,7 +1640,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& ca!=ClothingAccess.LEGS_UP_TO_GROIN && ca!=ClothingAccess.LEGS_UP_TO_GROIN_LOW_LEVEL
 							&& ca!=ClothingAccess.WAIST
 						).collect(Collectors.toList());
-					
+
 					copy.clothingAccessBlocked = copy.clothingAccessBlocked.stream().filter(
 						ca ->
 							ca!=ClothingAccess.ANUS && ca!=ClothingAccess.GROIN
@@ -1648,7 +1648,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& ca!=ClothingAccess.LEGS_UP_TO_GROIN && ca!=ClothingAccess.LEGS_UP_TO_GROIN_LOW_LEVEL
 							&& ca!=ClothingAccess.WAIST
 						).collect(Collectors.toList());
-					
+
 					copy.concealedSlots = copy.concealedSlots.stream().filter(
 						cs ->
 							cs!=InventorySlot.ANKLE && cs!=InventorySlot.ANUS
@@ -1658,7 +1658,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							&& cs!=InventorySlot.SOCK && cs!=InventorySlot.TAIL
 							&& cs!=InventorySlot.VAGINA // There is no slot for crotch boobs, and is handled in CharacterInventory.isCoverableAreaExposed()
 						).collect(Collectors.toList());
-					
+
 					modifiedBlockedParts.add(copy);
 				}
 				List<DisplacementType> moddedDisplacementTypesAvailableWithoutNONE = new ArrayList<>();
@@ -1672,7 +1672,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		return displacementTypesAvailableWithoutNONE;
 	}
-	
+
 	public String getPathName() {
 		return pathName;
 	}
@@ -1692,11 +1692,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public List<Color> getAvailablePrimaryColors() {
 		return availablePrimaryColors;
 	}
-	
+
 	public List<Color> getAvailablePrimaryDyeColors() {
 		return availablePrimaryDyeColors;
 	}
-	
+
 	public List<Color> getAllAvailablePrimaryColors() {
 		return allAvailablePrimaryColors;
 	}
@@ -1708,11 +1708,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public List<Color> getAvailableSecondaryDyeColors() {
 		return availableSecondaryDyeColors;
 	}
-	
+
 	public List<Color> getAllAvailableSecondaryColors() {
 		return allAvailableSecondaryColors;
 	}
-	
+
 	public List<Color> getAvailableTertiaryColors() {
 		return availableTertiaryColors;
 	}
@@ -1720,32 +1720,32 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public List<Color> getAvailableTertiaryDyeColors() {
 		return availableTertiaryDyeColors;
 	}
-	
+
 	public List<Color> getAllAvailableTertiaryColors() {
 		return allAvailableTertiaryColors;
 	}
-	
+
 //	public Map<Color, String> getSVGStringMap() {
 //		return SVGStringMap;
 //	}
-//	
+//
 //	public Map<Color, String> getSVGStringEquippedMap() {
 //		return SVGStringEquippedMap;
 //	}
-	
+
 	private void addSVGStringMapping(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary, String s) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
 		}
-		
+
 		initMapIfAbsent(SVGStringMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
-		
+
 		SVGStringMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).put(patternColorTertiary, s);
 	}
-	
-	private void initMapIfAbsent(Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> map, 
+
+	private void initMapIfAbsent(Map<Color, Map<Color, Map<Color, Map<String, Map<Color, Map<Color, Map<Color, String>>>>>>> map,
 			Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary) {
-		
+
 		map.putIfAbsent(color, new HashMap<>());
 		map.get(color).putIfAbsent(colorSecondary, new HashMap<>());
 		map.get(color).get(colorSecondary).putIfAbsent(colorTertiary, new HashMap<>());
@@ -1753,17 +1753,17 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		map.get(color).get(colorSecondary).get(colorTertiary).get(pattern).putIfAbsent(patternColorPrimary, new HashMap<>());
 		map.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).putIfAbsent(patternColorSecondary, new HashMap<>());
 	}
-	
+
 	private void addSVGStringEquippedMapping(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary, String s) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
 		}
 
 		initMapIfAbsent(SVGStringEquippedMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
-		
+
 		SVGStringEquippedMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).put(patternColorTertiary, s);
 	}
-	
+
 	private String getSVGStringFromMap(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
@@ -1771,7 +1771,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		initMapIfAbsent(SVGStringMap, color, colorSecondary, colorTertiary, pattern, patternColorPrimary, patternColorSecondary, patternColorTertiary);
 		return SVGStringMap.get(color).get(colorSecondary).get(colorTertiary).get(pattern).get(patternColorPrimary).get(patternColorSecondary).get(patternColorTertiary);
 	}
-	
+
 	private String getSVGStringFromEquippedMap(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColorPrimary, Color patternColorSecondary, Color patternColorTertiary) {
 		if(pattern == null) {
 			pattern = "none"; // The map does not contain null as a key.
@@ -1793,10 +1793,10 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		if(this.getAllAvailableTertiaryColors()!=null && !this.getAllAvailableTertiaryColors().isEmpty()) {
 			tColor = this.getAllAvailableTertiaryColors().get(0);
 		}
-		
+
 		return getSVGImage(null, pColor, sColor, tColor, false, null, null, null, null);
 	}
-	
+
 	/**
 	 * @param color You need to pass a color in here.
 	 * @param colorSecondary This can be null.
@@ -1805,7 +1805,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public String getSVGImage(Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
 		return getSVGImage(null, color, colorSecondary, colorTertiary, false, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 	}
-	
+
 	/**
 	 * @param character The character this clothing is equipped to.
 	 * @param color You need to pass a color in here.
@@ -1815,12 +1815,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public String getSVGEquippedImage(GameCharacter character, Color color, Color colorSecondary, Color colorTertiary, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
 		return getSVGImage(character, color, colorSecondary, colorTertiary, true, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 	}
-	
+
 	private String getSVGImage(GameCharacter character, Color color, Color colorSecondary, Color colorTertiary, boolean equippedVariant, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
 		if (!allAvailablePrimaryColors.contains(color)) {
 			return "";
 		}
-		
+
 		if(this.equals(ClothingType.HIPS_CONDOMS)) {
 			if (getAllAvailablePrimaryColors().contains(color)) {
 				try {
@@ -1836,11 +1836,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 						s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 						s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 						is.close();
-						
+
 						addSVGStringEquippedMapping(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor, s);
-						
+
 						return s;
-						
+
 					} else {
 						List<Color> condomColors = new ArrayList<>();
 						// Draw all backs:
@@ -1848,7 +1848,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							if(item.getItemType().equals(ItemType.CONDOM_USED)) {
 								if(condomColors.size()<8) {
 									condomColors.add(item.getColor());
-									
+
 									is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_"+condomColors.size()+"_back.svg");
 									s += "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>" + Util.inputStreamToString(is) + "</div>";
 									s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
@@ -1857,14 +1857,14 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								}
 							}
 						}
-						
+
 						is.close();
 						is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_base_front.svg");
 						s += "<div style='width:100%;height:100%;position:absolute;left:0;bottom:0;padding:0;margin:0'>" + Util.inputStreamToString(is) + "</div>";
 						s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 						s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
 						is.close();
-						
+
 						int i = 1;
 						for(Color c : condomColors) {
 							is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/clothing/belt_used_condoms_"+i+"_front.svg");
@@ -1874,25 +1874,25 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 							is.close();
 							i++;
 						}
-						
+
 						return s;
 					}
-					
+
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			
+
 		} else {
 			if(equippedVariant && pathNameEquipped!=null) {
 				String stringFromMap = getSVGStringFromEquippedMap(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 				if (stringFromMap!=null && !this.equals(ClothingType.WRIST_WOMENS_WATCH) && !this.equals(ClothingType.WRIST_MENS_WATCH)) {
 					return stringFromMap;
-					
+
 				} else {
 					if (getAllAvailablePrimaryColors().contains(color)) {
 						try {
-							
+
 							InputStream is;
 							String s;
 							if(isMod) {
@@ -1907,11 +1907,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								s = Util.inputStreamToString(is);
 								is.close();
 							}
-							
+
 							s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
-							
+
 							s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
-							
+
 							// Add minute and hour hands to women's and men's watches:
 							s += (this.equals(ClothingType.WRIST_WOMENS_WATCH)
 									? "<div style='width:100%;height:100%;position:absolute;left:0;top:0;-webkit-transform: rotate(" + ((Main.game.getMinutesPassed() % (60 * 24)) / 2f) + "deg);'>"
@@ -1927,23 +1927,23 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 										: "");
 
 							addSVGStringEquippedMapping(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor, s);
-							
+
 							return s;
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
 					}
 				}
-				
+
 			} else {
 				String stringFromMap = getSVGStringFromMap(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
 				if (stringFromMap!=null && !this.equals(ClothingType.WRIST_WOMENS_WATCH) && !this.equals(ClothingType.WRIST_MENS_WATCH)) {
 					return stringFromMap;
-					
+
 				} else {
 					if (getAllAvailablePrimaryColors().contains(color)) {
 						try {
-							
+
 							InputStream is;
 							String s;
 							if(isMod) {
@@ -1958,11 +1958,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 								s = Util.inputStreamToString(is);
 								is.close();
 							}
-							
+
 							s = getSVGWithHandledPattern(s, pattern, patternColor, patternSecondaryColor, patternTertiaryColor);
-							
+
 							s = SvgUtil.colorReplacement(this.getId(), color, colorSecondary, colorTertiary, s);
-							
+
 							// Add minute and hour hands to women's and men's watches:
 							s += (this.equals(ClothingType.WRIST_WOMENS_WATCH)
 									? "<div style='width:100%;height:100%;position:absolute;left:0;top:0;-webkit-transform: rotate(" + ((Main.game.getMinutesPassed() % (60 * 24)) / 2f) + "deg);'>"
@@ -1976,9 +1976,9 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 											+ "<div style='width:100%;height:100%;position:absolute;left:0;top:0;-webkit-transform: rotate(" + (Main.game.getMinutesPassed() % (60)) * 6
 											+ "deg);'>" + SVGImages.SVG_IMAGE_PROVIDER.getMensWatchMinuteHand() + "</div>"
 										: "");
-							
+
 							addSVGStringMapping(color, colorSecondary, colorTertiary, pattern, patternColor, patternSecondaryColor, patternTertiaryColor, s);
-		
+
 							return s;
 						} catch (IOException e) {
 							e.printStackTrace();
@@ -1989,38 +1989,38 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		return "";
 	}
-	
+
 	private String getSVGWithHandledPattern(String s, String pattern, Color patternColor, Color patternSecondaryColor, Color patternTertiaryColor) {
 		if(!s.contains("patternLayer")) { // Making sure that the pattern layer exists.
 			return s;
 		}
-		
+
 		if(!this.isPatternAvailable) {
 			this.isPatternAvailable = true;
 		}
-		
+
 		if(pattern == null || pattern.equals("none")) {
 			return s; // No pattern - no need to adjust anything.
 		}
-		
+
 		String returnable;
-		
+
 		// Locating the "patternLayer".
 		int patternLayerStartIndex = s.indexOf("patternLayer");
 		int patternLayerEndIndex = s.indexOf("</g>", patternLayerStartIndex);
-		
+
 		// Setting up clip mask
 		String newClipMask = "<clipPath id=\"internalPatternClip\">";
-		
+
 		int firstShapeStartIndex = s.indexOf("<path", patternLayerStartIndex);
 		int lastShapeEndIndex = firstShapeStartIndex;
-		
+
 		boolean continueSetUp = true;
-		
+
 		while(continueSetUp){
 			int currentShapeStartIndex = s.indexOf("<path", lastShapeEndIndex);
 			int currentShapeEndIndex = s.indexOf("/>", currentShapeStartIndex);
-			
+
 			if(currentShapeEndIndex > patternLayerEndIndex || currentShapeEndIndex == -1 || currentShapeStartIndex == -1) {
 				continueSetUp = false;
 			} else {
@@ -2028,11 +2028,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				lastShapeEndIndex = currentShapeEndIndex;
 			}
 		}
-		
+
 		newClipMask = newClipMask + "</clipPath>";
-		
+
 		//System.out.print(newClipMask);
-		
+
 		// Adding clip mask to the returned string.
 		int defIndex = s.indexOf("<defs");
 		int defEndIndex;
@@ -2045,7 +2045,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			returnable = s.substring(0, s.indexOf('>')) + "><defs>" + newClipMask + "</defs>";
 			defEndIndex = s.indexOf('>') + 1;
 		}
-		
+
 		// Loading pattern
 			String loadedPattern;
 		try {
@@ -2056,7 +2056,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		// Getting shapes from the pattern
 		String newPattern = "";
-		
+
 		int firstPatternShapeStartIndex = loadedPattern.indexOf("<path");
 		int firstRectStartIndex = loadedPattern.indexOf("<rect");
 		if((firstRectStartIndex != -1 && firstRectStartIndex < firstPatternShapeStartIndex) || firstPatternShapeStartIndex == -1)
@@ -2064,9 +2064,9 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			firstPatternShapeStartIndex = firstRectStartIndex;
 		}
 		int lastPatternShapeEndIndex = firstPatternShapeStartIndex;
-		
+
 		boolean continuePatternSetUp = true;
-		
+
 		while(continuePatternSetUp){
 			int currentShapeStartIndex = loadedPattern.indexOf("<path", lastPatternShapeEndIndex);
 			int currentRectStartIndex = loadedPattern.indexOf("<rect", lastPatternShapeEndIndex);
@@ -2075,7 +2075,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 				currentShapeStartIndex = currentRectStartIndex;
 			}
 			int currentShapeEndIndex = loadedPattern.indexOf("/>", currentShapeStartIndex);
-			
+
 			if(currentShapeEndIndex == -1 || currentShapeStartIndex == -1) {
 				continuePatternSetUp = false;
 			} else {
@@ -2090,12 +2090,12 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		returnable = returnable + s.substring(defEndIndex, firstShapeStartIndex)
 				+ newPattern
 				+ s.substring(patternLayerEndIndex);
-		
+
 		//System.out.print(returnable);
-		
+
 		return returnable;
 	}
-	
+
 	public boolean isPatternAvailable() {
 		return this.isPatternAvailable;
 	}
@@ -2107,11 +2107,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public List<ItemEffect> getEffects() {
 		return effects;
 	}
-	
+
 	public boolean isAbleToBeSold() {
 		return getRarity()!=Rarity.QUEST;
 	}
-	
+
 	public boolean isAbleToBeDropped() {
 		return getRarity()!=Rarity.QUEST;
 	}
@@ -2123,10 +2123,10 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public void setPhysicalResistance(int physicalResistance) {
 		this.physicalResistance = physicalResistance;
 	}
-	
+
 
 	// Enchantments:
-	
+
 	public int getEnchantmentLimit() {
 		if(enchantmentLimit==-1) {
 			int base = (getClothingSet()==null?5:10);
@@ -2135,15 +2135,15 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			return enchantmentLimit;
 		}
 	}
-	
+
 	public AbstractItemEffectType getEnchantmentEffect() {
 		return ItemEffectType.CLOTHING;
 	}
-	
+
 	public TFEssence getRelatedEssence() {
 		return TFEssence.ARCANE;
 	}
-	
+
 	public AbstractClothingType getEnchantmentItemType(List<ItemEffect> effects) {
 		return this;
 	}
@@ -2151,7 +2151,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 	public List<ItemTag> getItemTags() {
 		return itemTags;
 	}
-	
+
 	public boolean isSexToy() {
 		for(ItemTag tag : this.getItemTags()) {
 			if(tag.isSexToy()) {
@@ -2160,11 +2160,11 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 		}
 		return false;
 	}
-	
+
 	public boolean isCondom() {
 		return getItemTags().contains(ItemTag.CONDOM);
 	}
-	
+
 	public boolean isTransparent() {
 		return getItemTags().contains(ItemTag.TRANSPARENT);
 	}

@@ -10,7 +10,7 @@ public enum AreolaeShape {
 	NORMAL("normal"),
 	HEART("heart"),
 	STAR("star");
-	
+
 	private String descriptor;
 
 	private AreolaeShape(String descriptor) {

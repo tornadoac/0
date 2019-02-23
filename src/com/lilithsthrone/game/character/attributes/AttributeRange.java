@@ -21,11 +21,11 @@ public class AttributeRange {
 	public float getMaximum() {
 		return maximum;
 	}
-	
+
 	public float getMedian() {
 		return (maximum+minimum)/2;
 	}
-	
+
 	public float getRandomVariance() {
 		return (float) (Math.random()*(maximum-minimum));
 	}

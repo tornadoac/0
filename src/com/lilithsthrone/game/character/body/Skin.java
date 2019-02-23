@@ -33,7 +33,7 @@ public class Skin implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -43,7 +43,7 @@ public class Skin implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		return type.getDescriptor(gc);
@@ -57,17 +57,17 @@ public class Skin implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if (owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.skin] of [pc.a_skinRace], so nothing happens...)]</p>";
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.skin] of [npc.a_skinRace], so nothing happens...)]</p>");
 			}
-			
+
 		} else {
 			UtilText.transformationContentSB.setLength(0);
-			
+
 			if (owner.isPlayer()) {
 				UtilText.transformationContentSB.append(
 						"<p>"
@@ -84,7 +84,7 @@ public class Skin implements BodyPartInterface {
 		UtilText.transformationContentSB.setLength(0);
 		UtilText.transformationContentSB.append(s);
 		this.type = type;
-		
+
 		switch (type) {
 			case HUMAN:
 				if (owner.isPlayer()) {
@@ -342,7 +342,7 @@ public class Skin implements BodyPartInterface {
 			case ANGEL: //TODO
 				break;
 		}
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 				+ owner.postTransformationCalculation()

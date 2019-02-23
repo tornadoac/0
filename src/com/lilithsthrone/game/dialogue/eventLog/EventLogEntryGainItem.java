@@ -19,7 +19,7 @@ public class EventLogEntryGainItem extends EventLogEntry {
 				(item instanceof AbstractItem?"Gained Item":(item instanceof AbstractClothing?"Gained Clothing":"Gained Weapon")),
 				"<span style='color:"+item.getRarity().getColor().toWebHexString()+";'>"+Util.capitalizeSentence(item.getName())+"</span>");
 	}
-	
+
 	@Override
 	public String getFormattedEntry() {
 		return "<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>"+name+"</span>: "+description;

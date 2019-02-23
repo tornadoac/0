@@ -16,37 +16,37 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
  * @author Innoxia
  */
 public enum AnusType implements BodyPartTypeInterface {
-	
+
 	HUMAN(BodyCoveringType.ANUS, Race.HUMAN),
-	
+
 	ANGEL(BodyCoveringType.ANUS, Race.ANGEL, OrificeModifier.RIBBED, OrificeModifier.TENTACLED, OrificeModifier.MUSCLE_CONTROL),
-	
+
 	DEMON_COMMON(BodyCoveringType.ANUS, Race.DEMON, OrificeModifier.RIBBED, OrificeModifier.TENTACLED, OrificeModifier.MUSCLE_CONTROL),
-	
+
 	COW_MORPH(BodyCoveringType.ANUS, Race.COW_MORPH),
-	
+
 	DOG_MORPH(BodyCoveringType.ANUS, Race.DOG_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.ANUS, Race.FOX_MORPH),
-	
+
 	SQUIRREL_MORPH(BodyCoveringType.ANUS, Race.SQUIRREL_MORPH),
-	
+
 	RAT_MORPH(BodyCoveringType.ANUS, Race.RAT_MORPH),
-	
+
 	RABBIT_MORPH(BodyCoveringType.ANUS, Race.RABBIT_MORPH),
-	
+
 	BAT_MORPH(BodyCoveringType.ANUS, Race.BAT_MORPH),
-	
+
 	WOLF_MORPH(BodyCoveringType.ANUS, Race.WOLF_MORPH),
-	
+
 	CAT_MORPH(BodyCoveringType.ANUS, Race.CAT_MORPH),
-	
+
 	HORSE_MORPH(BodyCoveringType.ANUS, Race.HORSE_MORPH, OrificeModifier.PUFFY),
-	
+
 	REINDEER_MORPH(BodyCoveringType.ANUS, Race.REINDEER_MORPH, OrificeModifier.PUFFY),
-	
+
 	ALLIGATOR_MORPH(BodyCoveringType.ANUS, Race.ALLIGATOR_MORPH),
-	
+
 	HARPY(BodyCoveringType.ANUS, Race.HARPY);
 
 	private BodyCoveringType skinType;
@@ -69,7 +69,7 @@ public enum AnusType implements BodyPartTypeInterface {
 		}
 		return valueOf(value);
 	}
-	
+
 	@Override
 	public boolean isDefaultPlural() {
 		return false;
@@ -79,7 +79,7 @@ public enum AnusType implements BodyPartTypeInterface {
 	public String getDeterminer(GameCharacter gc) {
 		return "";
 	}
-	
+
 	@Override
 	public String getName(GameCharacter gc) {
 		switch(this){
@@ -92,7 +92,7 @@ public enum AnusType implements BodyPartTypeInterface {
 	public String getNameSingular(GameCharacter gc) {
 		return getName(gc);
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(this){

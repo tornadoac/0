@@ -12,15 +12,15 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class Scar implements XMLSaving {
-	
+
 	private ScarType type;
 	private boolean plural;
-	
+
 	public Scar(ScarType type, boolean plural) {
 		this.type = type;
 		this.plural = plural;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(super.equals(o)) {
@@ -31,7 +31,7 @@ public class Scar implements XMLSaving {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -39,27 +39,27 @@ public class Scar implements XMLSaving {
 		result = 31 * result + (plural ? 1 : 0);
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("scar");
 		parentElement.appendChild(element);
 
 		CharacterUtils.addAttribute(doc, element, "type", this.getType().toString());
 		CharacterUtils.addAttribute(doc, element, "plural", String.valueOf(this.isPlural()));
-		
+
 		return element;
 	}
-	
+
 	public static Scar loadFromXML(Element parentElement, Document doc) {
 		try {
 			return new Scar(ScarType.valueOf(parentElement.getAttribute("type")), Boolean.valueOf(parentElement.getAttribute("plural")));
-			
+
 		} catch(Exception ex) {
 			System.err.println("Warning: An instance of Scar was unable to be imported!");
 			return null;
 		}
 	}
-	
+
 	public String getName() {
 		if(isPlural()) {
 			return getType().getNamePlural();
@@ -67,13 +67,13 @@ public class Scar implements XMLSaving {
 			return getType().getName();
 		}
 	}
-	
+
 	public ScarType getType() {
 		return type;
 	}
-	
+
 	public boolean isPlural() {
 		return plural;
 	}
-	
+
 }

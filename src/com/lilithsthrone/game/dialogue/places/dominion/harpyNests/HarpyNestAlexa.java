@@ -21,7 +21,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class HarpyNestAlexa {
-	
+
 	public static final DialogueNode ALEXAS_NEST_EXTERIOR = new DialogueNode("Alexa's nest", ".", false) {
 
 		@Override
@@ -53,7 +53,7 @@ public class HarpyNestAlexa {
 									?"There's not much point in waiting around for the storm to pass, as Alexa's not even here at the moment."
 									:"There's not much point in waiting around for the storm to pass, as you don't have any business with Alexa."))
 					+ "</p>";
-				
+
 			} else {
 				return "<p>"
 						+ "Making your way down one of the the many walkways that criss-cross Dominion's rooftops, you find yourself approaching an exceptionally large Harpy Nest."
@@ -98,30 +98,30 @@ public class HarpyNestAlexa {
 			if(index==1) {
 				if(Main.game.getCurrentWeather() == Weather.MAGIC_STORM) {
 					return new Response("Meet with Alexa", "Alexa's flock is taking shelter in the buildings below her nest. You'll have to come back after the arcane storm has passed.", null);
-					
+
 				} else {
 					if (Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_E_REPORT_TO_ALEXA) {
 						return new Response("Meet with Alexa", "Walk over to the tall platform.", ALEXAS_NEST);
-						
+
 					} else if (Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_1_E_REPORT_TO_ALEXA)) {
 						if(Main.game.getNpc(Alexa.class).getLocation().equals(Main.game.getPlayer().getLocation())) {
 							return new Response("Meet with Alexa", "You'll be able to interact with Alexa again later! :3", null);
-							
+
 						} else {
 							return new Response("Meet with Alexa", "Alexa has flown off to Slaver Alley! You'll have to find her there.", null);
 						}
-						
+
 					}else {
 						return new Response("Meet with Alexa", "You have no reason to talk to Alexa.", null);
 					}
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST = new DialogueNode("Alexa's nest", ".", true) {
 
 		@Override
@@ -198,13 +198,13 @@ public class HarpyNestAlexa {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				return new Response("Scarlett's woe", "Tell Alexa about Scarlett's failure to run her slavery business.", ALEXAS_NEST_SCARLETT);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_SCARLETT = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -248,7 +248,7 @@ public class HarpyNestAlexa {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_F_SCARLETTS_FATE));
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Take punishment", "Offer to take Scarlett's punishment for her.", ALEXAS_NEST_TAKE_PUNISHMENT,
 						Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE, Fetish.FETISH_MASOCHIST),
@@ -261,13 +261,13 @@ public class HarpyNestAlexa {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.punishedByAlexa);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_NO_PUNISHMENT = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -305,21 +305,21 @@ public class HarpyNestAlexa {
 								+ "</p>");
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isAbleToFly()) {
 					return new Response("Fly after her", "Take off and fly after Alexa.", ALEXAS_NEST_TAKE_FLIGHT);
-					
+
 				} else {
 					return new Response("Fly after her", "You can't fly, so you'll have to travel to Slaver Alley by foot.", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_TAKE_PUNISHMENT = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -386,7 +386,7 @@ public class HarpyNestAlexa {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_F_SCARLETTS_FATE));
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Struggle", "Start struggling and crying out in discomfort.", ALEXAS_NEST_TAKE_PUNISHMENT_STRUGGLE) {
 					@Override
@@ -395,7 +395,7 @@ public class HarpyNestAlexa {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_F_SCARLETTS_FATE));
 					}
 				};
-				
+
 			} else if(index==3) {
 				return new Response("Beg for more", "Beg to be punished.", ALEXAS_NEST_TAKE_PUNISHMENT_ENJOY,
 						Util.newArrayListOfValues(Fetish.FETISH_MASOCHIST),
@@ -409,13 +409,13 @@ public class HarpyNestAlexa {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_F_SCARLETTS_FATE));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_TAKE_PUNISHMENT_ENDURE = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -463,21 +463,21 @@ public class HarpyNestAlexa {
 								+ "</p>");
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isAbleToFly()) {
 					return new Response("Fly after her", "Take off and fly after Alexa.", ALEXAS_NEST_TAKE_FLIGHT);
-					
+
 				} else {
 					return new Response("Fly after her", "You can't fly, so you'll have to travel to Slaver Alley by foot.", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_TAKE_PUNISHMENT_STRUGGLE = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -526,21 +526,21 @@ public class HarpyNestAlexa {
 								+ "</p>");
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isAbleToFly()) {
 					return new Response("Fly after her", "Take off and fly after Alexa.", ALEXAS_NEST_TAKE_FLIGHT);
-					
+
 				} else {
 					return new Response("Fly after her", "You can't fly, so you'll have to travel to Slaver Alley by foot.", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_TAKE_PUNISHMENT_ENJOY = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -596,24 +596,24 @@ public class HarpyNestAlexa {
 									+ "Heading down the staircase, you leave your guide to hurry after you, fretting and flapping her wings as she asks you to try and calm Alexa down."
 									+ " Going back the same way that you came, it only takes a few moments before you're exiting Alexa's nest, and, leaving the worrisome harpy guide behind, you resolve to travel to Slaver Alley as soon as you can."
 								+ "</p>");
-						
+
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isAbleToFly()) {
 					return new Response("Fly after her", "Take off and fly after Alexa.", ALEXAS_NEST_TAKE_FLIGHT);
-					
+
 				} else {
 					return new Response("Fly after her", "You can't fly, so you'll have to travel to Slaver Alley by foot.", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_NEST_TAKE_FLIGHT = new DialogueNode("Alexa's nest", ".", true, true) {
 
 		@Override
@@ -637,11 +637,11 @@ public class HarpyNestAlexa {
 						Main.game.setActiveWorld(Main.game.getWorlds().get(WorldType.SLAVER_ALLEY), PlaceType.SLAVER_ALLEY_SCARLETTS_SHOP, true);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 }

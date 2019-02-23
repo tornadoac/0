@@ -18,7 +18,7 @@ public class QuestTree {
 	public static TreeNode<Quest> nyanTree = new TreeNode<Quest>(Quest.RELATIONSHIP_NYAN_STOCK_ISSUES);
 	public static TreeNode<Quest> angryHarpyTree = new TreeNode<Quest>(Quest.HARPY_PACIFICATION_ONE);
 	public static TreeNode<Quest> slimeQueenTree = new TreeNode<Quest>(Quest.SLIME_QUEEN_ONE);
-	
+
 	static {
 		TreeNode<Quest> node1 = new TreeNode<Quest>(Quest.MAIN_1_A_LILAYAS_TESTS);
 		mainQuestTree.addChild(node1);
@@ -61,24 +61,24 @@ public class QuestTree {
 		node1.addChild(node2);
 
 		accommodationTree.addChild(new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE));
-		
+
 		node1 = new TreeNode<Quest>(Quest.SIDE_SLAVER_RECOMMENDATION_OBTAINED);
 		slaveryTree.addChild(node1);
 		node2 = new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE);
 		node1.addChild(node2);
-		
+
 		node1 = new TreeNode<Quest>(Quest.SIDE_HYPNO_WATCH_TEST_SUBJECT);
 		hypnoWatchTree.addChild(node1);
 		node2 = new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE);
 		node1.addChild(node2);
-		
+
 		node1 = new TreeNode<Quest>(Quest.RELATIONSHIP_NYAN_STOCK_ISSUES_AGREED_TO_HELP);
 		nyanTree.addChild(node1);
 		node2 = new TreeNode<Quest>(Quest.RELATIONSHIP_NYAN_STOCK_ISSUES_SUPPLIERS_BEATEN);
 		node1.addChild(node2);
 		node1 = new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE);
 		node2.addChild(node1);
-		
+
 		node1 = new TreeNode<Quest>(Quest.HARPY_PACIFICATION_TWO);
 		angryHarpyTree.addChild(node1);
 		node2 = new TreeNode<Quest>(Quest.HARPY_PACIFICATION_THREE);
@@ -87,7 +87,7 @@ public class QuestTree {
 		node2.addChild(node1);
 		node2 = new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE);
 		node1.addChild(node2);
-		
+
 
 		node1 = new TreeNode<Quest>(Quest.SLIME_QUEEN_TWO);
 		slimeQueenTree.addChild(node1);
@@ -95,7 +95,7 @@ public class QuestTree {
 		node1.addChild(node2);
 		node1 = new TreeNode<Quest>(Quest.SLIME_QUEEN_FOUR);
 		node2.addChild(node1);
-		
+
 		TreeNode<Quest> nodeBranchA = new TreeNode<Quest>(Quest.SLIME_QUEEN_FIVE_FORCE);
 		node1.addChild(nodeBranchA);
 		TreeNode<Quest> nodeBranchB = new TreeNode<Quest>(Quest.SLIME_QUEEN_FIVE_CONVINCE);
@@ -106,11 +106,11 @@ public class QuestTree {
 		node2 = new TreeNode<Quest>(Quest.SLIME_QUEEN_SIX_FORCE);
 		nodeBranchA.addChild(node2);
 		node2.addChild(new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE));
-		
+
 		node2 = new TreeNode<Quest>(Quest.SLIME_QUEEN_SIX_CONVINCE);
 		nodeBranchB.addChild(node2);
 		node2.addChild(new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE));
-		
+
 		node2 = new TreeNode<Quest>(Quest.SLIME_QUEEN_SIX_SUBMIT);
 		nodeBranchC.addChild(node2);
 		node2.addChild(new TreeNode<Quest>(Quest.SIDE_UTIL_COMPLETE));

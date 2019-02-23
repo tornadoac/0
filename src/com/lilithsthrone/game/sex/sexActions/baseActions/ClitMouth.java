@@ -22,7 +22,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class ClitMouth {
-	
+
 	public static final SexAction FORCE_SUCK_CLIT = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.FOUR_HIGH,
@@ -30,12 +30,12 @@ public class ClitMouth {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.CLIT, SexAreaOrifice.MOUTH)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.getSexPace(Sex.getCharacterPerformingAction())!=SexPace.SUB_RESISTING;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Clit attention";
@@ -48,14 +48,14 @@ public class ClitMouth {
 
 		@Override
 		public String getDescription() {
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					return UtilText.returnStringAtRandom(
 							"Shifting [npc.her] [npc.hips], [npc.name] [npc.verb(reposition)] [npc.herself] in order to gently grind [npc.her] [npc.clit+] against [npc2.namePos] [npc2.lips+].",
-							
+
 							"With a quick shift of [npc.her] [npc.hips], [npc.name] [npc.verb(let)] out a soft [npc.moan] as [npc.she] gently [npc.verb(press)] [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.tongue+].",
-							
+
 							"Gently pressing [npc.her] [npc.pussy+] down against [npc2.namePos] mouth,"
 									+ " [npc.name] [npc.verb(reposition)] [npc.herself] so that [npc.sheIs] grinding [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.lips+].");
 
@@ -63,39 +63,39 @@ public class ClitMouth {
 				case DOM_NORMAL:
 					return UtilText.returnStringAtRandom(
 							"Shifting [npc.her] [npc.hips], [npc.name] [npc.verb(reposition)] [npc.herself] in order to eagerly grind [npc.her] [npc.clit+] against [npc2.namePos] [npc2.lips+].",
-							
+
 							"With a quick shift of [npc.her] [npc.hips], [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] greedily [npc.verb(press)] [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.tongue+].",
-							
+
 							"Eagerly pressing [npc.her] [npc.pussy+] down against [npc2.namePos] mouth,"
 									+ " [npc.name] [npc.verb(reposition)] [npc.herself] so that [npc.sheIs] grinding [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.lips+].");
-					
+
 				case DOM_ROUGH:
 					return UtilText.returnStringAtRandom(
 							"Shifting [npc.her] [npc.hips], [npc.name] [npc.verb(reposition)] [npc.herself] in order to roughly grind [npc.her] [npc.clit+] against [npc2.namePos] [npc2.lips+].",
-							
+
 							"With a quick shift of [npc.her] [npc.hips], [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] roughly [npc.verb(grind)] [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.tongue+].",
-							
+
 							"Aggressively pressing [npc.her] [npc.pussy+] down against [npc2.namePos] mouth,"
 									+ " [npc.name] [npc.verb(reposition)] [npc.herself] so that [npc.sheIs] roughly grinding [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.lips+].");
-					
+
 				case SUB_NORMAL:
 					return UtilText.returnStringAtRandom(
 							"Shifting [npc.her] [npc.hips], [npc.name] [npc.verb(reposition)] [npc.herself] in order to grind [npc.her] [npc.clit+] against [npc2.namePos] [npc2.lips+].",
-							
+
 							"With a quick shift of [npc.her] [npc.hips], [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(press)] [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.tongue+].",
-							
+
 							"Pressing [npc.her] [npc.pussy+] down against [npc2.namePos] mouth,"
 									+ " [npc.name] [npc.verb(reposition)] [npc.herself] so that [npc.sheIs] grinding [npc.her] [npc.clit+] down against [npc2.namePos] [npc2.lips+].");
-					
+
 				default:
 					break;
 			}
-			
+
 			return "";
 		}
-		
+
 	};
-	
+
 	public static final SexAction SUCK_CLIT = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.FOUR_HIGH,
@@ -103,7 +103,7 @@ public class ClitMouth {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.MOUTH, SexAreaPenetration.CLIT)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public Map<SexAreaInterface, SexAreaInterface> getSexAreaInteractions() {
 			if(Sex.getCharactersHavingOngoingActionWith(Sex.getCharacterTargetedForSexAction(this), SexAreaOrifice.VAGINA).contains(Sex.getCharacterPerformingAction())) {
@@ -112,7 +112,7 @@ public class ClitMouth {
 				return Util.newHashMapOfValues(new Value<>(SexAreaOrifice.MOUTH, SexAreaPenetration.CLIT));
 			}
 		}
-		
+
 		@Override
 		public SexActionType getActionType(){
 			if(Sex.getCharactersHavingOngoingActionWith(Sex.getCharacterTargetedForSexAction(this), SexAreaOrifice.VAGINA).contains(Sex.getCharacterPerformingAction())) {
@@ -121,7 +121,7 @@ public class ClitMouth {
 				return SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED;
 			}
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Suck clit";
@@ -140,7 +140,7 @@ public class ClitMouth {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -256,9 +256,9 @@ public class ClitMouth {
 				default:
 					break;
 			}
-		
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
 }

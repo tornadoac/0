@@ -2,68 +2,68 @@
 <!-- For a version without all of the comments, see "rental_daddy.xml". -->
 <clothing>
 	<coreAttributes>
-		<value>1000</value> 
-		
+		<value>1000</value>
+
 		<determiner><![CDATA[a pair of]]></determiner>
-		
+
 		<name><![CDATA[gothic boot]]></name>
-		
-		<namePlural pluralByDefault="true"><![CDATA[gothic boots]]></namePlural> 
-		
-		<description><![CDATA[A pair of feminine knee-high boots, made from high-quality leather. A series of straps and buckles, while having their functionality made redundant by means of a zip running up the inner sides, give these boots a very 'gothic' look.]]></description> 
-		
-		<physicalResistance>3</physicalResistance> 
-		
-		<femininity>FEMININE</femininity> 
-		
-		<slot>FOOT</slot> 
-		
-		<rarity>COMMON</rarity> 
-		
-		<clothingSet/> 
-		
-		<imageName>goth_boots_fem.svg</imageName> 
-		
-		<imageEquippedName/> 
-		
+
+		<namePlural pluralByDefault="true"><![CDATA[gothic boots]]></namePlural>
+
+		<description><![CDATA[A pair of feminine knee-high boots, made from high-quality leather. A series of straps and buckles, while having their functionality made redundant by means of a zip running up the inner sides, give these boots a very 'gothic' look.]]></description>
+
+		<physicalResistance>3</physicalResistance>
+
+		<femininity>FEMININE</femininity>
+
+		<slot>FOOT</slot>
+
+		<rarity>COMMON</rarity>
+
+		<clothingSet/>
+
+		<imageName>goth_boots_fem.svg</imageName>
+
+		<imageEquippedName/>
+
 		<enchantmentLimit/>
-		
+
 		<effects/>
-		
-		<blockedPartsList> 
-		
+
+		<blockedPartsList>
+
 			<blockedParts>
-				<displacementType>REMOVE_OR_EQUIP</displacementType> 
-				
-				<clothingAccessRequired> 
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+
+				<clothingAccessRequired>
 					<clothingAccess>FEET</clothingAccess>
 				</clothingAccessRequired>
-				
+
 				<blockedBodyParts>
 					<bodyPart>FEET</bodyPart>
 				</blockedBodyParts>
-				
-				<clothingAccessBlocked> 
+
+				<clothingAccessBlocked>
 					<clothingAccess>FEET</clothingAccess>
 				</clothingAccessBlocked>
-				
+
 				<concealedSlots>
 					<slot>SOCK</slot>
 				</concealedSlots>
 			</blockedParts>
-			
+
 		</blockedPartsList>
-		
-		<incompatibleSlots/> 
-		
-		<primaryColors values="JUST_BLACK"/> 
+
+		<incompatibleSlots/>
+
+		<primaryColors values="JUST_BLACK"/>
 		<primaryColorsDye values="ALL"/>
 		<secondaryColors values="JUST_STEEL"/>
 		<secondaryColorsDye values="ALL_METAL"/>
 		<tertiaryColors values="JUST_BLACK"/>
 		<tertiaryColorsDye values="ALL"/>
-		
-		<itemTags> 
+
+		<itemTags>
 			<tag>SOLD_BY_NYAN</tag>
 		</itemTags>
 	</coreAttributes>
@@ -91,5 +91,5 @@
 	  <![CDATA[[npc.Name] quickly [npc.verb(unzip)] [npc2.namePos] boots, before roughly tugging them off.]]>
 	</otherRough>
   </displacementText>
-	
+
 </clothing>

@@ -18,7 +18,7 @@ public enum BodyHair {
 	FIVE_UNKEMPT(6, "unkempt", Color.GENERIC_SIZE_SIX),
 	SIX_BUSHY(7, "bushy", Color.GENERIC_SIZE_SEVEN),
 	SEVEN_WILD(8, "wild", Color.GENERIC_SIZE_EIGHT);
-	
+
 	private int value;
 	private String descriptor;
 	private Color color;
@@ -28,7 +28,7 @@ public enum BodyHair {
 		this.descriptor = descriptor;
 		this.color=color;
 	}
-	
+
 	public int getValue() {
 		return value;
 	}
@@ -40,11 +40,11 @@ public enum BodyHair {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public static BodyHair getRandomBodyHair() {
 		return BodyHair.values()[Util.random.nextInt(BodyHair.values().length)];
 	}
-	
+
 	public static BodyHair getBodyHairFromValue(int value) {
 		for(BodyHair bh : BodyHair.values()) {
 			if(bh.getValue() == value) {

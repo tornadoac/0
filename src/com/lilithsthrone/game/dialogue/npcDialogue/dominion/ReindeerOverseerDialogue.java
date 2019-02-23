@@ -20,11 +20,11 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class ReindeerOverseerDialogue {
-	
+
 	private static NPC reindeer() {
 		return Main.game.getActiveNPC();
 	}
-	
+
 	private static Response getDefaultResponses(int index) {
 		if(index == 1) {
 			return new ResponseTrade("Trade", "Ask [npc.name] what Yuletide presents [npc.sheIs] selling.", reindeer()) {
@@ -33,11 +33,11 @@ public class ReindeerOverseerDialogue {
 					Main.game.getDialogueFlags().addReindeerEncountered(reindeer().getId());
 				}
 			};
-			
+
 		} else if(index == 2) {
 			if(Main.game.getDialogueFlags().hasWorkedForReindeer(reindeer().getId())) {
 				return new Response("Work", "You've already helped [npc.name] to finish all of the work [npc.she] had today, so you'll need to come back tomorrow if you wanted to work for [npc.herHim] again.", null);
-				
+
 			} else {
 				return new Response("Work", "Offer to work with the reindeer-morphs.", ENCOUNTER_WORK) {
 					@Override
@@ -47,11 +47,11 @@ public class ReindeerOverseerDialogue {
 					}
 				};
 			}
-			
+
 		} else if(index == 3) {
 			if(!Main.game.getDialogueFlags().hasWorkedForReindeer(reindeer().getId())) {
 				return new Response("Relieve stress", "[npc.Name] is far too busy to take any time off work right now. Perhaps if you helped out first, [npc.she]'d have time to have sex with you...", null);
-				
+
 			} else {
 				return new ResponseSex("Relieve stress",
 					"Ask [npc.name] if [npc.she]'d like to blow off some steam with you.",
@@ -90,7 +90,7 @@ public class ReindeerOverseerDialogue {
 						}
 					};
 			}
-			
+
 		} else if(index==0) {
 			return new Response("Leave", "Tell [npc.name] that you might come back another time, before taking your leave.", ENCOUNTER_START){
 				@Override
@@ -102,18 +102,18 @@ public class ReindeerOverseerDialogue {
 					return Main.game.getDefaultDialogueNoEncounter();
 				}
 			};
-			
+
 		} else {
 			return null;
 		}
 	}
-	
+
 	public static final DialogueNode ENCOUNTER_START = new DialogueNode("Reindeer Overseer", "", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Main.game.getDialogueFlags().hasEncounteredReindeer(reindeer().getId())) {
 				UtilText.nodeContentSB.append("<p>"
 							+ "Wanting to speak with [npc.name] again, you look around for a little while, before eventually spotting [npc.herHim] issuing orders to some of [npc.her] workers."
@@ -129,7 +129,7 @@ public class ReindeerOverseerDialogue {
 							+ " Most of [npc.her] interests seem to be related to snow in one way or another, and you're a little relieved when [npc.she] finally brings the conversation to a close,"
 							+ " [npc.speech(I really should be getting on with work, but if you wanted to take a look at the goods I've got for sale, I could spare some time for that.)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append("<p>"
 							+ "You notice that there are quite a few reindeer-morphs in this part of Dominion; each one of them busily shoveling snow in order to keep the streets clear."
@@ -143,7 +143,7 @@ public class ReindeerOverseerDialogue {
 							+ " [npc.She] crosses [npc.her] arms and starts tapping [npc.her] foot on the ground as [npc.she] impatiently continues,"
 							+ " [npc.speech(I'm [npc.name], the overseer for the workers in this area. If you're looking for something to buy, we've brought some goods with us, just like we do every year. You fancy a look?)]"
 						+ "</p>");
-				
+
 				if(Main.game.getDialogueFlags().hasEncounteredAnyReindeers()) {
 					UtilText.nodeContentSB.append("<p>"
 							+ "Feeling happy now that you've found the overseer for this particular group, you reply,"
@@ -154,7 +154,7 @@ public class ReindeerOverseerDialogue {
 							+ " [npc.speech(Well, all of us reindeer-morphs travel together, so we've got the same goods as any of the other groups."
 								+ " Still, if you'd like to take a look, just let me know.)]"
 						+ "</p>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append("<p>"
 							+ "Feeling happy now that you've got an opportunity to talk to one of these reindeer-morphs, you reply,"
@@ -169,7 +169,7 @@ public class ReindeerOverseerDialogue {
 						+ "</p>");
 				}
 			}
-			
+
 			if(Main.game.getDialogueFlags().hasWorkedForReindeer(reindeer().getId())) {
 				if(Main.game.getDialogueFlags().hasFuckedReindeer(reindeer().getId())) {
 					UtilText.nodeContentSB.append(
@@ -177,7 +177,7 @@ public class ReindeerOverseerDialogue {
 								+ "[npc.Name] smiles fondly at you as [npc.she] steps closer."
 								+ " [npc.speech(Thanks for your help today, [pc.name]; I really appreciate it. You know... I could do with letting off some steam... You want to have a little fun again?)]"
 							+ "</p>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(
 							"<p>"
@@ -185,9 +185,9 @@ public class ReindeerOverseerDialogue {
 								+ " [npc.speech(Thanks for your help today, [pc.name]; I really appreciate it."
 									+ " It can get pretty stressful trying to keep all these streets clear, especially when we're so undermanned.)]"
 							+ "</p>");
-					
+
 				}
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 					"<p>"
@@ -195,9 +195,9 @@ public class ReindeerOverseerDialogue {
 						+ " [npc.speech(We're a little undermanned this year, so if you're looking for work, I can offer a part-time job."
 							+ " If not, and if you're not interested in trading, then I really need to get back to work; we've got so much to get done today!)]"
 					+ "</p>");
-				
+
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -206,7 +206,7 @@ public class ReindeerOverseerDialogue {
 			return getDefaultResponses(index);
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_WORK = new DialogueNode("Reindeer Overseer", "", true) {
 
 		@Override
@@ -238,7 +238,7 @@ public class ReindeerOverseerDialogue {
 					public void effects() {
 						int money = (int)(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_PHYSIQUE)*1.5f);
 						Main.game.getPlayer().incrementMoney(money);
-						
+
 						Main.game.getTextStartStringBuilder().append(
 								"<p>"
 									+ "Deciding that you'd be best at shoveling snow, you tell [npc.name] that that's what you'd like to do."
@@ -311,7 +311,7 @@ public class ReindeerOverseerDialogue {
 						}
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Use heat-stave", "Tell [npc.name] that you'd like to use one of the heat-staves to score out lines in the snow.", ENCOUNTER_WORK_FINISHED) {
 					@Override
@@ -329,7 +329,7 @@ public class ReindeerOverseerDialogue {
 								+ "</p>"
 								+ "<p>"
 									+ "Setting off to the area where the reindeer-morphs will need to clear next, you do as [npc.name] instructed, and point the bottom of the staff at the mounds of snow while focusing your arcane energy into it.");
-						
+
 						switch(IntelligenceLevel.getIntelligenceLevelFromValue(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_ARCANE))) {
 							case ZERO_AIRHEAD: case ONE_AVERAGE:
 								Main.game.getTextStartStringBuilder().append(
@@ -349,7 +349,7 @@ public class ReindeerOverseerDialogue {
 										+ " [npc.speech(Here's the "+Util.intToString(money)+" flames you've earned!)]"
 									+ "</p>");
 								break;
-							case TWO_SMART: case THREE_BRAINY: 
+							case TWO_SMART: case THREE_BRAINY:
 								Main.game.getTextStartStringBuilder().append(
 										" A small jet of flames shoots out of the staff, and by tracing a path over the snow, you're able to quickly melt it into pre-cut sections, ready for the reindeer-morphs to shovel."
 									+ "<p>"
@@ -388,7 +388,7 @@ public class ReindeerOverseerDialogue {
 						}
 					}
 				};
-				
+
 			} else if(index==3) {
 				return new Response("Encouragement", "Tell [npc.name] that you'd be best suited for delivering drinks and encouraging the workers.", ENCOUNTER_WORK_FINISHED) {
 					@Override
@@ -405,7 +405,7 @@ public class ReindeerOverseerDialogue {
 								+ "</p>"
 								+ "<p>"
 									+ "Setting off to the area where the reindeer-morphs are working, you do as [npc.name] instructed, and start asking each one if they'd like a drink.");
-						
+
 						switch(PhysiqueLevel.getPhysiqueLevelFromValue(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_PHYSIQUE))) {
 							case ZERO_WEAK: case ONE_AVERAGE:
 								Main.game.getTextStartStringBuilder().append(
@@ -464,20 +464,20 @@ public class ReindeerOverseerDialogue {
 						}
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_WORK_FINISHED = new DialogueNode("Reindeer Overseer", "", true) {
-		
+
 		@Override
 		public int getMinutesPassed() {
 			return 60 * 4;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "<p>"
@@ -501,7 +501,7 @@ public class ReindeerOverseerDialogue {
 			return getDefaultResponses(index);
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX = new DialogueNode("Reindeer Overseer", "", true) {
 
 		@Override
@@ -513,7 +513,7 @@ public class ReindeerOverseerDialogue {
 							+ "With a satisfied sigh, [npc.name] begins to get [npc.her] clothing in order."
 							+ " [npc.speech(Fuck... That was good...)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -521,13 +521,13 @@ public class ReindeerOverseerDialogue {
 							+ " [npc.speech(Fuck... I didn't even get to cum! That was pretty disappointing...)]"
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Once you've both got your things in order, you step back out into the street."
 						+ " You wonder if you should ask to see what goods [npc.name] has on offer, or simply take your leave."
 					+ "</p>");
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 

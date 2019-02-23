@@ -14,7 +14,7 @@ import com.lilithsthrone.utils.Util;
 public enum PresetConcealmentLists {
 
 	NONE(new ArrayList<>()),
-	
+
 	CONCEALED_PARTIAL_TORSO(Util.newArrayListOfValues(
 			InventorySlot.STOMACH,
 			InventorySlot.CHEST,
@@ -66,7 +66,7 @@ public enum PresetConcealmentLists {
 			InventorySlot.PENIS,
 			InventorySlot.PIERCING_PENIS,
 			InventorySlot.PIERCING_VAGINA)),
-	
+
 	CONCEALED_DRESS_FRONT_FULL(Util.newArrayListOfValues(
 			InventorySlot.STOMACH,
 			InventorySlot.CHEST,
@@ -87,9 +87,9 @@ public enum PresetConcealmentLists {
 	CONCEALED_ANKLES_FROM_TROUSERS(Util.newArrayListOfValues(
 			InventorySlot.ANKLE,
 			InventorySlot.SOCK));
-	
+
 	private List<InventorySlot> presetInventorySlotList;
-	
+
 	public List<InventorySlot> getPresetInventorySlotList() {
 		return presetInventorySlotList;
 	}

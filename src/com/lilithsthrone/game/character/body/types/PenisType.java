@@ -23,7 +23,7 @@ public enum PenisType implements BodyPartTypeInterface {
 	NONE(null, TesticleType.NONE, null),
 
 	DILDO(BodyCoveringType.DILDO, TesticleType.DILDO, Race.NONE),
-	
+
 	HUMAN(BodyCoveringType.PENIS, TesticleType.HUMAN, Race.HUMAN),
 
 	ANGEL(BodyCoveringType.PENIS, TesticleType.ANGEL, Race.ANGEL),
@@ -31,11 +31,11 @@ public enum PenisType implements BodyPartTypeInterface {
 	BOVINE(BodyCoveringType.PENIS, TesticleType.BOVINE, Race.COW_MORPH, PenetrationModifier.TAPERED, PenetrationModifier.VEINY, PenetrationModifier.SHEATHED),
 
 	DEMON_COMMON(BodyCoveringType.PENIS, TesticleType.DEMON_COMMON, Race.DEMON, PenetrationModifier.RIBBED, PenetrationModifier.TENTACLED, PenetrationModifier.PREHENSILE),
-	
+
 	CANINE(BodyCoveringType.PENIS, TesticleType.CANINE, Race.DOG_MORPH, PenetrationModifier.KNOTTED, PenetrationModifier.SHEATHED, PenetrationModifier.TAPERED),
-	
+
 	LUPINE(BodyCoveringType.PENIS, TesticleType.LUPINE, Race.WOLF_MORPH, PenetrationModifier.KNOTTED, PenetrationModifier.SHEATHED, PenetrationModifier.TAPERED),
-	
+
 	VULPINE(BodyCoveringType.PENIS, TesticleType.FOX_MORPH, Race.FOX_MORPH, PenetrationModifier.KNOTTED, PenetrationModifier.SHEATHED, PenetrationModifier.TAPERED),
 
 	FELINE(BodyCoveringType.PENIS, TesticleType.FELINE, Race.CAT_MORPH, PenetrationModifier.BARBED, PenetrationModifier.SHEATHED),
@@ -47,13 +47,13 @@ public enum PenisType implements BodyPartTypeInterface {
 	REINDEER_MORPH(BodyCoveringType.PENIS, TesticleType.REINDEER_MORPH, Race.REINDEER_MORPH, PenetrationModifier.FLARED, PenetrationModifier.SHEATHED),
 
 	AVIAN(BodyCoveringType.PENIS, TesticleType.AVIAN, Race.HARPY, PenetrationModifier.SHEATHED),
-	
+
 	SQUIRREL(BodyCoveringType.PENIS, TesticleType.SQUIRREL, Race.SQUIRREL_MORPH, PenetrationModifier.SHEATHED),
-	
+
 	RAT_MORPH(BodyCoveringType.PENIS, TesticleType.RAT_MORPH, Race.RAT_MORPH, PenetrationModifier.SHEATHED),
-	
+
 	RABBIT_MORPH(BodyCoveringType.PENIS, TesticleType.RABBIT_MORPH, Race.RABBIT_MORPH, PenetrationModifier.SHEATHED),
-	
+
 	BAT_MORPH(BodyCoveringType.PENIS, TesticleType.BAT_MORPH, Race.BAT_MORPH, PenetrationModifier.SHEATHED);
 
 	private BodyCoveringType skinType;
@@ -65,7 +65,7 @@ public enum PenisType implements BodyPartTypeInterface {
 		this.skinType = skinType;
 		this.race = race;
 		this.testicleType=testicleType;
-		
+
 		this.defaultPenisModifiers = new ArrayList<>();
 		Collections.addAll(this.defaultPenisModifiers, defaultPenisModifiers);
 	}
@@ -89,7 +89,7 @@ public enum PenisType implements BodyPartTypeInterface {
 	public boolean isDefaultPlural() {
 		return false;
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		if(this==PenisType.DILDO) {
@@ -98,7 +98,7 @@ public enum PenisType implements BodyPartTypeInterface {
 			return UtilText.returnStringAtRandom("cock", "cock", "cock", "dick", "dick", "shaft");
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		if(this==PenisType.DILDO) {
@@ -215,7 +215,7 @@ public enum PenisType implements BodyPartTypeInterface {
 	public BodyCoveringType getBodyCoveringType(Body body) {
 		return skinType;
 	}
-	
+
 	@Override
 	public Race getRace() {
 		return race;
@@ -224,7 +224,7 @@ public enum PenisType implements BodyPartTypeInterface {
 	public String getPenisHeadName(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("head", "tip");
 	}
-	
+
 	public String getPenisHeadDescriptor(GameCharacter gc) {
 		for(PenetrationModifier mod : PenetrationModifier.values()) {
 			if(gc.getPenisModifiers().contains(PenetrationModifier.BLUNT)) {
@@ -248,7 +248,7 @@ public enum PenisType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	public String getCumName(GameCharacter gc) {
 		String prefix = "";
 		switch(this){
@@ -311,7 +311,7 @@ public enum PenisType implements BodyPartTypeInterface {
 			return UtilText.returnStringAtRandom("cum", "cream", "jism", "jizz", "load", "seed", "spooge");
 		}
 	}
-	
+
 	public String getCumDescriptor() {
 		switch(this){
 			case DEMON_COMMON:

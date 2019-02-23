@@ -10,7 +10,7 @@
 	-fx-text-fill: white;
 	-fx-padding: 0;
 	-fx-spacing: 0;
-	-fx-background-radius: 0; 
+	-fx-background-radius: 0;
 	-fx-hgap: 0;
 	-fx-vgap: 0;
 	-fx-effect: dropshadow(three-pass-box, #000000, 0, 0, 0, 0);
@@ -26,8 +26,8 @@
 	-fx-effect: dropshadow(three-pass-box, #000000, 0, 0, 0, 0);
 	-fx-font-size: 8pt;
 	-fx-font-family: Verdana, "DejaVu Sans", sans-serif;
-	-fx-background-radius: 0; 
-	-fx-border-radius: 0; 
+	-fx-background-radius: 0;
+	-fx-border-radius: 0;
 	-fx-padding: 4;
 }
 
@@ -69,7 +69,7 @@
  .scroll-bar:horizontal .track ,
  .scroll-bar:vertical .track{
 	 -fx-background-color: transparent;
-	 
+
 	 -fx-background-radius: 2px;
 	 -fx-border-radius: 2px;
 }
@@ -79,7 +79,7 @@
  .scroll-bar:vertical .thumb {
 	-fx-background-color:#999999;
 	-fx-background-insets: 2, 0, 0;
-	
+
 	-fx-background-radius: 2px;
 }
 
@@ -110,7 +110,7 @@
 #anchorPaneCanvas{
 	-fx-background-radius: 5 5 5 5;
 	-fx-background-color: #19191a;
-	
+
 	/*
 	-fx-border-color:black;
 	-fx-border-width: 1px 0 1px 1px;

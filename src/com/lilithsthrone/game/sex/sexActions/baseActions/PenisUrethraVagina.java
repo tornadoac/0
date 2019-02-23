@@ -19,7 +19,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PenisUrethraVagina {
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -27,7 +27,7 @@ public class PenisUrethraVagina {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Vaginal urethra fuck";
@@ -40,9 +40,9 @@ public class PenisUrethraVagina {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -132,12 +132,12 @@ public class PenisUrethraVagina {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	private static String getTargetedCharacterResponse(SexAction action) {
 		switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
 			case SUB_EAGER:
@@ -145,10 +145,10 @@ public class PenisUrethraVagina {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" [npc2.Name] eagerly [npc2.verb(buck)] [npc2.her] [npc2.hips] in response,"
 								+ " letting out [npc2.a_moan+] as [npc2.she] enthusiastically [npc2.verb(help)] to sink [npc.namePos] [npc.cock+] deep into [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 						" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 								+ " and, eagerly thrusting out [npc2.her] [npc2.hips], [npc2.she] [npc2.verb(beg)] for [npc.name] to carry on fucking [npc2.herHim].",
-	
+
 						" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(thrust)] [npc2.her] [npc2.hips+] out,"
 								+ " eagerly begging for [npc.name] to continue fucking [npc2.herHim] as [npc2.her] movements help to sink [npc.her] [npc.cock+] deep into [npc2.her] [npc2.vaginaUrethra+]."));
 				break;
@@ -156,10 +156,10 @@ public class PenisUrethraVagina {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" Desperately trying, and failing, to pull away from [npc.namePos] [npc.cock],"
 								+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+], tears streaming down [npc2.her] [npc2.face] as [npc2.she] weakly [npc2.verb(beg)] for [npc.name] to pull out of [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 						" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 								+ " tears streaming down [npc2.her] [npc2.face] as [npc2.she] [npc2.verb(plead)] for [npc.herHim] to pull out of [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 						" [npc2.Sobbing] in distress, and with tears running down [npc2.her] [npc2.face],"
 								+ " [npc2.name] weakly [npc2.verb(struggle)] against [npc.name], pleading and crying for [npc.herHim] to pull out of [npc2.her] [npc2.vaginaUrethra+]."));
 				break;
@@ -199,7 +199,7 @@ public class PenisUrethraVagina {
 		}
 		return "";
 	}
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_DOM_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -208,7 +208,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle urethral fuck";
@@ -223,7 +223,7 @@ public class PenisUrethraVagina {
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"Gently sinking [npc.her] [npc.cock+] deep into [npc2.namePos] [npc2.vaginaUrethra+],"
 							+ " [npc.name] [npc.verb(start)] rocking [npc.her] [npc.hips] back and forth, letting out a little [npc.moan] with every thrust as [npc.she] slowly [npc.verb(fuck)] [npc2.name].",
@@ -235,12 +235,12 @@ public class PenisUrethraVagina {
 							+ " breathing in [npc2.namePos] [npc2.scent] as [npc.she] slowly [npc.verb(fuck)] [npc2.herHim]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-					
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_DOM_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -249,7 +249,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Urethral fuck";
@@ -264,7 +264,7 @@ public class PenisUrethraVagina {
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"Eagerly sinking [npc.her] [npc.cock+] deep into [npc2.namePos] [npc2.vaginaUrethra+],"
 							+ " [npc.name] [npc.verb(start)] enthusiastically rocking [npc.her] [npc.hips] back and forth, letting out [npc.a_moan+] with every thrust as [npc.she] happily [npc.verb(fuck)] [npc2.name].",
@@ -276,12 +276,12 @@ public class PenisUrethraVagina {
 							+ " breathing in [npc2.namePos] [npc2.scent] as [npc.she] desperately [npc.verb(fuck)] [npc2.herHim]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_DOM_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -300,12 +300,12 @@ public class PenisUrethraVagina {
 		public String getActionDescription() {
 			return "Roughly thrust your [npc.cock+] in and out of [npc2.namePos] [npc2.vaginaUrethra+].";
 		}
-		
+
 		@Override
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"Roughly slamming [npc.her] [npc.cock+] deep into [npc2.namePos] [npc2.vaginaUrethra+],"
 							+ " [npc.name] [npc.verb(start)] roughly slamming [npc.her] [npc.hips] back and forth, letting out [npc.a_moan+] with every thrust as [npc.she] brutally [npc.verb(fuck)] [npc2.name].",
@@ -317,12 +317,12 @@ public class PenisUrethraVagina {
 							+ " breathing in [npc2.namePos] [npc2.scent] as [npc.she] violently [npc.verb(fuck)] [npc2.herHim]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_SUB_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -331,7 +331,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Urethral fuck";
@@ -346,7 +346,7 @@ public class PenisUrethraVagina {
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"Sinking [npc.her] [npc.cock+] deep into [npc2.namePos] [npc2.vaginaUrethra+],"
 							+ " [npc.name] [npc.verb(start)] rocking [npc.her] [npc.hips] back and forth, letting out [npc.a_moan+] with every thrust as [npc.she] happily [npc.verb(fuck)] [npc2.name].",
@@ -358,12 +358,12 @@ public class PenisUrethraVagina {
 							+ " breathing in [npc2.namePos] [npc2.scent] as [npc.she] [npc.verb(fuck)] [npc2.herHim]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_SUB_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -372,7 +372,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager urethral fuck";
@@ -387,7 +387,7 @@ public class PenisUrethraVagina {
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"Eagerly sinking [npc.her] [npc.cock+] deep into [npc2.namePos] [npc2.vaginaUrethra+],"
 							+ " [npc.name] [npc.verb(start)] enthusiastically rocking [npc.her] [npc.hips] back and forth, letting out [npc.a_moan+] with every thrust as [npc.she] happily [npc.verb(fuck)] [npc2.name].",
@@ -399,12 +399,12 @@ public class PenisUrethraVagina {
 							+ " breathing in [npc2.namePos] [npc2.scent] as [npc.she] desperately [npc.verb(fuck)] [npc2.herHim]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_SUB_RESIST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -413,7 +413,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_RESISTING) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Resist urethral fuck";
@@ -434,9 +434,9 @@ public class PenisUrethraVagina {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"[npc.Name] [npc.verb(try)] to pull [npc.her] [npc.cock] out of [npc2.namePos] [npc2.pussy],"
 									+ " but [npc.her] efforts prove to be in vain as [npc2.name] quickly [npc2.verb(reach)] down and [npc2.verb(take)] a gentle hold of it, before softly forcing it back into [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 							"With [npc.a_sob+], [npc.name] [npc.verb(try)] to pull [npc.her] [npc.cock] away from [npc2.name], but [npc2.she] quickly [npc2.verb(grab)] it, before gently forcing it back inside [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 							"Tears start to well up in [npc.namePos] [npc.eyes], and with [npc.a_sob+], [npc.she] [npc.verb(try)] to pull [npc.her] [npc.cock] away from [npc2.namePos] [npc2.pussy+],"
 									+ " but [npc2.name] quickly [npc2.verb(shift)] position, ignoring [npc.her] protests as [npc2.she] gently [npc2.verb(force)] [npc2.her] [npc2.vaginaUrethra+] down onto [npc.her] [npc.cock+]."));
 					break;
@@ -444,9 +444,9 @@ public class PenisUrethraVagina {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"[npc.Name] [npc.verb(try)] to pull [npc.her] [npc.cock] out of [npc2.namePos] [npc2.pussy],"
 									+ " but [npc.her] efforts prove to be in vain as [npc2.name] quickly [npc2.verb(reach)] back and [npc2.verb(take)] a rough hold of it, before aggressively forcing it back into [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 							"With [npc.a_sob+], [npc.name] [npc.verb(try)] to pull [npc.her] [npc.cock] away from [npc2.name], but [npc2.she] quickly [npc2.verb(grab)] it, before roughly forcing it back inside [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 							"Tears start to well up in [npc.namePos] [npc.eyes], and with [npc.a_sob+], [npc.she] [npc.verb(try)] to pull [npc.her] [npc.cock] away from [npc2.namePos] [npc2.pussy+],"
 									+ " but [npc2.name] quickly [npc2.verb(shift)] position, ignoring [npc.her] protests as [npc2.she] roughly [npc2.verb(force)] [npc2.her] [npc2.vaginaUrethra+] down onto [npc.her] [npc.cock+]."));
 					break;
@@ -454,19 +454,19 @@ public class PenisUrethraVagina {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"[npc.Name] [npc.verb(try)] to pull [npc.her] [npc.cock] out of [npc2.namePos] [npc2.pussy],"
 									+ " but [npc.her] efforts prove to be in vain as [npc2.name] quickly [npc2.verb(reach)] back and [npc2.verb(take)] a firm hold of it, before eagerly forcing it back into [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 							"With [npc.a_sob+], [npc.name] [npc.verb(try)] to pull [npc.her] [npc.cock] away from [npc2.name], but [npc2.she] quickly [npc2.verb(grab)] it, before eagerly forcing it back inside [npc2.her] [npc2.vaginaUrethra+].",
-	
+
 							"Tears start to well up in [npc.namePos] [npc.eyes], and with [npc.a_sob+], [npc.she] [npc.verb(try)] to pull [npc.her] [npc.cock] away from [npc2.namePos] [npc2.pussy+],"
 									+ " but [npc2.name] quickly [npc2.verb(shift)] position, ignoring [npc.her] protests as [npc2.she] [npc2.verb(force)] [npc2.her] [npc2.vaginaUrethra+] down onto [npc.her] [npc.cock+]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction VAGINAL_URETHRA_SEX_STOP = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -474,7 +474,7 @@ public class PenisUrethraVagina {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.URETHRA_VAGINA)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop urethral fuck";
@@ -487,9 +487,9 @@ public class PenisUrethraVagina {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -505,7 +505,7 @@ public class PenisUrethraVagina {
 							"Pushing deep inside of [npc2.name] one last time, [npc.name] then [npc.verb(slide)] [npc.her] [npc.cock+] back out of [npc2.her] [npc2.vaginaUrethra+], putting an end to the fucking."));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -521,11 +521,11 @@ public class PenisUrethraVagina {
 							" [npc2.A_moan+] escapes from between [npc2.namePos] [npc2.lips+], betraying [npc2.her] desperate desire for more of [npc.namePos] attention."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -546,9 +546,9 @@ public class PenisUrethraVagina {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -586,7 +586,7 @@ public class PenisUrethraVagina {
 				default:
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -629,12 +629,12 @@ public class PenisUrethraVagina {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	private static String getTargetedCharacterReceivingResponse(SexAction action) {
 		switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
 			case SUB_EAGER:
@@ -642,26 +642,26 @@ public class PenisUrethraVagina {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" [npc2.Name] greedily [npc2.verb(thrust)] [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+],"
 								+ " letting out [npc2.a_moan+] as [npc2.she] enthusiastically [npc2.verb(penetrate)] [npc.her] [npc.pussy+].",
-	
+
 						" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+].",
-	
+
 						" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(drive)] [npc2.her] [npc2.cock+] as deep as possible into [npc.namePos] [npc.vaginaUrethra+]."));
 				break;
 			case SUB_RESISTING:
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" Failing to pull [npc2.her] [npc2.cock] away from [npc.namePos] [npc.pussy],"
 								+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+] as [npc2.she] weakly [npc2.verb(try)] to struggle free.",
-	
+
 						" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 								+ " squirming and protesting as [npc.name] [npc.verb(continue)] to force [npc2.her] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+].",
-	
+
 						" [npc2.Sobbing] in distress, [npc2.name] [npc2.verb(try)], in vain, to pull [npc2.her] [npc2.cock] away from [npc.namePos] [npc.vaginaUrethra+]."));
 				break;
 			case DOM_GENTLE:
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" [npc2.Name] gently [npc2.verb(slide)] [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+],"
 								+ " letting out a soft [npc2.moan] as [npc2.she] gently [npc2.verb(penetrate)] [npc.her] [npc.pussy+].",
-	
+
 						" A gentle [npc2.moan] drifts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] slowly sliding [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+].",
 
 						" [npc2.Moaning] in delight, [npc2.name] gently [npc2.verb(slide)] [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+]."));
@@ -670,7 +670,7 @@ public class PenisUrethraVagina {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" [npc2.Name] violently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+],"
 								+ " letting out [npc2.a_moan+] as [npc2.she] roughly [npc2.verb(penetrate)] [npc.her] [npc.pussy+].",
-	
+
 						" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] violently thrusting [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+].",
 
 						" [npc2.Moaning] in delight, [npc2.name] roughly [npc2.verb(slam)] [npc2.her] [npc2.cock+] as deep as possible into [npc.namePos] [npc.vaginaUrethra+]."));
@@ -679,7 +679,7 @@ public class PenisUrethraVagina {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						" [npc2.Name] [npc2.verb(thrust)] [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+],"
 								+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(penetrate)] [npc.her] [npc.pussy+].",
-	
+
 						" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+].",
 
 						" [npc2.Moaning] in delight, [npc2.name] [npc2.verb(slide)] [npc2.her] [npc2.cock+] deep into [npc.namePos] [npc.vaginaUrethra+]."));
@@ -687,7 +687,7 @@ public class PenisUrethraVagina {
 		}
 		return "";
 	}
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_DOM_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -696,7 +696,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.URETHRA_VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle urethra fucked";
@@ -710,7 +710,7 @@ public class PenisUrethraVagina {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"With a gentle thrust of [npc.her] [npc.hips], [npc.name] [npc.verb(let)] out a soft [npc.moan] as [npc.she] [npc.verb(help)] to sink [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+].",
 
@@ -720,12 +720,12 @@ public class PenisUrethraVagina {
 							+ " a soft [npc.moan] drifts out from between [npc.namePos] [npc.lips+] as [npc.her] movements force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_DOM_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -734,7 +734,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.URETHRA_VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Urethra fucked";
@@ -758,12 +758,12 @@ public class PenisUrethraVagina {
 							+ " [npc.a_moan+] bursts out from between [npc.namePos] [npc.lips+] as [npc.her] movements force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_DOM_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -772,7 +772,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.URETHRA_VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_ROUGH) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Rough urethra fucked";
@@ -796,12 +796,12 @@ public class PenisUrethraVagina {
 							+ " [npc.a_moan+] bursts out from between [npc.namePos] [npc.lips+] as [npc.her] movements roughly force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_SUB_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -810,7 +810,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.URETHRA_VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Urethra fucked";
@@ -834,12 +834,12 @@ public class PenisUrethraVagina {
 							+ " [npc.a_moan+] bursts out from between [npc.namePos] [npc.lips+] as [npc.her] movements force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_SUB_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -848,7 +848,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.URETHRA_VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager urethra fucked";
@@ -872,12 +872,12 @@ public class PenisUrethraVagina {
 							+ " [npc.a_moan+] bursts out from between [npc.namePos] [npc.lips+] as [npc.her] movements force [npc2.namePos] [npc2.cock+] deep into [npc.her] [npc.vaginaUrethra+]."));
 
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_SUB_RESIST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.ZERO_NONE,
@@ -886,7 +886,7 @@ public class PenisUrethraVagina {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.URETHRA_VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_RESISTING) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Resist urethra fucked";
@@ -939,12 +939,12 @@ public class PenisUrethraVagina {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction RECEIVING_VAGINAL_URETHRA_SEX_STOP = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -965,9 +965,9 @@ public class PenisUrethraVagina {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -982,7 +982,7 @@ public class PenisUrethraVagina {
 							"[npc.Name] [npc.verb(lean)] into [npc2.name], inhaling [npc2.her] [npc2.scent] before sliding [npc2.her] [npc2.cock] out of [npc.her] [npc.vaginaUrethra+]."));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -997,7 +997,7 @@ public class PenisUrethraVagina {
 							" [npc2.A_moan+] escapes from between [npc2.namePos] [npc2.lips+], betraying [npc2.her] desire to continue fucking [npc.namePos] [npc.vaginaUrethra+]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};

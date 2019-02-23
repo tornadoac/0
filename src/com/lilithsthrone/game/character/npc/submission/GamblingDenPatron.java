@@ -37,105 +37,105 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class GamblingDenPatron extends NPC {
-	
+
 	private DicePokerTable table;
-	
+
 	public GamblingDenPatron() {
 		this(Gender.F_V_B_FEMALE, DicePokerTable.COPPER, false);
 	}
-	
+
 	public GamblingDenPatron(Gender gender) {
 		this(gender, DicePokerTable.COPPER, false);
 	}
-	
+
 	public GamblingDenPatron(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, DicePokerTable.COPPER, isImported);
 	}
-	
+
 	public GamblingDenPatron(Gender gender, DicePokerTable table, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, Subspecies.ALLIGATOR_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.GAMBLING_DEN, PlaceType.GAMBLING_DEN_GAMBLING, false);
-		
+
 		this.table = table;
-		
+
 		if(!isImported) {
 			// Set random level from 5 to 8:
 			setLevel(5 + Util.random.nextInt(4));
-			
+
 			// RACE & NAME:
-			
+
 			int slimeChance = Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.slimeQueenHelped) && Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_SLIME_QUEEN) ? 100 : 50;
-			
+
 			Map<Subspecies, Integer> availableRaces = new HashMap<>();
 			for(Subspecies s : Subspecies.values()) {
 				if(s==Subspecies.SLIME) {
 					addToSubspeciesMap(slimeChance, gender, s, availableRaces);
-					
+
 				} else if(Subspecies.getWorldSpecies().get(WorldType.SUBMISSION).containsKey(s) && s!=Subspecies.IMP && s!=Subspecies.IMP_ALPHA) {
 					addToSubspeciesMap((int) (100 * Subspecies.getWorldSpecies().get(WorldType.SUBMISSION).get(s).getChanceMultiplier()), gender, s, availableRaces);
-					
+
 				} else if(Subspecies.getWorldSpecies().get(WorldType.DOMINION).containsKey(s) && s!=Subspecies.IMP && s!=Subspecies.IMP_ALPHA) {
 					addToSubspeciesMap((int) (25 * Subspecies.getWorldSpecies().get(WorldType.DOMINION).get(s).getChanceMultiplier()), gender, s, availableRaces);
 				}
 			}
-			
+
 			this.setBodyFromSubspeciesPreference(gender, availableRaces);
-			
+
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
-	
+
 			setName(Name.getRandomTriplet(this.getRace()));
 			this.setPlayerKnowsName(true);
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, false);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
 			this.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.TWO_NEUTRAL);
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(750 + Util.random.nextInt(750));
 			CharacterUtils.generateItemsInInventory(this);
-	
+
 			equipClothing(true, true, true, true);
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element properties = super.saveAsXML(parentElement, doc);
-		
+
 		Element tableElement = doc.createElement("table");
 		properties.appendChild(tableElement);
-		
+
 		CharacterUtils.addAttribute(doc, tableElement, "value", table.toString());
-		
+
 		return properties;
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		try {
 			Element npcSpecificElement = (Element) parentElement.getElementsByTagName("table").item(0);
 			this.setTable(DicePokerTable.valueOf(npcSpecificElement.getAttribute("value")));
@@ -152,7 +152,7 @@ public class GamblingDenPatron extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	public DicePokerTable getTable() {
 		return table;
 	}
@@ -165,7 +165,7 @@ public class GamblingDenPatron extends NPC {
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		switch (table) {
@@ -178,33 +178,33 @@ public class GamblingDenPatron extends NPC {
 		}
 		return "";
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
 			setPendingClothingDressing(true);
 		}
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 
 	// Combat:
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		return null;
 	}
-	
+
 }

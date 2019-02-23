@@ -21,7 +21,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class LegType {
-	
+
 	public static AbstractLegType HUMAN = new AbstractLegType(BodyCoveringType.HUMAN,
 			Race.HUMAN,
 			FootStructure.PLANTIGRADE,
@@ -41,7 +41,7 @@ public class LegType {
 			Util.newArrayListOfValues(
 					LegConfiguration.BIPEDAL)) {
 	};
-	
+
 	public static AbstractLegType ANGEL = new AbstractLegType(BodyCoveringType.ANGEL,
 			Race.ANGEL,
 			FootStructure.PLANTIGRADE,
@@ -154,7 +154,7 @@ public class LegType {
 			return clothingBlock;
 		}
 	};
-	
+
 	public static AbstractLegType COW_MORPH = new AbstractLegType(BodyCoveringType.BOVINE_FUR,
 			Race.COW_MORPH,
 			FootStructure.UNGULIGRADE,
@@ -189,7 +189,7 @@ public class LegType {
 			return clothingBlock;
 		}
 	};
-	
+
 	public static AbstractLegType DOG_MORPH = new AbstractLegType(BodyCoveringType.CANINE_FUR,
 			Race.DOG_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -212,7 +212,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType WOLF_MORPH = new AbstractLegType(BodyCoveringType.LYCAN_FUR,
 			Race.WOLF_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -235,7 +235,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType FOX_MORPH = new AbstractLegType(BodyCoveringType.FOX_FUR,
 			Race.FOX_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -258,7 +258,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType SQUIRREL_MORPH = new AbstractLegType(BodyCoveringType.SQUIRREL_FUR,
 			Race.SQUIRREL_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -281,7 +281,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType RAT_MORPH = new AbstractLegType(BodyCoveringType.RAT_FUR,
 			Race.RAT_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -304,7 +304,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType RABBIT_MORPH = new AbstractLegType(BodyCoveringType.RABBIT_FUR,
 			Race.RABBIT_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -327,7 +327,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType BAT_MORPH = new AbstractLegType(BodyCoveringType.BAT_FUR,
 			Race.BAT_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -349,7 +349,7 @@ public class LegType {
 			Util.newArrayListOfValues(
 					LegConfiguration.BIPEDAL)) {
 	};
-	
+
 	public static AbstractLegType CAT_MORPH = new AbstractLegType(BodyCoveringType.FELINE_FUR,
 			Race.CAT_MORPH,
 			FootStructure.DIGITIGRADE,
@@ -372,7 +372,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType ALLIGATOR_MORPH = new AbstractLegType(BodyCoveringType.ALLIGATOR_SCALES,
 			Race.ALLIGATOR_MORPH,
 			FootStructure.PLANTIGRADE,
@@ -395,7 +395,7 @@ public class LegType {
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
 	};
-	
+
 	public static AbstractLegType HORSE_MORPH = new AbstractLegType(BodyCoveringType.HORSE_HAIR,
 			Race.HORSE_MORPH,
 			FootStructure.UNGULIGRADE,
@@ -418,7 +418,7 @@ public class LegType {
 			Util.newArrayListOfValues(
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
-		
+
 		private BodyPartClothingBlock clothingBlock = new BodyPartClothingBlock(
 				Util.newArrayListOfValues(
 						InventorySlot.FOOT),
@@ -430,7 +430,7 @@ public class LegType {
 			return clothingBlock;
 		}
 	};
-	
+
 	public static AbstractLegType REINDEER_MORPH = new AbstractLegType(BodyCoveringType.REINDEER_FUR,
 			Race.REINDEER_MORPH,
 			FootStructure.UNGULIGRADE,
@@ -453,7 +453,7 @@ public class LegType {
 			Util.newArrayListOfValues(
 					LegConfiguration.BIPEDAL,
 					LegConfiguration.TAUR)) {
-		
+
 		private BodyPartClothingBlock clothingBlock = new BodyPartClothingBlock(
 				Util.newArrayListOfValues(
 						InventorySlot.FOOT),
@@ -465,7 +465,7 @@ public class LegType {
 			return clothingBlock;
 		}
 	};
-	
+
 	public static AbstractLegType HARPY = new AbstractLegType(BodyCoveringType.FEATHERS,
 			Race.HARPY,
 			FootStructure.DIGITIGRADE,
@@ -488,7 +488,7 @@ public class LegType {
 				+ " While [npc.her] legs still retain a human-like shape, [npc.her] feet have transformed into bird-like talons.",
 				Util.newArrayListOfValues(
 						LegConfiguration.BIPEDAL)) {
-		
+
 		private BodyPartClothingBlock clothingBlock = new BodyPartClothingBlock(
 				Util.newArrayListOfValues(
 						InventorySlot.FOOT,
@@ -501,36 +501,36 @@ public class LegType {
 			return clothingBlock;
 		}
 	};
-	
+
 	private static List<AbstractLegType> allLegTypes;
 	private static Map<AbstractLegType, String> legToIdMap = new HashMap<>();
 	private static Map<String, AbstractLegType> idToLegMap = new HashMap<>();
-	
+
 	static {
 		allLegTypes = new ArrayList<>();
-		
+
 		// Add in hard-coded leg types:
 		Field[] fields = LegType.class.getFields();
-		
+
 		for(Field f : fields){
 			if (AbstractLegType.class.isAssignableFrom(f.getType())) {
-				
+
 				AbstractLegType ct;
 				try {
 					ct = ((AbstractLegType) f.get(null));
 
 					legToIdMap.put(ct, f.getName());
 					idToLegMap.put(f.getName(), ct);
-					
+
 					allLegTypes.add(ct);
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
-	
+
 	public static AbstractLegType getLegTypeFromId(String id) {
 		if(id.equals("IMP")) {
 			return LegType.DEMON_COMMON;
@@ -542,21 +542,21 @@ public class LegType {
 		id = Util.getClosestStringMatch(id, idToLegMap.keySet());
 		return idToLegMap.get(id);
 	}
-	
+
 	public static String getIdFromLegType(AbstractLegType legType) {
 		return legToIdMap.get(legType);
 	}
-	
+
 	public static List<AbstractLegType> getAllLegTypes() {
 		return allLegTypes;
 	}
-	
+
 	private static Map<Race, List<AbstractLegType>> typesMap = new HashMap<>();
 	public static List<AbstractLegType> getLegTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<AbstractLegType> types = new ArrayList<>();
 		for(AbstractLegType type : LegType.getAllLegTypes()) {
 			if(type.getRace()==r) {

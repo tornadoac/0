@@ -10,7 +10,7 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum AffectionLevel {
-	
+
 	/** -100 to -90*/
 	NEGATIVE_FIVE_LOATHE("loathing", "loathes", -100, -90, Color.AFFECTION_NEGATIVE_FIVE),
 
@@ -43,7 +43,7 @@ public enum AffectionLevel {
 
 	/** 90 to 100*/
 	POSITIVE_FIVE_WORSHIP("worshipping", "worships", 90, 100, Color.AFFECTION_POSITIVE_FIVE);
-	
+
 	private String name;
 	private String descriptor;
 	private int minimumValue, maximumValue;
@@ -56,11 +56,11 @@ public enum AffectionLevel {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	private static StringBuilder sb = new StringBuilder();
 	public static String getDescription(GameCharacter character, GameCharacter target, AffectionLevel affectionLevel, boolean withColor) {
 		sb.setLength(0);
-		
+
 		switch(affectionLevel) {
 			case NEGATIVE_FIVE_LOATHE:
 				if(withColor) {
@@ -140,10 +140,10 @@ public enum AffectionLevel {
 				}
 				break;
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -164,7 +164,7 @@ public enum AffectionLevel {
 	public int getMaximumValue() {
 		return maximumValue;
 	}
-	
+
 	public int getMedianValue() {
 		return (minimumValue + maximumValue) / 2;
 	}

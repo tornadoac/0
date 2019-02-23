@@ -33,7 +33,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		this.type = type;
 		this.flavor = type.getFlavor();
 		transformativeEffects = new ArrayList<>();
-		
+
 		fluidModifiers = new ArrayList<>();
 		fluidModifiers.addAll(type.getFluidModifiers());
 	}
@@ -44,52 +44,52 @@ public class FluidCum implements FluidInterface, XMLSaving {
 
 		CharacterUtils.addAttribute(doc, element, "type", this.type.toString());
 		CharacterUtils.addAttribute(doc, element, "flavor", this.flavor.toString());
-		
+
 		Element cumModifiers = doc.createElement("cumModifiers");
 		element.appendChild(cumModifiers);
 		for(FluidModifier fm : FluidModifier.values()) {
 			CharacterUtils.addAttribute(doc, cumModifiers, fm.toString(), String.valueOf(this.hasFluidModifier(fm)));
 		}
-		
+
 		return element;
 	}
 
 	public static FluidCum loadFromXML(Element parentElement, Document doc) {
 		return loadFromXML(parentElement, doc, null);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param parentElement
 	 * @param doc
 	 * @param baseType If you pass in a baseType, this method will ignore the saved type in parentElement.
 	 */
 	public static FluidCum loadFromXML(Element parentElement, Document doc, FluidType baseType) {
-		
+
 		Element cum = (Element)parentElement.getElementsByTagName("cum").item(0);
 
 		FluidType fluidType = FluidType.CUM_HUMAN;
-		
+
 		if(baseType!=null) {
 			fluidType = baseType;
-			
+
 		} else {
 			try {
 				fluidType = FluidType.getTypeFromString(cum.getAttribute("type"));
 			} catch(Exception ex) {
 			}
 		}
-		
+
 		FluidCum fluidCum = new FluidCum(fluidType);
-		
+
 		fluidCum.flavor = (FluidFlavor.valueOf(cum.getAttribute("flavor")));
-		
+
 
 		Element cumModifiers = (Element)cum.getElementsByTagName("cumModifiers").item(0);
 		List<FluidModifier> fluidModifiers = fluidCum.fluidModifiers;
-		
+
 		Body.handleLoadingOfModifiers(FluidModifier.values(), null, cumModifiers, fluidModifiers);
-		
+
 //		Element cumModifiers = (Element)cum.getElementsByTagName("cumModifiers").item(0);
 //		fluidCum.fluidModifiers.clear();
 //		for(FluidModifier fm : FluidModifier.values()) {
@@ -101,10 +101,10 @@ public class FluidCum implements FluidInterface, XMLSaving {
 //				fluidCum.fluidModifiers.remove(fm);
 //			}
 //		}
-		
+
 		return fluidCum;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(o instanceof FluidCum){
@@ -117,7 +117,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 17;
@@ -127,7 +127,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 		result = 31 * result + this.getTransformativeEffects().hashCode();
 		return result;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -148,7 +148,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 				return UtilText.returnStringAtRandom("cum", "cream", "jism", "jizz", "load", "seed", "spooge");
 		}
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -158,7 +158,7 @@ public class FluidCum implements FluidInterface, XMLSaving {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		String modifierDescriptor = "";
@@ -192,13 +192,13 @@ public class FluidCum implements FluidInterface, XMLSaving {
 			this.flavor = flavor;
 			return "";
 		}
-		
+
 		if(this.flavor == flavor || !owner.hasPenis()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.flavor = flavor;
-		
+
 		if(owner.isPlayer()) {
 			return "<p>"
 						+ "A soothing warmth spreads down into your [pc.balls], causing you to let out a contented little sigh.<br/>"
@@ -212,23 +212,23 @@ public class FluidCum implements FluidInterface, XMLSaving {
 					+ "</p>");
 		}
 	}
-	
+
 	public boolean hasFluidModifier(FluidModifier fluidModifier) {
 		return fluidModifiers.contains(fluidModifier);
 	}
-	
+
 	public String addFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
 		if(owner==null && !fluidModifiers.contains(fluidModifier)) {
 			fluidModifiers.add(fluidModifier);
 			return "";
 		}
-		
+
 		if(fluidModifiers.contains(fluidModifier) || !owner.hasPenis()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		fluidModifiers.add(fluidModifier);
-		
+
 		switch(fluidModifier) {
 			case ADDICTIVE:
 				if(owner.isPlayer()) {
@@ -348,22 +348,22 @@ public class FluidCum implements FluidInterface, XMLSaving {
 							+ "</p>");
 				}
 		}
-		
+
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
-	
+
 	public String removeFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
 		if(owner==null) {
 			fluidModifiers.remove(fluidModifier);
 			return "";
 		}
-		
+
 		if(!fluidModifiers.contains(fluidModifier) || !owner.hasPenis()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		fluidModifiers.remove(fluidModifier);
-		
+
 		switch(fluidModifier) {
 			case ADDICTIVE:
 				if(owner.isPlayer()) {
@@ -483,14 +483,14 @@ public class FluidCum implements FluidInterface, XMLSaving {
 							+ "</p>");
 				}
 		}
-		
+
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
-	
+
 	public List<ItemEffect> getTransformativeEffects() {
 		return transformativeEffects;
 	}
-	
+
 	public void addTransformativeEffect(ItemEffect ie) {
 		transformativeEffects.add(ie);
 	}

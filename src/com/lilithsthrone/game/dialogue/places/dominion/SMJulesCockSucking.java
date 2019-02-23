@@ -27,7 +27,7 @@ public class SMJulesCockSucking extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
@@ -37,7 +37,7 @@ public class SMJulesCockSucking extends SexManagerDefault {
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPartnerWantingToStopSex(GameCharacter partner) {
 		return Sex.getNumberOfOrgasms(Main.game.getNpc(Jules.class))>0;
@@ -47,7 +47,7 @@ public class SMJulesCockSucking extends SexManagerDefault {
 	public boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing){
 		return !character.isPlayer();
 	}
-	
+
 	@Override
 	public Map<GameCharacter, List<CoverableArea>> exposeAtStartOfSexMap() {
 		return Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Jules.class), Util.newArrayListOfValues(CoverableArea.PENIS)));

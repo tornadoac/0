@@ -20,11 +20,11 @@ public class Clitoris implements BodyPartInterface {
 	protected int clitSize;
 	protected int girth;
 	protected Set<PenetrationModifier> clitModifiers;
-	
+
 	public Clitoris(int clitSize, int girth) {
 		this.clitSize = clitSize;
 		this.girth = girth;
-		
+
 		clitModifiers = new HashSet<>();
 	}
 
@@ -61,7 +61,7 @@ public class Clitoris implements BodyPartInterface {
 				this.getGirth()!=PenisGirth.TWO_AVERAGE?this.getGirth().getName():"",
 				this.getClitorisSize()!=ClitorisSize.ZERO_AVERAGE?this.getClitorisSize().getDescriptor():"little");
 	}
-	
+
 	public ClitorisSize getClitorisSize() {
 		return ClitorisSize.getClitorisSizeFromInt(clitSize);
 	}
@@ -69,16 +69,16 @@ public class Clitoris implements BodyPartInterface {
 	public int getRawClitorisSizeValue() {
 		return clitSize;
 	}
-	
+
 	public String setClitorisSize(GameCharacter owner, int clitSize) {
 		if(!owner.hasVagina()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		int oldSize = this.clitSize;
 		this.clitSize = Math.max(0, Math.min(clitSize, ClitorisSize.SEVEN_STALLION.getMaximumValue()));
 		int sizeChange = this.clitSize - oldSize;
-		
+
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The size of your clit doesn't change...)]</p>";
@@ -117,7 +117,7 @@ public class Clitoris implements BodyPartInterface {
 			}
 		}
 	}
-	
+
 
 	// Girth:
 
@@ -137,13 +137,13 @@ public class Clitoris implements BodyPartInterface {
 			this.girth = Math.max(0, Math.min(girth, PenisGirth.FOUR_FAT.getValue()));
 			return "";
 		}
-		
+
 		if(!owner.hasVagina()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		int girthChange = 0;
-		
+
 		if (girth <= 0) {
 			if (this.girth != 0) {
 				girthChange = 0 - this.girth;
@@ -160,11 +160,11 @@ public class Clitoris implements BodyPartInterface {
 				this.girth = girth;
 			}
 		}
-		
+
 		if(girthChange == 0) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The girth of [npc.namePos] [npc.clit] doesn't change...)]</p>");
 		}
-		
+
 		if (girthChange > 0) {
 			return UtilText.parse(owner,
 					"</p>"
@@ -181,12 +181,12 @@ public class Clitoris implements BodyPartInterface {
 					+ "</p>");
 		}
 	}
-	
+
 
 	public Set<PenetrationModifier> getClitorisModifiers() {
 		return clitModifiers;
 	}
-	
+
 	public boolean hasClitorisModifier(PenetrationModifier modifier) {
 		return clitModifiers.contains(modifier);
 	}
@@ -195,7 +195,7 @@ public class Clitoris implements BodyPartInterface {
 		if(hasClitorisModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		if(!owner.hasVagina()) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You don't have a clitoris, so nothing happens...)]</p>";
@@ -203,9 +203,9 @@ public class Clitoris implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] doesn't have a clitoris, so nothing happens...)]</p>");
 			}
 		}
-		
+
 		clitModifiers.add(modifier);
-		
+
 		switch(modifier) {
 			case RIBBED:
 				if(owner.isPlayer()) {
@@ -330,7 +330,7 @@ public class Clitoris implements BodyPartInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
@@ -339,9 +339,9 @@ public class Clitoris implements BodyPartInterface {
 		if(!hasClitorisModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		clitModifiers.remove(modifier);
-		
+
 		switch(modifier) {
 			case RIBBED:
 				if(owner.isPlayer()) {
@@ -468,7 +468,7 @@ public class Clitoris implements BodyPartInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
@@ -480,5 +480,5 @@ public class Clitoris implements BodyPartInterface {
 		}
 		return owner.getLegConfiguration().getBestialParts().contains(Clitoris.class);
 	}
-	
+
 }

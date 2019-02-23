@@ -753,7 +753,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation("Delete Effect", "");
+					TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation("Delete Effect", "");
 					MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 				}
 			}
@@ -767,7 +767,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-//				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation((EnchantmentDialogue.getLimit()==0?"Minimum Limit Reached":"Limit Minimum"), "");
+//				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation((EnchantmentDialogue.getLimit()==0?"Minimum Limit Reached":"Limit Minimum"), "");
 //				MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 			}
 
@@ -781,7 +781,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-//				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation((EnchantmentDialogue.getLimit()==0?"Minimum Limit Reached":"Large Limit Decrease"), "");
+//				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation((EnchantmentDialogue.getLimit()==0?"Minimum Limit Reached":"Large Limit Decrease"), "");
 //				MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 			}
 
@@ -794,7 +794,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-//				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation((EnchantmentDialogue.getLimit()==0?"Minimum Limit Reached":"Limit Decrease"), "");
+//				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation((EnchantmentDialogue.getLimit()==0?"Minimum Limit Reached":"Limit Decrease"), "");
 //				MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 			}
 
@@ -807,7 +807,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-//				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(
+//				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation(
 //						(EnchantmentDialogue.getLimit() < EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod())
 //								?"Limit Increase"
 //								:"Maximum Limit Reached"), "");
@@ -825,7 +825,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-//				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(
+//				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation(
 //						(EnchantmentDialogue.getLimit() < EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod())
 //								?"Large Limit Increase"
 //								:"Maximum Limit Reached"), "");
@@ -841,7 +841,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-//				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(
+//				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation(
 //						(EnchantmentDialogue.getLimit() < EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod())
 //								?"Set Limit To Maximum"
 //								:"Maximum Limit Reached"), "");
@@ -965,7 +965,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation("Add Effect", "");
+				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation("Add Effect", "");
 				MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 			}
 
@@ -974,7 +974,7 @@ public class MainControllerInitMethod {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation("Add Effect",
+				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation("Add Effect",
 						EnchantmentDialogue.getEffects().size() >= EnchantmentDialogue.getIngredient().getEnchantmentLimit()?"You have already added the maximum number of effects for this item!":"");
 				MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 			}
@@ -1033,7 +1033,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Room", "Open this room's management screen.");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Room", "Open this room's management screen.");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1042,7 +1042,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Room", "You are not able to manage this room!");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Room", "You are not able to manage this room!");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1063,7 +1063,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Room", "Open this room's management screen.");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Room", "Open this room's management screen.");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1072,7 +1072,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Room", "You are not able to manage this room!");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Room", "You are not able to manage this room!");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 				}
@@ -1087,7 +1087,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("", (OccupantManagementDialogue.cellToInspect.getPlace().getPlaceUpgrades().contains(placeUpgrade)
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("", (OccupantManagementDialogue.cellToInspect.getPlace().getPlaceUpgrades().contains(placeUpgrade)
 								?placeUpgrade.getDescriptionAfterPurchase()
 								:placeUpgrade.getDescriptionForPurchase()));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
@@ -1119,7 +1119,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Purchase Modification",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Purchase Modification",
 								"This will cost: "+UtilText.formatAsMoney(placeUpgrade.getInstallCost())+"<br/>"+OccupantManagementDialogue.getPurchaseAvailabilityTooltipText(OccupantManagementDialogue.cellToInspect, placeUpgrade));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1128,7 +1128,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Purchase Modification",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Purchase Modification",
 								"This will cost: "+UtilText.formatAsMoney(placeUpgrade.getInstallCost())+"<br/>"+OccupantManagementDialogue.getPurchaseAvailabilityTooltipText(OccupantManagementDialogue.cellToInspect, placeUpgrade));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1147,7 +1147,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Remove Modification",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Remove Modification",
 								"This will cost: "+UtilText.formatAsMoney(placeUpgrade.getRemovalCost())+"<br/>"+OccupantManagementDialogue.getPurchaseAvailabilityTooltipText(OccupantManagementDialogue.cellToInspect, placeUpgrade));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1156,7 +1156,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Remove Modification",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Remove Modification",
 								(placeUpgrade.isCoreRoomUpgrade()
 										?"You cannot directly remove core upgrades. Instead, you'll have to purchase a different core modification in order to remove the current one."
 										:"This will cost: "+UtilText.formatAsMoney(placeUpgrade.getRemovalCost())+"<br/>"+OccupantManagementDialogue.getPurchaseAvailabilityTooltipText(OccupantManagementDialogue.cellToInspect, placeUpgrade)));
@@ -1373,7 +1373,7 @@ public class MainControllerInitMethod {
 
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Set Preset Work Hours", preset.getDescription());
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Set Preset Work Hours", preset.getDescription());
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1381,7 +1381,7 @@ public class MainControllerInitMethod {
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Set Preset Work Hours", "You can't assign hours to a slave who is idle. Assign them a job first.");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Set Preset Work Hours", "You can't assign hours to a slave who is idle. Assign them a job first.");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 				}
@@ -1392,7 +1392,7 @@ public class MainControllerInitMethod {
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(
 								Util.capitalizeSentence(job.getName(Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected())),
 								UtilText.parse(Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected(), job.getDescription()));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
@@ -1407,7 +1407,7 @@ public class MainControllerInitMethod {
 
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Assign Job", job.getDescription());
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Assign Job", job.getDescription());
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1415,7 +1415,7 @@ public class MainControllerInitMethod {
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Assign Job",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Assign Job",
 								UtilText.parse(Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected(), job.getAvailabilityText(Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected())));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1430,7 +1430,7 @@ public class MainControllerInitMethod {
 
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Apply Setting", setting.getDescription());
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Apply Setting", setting.getDescription());
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
 
@@ -1443,7 +1443,7 @@ public class MainControllerInitMethod {
 
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Remove Setting", setting.getDescription());
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Remove Setting", setting.getDescription());
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
 
@@ -1451,7 +1451,7 @@ public class MainControllerInitMethod {
 						if (((EventTarget) MainController.document.getElementById(id)) != null) {
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Apply Setting",
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Apply Setting",
 									UtilText.parse(Main.game.getDialogueFlags().getSlaveryManagerSlaveSelected(), "You'll need to assign this job to [npc.name] before you can apply any settings."));
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
@@ -1472,7 +1472,7 @@ public class MainControllerInitMethod {
 
 								MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 								MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-								TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Apply Setting", setting.getDescription());
+								TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Apply Setting", setting.getDescription());
 								MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 							}
 
@@ -1480,7 +1480,7 @@ public class MainControllerInitMethod {
 							if (((EventTarget) MainController.document.getElementById(id)) != null) {
 								MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 								MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-								TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Setting Applied", setting.getDescription());
+								TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Setting Applied", setting.getDescription());
 								MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 							}
 						}
@@ -1499,7 +1499,7 @@ public class MainControllerInitMethod {
 
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Apply Setting", setting.getDescription());
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Apply Setting", setting.getDescription());
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
 
@@ -1512,7 +1512,7 @@ public class MainControllerInitMethod {
 
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Remove Setting", setting.getDescription());
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Remove Setting", setting.getDescription());
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
 
@@ -1520,7 +1520,7 @@ public class MainControllerInitMethod {
 						if (((EventTarget) MainController.document.getElementById(id)) != null) {
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Remove Setting", "You cannot remove mutually exclusive settings! Choose a different option instead.");
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Remove Setting", "You cannot remove mutually exclusive settings! Choose a different option instead.");
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
 					}
@@ -1545,7 +1545,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Inspect Slave",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Inspect Slave",
 							UtilText.parse(slave, "Inspect [npc.name]."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1558,7 +1558,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Slave's Job",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Slave's Job",
 							UtilText.parse(slave, "Set [npc.namePos] job and work hours."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1571,7 +1571,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Slave's Permissions",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Slave's Permissions",
 							UtilText.parse(slave, "Manage [npc.namePos] permissions."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1584,7 +1584,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Slave's Inventory",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Slave's Inventory",
 							UtilText.parse(slave, "Manage [npc.namePos] inventory."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1603,7 +1603,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Move Slave Here",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Move Slave Here",
 							UtilText.parse(slave, "Move [npc.name] to your current location."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1613,7 +1613,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Move Slave Here",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Move Slave Here",
 							UtilText.parse(slave, "You cannot move [npc.name] to this location, as there's no room for [npc.herHim] here."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1634,7 +1634,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell Slave",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Sell Slave",
 							UtilText.parse(slave, "[npc.Name] has a value of "+UtilText.formatAsMoney(slave.getValueAsSlave(), "b", Color.GENERIC_GOOD)+"<br/>"
 									+ "However, "+Main.game.getDialogueFlags().getSlaveTrader().getName()+" will buy [npc.herHim] for "
 										+UtilText.formatAsMoney((int)(slave.getValueAsSlave()*Main.game.getDialogueFlags().getSlaveTrader().getBuyModifier()), "b", Color.GENERIC_ARCANE)+"."));
@@ -1646,7 +1646,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell Slave",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Sell Slave",
 							UtilText.parse(slave, "You cannot sell [npc.name], as there's nobody here to sell [npc.herHim] to."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1666,7 +1666,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Send Slave to Kate",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Send Slave to Kate",
 							UtilText.parse(slave, "Send [npc.name] to Kate's beauty salon, 'Succubi's Secrets', to get [npc.her] appearance changed."));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1676,7 +1676,7 @@ public class MainControllerInitMethod {
 					MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 					MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Send Slave to Kate",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Send Slave to Kate",
 							UtilText.parse(slave, "You haven't met Kate yet!"));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -1701,7 +1701,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Inspect Character",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Inspect Character",
 								UtilText.parse(occupant, "Inspect [npc.name]."));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1711,7 +1711,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Job", "You cannot manage a free-willed occupant's job.");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Job", "You cannot manage a free-willed occupant's job.");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1720,7 +1720,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Permissions", "You cannot manage a free-willed occupant's permissions.");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Permissions", "You cannot manage a free-willed occupant's permissions.");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 
@@ -1732,7 +1732,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Inventory",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Inventory",
 								UtilText.parse(occupant, "Manage [npc.namePos] inventory."));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1751,7 +1751,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Move Here",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Move Here",
 								UtilText.parse(occupant, "Move [npc.name] to your current location."));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1761,7 +1761,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Move Here",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Move Here",
 								UtilText.parse(occupant, "You cannot move [npc.name] to this location, as there's no room for [npc.herHim] here."));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1781,7 +1781,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Send to Kate",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Send to Kate",
 								UtilText.parse(occupant, "Send [npc.name] to Kate's beauty salon, 'Succubi's Secrets', to get [npc.her] appearance changed."));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1791,7 +1791,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Send to Kate", "Will be added soon!");
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Send to Kate", "Will be added soon!");
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 				}
@@ -1816,7 +1816,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Inspect Slave",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Inspect Slave",
 								UtilText.parse(slave, "Take a detailed look at [npc.name]."));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1826,7 +1826,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Slave's Job",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Slave's Job",
 								UtilText.parse(slave, "You cannot manage [npc.namePos] job, as you don't own [npc.herHim]!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1836,7 +1836,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Slave's Permissions",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Slave's Permissions",
 								UtilText.parse(slave, "You cannot manage [npc.namePos] permissions, as you don't own [npc.herHim]!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1846,7 +1846,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Manage Slave's Inventory",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Manage Slave's Inventory",
 								UtilText.parse(slave, "You cannot manage [npc.namePos] inventory, as you don't own [npc.herHim]!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1856,7 +1856,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Move Slave To Here",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Move Slave To Here",
 								UtilText.parse(slave, "You cannot move [npc.name] to this location, as you don't own [npc.herHim], as well as due to the fact that [npc.sheIs] already here!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1876,7 +1876,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Buy Slave",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Buy Slave",
 								UtilText.parse(slave, "[npc.Name] has a value of "+UtilText.formatAsMoney(slave.getValueAsSlave(), "b", Color.GENERIC_GOOD)+"<br/>"
 										+ "However, "+Main.game.getDialogueFlags().getSlaveTrader().getName()+" will sell [npc.herHim] for "
 											+UtilText.formatAsMoney((int)(slave.getValueAsSlave()*Main.game.getDialogueFlags().getSlaveTrader().getSellModifier()), "b", Color.GENERIC_ARCANE)+"."));
@@ -1888,7 +1888,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Buy Slave",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Buy Slave",
 								UtilText.parse(slave, "You cannot buy [npc.name], as you don't have enough money!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -1898,7 +1898,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Send Slave to Kate",
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Send Slave to Kate",
 								UtilText.parse(slave, "You can't send a slave you don't own to Kate!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
@@ -3915,7 +3915,7 @@ public class MainControllerInitMethod {
 							InventoryTooltipEventListener el = new InventoryTooltipEventListener().setTattoo(invSlot, BodyChanging.getTarget().getTattooInSlot(invSlot), BodyChanging.getTarget(), BodyChanging.getTarget());
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						} else {
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(invSlot.getTattooSlotName()), "");
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(invSlot.getTattooSlotName()), "");
 							MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 						}
 					}
@@ -3960,7 +3960,7 @@ public class MainControllerInitMethod {
 
 							MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 							MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-							TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Remove tattoo",
+							TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Remove tattoo",
 									Main.game.isInNewWorld()
 									?(Main.game.getPlayer().getMoney()>=100
 										?"It will cost "+UtilText.formatAsMoney(100, "span")+" to remove this tattoo!"
@@ -4017,7 +4017,7 @@ public class MainControllerInitMethod {
 						}
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(type.getName()), type.getDescription()
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(type.getName()), type.getDescription()
 								+(type.getSlotAvailability().contains(CharacterModificationUtils.tattooInventorySlot)
 										?""
 										:"<br/>[style.italicsBad(This tattoo type can't be applied to '"+CharacterModificationUtils.tattooInventorySlot.getTattooSlotName()+"'!)]<br/>"
@@ -4027,7 +4027,7 @@ public class MainControllerInitMethod {
 				}
 
 				for(Color c : CharacterModificationUtils.tattoo.getType().getAvailablePrimaryColors()) {
-					id = "TATTOO_COLOUR_PRIMARY_"+c.toString();
+					id = "TATTOO_COLOR_PRIMARY_"+c.toString();
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()){
@@ -4043,7 +4043,7 @@ public class MainControllerInitMethod {
 				}
 
 				for(Color c : CharacterModificationUtils.tattoo.getType().getAvailableSecondaryColors()) {
-					id = "TATTOO_COLOUR_SECONDARY_"+c.toString();
+					id = "TATTOO_COLOR_SECONDARY_"+c.toString();
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()){
@@ -4059,7 +4059,7 @@ public class MainControllerInitMethod {
 				}
 
 				for(Color c : CharacterModificationUtils.tattoo.getType().getAvailableTertiaryColors()) {
-					id = "TATTOO_COLOUR_TERTIARY_"+c.toString();
+					id = "TATTOO_COLOR_TERTIARY_"+c.toString();
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()){
@@ -4111,7 +4111,7 @@ public class MainControllerInitMethod {
 				}
 
 				for(Color c : TattooWriting.getAvailableColors()) {
-					id = "TATTOO_WRITING_COLOUR_"+c.toString();
+					id = "TATTOO_WRITING_COLOR_"+c.toString();
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()){
@@ -4158,7 +4158,7 @@ public class MainControllerInitMethod {
 
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(counterType.getName()), counterType.getDescription());
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(counterType.getName()), counterType.getDescription());
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 					}
 				}
@@ -4180,7 +4180,7 @@ public class MainControllerInitMethod {
 				}
 
 				for(Color c : TattooCounter.getAvailableColors()) {
-					id = "TATTOO_COUNTER_COLOUR_"+c.toString();
+					id = "TATTOO_COUNTER_COLOR_"+c.toString();
 					if (((EventTarget) MainController.document.getElementById(id)) != null) {
 						((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
 							Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()){
@@ -5522,7 +5522,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(
 								UtilText.parse(npc, "Bid on [npc.name]"),
 								UtilText.parse(npc, "Start bidding on [npc.name]. There's a chance that the bidding might exceed [npc.her] value, so make sure you have enough money first!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
@@ -5530,7 +5530,7 @@ public class MainControllerInitMethod {
 						MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 						MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
 
-						TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(
+						TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(
 								UtilText.parse(npc, "Bid on [npc.name]"),
 								UtilText.parse(npc, "You don't have a slaver license, so you're unable to big on any slaves!"));
 						MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
@@ -5782,12 +5782,12 @@ public class MainControllerInitMethod {
 					description = "Pump "+milkAmount+"ml of the "+fluidName+" into your "+area.getKey().getName()+".";
 				}
 				if(canIngest) {
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(verb+" ("+milkAmount+"ml)",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(verb+" ("+milkAmount+"ml)",
 							description);
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 
 				} else {
-					TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation(verb+" ("+milkAmount+"ml)",
+					TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation(verb+" ("+milkAmount+"ml)",
 							room.getAreaIngestionBlockedDescription(Main.game.getPlayer(), area.getKey(), milkAmount));
 					MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 				}
@@ -5806,7 +5806,7 @@ public class MainControllerInitMethod {
 
 			MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 			MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-			TooltipInformationEventListener el =  new TooltipInformationEventListener().setInformation("Sell",
+			TooltipInformationEventListener el = new TooltipInformationEventListener().setInformation("Sell",
 					"Sell all of the "+fluidName+" for "+(Math.max(1, (int)(fluid.getFluid().getValuePerMl()*fluid.getMilliliters())))+" flames.");
 			MainController.addEventListener(MainController.document, id, "mouseenter", el, false);
 		}

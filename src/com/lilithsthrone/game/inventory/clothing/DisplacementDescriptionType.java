@@ -9,22 +9,22 @@ public enum DisplacementDescriptionType {
 
 	DISPLACEMENT_SELF,
 	REPLACEMENT_SELF,
-	
+
 	DISPLACEMENT,
 	DISPLACEMENT_ROUGH,
-	
+
 	REPLACEMENT,
 	REPLACEMENT_ROUGH,
-	
+
 	NPC_ON_NPC_DISPLACEMENT,
 	NPC_ON_NPC_DISPLACEMENT_ROUGH,
-	
+
 	NPC_ON_NPC_REPLACEMENT,
 	NPC_ON_NPC_REPLACEMENT_ROUGH;
-	
+
 	/**
 	 * @param tagsIdentifier "[parent element's tag name] [child element's tag name]", for example "displacementText playerSelf"
-	 * @return 
+	 * @return
 	 * @throws IllegalArgumentException
 	 */
 	public static DisplacementDescriptionType byTagsPath(String tagsIdentifier) throws IllegalArgumentException {
@@ -67,7 +67,7 @@ public enum DisplacementDescriptionType {
 				throw new IllegalArgumentException();
 		}
 	}
-	
+
 //	public static DisplacementDescriptionType byTagsPath(String tagsIdentifier) throws IllegalArgumentException {
 //		for(DisplacementDescriptionType desc : DisplacementDescriptionType.values()){
 //			if(desc.identifier.equals(tagsIdentifier)) return desc;

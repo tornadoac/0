@@ -15,16 +15,16 @@ public class EventLogEntryEncyclopediaUnlock extends EventLogEntry {
 	public EventLogEntryEncyclopediaUnlock(String description, Color highlightDescriptionColor) {
 		super(Main.game.getMinutesPassed(), "Encyclopedia",  "<span style='color:"+highlightDescriptionColor.toWebHexString()+";'>"+Util.capitalizeSentence(description)+"</span>");
 	}
-	
+
 	public EventLogEntryEncyclopediaUnlock(String description, BaseColor highlightDescriptionColor) {
 		super(Main.game.getMinutesPassed(), "Encyclopedia",  "<span style='color:"+highlightDescriptionColor.toWebHexString()+";'>"+Util.capitalizeSentence(description)+"</span>");
 	}
-	
+
 	@Override
 	public String getFormattedEntry() {
 		return "<span style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>Encyclopedia</span>: "+description;
 	}
-	
+
 	@Override
 	public String getMainDialogueDescription() {
 		return "<p style='text-align:center;'>"
@@ -33,5 +33,5 @@ public class EventLogEntryEncyclopediaUnlock extends EventLogEntry {
 				+ description
 			+ "</p>";
 	}
-	
+
 }

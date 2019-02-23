@@ -17,7 +17,7 @@ public enum PenetrationModifier {
 	BARBED("barbed"),
 	VEINY("veiny"),
 	PREHENSILE("prehensile");
-	
+
 	private String descriptor;
 
 	private PenetrationModifier(String descriptor) {

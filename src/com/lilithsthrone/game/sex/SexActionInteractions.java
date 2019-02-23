@@ -14,7 +14,7 @@ import com.lilithsthrone.utils.Util;
 public class SexActionInteractions {
 
 	private Map<SexAreaInterface, List<SexAreaInterface>> interactions;
-	
+
 	private List<OrgasmCumTarget> availableCumTargets;
 	private List<OrgasmCumTarget> providedCumTargets;
 
@@ -23,10 +23,10 @@ public class SexActionInteractions {
 			List<OrgasmCumTarget> availableCumTargets) {
 		this(interactions, availableCumTargets, null);
 	}
-	
+
 	/**
 	 * A container for sex-interaction data.
-	 * 
+	 *
 	 * @param interactions A map of performer sex areas to the target's available sex areas.
 	 * @param availableCumTargets A list of cum targets that the performer can use when orgasming.
 	 * @param providedCumTargets A list of cum targets that this performer makes available to the target when the target is orgasming.
@@ -35,7 +35,7 @@ public class SexActionInteractions {
 			Map<SexAreaInterface, List<SexAreaInterface>> interactions,
 			List<OrgasmCumTarget> availableCumTargets,
 			List<OrgasmCumTarget> providedCumTargets) {
-		
+
 		if(interactions==null) {
 			this.interactions = new HashMap<>();
 		} else {
@@ -54,7 +54,7 @@ public class SexActionInteractions {
 			this.providedCumTargets = providedCumTargets;
 		}
 	}
-	
+
 	/**
 	 * @return interactions map. The keys correspond to the performing characters area, while the values are lists of areas (owned by the targeted character) that can be targeted by the key.
 	 */
@@ -73,7 +73,7 @@ public class SexActionInteractions {
 	public void setAvailableCumTargets(List<OrgasmCumTarget> availableCumTargets) {
 		this.availableCumTargets = availableCumTargets;
 	}
-	
+
 	public List<OrgasmCumTarget> getProvidedCumTargets() {
 		return providedCumTargets;
 	}

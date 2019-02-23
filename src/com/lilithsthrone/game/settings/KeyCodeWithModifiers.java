@@ -13,16 +13,16 @@ import javafx.scene.input.KeyEvent;
  * @author Pimgd
  */
 public class KeyCodeWithModifiers {
-	
+
 	private final KeyCode keyCode;
 	private final boolean controlModifier;
 	private final boolean shiftModifier;
-	
+
 	public static KeyCodeWithModifiers fromString(String source) {
 		if (source == null || source.isEmpty()) {
 			return null;
 		}
-		
+
 		boolean usesShiftModifier = false;
 		boolean usesControlModifier = false;
 		KeyCode keyCode = null;
@@ -39,10 +39,10 @@ public class KeyCodeWithModifiers {
 		} else {
 			keyCode = KeyCode.valueOf(source);
 		}
-		
+
 		return new KeyCodeWithModifiers(keyCode, usesControlModifier, usesShiftModifier);
 	}
-	
+
 	public KeyCodeWithModifiers(KeyCode keyCode) {
 		this(keyCode, false, false);
 	}
@@ -64,13 +64,13 @@ public class KeyCodeWithModifiers {
 	public boolean isShiftModifier() {
 		return shiftModifier;
 	}
-	
+
 	public boolean matches(KeyEvent keyEvent) {
-		return keyEvent.getCode() == keyCode && 
-				keyEvent.isControlDown() == controlModifier && 
+		return keyEvent.getCode() == keyCode &&
+				keyEvent.isControlDown() == controlModifier &&
 				keyEvent.isShiftDown() == shiftModifier;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -101,13 +101,13 @@ public class KeyCodeWithModifiers {
 				+ (controlModifier ? "CTRL+" : "")
 				+ keyCode.toString();
 	}
-	
+
 	public String getFullName() {
 		return (shiftModifier ? "SHIFT+" : "")
 				+ (controlModifier ? "CTRL+" : "")
 				+ keyCode.getName();
 	}
-	
+
 	public String asHotkey() {
 		return (shiftModifier ? "SHIFT + " : "")
 				+ (controlModifier ? "CTRL + " : "")

@@ -63,7 +63,7 @@ public class PrologueFemale extends NPC {
 	public PrologueFemale() {
 		this(false);
 	}
-	
+
 	public PrologueFemale(boolean isImported) {
 		super(isImported, new NameTriplet("Alexander", "Alex", "Alexandria"), "Bonheur",
 				"One of the guests at the museum's opening exhibit. She's got a beautiful face and figure, and, even better, she seems to have taken an instant liking towards you...",
@@ -76,13 +76,13 @@ public class PrologueFemale extends NPC {
 				WorldType.EMPTY,
 				PlaceType.GENERIC_EMPTY_TILE,
 				false);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -90,29 +90,29 @@ public class PrologueFemale extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 10);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 25);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.MUSICIAN);
-	
+
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 			this.addFetish(Fetish.FETISH_VAGINAL_RECEIVING);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -143,7 +143,7 @@ public class PrologueFemale extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.THREE_PLUMP);
@@ -151,7 +151,7 @@ public class PrologueFemale extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.DD.getMeasurement());
@@ -159,7 +159,7 @@ public class PrologueFemale extends NPC {
 		this.setNippleSize(NippleSize.THREE_LARGE.getValue());
 		this.setAreolaeSize(AreolaeSize.THREE_LARGE.getValue());
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -170,10 +170,10 @@ public class PrologueFemale extends NPC {
 		this.setAssElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -183,11 +183,11 @@ public class PrologueFemale extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 //		this.setFootStructure(FootStructure.PLANTIGRADE);
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -201,17 +201,17 @@ public class PrologueFemale extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Color.CLOTHING_SILVER, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_ELBOWLENGTH_GLOVES, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Color.CLOTHING_BLACK, false), true, this);
-		
+
 		this.setPiercedEar(true);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_ROSE_GOLD, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void endSex() {
 		Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_CROWDS);
@@ -221,7 +221,7 @@ public class PrologueFemale extends NPC {
 	public SexPace getSexPaceDomPreference(){
 		return SexPace.DOM_NORMAL;
 	}
-	
+
 	@Override
 	public SexPace getSexPaceSubPreference(GameCharacter character){
 		return SexPace.SUB_EAGER;
@@ -231,7 +231,7 @@ public class PrologueFemale extends NPC {
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			return "#D60092";
-			
+
 		} else {
 			return "#FF80D7";
 		}
@@ -240,10 +240,10 @@ public class PrologueFemale extends NPC {
 	@Override
 	public void changeFurryLevel() {
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 }

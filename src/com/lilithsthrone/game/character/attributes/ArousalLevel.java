@@ -59,7 +59,7 @@ public enum ArousalLevel {
 			return true;
 		}
 	};
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -70,7 +70,7 @@ public enum ArousalLevel {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	public abstract StatusEffect getRelatedStatusEffect();
 
 	public String getName() {
@@ -84,7 +84,7 @@ public enum ArousalLevel {
 	public int getMaximumValue() {
 		return maximumValue;
 	}
-	
+
 	public int getMedianValue() {
 		return (minimumValue + maximumValue) / 2;
 	}

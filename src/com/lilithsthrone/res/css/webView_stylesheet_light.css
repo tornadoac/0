@@ -12,7 +12,7 @@ body{
 	margin:0 auto;
 	padding:0;
 	float: none;
-	
+
 }
 
 div {
@@ -52,7 +52,7 @@ div {
 	width:100%;
 	max-width:1200px;
 	padding:16px;
-	
+
 	display: flex;
 	flex-flow: column;
 	box-sizing:border-box;
@@ -155,18 +155,18 @@ h6{
 details{
 	margin:8px auto 8px auto;
 	padding:8px;
-	
+
 	background:#fcfcfc;
 	border-radius:5px;
 }
 summary{
 	font-weight: bold;
 	text-align:center;
-	
+
 	margin:8px auto 8px auto;
 	padding:8px;
 	width: calc(100% - 16px);
-	
+
 	background:#ccc;
 	border-radius:5px;
 	outline:none;
@@ -205,10 +205,10 @@ input:focus {
 	float:left;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	padding:4px;
 	margin:8px;
-	
+
 	width: calc(100% - 16px);
 	-webkit-user-select: none;
 	box-sizing: border-box;
@@ -220,10 +220,10 @@ input:focus {
 	float:left;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	padding:4px;
 	margin:8px;
-	
+
 	width: calc(50% - 16px);
 	-webkit-user-select: none;
 	box-sizing: border-box;
@@ -236,10 +236,10 @@ input:focus {
 	float:left;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	padding:4px;
 	margin:8px;
-	
+
 	width: calc(25% - 16px);
 	-webkit-user-select: none;
 	box-sizing: border-box;
@@ -372,14 +372,14 @@ input:focus {
 	font-weight: bold;
 	text-align:center;
 	line-height:30px;
-	
+
 	width:88vw;
 	height:30px;
-	
+
 	margin:8px auto 8px auto;
 	padding:8px;
 	width: calc(100% - 16px);
-	
+
 	background:#ccc;
 	border-radius:5px;
 }
@@ -400,7 +400,7 @@ position:relative;
 	width: calc(100% - 16px);
 	-webkit-user-select: none;
 	box-sizing: border-box;
-	
+
 	background-color:#dddddd;
 	border-radius:5px;
 }
@@ -426,15 +426,15 @@ position:relative;
 
 .encyclopedia-container{
 	box-sizing:border-box;
-	
+
 	float:right;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:18px;
 	line-height:22px;
-	
+
 	padding:1%;
 	margin:1%;
 	width:40%;
@@ -444,12 +444,12 @@ position:relative;
 .lvlup-container{
 	margin:0 0 8px 0;
 	padding:8px 0 8px 0;
-	
+
 	width:100%;
-	
+
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	-webkit-user-select: none;
 	cursor:default;
 }
@@ -458,28 +458,28 @@ position:relative;
 	font-weight: bold;
 	text-align:center;
 	line-height:20px;
-	
+
 	width:96%;
 	height:20px;
-	
+
 	margin:auto;
 	padding:8px;
-	
+
 	background:#ccc;
 	border-radius:5px;
-	
+
 	-webkit-user-select: none;
 	cursor:default;
 }
 .lvlup-box{
 	position:relative;
 	text-align:center;
-	
+
 	height:132px;
 	width:96%;
 	margin: 8px auto 8px auto;
 	padding:8px;
-	
+
 	background:#ddd;
 	border-radius:5px;
 	cursor:default;
@@ -489,22 +489,22 @@ position:relative;
 	float:left;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	width:31%;
 	margin:1%;
 	padding:0 0 8px 0;
 }
 .lvlup-attribute-innerContainer{
 	margin:0;
-	
+
 	border-radius:5px;
 	padding:8px;
-	
+
 	-webkit-user-select: none;
 	cursor:default;
 }
@@ -516,10 +516,10 @@ position:relative;
 	text-align:center;
 	line-height:24px;
 	cursor:pointer;
-	
+
 	background-color: #ccc;
 	border-radius:5px;
-	
+
 	-webkit-user-select: none;
 }
 .lvlup-button.disabled{
@@ -543,7 +543,7 @@ position:relative;
 	height:32px;
 	margin:0;
 	padding:0;
-	
+
 	border-radius:5px;
 }
 .perkCell.owned{
@@ -573,7 +573,7 @@ position:relative;
 	height:16px;
 	margin:0;
 	padding:0;
-	
+
 	background-color:transparent;
 	border-radius:5px;
 }
@@ -585,10 +585,10 @@ position:relative;
 	float:left;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	padding:0px;
 	margin:0px 0px 1% 0px;
-	
+
 	width:100%;
 	-webkit-user-select: none;
 }
@@ -597,7 +597,7 @@ position:relative;
 	background:#fcfcfc;
 	border-radius:5px;
 	text-align:center;
-	
+
 	padding:1%;
 	margin:1%;
 	width:46%;
@@ -615,9 +615,9 @@ position:relative;
 }
 .cosmetics-button {
 	display:inline-block;
-	
+
 	white-space: nowrap;
-	
+
 	text-align:center;
 	-webkit-box-sizing: border-box;
 	font-size: 16px;
@@ -630,7 +630,7 @@ position:relative;
 	border:1px;
 	border-style:solid;
 	border-color:#ccc;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#999),
@@ -666,12 +666,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:4px 8px 4px 8px;
 	padding:8px;
 	width:92vw;
@@ -680,17 +680,17 @@ position:relative;
 }
 .fetish-container-half{
 	box-sizing:border-box;
-	
+
 	float:left;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	padding:1%;
 	margin:1%;
 	width:48%;
@@ -1065,12 +1065,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:4px 1%;
 	padding:8px;
 	width:98%;
@@ -1083,12 +1083,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:4px 1%;
 	padding:8px;
 	width:31.3%;
@@ -1109,12 +1109,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:4px 1%;
 	padding:8px;
 	width:64.6%;
@@ -1126,12 +1126,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:18px;
 	font-weight: bold;
 	text-align:center;
 	line-height:22px;
-	
+
 	margin:4px 1%;
 	padding:8px;
 	width:23%;
@@ -1143,12 +1143,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:4px 1%;
 	padding:8px;
 	width:48%;
@@ -1165,12 +1165,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:4px 1%;
 	padding:8px;
 	width:14.66%;
@@ -1243,12 +1243,12 @@ position:relative;
 	text-align:center;
 	line-height:24px;
 	cursor:pointer;
-	
+
 	float:left;
 	margin-right:8px;
 	background-color: #ccc;
 	border-radius:5px;
-	
+
 	-webkit-user-select: none;
 	-webkit-box-sizing: border-box;
 }
@@ -1316,7 +1316,7 @@ position:relative;
 	width:90%;
 	border-radius:5px;
 	text-align:center;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#999),
@@ -1381,22 +1381,22 @@ position:relative;
 	display:block;
 	margin:0 auto;
 	padding:8px 0 8px 0;
-	
+
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	width:100%;
 }
 .enchanting-essence-main{
 	margin:0 auto;
 	padding:8px 0 8px 0;
-	
+
 	background-color: transparent;
 	border-radius:5px;
-	
+
 	width:100%;
-	
+
 	display: -ms-flex; display: -webkit-flex; display: flex;
 }
 .enchanting-essence-main>.enchanting-essence-inner-left>.enchanting-essence-inner-right { flex:1; }
@@ -1404,22 +1404,22 @@ position:relative;
 	float:left;
 	margin:0 auto;
 	padding:8px 0 8px 0;
-	
+
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	width:20%;
 }
 .enchanting-essence-inner-right{
 	float:left;
 	margin:0 auto;
 	padding:8px 0 8px 0;
-	
+
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	width:80%;
 }
 .enchanting-ingredient {
@@ -1475,12 +1475,12 @@ position:relative;
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	font-size:20px;
 	font-weight: bold;
 	text-align:center;
 	line-height:24px;
-	
+
 	margin:0;
 	padding:8px;
 	width:100%;
@@ -1514,11 +1514,11 @@ position:relative;
 	display:block;
 	margin:0 auto;
 	padding:8px 0 8px 0;
-	
+
 	background-color: transparent;
 	background:#fcfcfc;
 	border-radius:5px;
-	
+
 	width:100%;
 }
 .empty {
@@ -1641,7 +1641,7 @@ position:relative;
 	border-radius:5px;
 	text-align:center;
 	box-sizing: border-box;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#999),
@@ -1671,7 +1671,7 @@ position:relative;
 	font-weight:normal;
 	color: #F5A8FF;
 	text-shadow: 2px 2px 5px #8d3193;
-	
+
 	/*HALLOWEEN
 	color: #FA4700;
 	text-shadow: 2px 2px 5px #FFAB8A;*/
@@ -2089,7 +2089,7 @@ border-radius:5px;
 	text-align: center;
 	line-height:94px;
 	-webkit-user-select: none;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#666),
@@ -2170,7 +2170,7 @@ border-radius:5px;
 	text-align: center;
 	-webkit-user-select: none;
 	box-sizing:border-box;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#ddd),
@@ -2223,7 +2223,7 @@ border-radius:5px;
 	text-align: center;
 	-webkit-user-select: none;
 	box-sizing:border-box;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#bbb),
@@ -2251,7 +2251,7 @@ border-radius:5px;
 			color-stop(0.50, #b7b7b7),
 			color-stop(0.92, #ccc),
 			to(#ddd));
-		
+
 	border-style: solid;
 	border-width: 1px 1px 0 1px;
 	border-color:#ccc;

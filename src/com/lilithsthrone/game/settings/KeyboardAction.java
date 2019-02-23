@@ -15,7 +15,7 @@ public enum KeyboardAction {
 	MOVE_WEST("Move West", new KeyCodeWithModifiers(KeyCode.A), new KeyCodeWithModifiers(KeyCode.LEFT)),
 	MOVE_SOUTH("Move South", new KeyCodeWithModifiers(KeyCode.S), new KeyCodeWithModifiers(KeyCode.DOWN)),
 	MOVE_EAST("Move East", new KeyCodeWithModifiers(KeyCode.D), new KeyCodeWithModifiers(KeyCode.RIGHT)),
-	
+
 	MOVE_RESPONSE_CURSOR_NORTH("Response Cursor Up", new KeyCodeWithModifiers(KeyCode.W, false, true), new KeyCodeWithModifiers(KeyCode.UP, false, true)),
 	MOVE_RESPONSE_CURSOR_WEST("Response Cursor Left", new KeyCodeWithModifiers(KeyCode.A, false, true), new KeyCodeWithModifiers(KeyCode.LEFT, false, true)),
 	MOVE_RESPONSE_CURSOR_SOUTH("Response Cursor Down", new KeyCodeWithModifiers(KeyCode.S, false, true), new KeyCodeWithModifiers(KeyCode.DOWN, false, true)),
@@ -51,7 +51,7 @@ public enum KeyboardAction {
 
 	RESPOND_NEXT_TAB("Next Response Tab", new KeyCodeWithModifiers(KeyCode.E, false, true), null),
 	RESPOND_PREVIOUS_TAB("Previous Response Tab", new KeyCodeWithModifiers(KeyCode.Q, false, true), null),
-	
+
 	RESPOND_NEXT_PAGE("Next Response Page", new KeyCodeWithModifiers(KeyCode.E), null),
 	RESPOND_PREVIOUS_PAGE("Previous Response Page", new KeyCodeWithModifiers(KeyCode.Q), null);
 

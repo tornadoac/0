@@ -23,7 +23,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class PartnerTalk {
-	
+
 	public static final SexAction PARTNER_DIRTY_TALK = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -36,7 +36,7 @@ public class PartnerTalk {
 		public boolean isBaseRequirementsMet() {
 			return !Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public CorruptionLevel getCorruptionNeeded(){
 			if(Sex.getSexPace(Sex.getActivePartner())==SexPace.SUB_RESISTING) {
@@ -45,7 +45,7 @@ public class PartnerTalk {
 				return CorruptionLevel.ONE_VANILLA;
 			}
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -73,9 +73,9 @@ public class PartnerTalk {
 
 		@Override
 		public String getDescription() {
-			
+
 			if(Sex.getPosition()==SexPositionBipeds.DOGGY_STYLE && Sex.getSexPositionSlot(Sex.getActivePartner())==SexSlotBipeds.DOGGY_ON_ALL_FOURS) {
-				
+
 				switch(Sex.getSexPace(Sex.getActivePartner())) {
 					case SUB_EAGER:
 						return UtilText.returnStringAtRandom(
@@ -87,15 +87,15 @@ public class PartnerTalk {
 								"Desperately trying to crawl away from [npc2.name], [npc.name] [npc.sobsVerb+] as [npc2.she] [npc2.verb(grab)] [npc.her] [npc.hips+] and pull [npc.herHim] back, ",
 								"Trying to crawl away from [npc2.name], [npc.name] lets out [npc.a_sob+] as [npc2.she] [npc2.verb(hold)] [npc.herHim] firmly in place, ")
 								+ Sex.getActivePartner().getDirtyTalk();
-					default: 
+					default:
 						return UtilText.returnStringAtRandom(
 								"Turning [npc.her] head to look back at [npc2.name], [npc.a_moan] escapes from between [npc.namePos] [npc.lips+], ",
 								"[npc.Name] turns [npc.her] head to look back at [npc2.name], letting out [npc.a_moan] before calling out, ")
 								+ Sex.getActivePartner().getDirtyTalk();
 				}
-				
+
 			} else if(Sex.getPosition()==SexPositionBipeds.KNEELING_ORAL && Sex.getSexPositionSlot(Main.game.getPlayer())==SexSlotBipeds.KNEELING_PERFORMING_ORAL) {
-				
+
 				switch(Sex.getSexPace(Sex.getActivePartner())) {
 					case DOM_GENTLE:
 						return UtilText.returnStringAtRandom(
@@ -107,15 +107,15 @@ public class PartnerTalk {
 								"[npc.Name] smirks down at [npc2.name] as [npc2.she] [npc2.verb(kneel)] beneath [npc.herHim], ",
 								"Smirking down at [npc2.name], [npc.name] sighs, ")
 								+ Sex.getActivePartner().getDirtyTalk();
-					default: 
+					default:
 						return UtilText.returnStringAtRandom(
 								"[npc.Name] looks down at [npc2.name] as [npc2.she] [npc2.verb(kneel)] beneath [npc.herHim], ",
 								"Looking down at [npc2.name], [npc.name] [npc.moansVerb], ")
 								+ Sex.getActivePartner().getDirtyTalk();
 				}
-				
+
 			} else if(Sex.getPosition()==SexPositionBipeds.KNEELING_ORAL && Sex.getSexPositionSlot(Sex.getActivePartner())==SexSlotBipeds.KNEELING_PERFORMING_ORAL) {
-				
+
 				switch(Sex.getSexPace(Sex.getActivePartner())) {
 					case SUB_EAGER:
 						return UtilText.returnStringAtRandom(
@@ -127,15 +127,15 @@ public class PartnerTalk {
 								"[npc.Name] glances up at [npc2.name], before letting out [npc.a_sob+], ",
 								"Looking up at [npc2.name], [npc.name] lets out [npc.a_sob+], ")
 								+ Sex.getActivePartner().getDirtyTalk();
-					default: 
+					default:
 						return UtilText.returnStringAtRandom(
 								"[npc.Name] glances up at [npc2.name] as [npc.she] speaks, ",
 								"Looking up at [npc2.name], [npc.name] speaks, ")
 								+ Sex.getActivePartner().getDirtyTalk();
 				}
-				
+
 			} else if(Sex.getPosition()==SexPositionBipeds.SIXTY_NINE && Sex.getSexPositionSlot(Main.game.getPlayer())==SexSlotBipeds.SIXTY_NINE_BOTTOM) {
-				
+
 				switch(Sex.getSexPace(Sex.getActivePartner())) {
 					case DOM_GENTLE:
 						return UtilText.returnStringAtRandom(
@@ -147,15 +147,15 @@ public class PartnerTalk {
 								"[npc.Name] looks back at [npc2.name] as [npc2.she] [npc2.verb(lie)] beneath [npc.herHim], and growls down to [npc2.herHim], ",
 								"Looking back at [npc2.name] as [npc2.she] [npc2.verb(lie)] beneath [npc.herHim], [npc.name] growls down to [npc2.herHim], ")
 								+ Sex.getActivePartner().getDirtyTalk();
-					default: 
+					default:
 						return UtilText.returnStringAtRandom(
 								"[npc.Name] looks back at [npc2.name] as [npc2.she] [npc2.verb(lie)] beneath [npc.herHim], and [npc.moansVerb] down to [npc2.herHim], ",
 								"Looking back at [npc2.name] as [npc2.she] [npc2.verb(lie)] beneath [npc.herHim], [npc.name] [npc.moansVerb] down to [npc2.herHim], ")
 								+ Sex.getActivePartner().getDirtyTalk();
 				}
-				
+
 			} else {
-			
+
 				switch(Sex.getSexPace(Sex.getActivePartner())) {
 					case DOM_GENTLE:
 						return UtilText.returnStringAtRandom(
@@ -185,14 +185,14 @@ public class PartnerTalk {
 				}
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
 				if(Sex.getSexPace(Sex.getActivePartner())==SexPace.SUB_RESISTING) {
 					return Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM);
 				}
-				
+
 			} else {
 				if(Sex.getSexPace(Sex.getActivePartner())==SexPace.SUB_RESISTING) {
 					return Util.newArrayListOfValues(Fetish.FETISH_NON_CON_SUB);
@@ -202,5 +202,5 @@ public class PartnerTalk {
 			return null;
 		}
 	};
-	
+
 }

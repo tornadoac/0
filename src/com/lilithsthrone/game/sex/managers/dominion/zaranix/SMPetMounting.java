@@ -20,7 +20,7 @@ public class SMPetMounting extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
@@ -30,7 +30,7 @@ public class SMPetMounting extends SexManagerDefault {
 	public boolean isPartnerUsingForeplayActions() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPublicSex() {
 		return true;
@@ -40,5 +40,5 @@ public class SMPetMounting extends SexManagerDefault {
 	public boolean isPartnerWantingToStopSex(GameCharacter partner) {
 		return Sex.getNumberOfOrgasms(Sex.getActivePartner())>0;
 	}
-	
+
 }

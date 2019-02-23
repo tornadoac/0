@@ -63,7 +63,7 @@ public class Scarlett extends NPC {
 	public Scarlett() {
 		this(false);
 	}
-	
+
 	public Scarlett(boolean isImported) {
 		super(isImported, new NameTriplet("Scarlett"), "Kardos",
 				"Scarlett is the owner of the rather unoriginally named establishment 'Scarlett's shop'."
@@ -71,45 +71,45 @@ public class Scarlett extends NPC {
 				23, Month.NOVEMBER, 14,
 				5, Gender.M_P_MALE, Subspecies.HARPY, RaceStage.LESSER,
 				new CharacterInventory(30), WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_SCARLETTS_SHOP, true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(!this.isSlave() && Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
-		
+
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 15f);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0f);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 75);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.GYNEPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_HARPY_FLOCK_MEMBER);
-	
+
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_SADIST);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -117,7 +117,7 @@ public class Scarlett extends NPC {
 		this.setFemininity(75);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HARPY, Color.EYE_RED));
 		this.setSkinCovering(new Covering(BodyCoveringType.FEATHERS, Color.COVERING_BLACK), true);
@@ -140,7 +140,7 @@ public class Scarlett extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_BLACK));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -148,7 +148,7 @@ public class Scarlett extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.AA.getMeasurement());
@@ -156,7 +156,7 @@ public class Scarlett extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -167,7 +167,7 @@ public class Scarlett extends NPC {
 		this.setAssElasticity(OrificeElasticity.TWO_FIRM.getValue());
 		this.setAssPlasticity(OrificePlasticity.FOUR_ACCOMMODATING.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisSize(3);
@@ -175,10 +175,10 @@ public class Scarlett extends NPC {
 		this.setPenisCumStorage(2);
 		this.fillCumToMaxStorage();
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
@@ -192,36 +192,36 @@ public class Scarlett extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TIGHT_TROUSERS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Color.CLOTHING_BLACK_STEEL, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SLEEVELESS_TURTLENECK, Color.CLOTHING_RED_DARK, false), true, this);
-		
+
 		this.setPiercedEar(true);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_SILVER, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_1_F_SCARLETTS_FATE)) {
 			return UtilText.parse(this,
 					"Once the owner of a shop in Slaver Alley, Scarlett is now a slave [npc.herself]."
 					+ " Rude, loud, and quick to anger, [npc.she] isn't a very pleasant person to have to deal with.");
-			
+
 		} else {
 			return UtilText.parse(this,
 					"Scarlett is the owner of the rather unoriginally named establishment 'Scarlett's shop'."
 							+ " Rude, loud, and quick to anger, [npc.she] isn't a very pleasant person to have to deal with.");
 		}
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
@@ -230,11 +230,11 @@ public class Scarlett extends NPC {
 			return "#FF94BD";
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

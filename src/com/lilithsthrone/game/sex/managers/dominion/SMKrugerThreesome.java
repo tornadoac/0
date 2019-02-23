@@ -19,12 +19,12 @@ public class SMKrugerThreesome extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

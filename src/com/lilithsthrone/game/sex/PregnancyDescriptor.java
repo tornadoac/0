@@ -12,12 +12,12 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum PregnancyDescriptor {
-	
+
 	ALREADY_PREGNANT {
 		@Override
 		public String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum) {
 			boolean isSlime = characterBeingImpregnated.getBodyMaterial()==BodyMaterial.SLIME;
-			
+
 			if(characterBeingImpregnated.isPlayer()){
 					return UtilText.parse(characterProvidingCum,
 							"<p>"
@@ -42,12 +42,12 @@ public enum PregnancyDescriptor {
 			}
 		}
 	},
-	
+
 	NO_CHANCE {
 		@Override
 		public String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum) {
 			boolean isSlime = characterBeingImpregnated.getBodyMaterial()==BodyMaterial.SLIME;
-			
+
 			if(characterBeingImpregnated.isPlayer()){
 					return UtilText.parse(characterProvidingCum,
 							"<p>"
@@ -72,12 +72,12 @@ public enum PregnancyDescriptor {
 			}
 		}
 	},
-	
+
 	LOW_CHANCE {
 		@Override
 		public String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum) {
 			boolean isSlime = characterBeingImpregnated.getBodyMaterial()==BodyMaterial.SLIME;
-			
+
 			if(characterBeingImpregnated.isPlayer()){
 				return UtilText.parse(characterProvidingCum,
 						"<p>"
@@ -119,12 +119,12 @@ public enum PregnancyDescriptor {
 			}
 		}
 	},
-	
+
 	AVERAGE_CHANCE {
 		@Override
 		public String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum) {
 			boolean isSlime = characterBeingImpregnated.getBodyMaterial()==BodyMaterial.SLIME;
-			
+
 			if(characterBeingImpregnated.isPlayer()){
 				return UtilText.parse(characterProvidingCum,
 						"<p>"
@@ -166,12 +166,12 @@ public enum PregnancyDescriptor {
 			}
 		}
 	},
-	
+
 	HIGH_CHANCE {
 		@Override
 		public String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum) {
 			boolean isSlime = characterBeingImpregnated.getBodyMaterial()==BodyMaterial.SLIME;
-			
+
 			if(characterBeingImpregnated.isPlayer()){
 				return UtilText.parse(characterProvidingCum,
 						"<p>"
@@ -213,12 +213,12 @@ public enum PregnancyDescriptor {
 			}
 		}
 	},
-	
+
 	CERTAINTY {
 		@Override
 		public String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum) {
 			boolean isSlime = characterBeingImpregnated.getBodyMaterial()==BodyMaterial.SLIME;
-			
+
 			if(characterBeingImpregnated.isPlayer()){
 				return UtilText.parse(characterProvidingCum,
 						"<p>"
@@ -260,12 +260,12 @@ public enum PregnancyDescriptor {
 			}
 		}
 	};
-	
+
 	private PregnancyDescriptor(){
 	}
-	
+
 	public abstract String getDescriptor(GameCharacter characterBeingImpregnated, GameCharacter characterProvidingCum);
-	
+
 	public static PregnancyDescriptor getPregnancyDescriptorBasedOnProbability(float probability) {
 		if (probability <= 0) {
 			return PregnancyDescriptor.NO_CHANCE;

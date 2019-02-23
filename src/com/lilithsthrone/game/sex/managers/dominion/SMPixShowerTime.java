@@ -19,17 +19,17 @@ public class SMPixShowerTime extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isItemUseAvailable() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerStartNaked() {
 		return true;
@@ -39,7 +39,7 @@ public class SMPixShowerTime extends SexManagerDefault {
 	public boolean isPartnerStartNaked() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

@@ -29,7 +29,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class ScarlettsShop {
-	
+
 	public static final DialogueNode SCARLETTS_SHOP_EXTERIOR = new DialogueNode("Scarlett's shop", ".", false) {
 
 		@Override
@@ -42,7 +42,7 @@ public class ScarlettsShop {
 			if (index == 1) {
 				if(Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_E_REPORT_TO_ALEXA) {
 					return new Response("Enter", "You should go and find Alexa before entering Scarlett's Shop again.", null);
-					
+
 				} else {
 					return new Response("Enter", "Enter the shop.", SCARLETTS_SHOP);
 				}
@@ -52,14 +52,14 @@ public class ScarlettsShop {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SCARLETTS_SHOP = new DialogueNode("Scarlett's shop", ".", true) {
 
 		@Override
 		public String getContent() {
 			if (Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_D_SLAVERY) {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "SCARLETTS_SHOP_INTRO");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "SCARLETTS_SHOP");
 			}
@@ -74,17 +74,17 @@ public class ScarlettsShop {
 				} else {
 					return null;
 				}
-				
+
 			} else if (index == 0) {
 				return new Response("Leave", "Exit the shop.", SCARLETTS_SHOP_EXTERIOR);
-				
+
 			} else {
 				return null;
 			}
 
 		}
 	};
-	
+
 	public static final DialogueNode SCARLETT_IS_A_BITCH = new DialogueNode("Scarlett's shop", ".", true, true) {
 
 		@Override
@@ -107,7 +107,7 @@ public class ScarlettsShop {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SCARLETT_IS_A_SUPER_BITCH = new DialogueNode("Scarlett's shop", ".", true, true) {
 
 		@Override
@@ -119,24 +119,24 @@ public class ScarlettsShop {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Leave", "Exit the shop.", SCARLETTS_SHOP_EXTERIOR);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_EXTERIOR = new DialogueNode("Alexa's Pet Shop", ".", false) {
 
 		@Override
 		public String getContent() {
 			if (Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_F_SCARLETTS_FATE) {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "ALEXAS_SHOP_EXTERIOR_ALEXA_RETURNS");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "ALEXAS_SHOP_EXTERIOR");
 			}
-			
+
 			//TODO after helping Alexa, exterior looks different:
 //				return  "<p>"
 //						+ "Once again, you find yourself standing in front of Alexa's Pet Shop."
@@ -165,7 +165,7 @@ public class ScarlettsShop {
 //							Main.game.getNpc(Scarlett.class).equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.BDSM_WRIST_RESTRAINTS, Color.CLOTHING_PINK, false), true, Main.game.getNpc(Alexa.class));
 						}
 					};
-					
+
 				} else {
 					return new Response("Enter", "Enter the shop.", ALEXAS_SHOP);
 				}
@@ -175,21 +175,21 @@ public class ScarlettsShop {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP = new DialogueNode("Alexa's Pet Shop", ".", true) {
 
 		@Override
 		public String getContent() {
 			if (Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_F_SCARLETTS_FATE) {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "ALEXAS_SHOP_INTRODUCTION");
-					
+
 			} else if (Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_G_SLAVERY) {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "ALEXAS_SHOP_OFFER_SCARLETT");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/slaverAlley/scarlettsShop", "ALEXAS_SHOP"); //TODO expand
 			}
-			
+
 			// TODO new interior description once renovated
 		}
 
@@ -206,22 +206,22 @@ public class ScarlettsShop {
 							}
 						}
 					};
-					
+
 				} else if (Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_G_SLAVERY) {
 					if(!Main.game.getPlayer().isHasSlaverLicense()) {
 						return new Response("Buy Scarlett (" + UtilText.formatAsMoneyUncolored(Main.game.getDialogueFlags().scarlettPrice, "span")+")",
 								"You need to obtain a slaver license from the Slavery Administration before you can buy Scarlett!", null);
-						
+
 					} else if(Main.game.getPlayer().getMoney() < Main.game.getDialogueFlags().scarlettPrice) {
 						return new Response("Buy Scarlett (" +UtilText.formatAsMoneyUncolored(Main.game.getDialogueFlags().scarlettPrice, "span")+")", "You don't have enough money to buy Scarlett.", null);
-						
+
 					} else {
 						return new Response("Buy Scarlett ("+UtilText.formatAsMoney(Main.game.getDialogueFlags().scarlettPrice, "span")+")"
 								, "Buy Scarlett for "+Main.game.getDialogueFlags().scarlettPrice+" flames.", ALEXAS_SHOP_BUYING_SCARLETT) {
 							@Override
 							public void effects() {
 								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().incrementMoney(-Main.game.getDialogueFlags().scarlettPrice));
-								
+
 								AbstractClothing ballgag = Main.game.getNpc(Scarlett.class).getClothingInSlot(InventorySlot.MOUTH);
 								if (ballgag != null) {
 									ballgag.setSealed(false);
@@ -230,7 +230,7 @@ public class ScarlettsShop {
 //								AbstractClothing wristRestraints = Main.game.getNpc(Scarlett.class).getClothingInSlot(InventorySlot.WRIST);
 //								wristRestraints.setSealed(false);
 //								Main.game.getNpc(Scarlett.class).unequipClothingIntoVoid(wristRestraints, true, Main.game.getNpc(Alexa.class));
-								
+
 								Main.game.getNpc(Scarlett.class).setAffection(Main.game.getNpc(Alexa.class), AffectionLevel.NEGATIVE_FIVE_LOATHE.getMedianValue());
 								Main.game.getNpc(Scarlett.class).setObedience(ObedienceLevel.NEGATIVE_FOUR_DEFIANT.getMedianValue());
 								Main.game.getNpc(Scarlett.class).setAffection(Main.game.getPlayer(), AffectionLevel.NEGATIVE_FIVE_LOATHE.getMedianValue());
@@ -238,7 +238,7 @@ public class ScarlettsShop {
 							}
 						};
 					}
-					
+
 				} else {
 					return new Response("Slave Manager", "Enter the slave management screen.", ALEXAS_SHOP) {
 						@Override
@@ -250,13 +250,13 @@ public class ScarlettsShop {
 
 			} else if (index == 0 && Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_1_F_SCARLETTS_FATE)) {
 				return new Response("Leave", "Leave Alexa's Pet Shop.", ALEXAS_SHOP_EXTERIOR);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_SCARLETT_FOR_SALE = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -269,7 +269,7 @@ public class ScarlettsShop {
 			return ALEXAS_SHOP.getResponse(0, index);
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_BUYING_SCARLETT = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -287,7 +287,7 @@ public class ScarlettsShop {
 						Main.game.getTextEndStringBuilder().append(Main.game.getNpc(Scarlett.class).incrementAffection(Main.game.getPlayer(), 5));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Shout at her", "Shout at Scarlett and remind her that she's now your property.", ALEXAS_SHOP_SHOUT) {
 					@Override
@@ -297,7 +297,7 @@ public class ScarlettsShop {
 						Main.game.getTextEndStringBuilder().append(Main.game.getNpc(Scarlett.class).incrementObedience(2));
 					}
 				};
-				
+
 			} else if (index == 3) {
 				return new Response("Slap her", "Slap Scarlett and remind her that she's now your property.", ALEXAS_SHOP_SLAP,
 						Util.newArrayListOfValues(Fetish.FETISH_SADIST),
@@ -318,7 +318,7 @@ public class ScarlettsShop {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_GENTLE = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -331,7 +331,7 @@ public class ScarlettsShop {
 			return getSlaveryChoiceResponse(index);
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_SHOUT = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -344,7 +344,7 @@ public class ScarlettsShop {
 			return getSlaveryChoiceResponse(index);
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_SLAP = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -357,7 +357,7 @@ public class ScarlettsShop {
 			return getSlaveryChoiceResponse(index);
 		}
 	};
-	
+
 	private static Response getSlaveryChoiceResponse(int index) {
 		if (index == 1) {
 			return new Response("Keep her", "You decide to keep Scarlett as your slave.", ALEXAS_SHOP_BUYING_SCARLETT_KEEP_HER) {
@@ -371,13 +371,13 @@ public class ScarlettsShop {
 			return new Response("Free her", "You decide to grant Scarlett her freedom.", ALEXAS_SHOP_BUYING_SCARLETT_FREE_HER) {
 				@Override
 				public void effects() {
-					
+
 					AbstractClothing collar = Main.game.getNpc(Scarlett.class).getClothingInSlot(InventorySlot.NECK);
 					collar.setSealed(false);
 					Main.game.getNpc(Scarlett.class).unequipClothingIntoVoid(collar, true, Main.game.getNpc(Alexa.class));
-					
+
 					((Scarlett) Main.game.getNpc(Scarlett.class)).equipClothing(true, false, false, true);
-					
+
 					Main.game.getNpc(Scarlett.class).setLocation(WorldType.HARPY_NEST, PlaceType.HARPY_NESTS_ALEXAS_NEST, true);
 					Main.game.getNpc(Scarlett.class).setObedience(ObedienceLevel.ZERO_FREE_WILLED.getMedianValue());
 					Main.game.getNpc(Scarlett.class).setAffection(Main.game.getPlayer(), AffectionLevel.ZERO_NEUTRAL.getMedianValue());
@@ -389,7 +389,7 @@ public class ScarlettsShop {
 			return null;
 		}
 	}
-	
+
 	public static final DialogueNode ALEXAS_SHOP_BUYING_SCARLETT_KEEP_HER = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -402,7 +402,7 @@ public class ScarlettsShop {
 			return ALEXAS_SHOP.getResponse(0, index);
 		}
 	};
-	
+
 	public static final DialogueNode ALEXAS_SHOP_BUYING_SCARLETT_FREE_HER = new DialogueNode("Alexa's Pet Shop", ".", true, true) {
 
 		@Override
@@ -415,5 +415,5 @@ public class ScarlettsShop {
 			return ALEXAS_SHOP.getResponse(0, index);
 		}
 	};
-	
+
 }

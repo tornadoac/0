@@ -19,7 +19,7 @@ public class SMCultistKneeling extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
@@ -29,7 +29,7 @@ public class SMCultistKneeling extends SexManagerDefault {
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;

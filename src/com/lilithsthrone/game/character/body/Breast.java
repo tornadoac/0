@@ -25,7 +25,7 @@ public class Breast implements BodyPartInterface {
 
 	public static final int MAXIMUM_BREAST_ROWS = 5;
 	public static final int MAXIMUM_NIPPLES_PER_BREAST = 4;
-	
+
 	protected AbstractBreastType type;
 	protected BreastShape shape;
 	protected int size;
@@ -34,10 +34,10 @@ public class Breast implements BodyPartInterface {
 	protected float milkStored;
 	protected int milkRegeneration;
 	protected int nippleCountPerBreast;
-	
+
 	protected Nipples nipples;
 	protected FluidMilk milk;
-	
+
 	/**
 	 * @param size in inches from bust to underbust using the UK system.
 	 * @param lactation in mL.
@@ -51,12 +51,12 @@ public class Breast implements BodyPartInterface {
 		milkRegeneration = FluidRegeneration.ONE_AVERAGE.getValue();
 		this.rows = rows;
 		this.nippleCountPerBreast = nippleCountPerBreast;
-		
+
 		nipples = new Nipples(type.getNippleType(), nippleSize, nippleShape, areolaeSize, Lactation.getLactationFromInt(milkStorage).getAssociatedWetness().getValue(), capacity, elasticity, plasticity, virgin, false);
-		
+
 		milk = new FluidMilk(type.getFluidType());
 	}
-	
+
 	@Override
 	public AbstractBreastType getType() {
 		return type;
@@ -73,9 +73,9 @@ public class Breast implements BodyPartInterface {
 			}
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] "+shape.getDescriptor()+" breasts, so nothing happens...)]</p>");
 		}
-		
+
 		this.shape = shape;
-		
+
 		if(!owner.hasBreasts()) {
 			return UtilText.parse(owner,
 					"<p>"
@@ -83,13 +83,13 @@ public class Breast implements BodyPartInterface {
 						+ "If [npc.she] ever [npc.verb(grow)] any, [npc.name] will now have [style.boldSex("+shape.getDescriptor()+" breasts)]!"
 					+ "</p>");
 		}
-		
+
 		return UtilText.parse(owner,
 				"<p>"
 					+ "A strange tingling feeling rises up into [npc.namePos] [npc.breasts+], and before [npc.she] [npc.verb(know)] what's happening, they've transformed into a new shape...<br/>"
 					+ "[npc.Name] now [npc.has] [style.boldSex("+shape.getDescriptor()+" breasts)]!"
 				+ "</p>");
-		
+
 	}
 
 	public Nipples getNipples() {
@@ -99,7 +99,7 @@ public class Breast implements BodyPartInterface {
 	public FluidMilk getMilk() {
 		return milk;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -109,7 +109,7 @@ public class Breast implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -119,22 +119,22 @@ public class Breast implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	public String getDescriptor(GameCharacter owner) {
 		List<String> list = new ArrayList<>();
-		
+
 		if(nippleCountPerBreast == 4) {
 			list.add("quad-nippled");
 		} else if(nippleCountPerBreast == 3) {
 			list.add("tri-nippled");
 		} else if(nippleCountPerBreast == 2) {
 			list.add("dual-nippled");
-		} 
-		
+		}
+
 		list.add(type.getDescriptor(owner));
 		list.add(this.getSize().getDescriptor());
 		list.add(this.getShape().getDescriptor());
-		
+
 		return Util.randomItemFrom(list);
 	}
 
@@ -154,13 +154,13 @@ public class Breast implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the breasts of [npc.a_breastRace], so nothing happens...)]</p>");
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		UtilText.transformationContentSB.append(
 				"<p>"
 					+ "The front of [npc.namePos] torso suddenly feels extremely soft and sensitive, and [npc.she] can't help but let out [npc.a_moan+] as [npc.she] [npc.verb(feel)] a transformation start to take place."
@@ -169,7 +169,7 @@ public class Breast implements BodyPartInterface {
 						+ " [npc.she] [npc.verb(feel)] #IFnpc.hasBreasts()#THENtheir#ELSEits#ENDIF interior structure shifting and changing into a new form."
 					+ " After just a moment, the transformation ends, leaving [npc.herHim] with [npc.totalNipples] new nipples."
 					+ "<br/>");
-		
+
 		// Parse existing content before transformation:
 		String s = UtilText.parse(owner, UtilText.transformationContentSB.toString());
 		UtilText.transformationContentSB.setLength(0);
@@ -181,7 +181,7 @@ public class Breast implements BodyPartInterface {
 		owner.resetAreaKnownByCharacters(CoverableArea.NIPPLES);
 
 		UtilText.transformationContentSB.append(type.getTransformationDescription(owner)+"</p>");
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 				+ owner.postTransformationCalculation(false)
@@ -201,13 +201,13 @@ public class Breast implements BodyPartInterface {
 
 	/**
 	 * Sets the raw size value. Value is bound to >=0 && <=CupSize.MAXIMUM.getMeasurement()
-	 * 
+	 *
 	 * @param size Value to set size to.
 	 * @return description of size change
 	 */
 	public String setSize(GameCharacter owner, int size) {
 		boolean hadBreasts = hasBreasts();
-		
+
 		int oldSize = this.size;
 		this.size = Math.max(0, Math.min(size, CupSize.getMaximumCupSize().getMeasurement()));
 		int sizeChange = this.size - oldSize;
@@ -215,11 +215,11 @@ public class Breast implements BodyPartInterface {
 			this.size = size;
 			return "";
 		}
-		
+
 		if (sizeChange == 0) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.breasts] doesn't change...)]</p>");
 		}
-		
+
 		String sizeDescriptor = getSize().getDescriptor();
 		if (sizeChange > 0) {
 			return UtilText.parse(owner,
@@ -262,11 +262,11 @@ public class Breast implements BodyPartInterface {
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (lactationChange == 0) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The amount of [npc.milk] that [npc.nameIsFull] able to produce doesn't change...)]</p>");
 		}
-		
+
 		String lactationDescriptor = getMilkStorage().getDescriptor();
 		if (lactationChange > 0) {
 			return UtilText.parse(owner,
@@ -275,7 +275,7 @@ public class Breast implements BodyPartInterface {
 							+ " from [npc.her] [npc.nipples]; clear evidence that that [npc.her] [npc.milk] production has [style.boldGrow(increased)].<br/>"
 						+ "[npc.NameIsFull] now able to produce [style.boldSex(" + lactationDescriptor + " [npc.milk])]!"
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
@@ -285,13 +285,13 @@ public class Breast implements BodyPartInterface {
 					+ "</p>");
 		}
 	}
-	
+
 	// Stored milk:
 
 	public Lactation getStoredMilk() {
 		return Lactation.getLactationFromInt((int) milkStored);
 	}
-	
+
 	public float getRawStoredMilkValue() {
 		return milkStored;
 	}
@@ -303,11 +303,11 @@ public class Breast implements BodyPartInterface {
 		float oldStoredMilk = this.milkStored;
 		this.milkStored = Math.max(0, (Math.min(milkStored, getRawMilkStorageValue())));
 		float lactationChange = oldStoredMilk - this.milkStored;
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (lactationChange <= 0) {
 			return "";
 		} else {
@@ -346,11 +346,11 @@ public class Breast implements BodyPartInterface {
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (regenerationChange == 0) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.namePos] rate of [npc.milk] regeneration doesn't change...)]</p>");
 		}
-		
+
 		String regenerationDescriptor = getLactationRegeneration().getName();
 		if (regenerationChange > 0) {
 			return UtilText.parse(owner,
@@ -359,7 +359,7 @@ public class Breast implements BodyPartInterface {
 							+ " from [npc.her] [npc.nipples]; clear evidence that that [npc.her] [npc.milk] regeneration has [style.boldGrow(increased)].<br/>"
 						+ "[npc.NamePos] rate of [npc.milk] regeneration is now [style.boldSex(" + regenerationDescriptor + ")]!"
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
@@ -369,29 +369,29 @@ public class Breast implements BodyPartInterface {
 					+ "</p>");
 		}
 	}
-	
+
 	// Rows:
-	
+
 	public int getRows() {
 		return rows;
 	}
 
 	public String setRows(GameCharacter owner, int rows) {
 		rows = Math.max(1, Math.min(rows, MAXIMUM_BREAST_ROWS));
-		
+
 		if(owner==null) {
 			this.rows = rows;
 			return "";
 		}
-		
+
 		if(rows == getRows()) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The number of breast rows [npc.nameHasFull] doesn't change...)]</p>");
 		}
-		
+
 		String transformation = "";
-		
+
 		int rowsDifference = Math.abs(rows - getRows());
-		
+
 		if (rows < getRows()) {
 			transformation = UtilText.parse(owner,
 						"<p>"
@@ -400,9 +400,9 @@ public class Breast implements BodyPartInterface {
 								?"lowest pair of [npc.breasts]"
 								:"lowest "+Util.intToString(rowsDifference)+" pairs of [npc.breasts]")
 							+ " rapidly shrink away and [style.boldShrink(disappear)] into the [npc.skin] of [npc.her] torso.<br/>"
-							+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(rows) + " pair"+ (rows > 1 ? "s" : "") + " of " + (hasBreasts() ? "breasts" : "pecs") +")]!" 
+							+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(rows) + " pair"+ (rows > 1 ? "s" : "") + " of " + (hasBreasts() ? "breasts" : "pecs") +")]!"
 						+ "</p>");
-			
+
 		} else if (rows > getRows()) {
 			transformation = UtilText.parse(owner,
 						"<p>"
@@ -411,7 +411,7 @@ public class Breast implements BodyPartInterface {
 								?"an extra pair of [npc.breasts]"
 								:Util.intToString(rowsDifference)+" extra pairs of [npc.breasts]")
 							+ " rapidly [style.boldGrow(grow)] out of the [npc.skin] of [npc.her] torso.<br/>"
-							+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(rows) + " pair"+ (rows > 1 ? "s" : "") + " of " + (hasBreasts() ? "breasts" : "pecs") +")]!" 
+							+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(rows) + " pair"+ (rows > 1 ? "s" : "") + " of " + (hasBreasts() ? "breasts" : "pecs") +")]!"
 						+ "</p>");
 		}
 
@@ -439,33 +439,33 @@ public class Breast implements BodyPartInterface {
 			this.nippleCountPerBreast = nippleCountPerBreast;
 			return "";
 		}
-		
+
 		if (this.nippleCountPerBreast == nippleCountPerBreast) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The number of [npc.nipples] [npc.nameHasFull] doesn't change...)]</p>");
 		}
-		
+
 		String transformation = "";
-		
+
 		if (nippleCountPerBreast < getNippleCountPerBreast()) {
 			transformation = UtilText.parse(owner,
 					"<p>"
 						+ "[npc.Name] [npc.verb(feel)] a strange tingling sensation running just beneath the surface of the [npc.breastSkin] that covers [npc.her] [npc.breasts]."
 						+ " A shocked gasp bursts from [npc.her] mouth as the force shoots up into [npc.her] [npc.nipples],"
 							+ " and [npc.she] [npc.verb(continue)] [npc.moaning] as some of them [style.boldShrink(shrink)] into the flesh of [npc.her] [npc.breasts].<br/>"
-						+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(nippleCountPerBreast) + " "+ (nippleCountPerBreast > 1 ? "[npc.nipples]" : "[npc.nipple]") + " on each of [npc.her] " + (hasBreasts() ? "breasts" : "pecs") +")]!" 
+						+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(nippleCountPerBreast) + " "+ (nippleCountPerBreast > 1 ? "[npc.nipples]" : "[npc.nipple]") + " on each of [npc.her] " + (hasBreasts() ? "breasts" : "pecs") +")]!"
 					+ "</p>");
-			
+
 		} else if (nippleCountPerBreast > getNippleCountPerBreast()) {
 			transformation = UtilText.parse(owner,
 					"<p>"
 						+ "[npc.Name] [npc.verb(feel)] a strange tingling sensation running just beneath the surface of the [npc.breastSkin] that covers [npc.her] [npc.breasts]."
 						+ " A shocked gasp bursts from [npc.her] mouth as the force shoots up into [npc.her] [npc.nipples],"
 							+ " and [npc.she] [npc.verb(continue)] [npc.moaning] as [npc.she] feels new ones [style.boldGrow(growing)] out of the flesh of [npc.her] [npc.breasts].<br/>"
-						+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(nippleCountPerBreast) + " "+ (nippleCountPerBreast > 1 ? "[npc.nipples]" : "[npc.nipple]") + " on each of [npc.her] " + (hasBreasts() ? "breasts" : "pecs") +")]!" 
+						+ "[npc.Name] now [npc.has] [style.boldSex("+ Util.intToString(nippleCountPerBreast) + " "+ (nippleCountPerBreast > 1 ? "[npc.nipples]" : "[npc.nipple]") + " on each of [npc.her] " + (hasBreasts() ? "breasts" : "pecs") +")]!"
 					+ "</p>");
-			
+
 		}
-		
+
 		this.nippleCountPerBreast = nippleCountPerBreast;
 
 		return transformation;

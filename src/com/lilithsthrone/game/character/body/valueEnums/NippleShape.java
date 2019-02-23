@@ -10,7 +10,7 @@ public enum NippleShape {
 	NORMAL("normal"),
 	VAGINA("nipple-cunts"),
 	LIPS("lipples");
-	
+
 	private String descriptor;
 
 	private NippleShape(String descriptor) {

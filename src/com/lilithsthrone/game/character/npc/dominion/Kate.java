@@ -89,7 +89,7 @@ public class Kate extends NPC {
 	public Kate() {
 		this(false);
 	}
-	
+
 	public Kate(boolean isImported) {
 		super(isImported, new NameTriplet("Kate"), "Lasiellemartu",
 				"Kate is a demon who owns the beauty salon 'Succubi's Secrets'."
@@ -97,12 +97,12 @@ public class Kate extends NPC {
 				37, Month.SEPTEMBER, 9,
 				10, Gender.F_V_B_FEMALE, Subspecies.DEMON, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.SHOPPING_ARCADE, PlaceType.SHOPPING_ARCADE_KATES_SHOP, true);
-		
+
 		if(!isImported) {
 			dailyReset();
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -117,29 +117,29 @@ public class Kate extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 30);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 50);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 90);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_BEAUTICIAN);
-			
+
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
 			this.addFetish(Fetish.FETISH_PREGNANCY);
 		}
-		
+
 		// Body:
 		this.setLegType(LegType.DEMON_COMMON);
 		this.setHornType(HornType.CURLED);
@@ -161,13 +161,13 @@ public class Kate extends NPC {
 								true,
 								TattooWritingStyle.ITALICIZED),
 						null);
-				
+
 				for(int i=0; i<10; i++) {
 					tat.addEffect(new ItemEffect(ItemEffectType.TATTOO, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.FERTILITY, TFPotency.MAJOR_BOOST, 0));
 				}
-				
+
 				this.addTattoo(InventorySlot.GROIN, tat);
-				
+
 				this.addTattoo(InventorySlot.TORSO_OVER,
 						new Tattoo(
 							TattooType.BUTTERFLIES,
@@ -177,7 +177,7 @@ public class Kate extends NPC {
 							false,
 							null,
 							null));
-				
+
 				this.addTattoo(InventorySlot.TORSO_UNDER,
 						new Tattoo(
 							TattooType.TRIBAL,
@@ -190,7 +190,7 @@ public class Kate extends NPC {
 									Color.CLOTHING_BLACK,
 									false),
 							null));
-				
+
 			} catch(Exception ex) {
 			}
 		}
@@ -205,7 +205,7 @@ public class Kate extends NPC {
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_GREEN));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_PINK), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_RED), true);
@@ -224,7 +224,7 @@ public class Kate extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_RED));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -232,7 +232,7 @@ public class Kate extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(false);
 		this.setBreastSize(CupSize.F.getMeasurement());
@@ -240,7 +240,7 @@ public class Kate extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(true);
@@ -251,7 +251,7 @@ public class Kate extends NPC {
 		this.setAssElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setAssPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// (For when she grows one)
 		this.setPenisVirgin(false);
@@ -261,7 +261,7 @@ public class Kate extends NPC {
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		this.setPenisCumStorage(150);
 		this.fillCumToMaxStorage();
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -271,11 +271,11 @@ public class Kate extends NPC {
 		this.setVaginaWetness(Wetness.SIX_SOPPING_WET);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -296,31 +296,31 @@ public class Kate extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Color.CLOTHING_GOLD, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void dailyReset() {
 		clearNonEquippedInventory();
-		
+
 		List<AbstractClothing> clothingToSell = new ArrayList<>();
-		
+
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
 			if(clothing.getItemTags().contains(ItemTag.SOLD_BY_KATE)) {
 				clothingToSell.add(AbstractClothingType.generateClothing(clothing, false));
 			}
 		}
-		
+
 		addEnchantedClothing(clothingToSell);
-		
+
 		for(AbstractClothing c : clothingToSell) {
 			this.addClothing(c, false);
 		}
 	}
-	
+
 	/**
 	 * Adds four uncommon clothing items to the list, and two rare items.
 	 */
@@ -329,7 +329,7 @@ public class Kate extends NPC {
 		for(int i=0;i<6;i++) {
 			typesToAdd.add(Util.randomItemFrom(clothingList).getClothingType());
 		}
-		
+
 		for(int i=0; i<typesToAdd.size(); i++) {
 			if(i>=typesToAdd.size()-2) {
 				clothingList.add(AbstractClothingType.generateRareClothing(typesToAdd.get(i)));
@@ -342,11 +342,11 @@ public class Kate extends NPC {
 			c.setEnchantmentKnown(true);
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
@@ -371,14 +371,14 @@ public class Kate extends NPC {
 	public void endSex() {
 		setPenisType(PenisType.NONE);
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	public static final DialogueNode AFTER_SEX = new DialogueNode("Step back", "Step back and allow Kate to recover.", true, true) {
-		
+
 		@Override
 		public String getContent() {
 			return "<p>"
@@ -417,7 +417,7 @@ public class Kate extends NPC {
 					+ " Within a few seconds, her snores start to fill the empty shop once more..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -433,7 +433,7 @@ public class Kate extends NPC {
 		}
 	};
 	public static final DialogueNode AFTER_SEX_REPEATED = new DialogueNode("Step back", "Step back and allow Kate to recover.", true, true) {
-		
+
 		@Override
 		public String getContent() {
 			return  "<p>"
@@ -450,7 +450,7 @@ public class Kate extends NPC {
 					+ " Within a few seconds, her snores start to fill the empty shop once more..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -460,7 +460,7 @@ public class Kate extends NPC {
 			}
 		}
 	};
-	
+
 	@Override
 	public String getItemUseEffects(AbstractItem item,  GameCharacter itemOwner, GameCharacter user, GameCharacter target){
 		// Player is using an item:
@@ -468,7 +468,7 @@ public class Kate extends NPC {
 			// Player uses item on themselves:
 			if(target.isPlayer()){
 				return itemOwner.useItem(item, target, false);
-						
+
 			// Player uses item on NPC:
 			}else{
 				if(item.getItemType().equals(ItemType.VIXENS_VIRILITY)) {
@@ -483,13 +483,13 @@ public class Kate extends NPC {
 					+ "</p>";
 				}
 			}
-			
+
 		// NPC is using an item:
 		} else {
 			return itemOwner.useItem(item, target, false);
 		}
 	}
-	
+
 	@Override
 	public String getCondomEquipEffects(GameCharacter equipper, GameCharacter target, boolean rough) {
 		if(Main.game.isInSex()) {
@@ -522,7 +522,7 @@ public class Kate extends NPC {
 				"[npc.Name] tears open the packet and rolls the condom down the length of your [pc.penis].",
 				"[npc.Name] tears open the packet and forcefully rolls the condom down the length of your [pc.penis].", null, null);
 	}
-	
+
 	// Dirty talk:
 
 	/**
@@ -534,19 +534,19 @@ public class Kate extends NPC {
 		speech.add("Come on! Fuck me already!");
 		speech.add("Please, let's get started!");
 		speech.add("My little pussy needs you so bad!");
-		
+
 		return speech.get(Util.random.nextInt(speech.size()));
 	}
-	
+
 	/**
 	 * @return A <b>non-formatted</b> String of this NPCs speech related to no ongoing penetration.
 	 */
 	public String getPlayerDirtyTalkNoPenetration(boolean isPlayerDom){
 		List<String> speech = new ArrayList<>();
-		
+
 		speech.add("You're so hot!");
 		speech.add("What a cute little demon you are!");
-		
+
 		return speech.get(Util.random.nextInt(speech.size()));
 	}
 }

@@ -913,7 +913,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 					if(this.hasFetish(Fetish.FETISH_TRANSFORMATION_GIVING)) {
 						raceTFIngredient = ItemType.RACE_INGREDIENT_SLIME;
 					} else {
-						raceTFIngredient =  ItemType.SEX_INGREDIENT_SLIME_QUENCHER;
+						raceTFIngredient = ItemType.SEX_INGREDIENT_SLIME_QUENCHER;
 					}
 					break;
 

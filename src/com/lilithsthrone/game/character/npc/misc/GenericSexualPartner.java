@@ -51,11 +51,11 @@ public class GenericSexualPartner extends NPC {
 	public GenericSexualPartner() {
 		this(Gender.F_V_B_FEMALE, WorldType.EMPTY, new Vector2i(0, 0), false);
 	}
-	
+
 	public GenericSexualPartner(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, WorldType.EMPTY, new Vector2i(0, 0), isImported);
 	}
-	
+
 	public GenericSexualPartner(Gender gender, WorldType worldLocation, Vector2i location, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -64,18 +64,18 @@ public class GenericSexualPartner extends NPC {
 
 		if(!isImported) {
 			this.setLocation(worldLocation, location, false);
-			
+
 			setLevel(Util.random.nextInt(5) + 5);
-			
+
 			// RACE & NAME:
-			
+
 			Map<Subspecies, Integer> availableRaces = new HashMap<>();
 			for(Subspecies s : Subspecies.values()) {
 				if(s==Subspecies.REINDEER_MORPH
 						&& Main.game.getSeason()==Season.WINTER
 						&& Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.hasSnowedThisWinter)) {
 					addToSubspeciesMap(10, gender, s, availableRaces);
-					
+
 				} else if(s.getRace()!=Race.DEMON
 						&& s.getRace()!=Race.ANGEL
 						&& s.getRace()!=Race.ELEMENTAL
@@ -88,48 +88,48 @@ public class GenericSexualPartner extends NPC {
 						addToSubspeciesMap(3, gender, s, availableRaces);
 					}
 				}}
-			
+
 			this.setBodyFromSubspeciesPreference(gender, availableRaces);
-			
+
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
-	
+
 			setName(Name.getRandomTriplet(this.getRace()));
 			this.setPlayerKnowsName(false);
 			setDescription(UtilText.parse(this,
 					"[npc.Name] is a resident of Dominion, who's currently only interested in having sex."));
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, false);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
-	
+
 			CharacterUtils.equipClothing(this, true, false);
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		this.setName(new NameTriplet("unknown male", "unknown female", "unknown female"));
 	}
 
@@ -142,51 +142,51 @@ public class GenericSexualPartner extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		// Not needed
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	private boolean playerRequested = false;
-	
+
 	@Override
 	public void generateSexChoices(GameCharacter target, SexType request) {
 		if(this.getLocationPlace().getPlaceType()==PlaceType.WATERING_HOLE_TOILETS && Sex.getTurn()>1) {
 			playerRequested = true;
 		}
-		
+
 		super.generateSexChoices(target, request);
 	}
-	
+
 	@Override
 	public Set<SexSlot> getSexPositionPreferences(GameCharacter target) {
 		if(this.getLocationPlace().getPlaceType()!=PlaceType.WATERING_HOLE_TOILETS || playerRequested) {
 			return super.getSexPositionPreferences(target);
 		}
-		
+
 		sexPositionPreferences.clear();
-		
+
 		if(Sex.isInForeplay() || this.hasFetish(Fetish.FETISH_ORAL_GIVING) || !target.hasPenis()) {
 			sexPositionPreferences.add(SexSlotBipeds.GLORY_HOLE_KNEELING);
 		} else {
 			sexPositionPreferences.add(SexSlotBipeds.GLORY_HOLE_FUCKED);
 		}
-		
+
 		return sexPositionPreferences;
 	}
 
@@ -195,7 +195,7 @@ public class GenericSexualPartner extends NPC {
 		if(this.getLocationPlace().getPlaceType()!=PlaceType.WATERING_HOLE_TOILETS || playerRequested) {
 			return super.getForeplayPreference(target);
 		}
-		
+
 		if(target.hasPenis()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, SexAreaPenetration.PENIS);
 		} else if(target.hasVagina()) {
@@ -210,11 +210,11 @@ public class GenericSexualPartner extends NPC {
 		if(this.getLocationPlace().getPlaceType()!=PlaceType.WATERING_HOLE_TOILETS || playerRequested) {
 			return super.getMainSexPreference(target);
 		}
-		
+
 		if(this.hasFetish(Fetish.FETISH_ORAL_GIVING)) {
 			return getForeplayPreference(target);
 		}
-		
+
 		if(this.hasVagina() && target.hasPenis()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, SexAreaPenetration.PENIS);
 		} else if(target.hasPenis()) {
@@ -223,7 +223,7 @@ public class GenericSexualPartner extends NPC {
 
 		return super.getMainSexPreference(target);
 	}
-	
+
 	@Override
 	public String getVirginityLossOrificeDescription(GameCharacter characterPenetrating, SexAreaPenetration penetrationType, GameCharacter characterPenetrated, SexAreaOrifice orifice){
 		if(!characterPenetrated.isPlayer()
@@ -231,9 +231,9 @@ public class GenericSexualPartner extends NPC {
 					&& characterPenetrating.getLocationPlace().getPlaceType()!=PlaceType.GAMBLING_DEN_PREGNANCY)) {
 			return super.getVirginityLossOrificeDescription(characterPenetrating, penetrationType, characterPenetrated, orifice);
 		}
-		
+
 		StringBuilder StringBuilderSB = new StringBuilder();
-		
+
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN)) {
 			StringBuilderSB.append(
 							"<p>"
@@ -286,9 +286,9 @@ public class GenericSexualPartner extends NPC {
 						+ " [npc.speech(What a fucking slut! Choosing to lose your virginity to a game of pregnancy roulette! Hah! Glad I'll never be the one who has to tell our kids how they were conceived!)]"
 					+ "</p>");
 		}
-		
+
 		StringBuilderSB.append(formatVirginityLoss("Your hymen has been torn; you have lost your virginity!"));
-		
+
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN))
 			StringBuilderSB.append("<p style='text-align:center;'>"
 					+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
@@ -314,7 +314,7 @@ public class GenericSexualPartner extends NPC {
 					+ " With a desperate moan, you spread your legs and resign yourself to the fact that you're now nothing more than a"
 					+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 				+ "</p>");
-		
+
 		return StringBuilderSB.toString();
 	}
 }

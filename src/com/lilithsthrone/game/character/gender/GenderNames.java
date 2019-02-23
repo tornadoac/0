@@ -15,10 +15,10 @@ public enum GenderNames {
 	N_PENIS_Y_VAGINA_N_BREASTS(false, true, false, "female", "tomboy", "cuntboy"),
 	N_PENIS_N_VAGINA_Y_BREASTS(false, false, true, "doll", "neuter", "mannequin"),
 	N_PENIS_N_VAGINA_N_BREASTS(false, false, false, "doll", "neuter", "mannequin");
-	
+
 	private boolean hasPenis, hasVagina, hasBreasts;
 	private String feminine, masculine, neutral;
-	
+
 	private GenderNames(boolean hasPenis, boolean hasVagina, boolean hasBreasts, String feminine, String neutral, String masculine){
 		this.hasPenis = hasPenis;
 		this.hasVagina = hasVagina;
@@ -39,7 +39,7 @@ public enum GenderNames {
 	public boolean isHasBreasts() {
 		return hasBreasts;
 	}
-	
+
 	public String getFeminine() {
 		return feminine;
 	}

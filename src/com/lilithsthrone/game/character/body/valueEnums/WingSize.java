@@ -14,7 +14,7 @@ public enum WingSize {
 	TWO_AVERAGE(2, "average-sized", Color.GENERIC_SIZE_THREE),
 	THREE_LARGE(3, "large", Color.GENERIC_SIZE_FOUR),
 	FOUR_HUGE(4, "huge", Color.GENERIC_SIZE_FIVE);
-	
+
 	private int value;
 	private String descriptor;
 	private Color color;
@@ -32,7 +32,7 @@ public enum WingSize {
 	public String getName() {
 		return descriptor;
 	}
-	
+
 	public static WingSize getWingSizeFromInt(int size) {
 		for(WingSize ls : WingSize.values()) {
 			if(size == ls.getValue()) {
@@ -41,7 +41,7 @@ public enum WingSize {
 		}
 		return ZERO_TINY;
 	}
-	
+
 	public static int getLargest() {
 		int largest = ZERO_TINY.value;
 		for(WingSize ls : WingSize.values()) {

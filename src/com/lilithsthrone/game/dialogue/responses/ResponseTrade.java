@@ -10,15 +10,15 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public class ResponseTrade extends Response {
-	
+
 	private NPC tradePartner;
 
 	public ResponseTrade(String title, String tooltipText, NPC tradePartner) {
 		super(title, tooltipText, null);
-		
+
 		this.tradePartner=tradePartner;
 	}
-	
+
 	public void openTrade() {
 		Main.mainController.openInventory(tradePartner, InventoryInteraction.TRADING);
 	}
@@ -27,7 +27,7 @@ public class ResponseTrade extends Response {
 	public boolean disabledOnNullDialogue(){
 		return false;
 	}
-	
+
 	@Override
 	public boolean isTradeHighlight() {
 		return true;

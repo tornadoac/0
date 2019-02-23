@@ -19,12 +19,12 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class TattooWriting implements XMLSaving {
-	
+
 	private String text;
 	private Color color;
 	private boolean glow;
 	private List<TattooWritingStyle> styles;
-	
+
 	public TattooWriting(String text, Color color, boolean glow, TattooWritingStyle... styles) {
 		this.text = text;
 		this.color = color;
@@ -32,11 +32,11 @@ public class TattooWriting implements XMLSaving {
 		this.styles = new ArrayList<>();
 		Collections.addAll(this.styles, styles);
 	}
-	
+
 	public static List<Color> getAvailableColors() {
 		return ColorListPresets.ALL.getPresetColorList();
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(super.equals(o)) {
@@ -49,7 +49,7 @@ public class TattooWriting implements XMLSaving {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -59,16 +59,16 @@ public class TattooWriting implements XMLSaving {
 		result = 31 * result + getStyles().hashCode();
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("tattooWriting");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "color", this.getColor().toString());
 		CharacterUtils.addAttribute(doc, element, "glow", String.valueOf(this.isGlow()));
-		
+
 		element.appendChild(doc.createCDATASection(this.getText().trim()));
-		
+
 		Element innerElement = doc.createElement("styles");
 		element.appendChild(innerElement);
 		for(TattooWritingStyle style : this.getStyles()) {
@@ -76,10 +76,10 @@ public class TattooWriting implements XMLSaving {
 			innerElement.appendChild(styleElement);
 			CharacterUtils.addAttribute(doc, styleElement, "value", style.toString());
 		}
-		
+
 		return element;
 	}
-	
+
 	public static TattooWriting loadFromXML(Element parentElement, Document doc) {
 		try {
 			List<TattooWritingStyle> importedStyles = new ArrayList<>();
@@ -87,29 +87,29 @@ public class TattooWriting implements XMLSaving {
 				NodeList stylesList = ((Element) parentElement.getElementsByTagName("styles").item(0)).getElementsByTagName("style");
 				for(int i=0; i<stylesList.getLength(); i++){
 					Element e = ((Element)stylesList.item(i));
-					
+
 					TattooWritingStyle style = TattooWritingStyle.valueOf(e.getAttribute("value"));
 					importedStyles.add(style);
 				}
 			} catch(Exception ex) {
 			}
-			
+
 			String text = parentElement.getTextContent();
-			
+
 			TattooWriting tw = new TattooWriting(text.trim(),
 					Color.valueOf(parentElement.getAttribute("color")),
 					Boolean.valueOf(parentElement.getAttribute("glow")));
-			
+
 			tw.styles = importedStyles;
-			
+
 			return tw;
-			
+
 		} catch(Exception ex) {
 			System.err.println("Warning: An instance of TattooWriting was unable to be imported!");
 			return null;
 		}
 	}
-	
+
 	public void setText(String text) {
 		this.text = text;
 	}
@@ -117,15 +117,15 @@ public class TattooWriting implements XMLSaving {
 	public String getText() {
 		return text;
 	}
-	
+
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public boolean isGlow() {
 		return glow;
 	}
-	
+
 	public List<TattooWritingStyle> getStyles() {
 		return styles;
 	}
@@ -137,7 +137,7 @@ public class TattooWriting implements XMLSaving {
 	public void removeStyle(TattooWritingStyle style) {
 		this.styles.remove(style);
 	}
-	
+
 	public void setColor(Color color) {
 		this.color = color;
 	}

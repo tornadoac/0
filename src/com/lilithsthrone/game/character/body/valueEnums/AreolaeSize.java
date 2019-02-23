@@ -14,7 +14,7 @@ public enum AreolaeSize {
 	TWO_BIG(2, "average-sized", Color.GENERIC_SIZE_THREE),
 	THREE_LARGE(3, "large", Color.GENERIC_SIZE_FOUR),
 	FOUR_MASSIVE(4, "massive", Color.GENERIC_SIZE_FIVE);
-	
+
 	private int value;
 	private String descriptor;
 	private Color color;
@@ -32,7 +32,7 @@ public enum AreolaeSize {
 	public String getName() {
 		return descriptor;
 	}
-	
+
 	public static AreolaeSize getAreolaeSizeFromInt(int inches) {
 		for(AreolaeSize as : AreolaeSize.values()) {
 			if(inches == as.getValue()) {

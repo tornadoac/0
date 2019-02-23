@@ -41,7 +41,7 @@ public class Pazu extends NPC {
 	public Pazu() {
 		this(false);
 	}
-	
+
 	public Pazu(boolean isImported) {
 		super(isImported, new NameTriplet("Pazu"), "Pazu", //TODO
 				"Pazu is a harpy matriarch, and a particularly gorgeous one at that. She is new to the job and needs your help in whipping her flock into shape.",
@@ -58,7 +58,7 @@ public class Pazu extends NPC {
 				25, Month.JUNE, 1, //TODO
 				1, Gender.M_P_MALE, Subspecies.HARPY, RaceStage.LESSER,
 				new CharacterInventory(1), WorldType.JUNGLE, PlaceType.JUNGLE_CLUB, true); //TODO He's in the jungle for now ^^
-		
+
 		this.setPersonality(Util.newHashMapOfValues(
 				new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 				new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
@@ -68,34 +68,34 @@ public class Pazu extends NPC {
 
 		if(!isImported) {
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setEyeCovering(new Covering(BodyCoveringType.EYE_HARPY, Color.EYE_PINK));
 			this.setHairCovering(new Covering(BodyCoveringType.HAIR_HARPY, Color.COVERING_LILAC), true);
 			this.setSkinCovering(new Covering(BodyCoveringType.FEATHERS, Color.COVERING_LILAC), true);
 			this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
-	
+
 			this.setAssVirgin(true);
 			this.setFaceVirgin(true);
-			
+
 			this.setBreastSize(CupSize.FLAT.getMeasurement());
-			
+
 			this.setPenisSize(7);
-			
+
 			this.setHeight(185);
-			
+
 			this.setFemininity(80);
-			
+
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 4);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 45);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 5);
-	
+
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_ORAL_GIVING);
-	
+
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_SHORTS, Color.CLOTHING_WHITE, false), true, this);
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -115,7 +115,7 @@ public class Pazu extends NPC {
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
@@ -124,11 +124,11 @@ public class Pazu extends NPC {
 			return "#C18FFF";
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

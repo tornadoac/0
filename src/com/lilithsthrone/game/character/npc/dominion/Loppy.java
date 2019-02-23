@@ -65,7 +65,7 @@ public class Loppy extends NPC {
 	public Loppy() {
 		this(false);
 	}
-	
+
 	public Loppy(boolean isImported) {
 		super(isImported, new NameTriplet("Loppy"), "Hasenkamp",
 				"Loppy is one of the two prostitutes Angel has working for her."
@@ -73,7 +73,7 @@ public class Loppy extends NPC {
 				22, Month.JANUARY, 7,
 				10, Gender.F_P_V_B_FUTANARI, Subspecies.RABBIT_MORPH_LOP, RaceStage.PARTIAL,
 				new CharacterInventory(30), WorldType.ANGELS_KISS_FIRST_FLOOR, PlaceType.ANGELS_KISS_BEDROOM_LOPPY, true);
-		
+
 		if(!isImported) {
 			dailyReset();
 		}
@@ -82,7 +82,7 @@ public class Loppy extends NPC {
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 			this.setBirthday(this.getBirthday().minusYears(3).minusMonths(1).minusDays(6));
@@ -90,33 +90,33 @@ public class Loppy extends NPC {
 						+ " Just like her younger sister, Bunny, Loppy is a rabbit-morph, and seems to genuinely love her line of work.");
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 10);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0f);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 75f);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_PROSTITUTE);
-	
+
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_VAGINAL_GIVING);
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -149,7 +149,7 @@ public class Loppy extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_PURPLE));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -157,7 +157,7 @@ public class Loppy extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.DD.getMeasurement());
@@ -165,7 +165,7 @@ public class Loppy extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(true);
@@ -176,7 +176,7 @@ public class Loppy extends NPC {
 		this.setAssElasticity(OrificeElasticity.SIX_SUPPLE.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisSize(9);
 		this.setPenisGirth(PenisGirth.THREE_THICK);
@@ -193,41 +193,41 @@ public class Loppy extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.FIVE_STRETCHY.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.STOMACH_LOWBACK_BODY, Color.CLOTHING_PURPLE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TIGHTS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Color.CLOTHING_PURPLE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_COLLAR_BOWTIE, Color.CLOTHING_PURPLE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_SUIT_CUFFS, false), true, this);
-		
+
 		this.setPiercedEar(true);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_SILVER, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void dailyReset() {
 		this.useItem(AbstractItemType.generateItem(ItemType.PROMISCUITY_PILL), this, false);
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

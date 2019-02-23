@@ -12,20 +12,20 @@ This gives the user both a good experience on entering the game and allows you t
 	2) Battle pets can be acquired based on lovers, also quests, transformations, and corruption.
 	3) You'll have masturbation scenes with your pets.
 	4) Combat will have a round by round system, with each character only choosing actions once per round.
-	5) Winning or losing in combat will be based on a single health bar on both sides, representing aura strength.  It will be depleted by all forms of attack.
-	6) Attacks are either lust or physical, modified by attack and defence stats.
+	5) Winning or losing in combat will be based on a single health bar on both sides, representing aura strength. It will be depleted by all forms of attack.
+	6) Attacks are either lust or physical, modified by attack and defense stats.
 	7) Attacks also have a type associated with them, modified by resistances.
 	8) Lust based attacks will have as many types or elements associated with it as physical/magical attacks.
-	9) Attack types are, fire, water, air, earth.  Possibly have corresponding seductive versions that use the same affinities to determine damage/resistance?  (display, mind, voice, and touch.)
+	9) Attack types are, fire, water, air, earth. Possibly have corresponding seductive versions that use the same affinities to determine damage/resistance? (display, mind, voice, and touch.)
 	10) Fetishes will no longer have special attacks, instead flavoring seduction attacks based on the attacker and defender's fetishes (ex: Fondle goes for the breasts if the target has that fetish and is extra flustered.)
 	11) Combat stats and/or skills will unlock out of combat options.
 	12) Pets are a set of abilities and stat modifiers, equippable in safe spaces.
-	13) Pets have a turn in combat where they use their abilities.  They can be affected by buffs and debuffs, but share health with their master/summoner.
-	14) Several basic pets will be given to the player near the start of the game.  The harpy nest side-quest could be about teaching the player how to make the right choices with their basic ones to overcome the challenges they face.
-	15) Each pet will have a number of lines of flavor text that appear in descriptions for exploring areas, when they're summoned, when they're put away, their appearance, and for each of their attacks.  They are always tagged onto another scene to avoid extra clicks for the player.
+	13) Pets have a turn in combat where they use their abilities. They can be affected by buffs and debuffs, but share health with their master/summoner.
+	14) Several basic pets will be given to the player near the start of the game. The harpy nest side-quest could be about teaching the player how to make the right choices with their basic ones to overcome the challenges they face.
+	15) Each pet will have a number of lines of flavor text that appear in descriptions for exploring areas, when they're summoned, when they're put away, their appearance, and for each of their attacks. They are always tagged onto another scene to avoid extra clicks for the player.
 
 	Here's the start of the discussion:
-	That's a good point.  A score system like what CoC/TiTS uses might make more sense.
+	That's a good point. A score system like what CoC/TiTS uses might make more sense.
 	That also lets you work with overlapping TFs without essentially duplicating them.
 	The scores would be like, dog tail gives +1 dog and +1 wolf...
 	If your highest score is dog and it rates 2-4 you're a partial dog, if it rates 4-6 you're a lesser dog, if it rates 6+ you're a greater dog.
@@ -40,7 +40,7 @@ This gives the user both a good experience on entering the game and allows you t
 	Even if there's no benefit to them other than a fancy name, that gives a reason to go out and find all the combinations.
 
 	That's what I was going for with the encyclopedia entries as well, but I think I need to re-design the UI to make it a little more concise. It's a bit of a mess at the moment.
-	You're right, that fits very well into the encyclopedia. Especially once it's changed to account wide.  It's almost like your achievement system for the game
+	You're right, that fits very well into the encyclopedia. Especially once it's changed to account wide. It's almost like your achievement system for the game
 
 	***BDSM-set***
 
@@ -370,10 +370,10 @@ Miscellaneous things I've noted:
 
 	Summons:
 
-	 the summons should be created before combat starts.  The player should be able to walk around with their pets/summons, and customizing them in some way would be nice for player advancement and team management.
+	 the summons should be created before combat starts. The player should be able to walk around with their pets/summons, and customizing them in some way would be nice for player advancement and team management.
 
 	Mostly I was thinking about when the player gets the option to summon and what sorts of summons you get.
-	 For example, it might make sense the player explores Dominion for a little while, with minimal enemy parties.  Then they're getting ready to go somewhere more dangerous, say the harpy nests, and they're forced to go back to Liliya for a moment.
+	 For example, it might make sense the player explores Dominion for a little while, with minimal enemy parties. Then they're getting ready to go somewhere more dangerous, say the harpy nests, and they're forced to go back to Liliya for a moment.
 	She teaches them how to summon one type of companion and you gain the power to maintain one at a time with limited customization options.
 	As you progress in the game, expanding the areas and difficulty you can tackle, quests that reward you with new summon types or a larger number of companion slots become available.
 	Also, more customization options and more equipment slots to buff your summons.(edited)
@@ -551,7 +551,7 @@ more for the proof of concept of the current clothing system:
 
 	And I guess... I dunno. You COULD categorize clothing options into 'chaste' and 'slutty'. And make corrupt people/bimbos more likely to pick slutty choices.
 		(Better to add a sluttiness value)
-		Higher corruption characters could also be more likely to skip articles of clothing entirely as well.  Like not bothering with underwear or going topless.
+		Higher corruption characters could also be more likely to skip articles of clothing entirely as well. Like not bothering with underwear or going topless.
 
 	Suggestion (if possible?) on interface- the little popups when your mouse is hovering over a button action- can we get a disable for that in settings, or maybe more time delay?
 	 I for one have most of them memorized and it gets distracting having those cover over the action text.
@@ -615,7 +615,7 @@ this is less about patience and more about tedious tasks. granted each update I 
 
 	Option to disable sub/dom sex
 
-	is there maybe any chance you might consider like a "fade to black" skip sex button or something?  Hell I'd even settle for a lay back and take it option or whatever. I like losing and such cause I like forced TFs but at the same time it's a lot to click through for the payoff. I'll keep playing either way, just a thought though
+	is there maybe any chance you might consider like a "fade to black" skip sex button or something? Hell I'd even settle for a lay back and take it option or whatever. I like losing and such cause I like forced TFs but at the same time it's a lot to click through for the payoff. I'll keep playing either way, just a thought though
 
 	I'd like to throw in a suggestion with the Brax encounter. If you happen to already be a wolf-morph when you first encounter him, you can seduce him for information. Alternatively, if you are not, you could end up fighting him, losing, then being forcibly transformed into his dream wolf-morph (all optional). If you return after this, despite being his dream fuck, you only have the option to fight him.
 		I think it would make sense to now have the option to seduce him, but with a bit of a penalty compared to the first 'wolf tease' option. Perhaps you have no choice but to fuck him submissively, perhaps you gain corruption, perhaps he is guaranteed to breed you from this encounter, perhaps he has addictive cum from this encounter onward, etc. It just seems like you should gain a new option you did not have before, but have to sacrifice something to exploit that option.
@@ -623,7 +623,7 @@ this is less about patience and more about tedious tasks. granted each update I 
 	Tongue length, width, type
 
 	While you're working on "Kneeling dom" you could probably also add in paizuri at the same time, I don't think it wouldn't be that hard?
-		Something like a start line, a stop line, and a handful of action lines?  How many lines are there in something like fingering?
+		Something like a start line, a stop line, and a handful of action lines? How many lines are there in something like fingering?
 
 	Giantess fetish
 		make something like that where your minimum and maximum heights are raised, or something like that ^^
@@ -729,7 +729,7 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 
 	 A chastity fetish, which would involve the player being on the receiving end of a "deny" action
 
-	cum that applies feminizing TFs to partners that  come in contact with it
+	cum that applies feminizing TFs to partners that come in contact with it
 
 	the potions that increase lactation have a much smaller effect than any of the other fluid increasing potions
 		increase lactation and cum increases from potions
@@ -746,10 +746,10 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 	 a faster pumping option than "normal fuck" that isn't "rough fuck"
 	 add another action called "fast fuck" that doesn't set a pace, but uses the current pace in its descriptions
 
-	Choosing how fetishes are assigned.  Based on their race, their traits, what traits they'd likely want in partners based on their sexuality.
+	Choosing how fetishes are assigned. Based on their race, their traits, what traits they'd likely want in partners based on their sexuality.
 	Fetish suggestions:
-	-After choosing sexuality, assign fetishes semi-randomly.  There are three things to be assigned.
-	-First, determine if character likes their current body (high chance ~80%) or may have opposing preferences.  If they like their body, assign personal fetishes relating to their current appearance.  If not, assign personal fetishes at random.
+	-After choosing sexuality, assign fetishes semi-randomly. There are three things to be assigned.
+	-First, determine if character likes their current body (high chance ~80%) or may have opposing preferences. If they like their body, assign personal fetishes relating to their current appearance. If not, assign personal fetishes at random.
 	-Second, determine if the character prefers sex with their own race (high, ~60%), another race (low, ~20%), or is ambivalent about race (low, ~20%).
 	  Assign a race preference fetish based on the result, either their own race, a random race, or no race fetish at all.
 		Then randomly roll to add commonly fetishized races or common kinks for their own race, like demons, if they're not ambivalent.
@@ -767,9 +767,9 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 	We lack an ability to sell (n) items at stores
 		you can only sell all or just one at a time
 
-	If he rolls traditional, he might like having a knotted cock and a muscled body.  He might prefer sex with other wolves.  He might like partners with multiple breast rows, big tails, and knotting them vaginally in sex.
+	If he rolls traditional, he might like having a knotted cock and a muscled body. He might prefer sex with other wolves. He might like partners with multiple breast rows, big tails, and knotting them vaginally in sex.
 
-	If he rolls non-traditional, he might want to grow out long hair and get tattoos.  He might prefer sex with humans and demons.  He might like partners with piercings, smooth skin, and penetrate him anally.
+	If he rolls non-traditional, he might want to grow out long hair and get tattoos. He might prefer sex with humans and demons. He might like partners with piercings, smooth skin, and penetrate him anally.
 
 	Voice descriptors during sex (shrill, deep, husky, etc)
 		Pick or TF potion your voice, and you get a little flavor text in a few little lines about your girly moan or gruff grunts, or whatever
@@ -780,7 +780,7 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 	make it so that NPCs with impregnation/seeder fetishes force-feed you Vixen's Virility pills then try and breed you or something ^^
 		also for girls who eat vixen's virility pills and try to ride you
 
-	Oh!! And kiss and bit necks and boobs...and oral people that you beat -  without 69!
+	Oh!! And kiss and bit necks and boobs...and oral people that you beat - without 69!
 		Sucking and milking
 		a less than 1inch penis can break a hymen...but a hand can't?
 
@@ -794,7 +794,7 @@ Speaking of bulges showing through clothing, crotch bulges should probably take 
 
 	Addictive cum, maybe things like flavor, viscosity, color
 
-	use sextoys under clothes to prevent decreasing openess or to do some other things
+	use sextoys under clothes to prevent decreasing openness or to do some other things
 
 	a perk where you can decide what you can get pregnant from
 
@@ -1080,7 +1080,7 @@ If she likes you enough she will hand you a pass that allows you to get into a d
 	That's a good suggestion, but it would take me a long time to implement something like that, as there are lots of other things to do first ^^(edited)
 	Perhaps have a note area in the cellphone for free-form note taking?
 	Easiest option I can think of is to let the player 'add' a random NPC to their contact list.
-	  It then references information about them and were they can be found.  Could also include any children information too.
+	  It then references information about them and were they can be found. Could also include any children information too.
 		If the player wants, they can remove these contacts at any time and they're also removed if the player removes that NPC from that area.
 
 	1) A bit in relation to the kissing and lipstick suggestion. Perfume/Pheromones/Smells and maybe body licking (It is sometimes erotic). The perfume/pheromones/smells could have an effect both in combat and in random encounters. For example you could be secreting mating pheromones and someone might pick up on the invitation. It could cause status effects during combat.

@@ -20,27 +20,27 @@ public class SMRoseHands extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isItemUseAvailable() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isAbleToRemoveSelfClothing(GameCharacter character){
 		return false;
 	}
-	
+
 	@Override
 	public boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing){
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

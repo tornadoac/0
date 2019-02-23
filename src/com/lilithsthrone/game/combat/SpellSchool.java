@@ -16,7 +16,7 @@ public enum SpellSchool {
 			+ "</p>"
 			+ "<p>"
 				+ "As with all schools of the arcane, the vast majority of Earth practitioners are demons, and can earn a considerable salary by using their telekinetic powers to aid with construction and heavy lifting."
-				+ " Perhaps due to these lucrative applications, the school of Earth is the most widely-practised and popular of all the arcane schools."
+				+ " Perhaps due to these lucrative applications, the school of Earth is the most widely-practiced and popular of all the arcane schools."
 			+ "</p>"
 			+ "<p>"
 				+ "A prerequisite to harnessing Earth spells is the ability to freely manipulate solid, non-organic matter."
@@ -38,7 +38,7 @@ public enum SpellSchool {
 			+ "</p>",
 			"All fluid-related enchantments are free.",
 			Color.BASE_AQUA),
-	
+
 	AIR("air",
 			"<p>"
 				+ "The school of air focuses on spells that allow the caster to manipulate the temperature and movement of gases."
@@ -53,7 +53,7 @@ public enum SpellSchool {
 			+ "</p>",
 			"Passive energy and arcane regeneration is doubled.",
 			Color.BASE_BLUE_LIGHT),
-	
+
 	FIRE("fire",
 			"<p>"
 				+ "The school of fire, much as its name would suggest, is purely focused on summoning arcane fire."
@@ -82,12 +82,12 @@ public enum SpellSchool {
 			+ "</p>",
 			"Know the exact time until the next arcane storm breaks.",
 			Color.GENERIC_ARCANE);
-	
+
 	private String name;
 	private String description;
 	private String passiveBuff;
 	private Color color;
-	
+
 	private SpellSchool(String name, String description, String passiveBuff, Color color) {
 		this.name = name;
 		this.description = description;
@@ -110,5 +110,5 @@ public enum SpellSchool {
 	public Color getColor() {
 		return color;
 	}
-	
+
 }

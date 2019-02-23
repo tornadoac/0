@@ -26,20 +26,20 @@ public class GenericAndrogynousNPC extends NPC {
 	public GenericAndrogynousNPC() {
 		this(false);
 	}
-	
+
 	public GenericAndrogynousNPC(boolean isImported) {
 		super(isImported, new NameTriplet("Someone"), null, "Generic androgynous.",
 				25, Month.JUNE, 15,
 				1, Gender.N_P_V_HERMAPHRODITE, Subspecies.HUMAN, RaceStage.HUMAN,
 				new CharacterInventory(0), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
-		
+
 		this.setFemininity(50);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		this.setName(new NameTriplet("Someone"));
 	}
 
@@ -52,20 +52,20 @@ public class GenericAndrogynousNPC extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		// Not needed
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 
 }

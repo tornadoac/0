@@ -25,12 +25,12 @@ public class SMMilkingStall extends SexManagerDefault {
 	public boolean isAbleToRemoveSelfClothing(GameCharacter character){
 		return getDominants().containsKey(character);
 	}
-	
+
 	@Override
 	public boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing){
 		return getDominants().containsKey(character);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

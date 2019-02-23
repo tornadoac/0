@@ -23,9 +23,9 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class BatCavernAttackerDialogue {
-	
+
 	public static final DialogueNode ATTACK = new DialogueNode("Assaulted!", "A denizen of the Bat Caverns attacks you!", true) {
-		
+
 		@Override
 		public String getLabel(){
 			return "Assaulted!";
@@ -38,17 +38,17 @@ public class BatCavernAttackerDialogue {
 					// Pregnant encounters:
 					if(!Main.game.getActiveNPC().isCharacterReactedToPregnancy(Main.game.getPlayer())) {
 						return UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "ATTACK_REPEAT_PREGNANCY_REACT")
-								+ "<p style='text-align:center;'>" 
+								+ "<p style='text-align:center;'>"
 									+ "<b style='color:" + Color.GENERIC_SEX.toWebHexString() + ";'>You ended up getting [npc.name] pregnant!</b>"
 								+ "</p>";
-					
+
 					} else {
 						return UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "ATTACK_REPEAT_PREGNANCY")
 									+ (Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer())
 										?UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "ATTRACTED_TO_PLAYER")
 										:UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "NOT_ATTRACTED_TO_PLAYER"));
 					}
-					
+
 				} else {
 					// Standard repeat encounter:
 					return UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "ATTACK_REPEAT")
@@ -56,7 +56,7 @@ public class BatCavernAttackerDialogue {
 										?UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "ATTRACTED_TO_PLAYER")
 										:UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "NOT_ATTRACTED_TO_PLAYER"));
 				}
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("characters/submission/batCavernDefault", "ATTACK")
 						+ (Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer())
@@ -76,7 +76,7 @@ public class BatCavernAttackerDialogue {
 						}
 					}
 				};
-				
+
 			} else if (index == 2) {
 				if(Main.game.getPlayer().getMoney()<250) {
 					return new Response("Offer money ("+UtilText.formatAsMoney(250, "span")+")", "You don't have enough money to offer to pay [npc.name] off. You'll have to either fight [npc.herHim] or offer [npc.herHim] your body!", null);
@@ -92,7 +92,7 @@ public class BatCavernAttackerDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 3) {
 				if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer())) {
 					return new ResponseSex("Offer body", "Offer your body to [npc.name] so that you can avoid a violent confrontation.",
@@ -121,13 +121,13 @@ public class BatCavernAttackerDialogue {
 				} else {
 					return new Response("Offer body", "You can tell that [npc.name] isn't at all interested in having sex with you. You'll either have to offer [npc.herHim] some money, or prepare for a fight!", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
@@ -152,7 +152,7 @@ public class BatCavernAttackerDialogue {
 							+ " After all, [npc.she] <i>was</i> going to do the same to you, and [npc.she] quite clearly wants it."
 							+ " Then again, maybe it's best to just leave."
 						+ "</p>");
-				
+
 			} else {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
@@ -169,7 +169,7 @@ public class BatCavernAttackerDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled()) {
@@ -180,7 +180,7 @@ public class BatCavernAttackerDialogue {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new ResponseSex("Have some fun",
 							"Well, [npc.she] <i>is</i> asking for it!",
@@ -192,7 +192,7 @@ public class BatCavernAttackerDialogue {
 									null),
 							AFTER_SEX_VICTORY,
 							"");
-					
+
 				} else if (index == 3) {
 					return new ResponseSex("Have some gentle fun",
 							"Well, [npc.she] <i>is</i> asking for it! (Start the sex scene in the 'gentle' pace.)",
@@ -205,7 +205,7 @@ public class BatCavernAttackerDialogue {
 									ResponseTag.START_PACE_PLAYER_DOM_GENTLE),
 							AFTER_SEX_VICTORY,
 							"");
-					
+
 				} else if (index == 4) {
 					return new ResponseSex("Have some rough fun",
 							"Well, [npc.she] <i>is</i> asking for it! (Start the sex scene in the 'rough' pace.)",
@@ -218,7 +218,7 @@ public class BatCavernAttackerDialogue {
 									ResponseTag.START_PACE_PLAYER_DOM_ROUGH),
 							AFTER_SEX_VICTORY,
 							"");
-					
+
 				} else if (index == 5) {
 					return new ResponseSex("Submit",
 							"You're not really sure what to do now...<br/>"
@@ -249,7 +249,7 @@ public class BatCavernAttackerDialogue {
 								+ " You let out a muffled yelp as your opponent takes charge, but as you feel [npc.her] [npc.hands] reaching down to start roughly groping your ass,"
 									+ " you realize that you couldn't be happier with how things have turned out..."
 							+ "</p>");
-					
+
 				} else if (index == 6) {
 					return new ResponseEffectsOnly("Inventory", "Now that you've defeated [npc.name], there's nothing stopping you from helping yourself to [npc.her] clothing and items..."){
 						@Override
@@ -257,7 +257,7 @@ public class BatCavernAttackerDialogue {
 							Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 						}
 					};
-					
+
 				} else if (index == 10) {
 					return new Response(
 							"Remove character",
@@ -272,11 +272,11 @@ public class BatCavernAttackerDialogue {
 							Main.game.banishNPC(Main.game.getActiveNPC());
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Continue", "Carry on your way...", null){
@@ -285,7 +285,7 @@ public class BatCavernAttackerDialogue {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new ResponseSex(
 							"Rape [npc.herHim]", "[npc.She] needs to be punished for attacking you like that...",
@@ -299,7 +299,7 @@ public class BatCavernAttackerDialogue {
 								+ "Reaching down, you grab [npc.namePos] [npc.arm], and, pulling [npc.herHim] to [npc.her] feet, you start grinding yourself up against [npc.herHim]."
 								+ " Seeing the lustful look in your [pc.eyes], [npc.she] lets out a little [npc.sob], desperately trying to struggle out of your grip as you hold [npc.herHim] firmly in your embrace..."
 							+ "</p>");
-					
+
 				} else if (index == 3) {
 					return new ResponseSex("Rape [npc.herHim] (gentle)", "[npc.She] needs to be punished for attacking you like that... (Start the sex scene in the 'gentle' pace.)",
 							Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM), null, Fetish.FETISH_NON_CON_DOM.getAssociatedCorruptionLevel(), null, null, null,
@@ -315,7 +315,7 @@ public class BatCavernAttackerDialogue {
 								+ "Reaching down, you take hold of [npc.namePos] [npc.arm], and, pulling [npc.herHim] to [npc.her] feet, you start pressing yourself up against [npc.herHim]."
 								+ " Seeing the lustful look in your [pc.eyes], [npc.she] lets out a little [npc.sob], desperately trying to struggle out of your grip as you hold [npc.herHim] in your embrace..."
 							+ "</p>");
-					
+
 				} else if (index == 4) {
 					return new ResponseSex("Rape [npc.herHim] (rough)", "[npc.She] needs to be punished for attacking you like that... (Start the sex scene in the 'rough' pace.)",
 							Util.newArrayListOfValues(Fetish.FETISH_NON_CON_DOM), null, Fetish.FETISH_NON_CON_DOM.getAssociatedCorruptionLevel(), null, null, null,
@@ -331,12 +331,12 @@ public class BatCavernAttackerDialogue {
 								+ "Reaching down, you grab [npc.namePos] [npc.arm], and, roughly yanking [npc.herHim] to [npc.her] feet, you start forcefully grinding yourself up against [npc.herHim]."
 								+ " Seeing the lustful look in your [pc.eyes], [npc.she] lets out a little [npc.sob], desperately trying to struggle out of your grip as you firmly hold [npc.herHim] in your embrace..."
 							+ "</p>");
-					
+
 				} else if (index == 5) {
 					return new Response("Submit",
 							"You can't submit to [npc.herHim], as [npc.she] has no interest in having sex with you!",
 							null);
-					
+
 				} else if (index == 6) {
 					return new ResponseEffectsOnly("Inventory", "Now that you've defeated [npc.name], there's nothing stopping you from helping yourself to [npc.her] clothing and items..."){
 						@Override
@@ -344,7 +344,7 @@ public class BatCavernAttackerDialogue {
 							Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 						}
 					};
-					
+
 				} else if (index == 10) {
 					return new Response(
 							"Remove character",
@@ -359,7 +359,7 @@ public class BatCavernAttackerDialogue {
 							Main.game.banishNPC(Main.game.getActiveNPC());
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -368,9 +368,9 @@ public class BatCavernAttackerDialogue {
 	};
 
 	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeat", "", true) {
-		
+
 		Util.Value<String, AbstractItem> potion = null;
-		
+
 		@Override
 		public String getDescription() {
 			return "You have been defeated by [npc.name]!";
@@ -380,7 +380,7 @@ public class BatCavernAttackerDialogue {
 		public String getContent() {
 			if(Main.game.getActiveNPC().hasFetish(Fetish.FETISH_TRANSFORMATION_GIVING) && Main.game.getActiveNPC().isWillingToRape(Main.game.getPlayer())) {
 				potion = Main.game.getActiveNPC().generateTransformativePotion(Main.game.getPlayer());
-				
+
 				if(potion == null) {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
@@ -398,7 +398,7 @@ public class BatCavernAttackerDialogue {
 											+Main.game.getActiveNPC().getPreferredBodyDescription("b")
 											+ " now! Don't forget, bitch, <i>I'm</i> the one in charge!)] [npc.she] growls, before pulling you into a forceful kiss."
 							+ "</p>");
-					
+
 				} else {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
@@ -421,7 +421,7 @@ public class BatCavernAttackerDialogue {
 							+ "</p>");
 				}
 			}
-				
+
 			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.getActiveNPC().isWillingToRape(Main.game.getPlayer())) {
 					return UtilText.parse(Main.game.getActiveNPC(),
 							"<p>"
@@ -437,7 +437,7 @@ public class BatCavernAttackerDialogue {
 							+ "<p>"
 								+ "[npc.speech(Don't try anything, bitch! <i>I'm</i> the one in charge here!)] [npc.she] growls, before pulling you into a forceful kiss."
 							+ "</p>");
-				
+
 			} else {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
@@ -456,7 +456,7 @@ public class BatCavernAttackerDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(Main.game.getActiveNPC().hasFetish(Fetish.FETISH_TRANSFORMATION_GIVING) && potion != null && Main.game.getActiveNPC().isWillingToRape(Main.game.getPlayer())) {
@@ -469,7 +469,7 @@ public class BatCavernAttackerDialogue {
 					} else {
 						return new Response("Spit", "Spit out the potion.", AFTER_COMBAT_TRANSFORMATION_REFUSED);
 					}
-					
+
 				} else if (index == 2) {
 					return new Response("Swallow", "Do as you're told and swallow the strange potion.", AFTER_COMBAT_TRANSFORMATION,
 							Util.newArrayListOfValues(Fetish.FETISH_TRANSFORMATION_RECEIVING),
@@ -490,7 +490,7 @@ public class BatCavernAttackerDialogue {
 									+"</p>");
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -508,7 +508,7 @@ public class BatCavernAttackerDialogue {
 									+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally pulling away."
 									+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 								+ "</p>");
-						
+
 					} else if (index == 2) {
 						return new ResponseSex("Eager Sex",
 								"[npc.Name] forces [npc.herself] on you...",
@@ -524,7 +524,7 @@ public class BatCavernAttackerDialogue {
 									+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
 									+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 								+ "</p>");
-						
+
 					} else if (index == 3 && Main.game.isNonConEnabled()) {
 						return new ResponseSex("Resist Sex",
 								"[npc.Name] forces [npc.herself] on you...",
@@ -541,11 +541,11 @@ public class BatCavernAttackerDialogue {
 									+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
 									+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 								+ "</p>");
-						
+
 					} else {
 						return null;
 					}
-					
+
 				} else {
 					if (index == 1) {
 						return new Response("Continue", "Carry on your way.", AFTER_COMBAT_DEFEAT){
@@ -554,7 +554,7 @@ public class BatCavernAttackerDialogue {
 								return Main.game.getDefaultDialogueNoEncounter();
 							}
 						};
-						
+
 					} else {
 						return null;
 					}
@@ -562,7 +562,7 @@ public class BatCavernAttackerDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_TRANSFORMATION_REFUSED = new DialogueNode("Avoided Transformation", "", true) {
 
 		@Override
@@ -581,7 +581,7 @@ public class BatCavernAttackerDialogue {
 							+Main.game.getActiveNPC().getPreferredBodyDescription("b")
 							+" next time! For now, I'm going to get some fun out of you just as you are!)]"
 						+ "</p>");
-			
+
 			} else {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
@@ -601,7 +601,7 @@ public class BatCavernAttackerDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer())) {
@@ -617,7 +617,7 @@ public class BatCavernAttackerDialogue {
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally breaking away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>");
-					
+
 				} else if (index == 2) {
 					return new ResponseSex("Eager Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -633,7 +633,7 @@ public class BatCavernAttackerDialogue {
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>");
-					
+
 				} else if (index == 3 && Main.game.isNonConEnabled()) {
 					return new ResponseSex("Resist Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -648,11 +648,11 @@ public class BatCavernAttackerDialogue {
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
 								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 							+ "</p>");
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Continue", "Carry on your way.", AFTER_COMBAT_DEFEAT){
@@ -661,14 +661,14 @@ public class BatCavernAttackerDialogue {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_TRANSFORMATION = new DialogueNode("Transformed", "", true) {
 
 		@Override
@@ -682,7 +682,7 @@ public class BatCavernAttackerDialogue {
 							+ Main.game.getActiveNPC().getPreferredBodyDescription("b")
 							+ "! Now for the real fun!)]"
 						+ "</p>");
-			
+
 			} else {
 				return UtilText.parse(Main.game.getActiveNPC(),
 						"<p>"
@@ -698,7 +698,7 @@ public class BatCavernAttackerDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer())) {
@@ -714,7 +714,7 @@ public class BatCavernAttackerDialogue {
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and [npc.she] continues passionately making out with you for a few moments, before finally breaking away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you realize that [npc.sheIs] probably not going to be content with just a kiss..."
 							+ "</p>");
-					
+
 				} else if (index == 2) {
 					return new ResponseSex("Eager Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -728,7 +728,7 @@ public class BatCavernAttackerDialogue {
 								+ "[npc.NamePos] [npc.arms] wrap around your back, and you eagerly lean into [npc.herHim], passionately returning [npc.her] kiss for a few moments, before [npc.she] breaks away from you."
 								+ " Giving you an evil grin, [npc.she] hungrily licks [npc.her] [npc.lips], and you feel a rush of excitement as you realize that [npc.sheIs] going to want more than just a kiss..."
 							+ "</p>");
-					
+
 				} else if (index == 3 && Main.game.isNonConEnabled()) {
 					return new ResponseSex("Resist Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -743,11 +743,11 @@ public class BatCavernAttackerDialogue {
 								+ " Summoning the last of your strength, you desperately try to push [npc.herHim] away, pleading for [npc.herHim] to stop."
 								+ " Giving you an evil grin, [npc.she] ignores your protests, and as you see [npc.herHim] hungrily licking [npc.her] [npc.lips], you realize that [npc.sheIs] not going to let you go..."
 							+ "</p>");
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Continue", "Carry on your way.", AFTER_COMBAT_DEFEAT){
@@ -756,16 +756,16 @@ public class BatCavernAttackerDialogue {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Step back", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Now that you've had your fun, you can step back and leave [npc.name] to recover.";
@@ -779,7 +779,7 @@ public class BatCavernAttackerDialogue {
 							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 							+ " [npc.She] starts frantically gathering [npc.her] belongings, obviously quite keen to make [npc.her] exit before you decide to do anything else..."
 						+ "</p>");
-				
+
 			} else {
 				if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 					return UtilText.parse(Main.game.getActiveNPC(),
@@ -806,7 +806,7 @@ public class BatCavernAttackerDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Inventory", "There's nothing stopping you from helping yourself to [npc.namePos] clothing and items..."){
 					@Override
@@ -814,7 +814,7 @@ public class BatCavernAttackerDialogue {
 						Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 					}
 				};
-				
+
 			} else if (index == 10) {
 				return new Response(
 						"Remove character",
@@ -829,20 +829,20 @@ public class BatCavernAttackerDialogue {
 						Main.game.banishNPC(Main.game.getActiveNPC());
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Collapse", "", true) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 15;
 		}
-		
+
 		@Override
 		public String getDescription(){
 			return "You're completely worn out from [npc.namePos] dominant treatment, and need a while to recover.";
@@ -872,7 +872,7 @@ public class BatCavernAttackerDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

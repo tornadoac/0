@@ -6254,7 +6254,7 @@ public class InventoryDialogue {
 			if (index == 0) {
 				return new Response("Back", "Return to the previous menu.", CLOTHING_EQUIPPED);
 
-			} else if (index  == 1) {
+			} else if (index == 1) {
 				if(dyePreviewPrimary == clothing.getColor() && dyePreviewSecondary == clothing.getSecondaryColor() && dyePreviewTertiary == clothing.getTertiaryColor() && dyePreviewPattern.equals(clothing.getPattern())) {
 					return new Response("Dye",
 							"You need to choose different colors before being able to dye the " + clothing.getName() + "!",

@@ -11,7 +11,7 @@ public enum SexParticipantType {
 
 	/**Partner-interaction actions which can only occur in non-masturbation scenes. */
 	NORMAL,
-	
+
 //	/**Self-actions which can only occur in non-masturbation scenes. They act like NORMAL in all ways except they are found under the 'self' tab. */
 //	SELF_WITH_PARTNER,
 

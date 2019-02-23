@@ -63,7 +63,7 @@ public class Kalahari extends NPC {
 	public Kalahari() {
 		this(false);
 	}
-	
+
 	public Kalahari(boolean isImported) {
 		super(isImported, new NameTriplet("Kalahari", "Kalahari", "Kalahari"), "Mwangi",
 				"Kalahari is a barmaid working at the nightclub, 'The Watering Hole'.",
@@ -77,7 +77,7 @@ public class Kalahari extends NPC {
 				PlaceType.WATERING_HOLE_BAR,
 				true);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -90,31 +90,31 @@ public class Kalahari extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 25);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 50);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_BAR_TENDER);
-	
+
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
-	
+
 			this.setFetishDesire(Fetish.FETISH_BREASTS_SELF, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_SADIST, FetishDesire.ONE_DISLIKE);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -124,7 +124,7 @@ public class Kalahari extends NPC {
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
 
 		// Coverings:
-		
+
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Color.EYE_HAZEL));
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_FELINE, Color.EYE_HAZEL));
 		this.setSkinCovering(new Covering(BodyCoveringType.FELINE_FUR, CoveringPattern.NONE, CoveringModifier.SHORT, Color.COVERING_TAN, false, Color.COVERING_BLACK, false), true);
@@ -147,7 +147,7 @@ public class Kalahari extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_BLACK));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -155,7 +155,7 @@ public class Kalahari extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.C.getMeasurement());
@@ -163,7 +163,7 @@ public class Kalahari extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -174,10 +174,10 @@ public class Kalahari extends NPC {
 		this.setAssElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -187,11 +187,11 @@ public class Kalahari extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -201,8 +201,8 @@ public class Kalahari extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_TUBE_TOP, Color.CLOTHING_TAN, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_MICRO_SKIRT_PLEATED, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_PLATFORM_BOOTS, Color.CLOTHING_TAN, false), true, this);
-		
-		this.setPiercedEar(true);			
+
+		this.setPiercedEar(true);
 		this.setPiercedNose(true);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Color.CLOTHING_GOLD, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, Color.CLOTHING_GOLD, false), true, this);
@@ -213,13 +213,13 @@ public class Kalahari extends NPC {
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void endSex() {
 		this.replaceAllClothing();
 		Main.game.getNpc(Kalahari.class).setLocation(WorldType.NIGHTLIFE_CLUB, PlaceType.WATERING_HOLE_BAR);
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
@@ -228,7 +228,7 @@ public class Kalahari extends NPC {
 	@Override
 	public void changeFurryLevel() {
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

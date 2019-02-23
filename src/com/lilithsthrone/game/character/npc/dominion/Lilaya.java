@@ -77,11 +77,11 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class Lilaya extends NPC {
-	
+
 	public Lilaya() {
 		this(false);
 	}
-	
+
 	public Lilaya(boolean isImported) {
 		super(isImported, new NameTriplet("Lilaya"), "Lyssiethmartusarri",
 				"Along with your twin cousins, your aunt Lily was the only family you'd ever known."
@@ -91,11 +91,11 @@ public class Lilaya extends NPC {
 				48, Month.DECEMBER, 28,
 				10, Gender.F_V_B_FEMALE, Subspecies.DEMON, RaceStage.PARTIAL_FULL, new CharacterInventory(10), WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, true);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -106,32 +106,32 @@ public class Lilaya extends NPC {
 			this.setLegType(LegType.HUMAN);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 40);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 60);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_ARCANE_RESEARCHER);
-	
+
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 			this.setFetishDesire(Fetish.FETISH_PREGNANCY, FetishDesire.ZERO_HATE);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -147,19 +147,19 @@ public class Lilaya extends NPC {
 		this.setFemininity(85);
 		this.setMuscle(Muscle.ONE_LIGHTLY_MUSCLED.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_YELLOW));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Main.game.getPlayer().getCovering(BodyCoveringType.HUMAN).getPrimaryColor()), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMaximumValue());
 		this.setHairStyle(HairStyle.LOOSE);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
@@ -173,7 +173,7 @@ public class Lilaya extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -181,7 +181,7 @@ public class Lilaya extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(false);
 		this.setBreastSize(CupSize.E.getMeasurement());
@@ -189,14 +189,14 @@ public class Lilaya extends NPC {
 		this.setNippleSize(NippleSize.THREE_LARGE);
 		this.setAreolaeSize(AreolaeSize.THREE_LARGE);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(false);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FOUR_WOMANLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		// For when she grows one:
 		this.setPenisVirgin(false);
@@ -205,7 +205,7 @@ public class Lilaya extends NPC {
 		this.setTesticleSize(TesticleSize.TWO_AVERAGE);
 		this.setPenisCumStorage(65);
 		this.fillCumToMaxStorage();
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -215,41 +215,41 @@ public class Lilaya extends NPC {
 		this.setVaginaWetness(Wetness.FOUR_SLIMY);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-		
+
 		this.unequipAllClothingIntoVoid(true);
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_PENCIL_SKIRT, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_torso_feminine_short_sleeve_shirt"), Color.CLOTHING_WHITE, Color.CLOTHING_GREY, Color.CLOTHING_GREY, false), true, this);
-		
+
 		AbstractClothing labCoat = AbstractClothingType.generateClothing(ClothingType.SCIENTIST_TORSO_OVER_LAB_COAT, Color.CLOTHING_WHITE, false);
 		this.equipClothingFromNowhere(labCoat, true, this);
 		this.isAbleToBeDisplaced(labCoat, DisplacementType.UNBUTTONS, true, true, this);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_GLASSES, Color.CLOTHING_BLACK_STEEL, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Color.CLOTHING_BLACK, false), true, this);
-		
+
 
 	}
 
 	public boolean isCondomBroke() {
 		return Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lilayaCondomBroke);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	// Prevent issues with Geisha Lilaya immediately backing out of submissive sex:
 	@Override
 	public boolean isAttractedTo(GameCharacter character) {
@@ -284,16 +284,16 @@ public class Lilaya extends NPC {
 		}
 		return returnValue;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		return "#ff66a3";
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public Set<Relationship> getRelationshipsTo(GameCharacter character, Relationship... excludedRelationships) {
 		if(character.isPlayer()) {
@@ -304,22 +304,22 @@ public class Lilaya extends NPC {
 		}
 		return super.getRelationshipsTo(character, excludedRelationships);
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public void endSex() {
 		setPenisType(PenisType.NONE);
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public String getItemUseEffects(AbstractItem item,  GameCharacter itemOwner, GameCharacter user, GameCharacter target){
 		// Player is using an item:
@@ -327,7 +327,7 @@ public class Lilaya extends NPC {
 			// Player uses item on themselves:
 			if(target.isPlayer()){
 				return itemOwner.useItem(item, target, false);
-						
+
 			// Player uses item on NPC:
 			} else {
 				if(item.getItemType().equals(ItemType.VIXENS_VIRILITY)) {
@@ -350,15 +350,15 @@ public class Lilaya extends NPC {
 					return super.getItemUseEffects(item, itemOwner, user, target);
 				}
 			}
-			
+
 		// NPC is using an item:
 		} else {
 			return itemOwner.useItem(item, target, false);
 		}
 	}
-	
+
 	// Sex:
-	
+
 	@Override
 	public List<Class<?>> getUniqueSexClasses() {
 		return Util.newArrayListOfValues(SALilayaSpecials.class);
@@ -379,20 +379,20 @@ public class Lilaya extends NPC {
 			speech.add("I wonder if you ever did this with your real aunt?");
 			speech.add("Wait, you still see me as your aunt, right? I guess I can go along with that...");
 		}
-		
+
 		return speech.get(Util.random.nextInt(speech.size()));
 	}
-	
+
 	/**
 	 * @return A <b>non-formatted</b> String of this NPCs speech related to no ongoing penetration.
 	 */
 	public String getPlayerDirtyTalkNoPenetration(boolean isPlayerDom){
 		List<String> speech = new ArrayList<>();
-		
+
 		speech.add("Ah yes! I've wanted to fuck you for so long...");
 		speech.add("You're so hot!");
 		speech.add("I've wanted this for so long...");
-		
+
 		return speech.get(Util.random.nextInt(speech.size()));
 	}
 

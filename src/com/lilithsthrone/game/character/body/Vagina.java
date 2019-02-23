@@ -35,7 +35,7 @@ public class Vagina implements BodyPartInterface {
 	protected Clitoris clitoris;
 	protected int labiaSize;
 	protected boolean pierced;
-	
+
 	protected OrificeVagina orificeVagina;
 	protected FluidGirlCum girlcum;
 	protected OrificeVaginaUrethra orificeUrethra;
@@ -45,11 +45,11 @@ public class Vagina implements BodyPartInterface {
 		this.labiaSize = labiaSize;
 		this.clitoris = new Clitoris(clitSize, PenisGirth.TWO_AVERAGE.getValue());
 		pierced = false;
-		
+
 		orificeVagina = new OrificeVagina(wetness, capacity, elasticity, plasticity, virgin, type.getDefaultRacialOrificeModifiers());
 
 		orificeUrethra = new OrificeVaginaUrethra(Wetness.TWO_MOIST.getValue(), 0, OrificeElasticity.ZERO_UNYIELDING.getValue(), OrificePlasticity.THREE_RESILIENT.getValue(), true, new ArrayList<>());
-		
+
 		girlcum = new FluidGirlCum(type.getFluidType());
 	}
 
@@ -60,7 +60,7 @@ public class Vagina implements BodyPartInterface {
 	public FluidGirlCum getGirlcum() {
 		return girlcum;
 	}
-	
+
 	public OrificeVaginaUrethra getOrificeUrethra() {
 		return orificeUrethra;
 	}
@@ -74,12 +74,12 @@ public class Vagina implements BodyPartInterface {
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
 	}
-	
+
 	@Override
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -93,11 +93,11 @@ public class Vagina implements BodyPartInterface {
 	@Override
 	public String getDescriptor(GameCharacter owner) {
 		List<String> descriptorList = new ArrayList<>();
-		
+
 		for(OrificeModifier om : orificeVagina.getOrificeModifiers()) {
 			descriptorList.add(om.getName());
 		}
-		
+
 		String wetnessDescriptor = orificeVagina.getWetness(owner).getDescriptor();
 		if(Main.game.isInSex() && Sex.getAllParticipants().contains(owner)) {
 			if(Sex.hasLubricationTypeFromAnyone(owner, SexAreaOrifice.VAGINA)) {
@@ -108,7 +108,7 @@ public class Vagina implements BodyPartInterface {
 		if(owner.getPubicHair().getValue()>=BodyHair.FOUR_NATURAL.getValue() && Main.game.isPubicHairEnabled()) {
 			descriptorList.add("hairy");
 		}
-		
+
 		if(owner.isVaginaBestial()) {
 			descriptorList.add(Util.randomItemFrom(Util.newArrayListOfValues(
 					(this.getType().getRace()==Race.HORSE_MORPH?"mare":null),
@@ -119,30 +119,30 @@ public class Vagina implements BodyPartInterface {
 		} else {
 			descriptorList.add(type.getDescriptor(owner));
 		}
-		
+
 		descriptorList.add(orificeVagina.getCapacity().getDescriptor());
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
-	
+
 	public String getUrethraDescriptor(GameCharacter owner) {
 		List<String> descriptorList = new ArrayList<>();
-		
+
 		for(OrificeModifier om : orificeUrethra.getOrificeModifiers()) {
 			descriptorList.add(om.getName());
 		}
-		
+
 		descriptorList.add(type.getDescriptor(owner));
-		
+
 		descriptorList.add(orificeUrethra.getCapacity().getDescriptor());
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
-	
+
 	public String setType(GameCharacter owner, VaginaType type) {
 		return setType(owner, type, false);
 	}
-	
+
 	public String setType(GameCharacter owner, VaginaType type, boolean overridePregnancyPrevention) {
 		if(!Main.game.isStarted() || owner==null) {// This always overrides pregnancy prevention, as the only times where this is true are for utility methods:
 			this.type = type;
@@ -153,7 +153,7 @@ public class Vagina implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == owner.getVaginaType()) {
 			if(owner.isPlayer()) {
 				if(type == VaginaType.NONE) {
@@ -161,7 +161,7 @@ public class Vagina implements BodyPartInterface {
 				} else {
 					return "<p style='text-align:center;'>[style.colorDisabled(You already have [pc.a_vaginaRace]'s pussy, so nothing happens...)]</p>";
 				}
-				
+
 			} else {
 				if(type == VaginaType.NONE) {
 					return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already lacks a vagina, so nothing happens...)]</p>");
@@ -170,9 +170,9 @@ public class Vagina implements BodyPartInterface {
 				}
 			}
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		// Cannot transform if pregnant:
 		if (!overridePregnancyPrevention && (owner.isPregnant() || owner.hasStatusEffect(StatusEffect.PREGNANT_0))) {
 			if(owner.isPlayer()) {
@@ -204,7 +204,7 @@ public class Vagina implements BodyPartInterface {
 						+owner.postTransformationCalculation()
 					+"</p>";
 		}
-		
+
 		// If have no vagina:
 		if (owner.getVaginaType() == VaginaType.NONE) {
 			if (owner.isPlayer()) {
@@ -226,7 +226,7 @@ public class Vagina implements BodyPartInterface {
 							+ "<br/>"
 							+ "You now have a [style.boldTfSex(vagina)]!"
 						+ "</p>");
-				
+
 				if(owner.hasFetish(Fetish.FETISH_PURE_VIRGIN)) {
 					UtilText.transformationContentSB.append(
 							"<p style='text-align:center;'>"
@@ -256,7 +256,7 @@ public class Vagina implements BodyPartInterface {
 							+ "</p>"
 							);
 				}
-				
+
 			} else {
 				UtilText.transformationContentSB.append(UtilText.parse(owner,
 						"<p>"
@@ -281,7 +281,7 @@ public class Vagina implements BodyPartInterface {
 
 			this.type = VaginaType.HUMAN;
 			owner.resetAreaKnownByCharacters(CoverableArea.VAGINA);
-			
+
 			if(type==VaginaType.HUMAN) {
 				this.girlcum.setType(type.getFluidType());
 				return UtilText.transformationContentSB.toString()
@@ -292,7 +292,7 @@ public class Vagina implements BodyPartInterface {
 				return UtilText.transformationContentSB.toString()
 						+ owner.setVaginaType(type);
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				UtilText.transformationContentSB.append(
@@ -304,11 +304,11 @@ public class Vagina implements BodyPartInterface {
 							+"[npc.Name] suddenly blushes and squeezes [npc.her] thighs together as [npc.she] feels [npc.her] pussy starting to transform."));
 			}
 		}
-		
+
 		this.type = type;
 		this.girlcum.setType(type.getFluidType());
 		owner.resetAreaKnownByCharacters(CoverableArea.VAGINA);
-		
+
 		switch (type) {
 			case NONE:
 				if(owner.isPlayer()) {
@@ -327,7 +327,7 @@ public class Vagina implements BodyPartInterface {
 							+ "[npc.Name] has [style.boldSex(lost [npc.her] vagina)]."
 						+ "</p>"));
 				}
-				
+
 				if(owner.isPlayer() && owner.hasFetish(Fetish.FETISH_PURE_VIRGIN)) {
 					if(!owner.isVaginaVirgin()) {
 						UtilText.transformationContentSB.append(
@@ -374,7 +374,7 @@ public class Vagina implements BodyPartInterface {
 								);
 					}
 				}
-				
+
 				owner.setVaginaVirgin(true);
 				orificeUrethra.setVirgin(true);
 				owner.setPiercedVagina(false);
@@ -389,7 +389,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldHuman(human vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling starts to fade away, and with a little cry of surprise, [npc.she] discovers that [npc.her] pussy has shaped itself into a regular human vagina."
@@ -439,7 +439,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldDogMorph(canine vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a dog-morph."
@@ -475,7 +475,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldFoxMorph(vulpine vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a fox-morph."
@@ -511,7 +511,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldWolfMorph(lupine vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a wolf-morph."
@@ -547,7 +547,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldCatMorph(feline vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a cat-morph."
@@ -583,7 +583,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldSquirrelMorph(squirrel-morph's vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a squirrel-morph."
@@ -619,7 +619,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldRatMorph(rat-morph's vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a rat-morph."
@@ -655,7 +655,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldRabbitMorph(rabbit-morph's vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a rabbit-morph."
@@ -691,7 +691,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldBatMorph(bat-morph's vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a bat-morph."
@@ -725,7 +725,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have an [style.boldHorseMorph(equine vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " [npc.Her] pussy lips puff up, and [npc.she] starts moaning and squirming as [npc.her] cunt reshapes itself into a horse-like vagina, giving [npc.her] feminine sex a very animalistic appearance."
@@ -757,7 +757,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have a [style.boldReindeerMorph(rangiferine vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] pussy shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " [npc.Her] [npc.labia] puff up, and [npc.she] starts moaning and squirming as [npc.her] cunt reshapes itself into a reindeer-like vagina, giving [npc.her] feminine sex a very animalistic appearance."
@@ -789,7 +789,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have an [style.boldCowMorph(bovine vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " [npc.Her] pussy lips puff up and darken to a deep black, and [npc.she] starts moaning and squirming as [npc.her] cunt reshapes itself into a cow-like vagina, giving [npc.her] feminine sex a very animalistic appearance."
@@ -824,7 +824,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have an [style.boldGatorMorph(alligator-morph's vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has transformed into that of an alligator-morph's."
@@ -860,7 +860,7 @@ public class Vagina implements BodyPartInterface {
 							+ "You now have an [style.boldHarpy(avian vagina)], with [pc.pussyColorPrimary(true)] labia and [pc.pussyColorSecondary(true)] internal walls."
 						+ "</p>");
 				} else {
-					UtilText.transformationContentSB.append(UtilText.parse(owner, 
+					UtilText.transformationContentSB.append(UtilText.parse(owner,
 							" [npc.She] lets out a squeal of excitement as a wave of pleasure runs up through [npc.her] groin, and as [npc.she] feels [npc.her] slit shifting and contracting with a mind of its own,"
 									+ " [npc.she] desperately clamps [npc.her] [npc.legs] shut."
 							+ " Within moments, the feeling fades away, and [npc.she] discovers that [npc.her] pussy has shaped itself into a that of a harpy."
@@ -882,7 +882,7 @@ public class Vagina implements BodyPartInterface {
 			case ANGEL://TODO
 				break;
 		}
-		
+
 		orificeVagina.getOrificeModifiers().clear();
 		for(OrificeModifier om : type.getDefaultRacialOrificeModifiers()) {
 			orificeVagina.addOrificeModifier(owner, om);
@@ -897,7 +897,7 @@ public class Vagina implements BodyPartInterface {
 					"<p>"
 					+ "Any old modifiers that [npc.her] pussy might have had have [style.boldShrink(transformed away)]!");
 		}
-		
+
 		if(orificeVagina.getOrificeModifiers().isEmpty()) {
 			UtilText.transformationContentSB.append("</p>");
 		} else {
@@ -910,36 +910,36 @@ public class Vagina implements BodyPartInterface {
 						"<br/>"
 						+ "Instead, [npc.her] new pussy is:");
 			}
-			
+
 			for(OrificeModifier om : orificeVagina.getOrificeModifiers()) {
 				UtilText.transformationContentSB.append("<br/>[style.boldGrow("+Util.capitalizeSentence(om.getName())+")]");
 			}
 			UtilText.transformationContentSB.append("</p>");
 		}
-		
+
 		return UtilText.transformationContentSB.toString()
 				+ "<p>"
 					+ owner.postTransformationCalculation()
 				+ "</p>";
 	}
-	
+
 	public LabiaSize getLabiaSize() {
 		return LabiaSize.getLabiaSizeFromInt(labiaSize);
 	}
-	
+
 	public int getRawLabiaSizeValue() {
 		return labiaSize;
 	}
-	
+
 	public String setLabiaSize(GameCharacter owner, int labiaSize) {
 		if(!owner.hasVagina()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		int oldSize = this.labiaSize;
 		this.labiaSize = Math.max(0, Math.min(labiaSize, LabiaSize.FOUR_MASSIVE.getValue()));
 		int sizeChange = this.labiaSize - oldSize;
-		
+
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The size of your labia doesn't change...)]</p>";
@@ -987,9 +987,9 @@ public class Vagina implements BodyPartInterface {
 		if(this.pierced == pierced || !owner.hasVagina()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.pierced = pierced;
-		
+
 		if(pierced) {
 			if(owner.isPlayer()) {
 				return "<p>Your [pc.pussy] is now [style.boldGrow(pierced)]!</p>";
@@ -1004,7 +1004,7 @@ public class Vagina implements BodyPartInterface {
 				owner.forceUnequipClothingIntoVoid(owner, c);
 				piercingUnequip = owner.addClothing(c, false);
 			}
-			
+
 			if(owner.isPlayer()) {
 				return "<p>"
 							+ "Your [pc.pussy] is [style.boldShrink(no longer pierced)]!"

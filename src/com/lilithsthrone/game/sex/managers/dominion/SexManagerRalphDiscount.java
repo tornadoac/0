@@ -17,13 +17,13 @@ import com.lilithsthrone.game.sex.sexActions.dominion.RalphOral;
  * @author Innoxia
  */
 public class SexManagerRalphDiscount extends SexManagerDefault {
-	
+
 	public SexManagerRalphDiscount(Map<GameCharacter, SexSlot> dominants, Map<GameCharacter, SexSlot> submissives) {
 		super(SexPositionBipeds.UNDER_DESK_RALPH,
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public SexActionInterface getPartnerSexAction(SexActionInterface sexActionPlayer) {
 		if(Sex.getAvailableSexActionsPartner().contains(RalphOral.PARTNER_PENETRATES)) {
@@ -31,10 +31,10 @@ public class SexManagerRalphDiscount extends SexManagerDefault {
 		} else if(Sex.getAvailableSexActionsPartner().contains(RalphOral.PARTNER_PENETRATES_ANUS)) {
 			return RalphOral.PARTNER_PENETRATES_ANUS;
 		}
-		
+
 		return super.getPartnerSexAction(sexActionPlayer);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
@@ -44,10 +44,10 @@ public class SexManagerRalphDiscount extends SexManagerDefault {
 	public boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing){
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
 	}
-	
+
 }

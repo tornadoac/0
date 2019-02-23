@@ -24,17 +24,17 @@ public class DreamLover {
 		public String getAuthor() {
 			return "Kumiko";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "EXTERIOR");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Enter", "Step inside 'Dream Lover'.", ENTRY);
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Arcade Entrance", "Fast travel to the entrance to the arcade."){
 					@Override
@@ -48,14 +48,14 @@ public class DreamLover {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENTRY = new DialogueNode("Dream Lover", "-", true) {
 
 		@Override
 		public String getAuthor() {
 			return "Kumiko";
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
@@ -65,14 +65,14 @@ public class DreamLover {
 				if(!Main.game.getDialogueFlags().values.contains(DialogueFlagValue.ashleyAttitude)) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "ENTRY_REPEAT_ATTITUDE"));
 				}
-				
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "ENTRY");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(!Main.game.getDialogueFlags().values.contains(DialogueFlagValue.ashleyIntroduced)) {
@@ -83,16 +83,16 @@ public class DreamLover {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.ashleyIntroduced, true);
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
-				
+
 				if (index == 1) {
 					return new ResponseTrade("Trade", "Wander around the shop and see what items there are for sale...", Main.game.getNpc(Ashley.class));
-					
+
 				} else if(index==2 && !Main.game.getDialogueFlags().values.contains(DialogueFlagValue.ashleyAttitude)) {
 					return new Response("Confront Ashley", "What's with this person's attitude? Walk up to the counter and confront them about it.", CONFRONT_ASHLEY) {
 						@Override
@@ -104,7 +104,7 @@ public class DreamLover {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.ashleyAttitude, true);
 						}
 					};
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Head back out to the Shopping Arcade.", EXTERIOR) {
 						@Override
@@ -112,26 +112,26 @@ public class DreamLover {
 							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "EXIT"));
 						}
 					};
-	
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode EXPLORE_SHELVES = new DialogueNode("Dream Lover", "-", true, true) {
 
 		@Override
 		public String getAuthor() {
 			return "Kumiko";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "EXPLORE_SHELVES");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
@@ -143,7 +143,7 @@ public class DreamLover {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.ashleySexToysDiscovered, true);
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Keep quiet", "It's probably best to just ignore this person's strange attitude...", IGNORE_ASHLEY) {
 					@Override
@@ -152,47 +152,47 @@ public class DreamLover {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.ashleySexToysDiscovered, true);
 					}
 				};
-				
+
 			}  else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CONFRONT_ASHLEY = new DialogueNode("Dream Lover", "-", true, true) {
 
 		@Override
 		public String getAuthor() {
 			return "Kumiko";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "CONFRONT_ASHLEY");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return ENTRY.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode IGNORE_ASHLEY = new DialogueNode("Dream Lover", "-", true, true) {
 
 		@Override
 		public String getAuthor() {
 			return "Kumiko";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/dreamLover", "IGNORE_ASHLEY");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return ENTRY.getResponse(responseTab, index);
 		}
 	};
-	
+
 }

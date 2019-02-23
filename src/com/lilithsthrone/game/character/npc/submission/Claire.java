@@ -61,7 +61,7 @@ public class Claire extends NPC {
 	public Claire() {
 		this(false);
 	}
-	
+
 	public Claire(boolean isImported) {
 		super(isImported, new NameTriplet("Claire"), "Kasun",
 				"Claire is the messenger who's responsible for keeping all of Submission's Enforcer posts up-to-date with one another."
@@ -70,9 +70,9 @@ public class Claire extends NPC {
 				31, Month.DECEMBER, 14,
 				10, Gender.F_V_B_FEMALE, Subspecies.CAT_MORPH, RaceStage.GREATER,
 				new CharacterInventory(30), WorldType.SUBMISSION, PlaceType.SUBMISSION_ENTRANCE, true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -84,25 +84,25 @@ public class Claire extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 25);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 50);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_ENFORCER);
-	
+
 			this.addFetish(Fetish.FETISH_BREASTS_SELF);
 			this.addFetish(Fetish.FETISH_STRUTTER);
 			this.setFetishDesire(Fetish.FETISH_VOYEURIST, FetishDesire.THREE_LIKE);
@@ -111,7 +111,7 @@ public class Claire extends NPC {
 			this.setFetishDesire(Fetish.FETISH_LEG_LOVER, FetishDesire.ONE_DISLIKE);
 			this.setFetishDesire(Fetish.FETISH_ANAL_RECEIVING, FetishDesire.ZERO_HATE);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -142,7 +142,7 @@ public class Claire extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_PINK_LIGHT));
 		this.setSkinCovering(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK), true);
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.THREE_PLUMP);
@@ -150,7 +150,7 @@ public class Claire extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.FF.getMeasurement());
@@ -158,7 +158,7 @@ public class Claire extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG.getValue());
 		this.setAreolaeSize(AreolaeSize.TWO_BIG.getValue());
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -169,10 +169,10 @@ public class Claire extends NPC {
 		this.setAssElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -182,11 +182,11 @@ public class Claire extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 //		this.setFootStructure(FootStructure.PLANTIGRADE);
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -206,16 +206,16 @@ public class Claire extends NPC {
 			this.setLocation(WorldType.SUBMISSION, Main.game.getWorlds().get(WorldType.SUBMISSION).getClosestCell(Main.game.getPlayer().getLocation(), PlaceType.SUBMISSION_ENTRANCE).getLocation(), true);
 		}
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

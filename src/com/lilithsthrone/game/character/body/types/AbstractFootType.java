@@ -8,24 +8,24 @@ import java.util.List;
  * @author Innoxia
  */
 public abstract class AbstractFootType {
-	
+
 	private String typeName;
-	
+
 	private String footName;
 	private String footNamePlural;
-	
+
 	private List<String> footDescriptorsMasculine;
 	private List<String> footDescriptorsFeminine;
-	
+
 	private String toeSingularName;
 	private String toePluralName;
 	private List<String> toesDescriptorsMasculine;
 	private List<String> toesDescriptorsFeminine;
-	
+
 	private String footjobName;
-	
+
 	private String footBodyDescription;
-	
+
 	private List<FootStructure> permittedFootStructures;
 
 	/**
@@ -53,23 +53,23 @@ public abstract class AbstractFootType {
 			String footjobName,
 			String footBodyDescription,
 			List<FootStructure> permittedFootStructures) {
-		
+
 		this.typeName = typeName;
-		
+
 		this.footName = footName;
 		this.footNamePlural = footNamePlural;
 		this.footDescriptorsMasculine = footDescriptorsMasculine;
 		this.footDescriptorsFeminine = footDescriptorsFeminine;
-		
+
 		this.toeSingularName = toeSingularName;
 		this.toePluralName = toePluralName;
 		this.toesDescriptorsMasculine = toesDescriptorsMasculine;
 		this.toesDescriptorsFeminine = toesDescriptorsFeminine;
-		
+
 		this.footjobName = footjobName;
-		
+
 		this.footBodyDescription = footBodyDescription;
-		
+
 		this.permittedFootStructures = permittedFootStructures;
 	}
 

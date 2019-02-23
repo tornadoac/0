@@ -2,62 +2,62 @@
 <!-- For a version without all of the comments, see "rental_daddy.xml". -->
 <clothing>
 	<coreAttributes>
-		<value>100</value> 
-		
+		<value>100</value>
+
 		<determiner><![CDATA[a pair of]]></determiner>
-		
+
 		<name><![CDATA[striped gloves]]></name>
-		
-		<namePlural pluralByDefault="true"><![CDATA[striped gloves]]></namePlural> 
-		
-		<description><![CDATA[A pair of long, fingerless gloves, which are made out of soft wool. Their most notable feature is the looping pattern of colorful stripes that they're decorated with.]]></description> 
-		
-		<physicalResistance>1</physicalResistance> 
-		
-		<femininity>ANDROGYNOUS</femininity> 
-		
-		<slot>HAND</slot> 
-		
-		<rarity>COMMON</rarity> 
-		
-		<clothingSet/> 
-		
-		<imageName>striped_gloves.svg</imageName> 
-		
-		<imageEquippedName/> 
-		
+
+		<namePlural pluralByDefault="true"><![CDATA[striped gloves]]></namePlural>
+
+		<description><![CDATA[A pair of long, fingerless gloves, which are made out of soft wool. Their most notable feature is the looping pattern of colorful stripes that they're decorated with.]]></description>
+
+		<physicalResistance>1</physicalResistance>
+
+		<femininity>ANDROGYNOUS</femininity>
+
+		<slot>HAND</slot>
+
+		<rarity>COMMON</rarity>
+
+		<clothingSet/>
+
+		<imageName>striped_gloves.svg</imageName>
+
+		<imageEquippedName/>
+
 		<enchantmentLimit/>
-		
+
 		<effects/>
-		
-		<blockedPartsList> 
-		
+
+		<blockedPartsList>
+
 			<blockedParts>
-				<displacementType>REMOVE_OR_EQUIP</displacementType> 
-				
-				<clothingAccessRequired> 
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+
+				<clothingAccessRequired>
 					<clothingAccess>FINGERS</clothingAccess>
 				</clothingAccessRequired>
-				
+
 				<blockedBodyParts/>
-				
+
 				<clothingAccessBlocked/>
-				
+
 				<concealedSlots/>
 			</blockedParts>
-			
+
 		</blockedPartsList>
-		
-		<incompatibleSlots/> 
-		
-		<primaryColors values="ALL"/> 
+
+		<incompatibleSlots/>
+
+		<primaryColors values="ALL"/>
 		<primaryColorsDye/>
 		<secondaryColors values="JUST_WHITE"/>
 		<secondaryColorsDye values="ALL"/>
 		<tertiaryColors/>
 		<tertiaryColorsDye/>
-		
-		<itemTags> 
+
+		<itemTags>
 			<tag>SOLD_BY_NYAN</tag>
 		</itemTags>
 	</coreAttributes>
@@ -85,5 +85,5 @@
 		  <![CDATA[[npc.Name] [npc.verb(yank)] the gloves down from [npc2.namePos] elbows, before roughly pulling them free from [npc2.her] [npc2.hands].]]>
 		</otherRough>
 	</displacementText>
-	
+
 </clothing>

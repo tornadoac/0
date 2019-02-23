@@ -70,7 +70,7 @@ public class Elizabeth extends NPC {
 	public Elizabeth() {
 		this(false);
 	}
-	
+
 	public Elizabeth(boolean isImported) {
 		super(isImported,
 				new NameTriplet("Elizabeth"), "Lyssiethmartu",
@@ -92,30 +92,30 @@ public class Elizabeth extends NPC {
 		}
 		this.setDescription("An unrecognized daughter of Lyssieth, Elizabeth is captain of her mother's royal guard. She is tasked with protecting the entrance to Lyssieth's palace.");
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 50);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 30);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-			
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.LOW)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MUGGER);
-			
+
 			this.clearFetishes();
-			
+
 			this.addFetish(Fetish.FETISH_STRUTTER);
 			this.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_VAGINAL_RECEIVING, FetishDesire.THREE_LIKE);
@@ -123,7 +123,7 @@ public class Elizabeth extends NPC {
 			this.setFetishDesire(Fetish.FETISH_SADIST, FetishDesire.ONE_DISLIKE);
 			this.setFetishDesire(Fetish.FETISH_MASOCHIST, FetishDesire.ONE_DISLIKE);
 		}
-		
+
 		// Body:
 		this.setSubspeciesOverride(Subspecies.HALF_DEMON);
 		this.setHalfDemonSubspecies(Subspecies.HUMAN);
@@ -137,18 +137,18 @@ public class Elizabeth extends NPC {
 		this.setFemininity(80);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_GREEN));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_LILAC), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_DIRTY_BLONDE), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMedianValue());
 		this.setHairStyle(HairStyle.LOOSE);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_DIRTY_BLONDE), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.TWO_MANICURED);
@@ -161,7 +161,7 @@ public class Elizabeth extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED_LIGHT));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -169,7 +169,7 @@ public class Elizabeth extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.DD.getMeasurement());
@@ -177,17 +177,17 @@ public class Elizabeth extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
 		this.setAssSize(AssSize.THREE_NORMAL);
 		this.setHipSize(HipSize.FOUR_WOMANLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		// n/a
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -197,66 +197,66 @@ public class Elizabeth extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.FOUR_ACCOMMODATING.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_FULLCUP_BRA, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TRAINER_SOCKS, Color.CLOTHING_BLACK, false), true, this);
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torso_feminine_short_sleeve_shirt", Color.CLOTHING_GREEN_DRAB, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_TIE, Color.CLOTHING_GREEN_DRAB, false), true, this);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_lyssiethUniform_hat", false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_lyssiethUniform_shoes", false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_lyssiethUniform_skirt", false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_lyssiethUniform_tunic", false), true, this);
-		
+
 		this.setPiercedEar(true);
-		
+
 		if(addWeapons) {
 			this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_revolver_revolver"), DamageType.PHYSICAL));
 		}
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public void endSex() {
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	// Combat:
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
 	}
-	
+
 	public Attack attackType() {
 		return Attack.MAIN;
 	}
-	
+
 }

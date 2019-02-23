@@ -20,17 +20,17 @@ public class SMVickyOverDesk extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
 	}
-	
+
 	@Override
 	public SexPace getForcedSexPace(GameCharacter character) {
 		if(!character.isPlayer()) {

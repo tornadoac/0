@@ -16,17 +16,17 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum FetishDesire {
-	
+
 	ZERO_HATE(0, "hate", "hate", "hates", "fondness1", -25f, Color.BASE_CRIMSON),
-	
+
 	ONE_DISLIKE(1, "dislike", "dislike", "dislikes", "fondness2", -10f, Color.BASE_RED),
-	
+
 	TWO_NEUTRAL(2, "indifferent", "are indifferent to", "is indifferent to", "fondness3", 0, Color.BASE_BLUE_STEEL),
-	
+
 	THREE_LIKE(3, "like", "like", "likes", "fondness4", 5f, Color.BASE_PINK_LIGHT),
-	
+
 	FOUR_LOVE(4, "love", "love", "loves", "fondness5", 10f, Color.BASE_PINK);
-	
+
 	private int value;
 	private String name;
 	private String nameAsPlayerVerb;
@@ -35,7 +35,7 @@ public enum FetishDesire {
 	private float lustIncrement;
 	private Color color;
 	private List<String> modifiersList;
-	
+
 	private FetishDesire(int value, String name, String nameAsPlayerVerb, String nameAsVerb, String pathName, float lustIncrement, Color color) {
 		this.value = value;
 		this.name = name;
@@ -43,7 +43,7 @@ public enum FetishDesire {
 		this.nameAsVerb = nameAsVerb;
 		this.lustIncrement = lustIncrement;
 		this.color = color;
-		
+
 		modifiersList = new ArrayList<>();
 		modifiersList.add((lustIncrement >= 0 ? "[style.boldSex(+" + lustIncrement : "[style.boldBad(" + lustIncrement) + ")] [style.boldLust("+ Util.capitalizeSentence(Attribute.LUST.getAbbreviatedName())+ ")] from related sex actions");
 
@@ -55,11 +55,11 @@ public enum FetishDesire {
 			String base = Util.inputStreamToString(is);
 
 			SVGImage = base;
-			
+
 			SVGImage = SvgUtil.colorReplacement(this.toString(), color, SVGImage);
-			
+
 			SVGImageDesaturated = base;
-			
+
 			SVGImageDesaturated = SvgUtil.colorReplacement(this.toString(), Color.BASE_GREY, SVGImageDesaturated);
 
 			is.close();
@@ -68,33 +68,33 @@ public enum FetishDesire {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean isNegative() {
 		return this==ZERO_HATE || this==ONE_DISLIKE;
 	}
-	
+
 	public boolean isPositive() {
 		return this==THREE_LIKE || this==FOUR_LOVE;
 	}
-	
+
 	public static int getCostToChange() {
 		return 0;
 	}
-	
+
 	public static FetishDesire getDesireFromValue(int value) {
 		for(FetishDesire desire : FetishDesire.values()) {
 			if(desire.getValue() == value) {
 				return desire;
 			}
 		}
-		
+
 		if(value<=ZERO_HATE.getValue()) {
 			return ZERO_HATE;
 		} else {
 			return FOUR_LOVE;
 		}
 	}
-	
+
 	public FetishDesire getPreviousDesire() {
 		switch(this) {
 			case ZERO_HATE:
@@ -110,7 +110,7 @@ public enum FetishDesire {
 		}
 		return TWO_NEUTRAL;
 	}
-	
+
 	public FetishDesire getNextDesire() {
 		switch(this) {
 			case ZERO_HATE:
@@ -126,7 +126,7 @@ public enum FetishDesire {
 		}
 		return TWO_NEUTRAL;
 	}
-	
+
 	public int getValue() {
 		return value;
 	}
@@ -138,7 +138,7 @@ public enum FetishDesire {
 	public String getNameAsPlayerVerb() {
 		return nameAsPlayerVerb;
 	}
-	
+
 	public String getNameAsVerb() {
 		return nameAsVerb;
 	}
@@ -150,7 +150,7 @@ public enum FetishDesire {
 	public String getSVGImage() {
 		return SVGImage;
 	}
-	
+
 	public String getSVGImageDesaturated() {
 		return SVGImageDesaturated;
 	}
@@ -158,7 +158,7 @@ public enum FetishDesire {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public List<String> getModifiersAsStringList() {
 		return modifiersList;
 	}

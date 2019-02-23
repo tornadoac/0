@@ -29,7 +29,7 @@ public class PartnerSelfTailMouth {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.NPC_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.hasLubricationTypeFromAnyone(Sex.getActivePartner(), SexAreaPenetration.TAIL)
@@ -37,7 +37,7 @@ public class PartnerSelfTailMouth {
 					&& (Sex.getForeplayPreference(Sex.getActivePartner(), Sex.getCharacterTargetedForSexAction(this))!=null
 						&& Sex.getForeplayPreference(Sex.getActivePartner(), Sex.getCharacterTargetedForSexAction(this)).getPerformingSexArea()==SexAreaPenetration.TAIL);
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Lubricate tail";
@@ -53,13 +53,13 @@ public class PartnerSelfTailMouth {
 			return "Lifting [npc.her] [npc.tail+] up to [npc.her] mouth, [npc.name] slides [npc.her] [npc.tail+] past [npc.her] [npc.lips+],"
 					+ " before lewdly sucking on it for a moment in order to get it well lubricated with [npc.her] saliva.";
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			Sex.transferLubrication(Sex.getActivePartner(), SexAreaPenetration.TAIL, Sex.getActivePartner(), SexAreaOrifice.MOUTH);
 		}
 	};
-	
+
 	public static final SexAction PARTNER_SELF_TAIL_MOUTH_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -71,7 +71,7 @@ public class PartnerSelfTailMouth {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.NPC_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Suck tail (self)";
@@ -87,7 +87,7 @@ public class PartnerSelfTailMouth {
 			return "Snaking [npc.her] [npc.tail] up to [npc.her] mouth, [npc.name] slides the tip past [npc.her] [npc.lips+] before starting to lewdly suck on it.";
 		}
 	};
-	
+
 	public static final SexAction PARTNER_SELF_FINGER_MOUTH_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -99,7 +99,7 @@ public class PartnerSelfTailMouth {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.NPC_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop sucking tail (self)";

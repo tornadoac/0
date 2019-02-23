@@ -62,7 +62,7 @@ public class PrologueMale extends NPC {
 	public PrologueMale() {
 		this(false);
 	}
-	
+
 	public PrologueMale(boolean isImported) {
 		super(isImported, new NameTriplet("Alexander", "Alex", "Alexandria"), "Bonheur",
 				"One of the guests at the museum's opening exhibit. He's tall, handsome, and muscular, and, even better, he seems to have taken an instant liking towards you...",
@@ -77,41 +77,41 @@ public class PrologueMale extends NPC {
 				false);
 
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 15);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 25);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-	
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.MUSICIAN);
-	
+
 			this.addFetish(Fetish.FETISH_CUM_STUD);
 			this.addFetish(Fetish.FETISH_VAGINAL_GIVING);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -119,7 +119,7 @@ public class PrologueMale extends NPC {
 		this.setFemininity(10);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Color.EYE_BROWN));
@@ -141,7 +141,7 @@ public class PrologueMale extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -149,7 +149,7 @@ public class PrologueMale extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.FLAT.getMeasurement());
@@ -157,7 +157,7 @@ public class PrologueMale extends NPC {
 		this.setNippleSize(NippleSize.ZERO_TINY);
 		this.setAreolaeSize(AreolaeSize.ZERO_TINY);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -168,20 +168,20 @@ public class PrologueMale extends NPC {
 		this.setAssElasticity(OrificeElasticity.ONE_RIGID.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisSize(6);
 		this.setTesticleSize(TesticleSize.TWO_AVERAGE);
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -195,12 +195,12 @@ public class PrologueMale extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_MENS_WATCH, Color.CLOTHING_BLACK_STEEL, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void endSex() {
 		Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_CROWDS);
@@ -210,7 +210,7 @@ public class PrologueMale extends NPC {
 	public SexPace getSexPaceDomPreference(){
 		return SexPace.DOM_NORMAL;
 	}
-	
+
 	@Override
 	public SexPace getSexPaceSubPreference(GameCharacter character){
 		return SexPace.SUB_EAGER;
@@ -220,7 +220,7 @@ public class PrologueMale extends NPC {
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			return "#2D3795";
-			
+
 		} else {
 			return "#6B86FF";
 		}
@@ -229,10 +229,10 @@ public class PrologueMale extends NPC {
 	@Override
 	public void changeFurryLevel() {
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 }

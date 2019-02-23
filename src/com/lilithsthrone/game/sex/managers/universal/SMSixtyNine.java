@@ -19,5 +19,5 @@ public class SMSixtyNine extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 }

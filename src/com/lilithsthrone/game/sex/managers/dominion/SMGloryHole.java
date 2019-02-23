@@ -32,7 +32,7 @@ public class SMGloryHole extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
@@ -52,31 +52,31 @@ public class SMGloryHole extends SexManagerDefault {
 	public boolean isPlayerAbleToStopSex() {
 		return true;
 	}
-	
+
 	@Override
 	public List<InventorySlot> getSlotsConcealed(GameCharacter character) {
 		List<InventorySlot> concealedSlots = new ArrayList<>();
-		
+
 		if(Sex.getSexPositionSlot(character).equals(SexSlotBipeds.GLORY_HOLE_KNEELING)) {
 			Collections.addAll(concealedSlots, InventorySlot.values());
 			concealedSlots.remove(InventorySlot.MOUTH);
-			
+
 		} else if(Sex.getSexPositionSlot(character).equals(SexSlotBipeds.GLORY_HOLE_RECEIVING_ORAL_ONE)) {
 			Collections.addAll(concealedSlots, InventorySlot.values());
 			concealedSlots.remove(InventorySlot.PENIS);
 			concealedSlots.remove(InventorySlot.VAGINA);
 			concealedSlots.remove(InventorySlot.GROIN);
 			concealedSlots.remove(InventorySlot.LEG);
-			
+
 		} else if(Sex.getSexPositionSlot(character).equals(SexSlotBipeds.GLORY_HOLE_RECEIVING_ORAL_TWO)) {
 			Collections.addAll(concealedSlots, InventorySlot.values());
 			concealedSlots.remove(InventorySlot.PENIS);
 			concealedSlots.remove(InventorySlot.VAGINA);
 			concealedSlots.remove(InventorySlot.GROIN);
 			concealedSlots.remove(InventorySlot.LEG);
-			
+
 		}
-		
+
 		return concealedSlots;
 	}
 
@@ -93,7 +93,7 @@ public class SMGloryHole extends SexManagerDefault {
 		Population pop = Main.game.getPlayer().getLocationPlace().getPlaceType().getPopulation();
 		if(pop!=null && !pop.getSpecies().isEmpty()) {
 			Subspecies subspecies = Util.randomItemFrom(new ArrayList<>(Main.game.getPlayerCell().getPlace().getPlaceType().getPopulation().getSpecies().keySet()));
-			
+
 			return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 					+UtilText.parse(Sex.getActivePartner(),
 						UtilText.returnStringAtRandom(
@@ -112,7 +112,7 @@ public class SMGloryHole extends SexManagerDefault {
 								+ " stroking his exposed cock as he suddenly cums all over the floor in front of you."))
 					+"</p>";
 		}
-		
+
 		return "";
 	}
 }

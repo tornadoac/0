@@ -9,12 +9,12 @@ public enum OrgasmCumTarget {
 
 	// Specials:
 	LILAYA_PANTIES("into Lilaya's panties", false),
-	
+
 	WALL("up the wall", false),
 	FLOOR("onto floor", false),
-	
+
 	INSIDE("inside", true),
-	
+
 	ASS("over ass", true),
 	GROIN("over groin", true),
 	BREASTS("onto breasts", true),
@@ -31,7 +31,7 @@ public enum OrgasmCumTarget {
 	SELF_FEET("onto self feet", false),
 	SELF_BREASTS("onto self breasts", false),
 	SELF_FACE("onto self face", false);
-	
+
 	private String name;
 	private boolean requiresPartner;
 
@@ -47,5 +47,5 @@ public enum OrgasmCumTarget {
 	public boolean isRequiresPartner() {
 		return requiresPartner;
 	}
-	
+
 }

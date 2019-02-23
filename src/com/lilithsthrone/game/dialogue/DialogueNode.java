@@ -9,10 +9,10 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public abstract class DialogueNode {
-	
+
 	private String label;
 	private String description;
-	
+
 	private boolean travelDisabled;
 	private boolean continuesDialogue;
 
@@ -23,11 +23,11 @@ public abstract class DialogueNode {
 	public DialogueNode(String label, String description, boolean travelDisabled, boolean continuesDialogue) {
 		this.label = label;
 		this.description = description;
-		
+
 		this.travelDisabled = travelDisabled;
 		this.continuesDialogue = continuesDialogue;
 	}
-	
+
 	/**
 	 * @return The number of minutes that pass when entering into this dialogue node.
 	 */
@@ -51,7 +51,7 @@ public abstract class DialogueNode {
 	public String toString() {
 		return label + ":" + description.substring(0, description.length() <= 20 ? description.length() : 20);
 	}
-	
+
 	/**
 	 * @return The label for the button proceeding to this dialogue node.<br/>
 	 * <b>Note:</b> In almost all instances, this is overridden by the Response class's getTitle() method.
@@ -67,7 +67,7 @@ public abstract class DialogueNode {
 		this.label = label;
 		return this;
 	}
-	
+
 	/**
 	 * @return The description for the action proceeding to this dialogue node, to be displayed in the action tooltip.<br/>
 	 * <b>Note:</b> In almost all instances, this is overridden by the Response class's getTooltipText() method.
@@ -82,7 +82,7 @@ public abstract class DialogueNode {
 	public boolean isContinuesDialogue() {
 		return continuesDialogue;
 	}
-	
+
 	/**
 	 * @return True if this dialogue should display the actions title as part of a continuation of the scene, in this format:<br/><br/>
 	 * <i>...sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>
@@ -93,7 +93,7 @@ public abstract class DialogueNode {
 	public boolean isDisplaysActionTitleOnContinuesDialogue() {
 		return true;
 	}
-	
+
 	/**
 	 * Index starts at 0.
 	 * @return The title to be displayed on the response tab. Only indices that are defined as returning a title are displayed, so just return null as the fallback option.
@@ -101,7 +101,7 @@ public abstract class DialogueNode {
 	public String getResponseTabTitle(int index) {
 		return null;
 	}
-	
+
 	/**
 	 * The responses that lead on from this dialogue node.
 	 * @param responseTab The tab in which the response is to be found.
@@ -137,7 +137,7 @@ public abstract class DialogueNode {
 	public boolean isRegenerationDisabled() {
 		return false;
 	}
-	
+
 	/**
 	 * @return The author of the scene.
 	 */

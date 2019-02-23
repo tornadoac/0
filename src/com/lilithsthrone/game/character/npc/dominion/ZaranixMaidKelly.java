@@ -78,7 +78,7 @@ public class ZaranixMaidKelly extends NPC {
 	public ZaranixMaidKelly() {
 		this(false);
 	}
-	
+
 	public ZaranixMaidKelly(boolean isImported) {
 		super(isImported, new NameTriplet("Kelly"), "Lasiellemartu",
 				"One of Zaranix's succubi maid twins, Kelly is assigned by her master to keep the first floor clean.",
@@ -86,13 +86,13 @@ public class ZaranixMaidKelly extends NPC {
 				10, Gender.F_P_V_B_FUTANARI, Subspecies.DEMON, RaceStage.GREATER, new CharacterInventory(10), WorldType.ZARANIX_HOUSE_FIRST_FLOOR, PlaceType.ZARANIX_FF_MAID, true);
 
 		this.setPlayerKnowsName(true);
-		
+
 	}
 
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -101,32 +101,32 @@ public class ZaranixMaidKelly extends NPC {
 		}
 		this.setDescription("One of Zaranix's succubi maid twins, Katherine is assigned by her master to keep the ground floor clean.");
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 50);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 35);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MAID);
-	
+
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 		}
-		
+
 		// Body:
 		// Add full body reset as this method is called after leaving Zaranix's house:
 		this.setAgeAppearanceDifferenceToAppearAsAge(18);
@@ -141,18 +141,18 @@ public class ZaranixMaidKelly extends NPC {
 		this.setFemininity(85);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_PURPLE));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_IVORY), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_WHITE), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
 		this.setHairStyle(HairStyle.HIME_CUT);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.ZERO_NONE);
@@ -165,7 +165,7 @@ public class ZaranixMaidKelly extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -173,7 +173,7 @@ public class ZaranixMaidKelly extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(false);
 		this.setBreastSize(CupSize.F.getMeasurement());
@@ -181,14 +181,14 @@ public class ZaranixMaidKelly extends NPC {
 		this.setNippleSize(NippleSize.THREE_LARGE);
 		this.setAreolaeSize(AreolaeSize.THREE_LARGE);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(false);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FOUR_WOMANLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.TWO_AVERAGE);
@@ -196,7 +196,7 @@ public class ZaranixMaidKelly extends NPC {
 		this.setTesticleSize(TesticleSize.TWO_AVERAGE);
 		this.setPenisCumStorage(100);
 		this.fillCumToMaxStorage();
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -206,18 +206,18 @@ public class ZaranixMaidKelly extends NPC {
 		this.setVaginaWetness(Wetness.FOUR_SLIMY);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-		
+
 		this.unequipAllClothingIntoVoid(true);
 
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MAIN_FEATHER_DUSTER));
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_CROTCHLESS_THONG, Color.CLOTHING_PINK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_LACY_PLUNGE_BRA, Color.CLOTHING_PINK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.MAID_DRESS, Color.CLOTHING_BLACK, false), true, this);
@@ -227,62 +227,62 @@ public class ZaranixMaidKelly extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.MAID_HEELS, Color.CLOTHING_BLACK, false), true, this);
 
 	}
-	
+
 	@Override
 	public String getName() {
 		if(!playerKnowsName) {
 			return "Zaranix's Maid";
-			
+
 		} else {
 			return "Kelly";
 		}
 	}
-	
+
 	@Override
 	public void hourlyUpdate() {
 		if (Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_1_H_THE_GREAT_ESCAPE)) {
 			this.moveToAdjacentMatchingCellType(true, PlaceType.ZARANIX_FF_CORRIDOR, PlaceType.ZARANIX_FF_STAIRS, PlaceType.ZARANIX_FF_MAID);
 		}
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		return "#E48AFF";
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public void endSex() {
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 
 	// Combat:
-	
+
 	@Override
 	public String getMainAttackDescription(boolean isHit) {
 		return "<p>"
 				+ UtilText.returnStringAtRandom(
 						"Letting out a desperate cry, Kelly swings her little feather duster at you, brushing the feathers over your face!",
 						"With a little shout, Kelly tickles her feather duster over your torso!",
-						"Brushing her feather duster over your torso, Kelly lets out a little cry!") 
+						"Brushing her feather duster over your torso, Kelly lets out a little cry!")
 			+ "</p>";
 	}
 
@@ -291,7 +291,7 @@ public class ZaranixMaidKelly extends NPC {
 		return "<p>"
 				+ UtilText.returnStringAtRandom(
 						"Kelly grips her feather duster to her chest and cries out as she casts a spell!",
-						"Kelly thrusts her feather duster up into the air as she casts a spell!") 
+						"Kelly thrusts her feather duster up into the air as she casts a spell!")
 			+ "</p>";
 	}
 
@@ -304,10 +304,10 @@ public class ZaranixMaidKelly extends NPC {
 						"Biting her lip, Kelly looks up into your eyes, and you hear a lewd moan echoing around inside of your head, [kelly.speech(I hope you beat me! Show me no mercy!)]",
 						"With an incredibly lewd moan, Kelly runs her hands up the length of her body to cup her [kelly.cupSize]-cup breasts, [kelly.speech(~Mmm!~ If I fail, there'd be nothing stopping you from fucking me!)]",
 						"Kelly makes a show of staggering back, before desperately pressing her hands down between her legs, [kelly.speech(~Aah!~ I can just imagine all the lewd things you'd do to me if I fall here!)]",
-						"Kelly's [npc.breasts+] starts to heave up and down as she pants, [kelly.speech(Oh no! I'm feeling weak already! Y-You're sure to take advantage of me if I lose!)]") 
+						"Kelly's [npc.breasts+] starts to heave up and down as she pants, [kelly.speech(Oh no! I'm feeling weak already! Y-You're sure to take advantage of me if I lose!)]")
 			+ "</p>";
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
@@ -321,7 +321,7 @@ public class ZaranixMaidKelly extends NPC {
 			return new Response("", "", AFTER_COMBAT_DEFEAT);
 		}
 	}
-	
+
 	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
@@ -345,7 +345,7 @@ public class ZaranixMaidKelly extends NPC {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				return new Response("Continue", "Continue exploring Zaranix's house.", PlaceType.ZARANIX_FF_MAID.getDialogue(false));
-				
+
 			} if(index==2) {
 				return new ResponseSex("Use Kelly", "Have some fun with the horny maid.",
 						true, false,
@@ -362,7 +362,7 @@ public class ZaranixMaidKelly extends NPC {
 							+ "She pushes herself off from the wall, wrapping her arms around your back and desperately pressing her [kelly.lips+] against yours."
 							+ " You reciprocate the gesture, and after spending a few moments of sliding your tongues into one another's mouths, you pull back, grinning..."
 						+ "</p>");
-				
+
 			} else if(index==3) {
 				return new ResponseSex("Submit",
 						"You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with Kelly. Perhaps if you submitted, she'd be willing to fuck you?",
@@ -384,7 +384,7 @@ public class ZaranixMaidKelly extends NPC {
 							+ "You reciprocate the gesture, but only spend a few moments sliding your tongues into one another's mouths before Kelly pulls back, moaning,"
 							+ " [kelly.speech(Oh yes! Fuck... I'm so fucking horny! I <i>need</i> you!)]"
 						+ "</p>");
-				
+
 			} else if (index == 4) {
 				return new Response("Transformations",
 						"Get Kelly to use [kelly.her] demonic powers to transform [kelly.herself]...",
@@ -395,13 +395,13 @@ public class ZaranixMaidKelly extends NPC {
 						BodyChanging.setTarget(Main.game.getNpc(ZaranixMaidKelly.class));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Continue", "", true) {
 
 		@Override
@@ -417,7 +417,7 @@ public class ZaranixMaidKelly extends NPC {
 							+ "Despite the fact that you only just brought her to an orgasm, her hands slip down between her legs, and, with an exceptionally lewd moan, she starts fingering herself."
 							+ " It's quite clear from her actions that she's still overwhelmed by the arousing power of your aura, so it would be safe to leave her behind and continue in your exploration of Zaranix's home."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -429,12 +429,12 @@ public class ZaranixMaidKelly extends NPC {
 							+ " It's quite clear from her actions that she's still overwhelmed by the arousing power of your aura, so it would be safe to leave her behind and continue in your exploration of Zaranix's home."
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Conscious of the fact that there are other maids to look out for, you prepare to set off further into the house..."
 					+ "</p>");
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -442,13 +442,13 @@ public class ZaranixMaidKelly extends NPC {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				return new Response("Continue", "Continue exploring Zaranix's house.", PlaceType.ZARANIX_FF_MAID.getDialogue(false));
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeated", "", true) {
 
 		@Override
@@ -484,7 +484,7 @@ public class ZaranixMaidKelly extends NPC {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Used", "", true) {
 
 		@Override
@@ -513,7 +513,7 @@ public class ZaranixMaidKelly extends NPC {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

@@ -5,27 +5,27 @@ import com.lilithsthrone.utils.Color;
 
 /**
  * Arbitrary measurements in increments of 1, going from 0 to 7.
- * 
+ *
  * @since 0.1.0
  * @version 0.2.11
  * @author Innoxia
  */
 public enum HipSize {
-	
+
 	ZERO_NO_HIPS("completely straight", 0, Color.GENERIC_SIZE_ONE),
-	
+
 	ONE_VERY_NARROW("very narrow", 1, Color.GENERIC_SIZE_TWO),
-	
+
 	TWO_NARROW("narrow", 2, Color.GENERIC_SIZE_THREE),
-	
+
 	THREE_GIRLY("girly", 3, Color.GENERIC_SIZE_FOUR),
-	
+
 	FOUR_WOMANLY("womanly", 4, Color.GENERIC_SIZE_FIVE),
-	
+
 	FIVE_VERY_WIDE("very wide", 5, Color.GENERIC_SIZE_SIX),
-	
+
 	SIX_EXTREMELY_WIDE("extremely wide", 6, Color.GENERIC_SIZE_SEVEN),
-	
+
 	SEVEN_ABSURDLY_WIDE("absurdly wide", 7, Color.GENERIC_SIZE_EIGHT);
 
 	private String descriptor;

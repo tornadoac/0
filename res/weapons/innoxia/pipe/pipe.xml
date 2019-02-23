@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <weapon>
 	<coreAttributes>
-	
+
 		<!-- How much this weapon is worth. -->
-		<value>10</value> 
-		
+		<value>10</value>
+
 		<!-- Use "true" if this is a melee weapon, and "false" if it's ranged. (Without quotation marks.) -->
 		<melee>true</melee>
-		
+
 		<!-- Use "true" if this weapon is two-handed, and thus cannot be simultaneously wielded with an offhand weapon, and "false" if it's one-handed. (Without quotation marks.) -->
 		<twoHanded>false</twoHanded>
-		
+
 		<!-- What's appended before the weapon's name in an instance of "Innoxia was holding X metal pipe", where X is the determiner. This will usually be either "a" or "an", but for other weapons may be different.
 		An example might be: "Innoxia was holding X scissors", where X (the determiner) would now need to be "a pair of". -->
 		<determiner><![CDATA[a]]></determiner>
-		
+
 		<!-- The name of this weapon. -->
 		<name><![CDATA[metal pipe]]></name>
-		
+
 		<!-- The plural name of this weapon. If pluralByDefault's "false" is changed to "true", then the game will always the plural name when referring to this weapon. -->
-		<namePlural pluralByDefault="false"><![CDATA[metal pipes]]></namePlural> 
-		
+		<namePlural pluralByDefault="false"><![CDATA[metal pipes]]></namePlural>
+
 		<!-- The description/lore of this weapon. -->
-		<description><![CDATA[A length of metal pipe, which, for reasons unknown, someone has gone to the trouble of enchanting. Despite its new arcane power, however, it really isn't a particularly effective weapon...]]></description> 
-		
+		<description><![CDATA[A length of metal pipe, which, for reasons unknown, someone has gone to the trouble of enchanting. Despite its new arcane power, however, it really isn't a particularly effective weapon...]]></description>
+
 		<!-- How the weapon is used. This should be a single verb, and is used as the title of attacking actions in combat. -->
 		<attackDescriptor>whack</attackDescriptor>
-		
+
 		<!-- The description that's displayed when hovering over the attack action in combat. Follow the same guidelines as equipText (a couple of entries further down this page).
 		As this tooltip is only ever seen from the player's perspective, you can always write in the first-person narrative. (Still use npc2 for the target, though.)-->
 		<attackTooltipDescription>Whack [npc2.name] with your metal pipe.</attackTooltipDescription>
-		
+
 		<!-- The rarity of this weapon. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/Rarity.java -->
-		<rarity>COMMON</rarity> 
-		
+		<rarity>COMMON</rarity>
+
 		<!-- The description that's used when equipping this weapon. The description should be generic, able to be used by both the player and NPCs. Just make sure to use the tag "[npc.verb()]" whenever using a verb, which will then, for example, parse like this:
 		[npc.verb(run)] if npc is player = "run"
 		[npc.verb(run)] if npc is not the player = "runs"
@@ -42,25 +42,25 @@
 		The target "npc2" should be used for the character being attacked. e.g. If Brax is the one being attacked, then [npc2.Name] will return "Brax"
 		-->
 		<equipText><![CDATA[[npc.Name] [npc.verb(ready)] [npc.her] metal pipe, and [npc.verb(prepare)] to use it in combat.]]></equipText>
-		
+
 		<!-- The description that's used when equipping this weapon. Follow the same guidelines as equipText. -->
 		<unequipText><![CDATA[[npc.Name] [npc.verb(put)] [npc.her] metal pipe away.]]></unequipText>
-		
+
 		<!-- The file name of this weapon's image when in the character's inventory. The only supported file type is .svg. I use the free program "Inkscape" to make .svg images for the game. -->
-		<imageName>pipe.svg</imageName> 
-		
+		<imageName>pipe.svg</imageName>
+
 		<!-- The file name of this weapon's image when equipped. Can be (and usually is) the same as the imageName (which in this example would be "dagger_sheathed.svg"). -->
 		<imageEquippedName>pipe.svg</imageEquippedName>
-		
+
 		<!-- The base damage that this weapon deals. -->
-		<damage>8</damage> 
-		
+		<damage>8</damage>
+
 		<!-- How many arcane essences are required, and drained, by firing this weapon. Ranged weapons should usually use the value 1, while melee weapons should usually be 0. -->
-		<arcaneCost>0</arcaneCost> 
-		
+		<arcaneCost>0</arcaneCost>
+
 		<!-- The variance in base damage when this weapon is actually used to attack. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/combat/DamageVariance.java -->
-		<damageVariance>MEDIUM</damageVariance> 
-		
+		<damageVariance>MEDIUM</damageVariance>
+
 		<!-- The available damage types that this weapon can spawn in with. Values can be found here (MISC should not be used): https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/combat/DamageType.java -->
 		<availableDamageTypes>
 			<damageType>PHYSICAL</damageType>
@@ -68,26 +68,26 @@
 			<damageType>FIRE</damageType>
 			<damageType>POISON</damageType>
 		</availableDamageTypes>
-		
+
 		<!-- The spells that are unlocked when equipping this weapon. IF you want to add any, use the format:
 		<spells>
 			<spell>FIREBALL</spell>
 		</spells>
-		
+
 		Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/combat/Spell.java -->
 		<spells/>
-		
+
 		<!-- How many effects this weapon can be enchanted with. Should usually be left at 5. -->
 		<enchantmentLimit>5</enchantmentLimit>
-		
+
 		<!-- The effects that this weapon spawns in with. Remember that the player can remove/change/add effects. To know what to put in here, it would probably be easiest to enchant clothing in your game, save the game, then copy over that clothing's 'effects' in your save file.
 		There are two special values for secondaryModifier, which are: RESISTANCE_WEAPON and DAMAGE_WEAPON
 		RESISTANCE_WEAPON applies the related resistance of this weapon's damage type, while DAMAGE_WEAPON applies the related damage type.
 		For example, if this dagger spawned in as type POISON, and I'd replaced both instances of CRITICAL_CHANCE with DAMAGE_WEAPON, then this dagger would spawn with two +5 Poison Damage effects.-->
-		<effects> 
+		<effects>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_WEAPON" timer="0"/>
 		</effects>
-		
+
 		<!-- Your clothing can be colored any way you like, but if you'd like the player to be able to dye your clothing, you can specify available colors here. primaryColors and secondaryColors all spawn in as a default color, while their 'Dye' counterparts are only available if the player chooses to dye the clothing in that color. The game detects specific color values, and recolors them to the value chosen by the player. These values are as follows:
 		Red is used as base color for changing the DAMAGE TYPE's color of the graphic in-game, and the game will only recognize and change the following colors:
 			#ff2a2a
@@ -108,20 +108,20 @@
 			#ffeeaa
 			#fff6d5
 		As you can see above, weapons differ from clothing in that their 'Red' color is recolored based on the weapon's damage type! The "primaryColors" and "secondaryColors" defined below are for recoloring the Orange and Yellow values, respectively.
-			
+
 		ANY GRADIENTS THAT YOU USE SHOULD BE CALLED: "innoGrad1", "innoGrad2", etc.
 		You can see a visual representation of these colors (as used in clothing) here: https://www.lilithsthrone.com/wiki/doku.php?id=modding_wiki:modding:creating_clothes
 		Color lists to be used can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/utils/ColorListPresets.java -->
-		<primaryColors values="JUST_STEEL"/> 
+		<primaryColors values="JUST_STEEL"/>
 		<primaryColorsDye values="ALL_METAL"/>
-		<secondaryColors/> 
+		<secondaryColors/>
 		<secondaryColorsDye/>
-		
+
 		<!-- Special item tags that apply to this weapon. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
-		<itemTags> 
+		<itemTags>
 			<tag>SUBMISSION_TUNNEL_SPAWN</tag>
 		</itemTags>
-		
+
 	</coreAttributes>
 
 	<!-- Descriptions that are used when hitting an enemy. One of the hitText values will be randomly selected each time the attacker hits their target. Follow the same guidelines as equipText. -->
@@ -149,5 +149,5 @@
 		With a quick step forwards, [npc.name] [npc.verb(lunge)] out at [npc2.name] with [npc.her] metal pipe, but [npc.she] [npc.verb(miss)] [npc.her] target!
 		]]></missText>
 	</missDescriptions>
-	
+
 </weapon>

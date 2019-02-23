@@ -37,19 +37,19 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class NPCOffspring extends NPC {
-	
+
 	public NPCOffspring() {
 		this(false);
 	}
-	
+
 	public NPCOffspring(boolean isImported) {
 		super(isImported, null, null, "",
 				18, Month.JUNE, 15,
 				3, Gender.F_V_B_FEMALE, Subspecies.DOG_MORPH, RaceStage.GREATER, new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
-		
+
 		this.setEnslavementDialogue(DominionOffspringDialogue.ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	public NPCOffspring(GameCharacter mother, GameCharacter father) {
 		super(false, null, null, "",
 				0, Main.game.getDateNow().getMonth(), Main.game.getDateNow().getDayOfMonth(),
@@ -59,46 +59,46 @@ public class NPCOffspring extends NPC {
 		if(mother.getSurname()!=null && !mother.getSurname().isEmpty()) {
 			this.setSurname(mother.getSurname());
 		}
-		
+
 		this.setMother(mother);
 		this.setFather(father);
-		
+
 		this.setAffection(mother, AffectionLevel.POSITIVE_TWO_LIKE.getMedianValue());
 		this.setAffection(father, AffectionLevel.POSITIVE_TWO_LIKE.getMedianValue());
-		
+
 		// Set random level from 1 to 3:
 		setLevel(Util.random.nextInt(3) + 1);
-		
+
 		// BODY GENERATION:
-		
+
 		Gender gender = Gender.getGenderFromUserPreferences(false, false);
-		
+
 		Body preGeneratedBody = Subspecies.getPreGeneratedBody(this, gender, mother, father);
 		if(preGeneratedBody!=null) {
 			setBody(preGeneratedBody);
 		} else {
 			setBody(gender, mother, father);
 		}
-		
+
 		setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(getGender()));
 
 		setName(Name.getRandomTriplet(getRace()));
 
 		// PERSONALITY & BACKGROUND:
-		
+
 		CharacterUtils.setHistoryAndPersonality(this, true);
-		
+
 		// ADDING FETISHES:
-		
+
 		CharacterUtils.addFetishes(this);
-		
+
 		// INVENTORY:
-		
+
 		resetInventory(true);
 		inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
-		
+
 		equipClothing(true, true, true, true);
-		
+
 		CharacterUtils.applyMakeup(this, true);
 
 		if(this.getWorldLocation()==WorldType.HARPY_NEST) {
@@ -106,11 +106,11 @@ public class NPCOffspring extends NPC {
 		} else {
 			this.setEnslavementDialogue(DominionOffspringDialogue.ENSLAVEMENT_DIALOGUE);
 		}
-		
+
 		setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 		setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -122,7 +122,7 @@ public class NPCOffspring extends NPC {
 
 		if(this.getConceptionDate().isAfter(this.getBirthday())) {
 			this.setBirthday(this.getConceptionDate().plusMonths(2));
-			
+
 		} else if(Math.abs((int) ChronoUnit.DAYS.between(this.getConceptionDate(), this.getBirthday()))>300) {
 			this.setConceptionDate(this.getBirthday().minusMonths(2));
 		}
@@ -137,12 +137,12 @@ public class NPCOffspring extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getPetName(GameCharacter character) {
 		if(character.isPlayer()) {
@@ -153,7 +153,7 @@ public class NPCOffspring extends NPC {
 				} else {
 					return "Dad";
 				}
-				
+
 			} else if (playerPetName.equalsIgnoreCase("Mommy") || playerPetName.equalsIgnoreCase("Daddy")) {
 				if(Main.game.getPlayer().isFeminine()) {
 					return "Mommy";
@@ -166,7 +166,7 @@ public class NPCOffspring extends NPC {
 		}
 		return super.getPetName(character);
 	}
-	
+
 	private String getRelationshipFromPlayer() {
 		Set<Relationship> rel = Main.game.getPlayer().getRelationshipsTo(this);
 		if(rel.isEmpty())
@@ -183,11 +183,11 @@ public class NPCOffspring extends NPC {
 		else
 			return result;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		int daysToBirth = (int) ChronoUnit.DAYS.between(this.getConceptionDate(), this.getBirthday());
-		
+
 		if(this.getMother()==null || this.getFather()==null) {
 			return "";
 		}
@@ -207,23 +207,23 @@ public class NPCOffspring extends NPC {
 							:" [npc.she] was born.")
 						+ " You first encountered [npc.herHim] prowling the alleyways of Dominion, and, through some arcane-influenced instinct, you both recognized your relationship at first sight."));
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
 			setPendingClothingDressing(true);
 		}
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		if(this.getWorldLocation()==WorldType.HARPY_NEST) {
@@ -243,7 +243,7 @@ public class NPCOffspring extends NPC {
 			} else {
 				return new Response ("", "", HarpyNestOffspringDialogue.AFTER_COMBAT_DEFEAT);
 			}
-			
+
 		} else {
 			if (victory) {
 				return new Response("", "", DominionOffspringDialogue.AFTER_COMBAT_VICTORY);

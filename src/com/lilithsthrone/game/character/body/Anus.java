@@ -28,9 +28,9 @@ public class Anus implements BodyPartInterface {
 
 	public Anus(AnusType type, int wetness, float capacity, int elasticity, int plasticity, boolean virgin) {
 		this.type = type;
-		
+
 		orificeAnus = new OrificeAnus(wetness, capacity, elasticity, plasticity, virgin, type.getDefaultRacialOrificeModifiers());
-		
+
 		bleached = false;
 		assHair = BodyHair.ZERO_NONE;
 	}
@@ -39,12 +39,12 @@ public class Anus implements BodyPartInterface {
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
 	}
-	
+
 	@Override
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -58,11 +58,11 @@ public class Anus implements BodyPartInterface {
 	@Override
 	public String getDescriptor(GameCharacter owner) {
 		List<String> descriptorList = new ArrayList<String>();
-		
+
 		for(OrificeModifier om : orificeAnus.getOrificeModifiers()) {
 			descriptorList.add(om.getName());
 		}
-		
+
 		String wetnessDescriptor = orificeAnus.getWetness(owner).getDescriptor();
 		if(Main.game.isInSex() && Sex.getAllParticipants().contains(owner)) {
 			if(Sex.hasLubricationTypeFromAnyone(owner, SexAreaOrifice.ANUS)) {
@@ -73,7 +73,7 @@ public class Anus implements BodyPartInterface {
 		if(owner.getPubicHair().getValue()>=BodyHair.FOUR_NATURAL.getValue() && Main.game.isAssHairEnabled()) {
 			descriptorList.add("hairy");
 		}
-		
+
 		if(owner.isAnusBestial()) {
 			descriptorList.add(Util.randomItemFrom(Util.newArrayListOfValues(
 					"feral",
@@ -83,9 +83,9 @@ public class Anus implements BodyPartInterface {
 		} else {
 			descriptorList.add(type.getDescriptor(owner));
 		}
-		
+
 		descriptorList.add(orificeAnus.getCapacity().getDescriptor());
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
 
@@ -93,11 +93,11 @@ public class Anus implements BodyPartInterface {
 	public AnusType getType() {
 		return type;
 	}
-	
+
 	public void setType(AnusType type) {
 		this.type = type;
 	}
-	
+
 	public OrificeAnus getOrificeAnus() {
 		return orificeAnus;
 	}
@@ -106,14 +106,14 @@ public class Anus implements BodyPartInterface {
 	public boolean isBleached() {
 		return bleached;
 	}
-	
+
 	public String setAssBleached(GameCharacter owner, boolean bleached) {
 		if(this.bleached == bleached) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.bleached = bleached;
-		
+
 		if(bleached) {
 			if(owner.isPlayer()) {
 				return "<p>[style.boldTfSex(Your asshole is now bleached!)]</p>";
@@ -134,21 +134,21 @@ public class Anus implements BodyPartInterface {
 	public BodyHair getAssHair() {
 		return assHair;
 	}
-	
+
 	public Covering getAssHairType(GameCharacter owner) {
 		return owner.getCovering(owner.getBodyHairCoveringType(owner.getAssType().getRace()));
 	}
-	
+
 	public String setAssHair(GameCharacter owner, BodyHair assHair) {
 		if(owner==null) {
 			this.assHair=assHair;
 			return "";
 		}
 		String transformation = "";
-		
+
 		if(getAssHair() == assHair) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				switch(assHair) {
@@ -177,7 +177,7 @@ public class Anus implements BodyPartInterface {
 						transformation = "<p>You now have a wild, bushy mass of "+getAssHairType(owner).getFullDescription(owner, true)+" around your asshole.</p>";
 						break;
 				}
-				
+
 			} else {
 				switch(assHair) {
 					case ZERO_NONE:
@@ -207,9 +207,9 @@ public class Anus implements BodyPartInterface {
 				}
 			}
 		}
-		
+
 		this.assHair = assHair;
-		
+
 		return transformation;
 	}
 

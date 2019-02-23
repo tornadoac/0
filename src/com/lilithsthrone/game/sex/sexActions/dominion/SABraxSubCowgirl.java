@@ -32,7 +32,7 @@ import com.lilithsthrone.utils.Util.Value;
 public class SABraxSubCowgirl {
 
 	// TODO: This class isn't being used any more, but I need the facesitting actions for reference for when I add that position.
-	
+
 	// Player's actions:
 
 	public static final SexAction PLAYER_DIRTY_TALK = new SexAction(
@@ -59,12 +59,12 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if (Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.PENIS)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"You cry out as you bounce up and down on Brax's [npc.penis+], ",
 						"In amongst your moans, you cry down to Brax, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parsePlayerSpeech(
 							UtilText.returnStringAtRandom(
@@ -75,12 +75,12 @@ public class SABraxSubCowgirl {
 							"~Mmm!~ I love riding little betas like you!",
 
 							"Good boy! ~Aah!~ Let your alpha ride you like a little bitch!")));
-				
+
 			} else if (Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.PENIS)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"You cry out as you bounce up and down on Brax's [npc.penis+], ",
 						"In amongst your moans, you cry down to Brax, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parsePlayerSpeech(
 							UtilText.returnStringAtRandom(
@@ -91,12 +91,12 @@ public class SABraxSubCowgirl {
 							"~Mmm!~ I love riding little betas like you!",
 
 							"Good boy! ~Aah!~ Let your alpha ride you like a little bitch!")));
-				
+
 			} else if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.TONGUE)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Looking down at the top of Brax's face between your legs, you speak down to him, ",
 						"With a grin, you speak down to Brax, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parsePlayerSpeech(
 							UtilText.returnStringAtRandom(
@@ -107,12 +107,12 @@ public class SABraxSubCowgirl {
 							"Good boy Brax! Keep licking! Don't stop!",
 
 							"~Aah!~ Yes! Keep doing it like that!")));
-				
+
 			} else if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Looking down at the top of Brax's face between your legs, you speak down to him, ",
 						"With a grin, you speak down to Brax, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parsePlayerSpeech(
 							UtilText.returnStringAtRandom(
@@ -123,12 +123,12 @@ public class SABraxSubCowgirl {
 							"Good boy Brax! Keep licking! Don't stop!",
 
 							"~Aah!~ Yes! Keep doing it like that!")));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Looking down at Brax's submissive form beneath you, you speak down to him, ",
 						"With a grin, you speak down to Brax, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parsePlayerSpeech(
 							UtilText.returnStringAtRandom(
@@ -140,14 +140,14 @@ public class SABraxSubCowgirl {
 
 							"You want me to ride your little beta cock?")));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 		@Override
 		public void applyEffects() {
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
@@ -157,7 +157,7 @@ public class SABraxSubCowgirl {
 			}
 		}
 	};
-	
+
 
 	public static final SexAction PLAYER_COWGIRL_KISS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
@@ -240,7 +240,7 @@ public class SABraxSubCowgirl {
 		public void applyEffects() {
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FACESIT_PUSSY = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -260,7 +260,7 @@ public class SABraxSubCowgirl {
 			else
 				return CorruptionLevel.ONE_VANILLA;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_VAGINA))
@@ -288,28 +288,28 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_VAGINA)) {
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE)) {
 					UtilText.nodeContentSB.append("Deciding that you've had enough of Brax's tongue in your [pc.asshole+], you lift yourself up and shuffle backwards until your "
 								+Main.game.getPlayer().getVaginaName(true)+" is positioned over his face.");
-					
+
 				} else {
 					UtilText.nodeContentSB.append("You decide to put Brax's tongue to use, and shuffle forwards until your crotch is positioned over his face.");
 				}
-				
+
 				UtilText.nodeContentSB.append(" You feel a big dollop of slimy cum drip out of your "+Main.game.getPlayer().getVaginaName(true)+", and you let out a giggle as you smush the slimy creampie down onto Brax's wolf-like muzzle."
 						+ " You hold the squirming wolf-boy's head still as you press your cum-filled cunt down over his mouth, giving him no choice but to start cleaning you out."
 						+ " After a moment, Brax stops squirming as he realizes that it's useless to resist, and you let out a contented sigh as he starts licking out the cum from your creampied "+Main.game.getPlayer().getVaginaName(false)+".");
-				
+
 				return UtilText.nodeContentSB.toString();
-						
+
 			} else {
 				if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE)) {
 					return "Deciding that you've had enough of Brax's tongue in your [pc.asshole+], you lift yourself up and shuffle backwards until your "
 								+Main.game.getPlayer().getVaginaName(true)+" is positioned over his wolf-like muzzle."
 							+ " Lowering yourself down, you let out a pleased moan as you feel Brax's flat tongue greedily start to lick at your sensitive folds, and as your "
 								+Main.game.getPlayer().getVaginaName(true)+" comes to rest over his mouth, Brax starts eagerly eating you out.";
-					
+
 				} else {
 					return "You decide to put Brax's tongue to use, and shuffle forwards until your crotch is positioned over his wolf-like muzzle."
 							+ " Lowering yourself down, you let out a pleased moan as you feel Brax's flat tongue greedily start to lick at your sensitive folds, and as your "
@@ -317,7 +317,7 @@ public class SABraxSubCowgirl {
 				}
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
@@ -326,7 +326,7 @@ public class SABraxSubCowgirl {
 				} else {
 					return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT, Fetish.FETISH_ORAL_RECEIVING);
 				}
-				
+
 			} else {
 				if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_VAGINA)) {
 					return Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE, Fetish.FETISH_ORAL_GIVING, Fetish.FETISH_CUM_ADDICT);
@@ -336,7 +336,7 @@ public class SABraxSubCowgirl {
 			}
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FACESIT_ASS = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -355,7 +355,7 @@ public class SABraxSubCowgirl {
 			else
 				return CorruptionLevel.TWO_HORNY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_ANUS))
@@ -363,7 +363,7 @@ public class SABraxSubCowgirl {
 			else
 				return "Facesit (ass)";
 		}
-		
+
 		@Override
 		public String getActionDescription() {
 			if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_ANUS))
@@ -381,32 +381,32 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_ANUS)) {
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.TONGUE)) {
 					UtilText.nodeContentSB.append("Deciding that you've had enough of Brax's tongue in your "+Main.game.getPlayer().getVaginaName(true)+", you lift yourself up and shuffle forwards until your [pc.asshole+] is positioned over his face.");
-					
+
 				} else {
 					UtilText.nodeContentSB.append("You decide to put Brax's tongue to use, and shuffle forwards until your ass is positioned over his face.");
 				}
-				
+
 				UtilText.nodeContentSB.append(" You feel a big dollop of slimy cum drip out of your [pc.asshole+], and you let out a giggle as you smush the slimy creampie down onto Brax's wolf-like muzzle."
 						+ " You hold the squirming wolf-boy's head still as you press your cum-filled asshole down over his mouth, giving him no choice but to start cleaning you out."
 						+ " After a moment, Brax stops squirming as he realizes that it's useless to resist, and you let out a contented sigh as he starts licking out the cum from your creampied [pc.asshole].");
-				
+
 				return UtilText.nodeContentSB.toString();
-						
+
 			} else {
 				if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.TONGUE)) {
 					return "Deciding that you've had enough of Brax's tongue in your "+Main.game.getPlayer().getVaginaName(true)+", you lift yourself up and shuffle forwards until your [pc.asshole+] is positioned over his wolf-like muzzle."
 							+ " Lowering yourself down, you let out a pleased moan as you feel Brax's flat tongue obediently start to lick at your [pc.asshole+].";
-					
+
 				} else {
 					return "You decide to put Brax's tongue to use, and shuffle forwards until your [pc.asshole+] is positioned over his wolf-like muzzle."
 							+ " Lowering yourself down, you let out a pleased moan as you feel Brax's flat tongue obediently start to lick at your [pc.asshole+].";
 				}
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
@@ -415,7 +415,7 @@ public class SABraxSubCowgirl {
 				} else {
 					return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT, Fetish.FETISH_ORAL_RECEIVING, Fetish.FETISH_ANAL_RECEIVING);
 				}
-				
+
 			} else {
 				if(Main.game.getPlayer().hasStatusEffect(StatusEffect.CREAMPIE_ANUS)) {
 					return Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE, Fetish.FETISH_ORAL_GIVING, Fetish.FETISH_ANAL_GIVING, Fetish.FETISH_CUM_ADDICT);
@@ -425,7 +425,7 @@ public class SABraxSubCowgirl {
 			}
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FACESIT_PASSIVE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -451,20 +451,20 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"You hold yourself over Brax's mouth, letting out soft little moans as his wolf-like tongue eagerly laps at your "+Main.game.getPlayer().getVaginaName(true)+".",
-					
+
 					"You absent-mindedly stroke the top of Brax's head, moaning happily as he eats you out.",
-					
+
 					"Reaching down to playfully stroke Brax's furry wolf-like ears, you let out a contented moan as he buries his tongue deep in your "+Main.game.getPlayer().getVaginaName(true)+".",
-						
+
 					"Holding yourself over Brax's face, you let out a series of lewd moans as his wide, wolf-like tongue pushes its way eagerly into your "+Main.game.getPlayer().getVaginaName(true)+".");
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT, Fetish.FETISH_ORAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FACESIT_PASSIVE_ANAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -490,20 +490,20 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"You hold yourself over Brax's mouth, letting out soft little moans as his wolf-like tongue obediently laps at your [pc.asshole+].",
-					
+
 					"You absent-mindedly stroke the top of Brax's head, moaning happily as he licks away at your [pc.asshole+].",
-					
+
 					"Reaching down to playfully stroke Brax's furry wolf-like ears, you let out a contented moan as he buries his tongue deep in your [pc.asshole+].",
-						
+
 					"Holding yourself over Brax's face, you let out a series of lewd moans as his wide, wolf-like tongue obediently pushes its way into your [pc.asshole+].");
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT, Fetish.FETISH_ORAL_RECEIVING, Fetish.FETISH_ANAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FACESIT_GRIND = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -531,31 +531,31 @@ public class SABraxSubCowgirl {
 				return UtilText.returnStringAtRandom(
 						"Feeling like taking it up a notch, you collapse down onto Brax's face, completely smothering his mouth with your "+Main.game.getPlayer().getVaginaName(true)+"."
 								+ " As he starts to whine and squirm, you grind yourself down onto his wolf-like muzzle, letting out a desperate squeal as his tongue is forced deep into your "+Main.game.getPlayer().getVaginaName(true)+".",
-						
+
 						"Allowing your legs to give way, you collapse down onto Brax's face, grinding your "+Main.game.getPlayer().getVaginaName(true)+" down hard against his mouth as he squirms and whines beneath you.",
-						
+
 						"Reaching down to take hold of Brax's furry wolf-like ears, you collapse down onto his face, letting out a delighted squeal as his tongue is forced deep into your "+Main.game.getPlayer().getVaginaName(true)+".",
-							
+
 						"Spreading your legs out a little further, you sink down onto Brax's wolf-like muzzle, letting out a desperate moan as you grind your "+Main.game.getPlayer().getVaginaName(true)+" down hard against his eager tongue.");
 			} else {
 				return UtilText.returnStringAtRandom(
 						"Feeling like taking it up a notch, you collapse down onto Brax's face, completely smothering his mouth with your "+Main.game.getPlayer().getAssName(true)+"."
 								+ " As he starts to whine and squirm, you grind yourself down onto his wolf-like muzzle, letting out a desperate squeal as his tongue is forced deep into your [pc.asshole+].",
-						
+
 						"Allowing your legs to give way, you collapse down onto Brax's face, grinding your [pc.asshole+] down hard against his mouth as he squirms and whines beneath you.",
-						
+
 						"Reaching down to take hold of Brax's furry wolf-like ears, you collapse down onto his face, letting out a delighted squeal as his tongue is forced deep into your [pc.asshole+].",
-							
+
 						"Spreading your legs out a little further, you sink down onto Brax's wolf-like muzzle, letting out a desperate moan as you grind your [pc.asshole+] down hard against his eager tongue.");
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT, Fetish.FETISH_ORAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FACESIT_GRIND_ANAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -582,14 +582,14 @@ public class SABraxSubCowgirl {
 			return UtilText.returnStringAtRandom(
 					"Feeling like taking it up a notch, you collapse down onto Brax's face, completely smothering his mouth with your "+Main.game.getPlayer().getAssName(true)+"."
 							+ " As he starts to whine and squirm, you grind yourself down onto his wolf-like muzzle, letting out a desperate squeal as his tongue is forced deep into your [pc.asshole+].",
-					
+
 					"Allowing your legs to give way, you collapse down onto Brax's face, grinding your [pc.asshole+] down hard against his mouth as he squirms and whines beneath you.",
-					
+
 					"Reaching down to take hold of Brax's furry wolf-like ears, you collapse down onto his face, letting out a delighted squeal as his tongue is forced deep into your [pc.asshole+].",
-						
+
 					"Spreading your legs out a little further, you sink down onto Brax's wolf-like muzzle, letting out a desperate moan as you grind your [pc.asshole+] down hard against his eager tongue.");
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT, Fetish.FETISH_ORAL_RECEIVING, Fetish.FETISH_ANAL_RECEIVING);
@@ -621,7 +621,7 @@ public class SABraxSubCowgirl {
 		public boolean isBaseRequirementsMet() {
 			return !Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE);
 		}
-		
+
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
@@ -637,7 +637,7 @@ public class SABraxSubCowgirl {
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_PENETRATE_ASS = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -677,13 +677,13 @@ public class SABraxSubCowgirl {
 
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_ANAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_STOP_RIDING = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -716,7 +716,7 @@ public class SABraxSubCowgirl {
 					+ " With a quick shuffle, you return to sitting on the wolf-boy's toned, fur-covered stomach.";
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_STOP_RIDING_ANAL = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -744,7 +744,7 @@ public class SABraxSubCowgirl {
 					+ " With a quick shuffle, you return to sitting on the wolf-boy's toned, fur-covered stomach.";
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_STOP_TONGUE_RIDING = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -777,7 +777,7 @@ public class SABraxSubCowgirl {
 					+ " With a quick shuffle, you return to sitting on the wolf-boy's toned, fur-covered stomach.";
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_STOP_TONGUE_RIDING_ANAL = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -810,7 +810,7 @@ public class SABraxSubCowgirl {
 					+ " With a quick shuffle, you return to sitting on the wolf-boy's toned, fur-covered stomach.";
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_BRAXS_HANDS_ON_TITS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -840,38 +840,38 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.NIPPLES)) {
 				return UtilText.returnStringAtRandom(
 						"Reaching down, you take hold of Brax's paw-like hands and guide them up to your chest, letting out a lewd moan as he eagerly starts groping and squeezing at the soft flesh of your "+Main.game.getPlayer().getBreastName(true)+".",
-						
+
 						"Guiding Brax's paw-like hands up to your exposed chest, you let out a lewd moan as you feel the tough little pads on the undersides of his fingers pinch down and squeeze your "+Main.game.getPlayer().getNippleName(true)+".",
-						
+
 						"Pushing your chest out towards Brax, you guide his hands up to your exposed breasts, letting out a little squeal as he starts to eagerly pinch and squeeze your "+Main.game.getPlayer().getNippleName(true)+".",
-							
+
 						"Guiding Brax's hands up to your exposed "+Main.game.getPlayer().getBreastName(true)+", you let out a little cry as he starts eagerly groping your chest, digging the tough little pads on his palms roughly into your soft flesh.");
 			} else {
 				return UtilText.returnStringAtRandom(
 						"Reaching down, you take hold of Brax's paw-like hands and guide them up to your chest, letting out a lewd moan as he eagerly starts groping and squeezing at your "+Main.game.getPlayer().getBreastName(true)
 								+ " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".",
-						
+
 						"Guiding Brax's paw-like hands up to your chest, you let out a lewd moan as you feel his fingers trying to pinch down and squeeze at your "+Main.game.getPlayer().getNippleName(true)+""
 								+ " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".",
-						
+
 						"Pushing your chest out towards Brax, you guide his hands up to your breasts, letting out a little squeal as he starts to eagerly grope at your chest"
 								+ " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".",
-							
+
 						"Guiding Brax's hands up to your "+Main.game.getPlayer().getBreastName(true)+", you let out a little cry as he starts eagerly groping your chest, digging the tough little pads on his palms roughly into your soft flesh"
 								+ " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".");
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_BREASTS_SELF);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_SLOW = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -897,17 +897,17 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Using your legs, you slowly lift yourself up and down, sliding Brax's [npc.penis+] in and out of your "+Main.game.getPlayer().getVaginaName(true)+" as you both moan and groan in pleasure.",
-					
+
 					"Leaning forwards, you use your hands to support some of your weight as you slowly slide up and down on Brax's [npc.penis+]."
 							+ " As you lower your face towards the submissive wolf-boy, you get a waft of his masculine musk, and you bite your lip as you eagerly breathe in the intoxicating scent.",
-					
+
 					"Lowering your hands to your knees, you use your legs to slide yourself up and down on Brax's [npc.penis+], letting out high-pitched moans as you impale yourself on the grinning wolf-boy.",
-						
+
 					"You slowly lift yourself up before sliding back down, spearing your "+Main.game.getPlayer().getVaginaName(true)+" on Brax's [npc.penis+] as you let out a lewd moan.");
-			
+
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_SLOW_ANAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -933,21 +933,21 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Using your legs, you slowly lift yourself up and down, sliding Brax's [npc.penis+] in and out of your [pc.asshole+] as you both moan and groan in pleasure.",
-					
+
 					"Leaning forwards, you use your hands to support some of your weight as you slowly slide up and down on Brax's [npc.penis+]."
 							+ " As you lower your face towards the submissive wolf-boy, you get a waft of his masculine musk, and you bite your lip as you eagerly breathe in the intoxicating scent.",
-					
+
 					"Lowering your hands to your knees, you use your legs to slide yourself up and down on Brax's [npc.penis+], letting out high-pitched moans as you impale yourself on the grinning wolf-boy.",
-						
+
 					"You slowly lift yourself up before sliding back down, spearing your [pc.asshole+] on Brax's [npc.penis+] as you let out a lewd moan.");
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_ANAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FAST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -974,18 +974,18 @@ public class SABraxSubCowgirl {
 			return UtilText.returnStringAtRandom(
 					"Using your legs, you start to rapidly bounce yourself up and down, slamming Brax's [npc.penis+] in and out of your "+Main.game.getPlayer().getVaginaName(true)
 						+" as you squeal and moan in pleasure.",
-					
+
 					"Leaning forwards, you use Brax's furry, masculine chest to support most of your weight before starting to rapidly buck your hips up and down on his [npc.penis+]."
 							+ " As your face comes closer to his body, you get a waft of his masculine musk, and you bite your lip as you eagerly breathe in the intoxicating scent.",
-					
+
 					"Placing your hands down on the floor behind you for support, you start rapidly bouncing yourself up and down on Brax's "+Sex.getActivePartner().getPenisName(true)
 						+", letting out shuddering high-pitched moans as you repeatedly impale yourself on the grinning wolf-boy.",
-						
+
 					"Grinning down at Brax, you start enthusiastically sliding up and down, repeatedly spearing your "+Main.game.getPlayer().getVaginaName(true)+" on Brax's "+Sex.getActivePartner().getPenisName(true)
 						+" as you let out a series of high-pitched moans.");
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FAST_ANAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1011,18 +1011,18 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Using your legs, you start to rapidly bounce yourself up and down, slamming Brax's [npc.penis+] in and out of your [pc.asshole+] as you squeal and moan in pleasure.",
-					
+
 					"Leaning forwards, you use Brax's furry, masculine chest to support most of your weight before starting to rapidly buck your hips up and down on his [npc.penis+]."
 							+ " As your face comes closer to his body, you get a waft of his masculine musk, and you bite your lip as you eagerly breathe in the intoxicating scent.",
-					
+
 					"Placing your hands down on the floor behind you for support, you start rapidly bouncing yourself up and down on Brax's "+Sex.getActivePartner().getPenisName(true)
 						+", letting out shuddering high-pitched moans as you repeatedly impale yourself on the grinning wolf-boy.",
-						
+
 					"Grinning down at Brax, you start enthusiastically sliding up and down, repeatedly spearing your [pc.asshole+] on Brax's "+Sex.getActivePartner().getPenisName(true)
 						+" as you let out a series of desperate groans.");
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_CUM_KISS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -1072,7 +1072,7 @@ public class SABraxSubCowgirl {
 			if (SexFlags.braxCumOnChest)
 				SexFlags.braxCumOnChest = false;
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
@@ -1082,7 +1082,7 @@ public class SABraxSubCowgirl {
 			}
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_FEED_CUM = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -1134,7 +1134,7 @@ public class SABraxSubCowgirl {
 			if (SexFlags.braxCumOnChest)
 				SexFlags.braxCumOnChest = false;
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
@@ -1171,12 +1171,12 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if (Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.PENIS)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Brax cries out as you bounce up and down on his [npc.penis+], ",
 						"In amongst his groans, Brax cries up to you, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parseSpeech(
 							UtilText.returnStringAtRandom(
@@ -1187,12 +1187,12 @@ public class SABraxSubCowgirl {
 							"~Aah!~ I'm your little toy!",
 
 							"I'm your good little beta! ~Aah!~ Use me!"), Sex.getActivePartner()));
-				
+
 			} else if (Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.PENIS)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Brax cries out as you bounce up and down on his [npc.penis+], ",
 						"In amongst his groans, Brax cries up to you, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parseSpeech(
 							UtilText.returnStringAtRandom(
@@ -1203,12 +1203,12 @@ public class SABraxSubCowgirl {
 							"~Aah!~ I'm your little toy!",
 
 							"I'm your good little beta! ~Aah!~ Use me!"), Sex.getActivePartner()));
-				
+
 			} else if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.TONGUE)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Looking up from between your legs, Brax mumbles into your pussy, ",
 						"Brax mumbles up to you, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parseSpeech(
 							UtilText.returnStringAtRandom(
@@ -1219,12 +1219,12 @@ public class SABraxSubCowgirl {
 							"~Mrph!~ You're... ~Mrph!~ Alpha!",
 
 							"~Mrph!~ Taste... ~Mmm!~ Good!"), Sex.getActivePartner()));
-				
+
 			} else if(Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE)) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Brax mumbles into your ass, ",
 						"Brax mumbles up to you, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parseSpeech(
 							UtilText.returnStringAtRandom(
@@ -1235,12 +1235,12 @@ public class SABraxSubCowgirl {
 							"~Mrph!~ You're... ~Mrph!~ Alpha!",
 
 							"~Mrph!~ Hope... ~Mmm!~ Happy!"), Sex.getActivePartner()));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Looking up at you, Brax mumbles, ",
 						"Brax mumbles up to you, "));
-				
+
 				UtilText.nodeContentSB.append(
 						UtilText.parseSpeech(
 							UtilText.returnStringAtRandom(
@@ -1252,11 +1252,11 @@ public class SABraxSubCowgirl {
 
 							"You're my alpha..."), Sex.getActivePartner()));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_TAKE_IT_CUNNILINGUS = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -1282,11 +1282,11 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Brax stays still, letting out little groans as he eagerly licks away at your "+Main.game.getPlayer().getVaginaName(true)+".",
-					
+
 					"As you sit on Brax's face, he stays quite still, letting out little whining noises as he laps hungrily at your "+Main.game.getPlayer().getVaginaName(true)+".",
-					
+
 					"Brax groans happily beneath you, seeming to be quite content with eating you out like a submissive bitch.",
-						
+
 					"As Brax licks happily away at your "+Main.game.getPlayer().getVaginaName(true)+", he remains motionless, looking up from between your legs with big, submissive eyes.");
 		}
 
@@ -1295,7 +1295,7 @@ public class SABraxSubCowgirl {
 			return Util.newArrayListOfValues(Fetish.FETISH_ORAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_TAKE_IT_ANILINGUS = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -1321,20 +1321,20 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Brax stays still, letting out little groans as he obediently licks away at your [pc.asshole+].",
-					
+
 					"As you sit on Brax's face, he stays quite still, letting out little whining noises as he laps dutifully away at your [pc.asshole+].",
-					
+
 					"Brax groans beneath you, seeming to be quite content to perform anilingus on you like a submissive bitch.",
-						
+
 					"As Brax licks away at your [pc.asshole+], he remains motionless, letting out low, submissive whines every now and then.");
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_ORAL_RECEIVING, Fetish.FETISH_ANAL_RECEIVING);
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_TAKE_IT_RIDING = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -1360,15 +1360,15 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Brax stays still, letting out satisfied little groans as you impale your "+Main.game.getPlayer().getVaginaName(true)+" on his [npc.penis+].",
-					
+
 					"As you carry on riding Brax's [npc.penis+], he stays quite still, letting out little whining noises every time his knot bumps against your "+Main.game.getPlayer().getVaginaName(true)+".",
-					
+
 					"Brax groans beneath you, seeming to be quite content to just lie still and let you ride his [npc.penis+].",
-						
+
 					"As you carry on impaling your "+Main.game.getPlayer().getVaginaName(true)+" on Brax's [npc.penis+], he remains motionless, looking up at you with big, submissive eyes.");
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_TAKE_IT = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -1394,21 +1394,21 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Brax stays still, letting out satisfied little groans as you impale your [pc.asshole+] on his [npc.penis+].",
-					
+
 					"As you carry on riding Brax's [npc.penis+], he stays quite still, letting out little whining noises every time his knot bumps against your [pc.asshole+].",
-					
+
 					"Brax groans beneath you, seeming to be quite content to just lie still and let you ride his [npc.penis+].",
-						
+
 					"As you carry on impaling your [pc.asshole+] on Brax's [npc.penis+], he remains motionless, looking up at you with big, submissive eyes.");
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_ANAL_RECEIVING);
 		}
-		
+
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_MASTURBATE = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -1438,25 +1438,25 @@ public class SABraxSubCowgirl {
 						"As you carry on using his tongue, Brax reaches down to grab his [npc.penis+], letting out a series of pathetic whines as he starts jerking himself off.",
 
 						"With his tongue still buried between your legs, Brax takes hold of his [npc.penis+], and with a low groan, starts masturbating beneath you.",
-						
+
 						"With his [npc.penis+] not receiving any attention, Brax reaches down between his legs and starts submissively jerking off.",
-							
+
 						"As you carry on sitting on his face, Brax reaches down to his groin, and, after spending a moment squeezing and stroking his fat knot, starts submissively stroking his [npc.penis+].");
-			
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"You feel Brax's [npc.penis+] prodding against your lower back as you sit on his stomach, and, with a pleading whining noise, he reaches around and starts submissively jerking himself off.",
 
 						"Brax's level of arousal makes itself known as you feel his [npc.penis+] poking into your lower back."
 								+ " With an amused smirk, you look down at the submissive wolf-boy as he reaches around and starts jerking off behind you.",
-						
+
 						"With his [npc.penis+] not receiving any attention, Brax reaches around between his legs and starts submissively masturbating.",
-							
+
 						"With a pathetic whine, Brax reaches around to his groin, and, after spending a moment squeezing and stroking his fat knot, starts submissively stroking his [npc.penis+].");
 			}
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_BOUNCE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1482,15 +1482,15 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Brax gently bucks his hips in time with your bounces, helping to impale your "+Main.game.getPlayer().getVaginaName(true)+" on his [npc.penis+].",
-					
+
 					"As you carry on riding him, Brax starts bucking his hips, helping to fill your "+Main.game.getPlayer().getVaginaName(true)+" with his [npc.penis+].",
-					
+
 					"With a lewd groan, Brax starts bucking his hips up into you, helping you to ride his [npc.penis+].",
-						
+
 					"As you carry on impaling your "+Main.game.getPlayer().getVaginaName(true)+" on Brax's [npc.penis+], he starts gently bucking his hips up in time with your bounces.");
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_BOUNCE_ANAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1516,15 +1516,15 @@ public class SABraxSubCowgirl {
 		public String getDescription() {
 			return UtilText.returnStringAtRandom(
 					"Brax gently bucks his hips in time with your bounces, helping to impale your [pc.asshole+] on his [npc.penis+].",
-					
+
 					"As you carry on riding him, Brax starts bucking his hips, helping to fill your [pc.asshole+] with his [npc.penis+].",
-					
+
 					"With a lewd groan, Brax starts bucking his hips up into you, helping you to ride his [npc.penis+].",
-						
+
 					"As you carry on impaling your [pc.asshole+] on Brax's [npc.penis+], he starts gently bucking his hips up in time with your bounces.");
 		}
 	};
-	
+
 	public static final SexAction PARTNER_COWGIRL_GROPE_BREASTS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.THREE_NORMAL,
@@ -1554,40 +1554,40 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.NIPPLES)) {
 				return UtilText.returnStringAtRandom(
 						"You see Brax staring at your chest, and, letting out a playful giggle, you guide his hands up to your chest,"
 								+ " where he immediately starts groping and squeezing at the soft flesh of your "+Main.game.getPlayer().getBreastName(true)+".",
-						
+
 						"Brax suggestively reaches his paw-like hands up to your exposed chest, and, deciding not to stop him,"
 								+ " you let out a lewd moan as he starts to pinch and squeeze at your "+Main.game.getPlayer().getNippleName(true)+".",
-						
+
 						"Brax reaches up to your chest, and, letting him have some fun, you allow him to start eagerly pinching and squeezing your "+Main.game.getPlayer().getNippleName(true)+", causing you to let out a lewd moan.",
-							
+
 						"Letting Brax reach up to your exposed "+Main.game.getPlayer().getBreastName(true)+", you let out a little cry as he starts eagerly groping your chest, digging the tough little pads on his palms roughly into your soft flesh.");
 			} else {
 				return UtilText.returnStringAtRandom(
 						"You see Brax staring at your chest, and, letting out a playful giggle, you guide his hands up to your chest, letting out a lewd moan as he eagerly starts groping and squeezing at your "+Main.game.getPlayer().getBreastName(true)
 								+ " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".",
-						
+
 						"Brax suggestively reaches his paw-like hands up to your exposed chest, and, deciding not to stop him,"
 								+ " you let out a lewd moan as you feel his fingers trying to pinch down and squeeze at your "+Main.game.getPlayer().getNippleName(true)+""
 								+ " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".",
-						
+
 						"Brax reaches up to your chest, and, letting him have some fun, you allow him to start eagerly groping at your chest" + " through your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".",
-							
+
 						"Letting Brax reach up to your exposed "+Main.game.getPlayer().getBreastName(true)+", you let out a little cry as he starts eagerly groping your chest, roughly pressing his paw-like hands down"
 								+ " on your "+Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.NIPPLES).getName()+".");
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_BREASTS_SELF);
 		}
 	};
-	
+
 	// Player's orgasms:
 
 	public static final SexAction PLAYER_COWGIRL_ORGASM_NO_PEN = new SexAction(
@@ -1619,16 +1619,16 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("As you feel yourself reaching your climax, you let out a desperate moan, and you brace for your orgasm. ");
 
 			// Penis:
 			if (Main.game.getPlayer().hasPenis()) {
-				
+
 				if(Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.PENIS)) {
 					UtilText.nodeContentSB.append(" Reaching down, you grab your "+Main.game.getPlayer().getPenisName(true)+", before starting to furiously masturbate as you rock gently back and forth on Brax's furry stomach."
 							+ " Letting out a desperate groan, you feel your cock twitching as your orgasm washes over you");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(" Rocking gently back and forth on Brax's furry stomach, you reach down and start rubbing at your "+Main.game.getPlayer().getPenisName(true)+" through your "
 							+ Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.PENIS).getName()+"."
@@ -1684,19 +1684,19 @@ public class SABraxSubCowgirl {
 					default:
 						break;
 				}
-				
+
 				// Vagina:
 				if(Main.game.getPlayer().getVaginaType()!=VaginaType.NONE)
 					UtilText.nodeContentSB.append("<br/><br/>"
 							+ "As your balls finish emptying themselves on Brax's stomach, you feel a second wave of intense heat building in your groin."
 							+ " Grabbing Brax's chest to brace yourself, you go weak at the knees and clench your thighs together as your hot slit shudders and quivers."
 							+ " Another mind-splitting orgasm washes through you, and you moan and squeal in delight as your feminine sex provides you with a wave of intense pleasure.");
-			
+
 			} else if(Main.game.getPlayer().getVaginaType()!=VaginaType.NONE) {
 				UtilText.nodeContentSB.append(" Rocking gently back and forth on Brax's furry stomach, you feel an intense heat building in your groin."
 						+ " Grabbing the wolf-boy's chest to brace yourself, you go weak at the knees and clench your thighs together as your hot slit shudders and quivers."
 						+ " A mind-splitting orgasm washes through you, and you moan and squeal in delight as your feminine sex provides you with a wave of intense pleasure.");
-				
+
 			}else {
 				UtilText.nodeContentSB.append(" Rocking gently back and forth on Brax's furry stomach, you feel an intense heat building in your genderless mound."
 						+ " Grabbing the wolf-boy's chest to brace yourself, you go weak at the knees and clench your thighs together as your doll-like crotch sends jolts of pleasure up through your body."
@@ -1741,7 +1741,7 @@ public class SABraxSubCowgirl {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if (Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.ANUS).contains(SexAreaPenetration.TONGUE))
 				UtilText.nodeContentSB.append("As you feel Brax's tongue lapping away at your [pc.asshole+], you realize that you're starting to climax, and with a desperate moan, you brace for your orgasm. ");
 			else
@@ -1749,11 +1749,11 @@ public class SABraxSubCowgirl {
 
 			// Penis:
 			if (Main.game.getPlayer().hasPenis()) {
-				
+
 				if(Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.PENIS)) {
 					UtilText.nodeContentSB.append(" Reaching down, you grab your "+Main.game.getPlayer().getPenisName(true)+", furiously masturbating as you grind down on Brax's wolf-like muzzle."
 							+ " Letting out a desperate groan, you feel your "+Main.game.getPlayer().getPenisName(true)+" twitching as your orgasm washes over you");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(" Grinding down on Brax's wolf-like muzzle, you reach down and start rubbing at your "+Main.game.getPlayer().getPenisName(true)+" through your "
 							+ Main.game.getPlayer().getHighestZLayerCoverableArea(CoverableArea.PENIS).getName()+"."
@@ -1809,19 +1809,19 @@ public class SABraxSubCowgirl {
 					default:
 						break;
 				}
-				
+
 				// Vagina:
 				if(Main.game.getPlayer().getVaginaType()!=VaginaType.NONE)
 					UtilText.nodeContentSB.append("<br/><br/>"
 							+ "As your balls finish emptying themselves, you feel a second wave of intense heat building in your groin."
 							+ " You go weak at the knees, and, collapsing down completely on Brax's face, you clench your thighs together as your hot slit shudders and quivers."
 							+ " Another mind-splitting orgasm washes through you, and you moan and squeal in delight as your feminine sex provides you with a wave of intense pleasure.");
-			
+
 			} else if(Main.game.getPlayer().getVaginaType()!=VaginaType.NONE) {
 				UtilText.nodeContentSB.append( "Squealing out in pleasure, you feel an intense heat building in your groin."
 						+ " You go weak at the knees, and, collapsing down completely on Brax's face, you clench your thighs together as your hot slit shudders and quivers."
 						+ " A mind-splitting orgasm washes through you, and you moan and squeal in delight as your feminine sex provides you with a wave of intense pleasure.");
-				
+
 			}else {
 				UtilText.nodeContentSB.append(" Rocking gently back and forth on Brax's furry stomach, you feel an intense heat building in your genderless mound."
 						+ " Grabbing the wolf-boy's chest to brace yourself, you go weak at the knees and clench your thighs together as your doll-like crotch sends jolts of pleasure up through your body."
@@ -1835,7 +1835,7 @@ public class SABraxSubCowgirl {
 		public void applyEffects() {
 		}
 	};
-	
+
 	public static final SexAction PLAYER_COWGIRL_ORGASM_RIDING_COCK = new SexAction(
 			SexActionType.ORGASM,
 			ArousalIncrease.FOUR_HIGH,
@@ -1962,7 +1962,7 @@ public class SABraxSubCowgirl {
 //			Sex.removePenetration(PenetrationType.PENIS, OrificeType.VAGINA); TODO
 //			Sex.removePenetration(PenetrationType.PENIS, OrificeType.ANUS);
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			return Util.newArrayListOfValues(Fetish.FETISH_DOMINANT);
@@ -2007,7 +2007,7 @@ public class SABraxSubCowgirl {
 						+ "<br/>"
 						+ "Brax lets out a wild groan, and you squirm in delight as you feel his cock spurting it's potent load into your slutty backdoor."
 						+ " After a few moments, you feel the knot deflating, and with a wet pop, it slips out, freeing you up again.";
-				
+
 			} else if (!Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).isEmpty()) {
 				return "Brax's groans start getting louder, and you realize that he's about to orgasm."
 						+ " Feeling the fat cock in your pussy throbbing wildly, you're suddenly overcome by the desperate need to "+(Main.game.getPlayer().isVisiblyPregnant()?"be":"have your womb")+" filled with his sticky seed."
@@ -2016,7 +2016,7 @@ public class SABraxSubCowgirl {
 						+ "<br/>"
 						+ "Brax lets out a wild groan, and you squirm in delight as you feel his cock spurting it's potent load straight into your "+(Main.game.getPlayer().isVisiblyPregnant()?"waiting pussy":"waiting womb")+"."
 						+ " After a few moments, you feel the knot deflating, and with a wet pop, it slips out, freeing you up again.";
-				
+
 			} else {
 				return "Brax's groans start getting louder, and you realize that he's about to orgasm."
 						+ " Looking back at his [npc.penis+], you're suddenly overcome by the desperate need to start stroking it."
@@ -2034,23 +2034,23 @@ public class SABraxSubCowgirl {
 //			if(Sex.getPenetrationTypeInOrifice(Main.game.getPlayer(), OrificeType.ANUS)==null && Sex.getPenetrationTypeInOrifice(OrificeType.VAGINA)==null)
 //				SexFlags.braxCumOnChest = true; TODO
 		}
-		
+
 
 		@Override
 		public List<SexAreaInterface> getAreasCummedIn(GameCharacter cumProvider, GameCharacter cumTarget) {
 			if(!cumProvider.isPlayer() && cumTarget.equals(Sex.getTargetedPartner(cumProvider))) {
 				if (Sex.getAllContactingSexAreas(cumTarget, SexAreaOrifice.VAGINA).contains(SexAreaPenetration.PENIS) && Sex.getCharacterContactingSexArea(cumTarget, SexAreaOrifice.VAGINA).contains(cumProvider)) {
 					return Util.newArrayListOfValues(SexAreaOrifice.VAGINA);
-					
+
 				} else if (Sex.getAllContactingSexAreas(cumTarget, SexAreaOrifice.ANUS).contains(SexAreaPenetration.PENIS) && Sex.getCharacterContactingSexArea(cumTarget, SexAreaOrifice.ANUS).contains(cumProvider)) {
 					return Util.newArrayListOfValues(SexAreaOrifice.ANUS);
-					
+
 				} else if (Sex.getAllContactingSexAreas(cumTarget, SexAreaOrifice.MOUTH).contains(SexAreaPenetration.PENIS) && Sex.getCharacterContactingSexArea(cumTarget, SexAreaOrifice.MOUTH).contains(cumProvider)) {
 					return Util.newArrayListOfValues(SexAreaOrifice.MOUTH);
-					
+
 				} else if (Sex.getAllContactingSexAreas(cumTarget, SexAreaOrifice.NIPPLE).contains(SexAreaPenetration.PENIS) && Sex.getCharacterContactingSexArea(cumTarget, SexAreaOrifice.NIPPLE).contains(cumProvider)) {
 					return Util.newArrayListOfValues(SexAreaOrifice.NIPPLE);
-					
+
 				} else {
 					return null;
 				}
@@ -2058,7 +2058,7 @@ public class SABraxSubCowgirl {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if (!Sex.getAllContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.VAGINA).isEmpty())
@@ -2069,5 +2069,5 @@ public class SABraxSubCowgirl {
 				return null;
 		}
 	};
-	
+
 }

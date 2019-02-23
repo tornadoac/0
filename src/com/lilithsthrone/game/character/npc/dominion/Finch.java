@@ -64,7 +64,7 @@ public class Finch extends NPC {
 	public Finch() {
 		this(false);
 	}
-	
+
 	public Finch(boolean isImported) {
 		super(isImported, new NameTriplet("Finch"), "Moreno",
 				"Finch is the manager of Slaver Alley's 'Slave Administration' building."
@@ -75,9 +75,9 @@ public class Finch extends NPC {
 				Gender.M_P_MALE,
 				Subspecies.CAT_MORPH, RaceStage.PARTIAL_FULL, new CharacterInventory(10),
 				WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_SLAVERY_ADMINISTRATION, true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -89,31 +89,31 @@ public class Finch extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 20);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 90);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_SLAVER_ADMIN);
-			
+
 			this.addFetish(Fetish.FETISH_EXHIBITIONIST);
 			this.addFetish(Fetish.FETISH_SADIST);
 			this.addFetish(Fetish.FETISH_NON_CON_DOM);
 			this.addFetish(Fetish.FETISH_DEFLOWERING);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -121,7 +121,7 @@ public class Finch extends NPC {
 		this.setFemininity(25);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_FELINE, Color.EYE_GREEN));
@@ -145,7 +145,7 @@ public class Finch extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -153,7 +153,7 @@ public class Finch extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.FLAT.getMeasurement());
@@ -161,7 +161,7 @@ public class Finch extends NPC {
 		this.setNippleSize(NippleSize.ZERO_TINY);
 		this.setAreolaeSize(AreolaeSize.ZERO_TINY);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -172,28 +172,28 @@ public class Finch extends NPC {
 		this.setAssElasticity(OrificeElasticity.ONE_RIGID.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.ONE_THIN);
 		this.setPenisSize(3);
 		this.setTesticleSize(TesticleSize.ONE_TINY);
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
 
 		this.setMoney(10);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_CROTCHLESS_BRIEFS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_CROTCHLESS_CHAPS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SHORT_SLEEVE_SHIRT, Color.CLOTHING_BLACK, false), true, this);
@@ -201,7 +201,7 @@ public class Finch extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_WORK_BOOTS, Color.CLOTHING_BLACK, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
@@ -210,12 +210,12 @@ public class Finch extends NPC {
 	@Override
 	public void dailyReset() {
 		clearNonEquippedInventory();
-		
+
 		// Always at least 4 slave collars:
 		for(int i = 0; i<4; i++) {
 			this.addClothing(AbstractClothingType.generateClothing(ClothingType.NECK_SLAVE_COLLAR, false), false);
 		}
-		
+
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
 			try {
 				if(clothing!=null && clothing.getItemTags().contains(ItemTag.SOLD_BY_FINCH)) {
@@ -236,16 +236,16 @@ public class Finch extends NPC {
 				ex.printStackTrace();
 			}
 		}
-		
+
 		for(AbstractClothing clothing : this.getAllClothingInInventory()) {
 			clothing.setEnchantmentKnown(true);
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

@@ -36,17 +36,17 @@ public class SMLyssiethDemonTF extends SexManagerDefault {
 	public boolean isPartnerWantingToStopSex(GameCharacter partner) {
 		return Sex.getNumberOfOrgasms(Main.game.getNpc(Lyssieth.class))>=3;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return false;
@@ -61,7 +61,7 @@ public class SMLyssiethDemonTF extends SexManagerDefault {
 	public boolean isPartnerStartNaked() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isSelfTransformDisabled(GameCharacter character) {
 		return true;
@@ -71,7 +71,7 @@ public class SMLyssiethDemonTF extends SexManagerDefault {
 	public boolean isAbleToEquipSexClothing(GameCharacter character){
 		return false;
 	}
-	
+
 	@Override
 	public SexControl getSexControl(GameCharacter character) {
 		if(character.isPlayer()) {
@@ -80,7 +80,7 @@ public class SMLyssiethDemonTF extends SexManagerDefault {
 			return SexControl.FULL;
 		}
 	}
-	
+
 	@Override
 	public SexPace getForcedSexPace(GameCharacter character) {
 		if(!character.isPlayer()) {
@@ -91,7 +91,7 @@ public class SMLyssiethDemonTF extends SexManagerDefault {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public Map<GameCharacter, List<SexAreaInterface>> getAreasBannedMap() {
 		// Limit finger during giving the player head, so that she can use hug-lock and prevent the player from pulling out:
@@ -105,5 +105,5 @@ public class SMLyssiethDemonTF extends SexManagerDefault {
 		}
 		return super.getAreasBannedMap();
 	}
-	
+
 }

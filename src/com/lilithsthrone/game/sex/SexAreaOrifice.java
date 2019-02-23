@@ -11,7 +11,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum SexAreaOrifice implements SexAreaInterface {
-	
+
 	MOUTH(2,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -30,7 +30,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.MOUTH;
 		}
 	},
-	
+
 	NIPPLE(2,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -53,7 +53,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.NIPPLES;
 		}
 	},
-	
+
 	BREAST(1,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -76,7 +76,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.BREASTS;
 		}
 	},
-	
+
 	NIPPLE_CROTCH(2,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -99,7 +99,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.NIPPLES_CROTCH;
 		}
 	},
-	
+
 	BREAST_CROTCH(1,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -122,7 +122,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.BREASTS_CROTCH;
 		}
 	},
-	
+
 	ASS(1,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -142,7 +142,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.ASS;
 		}
 	},
-	
+
 	ANUS(2,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -161,7 +161,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.ANUS;
 		}
 	},
-	
+
 	VAGINA(4,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -180,7 +180,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.VAGINA;
 		}
 	},
-	
+
 	THIGHS(1,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -203,7 +203,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.THIGHS;
 		}
 	},
-	
+
 	URETHRA_VAGINA(1,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -222,7 +222,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 			return CoverableArea.VAGINA;
 		}
 	},
-	
+
 	URETHRA_PENIS(1,
 			-0.5f, -0.5f, -1f,
 			0.5f, -0.5f ,-1f,
@@ -291,11 +291,11 @@ public enum SexAreaOrifice implements SexAreaInterface {
 	public boolean isOrifice() {
 		return true;
 	}
-	
+
 	public float getBaseArousalWhenPenetrated() {
 		return baseArousalWhenPenetrated;
 	}
-	
+
 	public float getArousalChangePenetratedStretching() {
 		return arousalChangePenetratedStretching;
 	}
@@ -323,7 +323,7 @@ public enum SexAreaOrifice implements SexAreaInterface {
 	public int getCumLossPerMinute() {
 		return cumLossPerMinute;
 	}
-	
+
 	public int getCumAbsorptionPerMinute() {
 		return cumAbsorptionPerMinute;
 	}
@@ -336,16 +336,16 @@ public enum SexAreaOrifice implements SexAreaInterface {
 	public boolean isInternalOrifice() {
 		return takesPenisVirginity;
 	}
-	
+
 	public int getCharactersCumLossPerMinute(GameCharacter target) {
 		int cumLost = this.getCumAbsorptionPerMinute();
-		
+
 		if(!target.isOrificePlugged(this)) {
 			cumLost += (int) (this.getCumLossPerMinute()
 					* (1 + 5*Util.getModifiedDropoffValue(target.getTotalFluidInArea(this), CumProduction.SEVEN_MONSTROUS.getMaximumValue())/CumProduction.SEVEN_MONSTROUS.getMaximumValue()));
 		}
-		
+
 		return cumLost;
 	}
-	
+
 }

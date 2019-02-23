@@ -11,9 +11,9 @@
 	<femininity>ANDROGYNOUS</femininity>
 	<slot>HIPS</slot>
 	<rarity>COMMON</rarity>
-	
+
 	<imageName>leather_belt.svg</imageName>
-	
+
 	<clothingSet/>
 	<imageEquippedName/>
 	<enchantmentLimit/>
@@ -21,30 +21,30 @@
 
 	<blockedPartsList>
 	  <blockedParts>
-		
+
 		<displacementType>REMOVE_OR_EQUIP</displacementType>
-		
+
 		<clothingAccessRequired/>
 		<blockedBodyParts/>
 		<clothingAccessBlocked/>
 		<concealedSlots/>
-		
+
 	  </blockedParts>
 	</blockedPartsList>
-	
+
 	<incompatibleSlots/>
-	
+
 	<primaryColors values="LEATHER"/>
 	<primaryColorsDye values="ALL"/>
 	<secondaryColors values="ALL_METAL"/>
 	<secondaryColorsDye values="ALL_METAL"/>
 	<tertiaryColors/>
 	<tertiaryColorsDye/>
-	
+
 	<itemTags>
 	  <tag>SOLD_BY_NYAN</tag>
 	</itemTags>
-	
+
   </coreAttributes>
 
   <replacementText type="REMOVE_OR_EQUIP">
@@ -70,5 +70,5 @@
 	  <![CDATA[[npc.Name] impatiently [npc.verb(unbuckle)] [bpc2.namePos] leather belt and [npc.verb(pull)] it off.]]>
 	</otherRough>
   </displacementText>
-  
+
 </clothing>

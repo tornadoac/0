@@ -9,7 +9,7 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum Muscle {
-	
+
 	ZERO_SOFT("soft", 0, 20, Color.MUSCLE_ZERO),
 	ONE_LIGHTLY_MUSCLED("lightly muscled", 20, 40, Color.MUSCLE_ONE),
 	TWO_TONED("toned", 40, 60, Color.MUSCLE_TWO),
@@ -47,7 +47,7 @@ public enum Muscle {
 		}
 		return FOUR_RIPPED;
 	}
-	
+
 	public String getName(boolean withDeterminer) {
 		if(withDeterminer) {
 			return UtilText.generateSingularDeterminer(name) + " " + name;

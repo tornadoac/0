@@ -27,31 +27,31 @@ public enum TailType implements BodyPartTypeInterface {
 
 	DOG_MORPH(BodyCoveringType.CANINE_FUR, Race.DOG_MORPH, false, false),
 	DOG_MORPH_STUBBY(BodyCoveringType.CANINE_FUR, Race.DOG_MORPH, false, false),
-	
+
 	LYCAN(BodyCoveringType.LYCAN_FUR, Race.WOLF_MORPH, false, false),
-	
+
 	FOX_MORPH(BodyCoveringType.FOX_FUR, Race.FOX_MORPH, false, false),
 	FOX_MORPH_MAGIC(BodyCoveringType.FOX_FUR, Race.FOX_MORPH, true, false),
 
 	COW_MORPH(BodyCoveringType.BOVINE_FUR, Race.COW_MORPH, false, false),
-	
+
 	CAT_MORPH(BodyCoveringType.FELINE_FUR, Race.CAT_MORPH, true, false),
 	CAT_MORPH_SHORT(BodyCoveringType.FELINE_FUR, Race.CAT_MORPH, false, false),
 	CAT_MORPH_TUFTED(BodyCoveringType.FELINE_FUR, Race.CAT_MORPH, true, false),
 
 	SQUIRREL_MORPH(BodyCoveringType.SQUIRREL_FUR, Race.SQUIRREL_MORPH, false, false),
-	
+
 	RAT_MORPH(BodyCoveringType.RAT_SKIN, Race.RAT_MORPH, true, true),
-	
+
 	RABBIT_MORPH(BodyCoveringType.RABBIT_FUR, Race.RABBIT_MORPH, false, false),
-	
+
 	ALLIGATOR_MORPH(BodyCoveringType.ALLIGATOR_SCALES, Race.ALLIGATOR_MORPH, false, false),
-	
+
 	HORSE_MORPH(BodyCoveringType.HAIR_HORSE_HAIR, Race.HORSE_MORPH, false, false),
 	HORSE_MORPH_ZEBRA(BodyCoveringType.HAIR_HORSE_HAIR, Race.HORSE_MORPH, false, false),
 
 	REINDEER_MORPH(BodyCoveringType.REINDEER_FUR, Race.REINDEER_MORPH, false, false),
-	
+
 	HARPY(BodyCoveringType.FEATHERS, Race.HARPY, false, false);
 
 	private BodyCoveringType skinType;
@@ -74,7 +74,7 @@ public enum TailType implements BodyPartTypeInterface {
 		}
 		return valueOf(value);
 	}
-	
+
 	@Override
 	public boolean isDefaultPlural() {
 		return false;
@@ -101,7 +101,7 @@ public enum TailType implements BodyPartTypeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		switch(this){
@@ -111,7 +111,7 @@ public enum TailType implements BodyPartTypeInterface {
 				return UtilText.returnStringAtRandom("tail");
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(this){
@@ -168,7 +168,7 @@ public enum TailType implements BodyPartTypeInterface {
 			case RABBIT_MORPH:
 				return UtilText.returnStringAtRandom("rabbit-like", "fluffy");
 		}
-		
+
 		return "";
 	}
 
@@ -220,14 +220,14 @@ public enum TailType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	public String getTailTipName(GameCharacter gc) {
 		switch(this){
 			default:
 				return UtilText.returnStringAtRandom("tip");
 		}
 	}
-	
+
 	public String getTailTipDescriptor(GameCharacter gc) {
 		switch(this){
 			case DEMON_COMMON:
@@ -246,7 +246,7 @@ public enum TailType implements BodyPartTypeInterface {
 	public Race getRace() {
 		return race;
 	}
-	
+
 	public boolean isPrehensile() {
 		return prehensile;
 	}
@@ -258,13 +258,13 @@ public enum TailType implements BodyPartTypeInterface {
 	public boolean isSuitableForPenetration() {
 		return prehensile && (suitableForPenetration || Main.getProperties().hasValue(PropertyValue.furryTailPenetrationContent));
 	}
-	
+
 	private static Map<Race, List<TailType>> typesMap = new HashMap<>();
 	public static List<TailType> getTailTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<TailType> types = new ArrayList<>();
 		for(TailType type : TailType.values()) {
 			if(type.getRace()==r) {
@@ -274,13 +274,13 @@ public enum TailType implements BodyPartTypeInterface {
 		typesMap.put(r, types);
 		return types;
 	}
-	
+
 
 	public static List<TailType> getTailTypesSuitableForTransformation(List<TailType> options) {
 		if (!options.contains(TailType.NONE)) {
 			return options;
 		}
-		
+
 		List<TailType> duplicatedOptions = new ArrayList<>(options);
 		duplicatedOptions.remove(TailType.NONE);
 		return duplicatedOptions;

@@ -80,7 +80,7 @@ public class TooltipInformationEventListener implements EventListener {
 	private Attribute attribute;
 	private InventorySlot concealedSlot;
 	private LoadedEnchantment loadedEnchantment;
-	private static StringBuilder tooltipSB  = new StringBuilder();
+	private static StringBuilder tooltipSB = new StringBuilder();
 
 	private int descriptionHeightOverride;
 

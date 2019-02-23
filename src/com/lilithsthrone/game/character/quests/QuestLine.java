@@ -44,7 +44,7 @@ public enum QuestLine {
 	SIDE_HYPNO_WATCH("Arthur's Experiment", "You helped Arthur to complete his research into an orientation-changing Hypno-Watch, which is now in your possession!",
 			QuestType.SIDE,
 			QuestTree.hypnoWatchTree),
-	
+
 	RELATIONSHIP_NYAN_HELP("Supplier Issues", "You helped Nyan solve the problem she was having with her suppliers.",
 			QuestType.RELATIONSHIP,
 			QuestTree.nyanTree),
@@ -56,7 +56,7 @@ public enum QuestLine {
 	SIDE_SLIME_QUEEN("Slime Queen", "You dealt with the Slime Queen!",
 			QuestType.SIDE,
 			QuestTree.slimeQueenTree)
-	
+
 	;
 
 	private String name, completedDescription;

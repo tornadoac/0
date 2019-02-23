@@ -33,72 +33,72 @@ public class DominionClubNPC extends NPC {
 	public DominionClubNPC() {
 		this(Gender.F_V_B_FEMALE, Subspecies.DOG_MORPH, false);
 	}
-	
+
 	public DominionClubNPC(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, Subspecies.DOG_MORPH, isImported);
 	}
-	
+
 	public DominionClubNPC(Gender gender, Subspecies subspecies, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, Subspecies.DOG_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_HOLDING_CELL, false);
-		
+
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), false);
-			
+
 			setLevel(Util.random.nextInt(5) + 5);
-			
+
 			// RACE & NAME:
 
 			if(subspecies.getRace()==Race.HARPY) {
 				setBody(gender, subspecies, RaceStage.LESSER);
-				
+
 			} else {
 				if(gender.isFeminine()) {
 					RaceStage stage = CharacterUtils.getRaceStageFromPreferences(Main.getProperties().getSubspeciesFeminineFurryPreferencesMap().get(subspecies), gender, subspecies);
 					setBody(gender, subspecies, stage);
-					
+
 				} else {
 					RaceStage stage = CharacterUtils.getRaceStageFromPreferences(Main.getProperties().getSubspeciesMasculineFurryPreferencesMap().get(subspecies), gender, subspecies);
 					setBody(gender, subspecies, stage);
 				}
 			}
-			
+
 			setName(Name.getRandomTriplet(this.getRace()));
 			this.setPlayerKnowsName(true);
 			setDescription(UtilText.parse(this,
 					"[npc.Name] is a resident of Dominion, who you met in one of Nightlife's clubs."));
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, false);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
-			
+
 			equipClothing(true, true, true, true);
-			
+
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -116,12 +116,12 @@ public class DominionClubNPC extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public Vector2i getLocation() {
 		if(this.getWorldLocation()==WorldType.NIGHTLIFE_CLUB
@@ -130,19 +130,19 @@ public class DominionClubNPC extends NPC {
 		}
 		return location;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 }

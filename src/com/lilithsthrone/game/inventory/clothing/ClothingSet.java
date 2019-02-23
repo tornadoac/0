@@ -175,7 +175,7 @@ public enum ClothingSet {
 					InventorySlot.HEAD),
 			null,
 			null)
-	
+
 	;
 
 	private String name;
@@ -188,27 +188,27 @@ public enum ClothingSet {
 	private ClothingSet(String name, StatusEffect associatedStatusEffect, int numberRequiredForCompleteSet, List<InventorySlot> blockedSlotsCountingTowardsFullSet, List<SpecialAttack> specialAttacks, List<Spell> spells) {
 		this.name = name;
 		this.numberRequiredForCompleteSet = numberRequiredForCompleteSet;
-		
+
 		if(blockedSlotsCountingTowardsFullSet==null) {
 			this.blockedSlotsCountingTowardsFullSet = new ArrayList<>();
 		} else {
 			this.blockedSlotsCountingTowardsFullSet = blockedSlotsCountingTowardsFullSet;
 		}
-		
+
 		this.specialAttacks = specialAttacks;
 		this.spells = spells;
 		this.associatedStatusEffect = associatedStatusEffect;
 	}
-	
+
 	public boolean isCharacterWearingCompleteSet(GameCharacter target) {
 		int setCount = 0;
-		
+
 		for(InventorySlot slot : this.getBlockedSlotsCountingTowardsFullSet()) {
 			if(slot.getBodyPartClothingBlock(target) != null) {
 				setCount++;
 			}
 		}
-		
+
 		boolean atLeastOneClothingFound = false;
 		for (AbstractClothing c : target.getClothingCurrentlyEquipped()) {
 			if (c.getClothingType().getClothingSet() == this) {
@@ -216,17 +216,17 @@ public enum ClothingSet {
 				atLeastOneClothingFound = true;
 			}
 		}
-		
+
 		if(target.getMainWeapon()!=null && target.getMainWeapon().getWeaponType().getClothingSet() == this) {
 			setCount++;
 			atLeastOneClothingFound = true;
 		}
-		
+
 		if(target.getOffhandWeapon()!=null && target.getOffhandWeapon().getWeaponType().getClothingSet() == this) {
 			setCount++;
 			atLeastOneClothingFound = true;
 		}
-		
+
 		return atLeastOneClothingFound && setCount >= this.getNumberRequiredForCompleteSet();
 	}
 

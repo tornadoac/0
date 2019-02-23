@@ -42,7 +42,7 @@ public class CharactersPresentDialogue {
 		menuTitle = "Characters Present ("+Util.capitalizeSentence(CharactersPresentDialogue.characterViewed.getName())+")";
 		menuContent = ((NPC) CharactersPresentDialogue.characterViewed).getCharacterInformationScreen();
 	}
-	
+
 	private static boolean isCompanionSexPublic() {
 		return Main.game.getPlayer().getLocationPlace().isPopulated()
 				&& Main.game.getPlayer().getLocationPlace().getPlaceType()!=PlaceType.WATERING_HOLE_SEATING_AREA
@@ -53,14 +53,14 @@ public class CharactersPresentDialogue {
 		return Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.WATERING_HOLE_SEATING_AREA
 				|| Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.WATERING_HOLE_VIP_AREA;
 	}
-	
+
 	public static final DialogueNode MENU = new DialogueNode("", "", true) {
 
 		@Override
 		public DialogueNodeType getDialogueNodeType() {
 			return DialogueNodeType.CHARACTERS_PRESENT;
 		}
-		
+
 		@Override
 		public String getLabel() {
 			return menuTitle;
@@ -70,7 +70,7 @@ public class CharactersPresentDialogue {
 		public String getContent() {
 			return menuContent;
 		}
-		
+
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(Main.game.getPlayer().hasCompanion(characterViewed)) {
@@ -81,7 +81,7 @@ public class CharactersPresentDialogue {
 				} else if(index == 2) {
 					return UtilText.parse("[style.colorCompanion(Manage)]");
 				}
-				
+
 			} else {
 				if(index == 0) {
 					return "Characters";
@@ -93,15 +93,15 @@ public class CharactersPresentDialogue {
 			}
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 
 			List<NPC> charactersPresent = Main.game.getCharactersPresent();
 			java.util.Collections.sort(charactersPresent, (c1, c2) -> Main.game.getPlayer().hasCompanion(c1)?1:0);
-			
+
 			if(responseTab==0) {
-				
+
 				if (index == 0) {
 					return new ResponseEffectsOnly("Back", "Stop viewing the characters present and return to the main game."){
 						@Override
@@ -109,11 +109,11 @@ public class CharactersPresentDialogue {
 							Main.mainController.openCharactersPresent();
 						}
 					};
-					
+
 				} else if (index <= charactersPresent.size()) {
 					String title = "[npc.Name]";
 					String description = "Take a detailed look at [npc.name].";
-					
+
 					if(charactersPresent.get(index - 1).equals(characterViewed)) {
 						if(!charactersPresent.get(index - 1).isRaceConcealed() || charactersPresent.get(index - 1).isPlayerKnowsName()) {
 							title = "[style.colorDisabled([npc.Name])]";
@@ -122,12 +122,12 @@ public class CharactersPresentDialogue {
 							title = "[style.colorDisabled(Unknown person)]";
 							description = "You don't know what this person looks like!";
 						}
-							
+
 					} else if(Main.game.getPlayer().hasCompanion(charactersPresent.get(index - 1))) {
 						title = "[style.colorCompanion([npc.Name])]";
 						description = "Take a detailed look at your [style.colorCompanion(companion)], [npc.name].";
 					}
-					
+
 					return new Response(
 							UtilText.parse(charactersPresent.get(index - 1), title),
 							UtilText.parse(charactersPresent.get(index - 1), description),
@@ -139,11 +139,11 @@ public class CharactersPresentDialogue {
 							menuContent = ((NPC) charactersPresent.get(index - 1)).getCharacterInformationScreen();
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else if (responseTab==1 && Main.game.getPlayer().hasCompanion(characterViewed)){
 				if (index == 0) {
 					return new ResponseEffectsOnly("Back", "Stop viewing the characters present and return to the main game."){
@@ -152,15 +152,15 @@ public class CharactersPresentDialogue {
 							Main.mainController.openCharactersPresent();
 						}
 					};
-					
+
 				} else if (index == 1) { //TODO improve descriptions and affection hit from rape
 					if(Main.game.isNonConEnabled() && !((NPC) characterViewed).isAttractedTo(Main.game.getPlayer())) {
 						if(!characterViewed.isCompanionAvailableForSex(true)) { // Takes into account whether in a neutral dialogue or not.
 							return new Response("Rape", characterViewed.getCompanionSexRejectionReason(true), null);
-							
+
 						} else {
 							if(isSittingSex()) {
-								return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...", 
+								return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...",
 										false, false,
 										new SMChair(
 													Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_BOTTOM)),
@@ -188,9 +188,9 @@ public class CharactersPresentDialogue {
 										}
 									}
 								};
-								
+
 							} else {
-								return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...", 
+								return new ResponseSex("Rape", "[npc.Name] is definitely not interested in having sex with you, but it's not like [npc.she] has a choice in the matter...",
 										false, false,
 										new SMGeneric(
 													Util.newArrayListOfValues(Main.game.getPlayer()),
@@ -212,18 +212,18 @@ public class CharactersPresentDialogue {
 										}
 									}
 								};
-								
+
 							}
-							
+
 						}
-						
+
 					} else {
 						if(!characterViewed.isCompanionAvailableForSex(true)) { // Takes into account whether in a neutral dialogue or not.
 							return new Response("Sex", characterViewed.getCompanionSexRejectionReason(true), null);
-							
+
 						} else {
 							if(isSittingSex()) {
-								return new ResponseSex("Sex", "Have sex with [npc.name].", 
+								return new ResponseSex("Sex", "Have sex with [npc.name].",
 										true, false,
 										new SMChair(
 													Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_BOTTOM)),
@@ -247,9 +247,9 @@ public class CharactersPresentDialogue {
 										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
 									}
 								};
-								
+
 							} else {
-								return new ResponseSex("Sex", "Have sex with [npc.name].", 
+								return new ResponseSex("Sex", "Have sex with [npc.name].",
 										true, false,
 										new SMGeneric(
 													Util.newArrayListOfValues(Main.game.getPlayer()),
@@ -269,18 +269,18 @@ public class CharactersPresentDialogue {
 									}
 								};
 							}
-							
+
 						}
 					}
-					
+
 				} else if (index == 2) {
 					if(!characterViewed.isCompanionAvailableForSex(false)) {
 						return new Response("Submissive Sex", characterViewed.getCompanionSexRejectionReason(false), null);
-						
+
 					} else {
 						if(((NPC) characterViewed).isAttractedTo(Main.game.getPlayer())) {
 							if(isSittingSex()) {
-								return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
+								return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].",
 										Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 										true, true,
 										new SMChair(
@@ -303,9 +303,9 @@ public class CharactersPresentDialogue {
 										Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 5));
 									}
 								};
-								
+
 							} else {
-								return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
+								return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].",
 										Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 										true, true,
 										new SMGeneric(
@@ -324,14 +324,14 @@ public class CharactersPresentDialogue {
 									}
 								};
 							}
-							
+
 						} else {
 							return new Response("Submissive sex", "[npc.Name] is not too keen on having sex with you, so you'd need to be the dom...", null);
 						}
 					}
-					
+
 				}
-				
+
 			} else if (responseTab==2 && Main.game.getPlayer().hasCompanion(characterViewed)){
 				if (index == 0) {
 					return new ResponseEffectsOnly("Back", "Stop viewing the characters present and return to the main game."){
@@ -340,11 +340,11 @@ public class CharactersPresentDialogue {
 							Main.mainController.openCharactersPresent();
 						}
 					};
-					
+
 				} else if(index==1) {
 					if(!Main.game.isSavedDialogueNeutral()) {
 						return new Response("Inventory", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
-						
+
 					} else {
 						return new ResponseEffectsOnly("Inventory", "Manage [npc.namePos] inventory.") {
 									@Override
@@ -353,15 +353,15 @@ public class CharactersPresentDialogue {
 									}
 								};
 					}
-							
+
 				} else if (index == 2) {
-					
+
 					if(!characterViewed.isAbleToSelfTransform()) {
 						return new Response("Transformations", characterViewed.getUnableToTransformDescription(), null);
-						
+
 					} else if(!Main.game.isSavedDialogueNeutral()) {
 						return new Response("Transformations", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
-						
+
 					} else {
 						return new Response("Transformations",
 								"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
@@ -372,11 +372,11 @@ public class CharactersPresentDialogue {
 							}
 						};
 					}
-					
+
 				} else if(index==5) {
 					if(!Main.game.isSavedDialogueNeutral()) {
 						return new Response(characterViewed instanceof Elemental?"Dispel":"Go Home", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
-						
+
 					} else {
 						if(charactersPresent.size()==1 || (charactersPresent.size()==2 && characterViewed.isElementalSummoned())) {
 							return new ResponseEffectsOnly(characterViewed instanceof Elemental?"Dispel":"Go Home",
@@ -404,7 +404,7 @@ public class CharactersPresentDialogue {
 									}
 									Main.game.getPlayer().removeCompanion(characterViewed);
 									characterViewed.returnToHome();
-									
+
 									Main.game.setResponseTab(0);
 									characterViewed = charactersPresent.get(0);
 									//no need for character conceal check since its for follower
@@ -414,18 +414,18 @@ public class CharactersPresentDialogue {
 							};
 						}
 					}
-					
+
 				} else if (index == 6) {
 					return new Response("Perk Tree", "Assign [npc.namePos] perk points.", PERKS);
-					
+
 				} else if(index==10) {
 					if(!characterViewed.isElementalSummoned()) {
 						return new Response("Dispel Elemental", "[npc.Name] doesn't have an elemental summoned...", null);
-						
+
 					} else {
 						if(!Main.game.isSavedDialogueNeutral()) {
 							return new Response("Dispel Elemental", "You're in the middle of something right now! (Can only be used when in a tile's default dialogue.)", null);
-							
+
 						} else {
 							return new Response("Dispel Elemental", "Tell [npc.name] to dispel [npc.her] elemental.", MENU){
 								@Override
@@ -437,15 +437,15 @@ public class CharactersPresentDialogue {
 						}
 					}
 				}
-				
+
 			}
-			
+
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX = new DialogueNode("Step back", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Now that you've had your fun, you can step back and leave [npc.name] to recover.";
@@ -458,7 +458,7 @@ public class CharactersPresentDialogue {
 						"<p>"
 							+ "As you step back from [npc.name], [npc.she] sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 						+ "</p>");
-				
+
 			} else {
 				if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 					return UtilText.parse(Main.game.getActiveNPC(),
@@ -492,13 +492,13 @@ public class CharactersPresentDialogue {
 						Main.game.setActiveNPC(null);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 
 	public static final DialogueNode PERKS = new DialogueNode("", "", true) {
 
@@ -506,16 +506,16 @@ public class CharactersPresentDialogue {
 		public DialogueNodeType getDialogueNodeType() {
 			return DialogueNodeType.CHARACTERS_PRESENT;
 		}
-		
+
 		@Override
 		public String getLabel() {
 			return UtilText.parse(characterViewed, "[npc.NamePos] Perk Tree");
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parse(characterViewed,
 					"<div class='container-full-width' style='padding:8px;'>"
 						+ "<span style='color:"+Color.PERK.toWebHexString()+";'>Perks</span> (circular icons) apply permanent boosts to [npc.namePos] attributes.<br/>"
@@ -530,7 +530,7 @@ public class CharactersPresentDialogue {
 					"<div id='OCCUPATION_" + characterViewed.getHistory().getAssociatedPerk()+ "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Color.TRAIT.toWebHexString() + ";'>"
 						+ "<div class='square-button-content'>"+characterViewed.getHistory().getAssociatedPerk().getSVGString()+"</div>"
 					+ "</div>");
-			
+
 			for(int i=0;i<GameCharacter.MAX_TRAITS;i++) {
 				Perk p = null;
 				if(i<characterViewed.getTraits().size()) {
@@ -540,22 +540,22 @@ public class CharactersPresentDialogue {
 					UtilText.nodeContentSB.append("<div id='TRAIT_" + p + "' class='square-button small' style='width:8%; display:inline-block; float:none; border:2px solid " + Color.TRAIT.toWebHexString() + ";'>"
 							+ "<div class='square-button-content'>"+p.getSVGString()+"</div>"
 							+ "</div>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append("<div id='TRAIT_" + i + "' class='square-button small' style='display:inline-block; float:none;'></div>");
-					
+
 				}
 			}
 			UtilText.nodeContentSB.append("</div>");
-			
+
 			if(!(characterViewed instanceof Elemental)) {
 				UtilText.nodeContentSB.append("<div class='container-full-width' style='padding:8px; text-align:center;'>"
 							+ "<i>Please note that this perk tree is a work-in-progress. This is not the final version, and is just a proof of concept!</i>"
 						+ "</div>");
 			}
-			
+
 			UtilText.nodeContentSB.append(PerkManager.MANAGER.getPerkTreeDisplay(characterViewed));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -563,7 +563,7 @@ public class CharactersPresentDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 6) {
 				return new Response("Perks", UtilText.parse(characterViewed, "You are already assigning [npc.namePos] perk points."), null);
-				
+
 			} else if(index==7) {
 				return new Response("Reset perks", "Reset all of [npc.namePos] perks and traits, refunding all points spent. (This is a temporary action while the perk tree is still under development.)", PERKS) {
 					@Override
@@ -572,7 +572,7 @@ public class CharactersPresentDialogue {
 					}
 				};
 			}
-			
+
 			return MENU.getResponse(responseTab, index);
 		}
 	};

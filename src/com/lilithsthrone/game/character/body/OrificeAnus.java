@@ -19,7 +19,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
  * @author Innoxia
  */
 public class OrificeAnus implements OrificeInterface {
-	
+
 	protected int wetness;
 	protected int elasticity;
 	protected int plasticity;
@@ -35,10 +35,10 @@ public class OrificeAnus implements OrificeInterface {
 		this.elasticity = elasticity;
 		this.plasticity = plasticity;
 		this.virgin = virgin;
-		
+
 		this.orificeModifiers = new HashSet<>(orificeModifiers);
 	}
-	
+
 	@Override
 	public Wetness getWetness(GameCharacter owner) {
 		return Wetness.valueOf(wetness);
@@ -49,7 +49,7 @@ public class OrificeAnus implements OrificeInterface {
 		int oldWetness = this.wetness;
 		this.wetness = Math.max(0, Math.min(wetness, Wetness.SEVEN_DROOLING.getValue()));
 		int wetnessChange = this.wetness - oldWetness;
-		
+
 		if (wetnessChange == 0) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(Your [pc.asshole]'s wetness doesn't change...)]</p>");
@@ -66,7 +66,7 @@ public class OrificeAnus implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorSex(Due to being made out of "+owner.getBodyMaterial().getName()+", [npc.namePos] [npc.asshole] can't be anything but "+Wetness.SEVEN_DROOLING.getDescriptor()+"...)]</p>");
 			}
 		}
-		
+
 		String wetnessDescriptor = getWetness(owner).getDescriptor();
 		String transformation = "";
 		if (wetnessChange > 0) {
@@ -82,7 +82,7 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " asshole)]!"
 						+ "</p>";
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				transformation = "<p>"
@@ -117,7 +117,7 @@ public class OrificeAnus implements OrificeInterface {
 			this.stretchedCapacity = this.capacity;
 		}
 		float capacityChange = this.capacity - oldCapacity;
-		
+
 		if (capacityChange == 0) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(Your [pc.asshole]'s capacity doesn't change...)]</p>");
@@ -125,7 +125,7 @@ public class OrificeAnus implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The capacity of [npc.namePos] [npc.asshole] doesn't change...)]</p>");
 			}
 		}
-		
+
 		String capacityDescriptor = getCapacity().getDescriptor();
 		if (capacityChange > 0) {
 			if (owner.isPlayer()) {
@@ -134,13 +134,13 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " asshole)]!"
 						+ "</p>");
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a shocked gasp as [npc.she] feels [npc.her] asshole dilate and stretch out as its internal [style.boldGrow(capacity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " asshole)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return UtilText.parse(owner, "<p>"
@@ -148,7 +148,7 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " asshole)]!"
 						+ "</p>");
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a cry as [npc.she] feels [npc.her] asshole uncontrollably tighten and clench as its internal [style.boldShrink(capacity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " asshole)]!"
@@ -156,7 +156,7 @@ public class OrificeAnus implements OrificeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public float getStretchedCapacity() {
 		return stretchedCapacity;
@@ -179,7 +179,7 @@ public class OrificeAnus implements OrificeInterface {
 		int oldElasticity = this.elasticity;
 		this.elasticity = Math.max(0, Math.min(elasticity, OrificeElasticity.SEVEN_ELASTIC.getValue()));
 		int elasticityChange = this.elasticity - oldElasticity;
-		
+
 		if (elasticityChange == 0) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(Your [pc.asshole]'s elasticity doesn't change...)]</p>");
@@ -187,7 +187,7 @@ public class OrificeAnus implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The elasticity of [npc.namePos] [npc.asshole] doesn't change...)]</p>");
 			}
 		}
-		
+
 		String elasticityDescriptor = getElasticity().getDescriptor();
 		if (elasticityChange > 0) {
 			if (owner.isPlayer()) {
@@ -196,13 +196,13 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " asshole)]!"
 						+ "</p>");
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange slackening sensation pulsating deep within [npc.her] ass as [npc.her] asshole's [style.boldGrow(elasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " asshole)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return UtilText.parse(owner, "<p>"
@@ -210,7 +210,7 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " asshole)]!"
 						+ "</p>");
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange clenching sensation pulsating deep within [npc.her] ass as [npc.her] asshole's [style.boldShrink(elasticity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " asshole)]!"
@@ -218,7 +218,7 @@ public class OrificeAnus implements OrificeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public OrificePlasticity getPlasticity() {
 		return OrificePlasticity.getElasticityFromInt(plasticity);
@@ -229,7 +229,7 @@ public class OrificeAnus implements OrificeInterface {
 		int oldPlasticity = this.plasticity;
 		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOLDABLE.getValue()));
 		int plasticityChange = this.plasticity - oldPlasticity;
-		
+
 		if (plasticityChange == 0) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(Your [pc.asshole]'s plasticity doesn't change...)]</p>");
@@ -237,7 +237,7 @@ public class OrificeAnus implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The plasticity of [npc.namePos] [npc.asshole] doesn't change...)]</p>");
 			}
 		}
-		
+
 		String plasticityDescriptor = getPlasticity().getDescriptor();
 		if (plasticityChange > 0) {
 			if (owner.isPlayer()) {
@@ -246,13 +246,13 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " asshole)]!"
 						+ "</p>");
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange molding sensation pulsating deep within [npc.her] ass as [npc.her] asshole's [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " asshole)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return UtilText.parse(owner, "<p>"
@@ -260,7 +260,7 @@ public class OrificeAnus implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " asshole)]!"
 						+ "</p>");
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange softening sensation pulsating deep within [npc.her] ass as [npc.her] asshole's [style.boldShrink(plasticity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " asshole)]!"
@@ -289,13 +289,13 @@ public class OrificeAnus implements OrificeInterface {
 		if(hasOrificeModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		orificeModifiers.add(modifier);
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		switch(modifier) {
 			case MUSCLE_CONTROL:
 				if(owner.isPlayer()) {
@@ -354,7 +354,7 @@ public class OrificeAnus implements OrificeInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
@@ -364,13 +364,13 @@ public class OrificeAnus implements OrificeInterface {
 		if(!hasOrificeModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		orificeModifiers.remove(modifier);
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		switch(modifier) {
 			case MUSCLE_CONTROL:
 				if(owner.isPlayer()) {
@@ -428,7 +428,7 @@ public class OrificeAnus implements OrificeInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}

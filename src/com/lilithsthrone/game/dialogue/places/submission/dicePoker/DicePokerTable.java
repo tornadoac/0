@@ -8,27 +8,27 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum DicePokerTable {
-	
+
 	COPPER("copper", 500, 250, Color.CLOTHING_COPPER),
 	SILVER("silver", 2500, 1000, Color.CLOTHING_SILVER),
 	GOLD("gold", 10000, 5000, Color.CLOTHING_GOLD);
-	
+
 	private String name;
 	private Color color;
 	private int initialBet;
 	private int raiseAmount;
-	
+
 	private DicePokerTable(String name, int initialBet, int raiseAmount, Color color) {
 		this.name = name;
 		this.color = color;
 		this.initialBet = initialBet;
 		this.raiseAmount = raiseAmount;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public int getInitialBet() {
 		return initialBet;
 	}

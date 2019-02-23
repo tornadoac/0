@@ -17,7 +17,7 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 
 	private BodyCoveringType skinType;
 	private Race race;
-	
+
 	private int defaultHornsPerRow;
 
 	private String name;
@@ -26,10 +26,10 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 
 	private List<String> descriptorsMasculine;
 	private List<String> descriptorsFeminine;
-	
+
 	private String hornTransformationDescription;
 	private String hornBodyDescription;
-	
+
 	/**
 	 * @param skinType What covers this horn type (i.e skin/fur/feather type).
 	 * @param race What race has this horn type.
@@ -53,23 +53,23 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 			List<String> descriptorsFeminine,
 			String hornTransformationDescription,
 			String hornBodyDescription) {
-		
+
 		this.skinType = skinType;
 		this.race = race;
-		
+
 		this.transformationName = transformationName;
 		this.name = name;
 		this.namePlural = namePlural;
-		
+
 		this.defaultHornsPerRow = defaultHornsPerRow;
-		
+
 		this.descriptorsMasculine = descriptorsMasculine;
 		this.descriptorsFeminine = descriptorsFeminine;
-		
+
 		this.hornTransformationDescription = hornTransformationDescription;
 		this.hornBodyDescription = hornBodyDescription;
 	}
-	
+
 	public boolean allowsFlight() {
 		return false;
 	}
@@ -86,7 +86,7 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 			} else {
 				return "a quartet of";
 			}
-			
+
 		} else {
 			if(gc.getHornsPerRow()==1) {
 				return Util.intToString(gc.getHornRows())+" vertically-aligned";
@@ -108,17 +108,17 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 	public String getTransformName() {
 		return transformationName;
 	}
-	
+
 	@Override
 	public boolean isDefaultPlural() {
 		return true;
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return name;
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return namePlural;
@@ -147,7 +147,7 @@ public abstract class AbstractHornType implements BodyPartTypeInterface {
 	public String getBodyDescription(GameCharacter owner) {
 		return UtilText.parse(owner, hornBodyDescription);
 	}
-	
+
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
 		return UtilText.parse(owner, hornTransformationDescription);

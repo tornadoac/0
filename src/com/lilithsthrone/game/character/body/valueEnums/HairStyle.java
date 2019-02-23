@@ -16,7 +16,7 @@ public enum HairStyle {
 //	- side parted
 //	- shaved (different from bald)
 //	- punk (hair draped over face)
-	
+
 	NONE("natural", HairLength.ZERO_BALD),
 	MESSY("messy", HairLength.ONE_VERY_SHORT),
 	LOOSE("loose", HairLength.ONE_VERY_SHORT),
@@ -41,7 +41,7 @@ public enum HairStyle {
 	DRILLS("drill hair", HairLength.FOUR_MID_BACK),
 	HIME_CUT("hime-cut", HairLength.FOUR_MID_BACK),
 	BIRD_CAGE("bird cage", HairLength.SEVEN_TO_FLOOR);
-	
+
 	private String descriptor;
 	private int minimumLengthRequired;
 
@@ -57,16 +57,16 @@ public enum HairStyle {
 	public int getMinimumLengthRequired() {
 		return minimumLengthRequired;
 	}
-	
+
 	public static HairStyle getRandomHairStyle(int hairLength) {
 		List<HairStyle> availableStyles = new ArrayList<>();
-		
+
 		for(HairStyle hs : HairStyle.values()) {
 			if(hs.getMinimumLengthRequired() <= hairLength) {
 				availableStyles.add(hs);
 			}
 		}
-		
+
 		// Most likely to have a "normal" hair style:
 		if(Math.random()>0.2f) {
 			availableStyles.remove(HairStyle.AFRO);
@@ -78,7 +78,7 @@ public enum HairStyle {
 			availableStyles.remove(HairStyle.BIRD_CAGE);
 			availableStyles.remove(HairStyle.DRILLS);
 		}
-		
+
 		return availableStyles.get(Util.random.nextInt(availableStyles.size()));
 	}
 }

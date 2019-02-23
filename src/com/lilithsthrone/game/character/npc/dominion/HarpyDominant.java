@@ -72,7 +72,7 @@ public class HarpyDominant extends NPC {
 	public HarpyDominant() {
 		this(false);
 	}
-	
+
 	public HarpyDominant(boolean isImported) {
 		super(isImported, new NameTriplet("Diana"), "Zima",
 				"One of the more notable harpy matriarchs, Diana is the leader of a flock of harpies."
@@ -80,7 +80,7 @@ public class HarpyDominant extends NPC {
 				33, Month.OCTOBER, 2,
 				7, Gender.F_V_B_FEMALE, Subspecies.HARPY, RaceStage.LESSER,
 				new CharacterInventory(30), WorldType.HARPY_NEST, PlaceType.HARPY_NESTS_HARPY_NEST_RED, true);
-		
+
 	}
 
 	@Override
@@ -94,29 +94,29 @@ public class HarpyDominant extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 20);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0f);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 80);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_HARPY_MATRIARCH);
-	
+
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_SADIST);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -124,7 +124,7 @@ public class HarpyDominant extends NPC {
 		this.setFemininity(95);
 		this.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
 		this.setBodySize(BodySize.ZERO_SKINNY.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HARPY, Color.EYE_RED));
 		this.setSkinCovering(new Covering(BodyCoveringType.FEATHERS, Color.COVERING_RED), true);
@@ -147,7 +147,7 @@ public class HarpyDominant extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED_DARK));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_RED_DARK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -155,7 +155,7 @@ public class HarpyDominant extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.B.getMeasurement());
@@ -163,7 +163,7 @@ public class HarpyDominant extends NPC {
 		this.setNippleSize(NippleSize.ONE_SMALL);
 		this.setAreolaeSize(AreolaeSize.ONE_SMALL);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -174,10 +174,10 @@ public class HarpyDominant extends NPC {
 		this.setAssElasticity(OrificeElasticity.TWO_FIRM.getValue());
 		this.setAssPlasticity(OrificePlasticity.FOUR_ACCOMMODATING.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -187,11 +187,11 @@ public class HarpyDominant extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -217,37 +217,37 @@ public class HarpyDominant extends NPC {
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			return "#C13350";
-			
+
 		} else {
 			return "#D7567D";
 		}
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public SexPace getSexPaceSubPreference(GameCharacter character){
 		return SexPace.SUB_EAGER;
 	}
 
 	// Combat
-	
+
 	public int getEscapeChance() {
 		return 0;
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
@@ -256,13 +256,13 @@ public class HarpyDominant extends NPC {
 				public void effects() {
 					Main.game.getDialogueFlags().values.add(DialogueFlagValue.dominantPacified);
 					Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(AbstractItemType.generateItem(ItemType.HARPY_MATRIARCH_DOMINANT_PERFUME), false, true));
-					
+
 					if(Main.game.getPlayer().getQuest(QuestLine.SIDE_HARPY_PACIFICATION) == Quest.HARPY_PACIFICATION_ONE) {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.SIDE_HARPY_PACIFICATION, Quest.HARPY_PACIFICATION_TWO));
-						
+
 					} else if(Main.game.getPlayer().getQuest(QuestLine.SIDE_HARPY_PACIFICATION) == Quest.HARPY_PACIFICATION_TWO) {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.SIDE_HARPY_PACIFICATION, Quest.HARPY_PACIFICATION_THREE));
-						
+
 					} else if(Main.game.getPlayer().getQuest(QuestLine.SIDE_HARPY_PACIFICATION) == Quest.HARPY_PACIFICATION_THREE) {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.SIDE_HARPY_PACIFICATION, Quest.HARPY_PACIFICATION_REWARD));
 					}
@@ -272,7 +272,7 @@ public class HarpyDominant extends NPC {
 			return new Response("", "", HarpyNestDominant.HARPY_NEST_DOMINANT_FIGHT_LOSE_TO_MATRIARCH);
 		}
 	}
-	
+
 	@Override
 	public String getItemUseEffects(AbstractItem item, GameCharacter itemOwner, GameCharacter user, GameCharacter target){
 		if(user.isPlayer() && !target.isPlayer() && (item.getItemType().equals(ItemType.FETISH_UNREFINED) || item.getItemType().equals(ItemType.FETISH_REFINED))){
@@ -295,7 +295,7 @@ public class HarpyDominant extends NPC {
 						+ "</p>";
 			}
 		}
-		
+
 		return super.getItemUseEffects(item, itemOwner, user, target);
 	}
 

@@ -39,9 +39,9 @@ public class InventorySelectedItemEventListener implements EventListener {
 				&& (clothingEquipped!=null || weaponEquipped!=null)) {
 			return;
 		}
-		
+
 		TooltipUpdateThread.cancelThreads=true;
-		
+
 		if (item != null) {
 			if(Main.game.getCurrentDialogueNode().getDialogueNodeType()!=DialogueNodeType.INVENTORY) {
 				Main.mainController.openInventory();
@@ -59,7 +59,7 @@ public class InventorySelectedItemEventListener implements EventListener {
 					case CHARACTER_CREATION:
 						break;
 				}
-				
+
 			} else {
 				InventoryDialogue.setOwner(owner);
 				InventoryDialogue.setItem(item);
@@ -67,7 +67,7 @@ public class InventorySelectedItemEventListener implements EventListener {
 				Main.game.setResponseTab(1);
 				Main.game.setContent(new Response("", "", InventoryDialogue.ITEM_INVENTORY));
 			}
-			
+
 		} else if (clothing != null) {
 			if(Main.game.getCurrentDialogueNode().getDialogueNodeType()!=DialogueNodeType.INVENTORY) {
 				Main.mainController.openInventory();
@@ -77,7 +77,7 @@ public class InventorySelectedItemEventListener implements EventListener {
 			InventoryDialogue.setBuyBackIndex(buyBackIndex);
 			Main.game.setResponseTab(1);
 			Main.game.setContent(new Response("", "", InventoryDialogue.CLOTHING_INVENTORY));
-			
+
 		} else if (weapon != null) {
 			if(Main.game.getCurrentDialogueNode().getDialogueNodeType()!=DialogueNodeType.INVENTORY) {
 				Main.mainController.openInventory();
@@ -144,12 +144,12 @@ public class InventorySelectedItemEventListener implements EventListener {
 		setOwner(owner);
 		return this;
 	}
-	
+
 	public InventorySelectedItemEventListener setWeaponEquipped(GameCharacter owner, InventorySlot invSlot) {
 		resetVariables();
-		
+
 		setOwner(owner);
-		
+
 		if (owner != null) {
 			if (invSlot == InventorySlot.WEAPON_MAIN) {
 				weaponEquipped = owner.getMainWeapon();
@@ -165,7 +165,7 @@ public class InventorySelectedItemEventListener implements EventListener {
 
 	public InventorySelectedItemEventListener setClothingEquipped(GameCharacter owner, InventorySlot invSlot) {
 		resetVariables();
-		
+
 		setOwner(owner);
 
 		if (owner != null) {
@@ -173,10 +173,10 @@ public class InventorySelectedItemEventListener implements EventListener {
 		} else {
 			clothingEquipped = null;
 		}
-		
+
 		return this;
 	}
-	
+
 	private void setOwner(GameCharacter owner) {
 		this.owner = owner;
 	}

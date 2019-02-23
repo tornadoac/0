@@ -127,7 +127,7 @@ public enum CorruptionLevel {
 			return true;
 		}
 	};
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -140,9 +140,9 @@ public enum CorruptionLevel {
 		this.color = color;
 		this.corruptionBypass=corruptionBypass;
 	}
-	
+
 	public abstract StatusEffect getRelatedStatusEffect();
-	
+
 	public abstract boolean isAbleToPerformCorruptiveAction(CorruptionLevel action);
 
 	public String getName() {
@@ -160,11 +160,11 @@ public enum CorruptionLevel {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public float getCorruptionBypass() {
 		return corruptionBypass;
 	}
-	
+
 	public static CorruptionLevel getCorruptionLevelFromValue(float value){
 		for(CorruptionLevel al : CorruptionLevel.values()) {
 			if(value>=al.getMinimumValue() && value<al.getMaximumValue())

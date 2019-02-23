@@ -6,19 +6,19 @@ package com.lilithsthrone.game.dialogue;
  * @author Innoxia
  */
 public enum DialogueNodeType {
-	
+
 	NORMAL("normal"),
-	
+
 	STATUS_EFFECT_MESSAGE("statusEffectMessage"),
-	
+
 	INVENTORY("inventory"),
-	
+
 	PHONE("phone"),
-	
+
 	CHARACTERS_PRESENT("characters present"),
 
 	OCCUPANT_MANAGEMENT("slavery management"),
-	
+
 	OPTIONS("options");
 
 	private String name;

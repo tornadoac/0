@@ -6,7 +6,7 @@ package com.lilithsthrone.game.character.body.valueEnums;
  * @author Innoxia
  */
 public enum PiercingType {
-	
+
 	EAR("ear"),
 	NOSE("nose"),
 	LIP("lip"),
@@ -15,7 +15,7 @@ public enum PiercingType {
 	NIPPLE("nipple"),
 	VAGINA("vagina"),
 	PENIS("penis");
-	
+
 	private String name;
 
 	private PiercingType(String name) {

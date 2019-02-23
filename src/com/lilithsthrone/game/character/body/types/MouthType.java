@@ -16,7 +16,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
  * @author Innoxia
  */
 public enum MouthType implements BodyPartTypeInterface {
-	
+
 	HUMAN(BodyCoveringType.MOUTH, Race.HUMAN),
 
 	ANGEL(BodyCoveringType.MOUTH, Race.ANGEL),
@@ -24,29 +24,29 @@ public enum MouthType implements BodyPartTypeInterface {
 	DEMON_COMMON(BodyCoveringType.MOUTH, Race.DEMON),
 
 	DOG_MORPH(BodyCoveringType.MOUTH, Race.DOG_MORPH),
-	
+
 	WOLF_MORPH(BodyCoveringType.MOUTH, Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.MOUTH, Race.FOX_MORPH),
-	
+
 	CAT_MORPH(BodyCoveringType.MOUTH, Race.CAT_MORPH),
-	
+
 	COW_MORPH(BodyCoveringType.MOUTH, Race.COW_MORPH),
-	
+
 	SQUIRREL_MORPH(BodyCoveringType.MOUTH, Race.SQUIRREL_MORPH),
-	
+
 	RAT_MORPH(BodyCoveringType.MOUTH, Race.RAT_MORPH),
-	
+
 	RABBIT_MORPH(BodyCoveringType.MOUTH, Race.RABBIT_MORPH),
-	
+
 	BAT_MORPH(BodyCoveringType.MOUTH, Race.BAT_MORPH),
-	
+
 	ALLIGATOR_MORPH(BodyCoveringType.MOUTH, Race.ALLIGATOR_MORPH),
-	
+
 	HORSE_MORPH(BodyCoveringType.MOUTH, Race.HORSE_MORPH),
-	
+
 	REINDEER_MORPH(BodyCoveringType.MOUTH, Race.REINDEER_MORPH),
-	
+
 	HARPY(BodyCoveringType.MOUTH, Race.HARPY);
 
 	private BodyCoveringType skinType;
@@ -85,18 +85,18 @@ public enum MouthType implements BodyPartTypeInterface {
 		return UtilText.returnStringAtRandom(
 				"mouth");
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return UtilText.returnStringAtRandom(
 				"mouths");
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		return "";
 	}
-	
+
 	@Override
 	public BodyCoveringType getBodyCoveringType(Body body) {
 		return skinType;

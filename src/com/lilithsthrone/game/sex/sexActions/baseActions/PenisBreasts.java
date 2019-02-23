@@ -24,7 +24,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PenisBreasts {
-	
+
 	public static final SexAction FORCE_COCK_INTO_MOUTH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -32,7 +32,7 @@ public class PenisBreasts {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Thrust into mouth";
@@ -54,9 +54,9 @@ public class PenisBreasts {
 
 		@Override
 		public String getDescription() {
-				
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -132,16 +132,16 @@ public class PenisBreasts {
 							" [npc2.Name] [npc2.verb(jerk)] [npc2.her] head back, trying to push [npc.her] [npc.cock+] away from [npc2.her] mouth as tears [npc2.verb(start)] to well up in [npc2.her] [npc2.eyes]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
-				
+
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			Sex.transferLubrication(Sex.getCharacterPerformingAction(), SexAreaPenetration.PENIS, Sex.getCharacterTargetedForSexAction(this), SexAreaOrifice.MOUTH);
 		}
-		
+
 		@Override
 		public List<Fetish> getExtraFetishes(GameCharacter character) {
 			if(character.equals(Sex.getCharacterPerformingAction())) {
@@ -152,9 +152,9 @@ public class PenisBreasts {
 			}
 			return null;
 		}
-		
+
 	};
-	
+
 	public static final SexAction TAKE_COCK_INTO_MOUTH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -162,7 +162,7 @@ public class PenisBreasts {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -188,9 +188,9 @@ public class PenisBreasts {
 
 		@Override
 		public String getDescription() {
-				
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -271,16 +271,16 @@ public class PenisBreasts {
 									+ " sucking on the [npc2.cockHead] of [npc2.her] [npc2.cock+] for a moment before finally letting [npc2.herHim] pull away."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
-				
+
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			Sex.transferLubrication(Sex.getCharacterTargetedForSexAction(this), SexAreaPenetration.PENIS, Sex.getCharacterPerformingAction(), SexAreaOrifice.MOUTH);
 		}
-		
+
 		@Override
 		public List<Fetish> getExtraFetishes(GameCharacter character) {
 			if(character.equals(Sex.getCharacterPerformingAction())) {
@@ -291,9 +291,9 @@ public class PenisBreasts {
 			}
 			return null;
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -301,7 +301,7 @@ public class PenisBreasts {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -322,7 +322,7 @@ public class PenisBreasts {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
 
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -389,7 +389,7 @@ public class PenisBreasts {
 					default:
 						break;
 				}
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
@@ -454,7 +454,7 @@ public class PenisBreasts {
 					default:
 						break;
 				}
-				
+
 			} else {
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
@@ -515,12 +515,12 @@ public class PenisBreasts {
 						break;
 				}
 			}
-				
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	private static String getTargetedCharacterResponse(SexAction action) {
 		if(Sex.getCharacterTargetedForSexAction(action).isBreastFuckablePaizuri()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
@@ -529,11 +529,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] eagerly [npc2.verb(push)] [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue fucking [npc2.her] cleavage.",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, eagerly pushing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down between [npc2.her] cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(wrap)] [npc2.her] [npc2.breasts+] around [npc.namePos] [npc.cock+],"
 									+ " before begging for [npc.herHim] to continue fucking [npc2.her] pillowy mounds."));
 					break;
@@ -541,10 +541,10 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" Desperately trying, and failing, to pull away from [npc.namePos] [npc.cock],"
 									+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+], tears streaming down [npc2.her] [npc2.face] as [npc2.she] weakly [npc2.verb(beg)] for [npc.name] to leave [npc2.her] [npc2.breasts] alone.",
-		
+
 							" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 									+ " tears streaming down [npc2.her] [npc2.face] as [npc2.she] [npc2.verb(plead)] for [npc.herHim] to leave [npc2.her] [npc2.breasts] alone.",
-		
+
 							" [npc2.Sobbing] in distress, and with tears running down [npc2.her] [npc2.face],"
 									+ " [npc2.name] weakly [npc2.verb(struggle)] against [npc.name], pleading and crying for [npc.herHim] to get away from [npc2.her] [npc2.breasts]."));
 					break;
@@ -552,11 +552,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(push)] [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue fucking [npc2.her] cleavage.",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, pushing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down between [npc2.her] cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] [npc2.verb(wrap)] [npc2.her] [npc2.breasts+] around [npc.namePos] [npc.cock+],"
 									+ " before begging for [npc.herHim] to continue fucking [npc2.her] pillowy mounds."));
 					break;
@@ -564,11 +564,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] gently [npc2.verb(push)] [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out a soft [npc2.moan] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue fucking [npc2.her] cleavage.",
-		
+
 							" A soft [npc2.moan] drifts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, gently pushing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down between [npc2.her] cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] gently [npc2.verb(wrap)] [npc2.her] [npc2.breasts+] around [npc.namePos] [npc.cock+],"
 									+ " before begging for [npc.herHim] to continue fucking [npc2.her] pillowy mounds."));
 					break;
@@ -576,16 +576,16 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] roughly [npc2.verb(press)] [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(order)] [npc.name] to continue fucking [npc2.her] cleavage.",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, forcefully pressing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(order)] [npc.name] to continue thrusting [npc.her] [npc.cock+] up and down between [npc2.her] cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] dominantly [npc2.verb(wrap)] [npc2.her] [npc2.breasts+] around [npc.namePos] [npc.cock+],"
 									+ " before ordering [npc.herHim] to continue fucking [npc2.her] pillowy mounds."));
 					break;
 			}
-			
+
 		} else if(Sex.getCharacterTargetedForSexAction(action).hasBreasts()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
 				case SUB_EAGER:
@@ -593,11 +593,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] eagerly [npc2.verb(attempt)] to push [npc2.her] tiny [npc2.breasts] together in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue fucking what little cleavage [npc2.she] [npc2.has].",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, eagerly attempting to push [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down between [npc2.her] tiny cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(push)] [npc2.her] [npc2.breasts+] against the sides of [npc.namePos] [npc.cock+],"
 									+ " before begging for [npc.herHim] to continue fucking [npc2.her] diminutive cleavage."));
 					break;
@@ -605,10 +605,10 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" Desperately trying, and failing, to pull away from [npc.namePos] [npc.cock],"
 									+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+], tears streaming down [npc2.her] [npc2.face] as [npc2.she] weakly [npc2.verb(beg)] for [npc.name] to leave [npc2.her] [npc2.breasts] alone.",
-		
+
 							" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 									+ " tears streaming down [npc2.her] [npc2.face] as [npc2.she] [npc2.verb(plead)] for [npc.herHim] to leave [npc2.her] [npc2.breasts] alone.",
-		
+
 							" [npc2.Sobbing] in distress, and with tears running down [npc2.her] [npc2.face],"
 									+ " [npc2.name] weakly [npc2.verb(struggle)] against [npc.name], pleading and crying for [npc.herHim] to get away from [npc2.her] [npc2.breasts]."));
 					break;
@@ -616,11 +616,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(attempt)] to push [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue fucking what little cleavage [npc2.she] [npc2.has].",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, pushing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down between [npc2.her] tiny cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] [npc2.verb(push)] [npc2.her] [npc2.breasts+] against the sides of [npc.namePos] [npc.cock+],"
 									+ " before begging for [npc.herHim] to continue fucking [npc2.her] diminutive cleavage."));
 					break;
@@ -628,11 +628,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(attempt)] to gently push [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out a soft [npc2.moan] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue fucking what little cleavage [npc2.she] [npc2.has].",
-		
+
 							" A soft [npc2.moan] drifts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, gently pushing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down between [npc2.her] tiny cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] gently [npc2.verb(push)] [npc2.her] [npc2.breasts+] against the sides of [npc.namePos] [npc.cock+],"
 									+ " before begging for [npc.herHim] to continue fucking [npc2.her] diminutive cleavage."));
 					break;
@@ -640,16 +640,16 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(attempt)] to roughly push [npc2.verb(press)] [npc2.her] [npc2.breasts+] together in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(order)] [npc.name] to continue fucking what little cleavage [npc2.she] [npc2.has].",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, forcefully pressing [npc2.her] [npc2.breastSize] [npc2.breasts] together,"
 									+ " [npc2.she] [npc2.verb(order)] [npc.name] to continue thrusting [npc.her] [npc.cock+] up and down between [npc2.her] tiny cleavage.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] dominantly [npc2.verb(press)] [npc2.her] [npc2.breasts+] against the sides of [npc.namePos] [npc.cock+],"
 									+ " before ordering [npc.herHim] to continue fucking [npc2.her] diminutive cleavage."));
 					break;
 			}
-			
+
 		} else {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
 				case SUB_EAGER:
@@ -657,11 +657,11 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] eagerly [npc2.verb(push)] [npc2.her] flat chest out in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue humping [npc2.her] torso.",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, eagerly pushing [npc2.her] flat chest out,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down over [npc2.her] torso.",
-		
+
 							" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.does] [npc2.her] best to try and [npc2.verb(wrap)] [npc2.her] flat chest around [npc.namePos] [npc.cock+],"
 									+ " before giving up and begging for [npc.herHim] to continue humping [npc2.her] torso."));
 					break;
@@ -669,10 +669,10 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" Desperately trying, and failing, to pull away from [npc.namePos] [npc.cock],"
 									+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+], tears streaming down [npc2.her] [npc2.face] as [npc2.she] weakly [npc2.verb(beg)] for [npc.name] to leave [npc2.her] [npc2.breasts] alone.",
-		
+
 							" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 									+ " tears streaming down [npc2.her] [npc2.face] as [npc2.she] [npc2.verb(plead)] for [npc.herHim] to leave [npc2.her] [npc2.breasts] alone.",
-		
+
 							" [npc2.Sobbing] in distress, and with tears running down [npc2.her] [npc2.face],"
 									+ " [npc2.name] weakly [npc2.verb(struggle)] against [npc.name], pleading and crying for [npc.herHim] to get away from [npc2.her] [npc2.breasts]."));
 					break;
@@ -680,7 +680,7 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(push)] [npc2.her] flat chest out in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue humping [npc2.her] torso.",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, pushing [npc2.her] flat chest out,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down over [npc2.her] torso.",
@@ -692,7 +692,7 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] gently [npc2.verb(push)] [npc2.her] flat chest out in response,"
 									+ " letting out a soft [npc2.moan] as [npc2.she] [npc2.verb(encourage)] [npc.name] to continue humping [npc2.her] torso.",
-		
+
 							" A soft [npc2.moan] drifts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, gently pushing [npc2.her] flat chest out,"
 									+ " [npc2.she] [npc2.verb(encourage)] [npc.name] to continue sliding [npc.her] [npc.cock+] up and down over [npc2.her] torso.",
@@ -704,7 +704,7 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] roughly [npc2.verb(thrust)] [npc2.her] flat chest out in response,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(order)] [npc.name] to continue humping [npc2.her] torso.",
-		
+
 							" [npc2.A_moan+] bursts out from between [npc2.namePos] [npc2.lips+],"
 									+ " and, forcefully pushing [npc2.her] flat chest out,"
 									+ " [npc2.she] [npc2.verb(order)] [npc.name] to continue thrusting [npc.her] [npc.cock+] up and down over [npc2.her] torso.",
@@ -716,7 +716,7 @@ public class PenisBreasts {
 		}
 		return "";
 	}
-	
+
 
 	public static final SexAction FUCKING_DOM_GENTLE = new SexAction(
 			SexActionType.ONGOING,
@@ -726,7 +726,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -744,7 +744,7 @@ public class PenisBreasts {
 				return "Gently grind your [npc.cock+] against [npc2.namePos] flat chest.";
 			}
 		}
-		
+
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
@@ -759,7 +759,7 @@ public class PenisBreasts {
 
 						"Softly pushing [npc2.namePos] [npc2.breasts+] together, [npc.name] [npc.verb(let)] out a little [npc.moan] as [npc.she] [npc.verb(start)] to gently pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] slowly [npc.verb(fuck)] [npc2.her] cleavage."));
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Gently sliding [npc.her] [npc.cock+] between [npc2.namePos] tiny [npc2.breasts],"
@@ -770,7 +770,7 @@ public class PenisBreasts {
 
 						"Softly trying to push [npc2.namePos] [npc2.breastSize] [npc2.breasts] together, [npc.name] [npc.verb(let)] out a little [npc.moan] as [npc.she] [npc.verb(start)] to gently pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] slowly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] chest."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Gently sliding [npc.her] [npc.cock+] over [npc2.namePos] flat chest,"
@@ -782,14 +782,14 @@ public class PenisBreasts {
 						"Softly groping [npc2.namePos] flat chest, [npc.name] [npc.verb(let)] out a little [npc.moan] as [npc.she] [npc.verb(start)] to gently pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] slowly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] torso."));
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKING_DOM_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -798,7 +798,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -831,7 +831,7 @@ public class PenisBreasts {
 
 						"Greedily pushing [npc2.namePos] [npc2.breasts+] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to frantically pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] eagerly [npc.verb(fuck)] [npc2.her] cleavage."));
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Eagerly sliding [npc.her] [npc.cock+] between [npc2.namePos] tiny [npc2.breasts],"
@@ -842,7 +842,7 @@ public class PenisBreasts {
 
 						"Greedily trying to push [npc2.namePos] [npc2.breastSize] [npc2.breasts] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to frantically pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] eagerly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] chest."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Eagerly sliding [npc.her] [npc.cock+] over [npc2.namePos] flat chest,"
@@ -854,14 +854,14 @@ public class PenisBreasts {
 						"Greedily groping [npc2.namePos] flat chest, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to frantically pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] eagerly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] torso."));
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKING_DOM_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -870,7 +870,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_ROUGH) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -902,7 +902,7 @@ public class PenisBreasts {
 
 						"Greedily pushing [npc2.namePos] [npc2.breasts+] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to dominantly pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] roughly [npc.verb(fuck)] [npc2.her] cleavage."));
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Roughly slamming [npc.her] [npc.cock+] between [npc2.namePos] tiny [npc2.breasts],"
@@ -913,7 +913,7 @@ public class PenisBreasts {
 
 						"Greedily trying to push [npc2.namePos] [npc2.breastSize] [npc2.breasts] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to dominantly pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] roughly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] chest."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Roughly pushing [npc.her] [npc.cock+] over [npc2.namePos] flat chest,"
@@ -925,14 +925,14 @@ public class PenisBreasts {
 						"Greedily groping [npc2.namePos] flat chest, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to dominantly pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] roughly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] torso."));
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction FUCKING_SUB_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -941,7 +941,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -959,7 +959,7 @@ public class PenisBreasts {
 				return "Continue grinding against [npc2.namePos] flat chest.";
 			}
 		}
-		
+
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
@@ -974,7 +974,7 @@ public class PenisBreasts {
 
 						"Pushing [npc2.namePos] [npc2.breasts+] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] [npc.verb(fuck)] [npc2.her] cleavage."));
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Sliding [npc.her] [npc.cock+] between [npc2.namePos] tiny [npc2.breasts],"
@@ -985,7 +985,7 @@ public class PenisBreasts {
 
 						"Trying to push [npc2.namePos] [npc2.breastSize] [npc2.breasts] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] chest."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Sliding [npc.her] [npc.cock+] over [npc2.namePos] flat chest,"
@@ -997,14 +997,14 @@ public class PenisBreasts {
 						"Groping [npc2.namePos] flat chest, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] torso."));
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKING_SUB_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1013,7 +1013,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -1031,7 +1031,7 @@ public class PenisBreasts {
 				return "Eagerly grind against [npc2.namePos] flat chest.";
 			}
 		}
-		
+
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
@@ -1046,7 +1046,7 @@ public class PenisBreasts {
 
 						"Greedily pushing [npc2.namePos] [npc2.breasts+] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to frantically pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] eagerly [npc.verb(fuck)] [npc2.her] cleavage."));
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Eagerly sliding [npc.her] [npc.cock+] between [npc2.namePos] tiny [npc2.breasts],"
@@ -1057,7 +1057,7 @@ public class PenisBreasts {
 
 						"Greedily trying to push [npc2.namePos] [npc2.breastSize] [npc2.breasts] together, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to frantically pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] eagerly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] chest."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Eagerly sliding [npc.her] [npc.cock+] over [npc2.namePos] flat chest,"
@@ -1069,14 +1069,14 @@ public class PenisBreasts {
 						"Greedily groping [npc2.namePos] flat chest, [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(start)] to frantically pump [npc.her] [npc.hips] back and forth,"
 								+ " breathing in [npc2.her] [npc2.scent] as [npc.she] eagerly [npc.verb(grind)] [npc.her] [npc.cock+] over [npc2.her] torso."));
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKING_SUB_RESIST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1085,7 +1085,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_RESISTING) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -1107,7 +1107,7 @@ public class PenisBreasts {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
 				switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 					case DOM_GENTLE:
@@ -1144,7 +1144,7 @@ public class PenisBreasts {
 										+ " and [npc2.she] [npc2.verb(continue)] [npc2.moaning+] as [npc2.she] eagerly [npc2.verb(force)] [npc.her] [npc.cock+] between [npc2.her] [npc2.breasts+]."));
 						break;
 				}
-				
+
 			} else if(Sex.getCharacterTargetedForSexAction(this).hasBreasts()) {
 				switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 					case DOM_GENTLE:
@@ -1181,7 +1181,7 @@ public class PenisBreasts {
 										+ " and [npc2.she] [npc2.verb(continue)] [npc2.moaning+] as [npc2.she] eagerly [npc2.verb(force)] [npc.her] [npc.cock+] between [npc2.her] [npc2.breasts+]."));
 						break;
 				}
-				
+
 			} else {
 				switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 					case DOM_GENTLE:
@@ -1219,12 +1219,12 @@ public class PenisBreasts {
 						break;
 				}
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKING_STOP = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -1232,7 +1232,7 @@ public class PenisBreasts {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -1253,7 +1253,7 @@ public class PenisBreasts {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
 
 			if(Sex.getCharacterTargetedForSexAction(this).isBreastFuckablePaizuri()) {
@@ -1307,7 +1307,7 @@ public class PenisBreasts {
 						break;
 				}
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1322,13 +1322,13 @@ public class PenisBreasts {
 							" With [npc2.a_moan+], [npc2.name] [npc2.verb(beg)] for [npc.herHim] to keep on using [npc2.herHim]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 	// Partner actions:
-	
+
 	public static final SexAction USING_COCK_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1336,7 +1336,7 @@ public class PenisBreasts {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -1357,9 +1357,9 @@ public class PenisBreasts {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
@@ -1424,7 +1424,7 @@ public class PenisBreasts {
 					default:
 						break;
 				}
-				
+
 			} else if(Sex.getCharacterPerformingAction().hasBreasts()) {
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
@@ -1483,7 +1483,7 @@ public class PenisBreasts {
 					default:
 						break;
 				}
-				
+
 			} else {
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
@@ -1542,12 +1542,12 @@ public class PenisBreasts {
 					default:
 						break;
 				}
-				
+
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
 
 	private static String getTargetedCharacterReceivingResponse(SexAction action) {
@@ -1558,50 +1558,50 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] greedily [npc2.verb(thrust)] [npc2.her] [npc2.cock+] deep between [npc.namePos] [npc.breasts+],"
 									+ " letting out [npc2.a_moan+] as [npc2.she] enthusiastically [npc2.verb(fuck)] [npc.her] cleavage.",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] deep between [npc.namePos] [npc.breasts+].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(drive)] [npc2.her] [npc2.cock+] in and out between [npc.namePos] [npc.breasts+]."));
 					break;
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" Failing to pull [npc2.her] [npc2.cock] away from [npc.namePos] [npc.breasts+],"
 									+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+] as [npc2.she] weakly [npc2.verb(try)] to struggle free.",
-		
+
 							" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 									+ " squirming and protesting as [npc.name] [npc.verb(continue)] to force [npc2.her] [npc2.cock+] back and forth between [npc.her] [npc.breasts+].",
-		
+
 							" [npc2.Sobbing] in distress, [npc2.name] [npc2.verb(try)], in vain, to pull [npc2.her] [npc2.cock] away from [npc.namePos] [npc.breasts+]."));
 					break;
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] gently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] between [npc.namePos] [npc.breasts+],"
 									+ " letting out a soft [npc2.moan] as [npc2.she] [npc2.verb(fuck)] [npc.her] cleavage.",
-		
+
 							" A soft [npc2.moan] drifts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] gently thrusting [npc2.her] [npc2.cock+] between [npc.namePos] [npc.breasts+].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] gently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] back and forth between [npc.namePos] [npc.breasts+]."));
 					break;
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] violently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] deep between [npc.namePos] [npc.breasts+],"
 									+ " letting out [npc2.a_moan+] as [npc2.she] roughly [npc2.verb(fuck)] [npc.her] cleavage.",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] roughly slamming [npc2.her] [npc2.cock+] deep between [npc.namePos] [npc.breasts+].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] roughly [npc2.verb(slam)] [npc2.her] [npc2.cock+] back and forth between [npc.namePos] [npc.breasts+]."));
 					break;
 				case SUB_NORMAL:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(thrust)] [npc2.her] [npc2.cock+] deep between [npc.namePos] [npc.breasts+],"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(fuck)] [npc.her] cleavage.",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] deep between [npc.namePos] [npc.breasts+].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] [npc2.verb(drive)] [npc2.her] [npc2.cock+] back and forth between [npc.namePos] [npc.breasts+]."));
 					break;
 			}
-			
+
 		} else if(Sex.getCharacterPerformingAction().hasBreasts()) {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
 				case SUB_EAGER:
@@ -1609,50 +1609,50 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] greedily [npc2.verb(thrust)] [npc2.her] [npc2.cock+] into what little cleavage [npc.name] [npc.has] to offer,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] enthusiastically [npc2.verb(fuck)] [npc.her] [npc.breasts+].",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] between [npc.namePos] [npc.breastSize] [npc.breasts].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(drive)] [npc2.her] [npc2.cock+] in and out of the diminutive cleavage formed between [npc.namePos] [npc.breasts+]."));
 					break;
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" Failing to pull [npc2.her] [npc2.cock] away from [npc.namePos] [npc.breasts+],"
 									+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+] as [npc2.she] weakly [npc2.verb(try)] to struggle free.",
-		
+
 							" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 									+ " squirming and protesting as [npc.name] [npc.verb(continue)] to force [npc2.her] [npc2.cock+] back and forth between [npc.her] [npc.breasts+].",
-		
+
 							" [npc2.Sobbing] in distress, [npc2.name] [npc2.verb(try)], in vain, to pull [npc2.her] [npc2.cock] away from [npc.namePos] [npc.breasts+]."));
 					break;
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] gently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] into what little cleavage [npc.name] [npc.has] to offer,"
 									+ " letting out a soft [npc2.moan] as [npc2.she] [npc2.verb(fuck)] [npc.her] [npc.breasts+].",
-		
+
 							" A soft [npc2.moan] drifts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] gently thrusting [npc2.her] [npc2.cock+] between [npc.namePos]  [npc.breastSize] [npc.breasts].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] gently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] in and out of the diminutive cleavage formed between [npc.namePos] [npc.breasts+]."));
 					break;
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] violently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] into what little cleavage [npc.name] [npc.has] to offer,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] roughly [npc2.verb(fuck)] [npc.her] [npc.breasts+].",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] roughly slamming [npc2.her] [npc2.cock+] between  [npc.breastSize] [npc.breasts].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] roughly [npc2.verb(slam)] [npc2.her] [npc2.cock+] in and out of the diminutive cleavage formed between [npc.namePos] [npc.breasts+]."));
 					break;
 				case SUB_NORMAL:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(thrust)] [npc2.her] [npc2.cock+] into what little cleavage [npc.name] [npc.has] to offer,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(fuck)] [npc.her] [npc.breasts+].",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] between  [npc.breastSize] [npc.breasts].",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] [npc2.verb(drive)] [npc2.her] [npc2.cock+] in and out of the diminutive cleavage formed between [npc.namePos] [npc.breasts+]."));
 					break;
 			}
-			
+
 		} else {
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(action))) {
 				case SUB_EAGER:
@@ -1660,53 +1660,53 @@ public class PenisBreasts {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] greedily [npc2.verb(thrust)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] enthusiastically [npc2.verb(grind)] against [npc.her] torso.",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] up and down against [npc.namePos] flat chest.",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] eagerly [npc2.verb(grind)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest."));
 					break;
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" Failing to pull [npc2.her] [npc2.cock] away from [npc.namePos] flat chest,"
 									+ " [npc2.name] [npc2.verb(let)] out [npc2.a_sob+] as [npc2.she] weakly [npc2.verb(try)] to struggle free.",
-		
+
 							" [npc2.A_sob+] bursts out from between [npc2.namePos] [npc2.lips] as [npc2.she] weakly [npc2.verb(try)] to push [npc.name] away,"
 									+ " squirming and protesting as [npc.name] [npc.verb(continue)] to force [npc2.her] [npc2.cock+] back and forth over [npc.her] flat chest.",
-		
+
 							" [npc2.Sobbing] in distress, [npc2.name] [npc2.verb(try)], in vain, to pull [npc2.her] [npc2.cock] away from [npc.namePos] flat chest."));
 					break;
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] gently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest,"
 									+ " letting out a soft [npc2.moan] as [npc2.she] [npc2.verb(grind)] against [npc.her] torso.",
-		
+
 							" A soft [npc2.moan] drifts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] gently thrusting [npc2.her] [npc2.cock+] up and down against [npc.namePos] flat chest.",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] gently [npc2.verb(grind)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest."));
 					break;
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] violently [npc2.verb(thrust)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] roughly [npc2.verb(grind)] against [npc.her] torso.",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] roughly slamming [npc2.her] [npc2.cock+] up and down against [npc.namePos] flat chest.",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] roughly [npc2.verb(grind)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest."));
 					break;
 				case SUB_NORMAL:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(thrust)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest,"
 									+ " letting out [npc2.a_moan+] as [npc2.she] [npc2.verb(grind)] against [npc.her] torso.",
-		
+
 							" [npc2.A_moan+] bursts out from [npc2.namePos] mouth, before [npc2.she] [npc2.verb(start)] thrusting [npc2.her] [npc2.cock+] up and down against [npc.namePos] flat chest.",
-									
+
 							" [npc2.Moaning] in delight, [npc2.name] [npc2.verb(grind)] [npc2.her] [npc2.cock+] over [npc.namePos] flat chest."));
 					break;
 			}
 		}
 		return "";
 	}
-	
+
 	public static final SexAction PERFORMING_COCK_DOM_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1715,7 +1715,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -1737,7 +1737,7 @@ public class PenisBreasts {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Reaching up to push [npc.her] [npc.breasts+] together around [npc2.namePos] [npc2.cock+],"
@@ -1748,7 +1748,7 @@ public class PenisBreasts {
 
 						"Letting out a soft [npc.moan], [npc.name] [npc.verb(push)] [npc.her] [npc.breasts+] together,"
 								+ " enveloping [npc2.namePos] [npc2.cock+] in [npc.her] pillowy mounds as [npc.she] [npc.verb(give)] [npc2.herHim] a loving titfuck."));
-				
+
 			} else {
 				if(Sex.getCharacterPerformingAction().hasBreasts()) {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1760,7 +1760,7 @@ public class PenisBreasts {
 
 							"Letting out a soft [npc.moan], [npc.name] [npc.verb(push)] [npc.her] [npc.breasts+] together,"
 									+ " trying [npc.her] best to pleasure [npc2.namePos] [npc2.cock+] with the tiny amount of cleavage [npc.she] [npc.has]."));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"Reaching up to wrap [npc.her] [npc.fingers+] around [npc2.namePos] [npc2.cock+], [npc.name] gently [npc.verb(raise)] and [npc.verb(lower)] [npc.namePos] torso,"
@@ -1773,14 +1773,14 @@ public class PenisBreasts {
 									+ " before thrusting [npc.her] flat chest out and giving [npc2.herHim] an imitation titfuck"));
 				}
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction PERFORMING_COCK_DOM_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1789,7 +1789,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -1811,7 +1811,7 @@ public class PenisBreasts {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Reaching up to happily push [npc.her] [npc.breasts+] together around [npc2.namePos] [npc2.cock+],"
@@ -1822,7 +1822,7 @@ public class PenisBreasts {
 
 						"Letting out [npc.a_moan+], [npc.name] happily [npc2.verb(push)] [npc.her] [npc.breasts+] together,"
 								+ " enveloping [npc2.namePos] [npc2.cock+] in [npc.her] pillowy mounds as [npc.she] [npc.verb(give)] [npc2.herHim] an eager titfuck."));
-				
+
 			} else {
 				if(Sex.getCharacterPerformingAction().hasBreasts()) {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1834,7 +1834,7 @@ public class PenisBreasts {
 
 							"Letting out [npc.a_moan+], [npc.name] happily [npc2.verb(push)] [npc.her] [npc.breasts+] together,"
 									+ " trying [npc.her] best to pleasure [npc2.namePos] [npc2.cock+] with the tiny amount of cleavage [npc.she] [npc.has]."));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"Reaching up to happily wrap [npc.her] [npc.fingers+] around [npc2.namePos] [npc2.cock+], [npc.name] enthusiastically [npc.verb(raise)] and [npc.verb(lower)] [npc.namePos] torso,"
@@ -1847,14 +1847,14 @@ public class PenisBreasts {
 									+ " before thrusting [npc.her] flat chest out and eagerly giving [npc2.herHim] an imitation titfuck"));
 				}
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction PERFORMING_COCK_DOM_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1863,7 +1863,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_ROUGH) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -1885,7 +1885,7 @@ public class PenisBreasts {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Reaching up to roughly force [npc.her] [npc.breasts+] together around [npc2.namePos] [npc2.cock+],"
@@ -1896,7 +1896,7 @@ public class PenisBreasts {
 
 						"Letting out [npc.a_moan+], [npc.name] forcefully [npc2.verb(push)] [npc.her] [npc.breasts+] together,"
 								+ " enveloping [npc2.namePos] [npc2.cock+] in [npc.her] pillowy mounds as [npc.she] [npc.verb(give)] [npc2.herHim] a dominant titfuck."));
-				
+
 			} else {
 				if(Sex.getCharacterPerformingAction().hasBreasts()) {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1908,7 +1908,7 @@ public class PenisBreasts {
 
 							"Letting out [npc.a_moan+], [npc.name] forcefully [npc2.verb(push)] [npc.her] [npc.breasts+] together,"
 									+ " trying [npc.her] best to pleasure [npc2.namePos] [npc2.cock+] with the tiny amount of cleavage [npc.she] [npc.has]."));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"Reaching up to roughly wrap [npc.her] [npc.fingers+] around [npc2.namePos] [npc2.cock+], [npc.name] violently [npc.verb(raise)] and [npc.verb(lower)] [npc.namePos] torso,"
@@ -1921,14 +1921,14 @@ public class PenisBreasts {
 									+ " before thrusting [npc.her] flat chest out and roughly giving [npc2.herHim] an imitation titfuck"));
 				}
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction PERFORMING_COCK_SUB_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -1937,7 +1937,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -1959,7 +1959,7 @@ public class PenisBreasts {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Reaching up to push [npc.her] [npc.breasts+] together around [npc2.namePos] [npc2.cock+],"
@@ -1970,7 +1970,7 @@ public class PenisBreasts {
 
 						"Letting out [npc.a_moan+], [npc.name] [npc.verb(push)] [npc.her] [npc.breasts+] together,"
 								+ " enveloping [npc2.namePos] [npc2.cock+] in [npc.her] pillowy mounds as [npc.she] [npc.verb(give)] [npc2.herHim] a titfuck."));
-				
+
 			} else {
 				if(Sex.getCharacterPerformingAction().hasBreasts()) {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1982,7 +1982,7 @@ public class PenisBreasts {
 
 							"Letting out [npc.a_moan+], [npc.name] [npc.verb(push)] [npc.her] [npc.breasts+] together,"
 									+ " trying [npc.her] best to pleasure [npc2.namePos] [npc2.cock+] with the tiny amount of cleavage [npc.she] [npc.has]."));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"Reaching up to happily wrap [npc.her] [npc.fingers+] around [npc2.namePos] [npc2.cock+], [npc.name] [npc.verb(raise)] and [npc.verb(lower)] [npc.namePos] torso,"
@@ -1995,14 +1995,14 @@ public class PenisBreasts {
 									+ " before thrusting [npc.her] flat chest out and giving [npc2.herHim] an imitation titfuck"));
 				}
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction PERFORMING_COCK_SUB_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
@@ -2011,7 +2011,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -2033,7 +2033,7 @@ public class PenisBreasts {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"Reaching up to happily push [npc.her] [npc.breasts+] together around [npc2.namePos] [npc2.cock+],"
@@ -2044,7 +2044,7 @@ public class PenisBreasts {
 
 						"Letting out [npc.a_moan+], [npc.name] happily [npc2.verb(push)] [npc.her] [npc.breasts+] together,"
 								+ " enveloping [npc2.namePos] [npc2.cock+] in [npc.her] pillowy mounds as [npc.she] [npc.verb(give)] [npc2.herHim] an eager titfuck."));
-				
+
 			} else {
 				if(Sex.getCharacterPerformingAction().hasBreasts()) {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -2056,7 +2056,7 @@ public class PenisBreasts {
 
 							"Letting out [npc.a_moan+], [npc.name] happily [npc2.verb(push)] [npc.her] [npc.breasts+] together,"
 									+ " trying [npc.her] best to pleasure [npc2.namePos] [npc2.cock+] with the tiny amount of cleavage [npc.she] [npc.has]."));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"Reaching up to happily wrap [npc.her] [npc.fingers+] around [npc2.namePos] [npc2.cock+], [npc.name] enthusiastically [npc.verb(raise)] and [npc.verb(lower)] [npc.namePos] torso,"
@@ -2069,14 +2069,14 @@ public class PenisBreasts {
 									+ " before thrusting [npc.her] flat chest out and eagerly giving [npc2.herHim] an imitation titfuck"));
 				}
 			}
-			
+
 			UtilText.nodeContentSB.append(getTargetedCharacterReceivingResponse(this));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKED_SUB_RESIST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.ZERO_NONE,
@@ -2085,7 +2085,7 @@ public class PenisBreasts {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_RESISTING) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -2108,7 +2108,7 @@ public class PenisBreasts {
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"[npc.Name] [npc.verb(let)] out [npc.moan+] as [npc.she] [npc.verb(try)] to pull [npc.her] [npc.breasts+] away from [npc2.namePos] [npc2.cock+],"
@@ -2119,7 +2119,7 @@ public class PenisBreasts {
 
 						"Letting out [npc.a_moan+], [npc.name] [npc.verb(try)] to push [npc2.name] away from [npc.herHim],"
 								+ " tears running down [npc.her] cheeks as [npc2.she] [npc2.verb(continue)] thrusting [npc2.her] [npc2.cock+] into [npc.her] cleavage."));
-				
+
 			} else if(Sex.getCharacterPerformingAction().hasBreasts()) {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"[npc.Name] [npc.verb(let)] out [npc.moan+] as [npc.she] [npc.verb(try)] to pull [npc.her] [npc.breastSize] [npc.breasts] away from [npc2.namePos] [npc2.cock+],"
@@ -2130,7 +2130,7 @@ public class PenisBreasts {
 
 						"Letting out [npc.a_moan+], [npc.name] [npc.verb(try)] to push [npc2.name] away from [npc.herHim],"
 								+ " tears running down [npc.her] cheeks as [npc2.she] [npc2.verb(continue)] thrusting [npc2.her] [npc2.cock+] into [npc.her] small cleavage."));
-						
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 						"[npc.Name] [npc.verb(let)] out [npc.moan+] as [npc.she] [npc.verb(try)] to pull [npc.her] flat chest away from [npc2.namePos] [npc2.cock+],"
@@ -2142,12 +2142,12 @@ public class PenisBreasts {
 						"Letting out [npc.a_moan+], [npc.name] [npc.verb(try)] to push [npc2.name] away from [npc.herHim],"
 								+ " tears running down [npc.her] cheeks as [npc2.she] [npc2.verb(continue)] thrusting [npc2.her] [npc2.cock+] against [npc.her] torso."));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction FUCKED_STOP = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -2155,7 +2155,7 @@ public class PenisBreasts {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterPerformingAction().isBreastFuckablePaizuri()) {
@@ -2176,9 +2176,9 @@ public class PenisBreasts {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getCharacterPerformingAction().hasBreasts()) {
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_ROUGH:
@@ -2210,7 +2210,7 @@ public class PenisBreasts {
 						break;
 				}
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -2225,9 +2225,9 @@ public class PenisBreasts {
 							" With [npc2.a_moan+], [npc2.she] [npc2.verb(beg)] for [npc.name] to keep on using [npc2.herHim]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 }

@@ -28,7 +28,7 @@ public class DominionEncounterDialogue {
 					+ " There's no way to find out who the package was originally intended for, so, not wanting it to go to waste, you gingerly peel back the brown paper to reveal:" + "</p>" + "<p style='text-align:center;'>" + "<b>"
 					+ Encounter.getRandomItem().getDisplayName(true) + "</b>" + "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -38,16 +38,16 @@ public class DominionEncounterDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().addItem(Encounter.getRandomItem(), true, true));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Leave", "Leave the " + Encounter.getRandomItem().getName() + " on the floor.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALLEY_FIND_CLOTHING = new DialogueNode("Abandoned package", "", true) {
 
 		@Override
@@ -63,7 +63,7 @@ public class DominionEncounterDialogue {
 					+ "<b>"
 					+ Util.capitalizeSentence(Encounter.getRandomClothing().getName(true, true)) + "</b>" + "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -73,16 +73,16 @@ public class DominionEncounterDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().addClothing(Encounter.getRandomClothing(), true));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Leave", "Leave the " + Encounter.getRandomClothing().getName() + " on the floor.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ALLEY_FIND_WEAPON = new DialogueNode("Abandoned package", "", true) {
 
 		@Override
@@ -107,16 +107,16 @@ public class DominionEncounterDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().addWeapon(Encounter.getRandomWeapon(), true));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Leave", "Leave the " + Encounter.getRandomWeapon().getName() + " on the floor.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode HARPY_NESTS_FIND_ITEM = new DialogueNode("Dropped item", "", true) {
 
 		@Override
@@ -125,7 +125,7 @@ public class DominionEncounterDialogue {
 						+ "As you travel down the winding walkways, you suddenly catch sight of a flash of pink on the path ahead."
 						+ " Walking up to the splash of color, you look down to see:"
 					+ "</p>"
-					
+
 					+ "<p style='text-align:center;'><b>"
 						+ Encounter.getRandomItem().getDisplayName(true)
 					+ "</b></p>"
@@ -135,7 +135,7 @@ public class DominionEncounterDialogue {
 						+ " You suppose that there'd be no harm in taking it for yourself..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -145,16 +145,16 @@ public class DominionEncounterDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().addItem(Encounter.getRandomItem(), true, true));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Leave", "Leave the " + Encounter.getRandomItem().getName() + " on the floor.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode DOMINION_STREET_FIND_HAPPINESS = new DialogueNode("Finding Happiness", "", true) {
 
 		@Override
@@ -192,7 +192,7 @@ public class DominionEncounterDialogue {
 						+ "<p style='text-align:center'>"
 							+ "<i style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>You've found Happiness!</i>"
 						+ "</p>";
-			
+
 			} else {
 				return "<p>"
 						+ "Making your way down the bustling, ever-busy streets of Dominion, you make sure to keep a look-out for anything of interest that may cross your path."
@@ -229,12 +229,12 @@ public class DominionEncounterDialogue {
 					+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Continue", "Continue on your way.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}

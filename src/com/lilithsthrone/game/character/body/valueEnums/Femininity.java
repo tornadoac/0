@@ -30,7 +30,7 @@ public enum Femininity {
 	public int getMaximumFemininity() {
 		return maximumFemininity;
 	}
-	
+
 	public int getMedianFemininity() {
 		return minimumFemininity + ((maximumFemininity - minimumFemininity)/2);
 	}
@@ -43,7 +43,7 @@ public enum Femininity {
 		}
 		return FEMININE_STRONG;
 	}
-	
+
 	public String getName(boolean withDeterminer) {
 
 		if (this == MASCULINE_STRONG)
@@ -75,7 +75,7 @@ public enum Femininity {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public boolean isFeminine() {
 		return this != MASCULINE && this != MASCULINE_STRONG;
 	}

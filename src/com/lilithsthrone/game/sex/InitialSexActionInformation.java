@@ -9,13 +9,13 @@ import com.lilithsthrone.game.sex.sexActions.SexActionInterface;
  * @author Innoxia
  */
 public class InitialSexActionInformation {
-	
+
 	private GameCharacter performer;
 	private GameCharacter target;
 	private SexActionInterface sexAction;
 	private boolean appendDescription;
 	private boolean appendEffects;
-	
+
 	public InitialSexActionInformation(GameCharacter performer, GameCharacter target, SexActionInterface sexAction, boolean appendDescription, boolean appendEffects) {
 		this.performer = performer;
 		this.target = target;
@@ -43,5 +43,5 @@ public class InitialSexActionInformation {
 	public boolean isAppendEffects() {
 		return appendEffects;
 	}
-	
+
 }

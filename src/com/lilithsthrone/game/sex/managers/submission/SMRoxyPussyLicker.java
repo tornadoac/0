@@ -17,13 +17,13 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public class SMRoxyPussyLicker extends SexManagerDefault {
-	
+
 	public SMRoxyPussyLicker(Map<GameCharacter, SexSlot> dominants, Map<GameCharacter, SexSlot> submissives) {
 		super(SexPositionBipeds.FACE_SITTING,
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
@@ -33,20 +33,20 @@ public class SMRoxyPussyLicker extends SexManagerDefault {
 	public boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing){
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPartnerWantingToStopSex(GameCharacter partner) {
 		return Sex.getNumberOfOrgasms(Main.game.getNpc(Roxy.class))>=1;
 	}
-	
+
 }

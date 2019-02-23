@@ -11,22 +11,22 @@ import com.lilithsthrone.utils.Util;
  * @author Pimgd
  */
 public enum StartingSkinTone {
-	
+
 	VERY_LIGHT(Util.newArrayListOfValues(
 			Color.SKIN_PALE,
 			Color.SKIN_PINK,
 			Color.SKIN_BLUE,
 			Color.SKIN_IVORY,
-			
+
 			Color.SLIME_BLUE,
 			Color.SLIME_PINK,
-			
+
 			Color.COVERING_BLEACH_BLONDE,
 			Color.COVERING_GINGER,
 			Color.COVERING_LILAC,
 			Color.COVERING_PINK,
 			Color.COVERING_WHITE,
-			
+
 			Color.HORN_WHITE,
 			Color.ORIFICE_INTERIOR,
 			Color.TONGUE,
@@ -37,7 +37,7 @@ public enum StartingSkinTone {
 			Color.COVERING_GINGER,
 			Color.COVERING_WHITE,
 			Color.COVERING_PINK,
-			
+
 			Color.COVERING_CLEAR,
 			Color.COVERING_NONE,
 
@@ -49,7 +49,7 @@ public enum StartingSkinTone {
 			Color.EYE_PINK,
 			Color.EYE_ORANGE,
 			Color.EYE_BLACK)),
-			
+
 	LIGHT(Util.newArrayListOfValues(
 			Color.SKIN_LIGHT,
 			Color.SKIN_ROSY,
@@ -57,12 +57,12 @@ public enum StartingSkinTone {
 			Color.SKIN_BLUE,
 			Color.SKIN_IVORY,
 			Color.SKIN_LILAC,
-			
+
 			Color.SLIME_BLUE,
 			Color.SLIME_PINK,
 			Color.SLIME_GREEN,
 			Color.SLIME_RED,
-			
+
 			Color.COVERING_WHITE,
 			Color.COVERING_BLUE,
 			Color.COVERING_LILAC,
@@ -73,7 +73,7 @@ public enum StartingSkinTone {
 			Color.COVERING_ORANGE,
 			Color.COVERING_GINGER,
 			Color.COVERING_BLEACH_BLONDE,
-			
+
 			Color.HORN_WHITE,
 			Color.ORIFICE_INTERIOR,
 			Color.TONGUE,
@@ -88,7 +88,7 @@ public enum StartingSkinTone {
 			Color.COVERING_PURPLE,
 			Color.COVERING_PINK,
 			Color.COVERING_GREEN,
-			
+
 			Color.COVERING_CLEAR,
 			Color.COVERING_NONE,
 
@@ -100,7 +100,7 @@ public enum StartingSkinTone {
 			Color.EYE_PINK,
 			Color.EYE_ORANGE,
 			Color.EYE_BLACK)),
-			
+
 	OLIVE(Util.newArrayListOfValues(
 			Color.SKIN_OLIVE,
 			Color.SKIN_TANNED,
@@ -111,7 +111,7 @@ public enum StartingSkinTone {
 			Color.SKIN_LILAC,
 			Color.SKIN_PURPLE,
 			Color.SKIN_IVORY,
-			
+
 			Color.SLIME_BLUE,
 			Color.SLIME_PINK,
 			Color.SLIME_GREEN,
@@ -129,7 +129,7 @@ public enum StartingSkinTone {
 			Color.COVERING_ORANGE,
 			Color.COVERING_GINGER,
 			Color.COVERING_BLEACH_BLONDE,
-			
+
 			Color.HORN_WHITE,
 			Color.ORIFICE_INTERIOR,
 			Color.TONGUE,
@@ -145,7 +145,7 @@ public enum StartingSkinTone {
 			Color.COVERING_PURPLE,
 			Color.COVERING_PINK,
 			Color.COVERING_GREEN,
-			
+
 			Color.COVERING_CLEAR,
 			Color.COVERING_NONE,
 
@@ -157,14 +157,14 @@ public enum StartingSkinTone {
 			Color.EYE_PINK,
 			Color.EYE_ORANGE,
 			Color.EYE_BLACK)),
-			
+
 	DARK(Util.newArrayListOfValues(
 			Color.SKIN_DARK,
 			Color.SKIN_RED,
 			Color.SKIN_BROWN,
 			Color.SKIN_LILAC,
 			Color.SKIN_PURPLE,
-			
+
 			Color.SLIME_BLUE,
 			Color.SLIME_GREEN,
 			Color.SLIME_RED,
@@ -179,7 +179,7 @@ public enum StartingSkinTone {
 			Color.COVERING_GREEN,
 			Color.COVERING_YELLOW,
 			Color.COVERING_ORANGE,
-			
+
 			Color.HORN_WHITE,
 			Color.ORIFICE_INTERIOR,
 			Color.TONGUE,
@@ -193,7 +193,7 @@ public enum StartingSkinTone {
 			Color.COVERING_PURPLE,
 			Color.COVERING_PINK,
 			Color.COVERING_GREEN,
-			
+
 			Color.COVERING_CLEAR,
 			Color.COVERING_NONE,
 
@@ -203,14 +203,14 @@ public enum StartingSkinTone {
 			Color.EYE_PINK,
 			Color.EYE_ORANGE,
 			Color.EYE_BLACK)),
-			
+
 	VERY_DARK(Util.newArrayListOfValues(
 			Color.SKIN_EBONY,
 			Color.SKIN_CHOCOLATE,
 			Color.SKIN_RED,
 			Color.SKIN_BROWN,
 			Color.SKIN_PURPLE,
-			
+
 			Color.SLIME_BLUE,
 			Color.SLIME_GREEN,
 			Color.SLIME_RED,
@@ -223,7 +223,7 @@ public enum StartingSkinTone {
 			Color.COVERING_GREEN,
 			Color.COVERING_YELLOW,
 			Color.COVERING_ORANGE,
-			
+
 			Color.HORN_WHITE,
 			Color.ORIFICE_INTERIOR,
 			Color.TONGUE,
@@ -236,7 +236,7 @@ public enum StartingSkinTone {
 			Color.COVERING_BLUE,
 			Color.COVERING_PURPLE,
 			Color.COVERING_GREEN,
-			
+
 			Color.COVERING_CLEAR,
 			Color.COVERING_NONE,
 
@@ -246,9 +246,9 @@ public enum StartingSkinTone {
 			Color.EYE_PINK,
 			Color.EYE_ORANGE,
 			Color.EYE_BLACK));
-	
+
 	private List<Color> associatedColors;
-	
+
 	private StartingSkinTone(List<Color> associatedColors) {
 		this.associatedColors = associatedColors;
 	}
@@ -256,5 +256,5 @@ public enum StartingSkinTone {
 	public List<Color> getAssociatedColors() {
 		return associatedColors;
 	}
-	
+
 }

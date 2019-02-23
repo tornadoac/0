@@ -19,5 +19,5 @@ public class SMDoggy extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 }

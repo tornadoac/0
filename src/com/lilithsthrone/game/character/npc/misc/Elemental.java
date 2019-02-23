@@ -64,64 +64,64 @@ public class Elemental extends NPC {
 	public Elemental(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, null, isImported);
 	}
-	
+
 	public Elemental(Gender gender, GameCharacter summoner, boolean isImported) {
 		super(isImported, null, null, "", summoner==null?18:summoner.getAgeValue(), summoner==null?Month.JANUARY:summoner.getBirthMonth(), summoner==null?1:summoner.getDayOfBirth(), 20, gender, Subspecies.DEMON, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, false);
 
 		if(!isImported) {
 			this.setLocation(summoner, false);
-			
+
 			setLevel(summoner.getLevel());
-			
+
 			this.setSummoner(summoner);
 			this.setStartingBody(true);
-			
+
 			this.setLegType(LegType.DEMON_COMMON);
-			
+
 			this.setHistory(Occupation.ELEMENTAL_ARCANE);
-			
+
 			// RACE & NAME:
-			
+
 			setSexualOrientation(SexualOrientation.AMBIPHILIC);
-	
+
 			setName(Name.getRandomTriplet(Race.DEMON));
 			this.setPlayerKnowsName(true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
-			
+
 			this.addFetish(Fetish.FETISH_EXHIBITIONIST);
 
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 0);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 0);
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 	}
-	
+
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element properties = super.saveAsXML(parentElement, doc);
-		
+
 		Element npcSpecific = doc.createElement("elementalSpecial");
 		properties.appendChild(npcSpecific);
 
 		CharacterUtils.createXMLElementWithValue(doc, npcSpecific, "summoner", this.getSummoner().getId());
-		
+
 		return properties;
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
 
 		Element npcSpecificElement = (Element) parentElement.getElementsByTagName("elementalSpecial").item(0);
 		this.setSummoner(((Element)npcSpecificElement.getElementsByTagName("summoner").item(0)).getAttribute("value"));
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.11.6")) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 0);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
@@ -139,7 +139,7 @@ public class Elemental extends NPC {
 		if(summoner==null) {
 			return;
 		}
-		
+
 		// Body:
 		this.setAgeAppearanceDifferenceToAppearAsAge(summoner.getAppearsAsAgeValue());
 		this.setTailType(TailType.DEMON_COMMON);
@@ -159,17 +159,17 @@ public class Elemental extends NPC {
 		this.setFemininity(75);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.ZERO_SKINNY.getMedianValue());
-			
+
 		// Coverings:
 //		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_RED));
 //		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_PALE), true);
-//		
+//
 //		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_WHITE), false);
 //
 //		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BROWN_DARK), true);
 //		this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
 //		this.setHairStyle(HairStyle.LOOSE);
-//		
+//
 //		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 //		this.setUnderarmHair(BodyHair.ZERO_NONE);
 //		this.setAssHair(BodyHair.ZERO_NONE);
@@ -182,7 +182,7 @@ public class Elemental extends NPC {
 //				this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //			this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //				this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-			
+
 			// Face:
 			this.setFaceVirgin(true);
 			this.setLipSize(LipSize.TWO_FULL);
@@ -190,7 +190,7 @@ public class Elemental extends NPC {
 			// Throat settings and modifiers
 			this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 			// Tongue modifiers
-			
+
 			// Chest:
 			this.setNippleVirgin(true);
 			if(summoner.hasBreasts()) {
@@ -205,17 +205,17 @@ public class Elemental extends NPC {
 				this.setAreolaeSize(AreolaeSize.THREE_LARGE);
 			}
 			// Nipple settings and modifiers
-			
+
 			// Ass:
 			this.setAssVirgin(true);
 			this.setAssBleached(false);
 			this.setAssSize(AssSize.FOUR_LARGE);
 			this.setHipSize(HipSize.FOUR_WOMANLY);
 			// Anus settings and modifiers
-			
+
 			// Penis:
 			// n/a
-			
+
 			// Vagina:
 			this.setVaginaVirgin(true);
 			this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -225,7 +225,7 @@ public class Elemental extends NPC {
 			this.setVaginaWetness(Wetness.THREE_WET);
 			this.setVaginaElasticity(OrificeElasticity.TWO_FIRM.getValue());
 			this.setVaginaPlasticity(OrificePlasticity.SIX_MALLEABLE.getValue());
-			
+
 			// Feet:
 			// Foot shape
 	}
@@ -234,12 +234,12 @@ public class Elemental extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		// Not needed
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getSurname() {
 		if(this.getSummoner()!=null) {
@@ -248,12 +248,12 @@ public class Elemental extends NPC {
 			return "kamu";
 		}
 	}
-	
+
 	@Override
 	public String getDescription() {
 		return UtilText.parse(this, getSummoner(), "");
 	}
-	
+
 	@Override
 	protected int getTrueLevel() {
 		if(this.getSummoner()==null) {
@@ -261,21 +261,21 @@ public class Elemental extends NPC {
 		}
 		return getSummoner().getLevel();
 	}
-	
+
 	@Override
 	public int getLevel() {
 		return getTrueLevel();
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public String rollForPregnancy(GameCharacter partner, int cum) {
 		return PregnancyDescriptor.NO_CHANCE.getDescriptor(this, partner)
@@ -286,29 +286,29 @@ public class Elemental extends NPC {
 	public String incrementExperience(int increment, boolean withExtraModifiers) {
 		return ""; // Elementals don't gain experience, but instead automatically level up alongside their summoner.
 	}
-	
+
 	@Override
 	public boolean addPerk(int row, Perk perk) {
 		perks.putIfAbsent(row, new HashSet<>());
-		
+
 		if (perks.get(row).contains(perk)) {
 			return false;
 		}
-		
+
 		perks.get(row).add(perk);
-		
+
 		if(!perk.isEquippableTrait()) {
 			applyPerkGainEffects(perk);
 		}
 
 		calculateSpells(getCurrentSchool());
-		
+
 		return true;
 	}
-	
+
 	private void calculateSpells(SpellSchool school) {
 		this.resetSpells();
-		
+
 		// Add spells:
 		for(Set<Perk> perkSet : this.getPerksMap().values()) {
 			for(Perk p : perkSet) {
@@ -317,13 +317,13 @@ public class Elemental extends NPC {
 						this.addSpellUpgrade(p.getSpellUpgrade());
 					} else {
 						this.addSpell(p.getSpell());
-						
+
 					}
 				}
 			}
 		}
 	}
-	
+
 	public SpellSchool getCurrentSchool() {
 		switch(this.getBodyMaterial()) {
 			case AIR:
@@ -344,24 +344,24 @@ public class Elemental extends NPC {
 		}
 		return SpellSchool.ARCANE;
 	}
-	
+
 	public void setElementalSchool(SpellSchool school) {
 		setElementalSchool(school, null);
 	}
-	
+
 	public void setElementalSchool(SpellSchool school, BodyMaterial preferredMaterial) {
-		
+
 		switch(school) {
 			case AIR:
 				this.setBodyMaterial(BodyMaterial.AIR);
 				this.setHistory(Occupation.ELEMENTAL_AIR);
 				break;
-				
+
 			case ARCANE:
 				this.setBodyMaterial(BodyMaterial.ARCANE);
 				this.setHistory(Occupation.ELEMENTAL_ARCANE);
 				break;
-				
+
 			case EARTH:
 				if(preferredMaterial==BodyMaterial.RUBBER) {
 					this.setBodyMaterial(BodyMaterial.RUBBER);
@@ -370,12 +370,12 @@ public class Elemental extends NPC {
 				}
 				this.setHistory(Occupation.ELEMENTAL_EARTH);
 				break;
-				
+
 			case FIRE:
 				this.setBodyMaterial(BodyMaterial.FIRE);
 				this.setHistory(Occupation.ELEMENTAL_FIRE);
 				break;
-				
+
 			case WATER:
 				if(preferredMaterial==BodyMaterial.ICE) {
 					this.setBodyMaterial(BodyMaterial.ICE);
@@ -387,7 +387,7 @@ public class Elemental extends NPC {
 		}
 		calculateSpells(school);
 	}
-	
+
 	public GameCharacter getSummoner() {
 		try {
 			return Main.game.getNPCById(summonerID);
@@ -401,10 +401,10 @@ public class Elemental extends NPC {
 	public void setSummoner(String summonerID) {
 		this.summonerID = summonerID;
 	}
-	
+
 	public void setSummoner(GameCharacter summoner) {
 		this.summonerID = summoner.getId();
 	}
-	
+
 
 }

@@ -17,7 +17,7 @@ public enum ObedienceLevelBasic {
 
 	/** 30 to 100*/
 	OBEDIENT("obedient", 30, 100, Color.AFFECTION_POSITIVE_FIVE);
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -28,7 +28,7 @@ public enum ObedienceLevelBasic {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -40,7 +40,7 @@ public enum ObedienceLevelBasic {
 	public int getMaximumValue() {
 		return maximumValue;
 	}
-	
+
 	public int getMedianValue() {
 		return (minimumValue + maximumValue) / 2;
 	}

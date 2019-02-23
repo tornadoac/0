@@ -16,7 +16,7 @@
 		<imageEquippedName/>
 		<enchantmentLimit/>
 		<effects/>
-		
+
 		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
@@ -31,9 +31,9 @@
 				<concealedSlots/>
 			</blockedParts>
 		</blockedPartsList>
-		
+
 		<incompatibleSlots/>
-		
+
 		<primaryColors>
 			<color>CLOTHING_TAN</color>
 			<color>CLOTHING_BROWN</color>
@@ -45,7 +45,7 @@
 		<secondaryColorsDye values="ALL"/>
 		<tertiaryColors values="ALL_METAL"/>
 		<tertiaryColorsDye/>
-	
+
 		<itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 			<tag>SOLD_BY_FINCH</tag>
 			<tag>PLUGS_ANUS</tag>
@@ -107,5 +107,5 @@
 	  <![CDATA[[npc1.Name] holds [npc2.name] still as [npc1.sheHe] roughly forces the butt plug into [npc2.herHis] [npc2.ass+].]]>
 	</NPCOtherNPCRough>
   </replacementText>
-	
+
 </clothing>

@@ -65,7 +65,7 @@ public class Angel extends NPC {
 	public Angel() {
 		this(false);
 	}
-	
+
 	public Angel(boolean isImported) {
 		super(isImported, new NameTriplet("Angel"), "Cox",
 				"Angel is the owner of the brothel 'Angel's Kiss', located in Dominion's Red-light district."
@@ -75,37 +75,37 @@ public class Angel extends NPC {
 				new CharacterInventory(30), WorldType.ANGELS_KISS_GROUND_FLOOR, PlaceType.ANGELS_KISS_OFFICE, true);
 
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 2f);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0f);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 75f);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_PROSTITUTE);
-	
+
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
 			this.addFetish(Fetish.FETISH_ORAL_GIVING);
@@ -113,7 +113,7 @@ public class Angel extends NPC {
 			this.addFetish(Fetish.FETISH_VAGINAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_KINK_GIVING);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -121,7 +121,7 @@ public class Angel extends NPC {
 		this.setFemininity(90);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Color.EYE_BLUE));
 		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
@@ -142,7 +142,7 @@ public class Angel extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.THREE_PLUMP);
@@ -150,7 +150,7 @@ public class Angel extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.DD.getMeasurement());
@@ -158,7 +158,7 @@ public class Angel extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(true);
@@ -169,10 +169,10 @@ public class Angel extends NPC {
 		this.setAssElasticity(OrificeElasticity.SIX_SUPPLE.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -182,22 +182,22 @@ public class Angel extends NPC {
 		this.setVaginaWetness(Wetness.FIVE_SLOPPY);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.SEVEN_MOLDABLE.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		// No weapons
-		
-		this.addTattoo(InventorySlot.TORSO_UNDER, 
+
+		this.addTattoo(InventorySlot.TORSO_UNDER,
 				new Tattoo(TattooType.TRIBAL, Color.COVERING_BLACK, Color.COVERING_BLACK, Color.COVERING_BLACK, false,
 						new TattooWriting("I'm all yours", Color.COVERING_BLACK, false, TattooWritingStyle.ITALICIZED), null));
-		
+
 		// No scars
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_LACY_PANTIES, Color.CLOTHING_RED_DARK, false), true, this);
@@ -207,7 +207,7 @@ public class Angel extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Color.CLOTHING_PURPLE_DARK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Color.CLOTHING_SILVER, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Color.CLOTHING_SILVER, false), true, this);
-		
+
 		this.setPiercedEar(true);
 		this.setPiercedNavel(true);
 		this.setPiercedVagina(true);
@@ -216,20 +216,20 @@ public class Angel extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_VAGINA_BARBELL_RING, Color.CLOTHING_SILVER, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void dailyReset() {
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

@@ -10,9 +10,9 @@ import java.util.List;
  */
 public enum CoveringPattern {
 	NONE("plain"),
-	
+
 	FLUID("fluid"),
-	
+
 	ORIFICE_ANUS("anus"),
 	ORIFICE_VAGINA("vagina"),
 	ORIFICE_NIPPLE("nipple"),
@@ -31,13 +31,13 @@ public enum CoveringPattern {
 	MOTTLED("mottled"),
 	MARKED("marked"),
 	FRECKLED("freckled"),
-	
+
 	OMBRE("ombre");
-	
+
 	public static List<CoveringPattern> allStandardCoveringPatterns = new ArrayList<>();
 	public static List<CoveringPattern> allHairCoveringPatterns = new ArrayList<>();
 	public static List<CoveringPattern> allScalesCoveringPatterns = new ArrayList<>();
-	
+
 	static {
 		allStandardCoveringPatterns.add(NONE);
 		allStandardCoveringPatterns.add(HIGHLIGHTS);
@@ -46,7 +46,7 @@ public enum CoveringPattern {
 		allStandardCoveringPatterns.add(MOTTLED);
 		allStandardCoveringPatterns.add(MARKED);
 		allStandardCoveringPatterns.add(FRECKLED);
-		
+
 
 		allHairCoveringPatterns.add(NONE);
 		allHairCoveringPatterns.add(HIGHLIGHTS);
@@ -63,9 +63,9 @@ public enum CoveringPattern {
 		allScalesCoveringPatterns.add(MOTTLED);
 		allScalesCoveringPatterns.add(MARKED);
 	}
-	
+
 	private String name;
-	
+
 	private CoveringPattern(String name) {
 		this.name = name;
 	}

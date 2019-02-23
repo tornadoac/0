@@ -2,7 +2,7 @@ package com.lilithsthrone.game.inventory.clothing;
 
 /**
  * The types of possible access you'd need in order to equip a piece of clothing.
- * 
+ *
  * @since 0.1.64
  * @version 0.2.10
  * @author Innoxia

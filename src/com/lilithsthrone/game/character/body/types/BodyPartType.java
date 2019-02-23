@@ -6,22 +6,22 @@ package com.lilithsthrone.game.character.body.types;
  * @author Innoxia
  */
 public enum BodyPartType {
-	
+
 	GENERIC("generic"),
-	
+
 	ANTENNA("antenna"),
 	ARM("arms"),
 	ASS("ass"),
 	ANUS("anus"),
-	
+
 	BREAST("breasts"),
 	NIPPLES("nipples"),
 	MILK("milk"),
-	
+
 	BREAST_CROTCH("crotch-breasts"),
 	NIPPLES_CROTCH("crotch-nipples"),
 	MILK_CROTCH("crotch-breast-milk"),
-	
+
 	EAR("ears"),
 	EYE("eyes"),
 	FACE("face"),
@@ -41,7 +41,7 @@ public enum BodyPartType {
 	VAGINA("vagina"),
 	GIRL_CUM("girl cum"),
 	WING("wings");
-	
+
 	private String name;
 	private BodyPartType(String name){
 		this.name=name;
@@ -49,5 +49,5 @@ public enum BodyPartType {
 	public String getName() {
 		return name;
 	}
-	
+
 }

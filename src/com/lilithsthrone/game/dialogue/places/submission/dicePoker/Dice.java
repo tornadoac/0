@@ -12,10 +12,10 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class Dice {
-	
+
 	private DiceFace face;
 	private Map<DiceFace, Float> diceBias;
-	
+
 	public Dice() {
 		face = DiceFace.SIX;
 		diceBias = new HashMap<>();
@@ -23,7 +23,7 @@ public class Dice {
 			diceBias.put(face, 1f);
 		}
 	}
-	
+
 	public Dice(Map<DiceFace, Float> diceBias) {
 		this();
 		for(Entry<DiceFace, Float> entry : diceBias.entrySet()) {
@@ -34,15 +34,15 @@ public class Dice {
 	public void roll() {
 		face = Util.getRandomObjectFromWeightedFloatMap(diceBias);
 	}
-	
+
 	public DiceFace getFace() {
 		return face;
 	}
-	
+
 	public void setFace(DiceFace face) {
 		this.face = face;
 	}
-	
+
 	public Map<DiceFace, Float> getDiceBias() {
 		return diceBias;
 	}

@@ -14,7 +14,7 @@ I mean perhaps you could have an option like Free Cities
 	as in you can type in the description of a tattoo
 
 A magical tattoo that is an image of an npc. it does not have their description instead it is described as: a tattoo of [name] from the side magically enchanted to show their appearance even if it changes
-	It could also be of  you  that you give to an npc or put on yourself for selfception
+	It could also be of you that you give to an npc or put on yourself for selfception
 	(Live updating tattoo of PC)
 
 Basic animal tattoos Foxes dragons horses wolves sheep goats and badgers

@@ -17,7 +17,7 @@ public class Wing implements BodyPartInterface {
 
 	protected WingType type;
 	protected int size;
-	
+
 	public Wing(WingType type, int size) {
 		this.type = type;
 		this.size = size;
@@ -37,7 +37,7 @@ public class Wing implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -47,7 +47,7 @@ public class Wing implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		return type.getDescriptor(gc);
@@ -61,15 +61,15 @@ public class Wing implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if(type == WingType.NONE) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.verb(lack)] wings, so nothing happens...)]</p>");
-				
+
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the [npc.wings] of [npc.a_wingRace], so nothing happens...)]</p>");
 			}
-			
+
 		} else {
 			UtilText.transformationContentSB.setLength(0);
 
@@ -77,14 +77,14 @@ public class Wing implements BodyPartInterface {
 				UtilText.transformationContentSB.append(
 						"<p>"
 							+ "[npc.Name] [npc.verb(try)] to look behind [npc.herHim] as [npc.she] [npc.verb(feel)] a strange bubbling sensation rising up in [npc.her] back, before something starts pushing out from under [npc.her] [npc.skin].");
-				
+
 			} else {
 				UtilText.transformationContentSB.append(
 						"<p>"
 							+ "[npc.NamePos] [npc.wings] suddenly start to twitch and flap with a mind of their own, and [npc.she] [npc.verb(let)] out a gasp as [npc.she] [npc.verb(feel)] them start to transform.");
 			}
 		}
-		
+
 		switch (type) {
 			case ANGEL:
 				if(owner.getLegConfiguration().isWingsOnLegConfiguration()) {
@@ -152,7 +152,7 @@ public class Wing implements BodyPartInterface {
 				}
 				break;
 		}
-		
+
 		if(type!=WingType.NONE) {
 			if(this.getSize().getValue() >= owner.getLegConfiguration().getMinimumWingSizeForFlight().getValue()) {
 				UtilText.transformationContentSB.append("</br>"
@@ -169,7 +169,7 @@ public class Wing implements BodyPartInterface {
 		UtilText.transformationContentSB.append("</p>");
 
 		this.type = type;
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 				+ owner.postTransformationCalculation()
@@ -183,34 +183,34 @@ public class Wing implements BodyPartInterface {
 	public int getSizeValue() {
 		return size;
 	}
-	
+
 	public String setSize(GameCharacter owner, int wingSize) {
 		if(owner==null) {
 			int effectiveSize = Math.max(0, Math.min(wingSize, WingSize.getLargest()));
 			this.size = effectiveSize;
 			return "";
 		}
-		
+
 		if(owner.getWingType()==WingType.NONE) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.NamePos] [npc.do]n't have any wings, so nothing happens...)]</p>");
 		}
-		
+
 		int effectiveSize = Math.max(0, Math.min(wingSize, WingSize.getLargest()));
 		if(owner.getWingSizeValue() == effectiveSize) {
 			return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.wings] doesn't change...)]</p>");
 		}
 
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		if(this.size > effectiveSize) {
 			UtilText.transformationContentSB.append(
 					UtilText.parse(owner, "<p>[npc.Name] [npc.verb(let)] out an alarmed cry as [npc.she] [npc.verb(feel)] a soothing coolness rise up into [npc.her] [npc.wings+], before they suddenly [style.boldShrink(shrink)].<br/>"));
-			
+
 		} else {
 			UtilText.transformationContentSB.append(
 					UtilText.parse(owner, "<p>[npc.Name] [npc.verb(let)] out an alarmed gasp as [npc.she] [npc.verb(feel)] a pulsating warmth rise up into [npc.her] [npc.wings+], before they suddenly [style.boldGrow(grow larger)].<br/>"));
 		}
-		
+
 		this.size = effectiveSize;
 
 		UtilText.transformationContentSB.append(UtilText.parse(owner, "[npc.Name] now has [style.boldSex([npc.wingSize] [npc.wings])]!"));
@@ -229,7 +229,7 @@ public class Wing implements BodyPartInterface {
 			}
 		}
 		UtilText.transformationContentSB.append("</p>");
-		
+
 		return UtilText.transformationContentSB.toString();
 	}
 

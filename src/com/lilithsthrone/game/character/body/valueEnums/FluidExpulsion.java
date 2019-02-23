@@ -8,7 +8,7 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum FluidExpulsion {
-	
+
 	ZERO_NONE("tiny", 0, 20, Color.GENERIC_SIZE_ONE),
 
 	ONE_SMALL("small", 20, 40, Color.GENERIC_SIZE_TWO),

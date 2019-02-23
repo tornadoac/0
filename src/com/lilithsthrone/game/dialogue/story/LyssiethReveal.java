@@ -60,7 +60,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode FORWARDS_1 = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -87,7 +87,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode FORWARDS_2 = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -115,7 +115,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode FORWARDS_3 = new DialogueNode("", "", true) {
 
 		@Override
@@ -142,7 +142,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode OFFICE = new DialogueNode("", "", true) {
 
 		@Override
@@ -163,7 +163,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode OFFICE_REACTION = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -185,7 +185,7 @@ public class LyssiethReveal {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("misc/lyssiethReveal", "OFFICE_REACTION_RESIST"));
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Submit", "Yes... Kneel... Just give in...", OFFICE_REACTION_BETRAYAL) {
 					@Override
@@ -197,7 +197,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode OFFICE_REACTION_BETRAYAL = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -218,7 +218,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode OFFICE_REACTION_END = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -239,7 +239,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode OFFICE_TELEPORT = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -269,7 +269,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode OFFICE_TELEPORT_ARRIVE = new DialogueNode("", "", true) {
 
 		@Override
@@ -290,7 +290,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_ARTHUR_THEORY = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -311,7 +311,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_WORLD_REVEAL = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -332,7 +332,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_LILAYA_ANGERY = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -353,7 +353,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_LILAYA_CALMED_DOWN = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -381,7 +381,7 @@ public class LyssiethReveal {
 						}
 					};
 				}
-				
+
 			} if(index==2) {
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lyssiethQuestionAsked2)) {
 					return new Response("Betrayal", "You've already asked Lyssieth about why she chose to betray Lilith.", null);
@@ -394,7 +394,7 @@ public class LyssiethReveal {
 						}
 					};
 				}
-				
+
 			} else if(index==3) {
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lyssiethQuestionAsked3)) {
 					return new Response("People", "Lilaya has already asked Lyssieth about people's transformations.", null);
@@ -407,7 +407,7 @@ public class LyssiethReveal {
 						}
 					};
 				}
-				
+
 			} else if(index==4) {
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lyssiethQuestionAsked4)) {
 					return new Response("Spell", "[siren.Name] has already asked Lyssieth about Lilith's reality-altering spell.", null);
@@ -420,7 +420,7 @@ public class LyssiethReveal {
 						}
 					};
 				}
-				
+
 			} else if(index==5) {
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lyssiethQuestionAsked5)) {
 					return new Response("Reversal", "Arthur has already asked Lyssieth about the possibility of reversing Lilith's spell.", null);
@@ -433,7 +433,7 @@ public class LyssiethReveal {
 						}
 					};
 				}
-				
+
 			} else if(index==6) {
 				if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lyssiethQuestionAsked1)
 						|| !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.lyssiethQuestionAsked2)
@@ -445,11 +445,11 @@ public class LyssiethReveal {
 					return new Response("Continue", "Lyssieth has no more time for questions.", LAB_QUESTION_END);
 				}
 			}
-			
+
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_QUESTION = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -467,7 +467,7 @@ public class LyssiethReveal {
 			return LAB_LILAYA_CALMED_DOWN.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode LAB_QUESTION_END = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -493,7 +493,7 @@ public class LyssiethReveal {
 						Main.game.getTextStartStringBuilder().append(Main.game.getNpc(Arthur.class).incrementAffection(Main.game.getPlayer(), 10));
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Usurp", "Say that you intend to defeat Lilith, and take her place as the ruler of all Dominion.", LAB_ENDING) {
 					@Override
@@ -504,7 +504,7 @@ public class LyssiethReveal {
 						Main.game.getTextStartStringBuilder().append(Main.game.getNpc(DarkSiren.class).incrementAffection(Main.game.getPlayer(), 10));
 					}
 				};
-				
+
 			} else if(index==3) {
 				return new Response("Join", "Say that you want to join Lilith.", LAB_ENDING) {
 					@Override
@@ -516,7 +516,7 @@ public class LyssiethReveal {
 						Main.game.getTextStartStringBuilder().append(Main.game.getNpc(Arthur.class).incrementAffection(Main.game.getPlayer(), -5));
 					}
 				};
-				
+
 			} else if(index==4) {
 				return new Response("Nothing",
 						"You really don't care about saving the world or any of that nonsense. It's far less effort to just decide to do nothing and leave the fate of the world to people with more enthusiasm.",
@@ -534,7 +534,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_ENDING = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -555,7 +555,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_ENDING_SIREN_HELP = new DialogueNode("", "", true, true) {
 		@Override
 		public int getMinutesPassed() {
@@ -583,7 +583,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LAB_ENDING_RETURN = new DialogueNode("", "", true) {
 
 		@Override
@@ -618,7 +618,7 @@ public class LyssiethReveal {
 						}
 					};
 				}
-				
+
 			} else if(index==2) {
 				return new ResponseSex("Pussy",
 						"Tell Lyssieth that you want to have sex with her, and that you want to dominantly use her pussy.",
@@ -631,7 +631,7 @@ public class LyssiethReveal {
 						null,
 						POWER_VISION,
 						UtilText.parseFromXMLFile("misc/lyssiethReveal", "SEX_PUSSY"));
-				
+
 			} else if(index==3) {
 				return new ResponseSex("Cock",
 						"Tell Lyssieth that you want to have sex with her, and that she should grow a cock and dominantly fuck you.",
@@ -653,7 +653,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 //	private static void setPlayerAsLyssieth() {
 //		PlayerCharacter player = new PlayerCharacter(
 //				new NameTriplet("Lyssieth"),
@@ -673,7 +673,7 @@ public class LyssiethReveal {
 //		player.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
 //		Main.game.setPlayer(player);
 //	}
-	
+
 	public static final DialogueNode LAB_ENDING_RETURN_DECLINE_SEX = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -699,7 +699,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode POWER_VISION = new DialogueNode("Vision", "You have a strange vision, in which you are Lyssieth...", true) {
 
 		@Override
@@ -720,14 +720,14 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode POWER_EXPLANATION = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed() {
 			return 15;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/lyssiethReveal", "POWER_EXPLANATION");
@@ -742,7 +742,7 @@ public class LyssiethReveal {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("misc/lyssiethReveal", "POWER_EXPLANATION_LAP"));
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Stand up", "You don't feel comfortable like this. Stand up and tell her about the vision you saw.", POWER_EXPLANATION_CONTINUE) { // But why
 					@Override
@@ -754,14 +754,14 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode POWER_EXPLANATION_CONTINUE = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed() {
 			return 1;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
@@ -784,14 +784,14 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode END_SIREN = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed() {
 			return 15;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/lyssiethReveal", "END_SIREN");
@@ -816,7 +816,7 @@ public class LyssiethReveal {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode END_FINAL = new DialogueNode("", "", false) {
 
 		@Override

@@ -68,7 +68,7 @@ public abstract class AbstractRacialBody {
 
 	// Antenna:
 	private AntennaType antennaType;
-	
+
 	// Arms:
 	private AbstractArmType armType;
 	private int armRows;
@@ -132,7 +132,7 @@ public abstract class AbstractRacialBody {
 	private int femaleBodySize;
 	private int maleMuscle;
 	private int femaleMuscle;
-	
+
 	// Hair:
 	private HairType hairType;
 	private int maleHairLength;
@@ -163,10 +163,10 @@ public abstract class AbstractRacialBody {
 
 	// Tail:
 	private List<TailType> tailTypes;
-	
+
 	// Tentacle:
 	private TentacleType tentacleType;
-	
+
 	// Vagina:
 	private VaginaType vaginaType;
 	private int vaginaCapacity;
@@ -213,14 +213,14 @@ public abstract class AbstractRacialBody {
 
 		// Core attributes::
 		this.attributeModifiers = attributeModifiers;
-		
+
 		// Antenna:
 		this.antennaType = antennaType;
-		
+
 		// Arms:
 		this.armType = armType;
 		this.armRows = armRows;
-		
+
 		// Ass:
 		this.assType = assType;
 		this.anusCapacity = anusCapacity.getMedianValue();
@@ -229,7 +229,7 @@ public abstract class AbstractRacialBody {
 		this.femaleAssSize = femaleAssSize.getValue();
 		this.anusElasticity = anusElasticity.getValue();
 		this.anusPlasticity = anusPlasticity.getValue();
-		
+
 		// Breasts:
 		this.breastType = breastType;
 		this.breastShapes = breastShapes;
@@ -243,7 +243,7 @@ public abstract class AbstractRacialBody {
 		this.maleNippleShape = maleNippleShape;
 		this.maleAreolaeSize = maleAreolaeSize.getValue();
 		this.maleNippleCountPerBreast = maleNippleCountPerBreast;
-		
+
 		this.breastSize = breastSize.getMeasurement();
 		this.breastCountFemale = breastCountFemale;
 		this.femaleLactationRate = femaleLactationRate.getMedianValue();
@@ -268,7 +268,7 @@ public abstract class AbstractRacialBody {
 		this.breastCrotchNippleShape = breastCrotchNippleShape;
 		this.breastCrotchAreolaeSize = breastCrotchAreolaeSize.getValue();
 		this.nippleCountPerBreastCrotch = nippleCountPerBreastCrotch;
-		
+
 
 		// Core:
 		this.skinType = skinType;
@@ -299,11 +299,11 @@ public abstract class AbstractRacialBody {
 		this.hornTypes = hornTypes;
 		this.maleHornLength = maleHornLength.getMedianValue();
 		this.femaleHornLength = femaleHornLength.getMedianValue();
-		
+
 		// Leg:
 		this.legType = legType;
 		this.legConfiguration = legConfiguration;
-		
+
 		// Penis:
 		this.penisType = penisType;
 		this.penisSize = penisSize;
@@ -313,10 +313,10 @@ public abstract class AbstractRacialBody {
 
 		// Tail:
 		this.tailTypes = tailTypes;
-		
+
 		// Tentacle:
 		this.tentacleType = tentacleType;
-		
+
 		// Vagina:
 		this.vaginaType = vaginaType;
 		this.clitSize = clitSize.getMedianValue();
@@ -330,23 +330,23 @@ public abstract class AbstractRacialBody {
 		this.wingTypes = wingTypes;
 		this.maleWingSize = maleWingSize.getValue();
 		this.femaleWingSize = femaleWingSize.getValue();
-		
+
 	}
-	
+
 	/**
 	 * <b>Does not include angels or slimes</b>
 	 * @param gender
 	 * @return
 	 */
 	public static AbstractRacialBody getRandomCommonRacialBodyFromPreferences(Gender gender) {
-		
+
 		List<Race> availableRaces = new ArrayList<>();
 		for(Race r : Race.values()) {
 			if(r != Race.ANGEL) {
 				availableRaces.add(r);
 			}
 		}
-		
+
 		if(gender.isFeminine()) {
 			for(Entry<Subspecies, FurryPreference> entry : Main.getProperties().getSubspeciesFeminineFurryPreferencesMap().entrySet()) {
 				if(entry.getValue() == FurryPreference.HUMAN) {
@@ -360,14 +360,14 @@ public abstract class AbstractRacialBody {
 				}
 			}
 		}
-		
+
 		if(availableRaces.isEmpty()) {
 			return RacialBody.HUMAN;
 		}
-		
+
 		return RacialBody.valueOfRace(availableRaces.get(Util.random.nextInt(availableRaces.size())));
 	}
-	
+
 	/**
 	 * @return A map of personality traits and their normal associated values for this race.<br/>
 	 *  When generating an individual's personality, there is a 25% chance of the weight of each of these traits being moved up or down by 1 (e.g. from AVERAGE to HIGH), and a 5% chance of them being moved up or down 2 (e.g. from LOW to HIGH).<br/>
@@ -381,7 +381,7 @@ public abstract class AbstractRacialBody {
 				new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 				new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE));
 	}
-	
+
 	public SexualOrientation getSexualOrientation(Gender gender) {
 		if(gender.isFeminine()) {
 			return SexualOrientationPreference.getSexualOrientationFromUserPreferences(15, 50, 35);
@@ -389,7 +389,7 @@ public abstract class AbstractRacialBody {
 			return SexualOrientationPreference.getSexualOrientationFromUserPreferences(40, 50, 10);
 		}
 	}
-	
+
 	public HashMap<Attribute, AttributeRange> getAttributeModifiers() {
 		return attributeModifiers;
 	}
@@ -429,7 +429,7 @@ public abstract class AbstractRacialBody {
 	public HairType getHairType() {
 		return hairType;
 	}
-	
+
 	/**
 	 * @return true if this RacialBody requires FaceType to not be human in order to apply hair settings.
 	 */
@@ -448,7 +448,7 @@ public abstract class AbstractRacialBody {
 	public SkinType getSkinType() {
 		return skinType;
 	}
-	
+
 	public BodyMaterial getBodyMaterial() {
 		return bodyMaterial;
 	}
@@ -459,7 +459,7 @@ public abstract class AbstractRacialBody {
 	 */
 	public AbstractHornType getRandomHornType(boolean includeTypeNONE) {
 		List<AbstractHornType> hornList = new ArrayList<>(hornTypes);
-		
+
 		if(includeTypeNONE || hornTypes.size()==1) {
 			return hornTypes.get(Util.random.nextInt(hornTypes.size()));
 		} else {
@@ -467,7 +467,7 @@ public abstract class AbstractRacialBody {
 			return hornList.get(Util.random.nextInt(hornList.size()));
 		}
 	}
-	
+
 	public List<AbstractHornType> getHornTypes(boolean removeTypeNone) {
 		if(removeTypeNone) {
 			List<AbstractHornType> hornList = new ArrayList<>(hornTypes);
@@ -476,18 +476,18 @@ public abstract class AbstractRacialBody {
 		}
 		return hornTypes;
 	}
-	
+
 	public PenisType getPenisType() {
 		return penisType;
 	}
-	
+
 	/**
 	 * @param includeTypeNONE Set as true if you want the returned TailType to possibly include TailType.NONE. (Will include NONE anyway if the list is empty.)
 	 * @return A random TailType from this race's possible tailTypes.
 	 */
 	public TailType getRandomTailType(boolean includeTypeNONE) {
 		List<TailType> tailList = new ArrayList<>(tailTypes);
-		
+
 		if(includeTypeNONE || tailTypes.size()==1) {
 			return tailTypes.get(Util.random.nextInt(tailTypes.size()));
 		} else {
@@ -495,7 +495,7 @@ public abstract class AbstractRacialBody {
 			return tailList.get(Util.random.nextInt(tailList.size()));
 		}
 	}
-	
+
 	public List<TailType> getTailType() {
 		return tailTypes;
 	}
@@ -503,7 +503,7 @@ public abstract class AbstractRacialBody {
 	public TentacleType getTentacleType() {
 		return tentacleType;
 	}
-	
+
 	public VaginaType getVaginaType() {
 		return vaginaType;
 	}
@@ -514,7 +514,7 @@ public abstract class AbstractRacialBody {
 	 */
 	public WingType getRandomWingType(boolean includeTypeNONE) {
 		List<WingType> wingList = new ArrayList<>(wingTypes);
-		
+
 		if(includeTypeNONE || wingTypes.size()==1) {
 			return wingTypes.get(Util.random.nextInt(wingTypes.size()));
 		} else {
@@ -522,7 +522,7 @@ public abstract class AbstractRacialBody {
 			return wingList.get(Util.random.nextInt(wingList.size()));
 		}
 	}
-	
+
 	public List<WingType> getWingTypes() {
 		return wingTypes;
 	}
@@ -531,7 +531,7 @@ public abstract class AbstractRacialBody {
 	public int getArmRows() {
 		return armRows;
 	}
-	
+
 	public int getAnusCapacity() {
 		return anusCapacity;
 	}
@@ -543,7 +543,7 @@ public abstract class AbstractRacialBody {
 	public int getAnusElasticity() {
 		return anusElasticity;
 	}
-	
+
 	public int getAnusPlasticity() {
 		return anusPlasticity;
 	}
@@ -559,7 +559,7 @@ public abstract class AbstractRacialBody {
 	public int getMaleMuscle() {
 		return maleMuscle;
 	}
-	
+
 	public int getMaleBodySize() {
 		return maleBodySize;
 	}
@@ -571,7 +571,7 @@ public abstract class AbstractRacialBody {
 	public int getFemaleFemininity() {
 		return femaleFemininity;
 	}
-	
+
 	public int getFemaleBodySize() {
 		return femaleBodySize;
 	}
@@ -732,7 +732,7 @@ public abstract class AbstractRacialBody {
 	public int getPenisSize() {
 		return penisSize;
 	}
-	
+
 	public int getPenisGirth() {
 		return penisGirth;
 	}
@@ -756,7 +756,7 @@ public abstract class AbstractRacialBody {
 	public int getVaginaElasticity() {
 		return vaginaElasticity;
 	}
-	
+
 	public int getVaginaPlasticity() {
 		return vaginaPlasticity;
 	}

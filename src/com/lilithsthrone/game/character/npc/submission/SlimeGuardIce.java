@@ -77,7 +77,7 @@ public class SlimeGuardIce extends NPC {
 	public SlimeGuardIce() {
 		this(false);
 	}
-	
+
 	public SlimeGuardIce(boolean isImported) {
 		super(isImported, new NameTriplet("Crystal"), "Triggs",
 				"[npc.Name] is one of the Slime Queen's guards, tasked to challenge anyone who dares to enter [npc.her] Queen's territory.",
@@ -90,7 +90,7 @@ public class SlimeGuardIce extends NPC {
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -98,34 +98,34 @@ public class SlimeGuardIce extends NPC {
 			this.setBody(Gender.F_V_B_FEMALE, Subspecies.SLIME, RaceStage.HUMAN);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 35);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 80);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.LOW)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_SLIME_QUEEN_GUARD);
-	
+
 			this.addFetish(Fetish.FETISH_EXHIBITIONIST);
 			this.addFetish(Fetish.FETISH_INCEST);
-			
+
 			this.setFetishDesire(Fetish.FETISH_SUBMISSIVE, FetishDesire.THREE_LIKE);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -133,7 +133,7 @@ public class SlimeGuardIce extends NPC {
 		this.setFemininity(80);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
-		
+
 		// Coverings:
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Color.SLIME_BLUE), false);
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Color.SLIME_BLUE), false);
@@ -161,7 +161,7 @@ public class SlimeGuardIce extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -170,7 +170,7 @@ public class SlimeGuardIce extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.C.getMeasurement());
@@ -178,7 +178,7 @@ public class SlimeGuardIce extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -189,10 +189,10 @@ public class SlimeGuardIce extends NPC {
 		this.setAssElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -202,23 +202,23 @@ public class SlimeGuardIce extends NPC {
 		this.setVaginaWetness(Wetness.FIVE_SLOPPY);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.FIVE_YIELDING.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		this.setMoney(0);
 		inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 		CharacterUtils.generateItemsInInventory(this);
-		
+
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_KNIGHTLY_SWORD, DamageType.ICE));
 		this.equipOffhandWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.OFFHAND_BUCKLER, DamageType.ICE));
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(
 				ClothingType.FINGER_RING,
 				Color.CLOTHING_SILVER,
@@ -234,7 +234,7 @@ public class SlimeGuardIce extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_SNOWFLAKE_STUD, Color.CLOTHING_SILVER, false),
 				true,
 				this);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_SNOW_FLAKES, Color.CLOTHING_SILVER, false),
 				true,
 				this);
@@ -244,40 +244,40 @@ public class SlimeGuardIce extends NPC {
 				this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
 			setPendingClothingDressing(true);
 		}
 	}
-	
+
 	@Override
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 
 	// Combat:
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
@@ -300,19 +300,19 @@ public class SlimeGuardIce extends NPC {
 	@Override
 	public Attack attackType() {
 		boolean canCastASpecialAttack = !getSpecialAttacksAbleToUse().isEmpty();
-		
+
 		Map<Attack, Integer> attackWeightingMap = new HashMap<>();
-		
+
 		attackWeightingMap.put(Attack.MAIN, 100);
 		attackWeightingMap.put(Attack.OFFHAND, this.getOffhandWeapon()==null?0:25);
 		attackWeightingMap.put(Attack.SEDUCTION, 50);
 		attackWeightingMap.put(Attack.SPECIAL_ATTACK, !canCastASpecialAttack?0:50);
-		
+
 		int total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
 			total+=entry.getValue();
 		}
-		
+
 		int index = Util.random.nextInt(total);
 		total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
@@ -321,7 +321,7 @@ public class SlimeGuardIce extends NPC {
 				return entry.getKey();
 			}
 		}
-		
+
 		return Attack.MAIN;
 	}
 }

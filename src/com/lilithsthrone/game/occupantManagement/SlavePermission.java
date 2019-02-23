@@ -11,7 +11,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum SlavePermission {
-	
+
 	GENERAL(Color.TRANSFORMATION_GENERIC,
 			"General",
 			Util.newArrayListOfValues(
@@ -39,7 +39,7 @@ public enum SlavePermission {
 					SlavePermissionSetting.PREGNANCY_NO_PILLS,
 					SlavePermissionSetting.PREGNANCY_VIXENS_VIRILITY),
 			true),
-	
+
 	DIET(Color.BODY_SIZE_TWO,
 			"Diet",
 			Util.newArrayListOfValues(
@@ -59,19 +59,19 @@ public enum SlavePermission {
 					SlavePermissionSetting.EXERCISE_TRAINING,
 					SlavePermissionSetting.EXERCISE_BODY_BUILDING),
 			true),
-	
+
 	CLEANLINESS(Color.BASE_AQUA,
 			"Cleanliness",
 			Util.newArrayListOfValues(
 					SlavePermissionSetting.CLEANLINESS_WASH_CLOTHES,
 					SlavePermissionSetting.CLEANLINESS_WASH_BODY),
 			false);
-	
+
 	private Color color;
 	private String name;
 	private List<SlavePermissionSetting> settings;
 	private boolean mutuallyExclusiveSettings;
-	
+
 	private SlavePermission(Color color, String name, List<SlavePermissionSetting> settings, boolean mutuallyExclusiveSettings) {
 		this.color = color;
 		this.name = name;
@@ -94,5 +94,5 @@ public enum SlavePermission {
 	public boolean isMutuallyExclusiveSettings() {
 		return mutuallyExclusiveSettings;
 	}
-	
+
 }

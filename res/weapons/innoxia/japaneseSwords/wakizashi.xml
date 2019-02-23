@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <weapon>
 	<coreAttributes>
-	
-		<value>5000</value> 
-		
+
+		<value>5000</value>
+
 		<melee>true</melee>
-		
+
 		<twoHanded>false</twoHanded>
-		
+
 		<determiner><![CDATA[]]></determiner>
-		
+
 		<name><![CDATA[wakizashi]]></name>
-		
-		<namePlural pluralByDefault="false"><![CDATA[wakizashis]]></namePlural> 
-		
-		<description><![CDATA[A sword of Japanese origin, with a curved, slender, single-edged arcane blade. Typically worn along with a katana, it is mainly used as a backup sword, or for close quarters fighting.]]></description> 
-		
+
+		<namePlural pluralByDefault="false"><![CDATA[wakizashis]]></namePlural>
+
+		<description><![CDATA[A sword of Japanese origin, with a curved, slender, single-edged arcane blade. Typically worn along with a katana, it is mainly used as a backup sword, or for close quarters fighting.]]></description>
+
 		<attackDescriptor>cut</attackDescriptor>
-		
+
 		<attackTooltipDescription>Slash [npc2.name] with your wakizashi.</attackTooltipDescription>
-		
+
 		<rarity>EPIC</rarity>
-		
-		<weaponSet>WEAPON_DAISHO</weaponSet> 
-		
+
+		<weaponSet>WEAPON_DAISHO</weaponSet>
+
 		<equipText><![CDATA[[npc.Name] [npc.verb(position)] [npc.her] wakizashi at [npc.her] hip, so that [npc.she] may draw it at a moment's notice.]]></equipText>
-		
+
 		<unequipText><![CDATA[[npc.Name] [npc.verb(sheath)] [npc.her] wakizashi, before putting it away.]]></unequipText>
-		
-		<imageName>wakizashi_sheathed.svg</imageName> 
-		
-		<imageEquippedName>wakizashi.svg</imageEquippedName> 
-		
-		<damage>10</damage> 
-		
-		<arcaneCost>0</arcaneCost> 
-		
-		<damageVariance>LOW</damageVariance> 
-		
+
+		<imageName>wakizashi_sheathed.svg</imageName>
+
+		<imageEquippedName>wakizashi.svg</imageEquippedName>
+
+		<damage>10</damage>
+
+		<arcaneCost>0</arcaneCost>
+
+		<damageVariance>LOW</damageVariance>
+
 		<availableDamageTypes>
 			<damageType>PHYSICAL</damageType>
 			<damageType>ICE</damageType>
 			<damageType>FIRE</damageType>
 			<damageType>POISON</damageType>
 		</availableDamageTypes>
-		
+
 		<spells/>
-		
+
 		<enchantmentLimit>10</enchantmentLimit>
-		
-		<effects> 
+
+		<effects>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_WEAPON" timer="0"/>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_MELEE_WEAPON" timer="0"/>
 		</effects>
-		
+
 		<primaryColors>
 			<color>CLOTHING_TAN</color>
-		</primaryColors> 
+		</primaryColors>
 		<primaryColorsDye values="ALL"/>
-		<secondaryColors> 
+		<secondaryColors>
 			<color>CLOTHING_GREEN_VERY_DARK</color>
-		</secondaryColors> 
+		</secondaryColors>
 		<secondaryColorsDye values="ALL"/>
-		
-		<itemTags> 
+
+		<itemTags>
 			<tag>SOLD_BY_VICKY</tag>
 			<tag>WEAPON_BLADE</tag>
 		</itemTags>
-		
+
 	</coreAttributes>
-	
+
 	<hitDescriptions>
 		<hitText><![CDATA[
 		[npc.Name] [npc.verb(slash)] [npc.her] wakizashi at [npc2.name], grinning as the ethereal arcane blade travels through [npc2.her] body!
@@ -94,5 +94,5 @@
 		With a quick step forwards, [npc.name] [npc.verb(slash)] at [npc2.name] with [npc.her] wakizashi, but [npc.she] [npc.verb(miss)] [npc.her] target!
 		]]></missText>
 	</missDescriptions>
-	
+
 </weapon>

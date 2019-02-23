@@ -4,7 +4,7 @@ import com.lilithsthrone.utils.Color;
 
 /**
  * Arbitrary measurements in increments of 1, going from 0 to 7.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.83
  * @author Innoxia
@@ -16,7 +16,7 @@ public enum TesticleSize {
 
 	/**Small for a human.*/
 	ONE_TINY("tiny", 1, Color.GENERIC_SIZE_TWO),
-	
+
 	/**Average for a human.*/
 	TWO_AVERAGE("average-sized", 2, Color.GENERIC_SIZE_THREE),
 

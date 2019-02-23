@@ -21,11 +21,11 @@ public enum FaceType implements BodyPartTypeInterface {
 	ANGEL(BodyCoveringType.ANGEL, MouthType.ANGEL, TongueType.ANGEL, Race.ANGEL),
 
 	DEMON_COMMON(BodyCoveringType.DEMON_COMMON, MouthType.DEMON_COMMON, TongueType.DEMON_COMMON, Race.DEMON),
-	
+
 	DOG_MORPH(BodyCoveringType.CANINE_FUR, MouthType.DOG_MORPH, TongueType.DOG_MORPH, Race.DOG_MORPH),
-	
+
 	LYCAN(BodyCoveringType.LYCAN_FUR, MouthType.WOLF_MORPH, TongueType.WOLF_MORPH, Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.FOX_FUR, MouthType.FOX_MORPH, TongueType.FOX_MORPH, Race.FOX_MORPH),
 
 	CAT_MORPH(BodyCoveringType.FELINE_FUR, MouthType.CAT_MORPH, TongueType.CAT_MORPH, Race.CAT_MORPH),
@@ -71,7 +71,7 @@ public enum FaceType implements BodyPartTypeInterface {
 		}
 		return valueOf(value);
 	}
-	
+
 	@Override
 	public boolean isDefaultPlural() {
 		return false;
@@ -106,10 +106,10 @@ public enum FaceType implements BodyPartTypeInterface {
 			case FOX_MORPH:
 				return UtilText.returnStringAtRandom("muzzle", "face");
 		}
-		
+
 		return "";
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(this){
@@ -135,7 +135,7 @@ public enum FaceType implements BodyPartTypeInterface {
 			case FOX_MORPH:
 				return UtilText.returnStringAtRandom("muzzles", "faces");
 		}
-		
+
 		return "";
 	}
 
@@ -220,17 +220,17 @@ public enum FaceType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	@Override
 	public BodyCoveringType getBodyCoveringType(Body body) {
 		return skinType;
 	}
-	
+
 	@Override
 	public Race getRace() {
 		return race;
 	}
-	
+
 	public MouthType getMouthType() {
 		return mouthType;
 	}
@@ -238,14 +238,14 @@ public enum FaceType implements BodyPartTypeInterface {
 	public TongueType getTongueType() {
 		return tongueType;
 	}
-	
+
 
 	private static Map<Race, List<FaceType>> typesMap = new HashMap<>();
 	public static List<FaceType> getFaceTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<FaceType> types = new ArrayList<>();
 		for(FaceType type : FaceType.values()) {
 			if(type.getRace()==r) {

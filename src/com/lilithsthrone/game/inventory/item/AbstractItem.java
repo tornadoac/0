@@ -36,7 +36,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 		this.itemType = itemType;
 		this.itemEffects = itemType.getEffects();
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(super.equals(o)) {
@@ -47,7 +47,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -55,7 +55,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 		result = 31 * result + itemEffects.hashCode();
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("item");
 		parentElement.appendChild(element);
@@ -63,25 +63,25 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 		CharacterUtils.addAttribute(doc, element, "id", this.getItemType().getId());
 		CharacterUtils.addAttribute(doc, element, "name", this.getName());
 		CharacterUtils.addAttribute(doc, element, "color", this.getColor().toString());
-		
+
 		Element innerElement = doc.createElement("itemEffects");
 		element.appendChild(innerElement);
-		
+
 		for(ItemEffect ie : this.getEffects()) {
 			ie.saveAsXML(innerElement, doc);
 		}
-		
+
 		return element;
 	}
-	
+
 	public static AbstractItem loadFromXML(Element parentElement, Document doc) {
 		try {
 			AbstractItem item = AbstractItemType.generateItem(ItemType.getIdToItemMap().get(parentElement.getAttribute("id")));
-			
+
 			if(!parentElement.getAttribute("name").isEmpty()) {
 				item.setName(parentElement.getAttribute("name"));
 			}
-			
+
 			List<ItemEffect> effectsToBeAdded = new ArrayList<>();
 			NodeList element = ((Element) parentElement.getElementsByTagName("itemEffects").item(0)).getElementsByTagName("effect");
 			for(int i = 0; i < element.getLength(); i++){
@@ -92,11 +92,11 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 				}
 			}
 			item.setItemEffects(effectsToBeAdded);
-			
+
 			if(!effectsToBeAdded.isEmpty() && (item.getItemType().getId().equals(ItemType.ELIXIR.getId()) || item.getItemType().getId().equals(ItemType.POTION.getId()))) {
 				item.setSVGString(EnchantingUtils.getImportedSVGString(item, (parentElement.getAttribute("color").isEmpty()?Color.GENERIC_ARCANE:Color.valueOf(parentElement.getAttribute("color"))), effectsToBeAdded));
 			}
-			
+
 			return item;
 		} catch(Exception ex) {
 			System.err.println("Warning: An instance of AbstractItem was unable to be imported. ("+parentElement.getAttribute("id")+")");
@@ -119,38 +119,38 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 
 	public String applyEffect(GameCharacter user, GameCharacter target) {
 		StringBuilder sb = new StringBuilder();
-		
+
 		for(ItemEffect ie : getEffects()) {
 			sb.append(UtilText.parse(target, ie.applyEffect(user, target, 1)));
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	// Enchantments:
 
 	@Override
 	public int getEnchantmentLimit() {
 		return itemType.getEnchantmentLimit();
 	}
-	
+
 	@Override
 	public AbstractItemEffectType getEnchantmentEffect() {
 		return itemType.getEnchantmentEffect();
 	}
-	
+
 	@Override
 	public AbstractCoreType getEnchantmentItemType(List<ItemEffect> effects) {
 		return itemType.getEnchantmentItemType(effects);
 	}
-	
+
 	@Override
 	public TFEssence getRelatedEssence() {
 		return itemType.getRelatedEssence();
 	}
-	
+
 	// Getters & setters:
-	
+
 	public String getName(boolean withDeterminer, boolean withRarityColor) {
 		return (withDeterminer
 				? (!itemType.getDeterminer().equalsIgnoreCase("a") && !itemType.getDeterminer().equalsIgnoreCase("an")
@@ -159,7 +159,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 				: " ")
 				+ (withRarityColor ? (" <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + name + "</span>") : " "+name);
 	}
-	
+
 	public String getDisplayName(boolean withRarityColor) {
 		return Util.capitalizeSentence((itemType.getDeterminer()==""?"":itemType.getDeterminer()+" ") + (withRarityColor ? ("<span style='color: " + rarity.getColor().toWebHexString() + ";'>" + name + "</span>") : name));
 	}
@@ -168,18 +168,18 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 	public String getDescription() {
 		return itemType.getDescription();
 	}
-	
+
 	@Override
 	public int getValue() {
 		return itemType.getValue();
 	}
-	
+
 	public String getExtraDescription(GameCharacter user, GameCharacter target) {
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append("<p>"
 					+ "<b>Effects:</b><br/>");
-		
+
 		for(ItemEffect ie : getEffects()) {
 			for(String s : ie.getEffectsDescription(user, target)) {
 				sb.append(s+"<br/>");
@@ -190,7 +190,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 				+ "<p>"
 					+ (this.getItemType().isPlural()?"They have":"It has")+" a value of " + UtilText.formatAsMoney(getValue()) + "."
 				+ "</p>");
-		
+
 		return sb.toString();
 	}
 
@@ -201,7 +201,7 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 	public boolean isConsumedOnUse() {
 		return itemType.isConsumedOnUse();
 	}
-	
+
 	public String getUseDescription(GameCharacter user, GameCharacter target) {
 		return itemType.getUseDescription(user, target);
 	}
@@ -209,15 +209,15 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 	public boolean isAbleToBeUsedFromInventory() {
 		return itemType.isAbleToBeUsedFromInventory();
 	}
-	
+
 	public String getUnableToBeUsedFromInventoryDescription() {
 		return itemType.getUnableToBeUsedFromInventoryDescription();
 	}
-	
+
 	public boolean isAbleToBeUsed(GameCharacter target) {
 		return itemType.isAbleToBeUsed(target);
 	}
-	
+
 	public String getUnableToBeUsedDescription(GameCharacter target) {
 		return itemType.getUnableToBeUsedDescription(target);
 	}
@@ -229,9 +229,9 @@ public abstract class AbstractItem extends AbstractCoreItem implements XMLSaving
 	public boolean isAbleToBeUsedInSex(){
 		return itemType.isAbleToBeUsedInSex();
 	}
-	
+
 	public boolean isGift() {
 		return itemType.isGift();
 	}
-	
+
 }

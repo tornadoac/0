@@ -10,7 +10,7 @@ public class ResponseEffectsOnly extends Response {
 	public ResponseEffectsOnly(String title, String tooltipText) {
 		super(title, tooltipText, null);
 	}
-	
+
 
 	@Override
 	public boolean disabledOnNullDialogue(){

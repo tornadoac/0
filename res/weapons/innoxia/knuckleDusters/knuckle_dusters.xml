@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <weapon>
 	<coreAttributes>
-	
-		<value>100</value> 
-		
+
+		<value>100</value>
+
 		<melee>true</melee>
-		
+
 		<twoHanded>false</twoHanded>
-		
+
 		<determiner><![CDATA[]]></determiner>
-		
+
 		<name><![CDATA[knuckle duster]]></name>
-		
-		<namePlural pluralByDefault="true"><![CDATA[knuckle dusters]]></namePlural> 
-		
-		<description><![CDATA[A piece of metal shaped to fit around someone's fist. The outer rim, which is the part that impacts the wielder's target, has been imbued with an arcane enchantment.]]></description> 
-		
+
+		<namePlural pluralByDefault="true"><![CDATA[knuckle dusters]]></namePlural>
+
+		<description><![CDATA[A piece of metal shaped to fit around someone's fist. The outer rim, which is the part that impacts the wielder's target, has been imbued with an arcane enchantment.]]></description>
+
 		<attackDescriptor>punch</attackDescriptor>
-		
+
 		<attackTooltipDescription>Punch [npc2.name] with your knuckle dusters.</attackTooltipDescription>
-		
-		<rarity>COMMON</rarity> 
-		
+
+		<rarity>COMMON</rarity>
+
 		<equipText><![CDATA[[npc.Name] [npc.verb(fit)] [npc.her] knuckle dusters onto [npc.her] fist, so that they're ready to use in combat.]]></equipText>
-		
+
 		<unequipText><![CDATA[[npc.Name] [npc.verb(take)] off [npc.her] knuckle dusters, before putting them away.]]></unequipText>
-		
-		<imageName>knuckle_dusters.svg</imageName> 
-		
+
+		<imageName>knuckle_dusters.svg</imageName>
+
 		<imageEquippedName/>
-		
-		<damage>8</damage> 
-		
-		<arcaneCost>0</arcaneCost> 
-		
-		<damageVariance>MEDIUM</damageVariance> 
-		
+
+		<damage>8</damage>
+
+		<arcaneCost>0</arcaneCost>
+
+		<damageVariance>MEDIUM</damageVariance>
+
 		<availableDamageTypes>
 			<damageType>PHYSICAL</damageType>
 			<damageType>ICE</damageType>
 			<damageType>FIRE</damageType>
 			<damageType>POISON</damageType>
 		</availableDamageTypes>
-		
+
 		<spells/>
-		
+
 		<enchantmentLimit>5</enchantmentLimit>
-		
-		<effects> 
+
+		<effects>
 			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_WEAPON" timer="0"/>
 		</effects>
-		
+
 		<primaryColors>
 			<color>CLOTHING_BRASS</color>
-		</primaryColors> 
+		</primaryColors>
 		<primaryColorsDye values="ALL_METAL"/>
-		<secondaryColors/> 
+		<secondaryColors/>
 		<secondaryColorsDye/>
-		
-		<itemTags> 
+
+		<itemTags>
 			<tag>SOLD_BY_VICKY</tag>
 		</itemTags>
-		
+
 	</coreAttributes>
 
 	<!-- Descriptions that are used when hitting an enemy. One of the hitText values will be randomly selected each time the attacker hits their target. Follow the same guidelines as equipText. -->
@@ -89,5 +89,5 @@
 		With a quick step forwards, [npc.name] [npc.verb(jab)] out at [npc2.name] with [npc.her] fist, but [npc.she] [npc.verb(miss)] [npc.her] target!
 		]]></missText>
 	</missDescriptions>
-	
+
 </weapon>

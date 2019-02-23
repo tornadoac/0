@@ -26,18 +26,18 @@ public class GenericMaleNPC extends NPC {
 	public GenericMaleNPC() {
 		this(false);
 	}
-	
+
 	public GenericMaleNPC(boolean isImported) {
 		super(isImported, new NameTriplet("unknown male"), null, "Unknown.",
 				25, Month.JUNE, 15,
 				1, Gender.M_P_MALE, Subspecies.HUMAN, RaceStage.HUMAN,
 				new CharacterInventory(0), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		this.setName(new NameTriplet("unknown male"));
 	}
 
@@ -50,20 +50,20 @@ public class GenericMaleNPC extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		// Not needed
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 
 }

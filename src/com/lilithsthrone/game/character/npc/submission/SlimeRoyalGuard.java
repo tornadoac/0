@@ -76,7 +76,7 @@ public class SlimeRoyalGuard extends NPC {
 	public SlimeRoyalGuard() {
 		this(false);
 	}
-	
+
 	public SlimeRoyalGuard(boolean isImported) {
 		super(isImported, new NameTriplet("Maximilian", "Max", "Maxine"), "Klinge",
 				"An incredibly rare and powerful demonic slime, [npc.name] prides [npc.herself] on [npc.her] skill with the sword.",
@@ -85,11 +85,11 @@ public class SlimeRoyalGuard extends NPC {
 				new CharacterInventory(10), WorldType.SLIME_QUEENS_LAIR_FIRST_FLOOR, PlaceType.SLIME_QUEENS_LAIR_ROYAL_GUARD, true);
 
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -99,56 +99,56 @@ public class SlimeRoyalGuard extends NPC {
 			setStartingBody(true);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 60);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 20);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 40);
-			
+
 			this.setAttribute(Attribute.DAMAGE_MELEE_WEAPON, 50);
 			this.setAttribute(Attribute.RESISTANCE_LUST, 50);
 			this.setAttribute(Attribute.CRITICAL_CHANCE, 15);
 			this.setAttribute(Attribute.CRITICAL_DAMAGE, 250);
-	
+
 			this.addSpell(Spell.SLAM);
 			this.addSpell(Spell.TELEKENETIC_SHOWER);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_SLIME_QUEEN_GUARD);
-	
+
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_IMPREGNATION);
-	
+
 			this.setFetishDesire(Fetish.FETISH_CUM_STUD, FetishDesire.THREE_LIKE);
-			
+
 			this.setFetishDesire(Fetish.FETISH_ORAL_GIVING, FetishDesire.ONE_DISLIKE);
-			
+
 			this.setFetishDesire(Fetish.FETISH_ANAL_RECEIVING, FetishDesire.ZERO_HATE);
 			this.setFetishDesire(Fetish.FETISH_PREGNANCY, FetishDesire.ZERO_HATE);
 		}
-		
+
 		// Body:
-		
+
 		// Core:
 		this.setBodyMaterial(BodyMaterial.SLIME);
 		this.setHeight(205);
 		this.setFemininity(5);
 		this.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
 		this.setBodySize(BodySize.FOUR_HUGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME, Color.SLIME_PURPLE), false);
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_EYE, Color.SLIME_PINK), false);
@@ -160,7 +160,7 @@ public class SlimeRoyalGuard extends NPC {
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_NIPPLES, Color.SLIME_PURPLE_DARK), false);
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_VAGINA, CoveringPattern.ORIFICE_VAGINA, Color.SLIME_PURPLE_DARK, false, Color.SLIME_PURPLE_DARK, true), false);
 		this.setSkinCovering(new Covering(BodyCoveringType.SLIME_PENIS, CoveringPattern.NONE, Color.SLIME_PURPLE_DARK, false, Color.SLIME_PURPLE_DARK, true), false);
-		
+
 		this.setHairLength(HairLength.TWO_SHORT.getMedianValue());
 		this.setHairStyle(HairStyle.SLICKED_BACK);
 
@@ -175,7 +175,7 @@ public class SlimeRoyalGuard extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -184,7 +184,7 @@ public class SlimeRoyalGuard extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.FLAT.getMeasurement());
@@ -192,7 +192,7 @@ public class SlimeRoyalGuard extends NPC {
 		this.setNippleSize(NippleSize.ZERO_TINY);
 		this.setAreolaeSize(AreolaeSize.ZERO_TINY);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -203,7 +203,7 @@ public class SlimeRoyalGuard extends NPC {
 		this.setAssElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.FOUR_FAT.getValue());
@@ -211,14 +211,14 @@ public class SlimeRoyalGuard extends NPC {
 		this.setPenisCumStorage(CumProduction.FOUR_LARGE.getMedianValue());
 		this.fillCumToMaxStorage();
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -226,9 +226,9 @@ public class SlimeRoyalGuard extends NPC {
 
 		inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 		CharacterUtils.generateItemsInInventory(this);
-		
+
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_ZWEIHANDER, DamageType.PHYSICAL));
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_CROTCHLESS_CHAPS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Color.CLOTHING_BLACK, false), true, this);
@@ -237,12 +237,12 @@ public class SlimeRoyalGuard extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_WRAPS, Color.CLOTHING_BLACK, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
@@ -254,23 +254,23 @@ public class SlimeRoyalGuard extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null; //TODO
 	}
 
 	// Combat:
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
@@ -289,21 +289,21 @@ public class SlimeRoyalGuard extends NPC {
 			return new Response ("Defeated", "[slimeRoyalGuard.name] has defeated you!", SlimeQueensLair.SLIME_ROYAL_GUARD_COMBAT_PLAYER_DEFEAT);
 		}
 	}
-	
+
 	@Override
 	public Attack attackType() {
 		boolean canCastASpell = !getWeightedSpellsAvailable(Combat.getTargetedCombatant(this)).isEmpty();
-		
+
 		Map<Attack, Integer> attackWeightingMap = new HashMap<>();
-		
+
 		attackWeightingMap.put(Attack.MAIN, 100);
 		attackWeightingMap.put(Attack.SPELL, !canCastASpell?0:25);
-		
+
 		int total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
 			total+=entry.getValue();
 		}
-		
+
 		int index = Util.random.nextInt(total);
 		total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
@@ -312,7 +312,7 @@ public class SlimeRoyalGuard extends NPC {
 				return entry.getKey();
 			}
 		}
-		
+
 		return Attack.MAIN;
 	}
 }

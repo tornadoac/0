@@ -19,7 +19,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class FingerAnus {
-	
+
 	public static final SexAction ANAL_FINGERING_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -27,7 +27,7 @@ public class FingerAnus {
 			CorruptionLevel.TWO_HORNY,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Finger [npc2.her] ass";
@@ -40,9 +40,9 @@ public class FingerAnus {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -141,12 +141,12 @@ public class FingerAnus {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_DOM_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -155,7 +155,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gentle anal fingering";
@@ -165,12 +165,12 @@ public class FingerAnus {
 		public String getActionDescription() {
 			return "Gently finger [npc2.namePos] [npc2.asshole+].";
 		}
-		
+
 		@Override
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_EAGER:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -212,12 +212,12 @@ public class FingerAnus {
 									+ " [npc.namePos] touch causes [npc2.name] to [npc2.verb(let)] out [npc2.a_moan], and, wanting more, [npc2.name] [npc2.verb(grind)] [npc2.her] [npc2.assCloaca] back against [npc.her] [npc.hand]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_DOM_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -226,7 +226,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Anal fingering";
@@ -283,12 +283,12 @@ public class FingerAnus {
 									+ " and, wanting more, [npc2.name] [npc2.verb(grind)] [npc2.her] [npc2.assCloaca] back against [npc.namePos] [npc.hand]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_DOM_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -297,7 +297,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_ROUGH) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Rough anal fingering";
@@ -354,12 +354,12 @@ public class FingerAnus {
 									+ " and, wanting more, [npc2.name] [npc2.verb(grind)] [npc2.her] [npc2.assCloaca] back against [npc.namePos] [npc.hand]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_SUB_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -368,7 +368,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Anal fingering";
@@ -383,7 +383,7 @@ public class FingerAnus {
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -425,12 +425,12 @@ public class FingerAnus {
 									+ " and, hungry for more, [npc2.she] eagerly [npc2.verb(push)] [npc2.her] [npc2.assCloaca] back against [npc.namePos] [npc.hand]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_SUB_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -439,7 +439,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eager anal fingering";
@@ -449,12 +449,12 @@ public class FingerAnus {
 		public String getActionDescription() {
 			return "Eagerly finger [npc2.namePos] [npc2.asshole+].";
 		}
-		
+
 		@Override
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -496,12 +496,12 @@ public class FingerAnus {
 									+ " and, hungry for more, [npc2.she] eagerly [npc2.verb(push)] [npc2.her] [npc2.assCloaca] back against [npc.namePos] [npc.hand]."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_SUB_RESIST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -510,7 +510,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_RESISTING) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Resist anal fingering";
@@ -520,12 +520,12 @@ public class FingerAnus {
 		public String getActionDescription() {
 			return "Try and pull your [npc.fingers] out of [npc2.namePos] [npc2.asshole+].";
 		}
-		
+
 		@Override
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -563,11 +563,11 @@ public class FingerAnus {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 	public static final SexAction ANAL_FINGERING_STOP = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -575,7 +575,7 @@ public class FingerAnus {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.ANUS)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop anal fingering";
@@ -588,9 +588,9 @@ public class FingerAnus {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -605,7 +605,7 @@ public class FingerAnus {
 							"Pushing deep inside of [npc2.name] one last time, [npc.name] then slides [npc.her] [npc.fingers] back out of [npc2.namePos] [npc2.asshole+], putting an end to [npc.her] fingering."));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -622,11 +622,11 @@ public class FingerAnus {
 							" [npc2.A_moan+] escapes from between [npc2.namePos] [npc2.lips+], betraying [npc2.namePos] desire for more of [npc.namePos] attention."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 	public static final SexAction ANAL_FINGERED_START = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -634,7 +634,7 @@ public class FingerAnus {
 			CorruptionLevel.TWO_HORNY,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Get anally fingered";
@@ -647,15 +647,15 @@ public class FingerAnus {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"Taking a gentle, but firm, grip on [npc2.namePos] [npc2.hand], [npc.name] slowly [npc.verb(guide)] [npc2.namePos] [npc2.fingers] over [npc.her] [npc.assCloaca],"
 									+ " letting out a little [npc.moan] before pushing [npc2.her] digits into [npc.her] [npc.asshole+].",
-							
+
 							"Taking hold of [npc2.namePos] [npc2.hand], [npc.name] [npc.verb(guide)] [npc2.her] [npc2.fingers] between [npc.her] ass cheeks, and with a slow, steady pressure,"
 									+ " [npc.she] gently [npc.verb(push)] [npc2.her] digits into [npc.her] [npc.asshole+]."));
 					break;
@@ -694,7 +694,7 @@ public class FingerAnus {
 				default:
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -743,12 +743,12 @@ public class FingerAnus {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction ANALLY_FINGERED_DOM_GENTLE = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -757,7 +757,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Gently anally fingered";
@@ -771,7 +771,7 @@ public class FingerAnus {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					"Gently pushing [npc.her] [npc.assCloaca] back against [npc2.namePos] [npc2.hand],"
 							+ " [npc.name] [npc.verb(let)] out a soft [npc.moan] as [npc.she] [npc.verb(help)] to sink [npc2.namePos] [npc2.fingers+] deep into [npc.her] [npc.asshole+].",
@@ -785,7 +785,7 @@ public class FingerAnus {
 		}
 
 	};
-	
+
 	public static final SexAction ANALLY_FINGERED_DOM_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -794,7 +794,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Enjoy fingering";
@@ -822,7 +822,7 @@ public class FingerAnus {
 		}
 
 	};
-	
+
 	public static final SexAction ANALLY_FINGERED_DOM_ROUGH = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -831,7 +831,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_ROUGH) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Roughly anally fingered";
@@ -859,7 +859,7 @@ public class FingerAnus {
 		}
 
 	};
-	
+
 	public static final SexAction ANALLY_FINGERED_SUB_NORMAL = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -868,7 +868,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Enjoy anal fingering";
@@ -896,7 +896,7 @@ public class FingerAnus {
 		}
 
 	};
-	
+
 	public static final SexAction ANALLY_FINGERED_SUB_EAGER = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -905,7 +905,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Eagerly anally fingered";
@@ -933,7 +933,7 @@ public class FingerAnus {
 		}
 
 	};
-	
+
 	public static final SexAction ANAL_FINGERED_SUB_RESIST = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -942,7 +942,7 @@ public class FingerAnus {
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_RESISTING) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Resist anal fingering";
@@ -952,12 +952,12 @@ public class FingerAnus {
 		public String getActionDescription() {
 			return "Try and pull [npc2.namePos] [npc2.fingers] out of your [npc.asshole+].";
 		}
-		
+
 		@Override
 		public String getDescription() {
 
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -999,12 +999,12 @@ public class FingerAnus {
 				default:
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 	};
-	
+
 	public static final SexAction ANAL_FINGERED_STOP = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -1012,7 +1012,7 @@ public class FingerAnus {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.ANUS, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop anally fingered";
@@ -1025,9 +1025,9 @@ public class FingerAnus {
 
 		@Override
 		public String getDescription() {
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1042,7 +1042,7 @@ public class FingerAnus {
 							"[npc.Name] lean into [npc2.name], inhaling [npc2.her] [npc2.scent] as [npc.name] [npc.verb(slide)] [npc2.her] [npc2.fingers] out of [npc.her] [npc.asshole+]."));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -1057,9 +1057,9 @@ public class FingerAnus {
 							" [npc2.A_moan+] escapes from between [npc2.namePos] [npc2.lips+], betraying [npc2.her] desire to give [npc.her] [npc.asshole+] more of [npc2.her] attention."));
 					break;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 	};
-	
+
 }

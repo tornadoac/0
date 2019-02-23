@@ -21,14 +21,14 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public class LoadedEnchantment {
-	
+
 	private String name;
 	private AbstractItemType itemType;
 	private AbstractClothingType clothingType;
 	private AbstractWeaponType weaponType;
 	private AbstractTattooType tattooType;
 	private List<ItemEffect> effects;
-	
+
 	public LoadedEnchantment(String name, AbstractItemType itemType, List<ItemEffect> effects) {
 		this.name = name;
 		this.itemType = itemType;
@@ -37,7 +37,7 @@ public class LoadedEnchantment {
 		this.tattooType = null;
 		this.effects = effects;
 	}
-	
+
 	public LoadedEnchantment(String name, AbstractClothingType clothingType, List<ItemEffect> effects) {
 		this.name = name;
 		this.itemType = null;
@@ -46,7 +46,7 @@ public class LoadedEnchantment {
 		this.tattooType = null;
 		this.effects = effects;
 	}
-	
+
 	public LoadedEnchantment(String name, AbstractWeaponType weaponType, List<ItemEffect> effects) {
 		this.name = name;
 		this.itemType = null;
@@ -55,7 +55,7 @@ public class LoadedEnchantment {
 		this.tattooType = null;
 		this.effects = effects;
 	}
-	
+
 	public LoadedEnchantment(String name, AbstractTattooType tattooType, List<ItemEffect> effects) {
 		this.name = name;
 		this.itemType = null;
@@ -64,15 +64,15 @@ public class LoadedEnchantment {
 		this.tattooType = tattooType;
 		this.effects = effects;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public boolean isSuitableItemAvailable() {
 		return getSuitableItem()!=null;
 	}
-	
+
 	public AbstractCoreItem getSuitableItem() {
 		if(itemType!=null) {
 			for(AbstractItem item : Main.game.getPlayer().getAllItemsInInventory()) {
@@ -80,7 +80,7 @@ public class LoadedEnchantment {
 					return item;
 				}
 			}
-			
+
 		} else if(clothingType!=null) {
 			List<AbstractClothing> clothingList = new ArrayList<>();
 			for(AbstractClothing c :  Main.game.getPlayer().getAllClothingInInventory()) {
@@ -95,49 +95,49 @@ public class LoadedEnchantment {
 			if(!clothingList.isEmpty()) {
 				return clothingList.get(0);
 			}
-			
+
 		} else if(weaponType!=null) {
 			for(AbstractWeapon w :  Main.game.getPlayer().getAllWeaponsInInventory()) {
 				if(w.getWeaponType().equals(weaponType) && w.getEffects().isEmpty()) {
 					return w;
 				}
 			}
-			
+
 		} else if(tattooType!=null) {
 			return EnchantmentDialogue.getIngredient();
 		}
-		
+
 		return null;
 	}
 
 	public String getSVGString() {
 		AbstractCoreItem item = getSuitableItem();
-		
+
 		if(itemType!=null) {
 			if(item!=null) {
 				return ((AbstractItem)item).getSVGString();
 			}
 			return itemType.getSVGString();
-			
+
 		} else if(clothingType!=null) {
 			if(item!=null) {
 				return ((AbstractClothing)item).getSVGString();
 			}
 			return clothingType.getSVGImage();
-			
+
 		} else if(weaponType!=null) {
 			if(item!=null) {
 				return ((AbstractWeapon)item).getSVGString();
 			}
 			return weaponType.getSVGImage();
-			
+
 		} else if(tattooType!=null) {
 			return ((Tattoo)item).getSVGString();
 		}
-		
+
 		return "";
 	}
-	
+
 	public AbstractItemType getItemType() {
 		return itemType;
 	}

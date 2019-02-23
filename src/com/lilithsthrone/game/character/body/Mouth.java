@@ -38,7 +38,7 @@ public class Mouth implements BodyPartInterface {
 	public OrificeMouth getOrificeMouth() {
 		return orificeMouth;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -62,35 +62,35 @@ public class Mouth implements BodyPartInterface {
 	@Override
 	public String getDescriptor(GameCharacter owner) {
 		List<String> descriptorList = new ArrayList<>();
-		
+
 		for(OrificeModifier om : orificeMouth.getOrificeModifiers()) {
 			descriptorList.add(om.getName());
 		}
 		descriptorList.add(type.getDescriptor(owner));
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
-	
+
 	public String getLipsNameSingular(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("lip");
 	}
-	
+
 	public String getLipsNamePlural(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("lips");
 	}
 
 	public String getLipsDescriptor(GameCharacter gc) {
 		List<String> descriptorList = new ArrayList<>();
-		
+
 		if(!Main.game.isInSex() || getLipSize()!=LipSize.ONE_AVERAGE) {
 			descriptorList.add(getLipSize().getName());
 		}
-		
+
 		if (gc.isFeminine()) {
 			descriptorList.add("soft");
 			descriptorList.add("delicate");
 		}
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
 
@@ -101,19 +101,19 @@ public class Mouth implements BodyPartInterface {
 	public LipSize getLipSize() {
 		return LipSize.getLipSizeFromInt(lipSize);
 	}
-	
+
 	public int getLipSizeValue() {
 		return lipSize;
 	}
 
 	public String setLipSize(GameCharacter owner, int lipSize) {
 		int effectiveLipSize = Math.max(0, Math.min(lipSize, LipSize.getLargest()));
-		
+
 		if(owner==null) {
 			this.lipSize = effectiveLipSize;
 			return "";
 		}
-		
+
 		if(owner.getLipSizeValue() == effectiveLipSize) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The size of your [pc.lips] doesn't change...)]</p>";
@@ -121,16 +121,16 @@ public class Mouth implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.lips] doesn't change...)]</p>");
 			}
 		}
-		
+
 		String transformation = "";
-		
+
 		if(this.lipSize > effectiveLipSize) {
 			if(owner.isPlayer()) {
 				transformation = "<p>A soothing coolness rises up into your [pc.lips], causing you to let out a surprised gasp as you feel them [style.boldShrink(shrinking)].<br/>";
 			} else {
 				transformation = UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a soothing coolness rise up into [npc.her] [npc.lips], before they suddenly [style.boldShrink(shrink)].<br/>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				transformation = "<p>A pulsating warmth rises up into your [pc.lips], causing you to let out a surprised gasp as you feel them [style.boldGrow(growing larger)].<br/>";
@@ -138,7 +138,7 @@ public class Mouth implements BodyPartInterface {
 				transformation = UtilText.parse(owner, "<p>[npc.Name] lets out a little cry as [npc.she] feels a pulsating warmth rise up into [npc.her] [npc.lips], before they suddenly [style.boldGrow(grow larger)].<br/>");
 			}
 		}
-		
+
 		this.lipSize = effectiveLipSize;
 
 		if(owner.isPlayer()) {
@@ -149,18 +149,18 @@ public class Mouth implements BodyPartInterface {
 					+ UtilText.parse(owner, "[npc.Name] now has [style.boldSex([npc.lipSize] [npc.lips])]!</p>");
 		}
 	}
-	
+
 	public boolean isPiercedLip() {
 		return piercedLip;
 	}
-	
+
 	public String setPiercedLip(GameCharacter owner, boolean piercedLip) {
 		if(owner.isPiercedLip() == piercedLip) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.piercedLip = piercedLip;
-		
+
 		if(piercedLip) {
 			if(owner.isPlayer()) {
 				return "<p>Your [pc.lips] are now [style.boldGrow(pierced)]!</p>";
@@ -168,7 +168,7 @@ public class Mouth implements BodyPartInterface {
 				return UtilText.parse(owner,
 						"<p>[npc.NamePos] [npc.lips] are now [style.boldGrow(pierced)]!</p>");
 			}
-			
+
 		} else {
 			AbstractClothing c = owner.getClothingInSlot(InventorySlot.PIERCING_LIP);
 			String piercingUnequip = "";
@@ -176,7 +176,7 @@ public class Mouth implements BodyPartInterface {
 				owner.forceUnequipClothingIntoVoid(owner, c);
 				piercingUnequip = owner.addClothing(c, false);
 			}
-			
+
 			if(owner.isPlayer()) {
 				return "<p>"
 							+ "Your [pc.lips] are [style.boldShrink(no longer pierced)]!"
@@ -199,5 +199,5 @@ public class Mouth implements BodyPartInterface {
 		}
 		return owner.getLegConfiguration().getBestialParts().contains(Mouth.class);
 	}
-	
+
 }

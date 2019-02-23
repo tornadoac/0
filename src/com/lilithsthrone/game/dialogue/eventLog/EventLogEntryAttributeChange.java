@@ -14,7 +14,7 @@ public class EventLogEntryAttributeChange extends EventLogEntry {
 
 	private Attribute attribute;
 	private float change;
-	
+
 	public EventLogEntryAttributeChange(Attribute attribute, float change, boolean isCore) {
 		super(Main.game.getMinutesPassed(),
 				(isCore
@@ -30,12 +30,12 @@ public class EventLogEntryAttributeChange extends EventLogEntry {
 		this.attribute = attribute;
 		this.change = change;
 	}
-	
+
 	@Override
 	public String getFormattedEntry() {
 		return name+": "+description;
 	}
-	
+
 	@Override
 	public String getMainDialogueDescription() {
 		return attribute.getAttributeChangeText(Main.game.getPlayer(), change);

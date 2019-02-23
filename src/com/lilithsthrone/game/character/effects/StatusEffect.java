@@ -3239,7 +3239,7 @@ public enum StatusEffect {
 						+(breastGrowth
 								? "<p><i>"
 										+"Your breasts have swollen and grown larger as your body prepares to start lactating."
-										+ " You now have [style.boldSex([pc.breastSize]"  + (target.getBreastRawSizeValue()>CupSize.AA.getMeasurement()?", "+target.getBreastSize().getCupSizeName()+"-cup":"") + " breasts)]!"
+										+ " You now have [style.boldSex([pc.breastSize]" + (target.getBreastRawSizeValue()>CupSize.AA.getMeasurement()?", "+target.getBreastSize().getCupSizeName()+"-cup":"") + " breasts)]!"
 									+ "</i></p>"
 								:"");
 			} else {
@@ -3260,7 +3260,7 @@ public enum StatusEffect {
 						+(breastGrowth
 								? "<p><i>"
 										+"Your breasts have swollen and grown larger as your body prepares to start lactating."
-										+ " You now have [style.boldSex([pc.breastSize]"  + (target.getBreastRawSizeValue()>CupSize.AA.getMeasurement()?", "+target.getBreastSize().getCupSizeName()+"-cup":"") + " breasts)]!"
+										+ " You now have [style.boldSex([pc.breastSize]" + (target.getBreastRawSizeValue()>CupSize.AA.getMeasurement()?", "+target.getBreastSize().getCupSizeName()+"-cup":"") + " breasts)]!"
 									+ "</i></p>"
 								:"");
 			}
@@ -9476,7 +9476,7 @@ public enum StatusEffect {
 
 	ARCANE_DUALITY_POSITIVE(
 			10,
-			"Arcane Duality (Defence)",
+			"Arcane Duality (Defense)",
 			"cleanse_positive",
 			Color.GENERIC_ARCANE,
 			true,

@@ -21,44 +21,44 @@ public class Name {
 					new NameTriplet("Alexius", "Alex", "Alexia"),
 					new NameTriplet("Alex", "Alex", "Alex"),
 					new NameTriplet("Ash", "Ashe", "Ashley"),
-					
+
 					new NameTriplet("Bart", "Bailey", "Barbara"),
 					new NameTriplet("Ben", "Bennie", "Bella"),
 					new NameTriplet("Bridger", "Beverly", "Bridget"),
 					new NameTriplet("Brian", "Brie", "Brianna"),
 					new NameTriplet("Brent", "Brett", "Britta"),
-					
+
 					new NameTriplet("Carey", "Casey", "Cadence"),
 					new NameTriplet("Carl", "Carol", "Caroline"),
 					new NameTriplet("Cecil", "Cecil", "Cecilia"),
 					new NameTriplet("Charlie", "Charlie", "Charlie"),
 					new NameTriplet("Chris", "Chris", "Christine"),
 					new NameTriplet("Chuck", "Charlie", "Charlotte"),
-					
+
 					new NameTriplet("Daniel", "Danny", "Dani"),
 					new NameTriplet("Dale", "Dana", "Diana"),
 					new NameTriplet("David", "Deb", "Debbie"),
 					new NameTriplet("Dean", "Devin", "Deanna"),
-					
+
 					new NameTriplet("Edward", "Eddie", "Edna"),
 					new NameTriplet("Eli", "Emery", "Evelyn"),
 					new NameTriplet("Elliot", "Emerson", "Elaine"),
 					new NameTriplet("Emmanuel", "Manu", "Emmanuelle"),
 					new NameTriplet("Emil", "Em", "Emily"),
 					new NameTriplet("Evan", "Evelyn", "Evette"),
-					
+
 					new NameTriplet("Felix", "Flick", "Felicity"),
 					new NameTriplet("Frank", "Frankie", "Frances"),
 					new NameTriplet("Fred", "Freddie", "Frederica"),
-					
+
 					new NameTriplet("Gabe", "Gabby", "Gale"),
 					new NameTriplet("George", "Georgie", "Ginger"),
 					new NameTriplet("Greg", "Grey", "Grace"),
-					
+
 					new NameTriplet("Harry", "Harley", "Hailey"),
 					new NameTriplet("Henry", "Hennie", "Henrietta"),
 					new NameTriplet("Hank", "Hayden", "Holly"),
-					
+
 					new NameTriplet("Ian", "Indigo", "Ilia"),
 					new NameTriplet("Isidore", "Izzy", "Isabelle"),
 
@@ -84,37 +84,37 @@ public class Name {
 					new NameTriplet("Len", "Lumi", "Laura"),
 					new NameTriplet("Les", "Lesley", "Leslie"),
 					new NameTriplet("Lewis", "Lou", "Louise"),
-					
+
 					new NameTriplet("Madison", "Maddy", "Madeline"),
 					new NameTriplet("Mark", "Marion", "Maria"),
 					new NameTriplet("Maxwell", "Max", "Maxine"),
 					new NameTriplet("Melvin", "Mel", "Melissa"),
 					new NameTriplet("Michael", "Micki", "Mikaela"),
 					//new NameTriplet("Mike", "Max", "Miranda"), // moved "Miranda" to "Randy/Randi/Miranda"
-					
+
 					new NameTriplet("Nathan", "Nat", "Natalie"),
 					new NameTriplet("Nicholas", "Nicky", "Nicole"),
 					new NameTriplet("Norman", "Noble", "Nora"),
-					
+
 					new NameTriplet("Oscar", "Odell", "Opal"),
 					new NameTriplet("Oliver", "Oli", "Olivia"),
-					
+
 					new NameTriplet("Pat", "Patsy", "Tricia"),
 					new NameTriplet("Page", "Parker", "Paige"),
 					new NameTriplet("Peter", "Peyton", "Petra"),
 					new NameTriplet("Phillip", "Pip", "Phoebe"),
-					
+
 					new NameTriplet("Quentin", "Quinn", "Quinta"),
-					
+
 					new NameTriplet("Randy", "Randi", "Miranda"),
 					new NameTriplet("Richard", "Ricki", "Rachel"),
 					new NameTriplet("Robert", "Robbie", "Robyn"),
-					
+
 					new NameTriplet("Samuel", "Sam", "Samantha"),
 					new NameTriplet("Stephen", "Steph", "Stephanie"),
 					//new NameTriplet("Stanley", "Sam", "Stephanie"),
 					new NameTriplet("Stan", "Sacha", "Summer"),
-					
+
 					new NameTriplet("Terence", "Terry", "Theresa"),
 					new NameTriplet("Theodore", "Teddie", "Dora"),
 					new NameTriplet("Thomas", "Tommi", "Tamsin"),
@@ -134,19 +134,19 @@ public class Name {
 					new NameTriplet("Will", "Wynne", "Willow"),
 					new NameTriplet("Wynn", "Wynne", "Gwen")
 	));
-	
+
 	private static List<NameTriplet> equine = (Util.newArrayListOfValues(
 					new NameTriplet("Aqua", "Aqua", "Aqua"),
-					
+
 					new NameTriplet("Bramble", "Bramble", "Bramble"),
 
 					new NameTriplet("Dasher", "Dasher", "Dasher"),
 					new NameTriplet("Dazzle", "Dazzle", "Dazzle"),
 
 					new NameTriplet("Flint", "Flint", "Flint"),
-					
+
 					new NameTriplet("Fleet", "Fleet", "Fleet"),
-					
+
 					new NameTriplet("Midnight", "Midnight", "Midnight"),
 					new NameTriplet("Moonwind", "Moonwind", "Moonwind"),
 
@@ -154,19 +154,19 @@ public class Name {
 
 					new NameTriplet("Pearl", "Pearl", "Pearl"),
 					new NameTriplet("Prixie", "Prixie", "Prixie"),
-					
+
 					new NameTriplet("Skyfeet", "Skyfeet", "Skyfeet"),
 					new NameTriplet("Starr", "Starr", "Starr"),
 					new NameTriplet("Spirit", "Spirit", "Spirit"),
-					
+
 					new NameTriplet("Thundermane", "Thundermane", "Thundermane"),
 					new NameTriplet("Twilight", "Twilight", "Twilight"),
-					
+
 					new NameTriplet("Wildlight", "Wildlight", "Wildlight")));
-	
+
 	// Similar to equine names
 	private static List<NameTriplet> reindeer = (Util.newArrayListOfValues(
-			
+
 			new NameTriplet("Dasher", "Dasher", "Dasher"),
 			new NameTriplet("Dancer", "Dancer", "Dancer"),
 			new NameTriplet("Prancer", "Prancer", "Prancer"),
@@ -175,18 +175,18 @@ public class Name {
 			new NameTriplet("Cupid", "Cupid", "Cupid"),
 			new NameTriplet("Dunder", "Dunder", "Dunder"),
 			new NameTriplet("Blixem", "Blixem", "Blixem"),
-			
+
 			new NameTriplet("Aqua", "Aqua", "Aqua"),
-			
+
 			new NameTriplet("Bramble", "Bramble", "Bramble"),
 
 			new NameTriplet("Dasher", "Dasher", "Dasher"),
 			new NameTriplet("Dazzle", "Dazzle", "Dazzle"),
 
 			new NameTriplet("Flint", "Flint", "Flint"),
-			
+
 			new NameTriplet("Fleet", "Fleet", "Fleet"),
-			
+
 			new NameTriplet("Midnight", "Midnight", "Midnight"),
 			new NameTriplet("Moonwind", "Moonwind", "Moonwind"),
 
@@ -194,16 +194,16 @@ public class Name {
 
 			new NameTriplet("Pearl", "Pearl", "Pearl"),
 			new NameTriplet("Prixie", "Prixie", "Prixie"),
-			
+
 			new NameTriplet("Skyfeet", "Skyfeet", "Skyfeet"),
 			new NameTriplet("Starr", "Starr", "Starr"),
 			new NameTriplet("Spirit", "Spirit", "Spirit"),
-			
+
 			new NameTriplet("Thundermane", "Thundermane", "Thundermane"),
 			new NameTriplet("Twilight", "Twilight", "Twilight"),
-			
+
 			new NameTriplet("Wildlight", "Wildlight", "Wildlight")));
-	
+
 	// No offence if your name is on here... x_x
 	// Significantly modified with help from behindthename.com. (No more infinite Carls!)
 	// Code from later on edited a bit to throw some of these names onto other NPCs.
@@ -231,7 +231,7 @@ public class Name {
 					new NameTriplet("Dale", "Dakota", "Dakota"),
 
 					new NameTriplet("Emmett", "Emmalou", "Emmalou"), // Great Scott!
-					
+
 					new NameTriplet("Heath", "Heather", "Heather"),
 
 					new NameTriplet("Jimmy", "Jeannie", "Jenny"),
@@ -243,16 +243,16 @@ public class Name {
 					new NameTriplet("Kelsey", "Kelsey", "Kelsie"),
 
 					new NameTriplet("Lawrence", "Lauren", "Lauren"),
-					
+
 					new NameTriplet("Mitch", "Misty", "Misty"),
 					new NameTriplet("Mel", "Mel", "Melody"),
 					new NameTriplet("Mike", "Mindy", "Mindy"),
-					
+
 					new NameTriplet("Nicky", "Nikki", "Nikki"),
 					new NameTriplet("Noel", "Noel", "Noelle"),
-		
+
 					new NameTriplet("Pierce", "Phoenix", "Penelope"),
-					
+
 					new NameTriplet("Reese", "Reece", "Reba"),
 					new NameTriplet("Renard", "Rene", "Renee"),
 					new NameTriplet("Rudy", "Ruby", "Ruby"),
@@ -269,16 +269,16 @@ public class Name {
 					new NameTriplet("Tate", "Tara", "Tara"),
 					new NameTriplet("Taylor", "Taylor", "Taylor"),
 					new NameTriplet("Tristan", "Trina", "Trina"),
-					
+
 					new NameTriplet("Vincent", "Vic", "Vixen"),
-					
+
 					new NameTriplet("Yancy", "Yorkie", "Yolanda")
-		
+
 					//new NameTriplet("Urleen", "Urleen", "Urleen") // supplanted by the Arlo/Arden/Arleen triplet - "Urleen" seems much rarer
 	));
-	
+
 	;
-	
+
 //	HUMAN_MALE(Race.HUMAN,
 //			new String[] { "Alexander", "Al", "Alex", "Bartholomew", "Bart", "Brett", "Charles", "Carl", "Charlie", "Daniel", "Dan", "Dale", "Edward", "Ed", "Eli", "Fredrick", "Fred", "Frankie", "George", "Garry", "Gray", "Harry", "Hank", "Iago",
 //					"Ian", "James", "Jack", "Jean", "Kevin", "Ken", "Kai", "Leonard", "Len", "Lee", "Micheal", "Mike", "Nicholas", "Nick", "Oliver", "Oli", "Peter", "Pete", "Quentin", "Quintin", "Richard", "Rick", "Stanley", "Stan", "Thomas", "Tom",
@@ -293,13 +293,13 @@ public class Name {
 //					"Felicity", "Faye", "Grace", "Gia", "Hailey", "Harley", "Heidi", "Holly", "Isabelle", "Izzy", "Jackie", "Jane", "Jasmine", "Jennifer", "Jessica", "Jynx", "Kai", "Katie", "Katherine", "Katrina", "Kiara", "Kitty", "Laura", "Lauren",
 //					"Leah", "Lexi", "Maria", "Mikah", "Miranda", "Missy", "Natalia", "Natasha", "Naomi", "Nicole", "Nikki", "Ola", "Olivia", "Onyx", "Paige", "Penelope", "Penny", "Quin", "Quinta", "Qi", "Raine", "Rachel", "Roxy", "Scarlett", "Stacy",
 //					"Stephanie", "Summer", "Tracy", "Trixie", "Ursula", "Uma", "Val", "Violet", "Vixen", "Whitney", "Wendy", "Willow" }),
-//	
+//
 //	HORSE_MORPH_MALE(Race.HORSE_MORPH,
 //			new String[] { "Alex", "Colt", "Dale", "Franklin", "Jacob", "Marcus", "Sylvester" }),
-//	
+//
 //	HORSE_MORPH_FEMALE(Race.HORSE_MORPH,
 //			new String[] { "Alex", "Brooke", "Holly", "Moon", "Raine", "Sable", "Summer", "Vale" });
-	
+
 	private static final String[] surnames = new String[] {
 			"Adams", "Ali", "Allen", "Anderson",
 			"Andrews", "Armstrong", "Atkinson", "Bailey",
@@ -339,7 +339,7 @@ public class Name {
 			"Wells", "West", "White", "Wilkinson",
 			"Williams", "Williamson", "Wilson", "Wood",
 			"Wright", "Young"};
-	
+
 	private static final String[] youkoSurnames = new String[] {
 			"Abiko", "Abo", "Aburaya", "Achikita",
 			"Adachi", "Adachihara", "Agano", "Agata",
@@ -620,7 +620,7 @@ public class Name {
 			"Yoshino", "Yoshinuma", "Yoshioka", "Yoshisawa",
 			"Yui", "Yukimori", "Yukitomo", "Yukiyama",
 			"Yukizome", "Yumi", "Yuuma", "Zabatsu"};
-	
+
 	private static String[] lilinNames = new String[] {
 			"Lovienne",
 			"Lasielle",
@@ -629,7 +629,7 @@ public class Name {
 			"Lilysha",
 			"Lynixi",
 			"Liloria"};
-	
+
 	public static String getRandomName(GameCharacter gc) {
 		switch(gc.getFemininity()) {
 			case MASCULINE_STRONG:
@@ -643,7 +643,7 @@ public class Name {
 				return getRandomTriplet(gc.getRace()).getFeminine();
 		}
 	}
-	
+
 	/** Surnames of all demons and half-demons reflect their Lilin lineage.<br/>
 	 * For the case of descendants of Lyssieth, a surname would be:<br/>
 	 * Lyssieth<b>martusarri</b> (Lyssieth's designated heir. Only Lilaya has this surname. This needs to be manually set.)<br/>
@@ -658,7 +658,7 @@ public class Name {
 	private static String getDemonSurname(GameCharacter gc) {
 		String surname = "";
 		GameCharacter mother = gc.getMother();
-		
+
 		if(mother!=null) {
 			while(mother.getMother()!=null) {
 				mother = mother.getMother();
@@ -678,14 +678,14 @@ public class Name {
 					surname+="martu";
 				}
 			}
-			
+
 		} else {
 			surname = lilinNames[Util.random.nextInt(lilinNames.length)]+"martu";
 		}
-		
+
 		return surname;
 	}
-	
+
 	public static String getSurname(GameCharacter gc) {
 		GameCharacter mother = gc.getMother();
 		if(mother!=null) {
@@ -694,12 +694,12 @@ public class Name {
 			}
 			return mother.getSurname();
 		}
-		
+
 		if(gc.getSubspecies()==Subspecies.FOX_ASCENDANT
 				|| gc.getSubspecies()==Subspecies.FOX_ASCENDANT_FENNEC) {
 			return youkoSurnames[Util.random.nextInt(youkoSurnames.length)];
 		}
-		
+
 		switch(gc.getRace()) {
 			case NONE:
 			case ANGEL:
@@ -717,7 +717,7 @@ public class Name {
 			case RAT_MORPH:
 			case RABBIT_MORPH:
 				break;
-			
+
 			case DEMON:
 			case ELEMENTAL:
 				return getDemonSurname(gc);
@@ -726,18 +726,18 @@ public class Name {
 			case HORSE_MORPH:
 				break;
 		}
-		
+
 		return surnames[Util.random.nextInt(surnames.length)];
 	}
-	
+
 	public static NameTriplet getRandomTriplet(Race r) {
 		NameTriplet name = Util.randomItemFrom(human);
 		// occasionally throw some "prostitute" names in there - about 10% of the time
 		if(Math.random()<0.1)
 		{
-			name = Util.randomItemFrom(prostitute); 
+			name = Util.randomItemFrom(prostitute);
 		}
-		
+
 		switch(r) {
 			case NONE:
 			case ANGEL:
@@ -755,7 +755,7 @@ public class Name {
 			case RAT_MORPH:
 			case RABBIT_MORPH:
 			break;
-			
+
 			case DEMON:
 			case ELEMENTAL:
 				return getDemonName();
@@ -766,22 +766,22 @@ public class Name {
 				name = Util.randomItemFrom(equine);
 				break;
 		}
-		
+
 		return name;
 	}
-	
+
 	private static NameTriplet getDemonName() {
 		String[] prefixFem = new String[] {"Aella", "Bella", "Cae", "Deva", "Ella", "Fae", "Hela", "Isa", "Katha", "Loe", "Nysa", "Oella", "Rae", "Sytha", "Vixxa", "Wynna"};
 		String[] prefixMas = new String[] {"Ada", "Boro", "Foro", "Helio", "Kiri", "Zara"};
-		
+
 		String[] postfixFem = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix"};
 		String[] postfixMas = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix"};
-		
+
 		String femName = prefixFem[Util.random.nextInt(prefixFem.length)] + postfixFem[Util.random.nextInt(postfixFem.length)];
 		char startingChar = femName.charAt(0);
 
 		String masName = prefixMas[Util.random.nextInt(prefixMas.length)] + postfixMas[Util.random.nextInt(postfixMas.length)];
-		
+
 		List<String> masculineNames = new ArrayList<>();
 		for(String s : prefixMas) {
 			if(s.charAt(0) == startingChar) {
@@ -791,10 +791,10 @@ public class Name {
 		if(!masculineNames.isEmpty()) {
 			masName = masculineNames.get(Util.random.nextInt(masculineNames.size())) + postfixMas[Util.random.nextInt(postfixMas.length)];
 		}
-		
+
 		return new NameTriplet(masName, femName, femName);
 	}
-	
+
 	public static NameTriplet getRandomProstituteTriplet() {
 		// occasionally throw some "regular" names in there - 25% of the time
 		if(Math.random()<0.25)
