@@ -16,7 +16,7 @@ import com.lilithsthrone.utils.Util;
 public enum InventorySlot {
 
 	// HEAD:
-	
+
 	/** Clothing slot "head". Used for headgear.<br/>
 	 *  Tattoo slot "head".*/
 	HEAD(40, "head", false, false, false, "head"),
@@ -36,7 +36,7 @@ public enum InventorySlot {
 	/** Clothing slot "neck". Used for necklaces and scarfs.<br/>
 	 *  Tattoo slot "neck".*/
 	NECK(30, "neck", false, false, false, "neck"),
-	
+
 	// TORSO:
 
 	/** Clothing slot "over-torso". Used for coats.<br/>
@@ -106,7 +106,7 @@ public enum InventorySlot {
 	/** Clothing slot "ankles". Used for bracelets.<br/>
 	 *  Tattoo slot "ankles".*/
 	ANKLE(50, "ankles", true, false, false, "ankles"),
-	
+
 	// OPTIONAL EXTRAS:
 
 	/** Clothing slot "horns". Used for horn decorations.<br/>
@@ -123,7 +123,7 @@ public enum InventorySlot {
 
 	/** Clothing slot "penis". Used for cock socks, cages, and plugs.<br/>
 	 *  Tattoo slot "penis".*/
-	PENIS(0, "penis", false, false, false, "penis"), // 
+	PENIS(0, "penis", false, false, false, "penis"), //
 
 	/** Clothing slot "vagina". Used for plugs.<br/>
 	 *  Tattoo slot "vagina".*/
@@ -161,7 +161,7 @@ public enum InventorySlot {
 		clothingSlots = new ArrayList<>();
 		piercingSlots = new ArrayList<>();
 		extraClothingSlots = new ArrayList<>();
-		
+
 		clothingSlots.add(HEAD);
 		clothingSlots.add(EYES);
 		clothingSlots.add(HAIR);
@@ -173,34 +173,34 @@ public enum InventorySlot {
 		clothingSlots.add(CHEST);
 		clothingSlots.add(NIPPLE);
 		clothingSlots.add(STOMACH);
-		
+
 		clothingSlots.add(HAND);
 		clothingSlots.add(WRIST);
 		clothingSlots.add(FINGER);
 		clothingSlots.add(HIPS);
 		clothingSlots.add(ANUS);
-		
+
 		clothingSlots.add(LEG);
 		clothingSlots.add(GROIN);
 		clothingSlots.add(FOOT);
 		clothingSlots.add(SOCK);
 		clothingSlots.add(ANKLE);
-		
+
 		clothingSlots.add(HORNS);
 		clothingSlots.add(TAIL);
 		clothingSlots.add(WINGS);
 		clothingSlots.add(PENIS);
 		clothingSlots.add(VAGINA);
-		
+
 		extraClothingSlots.add(HORNS);
 		extraClothingSlots.add(TAIL);
 		extraClothingSlots.add(WINGS);
 		extraClothingSlots.add(PENIS);
 		extraClothingSlots.add(VAGINA);
-		
+
 		mainClothingSlots = new ArrayList<>(clothingSlots);
 		mainClothingSlots.removeAll(extraClothingSlots);
-		
+
 		piercingSlots.add(PIERCING_EAR);
 		piercingSlots.add(PIERCING_NOSE);
 		piercingSlots.add(PIERCING_TONGUE);
@@ -209,7 +209,7 @@ public enum InventorySlot {
 		piercingSlots.add(PIERCING_NIPPLE);
 		piercingSlots.add(PIERCING_VAGINA);
 		piercingSlots.add(PIERCING_PENIS);
-		
+
 
 		humanoidSlots.add(HEAD);
 		humanoidSlots.add(EYES);
@@ -222,25 +222,25 @@ public enum InventorySlot {
 		humanoidSlots.add(CHEST);
 		humanoidSlots.add(NIPPLE);
 		humanoidSlots.add(STOMACH);
-		
+
 		humanoidSlots.add(HAND);
 		humanoidSlots.add(WRIST);
 		humanoidSlots.add(FINGER);
 		humanoidSlots.add(HIPS);
 //		humanoidSlots.add(ANUS);
-		
+
 //		humanoidSlots.add(LEG);
 //		humanoidSlots.add(GROIN);
 //		humanoidSlots.add(FOOT);
 //		humanoidSlots.add(SOCK);
 //		humanoidSlots.add(ANKLE);
-		
+
 		humanoidSlots.add(HORNS);
 		humanoidSlots.add(TAIL);
 //		humanoidSlots.add(WINGS); //TODO special case, as can be either
 		humanoidSlots.add(PENIS);
 		humanoidSlots.add(VAGINA);
-		
+
 		humanoidSlots.add(PIERCING_EAR);
 		humanoidSlots.add(PIERCING_NOSE);
 		humanoidSlots.add(PIERCING_TONGUE);
@@ -275,7 +275,7 @@ public enum InventorySlot {
 	public String getTattooSlotName() {
 		return tattooSlotName;
 	}
-	
+
 	public boolean isCoreClothing() {
 		return coreClothing;
 	}
@@ -295,7 +295,7 @@ public enum InventorySlot {
 	public static List<InventorySlot> getPiercingSlots() {
 		return piercingSlots;
 	}
-	
+
 	public static List<InventorySlot> getMainClothingSlots() {
 		return mainClothingSlots;
 	}
@@ -306,7 +306,7 @@ public enum InventorySlot {
 
 	/**
 	 * Returns the first applicable BodyPartClothingBlock found from the supplied character's body parts.
-	 * 
+	 *
 	 * @param character The character to check.
 	 * @return A BodyPartClothingBlock object which represents how this part is being blocked. Returns null if nothing is blocking the slot.
 	 */
@@ -328,7 +328,7 @@ public enum InventorySlot {
 				return block;
 			}
 		}
-		
+
 		for(BodyPartInterface bodypart : character.getBody().getAllBodyParts()) {
 			block = bodypart.getType().getBodyPartClothingBlock();
 			if(block!=null) {

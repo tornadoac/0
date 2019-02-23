@@ -11,15 +11,15 @@ import com.lilithsthrone.utils.Util.Value;
 
 /**
  * A collection of standard SexActionInteractions classes.
- * 
+ *
  * @since 0.3.1
  * @version 0.3.1
  * @author Innoxia
  */
 public class StandardSexActionInteractions {
-	
+
 	// Misc:
-	
+
 	public static SexActionInteractions spectator = new SexActionInteractions(
 		null,
 		Util.newArrayListOfValues(
@@ -28,15 +28,15 @@ public class StandardSexActionInteractions {
 				OrgasmCumTarget.SELF_LEGS,
 				OrgasmCumTarget.SELF_FEET,
 				OrgasmCumTarget.FLOOR));
-	
+
 	// Sex:
-	
+
 	public static VariableInteractions faceToFace = new VariableInteractions() { //TODO size difference?
 			@Override
 			public Value<SexSlot, Map<SexSlot, SexActionInteractions>> getSexActionInteractions(SexSlot performerSlot, SexSlot targetSlot) {
 				GameCharacter performer = getCharacter(performerSlot);
 				GameCharacter target = getCharacter(targetSlot);
-				
+
 				return new Value<>(performerSlot, Util.newHashMapOfValues(new Value<>(targetSlot,
 						new SexActionInteractions(
 						Util.mergeMaps(
@@ -69,7 +69,7 @@ public class StandardSexActionInteractions {
 			@Override
 			public Value<SexSlot, Map<SexSlot, SexActionInteractions>> getSexActionInteractions(SexSlot performerSlot, SexSlot targetSlot) {
 				GameCharacter target = getCharacter(targetSlot);
-				
+
 				return new Value<>(performerSlot, Util.newHashMapOfValues(new Value<>(targetSlot,
 						new SexActionInteractions(
 						Util.mergeMaps(
@@ -98,7 +98,7 @@ public class StandardSexActionInteractions {
 			@Override
 			public Value<SexSlot, Map<SexSlot, SexActionInteractions>> getSexActionInteractions(SexSlot performerSlot, SexSlot targetSlot) {
 				GameCharacter target = getCharacter(targetSlot);
-				
+
 				return new Value<>(performerSlot, Util.newHashMapOfValues(new Value<>(targetSlot,
 						new SexActionInteractions(
 						Util.mergeMaps(
@@ -125,7 +125,7 @@ public class StandardSexActionInteractions {
 				GameCharacter performer = getCharacter(performerSlot);
 				GameCharacter target = getCharacter(targetSlot);
 				boolean isAbleToReachTargetUpperTorso = performer.getLegConfiguration()==target.getLegConfiguration();
-				
+
 				return new Value<>(performerSlot, Util.newHashMapOfValues(new Value<>(targetSlot,
 						new SexActionInteractions(
 						Util.mergeMaps(
@@ -148,7 +148,7 @@ public class StandardSexActionInteractions {
 			@Override
 			public Value<SexSlot, Map<SexSlot, SexActionInteractions>> getSexActionInteractions(SexSlot performerSlot, SexSlot targetSlot) {
 				GameCharacter performer = getCharacter(performerSlot);
-				
+
 				if(performerSlot.isStanding(performer)) {
 					return faceToFace.getSexActionInteractions(performerSlot, targetSlot);
 				} else {
@@ -156,5 +156,5 @@ public class StandardSexActionInteractions {
 				}
 			}
 	};
-	
+
 }

@@ -2,17 +2,17 @@ package com.lilithsthrone.game.character.body.valueEnums;
 
 /**
  * Measurements are in inches. Measured in bust to underbust using the UK system.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.83
  * @author Innoxia
  */
 public enum CupSize {
-	
+
 	FLAT("flat", "flat", 0),
 
 	// Training bra sizes:
-	
+
 	TRAINING_AAA("almost unnoticeable", "training-AAA", 1) {
 		@Override
 		public boolean isTrainingBraSize() {
@@ -31,9 +31,9 @@ public enum CupSize {
 			return true;
 		}
 	},
-	
+
 	// Normal cup sizes:
-	
+
 	AA("extremely tiny", "AA", 4),
 	A("tiny", "A", 5),
 	B("small", "B", 6),
@@ -56,9 +56,9 @@ public enum CupSize {
 	M("colossal", "M", 23),
 	MM("colossal", "MM", 24),
 	N("colossal", "N", 25),
-	
+
 	// Hyper sizes:
-	
+
 	X_AA("extreme", "X-AA", 26),
 	X_A("extreme", "X-A", 27),
 	X_B("extreme", "X-B", 28),
@@ -137,7 +137,7 @@ public enum CupSize {
 		this.cupSizeName = cupSizeName;
 		this.measurement = measurement;
 	}
-	
+
 	public boolean isTrainingBraSize() {
 		return false;
 	}
@@ -168,7 +168,7 @@ public enum CupSize {
 	public int getMeasurement() {
 		return measurement;
 	}
-	
+
 	public static CupSize getMaximumCupSize() {
 		return XXX_N;
 	}

@@ -26,22 +26,22 @@ public class SMAltarMissionary extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public SexActionInterface getPartnerSexAction(SexActionInterface sexActionPlayer) {
 		// If orgasming, use an orgasm action:
 		if (ArousalLevel.getArousalLevelFromValue(Sex.getActivePartner().getArousal()) == ArousalLevel.FIVE_ORGASM_IMMINENT) {
 			return super.getPartnerSexAction(sexActionPlayer);
 		}
-		
+
 		if(((Cultist)Sex.getActivePartner()).isSealedSex()) {
 			return CultistSexActions.SEALED;
-			
+
 		} else {
 			return super.getPartnerSexAction(sexActionPlayer);
 		}
 	}
-	
+
 	@Override
 	public boolean isAbleToRemoveSelfClothing(GameCharacter character){
 		if(character.isPlayer()) {
@@ -59,7 +59,7 @@ public class SMAltarMissionary extends SexManagerDefault {
 			return !((Cultist)Sex.getActivePartner()).isSealedSex() || Sex.isDom(Sex.getActivePartner());
 		}
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

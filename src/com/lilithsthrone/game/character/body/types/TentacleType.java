@@ -37,7 +37,7 @@ public enum TentacleType implements BodyPartTypeInterface {
 	public static TentacleType getTypeFromString(String value) {
 		return valueOf(value);
 	}
-	
+
 	@Override
 	public boolean isDefaultPlural() {
 		return false;
@@ -56,9 +56,9 @@ public enum TentacleType implements BodyPartTypeInterface {
 					return Util.intToString(gc.getTentacleCount());
 			}
 		}
-		
+
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		switch(this){
@@ -66,7 +66,7 @@ public enum TentacleType implements BodyPartTypeInterface {
 				return UtilText.returnStringAtRandom("tentacle");
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(this){
@@ -83,7 +83,7 @@ public enum TentacleType implements BodyPartTypeInterface {
 			case NONE:
 				return UtilText.returnStringAtRandom("");
 		}
-		
+
 		return "";
 	}
 
@@ -97,14 +97,14 @@ public enum TentacleType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	public String getTentacleTipName(GameCharacter gc) {
 		switch(this){
 			default:
 				return UtilText.returnStringAtRandom("end");
 		}
 	}
-	
+
 	public String getTentacleTipDescriptor(GameCharacter gc) {
 		switch(this){
 			case DEMON_COMMON:
@@ -131,13 +131,13 @@ public enum TentacleType implements BodyPartTypeInterface {
 	public boolean isSuitableForPenetration() {
 		return suitableForPenetration;
 	}
-	
+
 	private static Map<Race, List<TentacleType>> typesMap = new HashMap<>();
 	public static List<TentacleType> getTentacleTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<TentacleType> types = new ArrayList<>();
 		for(TentacleType type : TentacleType.values()) {
 			if(type.getRace()==r) {

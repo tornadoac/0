@@ -27,7 +27,7 @@ public class SMKrugerChair extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
@@ -37,7 +37,7 @@ public class SMKrugerChair extends SexManagerDefault {
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return !character.isPlayer();
 	}
-	
+
 	@Override
 	public boolean isPublicSex() {
 		return true;
@@ -61,7 +61,7 @@ public class SMKrugerChair extends SexManagerDefault {
 				"You glance across to see several of the girls touching themselves as they watch you and Kruger go at it.",
 				"One of the zebra-girls cheers you on as you and Kruger carry on having sex in front of them.",
 				"One of the lionesses giggles and makes a lewd comment as you and Kruger carry on having sex in front of her.");
-		
+
 		if(Sex.getOrificesBeingPenetratedBy(Main.game.getNpc(Kruger.class), SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.MOUTH)) {
 			descriptions.add("A lioness kneels down beside you, before pushing your head down on Kruger's cock, giggling to herself as she forces you to deepthroat his [kruger.cock+].");
 			descriptions.add("A pair of zebra-girls lean forwards to either side of you, and, taking hold of your head, help you to bob up and down on [kruger.cock+].");
@@ -70,7 +70,7 @@ public class SMKrugerChair extends SexManagerDefault {
 			descriptions.add("One of the zebra-girls sits back on the sofa and cheers, [genericFemale.speech(Come on Kruger, fuck that bitch's face real good!)]");
 			descriptions.add("A zebra-girl leans in against Kruger, and, grinning down at you, she encourages him, [genericFemale.speech(Oh yeah, Kruger, you put that slut in [pc.her] place!)]");
 		}
-		
+
 		if(Sex.getOrificesBeingPenetratedBy(Main.game.getNpc(Kruger.class), SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.VAGINA)) {
 			descriptions.add("A lioness steps up behind you, before taking hold of your shoulders and pushing down, giggling to herself as she forces Kruger's [kruger.cock+] deep into your [pc.pussy+].");
 			descriptions.add("A pair of zebra-girls step forwards to either side of you, and, taking a firm grip under your [pc.arms], pull you up and down in order to help Kruger's [kruger.cock+] slide in and out of your [pc.pussy+].");
@@ -88,12 +88,12 @@ public class SMKrugerChair extends SexManagerDefault {
 			descriptions.add("One of the zebra-girls sits back on the sofa and cheers, [genericFemale.speech(Come on Kruger, fuck that bitch's ass real good!)]");
 			descriptions.add("A zebra-girl leans in against Kruger, and, grinning across at you, she encourages him, [genericFemale.speech(Oh yeah, Kruger, you put that dirty butt-slut in [pc.her] place!)]");
 		}
-		
+
 		return "<p style='color:"+Color.BASE_ORANGE.toWebHexString()+"; font-style:italic; text-align:center;'>"
 					+Util.randomItemFrom(descriptions)
 				+"</p>";
 	}
-	
+
 	@Override
 	public boolean isPartnerWantingToStopSex(GameCharacter partner) {
 		return Sex.getNumberOfOrgasms(Main.game.getNpc(Kruger.class))>=2

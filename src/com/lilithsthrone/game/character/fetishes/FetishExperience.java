@@ -6,11 +6,11 @@ package com.lilithsthrone.game.character.fetishes;
  * @author Innoxia
  */
 public enum FetishExperience {
-	
+
 	BASE_EXPERIENCE_GAIN(2),
 	BASE_RARE_EXPERIENCE_GAIN(10),
 	BASE_VERY_RARE_EXPERIENCE_GAIN(25);
-	
+
 	int experience;
 
 	private FetishExperience(int experience) {

@@ -24,7 +24,7 @@ public class SMBraxDoggy extends SexManagerDefault {
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return false;

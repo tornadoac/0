@@ -64,7 +64,7 @@ public class Cultist extends NPC {
 	public Cultist() {
 		this(false);
 	}
-	
+
 	public Cultist(boolean isImported) {
 		super(isImported, null, null,
 				"",
@@ -77,12 +77,12 @@ public class Cultist extends NPC {
 				WorldType.DOMINION,
 				PlaceType.DOMINION_BACK_ALLEYS,
 				false);
-		
+
 		if(!isImported) {
 			setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-	
+
 			this.setLocation(Main.game.getPlayer(), true);
-			
+
 			// BODY RANDOMIZATION:
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_ORAL_GIVING);
@@ -96,37 +96,37 @@ public class Cultist extends NPC {
 			if(this.getFetishDesire(Fetish.FETISH_PENIS_GIVING)==FetishDesire.ONE_DISLIKE || this.getFetishDesire(Fetish.FETISH_PENIS_GIVING)==FetishDesire.ZERO_HATE) {
 				this.setFetishDesire(Fetish.FETISH_PENIS_GIVING, FetishDesire.TWO_NEUTRAL);
 			}
-			
+
 			CharacterUtils.randomiseBody(this, true);
 
 			//this.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(10)); //18
-			
+
 			this.setVaginaVirgin(false);
 			this.setAssVirgin(false);
 			this.setFaceVirgin(false);
 			this.setNippleVirgin(false);
 			this.setPenisVirgin(false);
-			
+
 			setLevel(this.getLevel() - 3 + Util.random.nextInt(7));
-			
+
 			setName(Name.getRandomTriplet(Race.DEMON));
 			this.setPlayerKnowsName(true);
 			setDescription("As a high-ranking member of the 'Cult of Lilith', it's obvious to anyone that this demon is extremely powerful."
 					+ " You aren't exactly 'anyone', however, and as you get close to her, you can almost physically feel the power of her arcane aura as it comes into contact with yours...");
-			
+
 			// Set random inventory & weapons:
 			resetInventory(true);
 			inventory.setMoney(100);
-			
+
 			// CLOTHING:
-			
+
 			equipClothing(true, true, true, true);
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -159,18 +159,18 @@ public class Cultist extends NPC {
 		colors.add(Color.CLOTHING_WHITE);
 		colors.add(Color.CLOTHING_BLACK);
 		Color witchColor = colors.get(Util.random.nextInt(colors.size()));
-		
+
 		List<AbstractClothingType> clothingChoices = new ArrayList<>();
-		
+
 		clothingChoices.add(ClothingType.GROIN_CROTCHLESS_PANTIES);
 		clothingChoices.add(ClothingType.GROIN_CROTCHLESS_THONG);
 		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), underwearColor, false), true, this);
-		
+
 		clothingChoices.clear();
 		clothingChoices.add(ClothingType.CHEST_LACY_PLUNGE_BRA);
 		clothingChoices.add(ClothingType.CHEST_PLUNGE_BRA);
 		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), underwearColor, false), true, this);
-		
+
 		clothingChoices.clear();
 		clothingChoices.add(ClothingType.SOCK_THIGHHIGH_SOCKS);
 		equipClothingFromNowhere(AbstractClothingType.generateClothing(clothingChoices.get(Util.random.nextInt(clothingChoices.size())), witchColor, false), true, this);
@@ -186,35 +186,35 @@ public class Cultist extends NPC {
 		} else {
 			equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", witchColor, false), true, this);
 		}
-		
+
 		if(addWeapons) {
 			this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 		}
-		
+
 		// Makeup:
 		colors = Util.newArrayListOfValues(
 				Color.COVERING_NONE,
 				Color.COVERING_ORANGE,
 				Color.COVERING_PURPLE,
 				Color.COVERING_BLACK);
-		
+
 		Color colorForCoordination = colors.get(Util.random.nextInt(colors.size()));
 		Color colorForNails = colors.get(Util.random.nextInt(colors.size()));
-		
+
 		setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, colorForCoordination));
 		setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, colorForCoordination));
 		setBlusher(new Covering(BodyCoveringType.MAKEUP_BLUSHER, colorForCoordination));
-		
+
 		setHandNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS, colorForNails));
 		setFootNailPolish(new Covering(BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, colorForNails));
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	public boolean isSealedSex() {
 		return sealedSex;
 	}
@@ -235,37 +235,37 @@ public class Cultist extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return CultistDialogue.ENCOUNTER_START;
 	}
 
 	// Combat:
-	
+
 	@Override
 	public Attack attackType() {
 		if (Math.random() < 0.3f && this.getManaPercentage() > 0.4f
 				&& (!Main.game.getPlayer().getStatusEffects().contains(StatusEffect.WITCH_SEAL) || !this.getStatusEffects().contains(StatusEffect.WITCH_CHARM))) {
 			return Attack.SPELL;
 		}
-		
+
 		if(Math.random() < 0.3f) {
 			return Attack.MAIN;
 		}
-		
+
 		return Attack.SEDUCTION;
 	}
-	
+
 	@Override
 	public String getLostVirginityDescriptor() {
 		return "in her chapel";
@@ -277,7 +277,7 @@ public class Cultist extends NPC {
 			// Player uses item on themselves:
 			if(target.isPlayer()) {
 				return Main.game.getPlayer().useItem(item, target, false);
-				
+
 			// Player uses item on NPC:
 			} else {
 				if(item.getItemType().equals(ItemType.PROMISCUITY_PILL)) {
@@ -296,7 +296,7 @@ public class Cultist extends NPC {
 								+ " [npc.speech(How dare you! Lilith demands that her followers' seed remain strong!)]"
 								+ "</p>";
 					}
-						
+
 				} else if(item.getItemType().equals(ItemType.VIXENS_VIRILITY)) {
 					Main.game.getPlayer().useItem(item, target, false);
 					if(Sex.isDom(Main.game.getPlayer())) {
@@ -312,9 +312,9 @@ public class Cultist extends NPC {
 									+ " [npc.speech(Good toy! Being as fertile as possible is one of the best ways in which to worship Lilith!)]"
 								+ "</p>";
 					}
-						
+
 				} else if(item.getItemType().equals(ItemType.POTION) || item.getItemType().equals(ItemType.ELIXIR)) {
-					
+
 					if(Sex.isDom(Main.game.getPlayer())) {
 						Main.game.getPlayer().removeItem(item);
 						return "<p>"
@@ -334,9 +334,9 @@ public class Cultist extends NPC {
 									+ "You reluctantly put the "+item.getName()+" back in your inventory, disappointed that [npc.sheIs] not interested."
 								+ "</p>";
 					}
-					
+
 				} else if(item.getItemType().equals(ItemType.FETISH_UNREFINED) || item.getItemType().equals(ItemType.FETISH_REFINED)) {
-					
+
 					if(Sex.isDom(Main.game.getPlayer())) {
 						Main.game.getPlayer().removeItem(item);
 						return "<p>"
@@ -357,7 +357,7 @@ public class Cultist extends NPC {
 									+ "You reluctantly put the "+item.getName()+" back in your inventory, disappointed that [npc.sheIs] not interested."
 								+ "</p>";
 					}
-					
+
 				} else if(item.getItemType().equals(ItemType.EGGPLANT)) {
 					if(Sex.isDom(Main.game.getPlayer())) {
 						return "<p>"
@@ -376,20 +376,20 @@ public class Cultist extends NPC {
 									+ "You reluctantly put the "+item.getName()+" back in your inventory, disappointed that [npc.sheIs] not interested."
 								+ "</p>";
 					}
-						
+
 				} else {
 					return "<p>"
 								+ "You try to give [npc.name] "+item.getItemType().getDeterminer()+" "+item.getName()+", but [npc.she] refuses to take it. You put the "+item.getName()+" back in your inventory."
 							+ "</p>";
 				}
 			}
-			
+
 		// NPC is using an item:
 		}else{
 			return Sex.getActivePartner().useItem(item, target, false);
 		}
 	}
-	
+
 	public String getSpellDescription() {
 		return "<p>"
 				+UtilText.parse(this,
@@ -399,7 +399,7 @@ public class Cultist extends NPC {
 							"[npc.Name] thrusts her broomstick out into mid-air five times, before letting out a desperate moan and casting a spell!"))
 			+"</p>";
 	}
-	
+
 	public String getSeductionDescription(Attack attackType, boolean isHit) {
 		return "<p>"
 				+UtilText.parse(this,
@@ -418,9 +418,9 @@ public class Cultist extends NPC {
 			return new Response ("", "", CultistDialogue.ENCOUNTER_CHAPEL_COMBAT_LOSS);
 		}
 	}
-	
+
 	// ****************** Sex & Dirty talk: ***************************
-	
+
 	@Override
 	public boolean getSexBehaviorDeniesRequests(SexType sexTypeRequest) {
 		return true;
@@ -429,7 +429,7 @@ public class Cultist extends NPC {
 	@Override
 	public Set<SexSlot> getSexPositionPreferences(GameCharacter target) {
 		sexPositionPreferences.clear();
-		
+
 		if(Sex.isInForeplay()) {
 			sexPositionPreferences.add(SexSlotBipeds.MISSIONARY_ALTAR_KNEELING_BETWEEN_LEGS);
 			sexPositionPreferences.add(SexSlotBipeds.MISSIONARY_ALTAR_SEALED_KNEELING_BETWEEN_LEGS);
@@ -437,7 +437,7 @@ public class Cultist extends NPC {
 			sexPositionPreferences.add(SexSlotBipeds.MISSIONARY_ALTAR_STANDING_BETWEEN_LEGS);
 			sexPositionPreferences.add(SexSlotBipeds.MISSIONARY_ALTAR_SEALED_STANDING_BETWEEN_LEGS);
 		}
-		
+
 		return sexPositionPreferences;
 	}
 
@@ -466,7 +466,7 @@ public class Cultist extends NPC {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.MOUTH);
 		}
 	}
-	
+
 	@Override
 	public String getCondomEquipEffects(GameCharacter equipper, GameCharacter target, boolean rough) {
 		if(Main.game.isInSex()) {
@@ -487,7 +487,7 @@ public class Cultist extends NPC {
 						+ "</p>";
 			}
 		}
-		
+
 		return AbstractClothingType.getEquipDescriptions(target, equipper, rough,
 				"You tear open the packet and roll the condom down the length of your [pc.penis].",
 				"You tear open the packet and roll the condom down the length of [npc.namePos] [npc.penis].",
@@ -496,16 +496,16 @@ public class Cultist extends NPC {
 				"[npc.Name] tears open the packet and rolls the condom down the length of your [pc.penis].",
 				"[npc.Name] tears open the packet and forcefully rolls the condom down the length of your [pc.penis].", null, null);
 	}
-	
+
 //	// Losing virginity: TODO
 //	private static StringBuilder StringBuilderSB;
 //	public String getPlayerVaginaVirginityLossDescription(boolean isPlayerDom){
 //		if(isPlayerDom || Sex.getPenetrationTypeInOrifice(Main.game.getPlayer(), OrificeType.VAGINA)==PenetrationType.TAIL) {
 //			return super.getPlayerVaginaVirginityLossDescription(isPlayerDom);
 //		}
-//		
+//
 //		StringBuilderSB = new StringBuilder();
-//		
+//
 //		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN)) {
 //			StringBuilderSB.append(
 //							"<p>"
@@ -604,11 +604,11 @@ public class Cultist extends NPC {
 //							+ " repeating that you'll always remember this moment as the time you discovered that you're just a slut for big, thick demon cock."
 //						+ " As the pain between your legs fades away into a dull ache, you find yourself letting out moan after desperate moan, and you start to worry that the succubus might be right..."
 //					+ "</p>");
-//			
+//
 //		}
-//		
+//
 //		StringBuilderSB.append(formatVirginityLoss("Your hymen has been torn; you have lost your virginity!"));
-//		
+//
 //		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN))
 //			StringBuilderSB.append("<p style='text-align:center;'>"
 //					+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
@@ -634,17 +634,17 @@ public class Cultist extends NPC {
 //				+ " With a desperate moan, you start bucking your hips back against her, resigning yourself to the fact that now you're nothing more than a"
 //				+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 //				+ "</p>");
-//		
+//
 //		return UtilText.parse(Sex.getPartner(),
 //				StringBuilderSB.toString());
 //	}
-//	
+//
 //	// Dirty talk:
-//	
+//
 //	@Override
 //	public String getDirtyTalkNoPenetration(boolean isPlayerDom){
 //		List<String> speech = new ArrayList<>();
-//		
+//
 //		if(isPlayerDom){
 //			speech.add("Come on, fuck me already!");
 //			speech.add("Come on! What's taking so long?!");
@@ -656,9 +656,9 @@ public class Cultist extends NPC {
 //			speech.add("You're going to be begging for my cum before the end!");
 //			speech.add("You're going to be a good little bitch!");
 //		}
-//		
+//
 //		return speech.get(Util.random.nextInt(speech.size()));
 //	}
-//	
-	
+//
+
 }

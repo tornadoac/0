@@ -22,7 +22,7 @@ public interface BodyPartTypeInterface {
 			return "it";
 		}
 	}
-	
+
 	/**
 	 * @return Determiner for this body part. (Returns an empty string if a default 'a' or 'an' should be used.)
 	 */
@@ -36,10 +36,10 @@ public interface BodyPartTypeInterface {
 			return getNameSingular(gc);
 		}
 	}
-	
+
 	/** @return The singular name of this body part. */
 	public String getNameSingular(GameCharacter gc);
-	
+
 	/** @return The plural name of this body part. */
 	public String getNamePlural(GameCharacter gc);
 
@@ -56,7 +56,7 @@ public interface BodyPartTypeInterface {
 	 * @param body The body that this covering type is a part of.
 	 * @return The type of skin that is covering this body part. */
 	public BodyCoveringType getBodyCoveringType(Body body);
-	
+
 	/**
 	 * <b>BodyCoveringType when assigned to a character should be checked through their appropriate methods!</b>
 	 */
@@ -66,11 +66,11 @@ public interface BodyPartTypeInterface {
 
 	/** @return The race of this body part. */
 	public Race getRace();
-	
+
 	//TODO
 //	/** @return The description of this body part as seen in the character view screen. */
 //	public String getBodyDescription(GameCharacter owner);
-	
+
 	//TODO
 //	/** @return The description of this body part being changed. */
 //	public String getTransformationDescription(GameCharacter owner);
@@ -80,7 +80,7 @@ public interface BodyPartTypeInterface {
 		if(getRace()==null) {
 			return "";
 		}
-		
+
 		switch(getRace()){
 			case ANGEL:
 				return "angelic";
@@ -123,7 +123,7 @@ public interface BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	/**
 	 * @return A BodyPartClothingBlock object which defines how this BodyPartInterface is blocking InventorySlots. Returns null if it doesn't affect inventorySlots in any way.
 	 */

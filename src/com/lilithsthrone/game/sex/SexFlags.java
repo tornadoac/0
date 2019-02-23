@@ -18,7 +18,7 @@ public class SexFlags {
 	public static boolean playerRequestedCreampie;
 	public static boolean partnerRequestedPullOut;
 	public static boolean partnerRequestedCreampie;
-	
+
 	// Generic:
 	public static boolean mutualOrgasmsAllowed;
 	public static List<GameCharacter> playerPreparedForCharactersOrgasm;
@@ -27,49 +27,49 @@ public class SexFlags {
 
 	// Brax: TODO Temporary awaiting Brax rewrite
 	public static boolean braxCumOnChest;
-	
+
 	// Ralph
 	public static boolean customerAtCounter;
 	public static boolean alertedCustomer;
 	public static boolean askedForBigDiscount;
-	
+
 	//Pix
 	public static boolean pixDemandedPromise;
 	public static boolean pixPlayerPromised;
-	
+
 	public static int ralphDiscount;
 
 	public SexFlags() {
 		reset();
 	}
-	
+
 	public static void reset() {
 		selfActionsBlockedPlayer = false;
 		selfActionsBlockedPartner = false;
-		
+
 		playerRequestedPullOut = false;
 		playerRequestedCreampie = false;
 		partnerRequestedPullOut = false;
 		partnerRequestedCreampie = false;
-		
+
 		mutualOrgasmsAllowed = true;
 		playerPreparedForCharactersOrgasm = new ArrayList<>();
-		
+
 		playerGrewDemonicCock = false;
 		playerDeniedPartner = false;
-		
+
 		// Brax:
 		braxCumOnChest = false;
-		
+
 		// Ralph:
 		customerAtCounter = false;
 		alertedCustomer = false;
 		askedForBigDiscount = false;
 		ralphDiscount = 25;
-		
+
 		// Pix:
 		pixDemandedPromise=false;
 		pixPlayerPromised = false;
 	}
-	
+
 }

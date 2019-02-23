@@ -43,17 +43,17 @@ public class SMLilayaDemonTF extends SexManagerDefault {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToStopSex() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPositionChangingAllowed(GameCharacter character) {
 		return false;
@@ -68,7 +68,7 @@ public class SMLilayaDemonTF extends SexManagerDefault {
 	public boolean isPartnerStartNaked() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isSelfTransformDisabled(GameCharacter character) {
 		return true;
@@ -78,12 +78,12 @@ public class SMLilayaDemonTF extends SexManagerDefault {
 	public boolean isAbleToEquipSexClothing(GameCharacter character){
 		return false;
 	}
-	
+
 	@Override
 	public SexControl getSexControl(GameCharacter character) { // Everyone can just continue with ongoing:
 		return SexControl.ONGOING_PLUS_LIMITED_PENETRATIONS;
 	}
-	
+
 	@Override
 	public SexPace getForcedSexPace(GameCharacter character) {
 		if(!character.isPlayer()) {

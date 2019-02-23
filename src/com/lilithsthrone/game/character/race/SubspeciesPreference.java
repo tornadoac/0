@@ -42,14 +42,14 @@ public enum SubspeciesPreference {
 
 	private String name;
 	private int value;
-	
+
 	private SubspeciesPreference(String name, int value) {
 		this.name=name;
 		this.value=value;
 	}
-	
+
 	public abstract String getSVGImage(boolean disabled);
-	
+
 	public int getValue() {
 		return value;
 	}

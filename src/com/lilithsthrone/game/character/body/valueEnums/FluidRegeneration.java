@@ -15,7 +15,7 @@ public enum FluidRegeneration {
 	TWO_FULL(2, 0.0075f, "fast", "quickly", Color.GENERIC_SIZE_THREE),
 	THREE_PLUMP(3, 0.015f, "rapid", "rapidly", Color.GENERIC_SIZE_FOUR),
 	FOUR_MAXIMUM(4, 0.05f, "very rapid", "very rapidly", Color.GENERIC_SIZE_FIVE);
-	
+
 	private int value;
 	private float percentageRegen;
 	private String descriptor;
@@ -45,7 +45,7 @@ public enum FluidRegeneration {
 	public String getVerb() {
 		return verb;
 	}
-	
+
 	public static FluidRegeneration getFluidRegenerationFromInt(int inches) {
 		for(FluidRegeneration ls : FluidRegeneration.values()) {
 			if(inches == ls.getValue()) {

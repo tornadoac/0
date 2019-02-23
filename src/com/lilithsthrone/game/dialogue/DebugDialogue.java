@@ -57,7 +57,7 @@ import com.lilithsthrone.world.places.PlaceType;
 public class DebugDialogue {
 
 	public static final DialogueNode DEBUG_MENU = new DialogueNode("A powerful tool", "Open debug menu.", false) {
-		
+
 		@Override
 		public String getContent() {
 			return "<p>"
@@ -67,7 +67,7 @@ public class DebugDialogue {
 
 					+ "<p>"
 					+ "You lean down and pick it up, and as you turn it over in your hands, you see a little label stuck to the back."
-					+ " Someone's written a message on it, and you read the following:" 
+					+ " Someone's written a message on it, and you read the following:"
 					+ "</p>"
 
 					+ "<p style='text-align:center;'><i>"
@@ -83,17 +83,17 @@ public class DebugDialogue {
 		public String getResponseTabTitle(int index) {
 			if(index == 0) {
 				return "Main";
-				
+
 			} else if(index == 1) {
 				return "Stats";
-				
+
 			} else if(index == 2) {
 				return "Misc.";
-				
+
 			}
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index == 0) {
@@ -103,58 +103,58 @@ public class DebugDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			}
-			
+
 			if(responseTab==0) {
 				if (index == 1) {
 					return new Response("Open parser", "Test the parser.", PARSER);
-					
+
 				} else if (index == 2) {
 					return new Response("Debug mode: ", "Unlocks enchanting and slavery without first having to do the associated quests.", DEBUG_MENU){
 						@Override
 						public String getTitle() {
 							return "Debug mode: "+(Main.game.isDebugMode()?"[style.colorGood(ON)]":"[style.colorDisabled(OFF)]");
 						}
-						
+
 						@Override
 						public void effects() {
 							Main.getProperties().setValue(PropertyValue.debugMode, !Main.game.isDebugMode());
 						}
 					};
-					
+
 				} else if (index == 3) {
 					return new Response("Reveal Maps: ", "Reveals all map tiles.", DEBUG_MENU){
 						@Override
 						public String getTitle() {
 							return "Reveal Maps: "+(Main.game.isMapReveal()?"[style.colorGood(ON)]":"[style.colorDisabled(OFF)]");
 						}
-						
+
 						@Override
 						public void effects() {
 							Main.getProperties().setValue(PropertyValue.mapReveal, !Main.game.isMapReveal());
 						}
 					};
-					
+
 				} else if (index == 4) {
 					return new Response("Reveal bodies: ", "When toggled on, clothing does not conceal inventory slots, and you'll know what all character's genitals look like without first having to see them.", DEBUG_MENU){
 						@Override
 						public String getTitle() {
 							return "Reveal bodies: "+(Main.game.isConcealedSlotsReveal()?"[style.colorGood(ON)]":"[style.colorDisabled(OFF)]");
 						}
-						
+
 						@Override
 						public void effects() {
 							Main.getProperties().setValue(PropertyValue.concealedSlotsReveal, !Main.game.isConcealedSlotsReveal());
 						}
 					};
-					
+
 				} else if(index==5 && Main.DEBUG) {
 					return new Response("All items", "View icons of all the clothing, weapon, and items in the game. <i>Warning: Very sluggish and slow to load.</i>", ALL_ITEMS_VIEW);
-					
+
 				}  else if (index == 6) {
 					return new Response("Spawn Menu", "View the clothing, weapon, and item spawn menu.", SPAWN_MENU);
-					
+
 				} else if (index == 7) {
 					return new Response("Transform", "Transform your body.", BodyChanging.BODY_CHANGING_CORE) {
 						@Override
@@ -162,13 +162,13 @@ public class DebugDialogue {
 							BodyChanging.setTarget(Main.game.getPlayer(), true);
 						}
 					};
-					
+
 				} else if (index == 8) {
 					return new Response("Set body material", "Set your body material.", BODY_PART_MATERIAL);
-					
+
 				} else if (index == 9) {
 					return new Response("Race resets", "View the race reset options.", BODY_PART_RACE_RESET);
-					
+
 				} else if (index == 11) {
 					return new Response(UtilText.formatAsMoney(10000, "span"), "Add 10000 flames.", DEBUG_MENU){
 						@Override
@@ -176,7 +176,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().incrementMoney(10000);
 						}
 					};
-					
+
 				} else if (index == 12) {
 					return new Response("+50 essences", "Add 50 arcane essences.", DEBUG_MENU){
 						@Override
@@ -186,19 +186,19 @@ public class DebugDialogue {
 							}
 						}
 					};
-					
+
 				}
-				
+
 			} else if(responseTab==1) {
 				if (index == 1) {
 					return new Response("<span style='color:"+Color.GENERIC_EXPERIENCE.toWebHexString()+";'>+500 xp</span>", "Give yourself 500xp.", DEBUG_MENU){
 						@Override
 						public void effects() {
 							Main.game.getPlayer().incrementExperience(500, false);
-							
+
 						}
 					};
-					
+
 				} else if(index==2) {
 					return new Response("<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>+5</span> <span style='color:"+Color.ATTRIBUTE_PHYSIQUE.toWebHexString()+";'>Physique</span>", "", DEBUG_MENU){
 						@Override
@@ -206,7 +206,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().incrementAttribute(Attribute.MAJOR_PHYSIQUE, 5);
 						}
 					};
-					
+
 				} else if(index==3) {
 					return new Response("<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>+5</span> <span style='color:"+Color.ATTRIBUTE_ARCANE.toWebHexString()+";'>Arcane</span>", "", DEBUG_MENU){
 						@Override
@@ -214,7 +214,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().incrementAttribute(Attribute.MAJOR_ARCANE, 5);
 						}
 					};
-					
+
 				} else if(index==4) {
 					return new Response("<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>+5</span> <span style='color:"+Color.ATTRIBUTE_CORRUPTION.toWebHexString()+";'>Corruption</span>", "", DEBUG_MENU){
 						@Override
@@ -222,7 +222,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().incrementAttribute(Attribute.MAJOR_CORRUPTION, 5);
 						}
 					};
-					
+
 				} else if(index==5) {
 					return new Response("<span style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>Max all attributes</span>", "", DEBUG_MENU){
 						@Override
@@ -232,7 +232,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().setAttribute(Attribute.MAJOR_CORRUPTION, 100);
 						}
 					};
-					
+
 				}  else if(index==6) {
 					return new Response("<span style='color:"+Color.GENERIC_EXCELLENT.toWebHexString()+";'>+1</span> <span style='color:"+Color.PERK.toWebHexString()+";'>Perk point</span>", "", DEBUG_MENU){
 						@Override
@@ -240,7 +240,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().incrementPerkPoints(1);
 						}
 					};
-					
+
 				} else if(index==7) {
 					return new Response("<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>-5</span> <span style='color:"+Color.ATTRIBUTE_PHYSIQUE.toWebHexString()+";'>Physique</span>", "", DEBUG_MENU){
 						@Override
@@ -262,17 +262,17 @@ public class DebugDialogue {
 							Main.game.getPlayer().incrementAttribute(Attribute.MAJOR_CORRUPTION, -5);
 						}
 					};
-					
+
 				} else if (index == 11) {
 					return new Response("Reset spells", "Resets all of your spells and upgrades, and removes all of your spell upgrade points.", DEBUG_MENU){
 						@Override
 						public void effects() {
 							Main.game.getPlayer().resetSpells();
 							Main.game.getPlayer().clearSpellUpgradePoints();
-							
+
 						}
 					};
-					
+
 				} else if (index == 12) {
 					return new Response("+10 Spell Points", "Add 10 spell points to each spell school.", DEBUG_MENU){
 						@Override
@@ -282,9 +282,9 @@ public class DebugDialogue {
 							}
 						}
 					};
-					
+
 				}
-				
+
 			} else if(responseTab==2) {
 				if (index == 1) {
 					return new Response("Test colors", "Test text for readability", COLORS){
@@ -297,38 +297,38 @@ public class DebugDialogue {
 							for (BaseColor bc : BaseColor.values())
 								colorsSB.append(bc + ": <span style='color:" + bc.toWebHexString() + ";'>Test text for readability.</span><br/>");
 							colorsSB.append("</p>");
-							
+
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new Response("Offspring", "View available offspring", OFFSPRING);
-					
+
 				} else if (index == 3) {
 					return new Response("[style.boldBad(Month -)]", "Reduce current month by 1.", DEBUG_MENU){
 						@Override
 						public void effects() {
 							Main.game.setStartingDateMonth(Main.game.getStartingDate().getMonth().minus(1));
-							
+
 						}
 					};
-					
+
 				} else if (index == 4) {
 						return new Response("[style.boldGood(Month +)]", "Increase current month by 1.", DEBUG_MENU){
 							@Override
 							public void effects() {
 								Main.game.setStartingDateMonth(Main.game.getStartingDate().getMonth().plus(1));
-								
+
 							}
 						};
-						
+
 				}  else if (index == 5) {
 					if(Main.game.getPlayer().getLocationPlace().getPlaceType()!=PlaceType.DOMINION_BACK_ALLEYS) {
 						return new Response("Lumi test", "Lumi can only be spawned in alleyway tiles.", null);
-						
+
 					} else if(!Main.game.getNonCompanionCharactersPresent().isEmpty()) {
 						return new Response("Lumi test", "Lumi can only be spawned into empty tiles!", null);
-						
+
 					}  else if(Main.game.getCurrentWeather()==Weather.MAGIC_STORM) {
 						return new Response("Lumi test", "Lumi can not be spawned during an arcane storm.", null);
 					}
@@ -338,7 +338,7 @@ public class DebugDialogue {
 							Main.game.setContent(new Response("", "", LumiDialogue.LUMI_APPEARS));
 						}
 					};
-					
+
 				} else if (index == 6) {
 					return new Response("Brax's revenge", "Brax cums in your vagina!", DEBUG_MENU){
 						@Override
@@ -346,7 +346,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().ingestFluid(Main.game.getNpc(Brax.class), Main.game.getNpc(Brax.class).getCum(), SexAreaOrifice.VAGINA, 1000);
 						}
 					};
-					
+
 				} else if (index == 7) {
 					return new Response("Lilaya's hypocrisy", "Lilaya cums in your vagina!", DEBUG_MENU){
 						@Override
@@ -354,7 +354,7 @@ public class DebugDialogue {
 							Main.game.getPlayer().ingestFluid(Main.game.getNpc(Lilaya.class), Main.game.getNpc(Lilaya.class).getCum(), SexAreaOrifice.VAGINA, 1000);
 						}
 					};
-					
+
 				} else if (index == 8) {
 					return new Response("Lilaya's tests", "Automatically completes Lilaya's enchantment quest, making you able to enchant right away.", DEBUG_MENU){
 						@Override
@@ -376,7 +376,7 @@ public class DebugDialogue {
 						@Override
 						public void effects() {
 							Main.game.getDialogueFlags().eponaStamps += 1;
-							Main.game.getTextEndStringBuilder().append("Added 1 stamp, you now have "  + Main.game.getDialogueFlags().eponaStamps + " stamp(s)");
+							Main.game.getTextEndStringBuilder().append("Added 1 stamp, you now have " + Main.game.getDialogueFlags().eponaStamps + " stamp(s)");
 						}
 					};
 
@@ -396,7 +396,7 @@ public class DebugDialogue {
 							}
 						}
 					};
-					
+
 				} else if(index == 11){
 					return new Response("Centaur", "A wild centaur appears! (Please only use this on a completely neutral tile, as it will probably break things otherwise.)", CENTAUR_SEX){
 						@Override
@@ -413,7 +413,7 @@ public class DebugDialogue {
 					};
 				}
 			}
-			
+
 			return null;
 		}
 	};
@@ -429,21 +429,21 @@ public class DebugDialogue {
 		public String getResponseTabTitle(int index) {
 			return DEBUG_MENU.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return DEBUG_MENU.getResponse(responseTab, index);
 		}
 	};
-	
+
 	private static NPC activeOffspring = null;
-	
+
 	public static final DialogueNode OFFSPRING = new DialogueNode("", "", false) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			for(NPC npc : Main.game.getOffspring()) {
 				if(npc.isFeminine()) {
 					UtilText.nodeContentSB.append(npc.getName()+" "+npc.getMother().getName()+"'s daughter ("+npc.getSubspecies().getName(npc)+") Father:"+npc.getFather().getName()+" Mother:"+npc.getMother().getName()+"<br/>");
@@ -459,15 +459,15 @@ public class DebugDialogue {
 						"<br/>" + activeOffspring.getDescription()
 						+"<br/>" + activeOffspring.getBodyDescription());
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else if(index-1 < Main.game.getOffspring().size()) {
 				return new Response(Main.game.getOffspring().get(index-1).getName(), "View the character page for this offspring.", OFFSPRING) {
 					@Override
@@ -478,13 +478,13 @@ public class DebugDialogue {
 						}
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static List<AbstractClothingType> clothingTotal = new ArrayList<>();
 	public static InventorySlot activeSlot = null;
 	public static ItemTag itemTag = null;
@@ -494,13 +494,13 @@ public class DebugDialogue {
 	static {
 		clothingTotal.addAll(ClothingType.getAllClothing());
 		clothingTotal.removeIf((c) -> c.getItemTags().contains(ItemTag.REMOVE_FROM_DEBUG_SPAWNER));
-		
+
 		weaponsTotal.addAll(WeaponType.getAllweapons());
 		weaponsTotal.removeIf((w) -> w.getItemTags().contains(ItemTag.REMOVE_FROM_DEBUG_SPAWNER));
 
 		itemsTotal.addAll(ItemType.getAllItems());
 		itemsTotal.removeIf((i) -> i.getItemTags().contains(ItemTag.REMOVE_FROM_DEBUG_SPAWNER));
-		
+
 	}
 	private static StringBuilder inventorySB = new StringBuilder();
 	public static final DialogueNode SPAWN_MENU = new DialogueNode("Spawn Menu", "Access the spawn menu.", false) {
@@ -508,7 +508,7 @@ public class DebugDialogue {
 		@Override
 		public String getHeaderContent() {
 			inventorySB.setLength(0);
-			
+
 			inventorySB.append("<div class='container-half-width'>");
 
 			inventorySB.append(
@@ -519,7 +519,7 @@ public class DebugDialogue {
 									? "<b style='color:"+Color.BASE_RED_LIGHT.toWebHexString()+";'>Spawn Weapon</b> ("+Util.capitalizeSentence(activeSlot.getName())+")"
 									: "<b style='color:"+Color.BASE_YELLOW_LIGHT.toWebHexString()+";'>Spawn Clothing</b> ("+Util.capitalizeSentence(activeSlot.getName())+")"))
 					+"</p>");
-			
+
 			int count=0;
 			inventorySB.append("<div class='inventory-not-equipped'>");
 			if(activeSlot == null) {
@@ -539,7 +539,7 @@ public class DebugDialogue {
 					}
 					count++;
 				}
-				
+
 			} else if(activeSlot == InventorySlot.WEAPON_MAIN || activeSlot == InventorySlot.WEAPON_OFFHAND) {
 				for(AbstractWeaponType weaponType : weaponsTotal) {
 					if((weaponType.isMelee() && activeSlot==InventorySlot.WEAPON_MAIN)
@@ -555,7 +555,7 @@ public class DebugDialogue {
 						count++;
 					}
 				}
-				
+
 			} else {
 				for(AbstractClothingType clothingType : clothingTotal) {
 					if(clothingType.getSlot()==activeSlot) {
@@ -573,14 +573,14 @@ public class DebugDialogue {
 					}
 				}
 			}
-			
+
 			// Fill space:
 			for (int i = count; i <48; i++) {
 				inventorySB.append("<div class='inventory-item-slot unequipped'></div>");
 			}
 			inventorySB.append("</div>"
 					+ "</div>");
-			
+
 			inventorySB.append("<div class='container-half-width'>");
 			for(InventorySlot slot : InventorySlot.values()) {
 				inventorySB.append("<div class='normal-button' id='"+slot+"_SPAWN_SELECT' style='width:18%; margin:1%; padding:2px; font-size:0.9em; color:"
@@ -597,7 +597,7 @@ public class DebugDialogue {
 			inventorySB.append("<div class='normal-button' id='BOOK_SPAWN_SELECT' style='width:18%; margin:1%; padding:2px; font-size:0.9em; color:"+Color.BASE_ORANGE.toWebHexString()+";'>Books</div>");
 			inventorySB.append("<div class='normal-button' id='SPELL_SPAWN_SELECT' style='width:18%; margin:1%; padding:2px; font-size:0.9em; color:"+Color.DAMAGE_TYPE_SPELL.toWebHexString()+";'>Spells</div>");
 			inventorySB.append("</div>");
-			
+
 			return inventorySB.toString();
 		}
 
@@ -610,19 +610,19 @@ public class DebugDialogue {
 		public String getResponseTabTitle(int index) {
 			return DEBUG_MENU.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return DEBUG_MENU.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ALL_ITEMS_VIEW = new DialogueNode("", "", false) {
 
 		@Override
 		public String getHeaderContent() {
 			inventorySB.setLength(0);
-			
+
 			inventorySB.append(
 					"<p style='width:100%; text-align:center; padding:0 margin:0;'>"
 						+ (activeSlot==null ?
@@ -631,7 +631,7 @@ public class DebugDialogue {
 									? "<b style='color:"+Color.BASE_RED_LIGHT.toWebHexString()+";'>Spawn Weapon</b> ("+Util.capitalizeSentence(activeSlot.getName())+")"
 									: "<b style='color:"+Color.BASE_YELLOW_LIGHT.toWebHexString()+";'>Spawn Clothing</b> ("+Util.capitalizeSentence(activeSlot.getName())+")"))
 					+"</p>");
-			
+
 			int count=0;
 			inventorySB.append("<div class='inventory-not-equipped'>");
 			for(AbstractItemType itemType : itemsTotal) {
@@ -650,7 +650,7 @@ public class DebugDialogue {
 				}
 				count++;
 			}
-			
+
 			for(AbstractWeaponType weaponType : weaponsTotal) {
 				inventorySB.append("<div class='inventory-item-slot unequipped "+ weaponType.getRarity().getName() + "' style='width:5%'>"
 										+ "<div class='inventory-icon-content'>"+weaponType.getSVGImage(
@@ -662,7 +662,7 @@ public class DebugDialogue {
 									+ "</div>");
 				count++;
 			}
-			
+
 			System.out.println(clothingTotal.size());
 			for(AbstractClothingType clothingType : clothingTotal) {
 				inventorySB.append("<div class='inventory-item-slot unequipped "+ clothingType.getRarity().getName() + "' style='width:5%'>"
@@ -677,13 +677,13 @@ public class DebugDialogue {
 									+ "</div>");
 				count++;
 			}
-			
+
 			// Fill space:
 			for (int i = count; i <48; i++) {
 				inventorySB.append("<div class='inventory-item-slot unequipped'></div>");
 			}
 			inventorySB.append("</div>");
-			
+
 			return inventorySB.toString();
 		}
 
@@ -696,20 +696,20 @@ public class DebugDialogue {
 		public String getResponseTabTitle(int index) {
 			return DEBUG_MENU.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return DEBUG_MENU.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode BODY_PART_MATERIAL = new DialogueNode("Set body material", "Set body material.", false) {
 
 		@Override
 		public String getContent() {
 			return "Choose a material type.";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index != 0 && index < BodyMaterial.values().length+1) {
@@ -719,16 +719,16 @@ public class DebugDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().setBodyMaterial(BodyMaterial.values()[index - 1]));
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode BODY_PART_RACE_RESET = new DialogueNode("Reset body", "Set race.", false) {
 
 		@Override
@@ -743,7 +743,7 @@ public class DebugDialogue {
 						+ "[style.colorTfGreater(Greater)]: Sets all parts to the race's.</br>"
 					+ "</p>";
 		}
-		
+
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(index == 0) {
@@ -751,19 +751,19 @@ public class DebugDialogue {
 
 			} else if(index == 1) {
 				return "[style.colorTfMinor(Minor)]";
-				
+
 			} else if(index == 2) {
 				return "[style.colorTfLesser(Lesser)]";
-				
+
 			} else if(index == 3) {
 				return "[style.colorTfGreater(Greater)]";
 			}
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			
+
 			if (index != 0 && index < Subspecies.values().length) {
 				String name = Subspecies.values()[index - 1].getName(Main.game.getPlayer());
 				return new Response(
@@ -786,19 +786,19 @@ public class DebugDialogue {
 								+ "</p>");
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CLOTHING_COLLAGE = new DialogueNode("Clothing collage", "Clothing collage.", false) {
 		/**
-		 * 
+		 *
 		 */
 
 		@Override
@@ -810,7 +810,7 @@ public class DebugDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
@@ -849,7 +849,7 @@ public class DebugDialogue {
 					+ "<textarea id='parseInput' name='Text1' style='width:760px;height:200px;'>"+rawText+"</textarea>"
 					+ "</form>");
 		}
-		
+
 		@Override
 		public String getContent() {
 			return  "<p>"
@@ -868,19 +868,19 @@ public class DebugDialogue {
 						parsedText = UtilText.parse(rawText);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Help", "", PARSER_HELP);
-				
+
 			} else if (index == 3) {
 				return new Response("Targets", "", PARSER_TARGETS);
-				
+
 			} else if (index == 4) {
 				return new Response("Commands", "", PARSER_COMMANDS_NEAT);
-				
+
 			} else if (index == 5) {
 				return new Response("Commands list", "", PARSER_COMMANDS);
-				
+
 			} else if (index == 6) {
 				return new Response("Load example 1", "", PARSER){
 					@Override
@@ -893,7 +893,7 @@ public class DebugDialogue {
 								+ " under [rose.her] dress, [rose.she] starts moaning in delight.";
 					}
 				};
-				
+
 			} else if (index == 7) {
 				return new Response("Load example 2", "", PARSER){
 					@Override
@@ -901,35 +901,35 @@ public class DebugDialogue {
 						rawText = "[brax.name] paces back and forth in [brax.herHis] office, growling softly to [brax.himself], [brax.speech(Hrmph... My new poster still hasn't arrived...)]";
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean disableHeaderParsing() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode PARSER_HELP = new DialogueNode("Innoxia's super fun and interesting guide to parsing", "", true) {
 
 		/*
 		 * I've seen String concatenation... String concatenation that you've seen.
 		 * But you have no right to call me a bad programmer.
 		 * You have a right to ridicule my code. You have a right to do that... but you have no right to judge me.
-		 * 
+		 *
 		 * It's impossible for words to describe what is necessary to those who do not know what String concatenation means.
 		 * String concatenation... String concatenation has a face... and you must make a friend of String concatenation. String concatenation and html parsing are your friends. If they are not, then they are enemies to be feared.
 		 */
 		@Override
 		public String getHeaderContent() {
 			return  "<p style='text-align:center;'><i>You put in the input, and it returns a nice output!</i></p>"
-					
+
 					+ "<p>"
 					+ "<h6>Input:</h6><br/>"
 					+"Everything is parsed using square brackets, split into the following pattern:<br/>"
@@ -940,7 +940,7 @@ public class DebugDialogue {
 					+"or, for parsing as a script,<br/>"
 					+"[#<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>command</i>]<br/>"
 					+ "</p>"
-					
+
 					+ "<p>"
 					+"An example of use in a sentence would be:<br/><br/>"
 					+"As you start to read Innoxia's tedious parsing documentation, [lilaya.name] steps up behind you and wraps [lilaya.her] [lilaya.tail+] around your [pc.leg]."
@@ -950,7 +950,7 @@ public class DebugDialogue {
 							+ " Leaning in over your shoulder, [lilaya.she] groans, [lilaya.speech(Oh my God. This is so boring, [#pc.getName()]!)]")
 					+ "</p>"
 					+ "<br/>"
-					
+
 					+"<h6><b style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>Target</b> <b>tag:</b></h6>"
 					+"<p>"
 					+"The target of a command is an NPC's name, or 'pc' for the player character. Target tags are <b>case-insensitive.</b> (i.e. pc is treated the same as PC, pC, or Pc)<br/>"
@@ -962,7 +962,7 @@ public class DebugDialogue {
 					+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>npc</i>.command]"
 					+ "</p>"
 					+ "<br/>"
-					
+
 					+"<h6><b style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>Command</b> <b>and</b> <b style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>argument</b> <b>tags:</b></h6>"
 					+"<p>"
 					+"Command tags determine what output is returned. They come in two varieties; with and without arguments.<br/>"
@@ -974,7 +974,7 @@ public class DebugDialogue {
 					+ "[pc.speech<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>(Hello reader!)</i>] outputs "+UtilText.parsePlayerSpeech("Hello reader!")+""
 					+ ""
 					+ "</p>"
-					
+
 					+"<p>"
 					+ "<b>Command modifier (a_ an_)</b><br/>"
 					+"You may insert 'a_' or 'an_' to automatically generate the appropriate pronoun before an argument. (It's your choice if you prefer a_ or an_, they both work in exactly the same way.)<br/>"
@@ -982,14 +982,14 @@ public class DebugDialogue {
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>height</i>] outputs 'tall'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>a_height</i>] outputs 'a tall'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>an_height</i>] <b>also</b> outputs 'a tall'<br/><br/>"
-					
+
 					+"For some body part names, this provides a little more complexity.<br/>"
 					+ "e.g.:<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>arms</i>] outputs 'wings'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>a_arms</i>] outputs 'a pair of wings'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>an_arms</i>] <b>also</b> outputs 'a pair of wings'<br/><br/>"
 					+ "</p>"
-					
+
 					+"<p>"
 					+ "<b>Command modifier (Capitalization)</b><br/>"
 					+"Most commands are able to apply capitalization. The ones that don't, such as numeric output commands, will still happily take a capitalized command, but capitalization won't be applied.<br/>"
@@ -1001,7 +1001,7 @@ public class DebugDialogue {
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>a_height</i>] outputs 'a tall'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>A_height</i>]  outputs 'A tall'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>a_Height</i>] <b>also</b> outputs 'A tall'<br/><br/>"
-					
+
 					+"<p>"
 					+ "<b>Command modifier (+ D)</b><br/>"
 					+"Most commands that return a name are able to apply additional <b>randomized descriptors</b>. (You can check to see what commands accept '+' and 'D' modifiers in the 'Commands' page.)<br/>"
@@ -1015,7 +1015,7 @@ public class DebugDialogue {
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>ArmsD</i>] outputs 'Feathered wings'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>a_arms+</i>] outputs 'a pair of feathered wings'<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>A_arms+</i>]  outputs 'A pair of feathered wings'<br/><br/>"
-					
+
 					+"Some outputs have more randomization than others.<br/>"
 					+ "e.g.:<br/>"
 					+ "[npc.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>pussy</i>] outputs 'slit'<br/>"
@@ -1042,7 +1042,7 @@ public class DebugDialogue {
 						+ " handed [[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>arthur</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>him</i>]] over to Scarlett.<br/>"
 					+ "outputs:<br/>"
 					+ "'Brax leans back in his chair, wondering what happened to Arthur after he handed him over to Scarlett.'<br/><br/>"
-					
+
 					+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>rose</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>name</i>]"
 						+ " leans back in "
 						+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>rose</i>.<i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>herHuis</i>]"
@@ -1053,7 +1053,7 @@ public class DebugDialogue {
 					+ UtilText.parse("[rose.name] leans back in [rose.herHuis] chair, letting out a sigh as [rose.shyeHe] takes a sip of [rose.name] coffee.")+"<br/>"
 					+ "<b>Note:</b> <i style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>Typos</i> will cause the parsing system to return an invalid command string, whereas"
 							+ " <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>incorrect commands</i> (such as typing .name instead of .herHis) will not throw an error!<br/><br/>"
-					
+
 					+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>lilaya</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>name</i>]"
 						+ " storms up to [<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>innoxia</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>name</i>],"
 						+ " shouting angrily in response to finding out that"
@@ -1063,10 +1063,10 @@ public class DebugDialogue {
 					+ "outputs:<br/>"
 					+ "'Lilaya storms up to Innoxia, shouting angrily in response to finding out that her sex scenes haven't been fixed yet, "
 						+UtilText.parseSpeech("What the hell are you doing Innoxia?! You said my scenes were going to be re-written weeks ago!", Main.game.getNpc(Lilaya.class))+"'"
-					
+
 					+ "</p>";
 		}
-		
+
 		@Override
 		public String getContent(){
 			return "";
@@ -1076,61 +1076,61 @@ public class DebugDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Parser", "", PARSER);
-					
+
 			} else if (index == 2) {
 				return new Response("Help", "", null);
-					
+
 			} else if (index == 3) {
 				return new Response("Targets", "", PARSER_TARGETS);
-				
+
 			} else if (index == 4) {
 				return new Response("Commands", "", PARSER_COMMANDS_NEAT);
-				
+
 			} else if (index == 5) {
 				return new Response("Commands list", "", PARSER_COMMANDS);
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean disableHeaderParsing() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode PARSER_TARGETS = new DialogueNode("Parser", "", true) {
 
 		@Override
 		public String getHeaderContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>Here are a list of accepted <i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>targets</i>, for use in the parsing syntax:<br/>"
 					+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>target</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>command</i>"
 							+ "<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>(arguments)</i>]</p>");
-			
+
 			for(ParserTarget character : ParserTarget.values()) {
 				UtilText.nodeContentSB.append("<hr/>"
 						+"<p>");
-				
+
 				boolean first=true;
 				for(String s : character.getTags()) {
 					UtilText.nodeContentSB.append((first?"":" | ") +"<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>"+s+"</i>");
 					first = false;
 				}
-				
+
 				UtilText.nodeContentSB.append("<br/>"
 						+character.getDescription()
 						+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return  "";
@@ -1140,39 +1140,39 @@ public class DebugDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Parser", "", PARSER);
-				
+
 			} else if (index == 2) {
 				return new Response("Help", "", PARSER_HELP);
-				
+
 			} else if (index == 3) {
 				return new Response("Targets", "", null);
-				
+
 			} else if (index == 4) {
 				return new Response("Commands", "", PARSER_COMMANDS_NEAT);
-				
+
 			} else if (index == 5) {
 				return new Response("Commands list", "", PARSER_COMMANDS);
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean disableHeaderParsing() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode PARSER_COMMANDS = new DialogueNode("Parser", "", true) {
 
 		@Override
 		public String getHeaderContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>Here are a list of accepted <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>commands</i>, for use in the parsing syntax:<br/>"
 						+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>target</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>command</i>"
 						+ "<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>(arguments)</i>]</p>"
@@ -1180,25 +1180,25 @@ public class DebugDialogue {
 							+ "<b>Please don't be intimidated by the number of commands!</b>"
 							+ " The <i>vast</i> majority of them are automatically generated 'standard' variations for body parts, following a (hopefully) intuitive naming system."
 						+ "</p>");
-			
+
 			int count=1;
 			for(ParserCommand command : UtilText.commandsList) {
 				UtilText.nodeContentSB.append("<hr/>"
 						+ "<p>"
 						+ "<b style='color:"+Color.TEXT_GREY.toWebHexString()+";'>"+String.format("%03d.", count)+"</b> <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+command.getTags().get(0)+"</i>");
-				
+
 				if(command.getTags().size()>1) {
 					for(int i = 1; i<command.getTags().size(); i++)
 						UtilText.nodeContentSB.append(" | <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+command.getTags().get(i)+"</i>");
 				}
-				
+
 				UtilText.nodeContentSB.append("</p>");
 				count++;
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return  "";
@@ -1208,39 +1208,39 @@ public class DebugDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Parser", "", PARSER);
-				
+
 			} else if (index == 2) {
 				return new Response("Help", "", PARSER_HELP);
-				
+
 			} else if (index == 3) {
 				return new Response("Targets", "", PARSER_TARGETS);
-				
+
 			} else if (index == 4) {
 				return new Response("Commands", "", PARSER_COMMANDS_NEAT);
-				
+
 			} else if (index == 5) {
 				return new Response("Commands list", "", null);
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean disableHeaderParsing() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode PARSER_COMMANDS_NEAT = new DialogueNode("Parser", "", true) {
 
 		@Override
 		public String getHeaderContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>Here are a list of accepted <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>commands</i>, for use in the parsing syntax:<br/>"
 						+ "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>target</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>command</i>"
 						+ "<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>(arguments)</i>]</p>"
@@ -1248,7 +1248,7 @@ public class DebugDialogue {
 							+ "<b>Please don't be intimidated by the number of commands!</b>"
 							+ " The <i>vast</i> majority of them are automatically generated 'standard' variations for body parts, following a (hopefully) intuitive naming system."
 						+ "</p>");
-			
+
 			int count = 1;
 			for(BodyPartType bpt : BodyPartType.values()) {
 				UtilText.nodeContentSB.append("<details>"
@@ -1258,12 +1258,12 @@ public class DebugDialogue {
 					UtilText.nodeContentSB.append("<p>"
 							+ "<hr/>"
 							+ "<b style='color:"+Color.TEXT_GREY.toWebHexString()+";'>"+String.format("%03d.", count)+"</b> <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+command.getTags().get(0)+"</i>");
-					
+
 					if(command.getTags().size()>1) {
 						for(int i = 1; i<command.getTags().size(); i++)
 							UtilText.nodeContentSB.append(" | <i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+command.getTags().get(i)+"</i>");
 					}
-					
+
 					UtilText.nodeContentSB.append("<br/>"
 							+(command.getArguments()==""?"<i style='color:"+Color.TEXT_GREY.toWebHexString()+";'>No arguments</i>":"<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>"+command.getArguments()+"</i>")+"<br/>"
 							+(command.isAllowsCapitalization()?"<i style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>Capitalization</i>":"<i style='color:"+Color.TEXT_GREY.toWebHexString()+";'>Capitalization</i>")
@@ -1273,23 +1273,23 @@ public class DebugDialogue {
 							+"Examples:<br/>"
 							+ command.getExampleBeforeParse("lilaya", (command.getArguments()==""?"":command.getArgumentExample()))+" -> "
 								+UtilText.parse("[lilaya."+command.getTags().get(0)+(command.getArguments()==""?"":"("+command.getArgumentExample()+")")+"]")+"<br/>"
-							
+
 							+ command.getExampleBeforeParse("brax", (command.getArguments()==""?"":command.getArgumentExample()))+" -> "
 								+UtilText.parse("[brax."+command.getTags().get(0)+(command.getArguments()==""?"":"("+command.getArgumentExample()+")")+"]")+"<br/>"
-							
+
 							+ command.getExampleBeforeParse("kate", (command.getArguments()==""?"":command.getArgumentExample()))+" -> "
 								+UtilText.parse("[kate."+command.getTags().get(0)+(command.getArguments()==""?"":"("+command.getArgumentExample()+")")+"]")
 							+"</p>");
-					
+
 					count++;
 				}
 
 				UtilText.nodeContentSB.append("</details>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return  "";
@@ -1299,33 +1299,33 @@ public class DebugDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Parser", "", PARSER);
-				
+
 			} else if (index == 2) {
 				return new Response("Help", "", PARSER_HELP);
-				
+
 			} else if (index == 3) {
 				return new Response("Targets", "", PARSER_TARGETS);
-				
+
 			} else if (index == 4) {
 				return new Response("Commands", "", null);
-				
+
 			} else if (index == 5) {
 				return new Response("Commands list", "", PARSER_COMMANDS);
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "", DEBUG_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean disableHeaderParsing() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode POST_SEX_2KOMA = new DialogueNode("", "", true) {
 		@Override
 		public String getContent() {
@@ -1337,7 +1337,7 @@ public class DebugDialogue {
 				return UtilText.parseFromXMLFile("misc/misc", "POST_SEX_2KOMA_AS_SUB", target);
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
@@ -1350,18 +1350,18 @@ public class DebugDialogue {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode CENTAUR_SEX = new DialogueNode("", "", true) {
 		@Override
 		public String getContent() {
 			NPC centaur = Main.game.getActiveNPC();
 			return UtilText.parseFromXMLFile("misc/misc", "A_WILD_CENTAUR_APPEARS", centaur);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			NPC centaur = Main.game.getActiveNPC();
-			
+
 			if(index==1) {
 				return new ResponseSex(
 						UtilText.parse(centaur, "Dom [npc.herHim]"),
@@ -1378,7 +1378,7 @@ public class DebugDialogue {
 							+ "Deciding that you want to dominate this [npc.race] who just magically appeared before you, you step up to [npc.herHim] and growl,"
 							+ " [pc.speech(It's time to put you in your place!)]"
 						+ "</p>");
-				
+
 			} else if(index==2) {
 				return new ResponseSex(
 						UtilText.parse(centaur, "Submit to [npc.herHim]"),
@@ -1395,7 +1395,7 @@ public class DebugDialogue {
 							+ "Deciding that you want to get dominated by this [npc.race] who just magically appeared before you, you step up to [npc.herHim] and plead,"
 							+ " [pc.speech(It's time for you to put me in my place!)]"
 						+ "</p>");
-				
+
 			} else if(index==0) {
 				return new Response("Nevermind", UtilText.parse(centaur, "Decide not to do anything with this [npc.race], and instead just continue with what you were doing..."), Main.game.getDefaultDialogueNoEncounter()) {
 					@Override
@@ -1407,7 +1407,7 @@ public class DebugDialogue {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode POST_SEX_CENTAUR = new DialogueNode("", "", true) {
 		@Override
 		public String getContent() {
@@ -1419,7 +1419,7 @@ public class DebugDialogue {
 				return UtilText.parseFromXMLFile("misc/misc", "POST_SEX_CENTAUR_AS_SUB", target);
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {

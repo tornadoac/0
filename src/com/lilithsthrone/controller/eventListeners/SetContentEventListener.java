@@ -8,7 +8,7 @@ import com.lilithsthrone.main.Main;
 
 /**
  * Sets the MainController's content.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.7
  * @author Innoxia

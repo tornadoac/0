@@ -11,10 +11,10 @@ public enum PronounType {
 	FEMININE("feminine", Color.FEMININE),
 	NEUTRAL("androgynous", Color.ANDROGYNOUS),
 	MASCULINE("masculine", Color.MASCULINE);
-	
+
 	private String name;
 	private Color color;
-	
+
 	private PronounType(String name, Color color) {
 		this.name = name;
 		this.color = color;

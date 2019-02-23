@@ -18,7 +18,7 @@ import com.lilithsthrone.game.sex.positions.SexSlotOther;
 
 /**
  * A generic sex manager, meant to be used for initializing generic sex scenes. Will typically start in the 'standing' position.
- * 
+ *
  * @since 0.3.1
  * @version 0.3.1
  * @author Innoxia
@@ -27,7 +27,7 @@ public class SMGeneric extends SexManagerDefault {
 
 	List<GameCharacter> dominantSpectators;
 	List<GameCharacter> submissiveSpectators;
-	
+
 	public SMGeneric(
 			List<GameCharacter> dominants,
 			List<GameCharacter> submissives,
@@ -35,7 +35,7 @@ public class SMGeneric extends SexManagerDefault {
 			List<GameCharacter> submissiveSpectators,
 			ResponseTag... tags) {
 		super(null, null, null);
-		
+
 		this.dominantSpectators = new ArrayList<>();
 		if(dominantSpectators!=null) {
 			this.dominantSpectators.addAll(dominantSpectators);
@@ -47,7 +47,7 @@ public class SMGeneric extends SexManagerDefault {
 			this.submissiveSpectators.addAll(submissiveSpectators);
 			this.submissiveSpectators.removeIf(sp -> sp==null);
 		}
-		
+
 		boolean nonBiped=false;
 		for(GameCharacter character : submissives) {
 			if(character.getLegConfiguration()!=LegConfiguration.BIPEDAL) {
@@ -63,7 +63,7 @@ public class SMGeneric extends SexManagerDefault {
 				}
 			}
 		}
-		
+
 		SexSlot[] slotsDominant;
 		SexSlot[] slotsSubmissive;
 		if(nonBiped) { // This scene contains characters who are non-bipedal, so use the SexPositionOther classes:
@@ -75,13 +75,13 @@ public class SMGeneric extends SexManagerDefault {
 					slotsDominant = new SexSlot[] {SexSlotOther.ALL_FOURS_MOUNTING, SexSlotOther.ALL_FOURS_MOUNTING_TWO, SexSlotOther.IN_FRONT_OF_ALL_FOURS_TARGET, SexSlotOther.IN_FRONT_OF_ALL_FOURS_TARGET_TWO};
 				}
 				slotsSubmissive = new SexSlot[] {SexSlotOther.ALL_FOURS_FUCKED, SexSlotOther.ALL_FOURS_FUCKED_TWO};
-				
+
 			} else {
 				this.position = SexPositionOther.STANDING;
 				slotsDominant = new SexSlot[] {SexSlotOther.STANDING_DOMINANT, SexSlotOther.STANDING_DOMINANT_TWO};
 				slotsSubmissive = new SexSlot[] {SexSlotOther.STANDING_SUBMISSIVE, SexSlotOther.STANDING_SUBMISSIVE_TWO};
 			}
-			
+
 		} else {
 			if(Arrays.asList(tags).contains(ResponseTag.PREFER_DOGGY)) {
 				this.position = SexPositionBipeds.DOGGY_STYLE;
@@ -94,7 +94,7 @@ public class SMGeneric extends SexManagerDefault {
 							SexSlotBipeds.DOGGY_INFRONT_TWO, SexSlotBipeds.DOGGY_INFRONT_SECOND_TWO};
 				}
 				slotsSubmissive = new SexSlot[] {SexSlotBipeds.DOGGY_ON_ALL_FOURS, SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND, SexSlotBipeds.DOGGY_ON_ALL_FOURS_THIRD, SexSlotBipeds.DOGGY_ON_ALL_FOURS_FOURTH};
-				
+
 			} else {
 				this.position = SexPositionBipeds.STANDING;
 				slotsDominant = new SexSlot[] {SexSlotBipeds.STANDING_DOMINANT};
@@ -103,11 +103,11 @@ public class SMGeneric extends SexManagerDefault {
 		}
 		setUpVariables(dominants, slotsDominant, submissives, slotsSubmissive);
 	}
-	
+
 	private void setUpVariables(List<GameCharacter> dominants, SexSlot[] slotsDominant, List<GameCharacter> submissives, SexSlot[] slotsSubmissive) {
 		Map<GameCharacter, SexSlot> newPositionDominants = new HashMap<>();
 		Map<GameCharacter, SexSlot> newPositionSubmissives = new HashMap<>();
-		
+
 		int i = 0;
 		for(GameCharacter character : dominants) { // Assign dominants to slots, and if there aren't enough slots, put dominants as dominant spectators:
 			if(i<slotsDominant.length) {
@@ -118,7 +118,7 @@ public class SMGeneric extends SexManagerDefault {
 			i++;
 		}
 		this.dominants = newPositionDominants;
-		
+
 		i = 0;
 		for(GameCharacter character : submissives) { // Assign submissives to slots, and if there aren't enough slots, put submissives as submissive spectators:
 			if(i<slotsSubmissive.length) {
@@ -138,5 +138,5 @@ public class SMGeneric extends SexManagerDefault {
 	public List<GameCharacter> getSubmissiveSpectators() {
 		return submissiveSpectators;
 	}
-	
+
 }

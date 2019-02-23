@@ -33,7 +33,7 @@ public enum TattooCountType {
 			return Util.intToString(input);
 		}
 	};
-	
+
 	private String name;
 
 	private TattooCountType(String name) {
@@ -41,7 +41,7 @@ public enum TattooCountType {
 	}
 
 	public abstract String convertInt(int input);
-	
+
 	public String getName() {
 		return name;
 	}

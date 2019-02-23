@@ -25,7 +25,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum LegConfiguration {
-	
+
 	/**
 	 * This LegConfiguration is the standard for humans, demons, angels, and the vast majority of animal-morphs.
 	 */
@@ -145,8 +145,8 @@ public enum LegConfiguration {
 			true,
 			true,
 			WingSize.THREE_LARGE,
-			false, 
-			0, 
+			false,
+			0,
 			0,
 			"A configuration in which the character's legs and groin are replaced by a tail of the associated animal-morph, with their genitals shifting to be located within a cloaca."
 					+ " The most common example of this is the 'mermaid', in which the character's legs and groin are replaced by the body and genitals of a fish.", "Above [npc.her] groin, occupying the lower region of [npc.her] humanoid abdomen,") {
@@ -192,7 +192,7 @@ public enum LegConfiguration {
 							ItemTag.FITS_NON_BIPED_BODY_HUMANOID,
 							ItemTag.FITS_ARACHNID_BODY));
 		}
-		
+
 		@Override
 		public boolean isGenitalsExposed(GameCharacter character) { // When genitals are in a cloaca (i.e. beneath the arachnid body), they are not visible.
 			return character.getGenitalArrangement()==GenitalArrangement.NORMAL;
@@ -243,7 +243,7 @@ public enum LegConfiguration {
 							ItemTag.FITS_NON_BIPED_BODY_HUMANOID,
 							ItemTag.FITS_CEPHALOPOD_BODY));
 		}
-		
+
 		@Override
 		public boolean isGenitalsExposed(GameCharacter character) { // Genitals are under tentacles, so are not visible even when naked.
 			return false;
@@ -255,16 +255,16 @@ public enum LegConfiguration {
 	private int waterSpeedModifier;
 	private boolean bipedalPositionedGenitals;
 	private boolean bipedalPositionedCrotchBoobs;
-	
+
 	private WingSize minimumWingSizeForFlight;
 	private boolean wingsOnLegConfiguration;
-	
+
 	int numberOfLegs;
 	int numberOfTentacles;
-	
+
 	private String genericDescription;
 	private String crotchBoobLocationDescription;
-	
+
 	private LegConfiguration(
 			String name,
 			int landSpeedModifier,
@@ -277,21 +277,21 @@ public enum LegConfiguration {
 			int numberOfTentacles,
 			String genericDescription,
 			String crotchBoobLocationDescription) {
-		
+
 		this.name = name;
-		
+
 		this.landSpeedModifier = landSpeedModifier;
 		this.waterSpeedModifier = waterSpeedModifier;
-		
+
 		this.bipedalPositionedGenitals = bipedalPositionedGenitals;
 		this.bipedalPositionedCrotchBoobs = bipedalPositionedCrotchBoobs;
-		
+
 		this.minimumWingSizeForFlight=minimumWingSizeForFlight;
 		this.wingsOnLegConfiguration=wingsOnLegConfiguration;
-		
+
 		this.numberOfLegs = numberOfLegs;
 		this.numberOfTentacles = numberOfTentacles;
-		
+
 		this.genericDescription = genericDescription;
 		this.crotchBoobLocationDescription = crotchBoobLocationDescription;
 	}
@@ -349,7 +349,7 @@ public enum LegConfiguration {
 	public boolean isBipedalPositionedCrotchBoobs() {
 		return bipedalPositionedCrotchBoobs;
 	}
-	
+
 	public int getNumberOfLegs() {
 		return numberOfLegs;
 	}

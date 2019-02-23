@@ -17,7 +17,7 @@ import com.lilithsthrone.world.places.PlaceType;
 public class ShoppingArcadeDialogue {
 
 	public static final DialogueNode OUTSIDE = new DialogueNode("Shopping arcade", "-", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
@@ -39,7 +39,7 @@ public class ShoppingArcadeDialogue {
 							+ " From what you can see through the entrance's glass doors, it looks as though the shops inside are all still open for business, despite the storm currently raging overhead."
 							+ " You wonder if you should take this opportunity to go and do some shopping..."
 						+ "</p>";
-				
+
 			} else {
 				return "<p>"
 						+ "The streets in this part of Dominion seem to be busier than usual, and you notice that many of the people surrounding you are holding shopping bags of all shapes and sizes."
@@ -51,7 +51,7 @@ public class ShoppingArcadeDialogue {
 					+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -66,11 +66,11 @@ public class ShoppingArcadeDialogue {
 				return null;
 			}
 		}
-		
+
 	};
-	
+
 	public static final DialogueNode ENTRY = new DialogueNode("Entrance to the arcade", "-", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 1;
@@ -92,7 +92,7 @@ public class ShoppingArcadeDialogue {
 						+ "There are several touristy-looking information boards placed nearby, and, after consulting one, you feel confident that you could easily find your way to any of the more interesting stores."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -155,12 +155,12 @@ public class ShoppingArcadeDialogue {
 				return null;
 			}
 		}
-		
+
 	};
-	
+
 	//TODO
 	public static final DialogueNode ARCADE = new DialogueNode("Shopping arcade", "-", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 1;
@@ -179,14 +179,14 @@ public class ShoppingArcadeDialogue {
 					+ " Their chatter reverberates off the windows and walls on either side of you to create a loud, energetic atmosphere all the way through the arcade."
 				+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return null;
 		}
-		
+
 	};
-	
+
 	private static String[] boringItems = new String[]{
 			"an egg-whisk",
 			"a wooden spoon",
@@ -199,7 +199,7 @@ public class ShoppingArcadeDialogue {
 			"a little book of cheat-codes for some obscene text-based RPG",
 			"a fruit bowl"};
 	public static final DialogueNode GENERIC_SHOP = new DialogueNode("Shop", "-", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 1;
@@ -213,11 +213,11 @@ public class ShoppingArcadeDialogue {
 								+", you leave the premises empty-handed, wondering why you even bothered to take a look inside..."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return null;
 		}
-		
+
 	};
 }

@@ -29,13 +29,13 @@ public class SlaveryEventLogEntry implements XMLSaving {
 	private SlaveEvent event;
 	private List<SlaveEventTag> tags;
 	private List<String> extraEffects;
-	
+
 	private static StringBuilder descriptionSB = new StringBuilder();
-	
+
 	public SlaveryEventLogEntry(long time, NPC slave, SlaveEvent event, boolean applyEffectsToSlave) {
 		this(time, slave, event, null, null, applyEffectsToSlave);
 	}
-	
+
 	public SlaveryEventLogEntry(long time, NPC slave, SlaveEvent event, List<SlaveEventTag> tags, boolean applyEffectsToSlave) {
 		this(time, slave, event, tags, null, applyEffectsToSlave);
 	}
@@ -47,32 +47,32 @@ public class SlaveryEventLogEntry implements XMLSaving {
 		this.tags = tags;
 		this.extraEffects = extraEffects;
 	}
-	
+
 	public SlaveryEventLogEntry(long time, NPC slave, SlaveEvent event, List<SlaveEventTag> tags, List<String> extraEffects, boolean applyEffectsToSlave) {
 		this.time = time;
-		
+
 		slaveID = slave.getId();
-		
+
 		this.event = event;
-		
+
 		if(applyEffectsToSlave) {
 			event.applyEffects(slave);
 		}
-		
+
 		this.tags = tags;
 		if(tags!=null && applyEffectsToSlave) {
 			for(SlaveEventTag tag : tags) {
 				tag.applyEffects(slave);
 			}
 		}
-		
+
 		this.extraEffects = extraEffects;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("eventLogEntry");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "time", String.valueOf(time));
 		CharacterUtils.addAttribute(doc, element, "slaveID", slaveID);
 		CharacterUtils.addAttribute(doc, element, "event", event.toString());
@@ -96,12 +96,12 @@ public class SlaveryEventLogEntry implements XMLSaving {
 				CharacterUtils.addAttribute(doc, extraEffectsDataNode, "value", s);
 			}
 		}
-		
+
 		return element;
 	}
-	
+
 	public static SlaveryEventLogEntry loadFromXML(Element parentElement, Document doc) {
-		
+
 		List<SlaveEventTag> loadedTags = null;
 
 		NodeList nodes = parentElement.getElementsByTagName("tags");
@@ -124,7 +124,7 @@ public class SlaveryEventLogEntry implements XMLSaving {
 				}
 			}
 		}
-		
+
 		List<String> loadedExtraEffects = null;
 
 		nodes = parentElement.getElementsByTagName("extraEffects");
@@ -132,17 +132,17 @@ public class SlaveryEventLogEntry implements XMLSaving {
 		if(extraEffectNode != null) {
 			NodeList extraEffectElements = extraEffectNode.getElementsByTagName("entry");
 			loadedExtraEffects = new ArrayList<>(extraEffectElements.getLength());
-			
+
 			for(int i=0; i<extraEffectElements.getLength(); i++){
 				Element e = ((Element)extraEffectElements.item(i));
-				
+
 				try {
 					loadedExtraEffects.add(e.getAttribute("value"));
 				}catch(IllegalArgumentException ex){
 				}
 			}
 		}
-		
+
 		return new SlaveryEventLogEntry(
 				Long.valueOf(parentElement.getAttribute("time")),
 				parentElement.getAttribute("slaveID"),
@@ -162,12 +162,12 @@ public class SlaveryEventLogEntry implements XMLSaving {
 	public String getName() {
 		return event.getName();
 	}
-	
+
 	public String getDescription() {
 		descriptionSB.setLength(0);
-		
+
 		descriptionSB.append(event.getDescription());
-		
+
 		if(tags!=null) {
 			for(SlaveEventTag tag : tags) {
 				if(descriptionSB.length()>0) {
@@ -176,7 +176,7 @@ public class SlaveryEventLogEntry implements XMLSaving {
 				descriptionSB.append(tag.getDescription());
 			}
 		}
-		
+
 		if(extraEffects!=null) {
 			for(String s : extraEffects) {
 				if(descriptionSB.length()>0) {
@@ -185,7 +185,7 @@ public class SlaveryEventLogEntry implements XMLSaving {
 				descriptionSB.append(s);
 			}
 		}
-		
+
 		try {
 			GameCharacter slave = Main.game.getNPCById(slaveID);
 			return UtilText.parse(slave, descriptionSB.toString());
@@ -195,22 +195,22 @@ public class SlaveryEventLogEntry implements XMLSaving {
 			return descriptionSB.toString();
 		}
 	}
-	
+
 	public String getSlaveName() {
 		try {
 			GameCharacter slave = Main.game.getNPCById(slaveID);
 			return "<b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>"+slave.getName()+"</b>";
-		
+
 		} catch (Exception e) {
 			Util.logGetNpcByIdError("SlaveryEventLogEntry.getSlaveName()", slaveID);
 			return "<b>Slave</b>";
 		}
 	}
-	
+
 	public String getSlaveID() {
 		return slaveID;
 	}
-	
+
 	public SlaveEvent getEvent() {
 		return event;
 	}
@@ -218,18 +218,18 @@ public class SlaveryEventLogEntry implements XMLSaving {
 	public List<SlaveEventTag> getTags() {
 		return tags;
 	}
-	
+
 	public boolean addTag(SlaveEventTag tag, GameCharacter slave, boolean withEffects) {
 		if(tags==null) {
 			tags = new ArrayList<>();
 		}
-		
+
 		if(tags.add(tag)) {
 			if(withEffects) {
 				tag.applyEffects(slave);
 			}
 			return true;
-			
+
 		} else {
 			return false;
 		}
@@ -238,12 +238,12 @@ public class SlaveryEventLogEntry implements XMLSaving {
 	public List<String> getExtraEffects() {
 		return extraEffects;
 	}
-	
+
 	public void addExtraEffect(String extraEffect) {
 		if(extraEffects==null) {
 			extraEffects = new ArrayList<>();
 		}
-		
+
 		extraEffects.add(extraEffect);
 	}
 }

@@ -520,7 +520,7 @@ public enum SVGImages {
 			slaveCosmetics = Util.inputStreamToString(is);
 			slaveCosmetics = setColor(slaveCosmetics, Color.BASE_CRIMSON);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/slaveCosmetics.svg");
-			slaveCosmeticsDisabled  = Util.inputStreamToString(is);
+			slaveCosmeticsDisabled = Util.inputStreamToString(is);
 			slaveCosmeticsDisabled = setColor(slaveCosmeticsDisabled, Color.BASE_GREY);
 
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/transactionBuy.svg");

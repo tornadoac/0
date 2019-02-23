@@ -26,7 +26,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class RalphsSnacks {
-	
+
 	public static final DialogueNode EXTERIOR = new DialogueNode("Ralph's Snacks (Exterior)", "-", false) {
 
 		@Override
@@ -37,7 +37,7 @@ public class RalphsSnacks {
 						+ " The words 'Ralph's Snacks' are painted in cursive gold lettering above the entrance, and a little sign reading 'Open 24/7!' hangs in the door's window."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -51,7 +51,7 @@ public class RalphsSnacks {
 						}
 					}
 				};
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Arcade Entrance", "Fast travel to the entrance to the arcade."){
 					@Override
@@ -65,12 +65,12 @@ public class RalphsSnacks {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTERIOR = new DialogueNode("Ralph's Snacks", "-", true) {
 
 		@Override
 		public String getContent() {
-			
+
 			if(!Main.game.getDialogueFlags().values.contains(DialogueFlagValue.ralphIntroduced)) {
 				return "<p>"
 							+ "You push the door open and step inside, looking up as a little bell rings to announce your arrival."
@@ -82,10 +82,10 @@ public class RalphsSnacks {
 							+ " What sets this shop apart, however, is a special display of arcane-imbued consumables."
 							+ " The prices aren't listed, and instead, a little label reads 'Please ask Ralph for assistance with these items'."
 						+ "</p>";
-				
+
 			} else {
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				UtilText.nodeContentSB.append("<p>"
 							+ "You make your way over, once again, to the only place in the shopping arcade that sells food to go."
 							+ " From the outside, it looks like an old-fashioned sweet shop, with large glass windows displaying all manner of exotic-looking food and drink."
@@ -103,18 +103,18 @@ public class RalphsSnacks {
 							+ " What sets this shop apart, however, is a special display of arcane-imbued consumables."
 							+ " The prices aren't listed, and instead, a little label reads 'Please ask Ralph for assistance with these items'."
 						+ "</p>");
-					
+
 				if(((Ralph)Main.game.getNpc(Ralph.class)).isDiscountActive()){
 					UtilText.nodeContentSB.append("<p>"
 									+ "<b>Ralph is giving you a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+Main.game.getDialogueFlags().ralphDiscount+"%</b> <b>discount!</b>"
 								+ "</p>");
 				}
-				
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -124,7 +124,7 @@ public class RalphsSnacks {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.ralphIntroduced);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				if(Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
 					return new Response("Discount", "Ask Ralph if there's anything you can do to get a discount.", INTERIOR_ASK_FOR_DISCOUNT){
@@ -133,10 +133,10 @@ public class RalphsSnacks {
 							Main.game.getDialogueFlags().values.add(DialogueFlagValue.ralphIntroduced);
 						}
 					};
-					
+
 				} else {
 					return new Response("Discount", "You can only get a discount from Ralph if he's able to gain access to your mouth!", null);
-					
+
 				}
 
 			} else if (index == 0) {
@@ -152,7 +152,7 @@ public class RalphsSnacks {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTERIOR_ASK_FOR_DISCOUNT = new DialogueNode("Ralph's Snacks", "-", true, true) {
 
 
@@ -169,13 +169,13 @@ public class RalphsSnacks {
 						+ "[ralph.speech(Hey, are you alright?)]"
 					+ "</p>"
 					+ "<p>"
-					 	+ "You were so engrossed in your fantasy that you didn't notice Ralph walking up to you, and you're taken completely off-guard as you blurt out a reply, " 
+					 	+ "You were so engrossed in your fantasy that you didn't notice Ralph walking up to you, and you're taken completely off-guard as you blurt out a reply, "
 						+ "[pc.speech(Oh! Yeah... Thanks! I was just thinking... Erm...)]"
 					+ "</p>"
 					+ "<p>"
 						+ "You notice that his eyes have started to roam up and down your body, and you get the feeling that he knows exactly what you were imagining."
 						+ " Glancing down, you see a distinctive bulge forming between his legs."
-						+ " As you struggle to contain a happy gasp at the sight of his clear erection, he steps forwards, and you find yourself with your back to the wall as you feel his hot breath on your face once again." 
+						+ " As you struggle to contain a happy gasp at the sight of his clear erection, he steps forwards, and you find yourself with your back to the wall as you feel his hot breath on your face once again."
 					+ "</p>"
 					+ "<p>"
 						+ "[ralph.speech(Want to have another taste?)] he asks, grinning deviously, "
@@ -184,7 +184,7 @@ public class RalphsSnacks {
 					+ "<p>"
 						+ "As he moves even closer, you struggle to get the image of his massive, throbbing black horse-cock out of your mind, and as the tent in his trousers comes into contact with your leg, you blurt out your reply."
 					+ "</p>";
-				
+
 			}else{
 				return "<p>"
 							+ "You get the feeling that some of these items may be out of your price range."
@@ -195,7 +195,7 @@ public class RalphsSnacks {
 							+ "As he sees you approaching, Ralph calls out to you, [ralph.speech(Hello! Is there anything I can help you with?)]"
 						+ "</p>"
 						+ "<p>"
-							+ "[pc.speech(Hi there, I was wondering if you could show me the prices of some of these items,)] you reply." 
+							+ "[pc.speech(Hi there, I was wondering if you could show me the prices of some of these items,)] you reply."
 						+ "</p>"
 						+ "<p>"
 							+ "Ralph cheerfully leads you back over to the special display, and as he informs you of some of the prices, your suspicions prove to be correct."
@@ -209,7 +209,7 @@ public class RalphsSnacks {
 						+ "<p>"
 							+ "You notice that his smile has suddenly lost its friendly appearance, and as his eyes roam up and down your body, you get the feeling that your arcane aura is giving him some dirty thoughts."
 							+ " Glancing down, you see a distinctive bulge forming between his legs."
-							+ " As your eyes open wide at the sight of his clear erection, he steps forwards, and you find yourself with your back to the wall as you feel his hot breath on your face." 
+							+ " As your eyes open wide at the sight of his clear erection, he steps forwards, and you find yourself with your back to the wall as you feel his hot breath on your face."
 						+ "</p>"
 						+ "<p>"
 							+ "[ralph.speech(Like what you see?)] he asks, grinning deviously, "
@@ -220,7 +220,7 @@ public class RalphsSnacks {
 						+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -260,8 +260,8 @@ public class RalphsSnacks {
 							+ " With a quick tug, he pulls them, along with his boxers, down to pool around his ankles."
 							+ " You feel your eyes go wide as you see the gigantic length of Ralph's rapidly-hardening horse-cock rise up to bump against your chin."
 							+ " His huge pair of black-skinned balls droop down loosely at the base of his bestial shaft, and you gulp at the thought of what's about to happen..."
-						+ "</p>" 
-						+ "<p>" 
+						+ "</p>"
+						+ "<p>"
 							+ "<b>There are</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>no customers</b> <b>near the counter.</b>"
 							+ " <b>You will earn a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>25%</b> <b>discount.</b>"
 						+ "</p>"){
@@ -271,7 +271,7 @@ public class RalphsSnacks {
 						Main.game.getNpc(Ralph.class).displaceClothingForAccess(CoverableArea.PENIS);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Refuse", "Tell him that you're not willing to do that.", INTERIOR_REFUSE_DISCOUNT_CONDITIONS);
 
@@ -290,26 +290,26 @@ public class RalphsSnacks {
 					+ "</p>"
 					+ "<p>"
 						+ "[ralph.speech(Well, if you get a craving, I'm always ready to satisfy it!)] he laughs, turning around and heading back to his counter, "
-						+ "[ralph.speech(If you need anything else, just let me know.)]" 
+						+ "[ralph.speech(If you need anything else, just let me know.)]"
 					+ "</p>"
 					+ "<p>"
 						+ "You go back to browsing the shop's wares, the images of Ralph's massive black horse-cock refusing to budge from your head."
 					+ "</p>";
-				
+
 			}else{
 				return "<p>"
 							+ "[pc.speech(No thanks,)] you say, stepping to one side and moving away from the horny shopkeeper."
 						+ "</p>"
 						+ "<p>"
 							+ "[ralph.speech(Well, no harm in either of us asking!)] he laughs, turning around and heading back to his counter. "
-							+ "[ralph.speech(If you need anything else, just let me know.)]" 
+							+ "[ralph.speech(If you need anything else, just let me know.)]"
 						+ "</p>"
 						+ "<p>"
 							+ "You go back to browsing the shop's wares, but you find it hard to shake the image of Ralph's massive bulge from your head."
 						+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {

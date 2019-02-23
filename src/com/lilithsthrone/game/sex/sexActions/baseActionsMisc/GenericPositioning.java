@@ -28,9 +28,9 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * Contains all positional changes for both sub and dom.
- * 
+ *
  * If sub, positional change is just a suggestion, which the NPC may refuse if they have other preferences.
- * 
+ *
  * @since 0.1.79
  * @version 0.3.1
  * @author Innoxia
@@ -44,7 +44,7 @@ public class GenericPositioning {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.isCharacterBannedFromPositioning(Sex.getCharacterPerformingAction())
@@ -53,7 +53,7 @@ public class GenericPositioning {
 					&& Sex.getSexControl(Sex.getCharacterPerformingAction())==SexControl.FULL
 					&& Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Swap with [npc2.name]";
@@ -75,7 +75,7 @@ public class GenericPositioning {
 			Sex.swapSexPositionSlots(Main.game.getPlayer(), Sex.getActivePartner());
 		}
 	};
-	
+
 	private static boolean checkBaseRequirements(PositioningData data, boolean request) {
 		return !Sex.isCharacterBannedFromPositioning(Sex.getCharacterPerformingAction())
 				&& !(Sex.getPosition() == data.getPosition() && Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==data.getPerformerSlots().get(0))
@@ -98,14 +98,14 @@ public class GenericPositioning {
 		Map<GameCharacter, SexSlot> submissives = new HashMap<>();
 		List<GameCharacter> doms = new ArrayList<>(Sex.getDominantParticipants().keySet());
 		List<GameCharacter> subs = new ArrayList<>(Sex.getSubmissiveParticipants().keySet());
-		
+
 		GameCharacter performer = Sex.getCharacterPerformingAction();
 		GameCharacter target = Sex.getTargetedPartner(performer);
 		if(requestAccepted) {
 			target = Sex.getCharacterPerformingAction();
 			performer = Sex.getTargetedPartner(target);
 		}
-		
+
 		if(Sex.isDom(performer)) {
 			doms.remove(performer);
 			dominants.put(performer, data.getPerformerSlots().get(0));
@@ -136,7 +136,7 @@ public class GenericPositioning {
 		});
 		Sex.setPositionRequest(null);
 	}
-	
+
 	public static final SexAction POSITION_MISSIONARY = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -144,12 +144,12 @@ public class GenericPositioning {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		private PositioningData data = new PositioningData(
 				SexPositionBipeds.MISSIONARY,
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS),
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_ON_BACK));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -173,7 +173,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_MISSIONARY = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -181,12 +181,12 @@ public class GenericPositioning {
 			CorruptionLevel.ONE_VANILLA,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		private PositioningData data = new PositioningData(
 				SexPositionBipeds.MISSIONARY,
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS),
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_ON_BACK));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -208,7 +208,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_MISSIONARY_ON_BACK = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -216,7 +216,7 @@ public class GenericPositioning {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		private PositioningData data = new PositioningData(
 				SexPositionBipeds.MISSIONARY,
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_ON_BACK),
@@ -245,7 +245,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_MISSIONARY_ON_BACK = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -258,7 +258,7 @@ public class GenericPositioning {
 				SexPositionBipeds.MISSIONARY,
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_ON_BACK),
 				Util.newArrayListOfValues(SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -280,7 +280,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_FACE_TO_WALL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -293,7 +293,7 @@ public class GenericPositioning {
 				SexPositionBipeds.FACING_WALL,
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET),
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_AGAINST_WALL));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -317,7 +317,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_FACE_TO_WALL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -330,7 +330,7 @@ public class GenericPositioning {
 				SexPositionBipeds.FACING_WALL,
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_AGAINST_WALL),
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -353,7 +353,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_BACK_TO_WALL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -366,7 +366,7 @@ public class GenericPositioning {
 				SexPositionBipeds.BACK_TO_WALL,
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET),
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_AGAINST_WALL));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -390,7 +390,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_BACK_TO_WALL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -403,7 +403,7 @@ public class GenericPositioning {
 				SexPositionBipeds.BACK_TO_WALL,
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_AGAINST_WALL),
 				Util.newArrayListOfValues(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -426,7 +426,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_KNEELING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -463,7 +463,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_KNEELING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -498,7 +498,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_SELF_KNEELING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -511,7 +511,7 @@ public class GenericPositioning {
 				SexPositionBipeds.KNEELING_ORAL,
 				Util.newArrayListOfValues(SexSlotBipeds.KNEELING_PERFORMING_ORAL),
 				Util.newArrayListOfValues(SexSlotBipeds.KNEELING_RECEIVING_ORAL));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -570,7 +570,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_SIXTY_NINE = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -609,7 +609,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_SIXTY_NINE = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -622,7 +622,7 @@ public class GenericPositioning {
 				SexPositionBipeds.SIXTY_NINE,
 				Util.newArrayListOfValues(SexSlotBipeds.SIXTY_NINE_BOTTOM),
 				Util.newArrayListOfValues(SexSlotBipeds.SIXTY_NINE_TOP));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -645,7 +645,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_COW_GIRL_RIDING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -696,7 +696,7 @@ public class GenericPositioning {
 				SexPositionBipeds.COWGIRL,
 				Util.newArrayListOfValues(SexSlotBipeds.COWGIRL_RIDING),
 				Util.newArrayListOfValues(SexSlotBipeds.COWGIRL_ON_BACK));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -770,7 +770,7 @@ public class GenericPositioning {
 				SexPositionBipeds.COWGIRL,
 				Util.newArrayListOfValues(SexSlotBipeds.COWGIRL_ON_BACK),
 				Util.newArrayListOfValues(SexSlotBipeds.COWGIRL_RIDING));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -793,7 +793,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_SITTING_ON_FACE = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -866,7 +866,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_FACESITTING = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -879,7 +879,7 @@ public class GenericPositioning {
 				SexPositionBipeds.FACE_SITTING,
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_SITTING_ON_BACK),
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_SITTING_ON_FACE));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -916,7 +916,7 @@ public class GenericPositioning {
 				SexPositionBipeds.FACE_SITTING,
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_SITTING_ON_BACK),
 				Util.newArrayListOfValues(SexSlotBipeds.FACE_SITTING_ON_FACE));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -939,7 +939,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_DOGGY = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -981,7 +981,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_DOM_FUCKED_DOGGY = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -998,7 +998,7 @@ public class GenericPositioning {
 				Util.newArrayListOfValues(
 						SexSlotBipeds.DOGGY_ON_ALL_FOURS,
 						SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -1020,7 +1020,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction DOM_POSITION_DOGGY_STYLED = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1037,7 +1037,7 @@ public class GenericPositioning {
 				Util.newArrayListOfValues(
 						SexSlotBipeds.DOGGY_BEHIND,
 						SexSlotBipeds.DOGGY_INFRONT));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -1079,7 +1079,7 @@ public class GenericPositioning {
 				Util.newArrayListOfValues(
 						SexSlotBipeds.DOGGY_BEHIND,
 						SexSlotBipeds.DOGGY_INFRONT));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -1101,7 +1101,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_DOGGY_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1143,7 +1143,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_DOGGY_GIVE_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1160,7 +1160,7 @@ public class GenericPositioning {
 				Util.newArrayListOfValues(
 						SexSlotBipeds.DOGGY_ON_ALL_FOURS,
 						SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -1183,7 +1183,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_SELF_DOGGY_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1200,7 +1200,7 @@ public class GenericPositioning {
 				Util.newArrayListOfValues(
 						SexSlotBipeds.DOGGY_BEHIND_ORAL,
 						SexSlotBipeds.DOGGY_INFRONT));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, false);
@@ -1225,7 +1225,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_DOGGY_RECEIVE_ORAL = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1242,7 +1242,7 @@ public class GenericPositioning {
 				Util.newArrayListOfValues(
 						SexSlotBipeds.DOGGY_BEHIND_ORAL,
 						SexSlotBipeds.DOGGY_INFRONT));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return checkBaseRequirements(data, true);
@@ -1264,7 +1264,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction POSITION_MATING_PRESS = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1279,7 +1279,7 @@ public class GenericPositioning {
 						SexSlotBipeds.MATING_PRESS_TOP),
 				Util.newArrayListOfValues(
 						SexSlotBipeds.MATING_PRESS_BOTTOM));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.getCharacterPerformingAction().hasPenis()
@@ -1318,7 +1318,7 @@ public class GenericPositioning {
 			setNewSexManager(data, false);
 		}
 	};
-	
+
 	public static final SexAction REQUEST_POSITION_MATING_PRESS = new SexAction(
 			SexActionType.POSITIONING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1326,14 +1326,14 @@ public class GenericPositioning {
 			CorruptionLevel.TWO_HORNY,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		private PositioningData data = new PositioningData(
 				SexPositionBipeds.MATING_PRESS,
 				Util.newArrayListOfValues(
 						SexSlotBipeds.MATING_PRESS_BOTTOM),
 				Util.newArrayListOfValues(
 						SexSlotBipeds.MATING_PRESS_TOP));
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.getCharacterTargetedForSexAction(this).hasPenis()
@@ -1360,7 +1360,7 @@ public class GenericPositioning {
 			Sex.setPositionRequest(data);
 		}
 	};
-	
+
 	public static final SexAction PARTNER_POSITION_RESPONSE = new SexAction(
 			SexActionType.SPECIAL,
 			ArousalIncrease.ONE_MINIMUM,
@@ -1374,12 +1374,12 @@ public class GenericPositioning {
 			return Sex.getPositionRequest()!=null
 					&& !Sex.getCharacterPerformingAction().isPlayer();
 		}
-		
+
 		@Override
 		public SexActionPriority getPriority() {
 			return SexActionPriority.UNIQUE_MAX;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "";
@@ -1394,7 +1394,7 @@ public class GenericPositioning {
 		public String getDescription() {
 
 			Set<SexSlot> positionPreferences = Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this));
-			
+
 			if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.MISSIONARY_ON_BACK) {
 				if(positionPreferences.contains(SexSlotBipeds.MISSIONARY_ON_BACK) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1409,7 +1409,7 @@ public class GenericPositioning {
 					return "Slapping your [pc.hands] away, [npc.name] pushes you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS) {
 				if(positionPreferences.contains(SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1424,7 +1424,7 @@ public class GenericPositioning {
 					return "Grabbing one of your [pc.arms], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.FACE_TO_WALL_FACING_TARGET) {
 				if(positionPreferences.contains(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1439,7 +1439,7 @@ public class GenericPositioning {
 					return "Grabbing you by the shoulders, [npc.name] pulls you away from the wall, pushing you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.BACK_TO_WALL_FACING_TARGET) {
 				if(positionPreferences.contains(SexSlotBipeds.BACK_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1452,12 +1452,12 @@ public class GenericPositioning {
 									+ " Moving up to press [npc.her] body against yours, [npc.she] leans in over your shoulder and [npc.moans] into your ear, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Grabbing you by the shoulders, [npc.name] pulls you away from the wall, pushing you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.DOGGY_BEHIND) {
 				if(positionPreferences.contains(SexSlotBipeds.DOGGY_BEHIND) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1470,12 +1470,12 @@ public class GenericPositioning {
 									+ " Moving up to press [npc.her] groin against your [pc.ass], [npc.she] grabs hold of your [pc.hips+] before [npc.moaning] down at you, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			}
 //			else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexPositionSlot.DOGGY_BEHIND
 //					&& Sex.getPositionRequest().getPerformerSlots().get(0)==SexPositionSlot.DOGGY_ON_ALL_FOURS) {
@@ -1490,13 +1490,13 @@ public class GenericPositioning {
 //									+ " Stepping around in front of you, [npc.she] drops down onto all fours [npc.herself], before shuffling back and pressing [npc.her] [npc.ass+] up against your face, [npc.moaning], "
 //									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 //					}
-//					
+//
 //				} else {
 //					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 //							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 //				}
-//				
-//			} 
+//
+//			}
 			else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.DOGGY_BEHIND_ORAL) {
 				if(positionPreferences.contains(SexSlotBipeds.DOGGY_BEHIND_ORAL) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1509,12 +1509,12 @@ public class GenericPositioning {
 									+ " Moving [npc.her] [npc.face] up to your [pc.ass+], [npc.she] [npc.moans], "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.DOGGY_ON_ALL_FOURS
 					&& Sex.getPositionRequest().getPerformerSlots().get(0)==SexSlotBipeds.DOGGY_BEHIND) {
 				if(positionPreferences.contains(SexSlotBipeds.DOGGY_ON_ALL_FOURS) || positionPreferences.isEmpty()) {
@@ -1528,12 +1528,12 @@ public class GenericPositioning {
 									+ " Much to your delight, [npc.she] does exactly what you want, and drops down onto all fours in front of you, before shuffling back and rubbing [npc.her] [npc.ass+] against your crotch,"
 									+ " [npc.speech(Come on then! This is what you wanted, isn't it?!)]";
 					}
-					
+
 				} else {
 					return "Pulling you to your [pc.feet], [npc.name] lets out an angry growl as [npc.she] shouts at you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.DOGGY_ON_ALL_FOURS
 					&& Sex.getPositionRequest().getPerformerSlots().get(0)==SexSlotBipeds.DOGGY_BEHIND_ORAL) {
 				if(positionPreferences.contains(SexSlotBipeds.DOGGY_ON_ALL_FOURS) || positionPreferences.isEmpty()) {
@@ -1547,12 +1547,12 @@ public class GenericPositioning {
 									+ " Much to your delight, [npc.she] does exactly what you want, and drops down onto all fours in front of you, before shuffling back and rubbing [npc.her] [npc.ass+] against your [pc.face],"
 									+ " [npc.speech(Come on then! This is what you wanted, isn't it?!)]";
 					}
-					
+
 				} else {
 					return "Pulling you to your [pc.feet], [npc.name] lets out an angry growl as [npc.she] shouts at you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.KNEELING_RECEIVING_ORAL) {
 				if(positionPreferences.contains(SexSlotBipeds.KNEELING_RECEIVING_ORAL) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1565,12 +1565,12 @@ public class GenericPositioning {
 									+ " With [npc.a_moan+], [npc.she] takes hold of your head with one [npc.hand], pulling you forwards into [npc.her] crotch as [npc.she] [npc.moansVerb] down at you, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.KNEELING_PERFORMING_ORAL) {
 				if(positionPreferences.contains(SexSlotBipeds.KNEELING_PERFORMING_ORAL) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1583,12 +1583,12 @@ public class GenericPositioning {
 									+ " Looking down, you see [npc.herHim] grinning up at you,"
 									+ " [npc.speech(This is your lucky day! I love giving oral! You'd better appreciate this!)]";
 					}
-					
+
 				} else {
 					return "Reaching up and throwing your [pc.arms] off of [npc.her], [npc.name] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Do you really expect me to go down on you?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.SIXTY_NINE_TOP) {
 				if(positionPreferences.contains(SexSlotBipeds.SIXTY_NINE_TOP) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1601,12 +1601,12 @@ public class GenericPositioning {
 									+ " Turning [npc.her] head back to look at you, [npc.she] grins, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.COWGIRL_RIDING) {
 				if(positionPreferences.contains(SexSlotBipeds.COWGIRL_RIDING) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1619,12 +1619,12 @@ public class GenericPositioning {
 									+ " Leaning forwards a little, [npc.she] grins down at you, "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.COWGIRL_ON_BACK) {
 				if(positionPreferences.contains(SexSlotBipeds.COWGIRL_ON_BACK) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1637,12 +1637,12 @@ public class GenericPositioning {
 									+ " Looking up into your [pc.eyes], [npc.she] [npc.moansVerb], "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Knocking your [pc.arms] away from [npc.her] shoulders, [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.FACE_SITTING_ON_BACK) {
 				if(positionPreferences.contains(SexSlotBipeds.FACE_SITTING_ON_BACK) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1659,12 +1659,12 @@ public class GenericPositioning {
 									+ "With that, [npc.she] quickly lies down on [npc.her] back, pulling you down with [npc.herHim]."
 									+ " You let out a happy [pc.moan] as you find yourself getting exactly what you wanted, and eagerly plant your groin down on [npc.her] face.";
 					}
-					
+
 				} else {
 					return "Slapping your [pc.hands] away from [npc.herHim], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.FACE_SITTING_ON_FACE) {
 				if(positionPreferences.contains(SexSlotBipeds.FACE_SITTING_ON_FACE) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1677,12 +1677,12 @@ public class GenericPositioning {
 									+ " Grinding down against your face, [npc.she] [npc.moans], "
 									+ "[npc.speech(Good [pc.girl]! This is gonna be fun!)]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
-				
+
 			} else if(Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.MATING_PRESS_TOP) {
 				if(positionPreferences.contains(SexSlotBipeds.MATING_PRESS_TOP) || positionPreferences.isEmpty()) {
 					switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -1699,20 +1699,20 @@ public class GenericPositioning {
 									+ UtilText.parse(Sex.getCharacterTargetedForSexAction(this), "#IFnpc.isVisiblyPregnant() || !npc.hasVagina()#THEN I'm going to fuck you real good!#ELSE I'm going to breed you real good!#ENDIF")
 									+ ")]";
 					}
-					
+
 				} else {
 					return "Reaching down to grab you by the [pc.arm], [npc.name] pulls you back into your old position as [npc.she] angrily scolds you, "
 							+ "[npc.speech(What do you think you're doing?! Don't you <i>dare</i> try that again!)]";
 				}
 			}
-			
+
 			return "";
 		}
 
 		@Override
 		public void applyEffects() {
 			Set<SexSlot> positionPreferences = Sex.getActivePartner().getSexPositionPreferences(Sex.getCharacterTargetedForSexAction(this));
-			
+
 			if((Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.MISSIONARY_ON_BACK && (positionPreferences.contains(SexSlotBipeds.MISSIONARY_ON_BACK) || positionPreferences.isEmpty()))
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS && (positionPreferences.contains(SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS) || positionPreferences.isEmpty()))
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.FACE_TO_WALL_FACING_TARGET && (positionPreferences.contains(SexSlotBipeds.FACE_TO_WALL_FACING_TARGET) || positionPreferences.isEmpty()))
@@ -1729,9 +1729,9 @@ public class GenericPositioning {
 					|| (Sex.getPositionRequest().getPartnerSlots().get(0)==SexSlotBipeds.MATING_PRESS_TOP && (positionPreferences.contains(SexSlotBipeds.MATING_PRESS_TOP) || positionPreferences.isEmpty()))) {
 				setNewSexManager(Sex.getPositionRequest(), true);
 			}
-			
+
 			Sex.setPositionRequest(null);
 		}
 	};
-	
+
 }

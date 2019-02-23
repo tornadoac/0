@@ -25,7 +25,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class SALilayaSpecials {
-	
+
 	// Demand pull out
 	public static final SexAction PARTNER_DEMAND_PULL_OUT = new SexAction(
 			SexActionType.ONGOING,
@@ -34,7 +34,7 @@ public class SALilayaSpecials {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.VAGINA, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isWearingCondom()) {
@@ -71,7 +71,7 @@ public class SALilayaSpecials {
 			}
 			return "Through [npc.her] desperate moans and lewd cries, [npc.name] somehow manages to formulate a sentence as [npc.she] cries out to you,"
 					+" [npc.speech(Just remember to pull out! I'm <b>not</b> getting pregnant!)]";
-				
+
 		}
 
 		@Override
@@ -79,7 +79,7 @@ public class SALilayaSpecials {
 			SexFlags.partnerRequestedPullOut = true;
 		}
 	};
-	
+
 	public static final SexAction PARTNER_PREPARE = new SexAction(
 			SexActionType.PREPARE_FOR_PARTNER_ORGASM,
 			ArousalIncrease.TWO_LOW,
@@ -87,7 +87,7 @@ public class SALilayaSpecials {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.getAllContactingSexAreas(Sex.getActivePartner(), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.PENIS)
@@ -99,7 +99,7 @@ public class SALilayaSpecials {
 		public SexActionPriority getPriority() {
 			return SexActionPriority.UNIQUE_MAX;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Prepare";
@@ -109,7 +109,7 @@ public class SALilayaSpecials {
 		public String getActionDescription() {
 			return "You can feel that [npc2.name] is fast approaching [npc2.her] orgasm. Prepare yourself for it.";
 		}
-		
+
 		@Override
 		public String getDescription() {
 			switch(Sex.getSexPace(Sex.getActivePartner())) {
@@ -126,11 +126,11 @@ public class SALilayaSpecials {
 				case SUB_RESISTING:
 					return "[npc.Name] lets out [npc.a_moan+] as [npc.she] desperately tries to pull away from you before you orgasm.";
 			}
-			
+
 			return "";
 		}
 	};
-	
+
 	public static final SexAction PARTNER_ASK_FOR_PULL_OUT = new SexAction(
 			SexActionType.PREPARE_FOR_PARTNER_ORGASM,
 			ArousalIncrease.TWO_LOW,
@@ -138,7 +138,7 @@ public class SALilayaSpecials {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).isWearingCondom()) {
@@ -164,7 +164,7 @@ public class SALilayaSpecials {
 		public SexActionPriority getPriority() {
 			return SexActionPriority.UNIQUE_MAX;
 		}
-		
+
 		@Override
 		public String getDescription() {
 			if(Sex.getCharacterTargetedForSexAction(this).isWearingCondom()) {
@@ -180,7 +180,7 @@ public class SALilayaSpecials {
 			SexFlags.partnerRequestedPullOut = true;
 		}
 	};
-	
+
 	// Furious stop sex
 	/**
 	 * This should no longer ever be seen, as it was replaced by a catch for the player's orgasm override. I left it here just in case...
@@ -192,7 +192,7 @@ public class SALilayaSpecials {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Creampied?!";

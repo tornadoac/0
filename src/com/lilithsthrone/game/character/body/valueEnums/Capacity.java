@@ -5,26 +5,26 @@ import com.lilithsthrone.utils.Color;
 
 /**
  * Measured in inches of penis size that could fit comfortably within this capacity.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.83
  * @author Innoxia
  */
 public enum Capacity {
 	ZERO_IMPENETRABLE("extremely tight", PenisSize.NEGATIVE_UTILITY_VALUE, PenisSize.ZERO_MICROSCOPIC, PenisSize.ONE_TINY, Color.GENERIC_SIZE_ONE),
-	
+
 	ONE_EXTREMELY_TIGHT("tight", PenisSize.ZERO_MICROSCOPIC, PenisSize.ONE_TINY, PenisSize.TWO_AVERAGE, Color.GENERIC_SIZE_TWO),
-	
+
 	TWO_TIGHT("somewhat tight", PenisSize.ZERO_MICROSCOPIC, PenisSize.TWO_AVERAGE, PenisSize.THREE_LARGE, Color.GENERIC_SIZE_THREE),
-	
+
 	THREE_SLIGHTLY_LOOSE("slightly loose", PenisSize.ONE_TINY, PenisSize.THREE_LARGE, PenisSize.FOUR_HUGE, Color.GENERIC_SIZE_FOUR),
-	
+
 	FOUR_LOOSE("loose", PenisSize.ONE_TINY, PenisSize.FOUR_HUGE, PenisSize.FIVE_ENORMOUS, Color.GENERIC_SIZE_FIVE),
-	
+
 	FIVE_ROOMY("very loose", PenisSize.TWO_AVERAGE, PenisSize.FIVE_ENORMOUS, PenisSize.SIX_GIGANTIC, Color.GENERIC_SIZE_SIX),
-	
+
 	SIX_STRETCHED_OPEN("stretched open", PenisSize.TWO_AVERAGE, PenisSize.SIX_GIGANTIC, PenisSize.SEVEN_STALLION, Color.GENERIC_SIZE_SEVEN),
-	
+
 	SEVEN_GAPING("gaping wide", PenisSize.THREE_LARGE, PenisSize.SEVEN_STALLION, PenisSize.SEVEN_STALLION, Color.GENERIC_SIZE_EIGHT);
 
 	private String descriptor;
@@ -69,7 +69,7 @@ public enum Capacity {
 		}
 		return SEVEN_GAPING;
 	}
-	
+
 	private static float calculatePenisSizeUsed(int penisSize, boolean twoPenisesInVagina) {
 		return twoPenisesInVagina ? penisSize * Penis.TWO_PENIS_SIZE_MULTIPLIER : penisSize;
 	}

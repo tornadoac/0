@@ -8,7 +8,7 @@ import com.lilithsthrone.rendering.SVGImages;
  * @author Innoxia
  */
 public enum DiceFace {
-	
+
 	ONE(1, "one", "&#9856;") {
 		@Override
 		public String getSVGString() {
@@ -49,23 +49,23 @@ public enum DiceFace {
 	private int value;
 	private String name;
 	private String htmlDisplay;
-	
+
 	private DiceFace(int value, String name, String htmlDisplay) {
 		this.value = value;
 		this.name = name;
 		this.htmlDisplay = htmlDisplay;
 	}
-	
+
 	public abstract String getSVGString();
-	
+
 	public int getValue() {
 		return value;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getHtmlDisplay() {
 		return htmlDisplay;
 	}

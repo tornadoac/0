@@ -2,13 +2,13 @@ package com.lilithsthrone.game.character.body.valueEnums;
 
 /**
  * Sizes in inches.
- * 
+ *
  * @since 0.1.83
  * @version 0.1.83
  * @author Innoxia
  */
 public enum TongueLength {
-	
+
 	ZERO_NORMAL("normal-sized", 0, 2),
 
 	ONE_LONG("long", 2, 4),
@@ -48,7 +48,7 @@ public enum TongueLength {
 		}
 		return FOUR_ABSURDLY_LONG;
 	}
-	
+
 	public String getDescriptor() {
 		return descriptor;
 	}

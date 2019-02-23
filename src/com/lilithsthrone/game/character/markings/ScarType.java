@@ -8,17 +8,17 @@ package com.lilithsthrone.game.character.markings;
 public enum ScarType {
 
 	CLAW_MARKS("claw mark", "claw marks", true),
-	
+
 	BURNS("burn mark", "burn marks", false),
-	
+
 	STRAIGHT_SCAR("straight scar", "straight scars", false),
-	
+
 	JAGGED_SCAR("jagged scar", "jagged scars", false);
-	
+
 	private String name;
 	private String namePlural;
 	private boolean alwaysPlural;
-	
+
 	private ScarType(String name, String namePlural, boolean alwaysPlural) {
 		this.name = name;
 		this.namePlural = namePlural;
@@ -32,9 +32,9 @@ public enum ScarType {
 	public String getNamePlural() {
 		return namePlural;
 	}
-	
+
 	public boolean isAlwaysPlural() {
 		return alwaysPlural;
 	}
-	
+
 }

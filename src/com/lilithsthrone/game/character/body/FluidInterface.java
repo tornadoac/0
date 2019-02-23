@@ -17,20 +17,20 @@ public interface FluidInterface extends BodyPartInterface {
 
 	@Override
 	public FluidType getType();
-	
+
 	public FluidFlavor getFlavor();
 	public String setFlavor(GameCharacter owner, FluidFlavor flavor);
-	
+
 	public List<FluidModifier> getFluidModifiers();
-	
+
 	public boolean hasFluidModifier(FluidModifier fluidModifier);
-	
+
 	public String addFluidModifier(GameCharacter owner, FluidModifier fluidModifier);
 	public String removeFluidModifier(GameCharacter owner, FluidModifier fluidModifier);
-	
+
 	public List<ItemEffect> getTransformativeEffects();
 	public void addTransformativeEffect(ItemEffect ie);
-	
+
 	public float getValuePerMl();
-	
+
 }

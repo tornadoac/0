@@ -12,43 +12,43 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class EventLogEntry implements XMLSaving {
-	
+
 	protected long time;
 	protected String name, description;
-	
+
 	public EventLogEntry(long time, String name, String description) {
 		this.time = time;
 		this.name = name;
 		this.description = description;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("eventLogEntry");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "time", String.valueOf(time));
 		CharacterUtils.addAttribute(doc, element, "name", name);
 		CharacterUtils.addAttribute(doc, element, "description", description);
-		
+
 		return element;
 	}
-	
+
 	public static EventLogEntry loadFromXML(Element parentElement, Document doc) {
 		EventLogEntry newFlags = new EventLogEntry(
 				Long.valueOf(parentElement.getAttribute("time")),
 				parentElement.getAttribute("name"),
 				parentElement.getAttribute("description"));
-		
+
 		return newFlags;
 	}
-	
+
 	public String getFormattedEntry() {
 		if(name == null || name.isEmpty()) {
 			return description;
 		}
 		return name+": "+description;
 	}
-	
+
 	/**
 	 * @return A formatted paragraph suitable for appending to the end of the main dialogue.
 	 */

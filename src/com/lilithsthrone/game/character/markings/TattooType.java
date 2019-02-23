@@ -25,7 +25,7 @@ public class TattooType {
 			null,
 			null,
 			null);
-	
+
 	public static AbstractTattooType FLOWERS = new AbstractTattooType(
 			"flowers",
 			"flowers",
@@ -52,7 +52,7 @@ public class TattooType {
 			ColorListPresets.ALL.getPresetColorList(),
 			ColorListPresets.ALL.getPresetColorList(),
 			null);
-	
+
 	public static AbstractTattooType LINES = new AbstractTattooType(
 			"lines",
 			"lines",
@@ -61,39 +61,39 @@ public class TattooType {
 			null,
 			null,
 			null);
-	
+
 	private static Map<AbstractTattooType, String> tattooToIdMap = new HashMap<>();
 	private static Map<String, AbstractTattooType> idToTattooMap = new HashMap<>();
-	
+
 	public static AbstractTattooType getTattooTypeFromId(String id) {
 //		System.out.print("ID: "+id);
 		id = Util.getClosestStringMatch(id, idToTattooMap.keySet());
 //		System.out.println("  set to: "+id);
 		return idToTattooMap.get(id);
 	}
-	
+
 	public static String getIdFromTattooType(AbstractTattooType tattooType) {
 		return tattooToIdMap.get(tattooType);
 	}
-	
+
 	public static List<AbstractTattooType> getAllTattooTypes() {
 		List<AbstractTattooType> allTattoos = new ArrayList<>(tattooToIdMap.keySet());
-		
+
 		allTattoos.sort((t1, t2) -> t1.equals(TattooType.NONE)?-1:(t1.getName().compareTo(t2.getName())));
-		
+
 		return allTattoos;
 	}
-	
+
 	static {
-		
+
 		File dir = new File("res/mods");
-		
+
 		if (dir.exists() && dir.isDirectory()) {
 			File[] modDirectoryListing = dir.listFiles();
 			if (modDirectoryListing != null) {
 				for (File modAuthorDirectory : modDirectoryListing) {
 					File modAuthorClothingDirectory = new File(modAuthorDirectory.getAbsolutePath()+"/items/tattoos");
-					
+
 					File[] clothingDirectoriesListing = modAuthorClothingDirectory.listFiles();
 					if (clothingDirectoriesListing != null) {
 						for (File clothingDirectory : clothingDirectoriesListing) {
@@ -118,11 +118,11 @@ public class TattooType {
 				}
 			}
 		}
-		
+
 		// Add in external res tattoos:
-		
+
 		dir = new File("res/tattoos");
-		
+
 		if (dir.exists() && dir.isDirectory()) {
 			File[] authorDirectoriesListing = dir.listFiles();
 			if (authorDirectoriesListing != null) {
@@ -149,13 +149,13 @@ public class TattooType {
 				}
 			}
 		}
-		
+
 		Field[] fields = TattooType.class.getFields();
-		
+
 		for(Field f : fields){
-			
+
 			if (AbstractTattooType.class.isAssignableFrom(f.getType())) {
-				
+
 				AbstractTattooType ct;
 				try {
 					ct = ((AbstractTattooType) f.get(null));
@@ -163,13 +163,13 @@ public class TattooType {
 					// I feel like this is stupid :thinking:
 					tattooToIdMap.put(ct, f.getName());
 					idToTattooMap.put(f.getName(), ct);
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
-				
+
 			}
 		}
 	}
-	
+
 }

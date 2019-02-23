@@ -23,7 +23,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class DicePoker {
-	
+
 	private static int moneyPool;
 	private static DicePokerTable table;
 	private static NPC gambler;
@@ -34,54 +34,54 @@ public class DicePoker {
 	private static int progress = 0;
 	private static String responseContent;
 	private static String buyInDescription;
-	
+
 	static {
 		for(int i=0; i<5; i++) {
 			playerDice.add(new Dice());
 			gamblerDice.add(new Dice());
 		}
 	}
-	
+
 	public static DialogueNode initDicePoker(NPC gambler) {
 		if(gambler instanceof GamblingDenPatron) {
 			DicePoker.table = ((GamblingDenPatron)gambler).getTable();
 		} else {
 			DicePoker.table = DicePokerTable.SILVER;
 		}
-		
+
 		progress = 0;
 		moneyPool = table.getInitialBet()*2;
-		
+
 		buyInDescription = Main.game.getPlayer().incrementMoney(-table.getInitialBet());
-		
+
 		DicePoker.gambler = gambler;
-		
+
 		for(Dice d : playerDice) {
 			d.setFace(DiceFace.ONE);
 		}
-		
+
 		for(Dice d : gamblerDice) {
 			d.setFace(DiceFace.ONE);
 		}
-		
+
 		diceToReroll.clear();
 		diceToReroll.addAll(playerDice);
 		diceToReroll.addAll(gamblerDice);
-		
+
 		return START;
 	}
-	
+
 	public static List<Dice> getPlayerDice() {
 		return playerDice;
 	}
-	
+
 	public static boolean isAbleToSelectReroll() {
 		return !Main.game.getCurrentDialogueNode().equals(START)
 				&& !Main.game.getCurrentDialogueNode().equals(END_WIN)
 				&& !Main.game.getCurrentDialogueNode().equals(END_DRAW)
 				&& !Main.game.getCurrentDialogueNode().equals(END_LOSS);
 	}
-	
+
 	public static void setReroll(Dice d) {
 		if(diceToReroll.contains(d)) {
 			diceToReroll.remove(d);
@@ -93,9 +93,9 @@ public class DicePoker {
 
 	private static String getGamblingFormat(String turnText) {
 		UtilText.nodeContentSB.setLength(0);
-		
+
 		int comparingHands = Hand.compareHands(playerDice, gamblerDice);
-		
+
 		UtilText.nodeContentSB.append("<div class='container-half-width'>");
 			for(int i=0; i<playerDice.size(); i++) {
 				UtilText.nodeContentSB.append("<div class='modifier-icon' style='width:18%; margin:0 1%; border:3px solid "+(diceToReroll.contains(playerDice.get(i))?Color.GENERIC_MINOR_GOOD.toWebHexString():"")+";'>"
@@ -118,7 +118,7 @@ public class DicePoker {
 							:"[style.colorExcellent(You "+(progress==3?"have won":"are winning")+"!)]"))
 						+ "</div>");
 		UtilText.nodeContentSB.append("</div>");
-		
+
 		UtilText.nodeContentSB.append("<div class='container-half-width'>");
 			for(int i=0; i<gamblerDice.size(); i++) {
 				UtilText.nodeContentSB.append("<div class='modifier-icon' style='width:18%; margin:0 1%; border:3px solid "+(diceToReroll.contains(gamblerDice.get(i))?Color.GENERIC_MINOR_GOOD.toWebHexString():"")+";'>"
@@ -140,7 +140,7 @@ public class DicePoker {
 							:"[style.colorExcellent([npc.Name] "+(progress==3?"has won":"is winning")+"!)]")))
 					+ "</div>");
 		UtilText.nodeContentSB.append("</div>");
-		
+
 		UtilText.nodeContentSB.append("<div class='container-full-width'>");
 		UtilText.nodeContentSB.append("<div class='container-quarter-width' style='width:13%; margin:0 2%; text-align:center;'>"
 				+ "Progress:"
@@ -162,19 +162,19 @@ public class DicePoker {
 				+ "Total pot: "+UtilText.formatAsMoney(moneyPool, "span")
 				+ "</div>");
 		UtilText.nodeContentSB.append("</div>");
-		
+
 		UtilText.nodeContentSB.append(UtilText.parse(gambler,turnText));
-					
+
 		return UtilText.nodeContentSB.toString();
 	}
-	
+
 	private static void rollRice() {
 		for(Dice dice : diceToReroll) {
 			dice.roll();
 		}
 		diceToReroll.clear();
 	}
-	
+
 	private static int getRaiseAmount() {
 		if(Main.game.getPlayer().getMoney()<table.getRaiseAmount()) {
 			return Main.game.getPlayer().getMoney();
@@ -182,34 +182,34 @@ public class DicePoker {
 			return table.getRaiseAmount();
 		}
 	}
-	
+
 	private static boolean isGamblerRaising() {
 		int differenceWillingToRaiseAt = -Util.random.nextInt(3)-1;
 		return Hand.getHand(playerDice)!=Hand.getHand(gamblerDice) && Hand.compareHands(playerDice, gamblerDice) < differenceWillingToRaiseAt;
 	}
-	
+
 	private static boolean isGamblerFolding() {
 		int differenceWillingToFoldAt = Util.random.nextInt(6)+4;
 		return Hand.getHand(playerDice)!=Hand.getHand(gamblerDice) && Hand.compareHands(playerDice, gamblerDice) > differenceWillingToFoldAt;
 	}
-	
+
 	private static void calculateGamblerRerolls() {
 		List<Dice> rerollDice = new ArrayList<>(gamblerDice);
-		
+
 		if(Hand.getHand(gamblerDice)!=Hand.NINE_RUNT) {
 			rerollDice.removeAll(Hand.getDiceInHand(gamblerDice));
 		}
-		
+
 		diceToReroll.addAll(rerollDice);
 	}
-	
+
 	private static final DialogueNode START = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return "Dice Poker - <b style='color:"+table.getColor().toWebHexString()+";'>"+Util.capitalizeSentence(table.getName())+" Table</b>";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return getGamblingFormat(buyInDescription
@@ -241,9 +241,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode ROLL = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			if(Hand.compareHands(playerDice, gamblerDice)>0) {
@@ -253,7 +253,7 @@ public class DicePoker {
 							+ " As they clatter to a halt, your opponent lets out an annoyed sigh as [npc.she] sees that you have a better hand."
 							+ " [npc.speech(Damn it... Well, this is just the start! You gonna' call, or you want to raise the stakes?)]"
 						+ "</p>");
-					
+
 			} else if(Hand.compareHands(playerDice, gamblerDice)==0) {
 				return getGamblingFormat(
 						"<p>"
@@ -261,7 +261,7 @@ public class DicePoker {
 							+ " As they clatter to a halt, your opponent lets out a surprised hum as [npc.she] sees that you're drawing."
 							+ " [npc.speech(Well, would you look at that... You gonna' call, or you want to raise the stakes?)]"
 						+ "</p>");
-					
+
 			} else {
 				return getGamblingFormat(
 						"<p>"
@@ -294,7 +294,7 @@ public class DicePoker {
 										+ "<i>[npc.Name] <b>raised</b> by "+UtilText.formatAsMoney(getRaiseAmount(), "span")+"!</i>"
 									+ "</p>";
 							Main.game.setContent(new Response("", "", BET_NEED_REACT));
-							
+
 						} else {
 							responseContent = "<p>"
 									+ "[pc.speech(I call,)] you say, leaning back in your chair."
@@ -312,7 +312,7 @@ public class DicePoker {
 						}
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new ResponseEffectsOnly("Raise", "Increase the bet.") {
 					@Override
@@ -332,7 +332,7 @@ public class DicePoker {
 							progress++;
 							progress++;
 							Main.game.setContent(new Response("", "", END_WIN));
-							
+
 						} else {
 							moneyPool+=getRaiseAmount()*2;
 							int raise = getRaiseAmount();
@@ -361,9 +361,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode BET_NEED_REACT = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return getGamblingFormat(responseContent);
@@ -394,7 +394,7 @@ public class DicePoker {
 						Main.game.setContent(new Response("", "", REROLL));
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new ResponseEffectsOnly("Fold", UtilText.parse(gambler, "Surrender to [npc.namePos] and let [npc.herHim] take the pool of "+UtilText.formatAsMoney(moneyPool, "span")+".")) {
 					@Override
@@ -424,9 +424,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode REROLL = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return getGamblingFormat(responseContent);
@@ -441,14 +441,14 @@ public class DicePoker {
 					break;
 				}
 			}
-			
+
 			if(index==1) {
 				return new ResponseEffectsOnly(reroll?"Roll":"No Roll", reroll?"Roll your dice.":"Choose not to re-roll any of your dice. (Click on your dice to select them for re-roll.)") {
 					@Override
 					public void effects() {
 						boolean diceRerolled = !diceToReroll.isEmpty();
 						rollRice();
-						
+
 						if(Hand.compareHands(playerDice, gamblerDice)==0) {
 							String moneyChange = Main.game.getPlayer().incrementMoney(moneyPool/2);
 							responseContent = "<p>"
@@ -463,7 +463,7 @@ public class DicePoker {
 												+moneyChange;
 							progress++;
 							Main.game.setContent(new Response("", "", END_DRAW));
-							
+
 						} else if(Hand.compareHands(playerDice, gamblerDice)>0) {
 							String moneyChange = Main.game.getPlayer().incrementMoney(moneyPool);
 							responseContent = "<p>"
@@ -481,9 +481,9 @@ public class DicePoker {
 												+moneyChange;
 							progress++;
 							Main.game.setContent(new Response("", "", END_WIN));
-						
+
 						} else {
-							responseContent =  "<p>"
+							responseContent = "<p>"
 												+ (diceRerolled
 														?"As the dice come clattering to a halt, [npc.name] lets out a triumphant laugh as [npc.she] sees that [npc.sheIs] won."
 														:"As both you and [npc.name] choose not to reroll any dice, you've already resigned yourself to a loss, and try not to feel too unhappy as your opponent lets out a triumphant laugh.")
@@ -507,9 +507,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode END_WIN = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return getGamblingFormat(responseContent);
@@ -523,9 +523,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode END_DRAW = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return getGamblingFormat(responseContent);
@@ -539,9 +539,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode END_LOSS = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return getGamblingFormat(responseContent);
@@ -551,7 +551,7 @@ public class DicePoker {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				return new Response("Accept loss", "Step away from the table.", GamblingDenDialogue.GAMBLING);
-				
+
 			} else if(index==2) {
 				return new Response("Offer body",
 						UtilText.parse(gambler, "Offer [npc.name] use of your body if [npc.she]'ll give you your money back."),
@@ -560,9 +560,9 @@ public class DicePoker {
 			return null;
 		}
 	};
-	
+
 	private static final DialogueNode END_LOSS_OFFER_BODY = new DialogueNode("Dice Poker", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parse(gambler,
@@ -593,7 +593,7 @@ public class DicePoker {
 								+ "</p>");
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new ResponseSex("Accept",
 						UtilText.parse(gambler, "Allow [npc.name] to publicly fuck you in order to get your money back."),
@@ -622,7 +622,7 @@ public class DicePoker {
 	};
 
 	private static final DialogueNode END_LOSS_SEX = new DialogueNode("Finished", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parse(gambler,

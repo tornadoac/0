@@ -33,7 +33,7 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 		this.type = type;
 		this.flavor = type.getFlavor();
 		transformativeEffects = new ArrayList<>();
-		
+
 		fluidModifiers = new ArrayList<>();
 		fluidModifiers.addAll(type.getFluidModifiers());
 	}
@@ -49,45 +49,45 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 		for(FluidModifier fm : FluidModifier.values()) {
 			CharacterUtils.addAttribute(doc, cumModifiers, fm.toString(), String.valueOf(this.hasFluidModifier(fm)));
 		}
-		
+
 		return element;
 	}
 
 	public static FluidGirlCum loadFromXML(Element parentElement, Document doc) {
 		return loadFromXML(parentElement, doc, null);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param parentElement
 	 * @param doc
 	 * @param baseType If you pass in a baseType, this method will ignore the saved type in parentElement.
 	 */
 	public static FluidGirlCum loadFromXML(Element parentElement, Document doc, FluidType baseType) {
-		
+
 		Element girlcum = (Element)parentElement.getElementsByTagName("girlcum").item(0);
 
 		FluidType fluidType = FluidType.GIRL_CUM_HUMAN;
-		
+
 		if(baseType!=null) {
 			fluidType = baseType;
-			
+
 		} else {
 			try {
 				fluidType = FluidType.getTypeFromString(girlcum.getAttribute("type"));
 			} catch(Exception ex) {
 			}
 		}
-		
+
 		FluidGirlCum fluidGirlcum = new FluidGirlCum(fluidType);
-		
+
 		fluidGirlcum.flavor = (FluidFlavor.valueOf(girlcum.getAttribute("flavor")));
-		
+
 
 		Element girlcumModifiersElement = (Element)girlcum.getElementsByTagName("girlcumModifiers").item(0);
 		Collection<FluidModifier> girlcumFluidModifiers = fluidGirlcum.fluidModifiers;
 		Body.handleLoadingOfModifiers(FluidModifier.values(), null, girlcumModifiersElement, girlcumFluidModifiers);
-		
+
 		return fluidGirlcum;
 	}
 
@@ -103,7 +103,7 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 17;
@@ -113,7 +113,7 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 		result = 31 * result + this.getTransformativeEffects().hashCode();
 		return result;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -123,7 +123,7 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -133,14 +133,14 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		String modifierDescriptor = "";
 		if(!fluidModifiers.isEmpty()) {
 			modifierDescriptor = fluidModifiers.get(Util.random.nextInt(fluidModifiers.size())).getName();
 		}
-		
+
 		return UtilText.returnStringAtRandom(
 				modifierDescriptor,
 				flavor.getRandomFlavorDescriptor(),
@@ -170,7 +170,7 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 		}
 
 		this.flavor = flavor;
-		
+
 		if(owner.isPlayer()) {
 			return "<p>"
 						+ "A soothing warmth spreads down into your [pc.pussy], causing you to let out a contented little sigh.<br/>"
@@ -184,11 +184,11 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 					+ "</p>");
 		}
 	}
-	
+
 	public boolean hasFluidModifier(FluidModifier fluidModifier) {
 		return fluidModifiers.contains(fluidModifier);
 	}
-	
+
 	public String addFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
 		if(owner==null && !fluidModifiers.contains(fluidModifier)) {
 			fluidModifiers.add(fluidModifier);
@@ -197,9 +197,9 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 		if(fluidModifiers.contains(fluidModifier) || !owner.hasVagina()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		fluidModifiers.add(fluidModifier);
-		
+
 		switch(fluidModifier) {
 			case ADDICTIVE:
 				if(owner.isPlayer()) {
@@ -319,17 +319,17 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 							+ "</p>");
 				}
 		}
-		
+
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
-	
+
 	public String removeFluidModifier(GameCharacter owner, FluidModifier fluidModifier) {
 		if(!fluidModifiers.contains(fluidModifier) || !owner.hasVagina()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		fluidModifiers.remove(fluidModifier);
-		
+
 		switch(fluidModifier) {
 			case ADDICTIVE:
 				if(owner.isPlayer()) {
@@ -449,14 +449,14 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 							+ "</p>");
 				}
 		}
-		
+
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
-	
+
 	public List<ItemEffect> getTransformativeEffects() {
 		return transformativeEffects;
 	}
-	
+
 	public void addTransformativeEffect(ItemEffect ie) {
 		transformativeEffects.add(ie);
 	}
@@ -467,7 +467,7 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 	public List<FluidModifier> getFluidModifiers() {
 		return fluidModifiers;
 	}
-	
+
 	public void clearFluidModifiers() {
 		fluidModifiers.clear();
 	}

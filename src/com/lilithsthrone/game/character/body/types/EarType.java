@@ -27,9 +27,9 @@ public enum EarType implements BodyPartTypeInterface {
 	DOG_MORPH_FOLDED(BodyCoveringType.CANINE_FUR, Race.DOG_MORPH),
 
 	LYCAN(BodyCoveringType.LYCAN_FUR, Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.FOX_FUR, Race.FOX_MORPH),
-	
+
 	FOX_MORPH_BIG(BodyCoveringType.FOX_FUR, Race.FOX_MORPH),
 
 	COW_MORPH(BodyCoveringType.BOVINE_FUR, Race.COW_MORPH),
@@ -44,7 +44,7 @@ public enum EarType implements BodyPartTypeInterface {
 
 	RABBIT_MORPH(BodyCoveringType.RABBIT_FUR, Race.RABBIT_MORPH),
 	RABBIT_MORPH_FLOPPY(BodyCoveringType.RABBIT_FUR, Race.RABBIT_MORPH),
-	
+
 	BAT_MORPH(BodyCoveringType.BAT_FUR, Race.BAT_MORPH),
 
 	ALLIGATOR_MORPH(BodyCoveringType.ALLIGATOR_SCALES, Race.ALLIGATOR_MORPH),
@@ -87,7 +87,7 @@ public enum EarType implements BodyPartTypeInterface {
 	public String getNameSingular(GameCharacter gc) {
 		return "ear";
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return "ears";
@@ -190,7 +190,7 @@ public enum EarType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	@Override
 	public BodyCoveringType getBodyCoveringType(Body body) {
 		return skinType;
@@ -200,13 +200,13 @@ public enum EarType implements BodyPartTypeInterface {
 	public Race getRace() {
 		return race;
 	}
-	
+
 	private static Map<Race, List<EarType>> typesMap = new HashMap<>();
 	public static List<EarType> getEarTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<EarType> types = new ArrayList<>();
 		for(EarType type : EarType.values()) {
 			if(type.getRace()==r) {

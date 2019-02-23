@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dialogue>
-	
+
 	<!-- ENTRANCE -->
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and gaze lustfully at your body as the leader calls out, [npc.speech(Ya can come an' go as yer please, but I can tell yer hungry for imp #IFnpc.hasPenis()#THENcock#ELSEpussy#ENDIF, so why don'cha get down on yer knees and put that mouth o' yours to use?)]
@@ -15,7 +15,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED_DEMON"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc.speech(Oh, 'ey, it's the [pc.race] again... Y-Yer can come an' go as yer please, OK? J-Just don' cause any trouble... Please...)]
@@ -28,7 +28,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED_BY_SEX"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and gaze lustfully at your body as the leader calls out, [npc.speech(Ya can come an' go as yer please, but I can tell yer still hungry for imp #IFnpc.hasPenis()#THENcock#ELSEpussy#ENDIF, so why don'cha get down on yer knees and put that mouth o' yours to use again?)]
@@ -41,7 +41,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_PACIFIED_BY_SEX_DEMON"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and gaze lustfully at your body as the leader calls out, [npc.speech(Ya can come an' go as yer please, [pc.race]. Yer still 'ungry fer imp #IFnpc.hasPenis()#THENcock#ELSEpussy#ENDIF? I bet'cha are! Go on, get down on yer knees and put that mouth o' yours to use again!)]
@@ -54,21 +54,21 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_DESERTED"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The pair of alpha-imp guards who once stood here have long since run away, leaving the entrance to the fortress completely undefended.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_DESERTED_GUARD_RETURN_WARNING"><![CDATA[
 	<p>
 		[style.italicsBad(If you choose to leave the fortress now, you can be sure that there will be new guards at the gate when you return!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_DEMON"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc.speech('Ey! You! S-Stop right there! Y-You ain't comin' close to our base and gettin' away with it!)]
@@ -84,7 +84,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and shuffle around nervously as the leader calls out, [npc2.speech('Ey! You two! S-Stop right there! Y-You ain't comin' close to our base and gettin' away with it!)]
@@ -100,7 +100,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE"><![CDATA[
 	<p>
 		The crude wooden gates of the makeshift fortress are wide open, and as you draw near, you find yourself wondering if their shoddy construction would even allow them to be closed. The two alpha-imps on guard duty notice your approach, and, letting out a menacing snarl, the leader calls out, [npc.speech('Old it right there, ya scum! You ain't comin' close to our base and gettin' away with it!)]
@@ -117,20 +117,20 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="LEAVE_FORTRESS"><![CDATA[
 	<p>
 		Having concluded the business you had here, you find yourself stepping out of the fortress's open gateway. Without a backwards glance, you head down the slight incline before you, ready to continue onwards into Submission's tunnels once again.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_GIVE_ORAL"><![CDATA[
 	<p>
 		Wanting to resolve this situation without resorting to violence, you hold up your [pc.hands] to show that you mean no harm, before smirking at the imps and asking, [pc.speech(Is there no way I can get in to speak to your boss? Surely there's <i>something</i> I could do to get on your good side...)]
 	</p>
 	<p>
-		The imps lower their weapons, and, [npc.her] snarl turning into a wicked grin, the leader responds, [npc.speech(What yer willin' ta do ta get in 'ere? Eh?)] 
+		The imps lower their weapons, and, [npc.her] snarl turning into a wicked grin, the leader responds, [npc.speech(What yer willin' ta do ta get in 'ere? Eh?)]
 	</p>
 	<p>
 		Licking your [pc.lips+], you step forwards and sink down onto your knees before the two guards. Winking at the leader, you put on your most seductive voice as you make your offer, [pc.speech(How about you let me use my mouth on the two of you?)]
@@ -150,7 +150,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_GIVE_ORAL_PACIFIED"><![CDATA[
 	<p>
 		Finding yourself unable to resist the opportunity to #IFnpc.hasPenis()#THENsuck imp cock#ELSEget a taste of imp pussy#ENDIF, you lick your [pc.lips+], before stepping forwards and sinking down onto your knees before the two guards. Winking at the leader, you put on your most seductive voice as you admit, [pc.speech(Yes... I can't stop thinking about your #IFnpc.hasPenis()#THENhard cocks#ELSEwet pussies#ENDIF... Please, I want to #IFnpc.hasPenis()#THENtaste your cum#ELSEeat you out#ENDIF again...)]
@@ -170,7 +170,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL_INTIMIDATE"><![CDATA[
 	<p>
 		[pc.speech([npc.Name],)] you ask, [pc.speech(How long would it take for you to clear these pests out of my way?)]
@@ -195,7 +195,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL_SUMMON"><![CDATA[
 	<p>
 		Thinking that these imps look particularly cowardly, you think that simply summoning your elemental would be enough to intimidate them. Grinning down at the leader, you declare, [pc.speech(You really think you stand a chance against me?! Perhaps if you can defeat my elemental, you'll have earned the right to challenge me!)]
@@ -205,7 +205,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENTRANCE_ELEMENTAL_SUMMON_END"><![CDATA[
 	<p>
 		As your elemental steps forwards, the two imps let out a synchronized scream, and, stumbling over their own feet, rush to stand aside. Dropping [npc2.her] weapon, the leader pleads, [npc2.speech(P-Please, spare us! W-We don't want no trouble with one o' those arcane thingies! J-Just, please don't hurt us!)]
@@ -218,9 +218,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_ORAL_FOR_ENTRY -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_ORAL_FOR_ENTRY"><![CDATA[
 	<p>
 		Stepping away from you, the two imps slip their tattered clothing back on, with the leader sneering as [npc.she] does so, [npc.speech(What a horny slut fer imp #IFnpc.hasPenis()#THENcock#ELSEpussy#ENDIF! Heh, the way ya were moanin' fer it! We won't be fergettin' that fer a long time!)]
@@ -244,9 +244,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- ENTRANCE_DEMONIC_COMMAND -->
-	
+
 	<htmlContent tag="ENTRANCE_DEMONIC_COMMAND"><![CDATA[
 	<p>
 		[pc.speech(You <i>dare</i> speak to a demon in such a way?)] you ask, taking on an icy, threatening tone. [pc.speech(It's almost as though you <i>want</i> to spend the rest of your existence as the lowest of my slaves.)]
@@ -268,9 +268,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_COMBAT_VICTORY -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_VICTORY"><![CDATA[
 	<p>
 		The two guards slump to the floor, their weapons falling from their hands to clatter harmlessly against the rocks underfoot. Looking up at you as [npc.she] gasps for breath, the leader pleads, [npc.speech(N-No more... Y-Ya got us...)]
@@ -283,7 +283,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_VICTORY_SCARE_OFF"><![CDATA[
 	<p>
 		Not wanting anything more to do with these imps, you growl down to them, [pc.speech(Go on, get out of here, before I change my mind.)]
@@ -293,7 +293,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you reach down and start moving them into position. The leader lets out an erotic moan as [npc.she] feels your hands on [npc.her] body, and sighs, [npc.speech(Mmm, yeah! Come on, babe, yer wanna give us a good fuck, right?)]
@@ -303,7 +303,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_GENTLE"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you reach down and start gently moving them into position. The leader lets out an erotic moan as [npc.she] feels your soft touch on [npc.her] body, and sighs, [npc.speech(Mmm, yeah! Come on, babe, yer wanna give us a good fuck, right?)]
@@ -313,7 +313,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_ROUGH"><![CDATA[
 	<p>
 		Wanting to have some fun with these once-insolent imps, you reach down and start roughly shoving them into position. The leader lets out an erotic moan as [npc.she] feels your harsh touch on [npc.her] body, and sighs, [npc.speech(Mmm, yeah! Come on, babe, yer wanna give us a good, hard fuck, right?)]
@@ -323,7 +323,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
 		Seeing the two imps pathetically sprawled out on the floor before you makes you feel immensely guilty about what you've just done. Dropping down onto your knees beside them, you ask, [pc.speech(Are you OK? I didn't mean to... I think I went a little too far...)]
@@ -351,9 +351,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_COMBAT_DEFEAT -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_THROWN_OUT"><![CDATA[
 	<p>
 		With the last of your strength depleted, you slump to the floor with a defeated sigh. Before you've even managed to take a breath, you feel them reach down and grab you under your [pc.arms]. As they start dragging you down the incline towards Submission's tunnels, the two imps start speaking to one another.
@@ -369,7 +369,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT"><![CDATA[
 	<p>
 		With the last of your strength depleted, you slump to the floor with a defeated sigh. Before you've even managed to take a breath, you feel them reach down and start to grope and fondle your vulnerable body. As they start molesting you, the two imps start speaking to one another.
@@ -385,7 +385,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_SEX"><![CDATA[
 	<p>
 		Happy enough to let the imps have their fun, you [pc.moan], [pc.speech(Mmm, yes... I'll be good for you...)]
@@ -398,7 +398,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_SEX_EAGER"><![CDATA[
 	<p>
 		Feeling incredibly aroused at the prospect of being used by your conquerors, you [pc.moan], [pc.speech(Oh, yes! Come on, fuck me! Give me that imp #IFnpc.hasPenis()#THENcock#ELSEpussy#ENDIF!)]
@@ -411,7 +411,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="GUARDS_AFTER_COMBAT_DEFEAT_SEX_RESIST"><![CDATA[
 	<p>
 		Disgusted by the thought of these imps taking advantage of you, you scream, [pc.speech(No! Get away from me! Stop!)]
@@ -424,9 +424,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- GUARDS_AFTER_SEX_VICTORY -->
-	
+
 	<htmlContent tag="GUARDS_AFTER_SEX_VICTORY"><![CDATA[
 	<p>
 		Having had your fun, you pull away from the imps, whose fatigue from the previous fight finally catches up with them. Slumping to the floor, the guards pant and sigh as they try to catch their breath.
@@ -439,9 +439,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- AFTER_DEFEAT_SEX -->
-	
+
 	<htmlContent tag="AFTER_DEFEAT_SEX"><![CDATA[
 	<p>
 		Having had their fun, the imps allow you slump to the floor with an exhausted sigh. Before you've even managed to catch your breath, you feel them reach down and grab you under your [pc.arms]. As they start dragging you down the incline towards Submission's tunnels, the two imps start speaking to one another.
@@ -457,5 +457,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

@@ -24,21 +24,21 @@ public class BatCavernsEncounterDialogue {
 							+ "<p style='text-align:center;'>"
 								+ "<b>"+ Encounter.getRandomItem().getDisplayName(true)+ "</b>"
 							+ "</p>";
-					
+
 				} else {
 					return UtilText.parseFromXMLFile("places/submission/batCaverns", "FIND_ITEM_LIGHT")
 							+ "<p style='text-align:center;'>"
 								+ "<b>"+ Encounter.getRandomItem().getDisplayName(true)+ "</b>"
 							+ "</p>";
 				}
-				
+
 			} else {
 				if(Encounter.getRandomItem().getItemType()==ItemType.MUSHROOM) {
 					return UtilText.parseFromXMLFile("places/submission/batCaverns", "FIND_MUSHROOMS_DARK")
 							+ "<p style='text-align:center;'>"
 								+ "<b>"+ Encounter.getRandomItem().getDisplayName(true)+ "</b>"
 							+ "</p>";
-					
+
 				} else {
 					return UtilText.parseFromXMLFile("places/submission/batCaverns", "FIND_ITEM_DARK")
 							+ "<p style='text-align:center;'>"
@@ -47,7 +47,7 @@ public class BatCavernsEncounterDialogue {
 				}
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -57,10 +57,10 @@ public class BatCavernsEncounterDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().addItem(Encounter.getRandomItem(), true, true));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Leave", "Leave the " + Encounter.getRandomItem().getName() + " on the floor.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}

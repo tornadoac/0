@@ -17,10 +17,10 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 
 	private BodyCoveringType skinType;
 	private Race race;
-	
+
 	private String name;
 	private String namePlural;
-	
+
 	private String handName;
 	private String handNamePlural;
 	private List<String> handDescriptorsMasculine;
@@ -33,10 +33,10 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 
 	private List<String> descriptorsMasculine;
 	private List<String> descriptorsFeminine;
-	
+
 	private String armTransformationDescription;
 	private String armBodyDescription;
-	
+
 	/**
 	 * @param skinType What covers this arm type (i.e skin/fur/feather type).
 	 * @param race What race has this arm type.
@@ -71,13 +71,13 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 			List<String> fingerDescriptorsFeminine,
 			String armTransformationDescription,
 			String armBodyDescription) {
-		
+
 		this.skinType = skinType;
 		this.race = race;
-		
+
 		this.name = name;
 		this.namePlural = namePlural;
-		
+
 		this.handName = handName;
 		this.handNamePlural = handNamePlural;
 		this.handDescriptorsMasculine = handDescriptorsMasculine;
@@ -87,14 +87,14 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 		this.fingerNamePlural = fingerNamePlural;
 		this.fingerDescriptorsMasculine = fingerDescriptorsMasculine;
 		this.fingerDescriptorsFeminine = fingerDescriptorsFeminine;
-		
+
 		this.descriptorsMasculine = descriptorsMasculine;
 		this.descriptorsFeminine = descriptorsFeminine;
-		
+
 		this.armTransformationDescription = armTransformationDescription;
 		this.armBodyDescription = armBodyDescription;
 	}
-	
+
 	public boolean allowsFlight() {
 		return false;
 	}
@@ -117,7 +117,7 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 	public String getNameSingular(GameCharacter gc) {
 		return name;
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return namePlural;
@@ -141,11 +141,11 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 	public Race getRace() {
 		return race;
 	}
-	
+
 	public String getHandsNameSingular(GameCharacter gc) {
 		return handName;
 	}
-	
+
 	public String getHandsNamePlural(GameCharacter gc) {
 		return handNamePlural;
 	}
@@ -157,11 +157,11 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 			return Util.randomItemFrom(handDescriptorsMasculine);
 		}
 	}
-	
+
 	public String getFingersNameSingular(GameCharacter gc) {
 		return fingerName;
 	}
-	
+
 	public String getFingersNamePlural(GameCharacter gc) {
 		return fingerNamePlural;
 	}
@@ -178,7 +178,7 @@ public abstract class AbstractArmType implements BodyPartTypeInterface {
 	public String getBodyDescription(GameCharacter owner) {
 		return UtilText.parse(owner, armBodyDescription);
 	}
-	
+
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
 		return UtilText.parse(owner, armTransformationDescription);

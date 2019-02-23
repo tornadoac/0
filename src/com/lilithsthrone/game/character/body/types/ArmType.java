@@ -14,7 +14,7 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * Contains static instances of AbstractArmType.
- * 
+ *
  * @since 0.1.0
  * @version 0.3
  * @author Innoxia
@@ -397,36 +397,36 @@ public class ArmType {
 			return clothingBlock;
 		}
 	};
-	
+
 	private static List<AbstractArmType> allArmTypes;
 	private static Map<AbstractArmType, String> armToIdMap = new HashMap<>();
 	private static Map<String, AbstractArmType> idToArmMap = new HashMap<>();
-	
+
 	static {
 		allArmTypes = new ArrayList<>();
-		
+
 		// Add in hard-coded arm types:
 		Field[] fields = ArmType.class.getFields();
-		
+
 		for(Field f : fields){
 			if (AbstractArmType.class.isAssignableFrom(f.getType())) {
-				
+
 				AbstractArmType ct;
 				try {
 					ct = ((AbstractArmType) f.get(null));
 
 					armToIdMap.put(ct, f.getName());
 					idToArmMap.put(f.getName(), ct);
-					
+
 					allArmTypes.add(ct);
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
-	
+
 	public static AbstractArmType getArmTypeFromId(String id) {
 		if(id.equals("IMP")) {
 			return ArmType.DEMON_COMMON;
@@ -438,21 +438,21 @@ public class ArmType {
 		id = Util.getClosestStringMatch(id, idToArmMap.keySet());
 		return idToArmMap.get(id);
 	}
-	
+
 	public static String getIdFromArmType(AbstractArmType armType) {
 		return armToIdMap.get(armType);
 	}
-	
+
 	public static List<AbstractArmType> getAllArmTypes() {
 		return allArmTypes;
 	}
-	
+
 	private static Map<Race, List<AbstractArmType>> typesMap = new HashMap<>();
 	public static List<AbstractArmType> getArmTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<AbstractArmType> types = new ArrayList<>();
 		for(AbstractArmType type : ArmType.getAllArmTypes()) {
 			if(type.getRace()==r) {
@@ -462,5 +462,5 @@ public class ArmType {
 		typesMap.put(r, types);
 		return types;
 	}
-	
+
 }

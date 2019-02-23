@@ -12,10 +12,10 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class Antenna implements BodyPartInterface {
-	
+
 	protected AntennaType type;
 	protected int rows;
-	
+
 	public Antenna(AntennaType type) {
 		this.type = type;
 	}
@@ -24,7 +24,7 @@ public class Antenna implements BodyPartInterface {
 	public AntennaType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		if(gc.getAntennaRows()==1) {
@@ -38,7 +38,7 @@ public class Antenna implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -62,9 +62,9 @@ public class Antenna implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the [npc.antennae] of [npc.a_antennaRace], so nothing happens...)]</p>");
 			}
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		if(this.type == AntennaType.NONE) {
 			UtilText.transformationContentSB.append(
 					"<p>"
@@ -74,7 +74,7 @@ public class Antenna implements BodyPartInterface {
 					"<p>"
 						+ "[npc.Name] [npc.verb(feel)] an odd tingling sensation at the base of [npc.her] [npc.antennae], and [npc.she] [npc.verb(gasp)] as [npc.she] [npc.verb(feel)] them start to transform.");
 		}
-		
+
 		switch (type) {
 			case NONE:
 				UtilText.transformationContentSB.append(
@@ -83,36 +83,36 @@ public class Antenna implements BodyPartInterface {
 							+ "[npc.Name] now [npc.has] [style.boldTfGeneric(no antennae)].");
 				break;
 		}
-		
+
 		// Parse existing content before transformation:
 		String s = UtilText.parse(owner, UtilText.transformationContentSB.toString());
 		UtilText.transformationContentSB.setLength(0);
 		UtilText.transformationContentSB.append(s);
 		this.type = type;
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 					+ owner.postTransformationCalculation()
 				+ "</p>";
 	}
-	
+
 	public int getAntennaRows() {
 		return rows;
 	}
 
 	public String setAntennaRows(GameCharacter owner, int rows) {
 		rows = Math.max(1, Math.min(rows, 3));
-		
+
 		if(owner.getAntennaRows() == rows) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.rows = rows;
-		
+
 		if (owner.getAntennaType() == AntennaType.NONE) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		if(owner.getAntennaRows() > rows) {
 			return UtilText.parse(owner,
 					"<p>"
@@ -120,7 +120,7 @@ public class Antenna implements BodyPartInterface {
 						+ " [npc.She] can't help but let out a little cry as [npc.she] [npc.verb(feel)] some of them [style.boldShrink(falling away)] and disappearing back down into [npc.her] [npc.faceSkin].<br/>"
 						+ "After a few moments, [npc.sheIs] left with [style.boldTfGeneric("+getDeterminer(owner)+" [npc.antennae])]."
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
@@ -128,7 +128,7 @@ public class Antenna implements BodyPartInterface {
 						+ " [npc.She] can't help but let out a little cry as [npc.she] [npc.verb(feel)] new [npc.antennae] [style.boldGrow(pushing up)] and growing out of [npc.her] [npc.faceSkin].<br/>"
 						+ "After a few moments, [npc.sheIs] left with [style.boldTfGeneric("+getDeterminer(owner)+" [npc.antennae])]."
 					+ "</p>");
-			
+
 		}
 	}
 

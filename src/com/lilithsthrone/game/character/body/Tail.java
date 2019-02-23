@@ -16,7 +16,7 @@ import com.lilithsthrone.utils.Util;
 public class Tail implements BodyPartInterface {
 
 	public static final int MAXIMUM_COUNT = 9;
-	
+
 	protected TailType type;
 	protected int tailCount;
 
@@ -29,7 +29,7 @@ public class Tail implements BodyPartInterface {
 	public TailType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -39,7 +39,7 @@ public class Tail implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -63,18 +63,18 @@ public class Tail implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if(type == TailType.NONE) {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.verb(lack)] a tail, so nothing happens...)]</p>");
-				
+
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already [npc.has] the [npc.tail] of [npc.a_tailRace], so nothing happens...)]</p>");
 			}
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		if (owner.isPlayer()) {
 			if(this.type == TailType.NONE) {
 				UtilText.transformationContentSB.append(
@@ -87,7 +87,7 @@ public class Tail implements BodyPartInterface {
 								?"You feel your [pc.tail] growing hot and itchy, and after just a moment it starts to transform."
 								:"You feel your [pc.tails] growing hot and itchy, and after just a moment they start to transform."));
 			}
-			
+
 		} else {
 			if(this.type == TailType.NONE) {
 				UtilText.transformationContentSB.append(
@@ -101,7 +101,7 @@ public class Tail implements BodyPartInterface {
 								:"[npc.Name] feels [npc.her] [npc.tails] growing hot and itchy, and after just a moment they start to transform."));
 			}
 		}
-		
+
 		switch (type) {
 			case NONE:
 				if (owner.isPlayer()) {
@@ -307,7 +307,7 @@ public class Tail implements BodyPartInterface {
 									+ " [npc.She] tail quickly becomes wreathed in an arcane fire, almost as if to display the owner's unusual magic ability."
 									+ "</br>"
 									+ "[npc.Name] now has a [style.boldFoxMorph(arcane fox-like tail)]\n"
-									+ "</br>" 
+									+ "</br>"
 									+ "<i>Magic fox tails (and the ability to increase their number) will eventually be removed from transformation potions.</i>"
 								:" [npc.TailCount] bushy, fox-like tails sprout from just above [npc.her] ass, rapidly growing in size until they're each about half the length of one of [npc.her] legs."
 									+ " [npc.HerHis] tails quickly becomes wreathed in an arcane fire, almost as if to display the owner's unusual magic ability."
@@ -575,9 +575,9 @@ public class Tail implements BodyPartInterface {
 				}
 				break;
 		}
-		
+
 		this.type = type;
-		
+
 		if(type == TailType.NONE) {
 			UtilText.transformationContentSB.append(".</p>");
 		} else if(type!= TailType.DEMON_HAIR_TIP){
@@ -587,7 +587,7 @@ public class Tail implements BodyPartInterface {
 				UtilText.transformationContentSB.append(", covered in [npc.tailFullDescription(true)].</p>");
 			}
 		}
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 					+ owner.postTransformationCalculation()
@@ -600,18 +600,18 @@ public class Tail implements BodyPartInterface {
 
 	public String setTailCount(GameCharacter owner, int tailCount) {
 		tailCount = Math.max(1, Math.min(tailCount, MAXIMUM_COUNT));
-		
+
 		if(owner.getTailCount() == tailCount) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		boolean removingTails = owner.getTailCount() > tailCount;
 		this.tailCount = tailCount;
-		
+
 		if (owner.getTailType() == TailType.NONE) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		if(removingTails) {
 			if(owner.isPlayer()) {
 				return
@@ -636,7 +636,7 @@ public class Tail implements BodyPartInterface {
 							+ ")]."
 						+ "</p>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				return

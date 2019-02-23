@@ -159,7 +159,7 @@
 		Giving her a reassuring smile, you reply, [pc.speech(Don't worry, Lily, I can help. Is this about the opening being delayed?)]
 	</p>
 	<p>
-		[lilaya.speech(Yes! This is to do with the delay! Arthur's gone missing, and I can't start without him! Everyone's crowding me asking questions, so I can't go out and look for him myself.	 Please, please <i>please</i> can you go and find him for me?)]
+		[lilaya.speech(Yes! This is to do with the delay! Arthur's gone missing, and I can't start without him! Everyone's crowding me asking questions, so I can't go out and look for him myself. Please, please <i>please</i> can you go and find him for me?)]
 	</p>
 	<p>
 		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(OK, Lily, I'll find him for you, don't worry.)]
@@ -681,7 +681,7 @@
 		[rose.speech(I'll retrieve your clothing now,)] Rose states, casting her gaze back down at the floor as her cheeks continue to burn bright red, [rose.speech(this will only take a moment.)]
 	</p>
 	<p>
-		As Rose hurries to fetch a ladder, Lilaya turns her gaze back towards you. [lilaya.speech(This is amazing...)] she says, looking at the strange pink mist that's hovering all around you.  [lilaya.speech(I thought you wouldn't have any arcane aura at all, but... well... yours is easily as powerful as a demon's!)]
+		As Rose hurries to fetch a ladder, Lilaya turns her gaze back towards you. [lilaya.speech(This is amazing...)] she says, looking at the strange pink mist that's hovering all around you. [lilaya.speech(I thought you wouldn't have any arcane aura at all, but... well... yours is easily as powerful as a demon's!)]
 	</p>
 	<p>
 		[pc.speech(Uum... So is that good?)] you venture, shifting uncomfortably as you try to conceal more of your naked body.

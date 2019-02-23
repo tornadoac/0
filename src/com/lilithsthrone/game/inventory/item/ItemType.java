@@ -1504,7 +1504,7 @@ public class ItemType {
 	};
 
 
-	public static AbstractItemType RACE_INGREDIENT_COW_MORPH  = new AbstractItemType(250,
+	public static AbstractItemType RACE_INGREDIENT_COW_MORPH = new AbstractItemType(250,
 			"a pot of",
 			false,
 			"Bubble Cream",

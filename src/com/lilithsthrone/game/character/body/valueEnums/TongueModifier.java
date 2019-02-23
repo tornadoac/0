@@ -6,11 +6,11 @@ package com.lilithsthrone.game.character.body.valueEnums;
  * @author Innoxia
  */
 public enum TongueModifier {
-	
+
 	RIBBED("ribbed"),
 	TENTACLED("tentacled"),
 	BIFURCATED("bifurcated");
-	
+
 	private String descriptor;
 
 	private TongueModifier(String descriptor) {

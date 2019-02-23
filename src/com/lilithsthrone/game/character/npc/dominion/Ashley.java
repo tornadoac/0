@@ -54,11 +54,11 @@ public class Ashley extends NPC {
 			ItemType.GIFT_PERFUME,
 			ItemType.GIFT_ROSE_BOUQUET,
 			ItemType.GIFT_TEDDY_BEAR};
-	
+
 	public Ashley() {
 		this(false);
 	}
-	
+
 	public Ashley(boolean isImported) {
 		super(isImported, new NameTriplet("Ashley"), "Minett", //TODO
 				"Ashley is the owner of the shop 'Dream Lover', and is seemingly also its only working staff."
@@ -74,7 +74,7 @@ public class Ashley extends NPC {
 				true);
 
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -82,32 +82,32 @@ public class Ashley extends NPC {
 			resetBodyAfterVersion_2_10_5();
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
 
 		this.setRaceConcealed(true);
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 10);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 50);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 0);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 		}
 //		this.setHistory(Occupation.NPC_PROSTITUTE);
 
 //		this.addFetish(Fetish.FETISH_MASOCHIST);
-		
+
 		// Body:
 
 		// Core:
@@ -116,7 +116,7 @@ public class Ashley extends NPC {
 		this.setFemininity(50);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_ANGEL, Color.EYE_BLUE));
 		this.setSkinCovering(new Covering(BodyCoveringType.ANGEL, Color.SKIN_LIGHT), true);
@@ -137,7 +137,7 @@ public class Ashley extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 //		this.setFaceVirgin(false);
 //		this.setLipSize(LipSize.THREE_PLUMP);
@@ -145,7 +145,7 @@ public class Ashley extends NPC {
 		// Throat settings and modifiers
 //		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 //		this.setNippleVirgin(true);
 //		this.setBreastSize(CupSize.DD.getMeasurement());
@@ -153,7 +153,7 @@ public class Ashley extends NPC {
 //		this.setNippleSize(NippleSize.TWO_BIG);
 //		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 //		this.setAssVirgin(false);
 //		this.setAssBleached(true);
@@ -164,10 +164,10 @@ public class Ashley extends NPC {
 //		this.setAssElasticity(OrificeElasticity.SIX_SUPPLE.getValue());
 //		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 //		this.setVaginaVirgin(false);
 //		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -177,18 +177,18 @@ public class Ashley extends NPC {
 //		this.setVaginaWetness(Wetness.FIVE_SLOPPY);
 //		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 //		this.setVaginaPlasticity(OrificePlasticity.SEVEN_MOLDABLE.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		// No weapons
-		
+
 		// No tattoos or scars
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_CLOAK, Color.CLOTHING_BLACK, Color.CLOTHING_SILVER, null, false), true, this);
@@ -199,11 +199,11 @@ public class Ashley extends NPC {
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public String getCharacterInformationScreen() {
 		infoScreenSB.setLength(0);
-		
+
 		infoScreenSB.append(
 				"<h4>Background</h4>"
 				+ "<p>"
@@ -215,7 +215,7 @@ public class Ashley extends NPC {
 					+ "[style.boldAffection(Affection:)]<br/>"
 					+ AffectionLevel.getDescription(this, Main.game.getPlayer(),
 							AffectionLevel.getAffectionLevelFromValue(this.getAffection(Main.game.getPlayer())), true));
-		
+
 		for(Entry<String, Float> entry : this.getAffectionMap().entrySet()) {
 			try {
 				GameCharacter target = Main.game.getNPCById(entry.getKey());
@@ -226,7 +226,7 @@ public class Ashley extends NPC {
 				Util.logGetNpcByIdError("Ashley.getCharacterInformationScreen()", entry.getKey());
 			}
 		}
-		
+
 		infoScreenSB.append("<br/><br/>"
 					+ "[style.boldObedience(Obedience:)]<br/>"
 					+ UtilText.parse(this,
@@ -251,14 +251,14 @@ public class Ashley extends NPC {
 					+ "Ashley's cloak covers the entirety of their body, leaving you completely unable to see any part of their body."
 					+ " You have no idea what race they are, much less the state of their breasts and genitals."
 				+ "</p>");
-		
+
 		return infoScreenSB.toString();
 	}
-	
+
 	@Override
 	public void dailyReset() {
 		clearNonEquippedInventory();
-		
+
 		for (AbstractItemType item : itemsForSale) {
 			for (int i = 0; i < 3 + (Util.random.nextInt(6)); i++) {
 				this.addItem(AbstractItemType.generateItem(item), false);
@@ -272,11 +272,11 @@ public class Ashley extends NPC {
 	public boolean willBuy(AbstractCoreItem item) {
 		return false;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;

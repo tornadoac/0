@@ -921,7 +921,7 @@
 		[pc.speech(I think I can feel it,)] you say, [pc.speech(It feels as though I have a lot more energy available to me now.)]
 	</p>
 	<p>
-		[lyssieth.speech(Yes, that was the expected effect, along with immunity to the 'Lilith's Command' spell which we Lilin are able to cast,)] Lyssieth replies, [lyssieth.speech(But I felt something else changing within your aura. As I channelled my essence into it, I detected a part of it <i>unlocking</i>, in a very similar manner to how a person's aura changes when...)]
+		[lyssieth.speech(Yes, that was the expected effect, along with immunity to the 'Lilith's Command' spell which we Lilin are able to cast,)] Lyssieth replies, [lyssieth.speech(But I felt something else changing within your aura. As I channeled my essence into it, I detected a part of it <i>unlocking</i>, in a very similar manner to how a person's aura changes when...)]
 	</p>
 	<p>
 		Lyssieth's voice trails off mid-sentence, and, realizing that something's off, you push yourself up onto your knees and turn to face her. [pc.speech(When what?)]
@@ -980,7 +980,7 @@
 		[pc.speech(I think I can feel it,)] you say, [pc.speech(It feels as though I have a lot more energy available to me now.)]
 	</p>
 	<p>
-		[lyssieth.speech(Yes, that was the expected effect, along with immunity to the 'Lilith's Command' spell which we Lilin are able to cast,)] Lyssieth replies, [lyssieth.speech(But I felt something else changing within your aura. As I channelled my essence into it, I detected a part of it <i>unlocking</i>, in a very similar manner to how a person's aura changes when...)]
+		[lyssieth.speech(Yes, that was the expected effect, along with immunity to the 'Lilith's Command' spell which we Lilin are able to cast,)] Lyssieth replies, [lyssieth.speech(But I felt something else changing within your aura. As I channeled my essence into it, I detected a part of it <i>unlocking</i>, in a very similar manner to how a person's aura changes when...)]
 	</p>
 	<p>
 		Lyssieth's voice trails off mid-sentence, and, realizing that something's off, you ask, [pc.speech(When what?)]

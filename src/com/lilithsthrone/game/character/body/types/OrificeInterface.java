@@ -13,7 +13,7 @@ import com.lilithsthrone.game.character.body.valueEnums.Wetness;
  * @author Innoxia
  */
 public interface OrificeInterface {
-	
+
 	public Wetness getWetness(GameCharacter owner);
 	public String setWetness(GameCharacter owner, int wetness);
 
@@ -25,7 +25,7 @@ public interface OrificeInterface {
 
 	public OrificeElasticity getElasticity();
 	public String setElasticity(GameCharacter owner, int elasticity);
-	
+
 	public OrificePlasticity getPlasticity();
 	public String setPlasticity(GameCharacter owner, int plasticity);
 
@@ -35,5 +35,5 @@ public interface OrificeInterface {
 	public boolean hasOrificeModifier(OrificeModifier modifier);
 	public String addOrificeModifier(GameCharacter owner, OrificeModifier modifier);
 	public String removeOrificeModifier(GameCharacter owner, OrificeModifier modifier);
-	
+
 }

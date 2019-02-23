@@ -28,7 +28,7 @@ public enum EyeType implements BodyPartTypeInterface {
 	DOG_MORPH(BodyCoveringType.EYE_DOG_MORPH, Race.DOG_MORPH, 1, EyeShape.ROUND, EyeShape.ROUND),
 
 	LYCAN(BodyCoveringType.EYE_LYCAN, Race.WOLF_MORPH, 1, EyeShape.ROUND, EyeShape.ROUND),
-	
+
 	FOX_MORPH(BodyCoveringType.EYE_FOX_MORPH, Race.FOX_MORPH, 1, EyeShape.ROUND, EyeShape.VERTICAL),
 
 	CAT_MORPH(BodyCoveringType.EYE_FELINE, Race.CAT_MORPH, 1, EyeShape.ROUND, EyeShape.VERTICAL),
@@ -38,7 +38,7 @@ public enum EyeType implements BodyPartTypeInterface {
 	RAT_MORPH(BodyCoveringType.EYE_RAT, Race.RAT_MORPH, 1, EyeShape.ROUND, EyeShape.ROUND),
 
 	RABBIT_MORPH(BodyCoveringType.EYE_RABBIT, Race.RABBIT_MORPH, 1, EyeShape.ROUND, EyeShape.ROUND),
-	
+
 	BAT_MORPH(BodyCoveringType.EYE_BAT, Race.BAT_MORPH, 1, EyeShape.ROUND, EyeShape.ROUND),
 
 	ALLIGATOR_MORPH(BodyCoveringType.EYE_ALLIGATOR_MORPH, Race.ALLIGATOR_MORPH, 1, EyeShape.ROUND, EyeShape.VERTICAL),
@@ -86,7 +86,7 @@ public enum EyeType implements BodyPartTypeInterface {
 	public String getNameSingular(GameCharacter gc) {
 		return "eye";
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return "eyes";
@@ -152,13 +152,13 @@ public enum EyeType implements BodyPartTypeInterface {
 	public EyeShape getPupilShape() {
 		return pupilShape;
 	}
-	
+
 	private static Map<Race, List<EyeType>> typesMap = new HashMap<>();
 	public static List<EyeType> getEyeTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<EyeType> types = new ArrayList<>();
 		for(EyeType type : EyeType.values()) {
 			if(type.getRace()==r) {

@@ -26,7 +26,7 @@ public class Ear implements BodyPartInterface {
 	public EarType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -36,7 +36,7 @@ public class Ear implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -51,7 +51,7 @@ public class Ear implements BodyPartInterface {
 	public String getDescriptor(GameCharacter gc) {
 		return type.getDescriptor(gc);
 	}
-	
+
 	public String setType(GameCharacter owner, EarType type) {
 		if(!Main.game.isStarted() || owner==null) {
 			this.type = type;
@@ -60,7 +60,7 @@ public class Ear implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.ears] of [pc.a_earRace], so nothing happens...)]</p>";
@@ -68,9 +68,9 @@ public class Ear implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.ears] of [npc.a_earRace], so nothing happens...)]</p>");
 			}
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		if (owner.isPlayer()) {
 			UtilText.transformationContentSB.append(
 					"<p>"
@@ -86,7 +86,7 @@ public class Ear implements BodyPartInterface {
 		UtilText.transformationContentSB.setLength(0);
 		UtilText.transformationContentSB.append(s);
 		this.type = type;
-		
+
 		switch (type) {
 			case HUMAN:
 				if (owner.isPlayer()) {
@@ -393,7 +393,7 @@ public class Ear implements BodyPartInterface {
 			case ANGEL://TODO
 				break;
 		}
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 					+ owner.postTransformationCalculation()
@@ -403,14 +403,14 @@ public class Ear implements BodyPartInterface {
 	public boolean isPierced() {
 		return pierced;
 	}
-	
+
 	public String setPierced(GameCharacter owner, boolean pierced) {
 		if(this.pierced == pierced) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.pierced = pierced;
-		
+
 		if(pierced) {
 			if(owner.isPlayer()) {
 				return "<p>Your [pc.ears] are now [style.boldGrow(pierced)]!</p>";
@@ -418,7 +418,7 @@ public class Ear implements BodyPartInterface {
 				return UtilText.parse(owner,
 						"<p>[npc.NamePos] [npc.ears] are now [style.boldGrow(pierced)]!</p>");
 			}
-			
+
 		} else {
 			AbstractClothing c = owner.getClothingInSlot(InventorySlot.PIERCING_EAR);
 			String piercingUnequip = "";
@@ -426,7 +426,7 @@ public class Ear implements BodyPartInterface {
 				owner.forceUnequipClothingIntoVoid(owner, c);
 				piercingUnequip = owner.addClothing(c, false);
 			}
-			
+
 			if(owner.isPlayer()) {
 				return "<p>"
 							+ "Your [pc.ears] are [style.boldShrink(no longer pierced)]!"
@@ -440,7 +440,7 @@ public class Ear implements BodyPartInterface {
 						+piercingUnequip);
 			}
 		}
-		
+
 	}
 
 	@Override

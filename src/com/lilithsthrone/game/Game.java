@@ -1929,7 +1929,7 @@ public class Game implements XMLSaving {
 		int currentPosition = 0;
 		if(getCurrentDialogueNode()!=null) {
 			if(!Main.game.isInSex() || Sex.getTurn()>1) { // First turn of sex should always reset to top
-				currentPosition =  (int) Main.mainController.getWebEngine().executeScript("document.getElementById('content-block').scrollTop");
+				currentPosition = (int) Main.mainController.getWebEngine().executeScript("document.getElementById('content-block').scrollTop");
 			}
 		}
 

@@ -17,7 +17,7 @@ import com.lilithsthrone.utils.Color;
  * @author Pimgd
  */
 public class BodyCoveringTemplate {
-	public final String determiner; 
+	public final String determiner;
 	public final String namePlural;
 	public final String nameSingular;
 	public final List<CoveringModifier> naturalModifiers;
@@ -43,34 +43,34 @@ public class BodyCoveringTemplate {
 			List<Color> dyeColorsPrimary,
 			List<Color> naturalColorsSecondary,
 			List<Color> dyeColorsSecondary) {
-		
+
 		this.determiner = determiner;
 		this.namePlural = namePlural;
 		this.nameSingular = nameSingular;
 		this.isDefaultPlural = isDefaultPlural;
-		
+
 		this.naturalModifiers = getImmutableListFromNullableList(naturalModifiers);
 		this.extraModifiers = getImmutableListFromNullableList(extraModifiers);
-		
+
 		this.naturalPatterns = getImmutableListFromNullableList(naturalPatterns, () -> Arrays.asList(CoveringPattern.NONE));
 		List<CoveringPattern> dyePatternsList = getListFromNullableList(dyePatterns);
 		dyePatternsList.removeAll(this.naturalPatterns);
 		this.dyePatterns = Collections.unmodifiableList(dyePatternsList);
-		
+
 		this.naturalColorsPrimary = getImmutableListFromNullableList(naturalColorsPrimary);
 		this.dyeColorsPrimary = getImmutableListFromNullableList(dyeColorsPrimary);
 		this.naturalColorsSecondary = getImmutableListFromNullableList(naturalColorsSecondary);
 		this.dyeColorsSecondary = getImmutableListFromNullableList(dyeColorsSecondary);
 	}
-	
+
 	private <T> List<T> getImmutableListFromNullableList(List<T> nullableList) {
 		return Collections.unmodifiableList(getListFromNullableList(nullableList));
 	}
-	
+
 	private <T> List<T> getImmutableListFromNullableList(List<T> nullableList, Supplier<List<T>> replacement) {
 		return Collections.unmodifiableList(Optional.ofNullable(nullableList).orElseGet(replacement));
 	}
-	
+
 	private <T> List<T> getListFromNullableList(List<T> nullableList) {
 		// Have to wrap in a new ArrayList, as the nullableList might be one of the preset lists from CoveringPattern (such as CoveringPattern.allHairCoveringPatterns).
 		// If not wrapped in a new ArrayList, the "dyePatternsList.removeAll(this.naturalPatterns);" line removes elements from the underlying list.

@@ -78,14 +78,14 @@ public class FortressFemalesLeader extends NPC {
 	public FortressFemalesLeader() {
 		this(false);
 	}
-	
+
 	public FortressFemalesLeader(boolean isImported) {
 		super(isImported,
 				new NameTriplet("Hyorlyix", "Hyorlyss", "Hyorlyss"), "Loviennemartu",
 				"The leader of one of Submission's imp fortresses, [npc.name] has a loyal following of female imps, who love nothing more than to join [npc.herHim] in having dominant sex with those who oppose their ruler, 'The Dark Siren'...",
 				22, Month.JANUARY, 11,
 				20, Gender.F_V_B_FEMALE, Subspecies.DEMON, RaceStage.GREATER, new CharacterInventory(10), WorldType.IMP_FORTRESS_FEMALES, PlaceType.FORTRESS_FEMALES_KEEP, true);
-		
+
 		if(!isImported || Main.isVersionOlderThan(Game.loadingVersion, "0.2.11.5")) {
 			this.setPlayerKnowsName(false);
 		}
@@ -99,31 +99,31 @@ public class FortressFemalesLeader extends NPC {
 			equipClothing(true, true, true, true);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
-		
+
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 30);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 30);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-			
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MUGGER);
 
 			this.clearFetishes();
 			this.clearFetishDesires();
-			
+
 			this.addFetish(Fetish.FETISH_BIMBO);
 			this.addFetish(Fetish.FETISH_DOMINANT);
 			this.addFetish(Fetish.FETISH_BREASTS_SELF);
@@ -131,31 +131,31 @@ public class FortressFemalesLeader extends NPC {
 			this.addFetish(Fetish.FETISH_VAGINAL_GIVING);
 			this.addFetish(Fetish.FETISH_ANAL_GIVING);
 		}
-		
+
 		// Body:
 		this.setAgeAppearanceDifferenceToAppearAsAge(18);
 		this.setTailType(TailType.DEMON_COMMON);
 		this.setWingType(WingType.DEMON_COMMON);
 		this.setLegType(LegType.DEMON_COMMON);
 		this.setHornType(HornType.SWEPT_BACK);
-		
+
 		// Core:
 		this.setHeight(168);
 		this.setFemininity(85);
 		this.setMuscle(Muscle.TWO_TONED.getMedianValue());
 		this.setBodySize(BodySize.ONE_SLENDER.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_BLUE));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.COVERING_PURPLE_LIGHT), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_GREY), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLONDE), true);
 		this.setHairLength(HairLength.FOUR_MID_BACK.getMedianValue());
 		this.setHairStyle(HairStyle.WAVY);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLONDE), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
 		this.setAssHair(BodyHair.ZERO_NONE);
@@ -168,7 +168,7 @@ public class FortressFemalesLeader extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_PINK));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK_LIGHT));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.FOUR_HUGE);
@@ -176,7 +176,7 @@ public class FortressFemalesLeader extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.H.getMeasurement());
@@ -184,17 +184,17 @@ public class FortressFemalesLeader extends NPC {
 		this.setNippleSize(NippleSize.THREE_LARGE);
 		this.setAreolaeSize(AreolaeSize.THREE_LARGE);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(true);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FOUR_WOMANLY);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		// n/a
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -204,35 +204,35 @@ public class FortressFemalesLeader extends NPC {
 		this.setVaginaWetness(Wetness.SEVEN_DROOLING);
 		this.setVaginaElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_TUBE_TOP, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_MICRO_SKIRT_PLEATED, Color.CLOTHING_PINK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_LACY_PANTIES, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_FISHNET_STOCKINGS, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_FISHNET_GLOVES, Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Color.CLOTHING_PINK, false), true, this);
-		
+
 		if(addAccessories) {
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Color.CLOTHING_GOLD, false), true, this);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Color.CLOTHING_GOLD, false), true, this);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.ANKLE_BRACELET, Color.CLOTHING_GOLD, false), true, this);
-			
+
 			this.setPiercedEar(true);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Color.CLOTHING_GOLD, false), true, this);
 			this.setPiercedNose(true);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, Color.CLOTHING_GOLD, false), true, this);
 		}
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
@@ -247,16 +247,16 @@ public class FortressFemalesLeader extends NPC {
 			return (UtilText.parse(this, description));
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	public void equipStrapon() {
 		try {
 			if(this.getClothingInSlot(InventorySlot.GROIN)!=null) {
@@ -270,9 +270,9 @@ public class FortressFemalesLeader extends NPC {
 
 	public boolean isAbleToEquipButtPlug(GameCharacter target) {
 		AbstractClothing buttPlug = AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_buttPlugs_butt_plug_heart"), Color.CLOTHING_SILVER, Color.CLOTHING_PINK_LIGHT, Color.CLOTHING_PINK_LIGHT, null);
-		return target.isAbleToEquip(buttPlug, true, this) && (target.getClothingInSlot(InventorySlot.ANUS)==null || !target.getClothingInSlot(InventorySlot.ANUS).getName().contains(UtilText.parse(this,"[npc.Name]")));	
+		return target.isAbleToEquip(buttPlug, true, this) && (target.getClothingInSlot(InventorySlot.ANUS)==null || !target.getClothingInSlot(InventorySlot.ANUS).getName().contains(UtilText.parse(this,"[npc.Name]")));
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(this.getClothingInSlot(InventorySlot.PENIS)!=null) {
@@ -282,7 +282,7 @@ public class FortressFemalesLeader extends NPC {
 			}
 			this.replaceAllClothing();
 		}
-		
+
 		if(Sex.getPostSexDialogue().equals(ImpFortressDialogue.KEEP_AFTER_SEX_DEFEAT)) {
 			if(ImpFortressDialogue.getMainCompanion()!=null && Sex.getAllParticipants().contains(ImpFortressDialogue.getMainCompanion())) {
 				Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/fortress"+ImpFortressDialogue.getDialogueEncounterId(), "KEEP_AFTER_SEX_DEFEAT_WITH_COMPANION", ImpFortressDialogue.getAllCharacters()));
@@ -295,32 +295,32 @@ public class FortressFemalesLeader extends NPC {
 			Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_FEMALES);
 		}
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	// Combat:
-	
+
 	@Override
 	public int getEscapeChance() {
 		return 0;
 	}
 
 	public Attack attackType() {
-		
+
 		Map<Attack, Integer> attackWeightingMap = new HashMap<>();
 		boolean canCastASpecialAttack = !getSpecialAttacksAbleToUse().isEmpty();
 
 		attackWeightingMap.put(Attack.SEDUCTION, 100);
 		attackWeightingMap.put(Attack.SPECIAL_ATTACK, canCastASpecialAttack?25:0);
-		
+
 		int total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
 			total+=entry.getValue();
 		}
-		
+
 		int index = Util.random.nextInt(total);
 		total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
@@ -329,7 +329,7 @@ public class FortressFemalesLeader extends NPC {
 				return entry.getKey();
 			}
 		}
-		
+
 		return Attack.SEDUCTION;
 	}
 
@@ -343,11 +343,11 @@ public class FortressFemalesLeader extends NPC {
 						Main.game.getTextEndStringBuilder().append(
 								UtilText.parseFromXMLFile("places/submission/fortress"+ImpFortressDialogue.getDialogueEncounterId(), "KEEP_AFTER_COMBAT_VICTORY_KEY", ImpFortressDialogue.getAllCharacters()));
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(AbstractItemType.generateItem(ItemType.IMP_FORTRESS_ARCANE_KEY_3), false));
-						
+
 					} else if(!ImpFortressDialogue.isDarkSirenDefeated()) {
 						Main.game.getTextEndStringBuilder().append(
 								UtilText.parseFromXMLFile("places/submission/fortress"+ImpFortressDialogue.getDialogueEncounterId(), "KEEP_AFTER_COMBAT_VICTORY", ImpFortressDialogue.getAllCharacters()));
-						
+
 					} else {
 						Main.game.getTextEndStringBuilder().append(
 								UtilText.parseFromXMLFile("places/submission/fortress"+ImpFortressDialogue.getDialogueEncounterId(), "KEEP_AFTER_COMBAT_VICTORY_DS_DEFEATED", ImpFortressDialogue.getAllCharacters()));

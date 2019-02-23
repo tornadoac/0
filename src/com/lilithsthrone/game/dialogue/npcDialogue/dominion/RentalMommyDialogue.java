@@ -20,9 +20,9 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class RentalMommyDialogue {
-	
+
 	public static final DialogueNode ENCOUNTER = new DialogueNode("Rental Mommy", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.mommyFound)) {
@@ -45,7 +45,7 @@ public class RentalMommyDialogue {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.mommyFound, true);
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Decline", "", ENCOUNTER) {
 					@Override
@@ -59,23 +59,23 @@ public class RentalMommyDialogue {
 					}
 				};
 			}
-			
+
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode MOMMYS_EXTRAS = new DialogueNode("Rental Mommy", "", true, true) {
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMYS_EXTRAS"));
-			
+
 			if(Main.getProperties().hasValue(PropertyValue.lactationContent)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMYS_EXTRAS_OFFER_BREASTFEEDING"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -106,7 +106,7 @@ public class RentalMommyDialogue {
 						Main.game.getPlayer().incrementMoney(-1000);
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().getMoney()<2000) {
 					return new Response("Dominant Sex "+UtilText.formatAsMoneyUncolored(2000, "span"), "You don't have enough money for this!", null);
@@ -132,7 +132,7 @@ public class RentalMommyDialogue {
 						Main.game.getPlayer().incrementMoney(-2000);
 					}
 				};
-				
+
 			} else if(index==3) {
 				if(Main.game.getPlayer().getMoney()<500) {
 					return new Response("Breastfeeding "+UtilText.formatAsMoneyUncolored(500, "span"), "You don't have enough money for this!", null);
@@ -149,7 +149,7 @@ public class RentalMommyDialogue {
 						Main.game.getPlayer().ingestFluid(Main.game.getActiveNPC(), Main.game.getActiveNPC().getMilk(), SexAreaOrifice.MOUTH, 500);
 					}
 				};
-				
+
 			} else if(index==4) {
 				if(Main.game.getPlayer().getMoney()<1000) {
 					return new Response("Public Breastfeeding "+UtilText.formatAsMoneyUncolored(1000, "span"), "You don't have enough money for this!", null);
@@ -168,7 +168,7 @@ public class RentalMommyDialogue {
 						Main.game.getPlayer().ingestFluid(Main.game.getActiveNPC(), Main.game.getActiveNPC().getMilk(), SexAreaOrifice.MOUTH, 500);
 					}
 				};
-				
+
 			} else if(index==5) {
 				return new Response("Decline", "Decline Mommy's extra offers, and take your leave.", ENCOUNTER) {
 					@Override
@@ -181,11 +181,11 @@ public class RentalMommyDialogue {
 					}
 				};
 			}
-			
+
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode MOMMYS_EXTRAS_BREASTFEEDING = new DialogueNode("Rental Mommy", "", true, true) {
 
 		@Override
@@ -193,11 +193,11 @@ public class RentalMommyDialogue {
 			UtilText.nodeContentSB.setLength(0);
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY_BREASTFEEDING"));
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_HOUSE_ENTRY"));
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMYS_EXTRAS_BREASTFEEDING"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -215,15 +215,15 @@ public class RentalMommyDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MOMMYS_EXTRAS_BREASTFEEDING_PUBLIC = new DialogueNode("Rental Mommy", "", true, true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMYS_EXTRAS_BREASTFEEDING_PUBLIC"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -241,22 +241,22 @@ public class RentalMommyDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_MOMMY_AS_DOM = new DialogueNode("Rental Mommy", "", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_ORGASMED"));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_NO_ORGASM"));
 			}
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "AFTER_SEX_MOMMY_AS_DOM_END"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -274,22 +274,22 @@ public class RentalMommyDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_MOMMY_AS_SUB = new DialogueNode("Rental Mommy", "", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_ORGASMED"));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "MOMMY_NO_ORGASM"));
 			}
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/rentalMommy", "AFTER_SEX_MOMMY_AS_SUB_END"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 

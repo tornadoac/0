@@ -24,7 +24,7 @@ public enum FurryPreference {
 			return disabled?SVGImages.SVG_IMAGE_PROVIDER.getScaleZeroDisabled():SVGImages.SVG_IMAGE_PROVIDER.getScaleZero();
 		}
 	},
-	
+
 	/**NPCs will spawn with furry ears and eyes, and where applicable, furry tails, horns, antenna, and wings. They will <b>not</b> spawn with furry breasts or genitalia.*/
 	MINIMUM("Minimum", "--") {
 		@Override
@@ -42,7 +42,7 @@ public enum FurryPreference {
 			return disabled?SVGImages.SVG_IMAGE_PROVIDER.getScaleOneDisabled():SVGImages.SVG_IMAGE_PROVIDER.getScaleOne();
 		}
 	},
-	
+
 	/**NPCs will spawn with all of the furry parts that the 'Minimum' setting enables (ears, eyes, tails, horns, antenna, and wings). They also have the chance to spawn with furry breasts, genitalia, arms, and legs.*/
 	REDUCED("Lesser", "-") {
 		@Override
@@ -62,7 +62,7 @@ public enum FurryPreference {
 			return disabled?SVGImages.SVG_IMAGE_PROVIDER.getScaleTwoDisabled():SVGImages.SVG_IMAGE_PROVIDER.getScaleTwo();
 		}
 	},
-	
+
 	/**NPCs will spawn with all of the furry parts that the 'Minimum' setting enables (ears, eyes, tails, horns, antenna, and wings). They also have the chance to spawn with furry breasts, genitalia, arms, legs, skin/fur, and faces.*/
 	NORMAL("Greater", "+") {
 		@Override
@@ -82,7 +82,7 @@ public enum FurryPreference {
 			return disabled?SVGImages.SVG_IMAGE_PROVIDER.getScaleThreeDisabled():SVGImages.SVG_IMAGE_PROVIDER.getScaleThree();
 		}
 	},
-	
+
 	/**NPCs will <b>always</b> spawn with as many furry parts as is possible (ears, eyes, tails, horns, antenna, wings, breasts, genitalia, arms, legs, skin/fur, and face).*/
 	MAXIMUM("Maximum", "++") {
 		@Override
@@ -100,21 +100,21 @@ public enum FurryPreference {
 			return disabled?SVGImages.SVG_IMAGE_PROVIDER.getScaleFourDisabled():SVGImages.SVG_IMAGE_PROVIDER.getScaleFour();
 		}
 	};
-	
+
 	private String name;
 	private String buttonText;
-	
+
 	private FurryPreference(String name, String buttonText) {
 		this.name = name;
 		this.buttonText = buttonText;
 	}
 
 	public abstract String getSVGImage(boolean disabled);
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getButtonText() {
 		return buttonText;
 	}

@@ -12,13 +12,13 @@ import com.lilithsthrone.rendering.RenderingEngine;
  * @author Innoxia
  */
 public class GiftDialogue {
-	
+
 	private static GameCharacter receiver;
 	private static DialogueNode dialogueToReturnTo;
 	private static int returnDialogueTab;
 	private static DialogueNode dialogueToProceedTo;
 	private static int proceedDialogueTab;
-	
+
 	/**
 	 * @param receiver The NPC to receive the gift.
 	 * @param dialogueToReturnTo The DialogueNode that should be returned if the player backs out of the gift menu.
@@ -33,10 +33,10 @@ public class GiftDialogue {
 		GiftDialogue.returnDialogueTab = returnDialogueTab;
 		GiftDialogue.dialogueToProceedTo = dialogueToProceedTo;
 		GiftDialogue.proceedDialogueTab = proceedDialogueTab;
-		
+
 		return GIFT_DIALOGUE;
 	}
-	
+
 	public static final DialogueNode GIFT_DIALOGUE = new DialogueNode("Choose Gift", "-", true) {
 
 		@Override
@@ -57,7 +57,7 @@ public class GiftDialogue {
 						Main.game.setResponseTab(returnDialogueTab);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

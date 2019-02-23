@@ -26,30 +26,30 @@ public class EnchantmentEventListener implements EventListener {
 
 	@Override
 	public void handleEvent(Event event) {
-		
+
 		if (itemToEnchant != null) {
 			if(itemToEnchant.getEnchantmentEffect()!=null) {
 				EnchantmentDialogue.resetEnchantmentVariables();
 				EnchantmentDialogue.setIngredient(itemToEnchant);
 			}
-			
+
 		} else if(primaryModifier != null) {
 			EnchantmentDialogue.setPrimaryMod(primaryModifier);
-			
+
 		} else if(secondaryModifier != null) {
 			EnchantmentDialogue.setSecondaryMod(secondaryModifier);
-			
+
 		} else if(potency != null) {
 			EnchantmentDialogue.setPotency(potency);
-			
+
 		} else if(effect) {
 			ItemEffect e = EnchantmentDialogue.getEffects().get(effectIndex);
 			EnchantmentDialogue.removeEffect(e);
-			
+
 		} else if(limit != EnchantmentDialogue.getLimit()) {
 			EnchantmentDialogue.setLimit(limit);
 		}
-		
+
 		if(!EnchantmentDialogue.getIngredient().getEnchantmentEffect().getPrimaryModifiers().contains(EnchantmentDialogue.getPrimaryMod())) {
 			EnchantmentDialogue.setPrimaryMod(EnchantmentDialogue.getIngredient().getEnchantmentEffect().getPrimaryModifiers().get(0));
 		}
@@ -62,7 +62,7 @@ public class EnchantmentEventListener implements EventListener {
 		if(EnchantmentDialogue.getLimit() > EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod())) {
 			EnchantmentDialogue.setLimit(EnchantmentDialogue.getIngredient().getEnchantmentEffect().getLimits(EnchantmentDialogue.getPrimaryMod(), EnchantmentDialogue.getSecondaryMod()));
 		}
-		
+
 		Main.game.setContent(new Response("Enchanting", "Start enchanting.", EnchantmentDialogue.ENCHANTMENT_MENU));
 	}
 
@@ -72,28 +72,28 @@ public class EnchantmentEventListener implements EventListener {
 
 		return this;
 	}
-	
+
 	public EnchantmentEventListener setPrimaryModifier(TFModifier primaryModifier) {
 		resetVariables();
 		this.primaryModifier = primaryModifier;
 
 		return this;
 	}
-	
+
 	public EnchantmentEventListener setSecondaryModifier(TFModifier secondaryModifier) {
 		resetVariables();
 		this.secondaryModifier = secondaryModifier;
 
 		return this;
 	}
-	
+
 	public EnchantmentEventListener setPotency(TFPotency potency) {
 		resetVariables();
 		this.potency = potency;
 
 		return this;
 	}
-	
+
 	public EnchantmentEventListener removeEffect(int effectIndex) {
 		resetVariables();
 		effect = true;
@@ -101,7 +101,7 @@ public class EnchantmentEventListener implements EventListener {
 
 		return this;
 	}
-	
+
 	public EnchantmentEventListener setLimit(int limit) {
 		resetVariables();
 		this.limit = limit;

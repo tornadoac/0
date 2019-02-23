@@ -57,14 +57,14 @@ public enum LustLevel {
 			return StatusEffect.LUST_PERK_4;
 		}
 	},
-	
+
 	FIVE_BURNING("impassioned", 90, 100, 1.5f, Color.LUST_STAGE_FIVE, SexPace.SUB_EAGER, SexPace.DOM_ROUGH) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.LUST_PERK_5;
 		}
 	};
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private float arousalModifier;
@@ -95,11 +95,11 @@ public enum LustLevel {
 	public int getMaximumValue() {
 		return maximumValue;
 	}
-	
+
 	public int getMedianValue() {
 		return (minimumValue + maximumValue) / 2;
 	}
-	
+
 	public float getArousalModifier() {
 		return arousalModifier;
 	}
@@ -125,48 +125,48 @@ public enum LustLevel {
 	public SexPace getSexPaceDominant() {
 		return sexPaceDominant;
 	}
-	
+
 	public SexPace getSexPace(boolean consensual, GameCharacter character) {
 		SexPace pace;
 		if(Sex.isDom(character)) {
 			if((character.hasFetish(Fetish.FETISH_SUBMISSIVE) && !character.hasFetish(Fetish.FETISH_SADIST) && !character.hasFetish(Fetish.FETISH_DOMINANT))
 					|| character.getFetishDesire(Fetish.FETISH_SADIST) == FetishDesire.ZERO_HATE) {
 				pace = SexPace.DOM_GENTLE;
-				
+
 			} else if(character.getFetishDesire(Fetish.FETISH_SADIST) == FetishDesire.ONE_DISLIKE) {
 				pace = SexPace.DOM_NORMAL;
-				
+
 			} else if(character.hasFetish(Fetish.FETISH_SADIST)) {
 				pace = SexPace.DOM_ROUGH;
-				
+
 			} else {
 				pace = getSexPaceDominant();
 			}
-			
+
 		} else {
 			pace = getSexPaceSubmissive();
 			if(character.hasFetish(Fetish.FETISH_NON_CON_SUB) || ((character instanceof NPC) && ((NPC)character).hasFlag(NPCFlagValue.genericNPCBetrayedByPlayer))) {
 				pace = SexPace.SUB_RESISTING;
 			}
 		}
-		
+
 		if(pace==SexPace.SUB_RESISTING && !Main.getProperties().hasValue(PropertyValue.nonConContent)) {
 			pace = SexPace.SUB_NORMAL;
 		}
-		
+
 		if(pace==SexPace.DOM_ROUGH
 				&& ((!character.hasFetish(Fetish.FETISH_DOMINANT) && !character.hasFetish(Fetish.FETISH_SADIST) && !character.hasFetish(Fetish.FETISH_NON_CON_DOM))
 						|| (character.getFetishDesire(Fetish.FETISH_SADIST) == FetishDesire.ONE_DISLIKE
 							|| character.getFetishDesire(Fetish.FETISH_SADIST) == FetishDesire.ZERO_HATE))) {
 			pace = SexPace.DOM_NORMAL;
 		}
-		
+
 		return pace;
 	}
-	
+
 	public List<String> getStatusEffectModifierDescription(boolean consensual, GameCharacter character) {
 		List<String> modifiersList = new ArrayList<>();
-		
+
 		if(Main.game.isInSex()) {
 			switch(this.getSexPace(consensual, character)) {
 				case DOM_GENTLE:
@@ -210,15 +210,15 @@ public enum LustLevel {
 					}
 					break;
 			}
-		
+
 			int gains = (int)(this.getArousalModifier()*100);
 			modifiersList.add((gains>=100?"[style.boldArousal("+gains+"%)]":"[style.boldBad("+gains+"%)]")+" arousal gains");
-			
+
 		}
-		
+
 		return modifiersList;
 	}
-	
+
 	public String getStatusEffectDescription(boolean consensual, GameCharacter character) {
 		StringBuilder sb = new StringBuilder();
 
@@ -315,7 +315,7 @@ public enum LustLevel {
 					}
 					break;
 			}
-			
+
 		} else {
 			switch(this) {
 				case ZERO_COLD:
@@ -338,8 +338,8 @@ public enum LustLevel {
 					break;
 			}
 		}
-		
+
 		return UtilText.parse(character, sb.toString());
-	
+
 	}
 }

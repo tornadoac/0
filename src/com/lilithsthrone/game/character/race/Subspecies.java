@@ -3354,7 +3354,7 @@ public enum Subspecies {
 			List<String> effectsModified = new ArrayList<>(extraEffects);
 
 			int landSpeed = character.getLegConfiguration().getLandSpeedModifier();
-			int waterSpeed =  character.getLegConfiguration().getWaterSpeedModifier();
+			int waterSpeed = character.getLegConfiguration().getWaterSpeedModifier();
 			if(landSpeed!=0) {
 				effectsModified.add((landSpeed<0?"[style.boldExcellent("+landSpeed+"%)]":"[style.boldTerrible(+"+landSpeed+"%)]")+" travel time on land");
 			}

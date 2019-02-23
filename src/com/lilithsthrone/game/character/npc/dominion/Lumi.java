@@ -70,11 +70,11 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Nnxx, Innoxia
  */
 public class Lumi extends NPC {
-	
+
 	public Lumi() {
 		this(false);
 	}
-	
+
 	public Lumi(boolean isImported) {
 		super(isImported, new NameTriplet("Lumi"), "Neve",
 				"Lumi is a semi-feral wolf-girl, who you first met prowling one of Dominion's alleyways.",
@@ -87,7 +87,7 @@ public class Lumi extends NPC {
 				WorldType.EMPTY,
 				PlaceType.GENERIC_EMPTY_TILE,
 				true);
-		
+
 		this.useItem(AbstractItemType.generateItem(ItemType.PROMISCUITY_PILL), this, false);
 
 		this.setPlayerKnowsName(false);
@@ -104,25 +104,25 @@ public class Lumi extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 35);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 6);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 0);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_MUGGER);
-	
+
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
 			this.setFetishDesire(Fetish.FETISH_VAGINAL_RECEIVING, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_BREASTS_SELF, FetishDesire.THREE_LIKE);
@@ -130,15 +130,15 @@ public class Lumi extends NPC {
 			this.setFetishDesire(Fetish.FETISH_ORAL_RECEIVING, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_MASTURBATION, FetishDesire.THREE_LIKE);
 			this.setFetishDesire(Fetish.FETISH_PREGNANCY, FetishDesire.THREE_LIKE);
-			
+
 			this.setFetishDesire(Fetish.FETISH_DOMINANT, FetishDesire.ONE_DISLIKE);
 			this.setFetishDesire(Fetish.FETISH_DENIAL_SELF, FetishDesire.ONE_DISLIKE);
 			this.setFetishDesire(Fetish.FETISH_ANAL_RECEIVING, FetishDesire.ONE_DISLIKE);
-	
+
 			this.setFetishDesire(Fetish.FETISH_NON_CON_SUB, FetishDesire.ZERO_HATE);
 			this.setFetishDesire(Fetish.FETISH_TRANSFORMATION_RECEIVING, FetishDesire.ZERO_HATE);
 		}
-		
+
 		// Body:
 		this.setEarType(EarType.LYCAN);
 		this.setTailType(TailType.LYCAN);
@@ -174,7 +174,7 @@ public class Lumi extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_BLACK));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -182,7 +182,7 @@ public class Lumi extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.B.getMeasurement());
@@ -190,7 +190,7 @@ public class Lumi extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -201,10 +201,10 @@ public class Lumi extends NPC {
 		this.setAssElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(true);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -214,71 +214,71 @@ public class Lumi extends NPC {
 		this.setVaginaWetness(Wetness.THREE_WET);
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
 
 		this.setMoney(0);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_SPORT_SHORTS, Color.CLOTHING_RED, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_CAMITOP_STRAPS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_WRAPS, Color.CLOTHING_RED, false), true, this);
 
 	}
-	
+
 	@Override
 	public void hourlyUpdate() {
 		this.useItem(AbstractItemType.generateItem(ItemType.PROMISCUITY_PILL), this, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public SexPace getSexPaceSubPreference(GameCharacter character){
 		return SexPace.SUB_RESISTING;
 	}
-	
+
 	// Combat:
-	
+
 	@Override
 	public boolean isImmuneToDamageType(DamageType type) {
 		return type==DamageType.LUST;
 	}
-	
+
 	@Override
 	public int getLootMoney() {
 		return 0;
 	}
-	
+
 	@Override
 	public List<AbstractCoreItem> getLootItems() {
 		return new ArrayList<>();
 	}
-	
+
 	@Override
 	public Attack attackType() {
 		return Attack.MAIN;
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean playerVictory) {
 		if(playerVictory) {

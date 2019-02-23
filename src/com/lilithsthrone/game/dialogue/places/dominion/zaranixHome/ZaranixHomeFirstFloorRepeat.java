@@ -47,9 +47,9 @@ public class ZaranixHomeFirstFloorRepeat {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "STAIRS"));
-			
+
 			if(Main.game.getCharactersPresent().contains(Main.game.getNpc(ZaranixMaidKelly.class))) {
 				if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.kellyRepeatEncountered)) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "KELLY_PRESENT"));
@@ -57,7 +57,7 @@ public class ZaranixHomeFirstFloorRepeat {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "KELLY_PRESENT_REPEAT"));
 				}
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -67,7 +67,7 @@ public class ZaranixHomeFirstFloorRepeat {
 				if (index == 1) {
 					if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.kellyRepeatEncountered)) {
 						return new Response("Downstairs", "You need to respond to Kelly first!", null);
-						
+
 					} else {
 						return new Response("Downstairs", "Head downstairs to the ground floor of Zaranix's house.", PlaceType.ZARANIX_GF_STAIRS.getDialogue(false)) {
 							@Override
@@ -76,7 +76,7 @@ public class ZaranixHomeFirstFloorRepeat {
 							}
 						};
 					}
-	
+
 				} else if(Main.game.getCharactersPresent().contains(Main.game.getNpc(ZaranixMaidKelly.class))) {
 					if(index==2) {
 						return new ResponseSex("Sex", "Have some fun with Kelly.",
@@ -91,7 +91,7 @@ public class ZaranixHomeFirstFloorRepeat {
 								Main.game.getDialogueFlags().setFlag(DialogueFlagValue.kellyRepeatEncountered, true);
 							}
 						};
-						
+
 					} else if(index==3) {
 						return new ResponseSex("Submit",
 								"You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with Kelly. Perhaps if you submitted, [kelly.she]'d be willing to fuck you?",
@@ -107,7 +107,7 @@ public class ZaranixHomeFirstFloorRepeat {
 								Main.game.getDialogueFlags().setFlag(DialogueFlagValue.kellyRepeatEncountered, true);
 							}
 						};
-						
+
 					} else if (index == 4) {
 						return new Response("Transformations",
 								"Get Kelly to use [kelly.her] demonic powers to transform [kelly.herself]...",
@@ -118,7 +118,7 @@ public class ZaranixHomeFirstFloorRepeat {
 								BodyChanging.setTarget(Main.game.getNpc(ZaranixMaidKelly.class));
 							}
 						};
-						
+
 					} else if(index == 5 && !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.kellyRepeatEncountered)) {
 						return new Response("Decline",
 								"Say no to the horny demon and continue on your way.",
@@ -129,7 +129,7 @@ public class ZaranixHomeFirstFloorRepeat {
 								Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "KELLY_SEX_DECLINED"));
 							}
 						};
-						
+
 					} else {
 						return null;
 					}
@@ -150,7 +150,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CORRIDOR = new DialogueNode("", "", false) {
 
 		@Override
@@ -171,7 +171,7 @@ public class ZaranixHomeFirstFloorRepeat {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "CORRIDOR"));
 
 			if(Main.game.getCharactersPresent().contains(Main.game.getNpc(ZaranixMaidKelly.class))) {
@@ -181,7 +181,7 @@ public class ZaranixHomeFirstFloorRepeat {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "KELLY_PRESENT_REPEAT"));
 				}
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -201,7 +201,7 @@ public class ZaranixHomeFirstFloorRepeat {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.kellyRepeatEncountered, true);
 						}
 					};
-					
+
 				} else if(index==2) {
 					return new ResponseSex("Submit",
 							"You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with Kelly. Perhaps if you submitted, [kelly.she]'d be willing to fuck you?",
@@ -217,7 +217,7 @@ public class ZaranixHomeFirstFloorRepeat {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.kellyRepeatEncountered, true);
 						}
 					};
-					
+
 				} else if (index == 3) {
 					return new Response("Transformations",
 							"Get Kelly to use [kelly.her] demonic powers to transform [kelly.herself]...",
@@ -228,7 +228,7 @@ public class ZaranixHomeFirstFloorRepeat {
 							BodyChanging.setTarget(Main.game.getNpc(ZaranixMaidKelly.class));
 						}
 					};
-					
+
 				} else if(index == 4 && !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.kellyRepeatEncountered)) {
 					return new Response("Decline",
 							"Say no to the horny demon and continue on your way.",
@@ -238,7 +238,7 @@ public class ZaranixHomeFirstFloorRepeat {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.kellyRepeatEncountered, true);
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -247,7 +247,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode KELLY_DECLINE = new DialogueNode("", "", false, true) {
 
 		@Override
@@ -275,7 +275,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_KELLY_SEX = new DialogueNode("", "Kelly lets out a deep sigh as she steps back.", false) {
 
 		@Override
@@ -292,7 +292,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "AFTER_KELLY_SEX"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -311,7 +311,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode ROOM = new DialogueNode("", "", false) {
 
 		@Override
@@ -334,7 +334,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM = new DialogueNode("", "", false) {
 
 		@Override
@@ -356,7 +356,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_EXIT = new DialogueNode("", "", false) {
 
 		@Override
@@ -378,7 +378,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_ENTER = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -412,7 +412,7 @@ public class ZaranixHomeFirstFloorRepeat {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixRepeatEncountered, true);
 					}
 				};
-				
+
 			} else if(index == 1) {
 				return new Response("Maids", "Ask Zaranix about his maids.", ZARANIX_ROOM_MAIDS) {
 					@Override
@@ -420,7 +420,7 @@ public class ZaranixHomeFirstFloorRepeat {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixRepeatEncountered, true);
 					}
 				};
-				
+
 			} else if(index == 2) {
 				return new Response("Experiments", "Ask Zaranix about the experiments he's running, and what he was having Arthur work on.", ZARANIX_ROOM_EXPERIMENTS) {
 					@Override
@@ -428,7 +428,7 @@ public class ZaranixHomeFirstFloorRepeat {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixRepeatEncountered, true);
 					}
 				};
-				
+
 			} else if(index == 3) {
 				return new Response("Incubus form", "Ask Zaranix about his incubus form. After all, most demons that you've seen choose to stay as females.", ZARANIX_ROOM_INCUBUS_FORM) {
 					@Override
@@ -436,7 +436,7 @@ public class ZaranixHomeFirstFloorRepeat {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixRepeatEncountered, true);
 					}
 				};
-				
+
 			} else if(index == 4) {
 				return new ResponseSex("Offer blowjob", "Ask Zaranix if he'd like a blowjob as way of thanks for letting you have Arthur.",
 						true, true,
@@ -445,13 +445,13 @@ public class ZaranixHomeFirstFloorRepeat {
 								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_KNEELING))),
 						null,
 						null, AFTER_SEX_ZARANIX_BLOWJOB, UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "ZARANIX_ROOM_BLOWJOB"));
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_MAIDS = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -473,7 +473,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_EXPERIMENTS = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -495,7 +495,7 @@ public class ZaranixHomeFirstFloorRepeat {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_INCUBUS_FORM = new DialogueNode("", "", true, true) {
 
 		@Override

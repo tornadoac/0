@@ -72,20 +72,20 @@ public class Zaranix extends NPC {
 	public Zaranix() {
 		this(false);
 	}
-	
+
 	public Zaranix(boolean isImported) {
 		super(isImported, new NameTriplet("Zaranix", "Zaranix", "Zoelix"), "Lyniximartu",
 				"Zaranix is one of the few demons that feels more comfortable in his incubus, rather than succubus, form."
 						+ " Muscular, tall, and handsome, Zaranix uses both his cunning mind and good looks to get what he wants.",
 				47, Month.JULY, 3,
 				15, Gender.M_P_MALE, Subspecies.DEMON, RaceStage.GREATER, new CharacterInventory(10), WorldType.ZARANIX_HOUSE_FIRST_FLOOR, PlaceType.ZARANIX_FF_OFFICE, true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -96,28 +96,28 @@ public class Zaranix extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 40);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 40);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 90);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_ARCANE_RESEARCHER);
-	
+
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 		}
-		
+
 		// Body
 		// Add full body reset as this method is called after leaving Zaranix's house:
 		this.setAgeAppearanceDifferenceToAppearAsAge(32);
@@ -133,7 +133,7 @@ public class Zaranix extends NPC {
 		this.setFemininity(15);
 		this.setMuscle(Muscle.FOUR_RIPPED.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_ORANGE));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_PURPLE), true);
@@ -154,19 +154,19 @@ public class Zaranix extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		// Leave as default
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		// Leave as default
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		// Leave as default
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.THREE_THICK);
@@ -175,21 +175,21 @@ public class Zaranix extends NPC {
 		this.setPenisCumStorage(550);
 		this.fillCumToMaxStorage();
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
 
 		this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_EPIC, DamageType.PHYSICAL));
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TROUSERS, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OXFORD_SHIRT, Color.CLOTHING_GREY, false), true, this);
@@ -197,12 +197,12 @@ public class Zaranix extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Color.CLOTHING_BLACK, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		if(this.isFeminine()) {
@@ -211,25 +211,25 @@ public class Zaranix extends NPC {
 			return "#42C6FF";
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public void endSex() {
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 
 	// Combat:
 
@@ -239,7 +239,7 @@ public class Zaranix extends NPC {
 				+ UtilText.returnStringAtRandom(
 						"With a booming shout, Zaranix delivers a solid kick to your torso!",
 						"With an angry roar, Zaranix punches you square in the chest!",
-						"Zaranix lets out a furious shout as he punches you in the [pc.arm]!") 
+						"Zaranix lets out a furious shout as he punches you in the [pc.arm]!")
 			+ "</p>";
 	}
 
@@ -248,10 +248,10 @@ public class Zaranix extends NPC {
 		return "<p>"
 				+ UtilText.returnStringAtRandom(
 						"Letting out a booming roar, Zaranix thrusts his arm into the air and casts a spell!",
-						"Zaranix steps back, and with an angry shout, casts a spell!") 
+						"Zaranix steps back, and with an angry shout, casts a spell!")
 			+ "</p>";
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
@@ -259,7 +259,7 @@ public class Zaranix extends NPC {
 				@Override
 				public void effects() {
 					Main.game.getNpc(Arthur.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
-					
+
 					if(Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_1_H_THE_GREAT_ESCAPE) {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_I_ARTHURS_TALE));
 					}
@@ -269,7 +269,7 @@ public class Zaranix extends NPC {
 			return new Response("Defeat", "You have been defeated...", AFTER_COMBAT_DEFEAT);
 		}
 	}
-	
+
 	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
@@ -330,7 +330,7 @@ public class Zaranix extends NPC {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME, false);
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new ResponseSex("Use Zaranix", "Have some fun with this incubus.",
 						true, false,
@@ -351,7 +351,7 @@ public class Zaranix extends NPC {
 						+ "<p>"
 							+ "Grinning down at [zaranix.name], you prepare to have some fun..."
 						+ "</p>");
-				
+
 			} else if(index==3) {
 				return new ResponseSex("Submit",
 						"Allow Zaranix to fuck you.",
@@ -373,7 +373,7 @@ public class Zaranix extends NPC {
 							+ " You can tell by the hungry look in [zaranix.her] eyes that your arcane aura is filling [zaranix.her] mind with lust, and, to confirm your suspicions, the [zaranix.race] leans forwards, before [zaranix.moaning],"
 							+ " [zaranix.speech(There is one thing you can do... I want to hear you call out my name as I fuck you!)]"
 						+ "</p>");
-				
+
 			} else if (index == 4) {
 				return new Response("Transformations",
 						"Get Zaranix to use [zaranix.her] demonic powers to transform [zaranix.herself]...",
@@ -384,13 +384,13 @@ public class Zaranix extends NPC {
 						BodyChanging.setTarget(Main.game.getNpc(Zaranix.class));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Continue", "", true) {
 
 		@Override
@@ -402,7 +402,7 @@ public class Zaranix extends NPC {
 							+ "[npc.Name] steps back and sinks down into a nearby chair, a happy smile on [npc.her] face as [npc.she] gazes up at you,"
 							+ " [npc.speech(That was fun... I guess losing Arthur for that wasn't too bad a deal...)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -410,14 +410,14 @@ public class Zaranix extends NPC {
 							+ " [npc.speech(Ah! I didn't even get to orgasm...)]"
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Smirking down at the [npc.race] one last time, you turn around and take your leave."
 						+ " Retracing your steps through [npc.her] house, you soon find yourself back out in the streets of Demon Home."
 						+ " Now that Arthur's been rescued, you realize that you should probably head over to Lilaya's house to find out what your next step will be."
 					+ "</p>");
-			
+
 			return UtilText.parse(Main.game.getNpc(Zaranix.class), UtilText.nodeContentSB.toString());
 		}
 
@@ -430,13 +430,13 @@ public class Zaranix extends NPC {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_DEFEAT = new DialogueNode("Defeated", "", true) {
 
 		@Override
@@ -471,7 +471,7 @@ public class Zaranix extends NPC {
 				} else {
 					return new Response("Spit", "Spit out the potion.", AFTER_COMBAT_DEFEAT_SPIT);
 				}
-				
+
 			} else if(index==2) {
 				return new Response("Swallow", "Swallow the potion.", AFTER_COMBAT_DEFEAT_SWALLOW) {
 					@Override
@@ -492,13 +492,13 @@ public class Zaranix extends NPC {
 								+ "</p>");
 					}
 				};
-			
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_DEFEAT_SPIT = new DialogueNode("Defeated", "", true, true) {
 
 		@Override
@@ -536,7 +536,7 @@ public class Zaranix extends NPC {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_DEFEAT_SWALLOW = new DialogueNode("Defeated", "", true, true) {
 
 		@Override
@@ -593,7 +593,7 @@ public class Zaranix extends NPC {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Used", "", true) {
 
 		@Override
@@ -621,13 +621,13 @@ public class Zaranix extends NPC {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	// Sex:
 
 	@Override
@@ -635,7 +635,7 @@ public class Zaranix extends NPC {
 		if(Sex.getSexPositionSlot(Main.game.getNpc(Zaranix.class))==SexSlotBipeds.KNEELING_RECEIVING_ORAL && this.hasPenis()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.MOUTH);
 		}
-		
+
 		return super.getForeplayPreference(target);
 	}
 

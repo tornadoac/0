@@ -17,10 +17,10 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
  */
 public enum AntennaType implements BodyPartTypeInterface {
 	NONE("", null, null);
-	
+
 	private BodyCoveringType skinType;
 	private Race race;
-	
+
 	private AntennaType(String descriptor, BodyCoveringType skinType, Race race) {
 		this.skinType = skinType;
 		this.race = race;
@@ -42,7 +42,7 @@ public enum AntennaType implements BodyPartTypeInterface {
 	public boolean isDefaultPlural() {
 		return true;
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		switch(this){
@@ -50,7 +50,7 @@ public enum AntennaType implements BodyPartTypeInterface {
 				return UtilText.returnStringAtRandom("antenna");
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(this){
@@ -78,7 +78,7 @@ public enum AntennaType implements BodyPartTypeInterface {
 	public Race getRace() {
 		return race;
 	}
-	
+
 	@Override
 	public String getTransformName() {
 		switch(this){
@@ -87,13 +87,13 @@ public enum AntennaType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	private static Map<Race, List<AntennaType>> typesMap = new HashMap<>();
 	public static List<AntennaType> getAntennaTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<AntennaType> types = new ArrayList<>();
 		for(AntennaType type : AntennaType.values()) {
 			if(type.getRace()==r) {

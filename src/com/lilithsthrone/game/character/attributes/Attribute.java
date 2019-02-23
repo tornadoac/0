@@ -95,7 +95,7 @@ public enum Attribute {
 								"How aroused [npc.name] is. [npc.She] will orgasm when [npc.her] arousal maxes out.");
 				}
 			},
-	
+
 	LUST(0,
 			0,
 			100,
@@ -173,7 +173,7 @@ public enum Attribute {
 							}
 						}
 					},
-	
+
 	// Miscellaneous attributes:
 
 	FERTILITY(10, -100, 100, "fertility", "Fertility", "shieldIcon", Color.GENERIC_SEX, "fertility", "infertility", null) {
@@ -182,14 +182,14 @@ public enum Attribute {
 			return "Increases the likelihood of becoming pregnant.";
 		}
 	},
-	
+
 	VIRILITY(10, -100, 100, "virility", "Virility", "shieldIcon", Color.GENERIC_SEX, "virility", "sterility", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases the likelihood of impregnating someone.";
 		}
 	},
-	
+
 	SPELL_COST_MODIFIER(0, 0, 100, "spell efficiency", "Spell efficiency", "shieldIcon", Color.ATTRIBUTE_MANA, "proficiency", "incompetence", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -211,7 +211,7 @@ public enum Attribute {
 			return "Each point gives 1% extra critical hit damage.";
 		}
 	},
-	
+
 	DODGE_CHANCE(0, 0, 100, "dodge chance", "Dodge chance", "shieldIcon", Color.GENERIC_EXCELLENT, "evasion", "sluggishness", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -233,28 +233,28 @@ public enum Attribute {
 			return "Reduces physical damage taken.";
 		}
 	},
-	
+
 	RESISTANCE_LUST(0, -100, 100, "lust resistance", "Lust resist", "shieldIcon", Color.GENERIC_SEX, "chastity", "temptation", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Reduces lust damage taken.";
 		}
 	},
-	
+
 	RESISTANCE_FIRE(0, -100, 100, "fire resistance", "Fire resist", "shieldIcon", Color.DAMAGE_TYPE_FIRE, "extinguishing", "flammability", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Reduces fire damage taken.";
 		}
 	},
-	
+
 	RESISTANCE_ICE(0, -100, 100, "cold resistance", "Cold resist", "shieldIcon", Color.DAMAGE_TYPE_COLD, "warmth", "frostbite", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Reduces cold damage taken.";
 		}
 	},
-	
+
 	RESISTANCE_POISON(0, -100, 100, "poison resistance", "Poison resist", "shieldIcon", Color.DAMAGE_TYPE_POISON, "anti-venom", "sickness", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -270,21 +270,21 @@ public enum Attribute {
 			return "Increases damage dealt from unarmed attacks, including special attacks obtained from non-human bodyparts.";
 		}
 	},
-	
+
 	DAMAGE_MELEE_WEAPON(0, -100, 100, "melee weapon damage", "Melee Weapon damage", "swordIcon", Color.ATTRIBUTE_HEALTH, "melee mastery", "melee incompetence", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases damage dealt from attacks by melee weapons.";
 		}
 	},
-	
+
 	DAMAGE_RANGED_WEAPON(0, -100, 100, "ranged weapon damage", "Ranged weapon damage", "swordIcon", Color.ATTRIBUTE_HEALTH, "ranged mastery", "ranged incompetence", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases damage dealt from attacks by ranged weapons.";
 		}
 	},
-	
+
 	DAMAGE_SPELLS(0, -100, 100, "spell damage", "Spell damage", "swordIcon", Color.ATTRIBUTE_MANA, "arcane power", "arcane dulling", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -298,37 +298,37 @@ public enum Attribute {
 			return "Increases physical damage.";
 		}
 	},
-	
+
 	DAMAGE_LUST(0, -100, 100, "lust damage", "Lust damage", "swordIcon", Color.GENERIC_SEX, "seduction", "repulsion", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases lust damage.";
 		}
 	},
-	
+
 	DAMAGE_FIRE(0, -100, 100, "fire damage", "Fire damage", "swordIcon", Color.DAMAGE_TYPE_FIRE, "inferno", "dying embers", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases fire damage.";
 		}
 	},
-	
+
 	DAMAGE_ICE(0, -100, 100, "cold damage", "Cold damage", "swordIcon", Color.DAMAGE_TYPE_COLD, "blizzard", "slush", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases cold damage.";
 		}
 	},
-	
+
 	DAMAGE_POISON(0, -100, 100, "poison damage", "Poison damage", "swordIcon", Color.DAMAGE_TYPE_POISON, "venom", "dilution", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return "Increases poison damage.";
 		}
 	},
-	
+
 	// Racial:
-	
+
 	DAMAGE_ANGEL(0, -100, 100, "angelic damage", "Angelic damage", "swordIcon", Color.RACE_ANGEL, "angelic-obliteration", "angelic-mercy", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -443,7 +443,7 @@ public enum Attribute {
 			return "Increases damage vs elementals.";
 		}
 	},
-	
+
 	RESISTANCE_ANGEL(0, -100, 100, "angelic resistance", "Angelic resistance", "shieldIcon", Color.RACE_ANGEL, "angelic-immunity", "angelic-vulnerability", null) {
 		@Override
 		public String getDescription(GameCharacter owner) {
@@ -561,8 +561,8 @@ public enum Attribute {
 	;
 
 	private int baseValue;
-	private	int lowerLimit;
-	private	int upperLimit;
+	private int lowerLimit;
+	private int upperLimit;
 	private String name;
 	private String nameAbbreviation;
 	private String positiveEnchantment;
@@ -601,7 +601,7 @@ public enum Attribute {
 			String pathName,
 			Color color,
 			String positiveEnchantment, String negativeEnchantment, List<String> extraEffects) {
-		
+
 		this.baseValue = baseValue;
 		this.lowerLimit = lowerLimit;
 		this.upperLimit = upperLimit;
@@ -627,7 +627,7 @@ public enum Attribute {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static Attribute[] getCoreAttributes() {
 		return new Attribute[] { MAJOR_PHYSIQUE, MAJOR_ARCANE, MAJOR_CORRUPTION };
 	}
@@ -644,10 +644,10 @@ public enum Attribute {
 				attributeId = "MAJOR_PHYSIQUE";
 			}
 		}
-		
+
 		return Attribute.valueOf(attributeId);
 	}
-	
+
 	public int getBaseValue() {
 		return baseValue;
 	}
@@ -655,7 +655,7 @@ public enum Attribute {
 	public int getLowerLimit() {
 		return lowerLimit;
 	}
-	
+
 	public int getUpperLimit() {
 		return upperLimit;
 	}
@@ -663,7 +663,7 @@ public enum Attribute {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getColoredName(String tag) {
 		return "<"+tag+" style='color:"+this.getColor().toWebHexString()+";'>"+name+"</"+tag+">";
 	}
@@ -682,7 +682,7 @@ public enum Attribute {
 		if(target==null) {
 			return "";
 		}
-		
+
 		if (value > 0) {
 			return UtilText.parse(target,
 					"<p style='text-align:center;'>"
@@ -694,7 +694,7 @@ public enum Attribute {
 					"<p style='text-align:center;'>"
 						+ "[npc.Name] [npc.verb(lose)] <b>" + value + "</b> <b style='color:" + this.getColor().toWebHexString() + ";'>" + this.getName() + "</b>!"
 					+ "</p>");
-			
+
 
 		} else {
 			return UtilText.parse(target,
@@ -702,7 +702,7 @@ public enum Attribute {
 						+ "[npc.NamePos] <b style='color:" + this.getColor().toWebHexString() + ";'>" + this.getName() + "</b> remains unchanged..."
 					+ "</p>");
 		}
-		
+
 	}
 
 	private StringBuilder descriptionSB = new StringBuilder();

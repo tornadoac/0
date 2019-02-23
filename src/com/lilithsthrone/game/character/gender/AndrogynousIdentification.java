@@ -12,10 +12,10 @@ public enum AndrogynousIdentification {
 	CLOTHING_FEMININE("clothing feminine", Color.ANDROGYNOUS),
 	CLOTHING_MASCULINE("clothing masculine", Color.ANDROGYNOUS),
 	MASCULINE("masculine", Color.MASCULINE);
-	
+
 	private String name;
 	private Color color;
-	
+
 	private AndrogynousIdentification(String name, Color color) {
 		this.name = name;
 		this.color = color;

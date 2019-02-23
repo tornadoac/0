@@ -9,7 +9,7 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public enum Quest {
-	
+
 	// Main quests:
 
 	MAIN_PROLOGUE(QuestType.MAIN, 1, 5) {
@@ -101,7 +101,7 @@ public enum Quest {
 			return "You found the harpy Scarlett in Slaver Alley, who turned out to be one of the most annoying people you've ever met.";
 		}
 	},
-	
+
 	MAIN_1_E_REPORT_TO_ALEXA(QuestType.MAIN, 3, 30) {
 		@Override
 		public String getName() {
@@ -120,7 +120,7 @@ public enum Quest {
 					+ " She didn't seem to have much sympathy for Scarlett, and quickly flew off to go and talk to her in person.";
 		}
 	},
-	
+
 	MAIN_1_F_SCARLETTS_FATE(QuestType.MAIN, 3, 30) {
 		@Override
 		public String getName() {
@@ -137,7 +137,7 @@ public enum Quest {
 			return "You traveled back to Scarlett's shop, only to discover that Alexa has enslaved her!";
 		}
 	},
-	
+
 	MAIN_1_G_SLAVERY(QuestType.MAIN, 3, 30) {
 		@Override
 		public String getName() {
@@ -155,7 +155,7 @@ public enum Quest {
 			return "Alexa sold Scarlett to you, which allowed you to order Scarlett to tell you what happened to Arthur.";
 		}
 	},
-	
+
 	MAIN_1_H_THE_GREAT_ESCAPE(QuestType.MAIN, 10, 200) {
 		@Override
 		public String getName() {
@@ -173,7 +173,7 @@ public enum Quest {
 			return "After defeating Zaranix, you saved Arthur and brought him back to Lilaya's home.";
 		}
 	},
-	
+
 	MAIN_1_I_ARTHURS_TALE(QuestType.MAIN, 1, 30) {
 		@Override
 		public String getName() {
@@ -192,7 +192,7 @@ public enum Quest {
 					+ " Now that you've rescued him, he's keen to repay the favor by finding out how to send you back home.";
 		}
 	},
-	
+
 	MAIN_1_J_ARTHURS_ROOM(QuestType.MAIN, 1, 30) {
 		@Override
 		public String getName() {
@@ -210,7 +210,7 @@ public enum Quest {
 			return "You located a suitable room for Arthur, and, with Rose's help, moved a significant amount of arcane instrumentation into his new lab-cum-bedroom.";
 		}
 	},
-	
+
 	MAIN_2_A_INTO_THE_DEPTHS(QuestType.MAIN, 1, 10) {
 		@Override
 		public String getName() {
@@ -230,7 +230,7 @@ public enum Quest {
 			return "Acting on Arthur's advice, you ventured down into Submission and discovered the location of Lyssieth's palace.";
 		}
 	},
-	
+
 	MAIN_2_B_SIRENS_CALL(QuestType.MAIN, 25, 300) {
 		@Override
 		public String getName() {
@@ -250,7 +250,7 @@ public enum Quest {
 			return "You managed to enslave Lyssieth's troublesome daughter, and so earned an audience with her!";
 		}
 	},
-	
+
 	MAIN_2_C_SIRENS_FALL(QuestType.MAIN, 1, 10) {
 		@Override
 		public String getName() {
@@ -268,7 +268,7 @@ public enum Quest {
 			return "For enslaving 'The Dark Siren', the guards at the gate to Lyssieth's palace gave you permission to enter and seek out an audience with her.";
 		}
 	},
-	
+
 	MAIN_2_D_MEETING_A_LILIN(QuestType.MAIN, 1, 100) {
 		@Override
 		public String getName() {
@@ -285,7 +285,7 @@ public enum Quest {
 			return "Lyssieth revealed that this world is in fact your own, and that Lilith transformed it into a different reality when she was released from the mirror.";
 		}
 	},
-	
+
 	MAIN_3_A_FINDING_THE_YOUKO(QuestType.MAIN, 20, 250) {
 		@Override
 		public String getName() {
@@ -305,7 +305,7 @@ public enum Quest {
 					+ " It turned out that she was having to work off a significant debt, and wouldn't be able to help you until it's paid off in full.";
 		}
 	},
-	
+
 	MAIN_3_B_DEBTS_PAID(QuestType.MAIN, 1, 100) {
 		@Override
 		public String getName() {
@@ -341,7 +341,7 @@ public enum Quest {
 			return "Quest complete!";
 		}
 	},
-	
+
 	SIDE_DISCOVER_ALL_ITEMS(QuestType.SIDE, 1, 100) {
 		@Override
 		public String getName() {
@@ -375,9 +375,9 @@ public enum Quest {
 			return "You have discovered every race there is to find!.";
 		}
 	},
-	
+
 	// For when you discover your first essence:
-	
+
 	SIDE_ENCHANTMENTS_LILAYA_HELP(QuestType.SIDE, 1, 10) {
 		@Override
 		public String getName() {
@@ -398,7 +398,7 @@ public enum Quest {
 	},
 
 	// For the first time you get pregnant:
-	
+
 	SIDE_PREGNANCY_CONSULT_LILAYA(QuestType.SIDE, 1, 10) {
 		@Override
 		public String getName() {
@@ -431,9 +431,9 @@ public enum Quest {
 			return "Lilaya helped you give birth. She said that if ever you get pregnant again, she can always help out.";
 		}
 	},
-	
+
 	// Getting a Slaver License:
-	
+
 	SIDE_SLAVER_NEED_RECOMMENDATION(QuestType.SIDE, 1, 10) {
 		@Override
 		public String getName() {
@@ -466,9 +466,9 @@ public enum Quest {
 			return "You presented the letter of recommendation to [finch.name], and, after paying the 500 flame fee, you obtained a slaver license!";
 		}
 	},
-	
+
 	// Accommodation:
-	
+
 	SIDE_ACCOMMODATION_NEED_LILAYAS_PERMISSION(QuestType.SIDE, 1, 5) {
 		@Override
 		public String getName() {
@@ -485,9 +485,9 @@ public enum Quest {
 			return "Lilaya gave you permission to use the empty rooms to house your friends and family, on the condition that you pay for the expenses that are incurred.";
 		}
 	},
-	
+
 	// Other:
-	
+
 	SIDE_HYPNO_WATCH_VICKY(QuestType.SIDE, 1, 10) {
 		@Override
 		public String getName() {
@@ -506,7 +506,7 @@ public enum Quest {
 			return "You retrieved the package from Arcane Arts, and brought it back to Arthur.";
 		}
 	},
-	
+
 	SIDE_HYPNO_WATCH_TEST_SUBJECT(QuestType.SIDE, 1, 10) {
 		@Override
 		public String getName() {
@@ -525,7 +525,7 @@ public enum Quest {
 					+ " She warned that it will have a strong corruptive effect upon the mind of the whoever is targeted, and disenchanted it for good measure, before handing it over to you.";
 		}
 	},
-	
+
 	RELATIONSHIP_NYAN_STOCK_ISSUES(QuestType.RELATIONSHIP, 1, 0) {
 		@Override
 		public String getName() {
@@ -544,7 +544,7 @@ public enum Quest {
 			return "You offered Nyan your help in convincing the new suppliers to let the old ones back.";
 		}
 	},
-	
+
 	RELATIONSHIP_NYAN_STOCK_ISSUES_AGREED_TO_HELP(QuestType.RELATIONSHIP, 10, 0) {
 		@Override
 		public String getName() {
@@ -562,7 +562,7 @@ public enum Quest {
 			return "You put an end to the dobermanns' monopoly, and although they'll continue to work as clothing suppliers, they'll stop intimidating the others.";
 		}
 	},
-	
+
 	RELATIONSHIP_NYAN_STOCK_ISSUES_SUPPLIERS_BEATEN(QuestType.RELATIONSHIP, 10, 100) {
 		@Override
 		public String getName() {
@@ -579,9 +579,9 @@ public enum Quest {
 			return "Nyan paid you the reward she promised, and also offered to give you a 25% discount in her store. She also let slip that she's single, in a clumsy attempt to hit on you...";
 		}
 	},
-	
+
 	// Angry Harpies:
-	
+
 	HARPY_PACIFICATION_ONE(QuestType.SIDE, 6, 25) {
 		@Override
 		public String getName() {
@@ -647,9 +647,9 @@ public enum Quest {
 			return "After informing the Enforcers that you've pacified all three of the major harpy nests, they resumed their regular patrols, resulting in the Harpy Nests being safe to travel through!";
 		}
 	},
-	
+
 	// Slime Queen:
-	
+
 	SLIME_QUEEN_ONE(QuestType.SIDE, 10, 25) {
 		@Override
 		public String getName() {
@@ -668,7 +668,7 @@ public enum Quest {
 			return "One of the Slimes that you encountered in the tunnels told you that they'd been given orders to transform people by a certain 'Slime Queen'.";
 		}
 	},
-	
+
 	SLIME_QUEEN_TWO(QuestType.SIDE, 1, 10) {
 		@Override
 		public String getName() {
@@ -686,7 +686,7 @@ public enum Quest {
 					+ " They suggested that you could take a look down in the Bat Caverns, and offered you a further twenty-thousand flames if you could find this Queen and put an end to her scheming.";
 		}
 	},
-	
+
 	SLIME_QUEEN_THREE(QuestType.SIDE, 15, 25) {
 		@Override
 		public String getName() {
@@ -703,7 +703,7 @@ public enum Quest {
 			return "In the middle of Slime Lake, you discovered the Slime Queen's lair!";
 		}
 	},
-	
+
 	SLIME_QUEEN_FOUR(QuestType.SIDE, 20, 50) {
 		@Override
 		public String getName() {
@@ -720,7 +720,7 @@ public enum Quest {
 			return "You found the Slime Queen at the top of the tower.";
 		}
 	},
-	
+
 	SLIME_QUEEN_FIVE_SUBMIT(QuestType.SIDE, 1, 25) {
 		@Override
 		public String getName() {
@@ -737,7 +737,7 @@ public enum Quest {
 			return "You decided to help the Slime Queen with her plans, and agreed to trick the enforcers into believing that she's no longer a threat!";
 		}
 	},
-	
+
 	SLIME_QUEEN_SIX_SUBMIT(QuestType.SIDE, 1, 200) {
 		@Override
 		public String getName() {
@@ -755,7 +755,7 @@ public enum Quest {
 				+ " With your Queen now safe from enforcer investigation, it's only a matter of time before all of Submission is a Slime paradise!";
 		}
 	},
-	
+
 	SLIME_QUEEN_FIVE_CONVINCE(QuestType.SIDE, 1, 25) {
 		@Override
 		public String getName() {
@@ -772,7 +772,7 @@ public enum Quest {
 			return "You convinced Catherine to abandon her plan of transforming everyone in Submission into slimes.";
 		}
 	},
-	
+
 	SLIME_QUEEN_SIX_CONVINCE(QuestType.SIDE, 1, 200) {
 		@Override
 		public String getName() {
@@ -789,7 +789,7 @@ public enum Quest {
 			return "You told Claire that the Slime Queen is no longer a threat, and received the twenty-thousand flame reward.";
 		}
 	},
-	
+
 	SLIME_QUEEN_FIVE_FORCE(QuestType.SIDE, 1, 25) {
 		@Override
 		public String getName() {
@@ -806,7 +806,7 @@ public enum Quest {
 			return "You forced Catherine to abandon her plan of transforming everyone in Submission into slimes.";
 		}
 	},
-	
+
 	SLIME_QUEEN_SIX_FORCE(QuestType.SIDE, 1, 200) {
 		@Override
 		public String getName() {
@@ -823,7 +823,7 @@ public enum Quest {
 			return "You told Claire that the Slime Queen is no longer a threat, and received the twenty-thousand flame reward.";
 		}
 	},
-	
+
 	;
 
 	private int level, experienceReward;

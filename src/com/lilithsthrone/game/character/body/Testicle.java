@@ -24,7 +24,7 @@ public class Testicle implements BodyPartInterface {
 	public static final int MAX_TESTICLE_COUNT = 8;
 
 	public static final int MINIMUM_VALUE_FOR_ALL_CUM_TO_BE_EXPELLED = 5; //ml
-	
+
 	protected TesticleType type;
 	protected int testicleSize;
 	protected int cumStorage;
@@ -33,7 +33,7 @@ public class Testicle implements BodyPartInterface {
 	protected int testicleCount;
 	protected int cumExpulsion;
 	protected boolean internal;
-	
+
 	protected FluidCum cum;
 
 	public Testicle(TesticleType type, int testicleSize, int cumStorage, int testicleCount) {
@@ -43,11 +43,11 @@ public class Testicle implements BodyPartInterface {
 		cumStored = cumStorage;
 		cumRegeneration = FluidRegeneration.ONE_AVERAGE.getValue();
 		cumExpulsion = FluidExpulsion.THREE_LARGE.getMinimumValue();
-		
+
 		this.testicleCount = Math.max(MIN_TESTICLE_COUNT, Math.min(testicleCount, MAX_TESTICLE_COUNT));
-		
+
 		internal = type.isInternal();
-		
+
 		cum = new FluidCum(type.getFluidType());
 	}
 
@@ -59,7 +59,7 @@ public class Testicle implements BodyPartInterface {
 	public TesticleType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		if(gc.getTesticleCount()==2) {
@@ -75,7 +75,7 @@ public class Testicle implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -90,12 +90,12 @@ public class Testicle implements BodyPartInterface {
 	public String getDescriptor(GameCharacter owner) {
 		return type.getDescriptor(owner);
 	}
-	
+
 	public void setType(GameCharacter owner, TesticleType type) {
 		this.type = type;
 		cum.setType(type.getFluidType());
 	}
-	
+
 	public TesticleSize getTesticleSize() {
 		return TesticleSize.getTesticleSizeFromInt(testicleSize);
 	}
@@ -104,7 +104,7 @@ public class Testicle implements BodyPartInterface {
 		if(owner!=null && !owner.hasPenisIgnoreDildo()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		int oldSize = this.testicleSize;
 		this.testicleSize = Math.max(0, Math.min(testicleSize, TesticleSize.SEVEN_ABSURD.getValue()));
 		int sizeChange = this.testicleSize - oldSize;
@@ -112,21 +112,21 @@ public class Testicle implements BodyPartInterface {
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The size of your [pc.balls] doesn't change...)]</p>";
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The size of [npc.namePos] [npc.balls] doesn't change...)]</p>");
 			}
-			
+
 		} else if (sizeChange > 0) {
 			return UtilText.parse(owner,
 					"<p>"
 						+ "[npc.Name] [npc.verb(let)] out a lewd moan as [npc.she] [npc.verb(feel)] [npc.her] [npc.balls] suddenly swell and [style.boldGrow(grow larger)].<br/>"
 						+ "[npc.She] now [npc.has] [style.boldSex(" + owner.getTesticleSize().getDescriptor() + " [pc.balls])]!"
 					+ "</p>");
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -149,14 +149,14 @@ public class Testicle implements BodyPartInterface {
 
 	public String setTesticleCount(GameCharacter owner, int testicleCount) {
 		testicleCount = Math.max(MIN_TESTICLE_COUNT, Math.min(testicleCount, MAX_TESTICLE_COUNT));
-		
+
 		if(owner.getTesticleCount() == testicleCount || !owner.hasPenisIgnoreDildo()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		boolean removingTesticles = this.testicleCount > testicleCount;
 		this.testicleCount = testicleCount;
-		
+
 		if(removingTesticles) {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p>"
@@ -170,7 +170,7 @@ public class Testicle implements BodyPartInterface {
 							+ "After a few moments, [npc.sheIs] left with [style.boldTfGeneric([npc.a_balls])]."
 						+ "</p>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				return UtilText.parse(owner, "<p>"
@@ -199,13 +199,13 @@ public class Testicle implements BodyPartInterface {
 			this.internal = internal;
 			return "";
 		}
-		
+
 		if(owner.isInternalTesticles() == internal || !owner.hasPenisIgnoreDildo()) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
 
 		this.internal = internal;
-		
+
 		if(internal) {
 			if(owner.isPlayer()) {
 				return "<p>"
@@ -219,7 +219,7 @@ public class Testicle implements BodyPartInterface {
 							+ "[npc.Her] [npc.balls+] [style.boldTfGeneric(are now internal)]."
 						+ "</p>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				return "<p>"
@@ -235,9 +235,9 @@ public class Testicle implements BodyPartInterface {
 			}
 		}
 	}
-	
+
 	// Cum storage and regeneration:
-	
+
 
 	// CumProduction:
 
@@ -260,7 +260,7 @@ public class Testicle implements BodyPartInterface {
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (cumChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The amount of [pc.cum] that you're able to produce doesn't change...)]</p>";
@@ -268,7 +268,7 @@ public class Testicle implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The amount of [npc.cum] that [npc.name] is able to produce doesn't change...)]</p>");
 			}
 		}
-		
+
 		String cumDescriptor = getCumStorage().getDescriptor();
 		if (cumChange > 0) {
 			return UtilText.parse(owner,
@@ -278,7 +278,7 @@ public class Testicle implements BodyPartInterface {
 								+ " clear evidence that that [npc.her] [npc.cum] production has [style.boldGrow(increased)].<br/>"
 						+ "[npc.SheIsFull] now able to produce [style.boldSex(" + cumDescriptor + " [npc.cum])]!"
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
@@ -288,13 +288,13 @@ public class Testicle implements BodyPartInterface {
 					+ "</p>");
 		}
 	}
-	
+
 	// Stored cum:
 
 	public CumProduction getStoredCum() {
 		return CumProduction.getCumProductionFromInt((int)cumStored);
 	}
-	
+
 	public float getRawStoredCumValue() {
 		return cumStored;
 	}
@@ -310,7 +310,7 @@ public class Testicle implements BodyPartInterface {
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (cumChange <= 0) {
 			return "";
 		} else {
@@ -344,11 +344,11 @@ public class Testicle implements BodyPartInterface {
 		int oldRegeneration = this.cumRegeneration;
 		this.cumRegeneration = Math.max(0, Math.min(cumRegeneration, FluidRegeneration.FOUR_MAXIMUM.getValue()));
 		int regenerationChange = this.cumRegeneration - oldRegeneration;
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (regenerationChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your rate of [pc.cum] regeneration doesn't change...)]</p>";
@@ -356,7 +356,7 @@ public class Testicle implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.namePos] rate of [npc.cum] regeneration doesn't change...)]</p>");
 			}
 		}
-		
+
 		String regenerationDescriptor = getCumProductionRegeneration().getName();
 		if (regenerationChange > 0) {
 			return UtilText.parse(owner,
@@ -366,7 +366,7 @@ public class Testicle implements BodyPartInterface {
 								+ " clear evidence that that [npc.her] [npc.cum] regeneration has [style.boldGrow(increased)].<br/>"
 						+ "[npc.Her] rate of [npc.cum] regeneration is now [style.boldSex(" + regenerationDescriptor + ")]!"
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"
@@ -395,7 +395,7 @@ public class Testicle implements BodyPartInterface {
 		if(owner==null) {
 			return "";
 		}
-		
+
 		if (expulsionChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your rate of [pc.cum] expulsion doesn't change...)]</p>";
@@ -403,7 +403,7 @@ public class Testicle implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.namePos] rate of [npc.cum] expulsion doesn't change...)]</p>");
 			}
 		}
-		
+
 		String expulsionDescriptor = getCumExpulsion().getDescriptor();
 		if (expulsionChange > 0) {
 			return UtilText.parse(owner,
@@ -413,7 +413,7 @@ public class Testicle implements BodyPartInterface {
 									+ " clear evidence that that [npc.her] [npc.cum] expulsion has [style.boldGrow(increased)].<br/>"
 						+ "[npc.She] will now expel [style.boldSex(" + UtilText.generateSingularDeterminer(expulsionDescriptor) + " "+expulsionDescriptor+")] amount of stored cum at each orgasm!"
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"

@@ -18,12 +18,12 @@ public class BodyPartClothingBlock {
 	private Race race;
 	private String description;
 	private List<ItemTag> requiredTags;
-	
+
 	public BodyPartClothingBlock(List<InventorySlot> blockedSlots, Race race, String description, List<ItemTag> requiredTags) {
 		this.blockedSlots = blockedSlots;
 		this.race = race;
 		this.description = description;
-		
+
 		if(requiredTags==null) {
 			this.requiredTags = new ArrayList<>();
 		} else {
@@ -46,5 +46,5 @@ public class BodyPartClothingBlock {
 	public List<ItemTag> getRequiredTags() {
 		return requiredTags;
 	}
-	
+
 }

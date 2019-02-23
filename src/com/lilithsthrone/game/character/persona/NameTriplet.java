@@ -6,7 +6,7 @@ package com.lilithsthrone.game.character.persona;
  * @author Innoxia
  */
 public class NameTriplet {
-	
+
 	private String masculine, androgynous, feminine;
 
 	public NameTriplet(String masculine, String androgynous, String feminine) {
@@ -14,13 +14,13 @@ public class NameTriplet {
 		this.androgynous = androgynous;
 		this.feminine = feminine;
 	}
-	
+
 	public NameTriplet(String name) {
 		this.masculine = name;
 		this.androgynous = name;
 		this.feminine = name;
 	}
-	
+
 	public String toString() {
 		return masculine+"-"+androgynous+"-"+feminine;
 	}

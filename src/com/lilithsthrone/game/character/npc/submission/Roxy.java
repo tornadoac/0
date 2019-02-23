@@ -90,11 +90,11 @@ public class Roxy extends NPC {
 			}
 		}
 	}
-	
+
 	public Roxy() {
 		this(false);
 	}
-	
+
 	public Roxy(boolean isImported) {
 		super(isImported, new NameTriplet("Roxy"), "Yap",
 				"Roxy is the rat-girl owner of the Gambling Den's shop, 'Roxy's Box'."
@@ -106,7 +106,7 @@ public class Roxy extends NPC {
 
 		buyModifier=0.4f;
 		sellModifier=2.5f;
-		
+
 		if(!isImported) {
 			this.dailyReset();
 		}
@@ -123,29 +123,29 @@ public class Roxy extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 25);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 50);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_STORE_OWNER);
-	
+
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_DOMINANT);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -175,7 +175,7 @@ public class Roxy extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_PINK_LIGHT));
 		this.setSkinCovering(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PINK), true);
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.ONE_AVERAGE);
@@ -183,7 +183,7 @@ public class Roxy extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.B.getMeasurement());
@@ -191,7 +191,7 @@ public class Roxy extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG.getValue());
 		this.setAreolaeSize(AreolaeSize.TWO_BIG.getValue());
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -202,10 +202,10 @@ public class Roxy extends NPC {
 		this.setAssElasticity(OrificeElasticity.FOUR_LIMBER.getValue());
 		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		// No penis
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -216,18 +216,18 @@ public class Roxy extends NPC {
 		this.setVaginaElasticity(OrificeElasticity.THREE_FLEXIBLE.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		this.addGirlcumModifier(FluidModifier.ADDICTIVE);
-		
+
 		// Feet:
 //		this.setFootStructure(FootStructure.PLANTIGRADE);
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
 		this.unequipAllClothingIntoVoid(true);
 
 		this.setScar(InventorySlot.EYES, new Scar(ScarType.CLAW_MARKS, true));
-		
+
 		this.setPiercedEar(true);
 		this.setPiercedLip(true);
 		this.setPiercedNavel(true);
@@ -256,16 +256,16 @@ public class Roxy extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_THIGH_HIGH_BOOTS, Color.CLOTHING_BLACK, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
@@ -277,23 +277,23 @@ public class Roxy extends NPC {
 			c.getDisplacedList().clear();
 		}
 	}
-	
+
 	@Override
 	public void dailyReset() {
 		clearNonEquippedInventory();
-		
+
 		for(int i=0;i<25;i++) {
 			this.addItem(AbstractItemType.generateItem(ItemType.DYE_BRUSH), false);
 		}
-		
+
 		for (AbstractItemType item : itemsForSale) {
 			for (int i = 0; i < 6 + (Util.random.nextInt(12)); i++) {
 				this.addItem(AbstractItemType.generateItem(item), false);
 			}
 		}
-		
+
 		List<AbstractClothingType> clothingToAdd = new ArrayList<>();
-		
+
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
 			if(clothing!=null
 					&& clothing.getRarity()==Rarity.COMMON
@@ -302,7 +302,7 @@ public class Roxy extends NPC {
 					Color condomColor = Util.randomItemFrom(clothing.getAvailablePrimaryColors());
 					Color condomColorSec = Color.CLOTHING_BLACK;
 					Color condomColorTer = Color.CLOTHING_BLACK;
-					
+
 					if(!clothing.getAvailableSecondaryColors().isEmpty()) {
 						condomColorSec = Util.randomItemFrom(clothing.getAvailableSecondaryColors());
 					}
@@ -312,15 +312,15 @@ public class Roxy extends NPC {
 					for (int i = 0; i < (3+(Util.random.nextInt(4)))*(clothing.getRarity()==Rarity.COMMON?3:(clothing.getRarity()==Rarity.UNCOMMON?2:1)); i++) {
 						this.addClothing(AbstractClothingType.generateClothing(clothing, condomColor, condomColorSec, condomColorTer, false), false);
 					}
-					
+
 				} else {
 					clothingToAdd.add(clothing);
 				}
 			}
 		}
-		
+
 		Collections.shuffle(clothingToAdd);
-		
+
 		for(int i=0; i<6; i++) {
 			AbstractClothing clothing = AbstractClothingType.generateClothingWithNegativeEnchantment(Util.randomItemFrom(clothingToAdd));
 			this.addClothing(clothing, false);
@@ -334,9 +334,9 @@ public class Roxy extends NPC {
 		AbstractClothing clothing = AbstractClothingType.generateRareClothing(Util.randomItemFrom(clothingToAdd));
 		this.addClothing(clothing, false);
 		clothing.setEnchantmentKnown(false);
-		
+
 	}
-	
+
 	@Override
 	public String getTraderDescription() {
 		return "<p>"
@@ -354,7 +354,7 @@ public class Roxy extends NPC {
 		if(item instanceof AbstractItem) {
 			return true;
 		}
-		
+
 		return item instanceof AbstractClothing;
 	}
 

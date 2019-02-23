@@ -18,7 +18,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum NippleType implements BodyPartTypeInterface {
-	
+
 	HUMAN(Race.HUMAN),
 
 	ANGEL(Race.ANGEL),
@@ -26,29 +26,29 @@ public enum NippleType implements BodyPartTypeInterface {
 	DEMON_COMMON(Race.DEMON),
 
 	DOG_MORPH(Race.DOG_MORPH),
-	
+
 	WOLF_MORPH(Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(Race.FOX_MORPH),
-	
+
 	CAT_MORPH(Race.CAT_MORPH),
-	
+
 	COW_MORPH(Race.COW_MORPH),
-	
+
 	SQUIRREL_MORPH(Race.SQUIRREL_MORPH),
-	
+
 	RAT_MORPH(Race.RAT_MORPH),
-	
+
 	BAT_MORPH(Race.BAT_MORPH),
-	
+
 	RABBIT_MORPH(Race.RABBIT_MORPH),
-	
+
 	ALLIGATOR_MORPH(Race.ALLIGATOR_MORPH),
-	
+
 	HORSE_MORPH(Race.HORSE_MORPH),
-	
+
 	REINDEER_MORPH(Race.REINDEER_MORPH),
-	
+
 	HARPY(Race.HARPY);
 
 	private Race race;
@@ -94,7 +94,7 @@ public enum NippleType implements BodyPartTypeInterface {
 			case NORMAL:
 				if(gc.hasBreasts()) {
 					return UtilText.returnStringAtRandom("nipple", "teat");
-					
+
 				} else {
 					return "nipples";
 				}
@@ -103,7 +103,7 @@ public enum NippleType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(gc.getNippleShape()) {
@@ -112,7 +112,7 @@ public enum NippleType implements BodyPartTypeInterface {
 			case NORMAL:
 				if(gc.hasBreasts()) {
 					return UtilText.returnStringAtRandom("nipples", "teats");
-					
+
 				} else {
 					return "nipples";
 				}
@@ -131,7 +131,7 @@ public enum NippleType implements BodyPartTypeInterface {
 				case NORMAL:
 					if(gc.hasBreasts()) {
 						return UtilText.returnStringAtRandom("udder-nipple", "udder-teat");
-						
+
 					} else {
 						return "udder-nipples";
 					}
@@ -145,7 +145,7 @@ public enum NippleType implements BodyPartTypeInterface {
 				case NORMAL:
 					if(gc.hasBreasts()) {
 						return UtilText.returnStringAtRandom("crotch-nipple", "crotch-teat");
-						
+
 					} else {
 						return "crotch-nipples";
 					}
@@ -165,7 +165,7 @@ public enum NippleType implements BodyPartTypeInterface {
 				case NORMAL:
 					if(gc.hasBreasts()) {
 						return UtilText.returnStringAtRandom("udder-nipples", "udder-teats");
-						
+
 					} else {
 						return "udder-nipples";
 					}
@@ -179,7 +179,7 @@ public enum NippleType implements BodyPartTypeInterface {
 				case NORMAL:
 					if(gc.hasBreasts()) {
 						return UtilText.returnStringAtRandom("crotch-nipples", "crotch-teats");
-						
+
 					} else {
 						return "crotch-nipples";
 					}
@@ -189,11 +189,11 @@ public enum NippleType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		String descriptor[];
-		
+
 		switch(this){
 			case ANGEL:
 				descriptor = new String[] { "flawless", "perky" };
@@ -208,10 +208,10 @@ public enum NippleType implements BodyPartTypeInterface {
 				descriptor = new String[] { "" };
 				break;
 		}
-		
+
 		return descriptor[Util.random.nextInt(descriptor.length)];
 	}
-	
+
 	@Override
 	public BodyCoveringType getBodyCoveringType(Body body) {
 		return BodyCoveringType.NIPPLES;

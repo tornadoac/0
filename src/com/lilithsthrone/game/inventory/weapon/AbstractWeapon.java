@@ -42,7 +42,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 
 	private AbstractWeaponType weaponType;
 	protected List<ItemEffect> effects;
-	
+
 	private DamageType damageType;
 	private Attribute coreEnchantment;
 	private List<Spell> spells;
@@ -51,12 +51,12 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 
 	public AbstractWeapon(AbstractWeaponType weaponType, DamageType dt, Color primaryColor, Color secondaryColor) {
 		super(weaponType.getName(), weaponType.getNamePlural(), weaponType.getPathName(), dt.getMultiplierAttribute().getColor(), weaponType.getRarity(), null);
-		
+
 		this.weaponType = weaponType;
 		damageType = dt;
-		
+
 		coreEnchantment = null;
-		
+
 		spells = new ArrayList<>();
 		if (weaponType.getSpells() != null) {
 			this.spells.addAll(weaponType.getSpells());
@@ -88,7 +88,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 							this.effects.add(new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_POISON, TFPotency.MAJOR_BOOST, 0));
 							break;
 					}
-					
+
 				} else if(effect.getSecondaryModifier()==TFModifier.RESISTANCE_WEAPON) {
 					switch(damageType) {
 						case FIRE:
@@ -109,13 +109,13 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 							this.effects.add(new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_POISON, TFPotency.MAJOR_BOOST, 0));
 							break;
 					}
-					
+
 				} else {
 					this.effects.add(effect);
 				}
 			}
 		}
-		
+
 		int highestEnchantment = 0;
 		for (Attribute a : attributeModifiers.keySet()) {
 			if (attributeModifiers.get(a) > highestEnchantment) {
@@ -127,7 +127,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 		this.primaryColor = primaryColor;
 		this.secondaryColor = secondaryColor;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(super.equals(o)){
@@ -145,7 +145,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -163,23 +163,23 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 		result = 31 * result + spells.hashCode();
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("weapon");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "id", this.getWeaponType().getId());
 		CharacterUtils.addAttribute(doc, element, "damageType", this.getDamageType().toString());
 		CharacterUtils.addAttribute(doc, element, "coreEnchantment", (this.getCoreEnchantment()==null?"null":this.getCoreEnchantment().toString()));
 		CharacterUtils.addAttribute(doc, element, "colorPrimary", this.getPrimaryColor().toString());
 		CharacterUtils.addAttribute(doc, element, "colorSecondary", this.getSecondaryColor().toString());
-		
+
 		Element innerElement = doc.createElement("effects");
 		element.appendChild(innerElement);
 		for(ItemEffect ie : this.getEffects()) {
 			ie.saveAsXML(innerElement, doc);
 		}
-		
+
 		innerElement = doc.createElement("spells");
 		element.appendChild(innerElement);
 		for(Spell s : this.getSpells()) {
@@ -187,32 +187,32 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 			innerElement.appendChild(spell);
 			CharacterUtils.addAttribute(doc, spell, "value", s.toString());
 		}
-		
+
 		return element;
 	}
-	
+
 	public static AbstractWeapon loadFromXML(Element parentElement, Document doc) {
 		AbstractWeapon weapon = null;
-		
+
 		try {
 			weapon = AbstractWeaponType.generateWeapon(WeaponType.idToWeaponMap.get(parentElement.getAttribute("id")), DamageType.valueOf(parentElement.getAttribute("damageType")));
 		} catch(Exception ex) {
 			System.err.println("Warning: An instance of AbstractWeapon was unable to be imported. ("+parentElement.getAttribute("id")+")");
 			return null;
 		}
-		
+
 		if(weapon==null) {
 			System.err.println("Warning: An instance of AbstractWeapon was unable to be imported. ("+parentElement.getAttribute("id")+")");
 			return null;
 		}
-		
+
 		if(!parentElement.getAttribute("coreEnchantment").equals("null")) {
 			try {
 				weapon.coreEnchantment = Attribute.getAttributeFromId(parentElement.getAttribute("coreEnchantment"));
 			} catch(Exception ex) {
 			}
 		}
-		
+
 		// Try to load color:
 		try {
 			weapon.setPrimaryColor(Color.valueOf(parentElement.getAttribute("colorPrimary")));
@@ -223,7 +223,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 		if(!Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			try {
 				weapon.getEffects().clear();
-				
+
 				Element element = (Element)parentElement.getElementsByTagName("effects").item(0);
 				NodeList effectElements = element.getElementsByTagName("effect");
 				for(int i=0; i<effectElements.getLength(); i++){
@@ -236,7 +236,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 			} catch(Exception ex) {
 			}
 		}
-		
+
 		weapon.spells = new ArrayList<>();
 		Element element = (Element)parentElement.getElementsByTagName("spells").item(0);
 		NodeList spellElements = element.getElementsByTagName("spell");
@@ -251,10 +251,10 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 			} catch(Exception ex) {
 			}
 		}
-		
+
 		return weapon;
 	}
-	
+
 	public abstract String onEquip(GameCharacter character);
 
 	public abstract String onUnequip(GameCharacter character);
@@ -269,7 +269,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 	public void setPrimaryColor(Color primaryColor) {
 		this.primaryColor = primaryColor;
 	}
-	
+
 	public Color getSecondaryColor() {
 		return secondaryColor;
 	}
@@ -277,10 +277,10 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 	public void setSecondaryColor(Color secondaryColor) {
 		this.secondaryColor = secondaryColor;
 	}
-	
+
 	public String getDescription() {
 		descriptionSB = new StringBuilder();
-		
+
 		descriptionSB.append(
 					"<p>"
 						+ "<b>"
@@ -328,14 +328,14 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 			}
 			descriptionSB.append(".</p>");
 		}
-		
+
 		descriptionSB.append("<p>It has a value of " + UtilText.formatAsMoney(getValue()) + ".</p>");
 
 		if (getWeaponType().getClothingSet() != null) {
 			descriptionSB.append("<p>" + (getWeaponType().isPlural() ? "They are" : "It is") + " part of the <b style='color:" + Color.RARITY_EPIC.toWebHexString() + ";'>"
 					+ getWeaponType().getClothingSet().getName() + "</b> set." + "</p>");
 		}
-		
+
 		return descriptionSB.toString();
 	}
 
@@ -345,21 +345,21 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 
 		if (colorShade == Color.CLOTHING_PLATINUM) {
 			runningTotal *= 2f;
-			
+
 		} else if (colorShade == Color.CLOTHING_GOLD) {
 			runningTotal *= 1.75f;
-			
+
 		} else if (colorShade == Color.CLOTHING_ROSE_GOLD) {
 			runningTotal *= 1.5f;
-			
+
 		} else if (colorShade == Color.CLOTHING_SILVER) {
 			runningTotal *= 1.25f;
 		}
-		
+
 		if(rarity==Rarity.JINXED) {
 			runningTotal *= 0.5;
 		}
-		
+
 		float attributeBonuses = 0;//getModifiedDropoffValue
 		if (attributeModifiers != null) {
 			for (Integer i : attributeModifiers.values()) {
@@ -374,15 +374,15 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 				}
 			}
 		}
-		
+
 		attributeBonuses = Util.getModifiedDropoffValue(attributeBonuses * 25, 500);
-		
+
 		runningTotal += attributeBonuses;
-		
+
 		if (runningTotal < 1) {
 			runningTotal = 1;
 		}
-		
+
 		return (int) runningTotal;
 	}
 
@@ -402,7 +402,7 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 				: " ")
 				+ damageType.getWeaponDescriptor() + (withRarityColor ? (" <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + name + "</span>") : " "+name);
 	}
-	
+
 	public String getDisplayName(boolean withRarityColor) {
 		return "<span style='color:" + damageType.getMultiplierAttribute().getColor().toWebHexString() + ";'>" + Util.capitalizeSentence(damageType.getWeaponDescriptor()) + "</span> "
 				+ (withRarityColor ? (" <span style='color: " + rarity.getColor().toWebHexString() + ";'>" + name + "</span>") : name);
@@ -424,29 +424,29 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 	public Attribute getCoreEnchantment() {
 		return coreEnchantment;
 	}
-	
+
 	public SpellSchool getSpellSchool() {
 		return this.getDamageType().getSpellSchool();
 	}
-	
+
 	public boolean isAbleToBeUsed(GameCharacter user, GameCharacter target) {
 		return this.getWeaponType().isAbleToBeUsed(user, target);
 	}
-	
+
 	public String getUnableToBeUsedDescription() {
 		return this.getWeaponType().getUnableToBeUsedDescription();
 	}
-	
+
 	public String applyExtraEffects(GameCharacter user, GameCharacter target, boolean isHit) {
 		return this.getWeaponType().applyExtraEffects(user, target, isHit);
 	}
-	
+
 
 	@Override
 	public List<ItemEffect> getEffects() {
 		return effects;
 	}
-	
+
 	public void setEffects(List<ItemEffect> effects) {
 		this.effects = effects;
 	}
@@ -454,11 +454,11 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 	public void addEffect(ItemEffect effect) {
 		effects.add(effect);
 	}
-	
+
 	@Override
 	public Map<Attribute, Integer> getAttributeModifiers() {
 		attributeModifiers.clear();
-		
+
 		for(ItemEffect ie : getEffects()) {
 			if(ie.getPrimaryModifier() == TFModifier.CLOTHING_ATTRIBUTE || ie.getPrimaryModifier() == TFModifier.CLOTHING_MAJOR_ATTRIBUTE) {
 				if(attributeModifiers.containsKey(ie.getSecondaryModifier().getAssociatedAttribute())) {
@@ -468,25 +468,25 @@ public abstract class AbstractWeapon extends AbstractCoreItem implements XMLSavi
 				}
 			}
 		}
-		
+
 		return attributeModifiers;
 	}
-	
+
 	@Override
 	public int getEnchantmentLimit() {
 		return weaponType.getEnchantmentLimit();
 	}
-	
+
 	@Override
 	public AbstractItemEffectType getEnchantmentEffect() {
 		return weaponType.getEnchantmentEffect();
 	}
-	
+
 	@Override
 	public AbstractCoreType getEnchantmentItemType(List<ItemEffect> effects) {
 		return weaponType.getEnchantmentItemType(effects);
 	}
-	
+
 	@Override
 	public TFEssence getRelatedEssence() {
 		return weaponType.getRelatedEssence();

@@ -32,12 +32,12 @@ public class PlayerSelfTailMouth {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.hasLubricationTypeFromAnyone(Main.game.getPlayer(), SexAreaPenetration.TAIL, LubricationType.SALIVA);
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Lubricate tail";
@@ -52,13 +52,13 @@ public class PlayerSelfTailMouth {
 		public String getDescription() {
 			return "Lifting your [pc.tail+] up to your mouth, you slide your [pc.tail+] past your [pc.lips+], before lewdly sucking on it for a moment in order to get it well lubricated with your saliva.";
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			Sex.transferLubrication(Main.game.getPlayer(), SexAreaPenetration.TAIL, Main.game.getPlayer(), SexAreaOrifice.MOUTH);
 		}
 	};
-	
+
 	public static final SexAction PLAYER_SELF_TAIL_MOUTH_PENETRATION = new SexAction(
 			SexActionType.START_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -70,7 +70,7 @@ public class PlayerSelfTailMouth {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Suck tail (self)";
@@ -86,7 +86,7 @@ public class PlayerSelfTailMouth {
 			return "Snaking your [pc.tail] up to your mouth, you slide the tip past your [pc.lips+] before starting to lewdly suck on it.";
 		}
 	};
-	
+
 	public static final SexAction PLAYER_SELF_FINGER_MOUTH_STOP_PENETRATION = new SexAction(
 			SexActionType.STOP_ONGOING,
 			ArousalIncrease.ONE_MINIMUM,
@@ -98,7 +98,7 @@ public class PlayerSelfTailMouth {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stop sucking tail (self)";

@@ -23,7 +23,7 @@ public class SubmissionEncounterDialogue {
 						+ "</b>"
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -33,10 +33,10 @@ public class SubmissionEncounterDialogue {
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().addItem(Encounter.getRandomItem(), true, true));
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Leave", "Leave the " + Encounter.getRandomItem().getName() + " on the floor.", Main.game.getDefaultDialogueNoEncounter());
-				
+
 			} else {
 				return null;
 			}

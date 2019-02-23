@@ -32,7 +32,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class DoggyStyle {
-	
+
 	public static final SexAction SLAP_ASS = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -41,7 +41,7 @@ public class DoggyStyle {
 			null,
 			SexParticipantType.NORMAL,
 			SexPace.DOM_ROUGH) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return Sex.isDom(Sex.getCharacterPerformingAction())
@@ -52,7 +52,7 @@ public class DoggyStyle {
 					&& (Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.DOGGY_BEHIND
 						|| Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.DOGGY_BEHIND_SECOND);
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Slap ass";
@@ -62,7 +62,7 @@ public class DoggyStyle {
 		public String getActionDescription() {
 			return "Start slapping [npc2.namePos] ass.";
 		}
-		
+
 		@Override
 		public SexActionCategory getCategory() {
 			return SexActionCategory.SEX;
@@ -71,7 +71,7 @@ public class DoggyStyle {
 		@Override
 		public String getDescription() {
 			String tailSpecial1 = "", tailSpecial2 = "";
-			
+
 			if (Sex.getAllContactingSexAreas(Sex.getCharacterTargetedForSexAction(this), SexAreaOrifice.VAGINA).contains(SexAreaPenetration.PENIS)) {
 				switch(Sex.getCharacterTargetedForSexAction(this).getTailType()) {
 					case NONE:
@@ -93,18 +93,18 @@ public class DoggyStyle {
 											+ " roughly yanking [npc2.her] [npc2.ass+] up high in the air before starting to aggressively slap [npc2.her] exposed cheeks.";
 						break;
 				}
-			
+
 				return UtilText.returnStringAtRandom(
 							tailSpecial1,
 							tailSpecial2,
 							"[npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] as [npc.name] [npc.verb(start)] slapping [npc2.her] [npc2.ass+] in time with [npc.her] powerful thrusts into [npc2.her] [npc2.pussy+].",
-							
+
 							"Hilting [npc.her] [npc.cock+] deep inside [npc2.namePos] [npc2.pussy], [npc.name] [npc.verb(use)] one [npc.hand] to hold [npc2.herHim] still,"
 								+ " while using [npc.her] other to deliver a series of stinging slaps to [npc2.her] exposed ass cheeks.",
-							
+
 							"While [npc.name] [npc.verb(continue)] pounding away at [npc2.namePos] [npc2.pussy+], [npc.she] [npc.verb(reach)] down and [npc.verb(start)] to roughly slap [npc2.her] [npc2.ass+],"
 									+ " growling in glee as [npc2.she] [npc2.verb(squirm)] and [npc2.verb(squeal)] under [npc.her] stinging blows.");
-				
+
 			} else if (Sex.getAllContactingSexAreas(Sex.getCharacterTargetedForSexAction(this), SexAreaOrifice.ANUS).contains(SexAreaPenetration.PENIS)) {
 				switch(Sex.getCharacterTargetedForSexAction(this).getTailType()) {
 					case NONE:
@@ -126,18 +126,18 @@ public class DoggyStyle {
 											+ " roughly yanking [npc2.her] [npc2.ass+] up high in the air before starting to aggressively slap [npc2.her] exposed cheeks.";
 						break;
 				}
-			
+
 				return UtilText.returnStringAtRandom(
 							tailSpecial1,
 							tailSpecial2,
 							"[npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] as [npc.name] [npc.verb(start)] slapping [npc2.her] [npc2.ass+] in time with [npc.her] powerful thrusts into [npc2.her] [npc2.asshole+].",
-							
+
 							"Hilting [npc.her] [npc.cock+] deep inside [npc2.namePos] [npc2.asshole], [npc.name] [npc.verb(use)] one [npc.hand] to hold [npc2.herHim] still,"
 								+ " while using [npc.her] other to deliver a series of stinging slaps to [npc2.her] exposed ass cheeks.",
-							
+
 							"While [npc.name] [npc.verb(continue)] pounding away at [npc2.namePos] [npc2.asshole+], [npc.she] [npc.verb(reach)] down and [npc.verb(start)] to roughly slap [npc2.her] [npc2.ass+],"
 									+ " growling in glee as [npc2.she] [npc2.verb(squirm)] and [npc2.verb(squeal)] under [npc.her] stinging blows.");
-			
+
 			} else {
 				switch(Sex.getCharacterTargetedForSexAction(this).getTailType()) {
 					case NONE:
@@ -159,23 +159,23 @@ public class DoggyStyle {
 											+ " forcing [npc2.herHim] to push [npc2.her] [npc2.ass+] up high in the air as [npc.name] [npc.verb(start)] to aggressively slap [npc2.her] exposed cheeks.";
 						break;
 				}
-			
+
 				return UtilText.returnStringAtRandom(
 							tailSpecial1,
 							tailSpecial2,
 							"[npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] as [npc.name] [npc.verb(start)] roughly slapping [npc2.her] [npc2.ass+],"
 									+ " and [npc.name] [npc.verb(find)] [npc.herself] grinning in glee as [npc.she] [npc.verb(watch)] [npc2.herHim] squirm and cry out beneath [npc.her] stinging blows.",
-							
+
 							"[npc2.Name] [npc2.verb(let)] out a startled wail as [npc.name] [npc.verb(start)] to roughly slap [npc2.her] [npc2.ass+],"
 									+ " and [npc.name] quickly [npc.verb(find)] [npc.herself] grinning in glee as [npc.she] [npc.verb(watch)] [npc2.herHim] squirm and wail beneath [npc.her] relentless blows.",
-							
+
 							"[npc.Name] [npc.verb(growl)] down that [npc.sheIs] going to put [npc2.name] in [npc2.her] place, before starting to aggressively slap [npc2.her] [npc2.ass+],"
 									+ " smirking down at [npc2.her] submissive form as [npc2.she] squeals and cries out beneath [npc.her] relentless blows.");
 			}
 		}
-		
+
 	};
-	
+
 	public static final SexAction PULL_HAIR = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.TWO_LOW,
@@ -183,7 +183,7 @@ public class DoggyStyle {
 			CorruptionLevel.TWO_HORNY,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Pull hair";
@@ -193,52 +193,52 @@ public class DoggyStyle {
 		public String getActionDescription() {
 			return "Grab [npc2.namePos] hair and pull [npc2.her] head back.";
 		}
-		
+
 		@Override
 		public SexActionCategory getCategory() {
 			return SexActionCategory.SEX;
 		}
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			boolean suitableSlot = false;
 			if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.DOGGY_BEHIND) {
 				if(Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS) {
 					suitableSlot = Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_SD_HUMPING)==null;
-					
+
 				} else if(Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND) {
 					suitableSlot = Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_SD_HUMPING_SECOND)==null
 							&& (Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_BEHIND_SECOND)==null || Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_ON_ALL_FOURS_THIRD)!=null);
-					
+
 				} else if(Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_THIRD
 						|| Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_FOURTH) {
 					suitableSlot = Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_BEHIND_SECOND)==null;
 				}
-				
+
 			} else if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.DOGGY_BEHIND_SECOND) {
 				if(Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND) {
 					suitableSlot = Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_SD_HUMPING_SECOND)==null
 							&& Sex.getCharacterInPosition(SexSlotBipeds.DOGGY_ON_ALL_FOURS_THIRD)==null;
-					
+
 				} else if(Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_THIRD
 						|| Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_FOURTH) {
 					suitableSlot = true;;
 				}
-				
+
 			} else if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.DOGGY_SD_HUMPING) {
 				suitableSlot = Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS;
-				
+
 			}else if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.DOGGY_SD_HUMPING_SECOND) {
 				suitableSlot = Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this))==SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND;
 			}
-			
+
 			return Sex.getSexPace(Sex.getCharacterPerformingAction())!=SexPace.SUB_RESISTING
 					&& suitableSlot;
 		}
 
 		@Override
 		public String getDescription() {
-			
+
 			boolean vaginalSex = false;
 			try {
 				vaginalSex = Sex.getOngoingActionsMap(Sex.getCharacterPerformingAction()).get(SexAreaPenetration.PENIS).get(Sex.getCharacterTargetedForSexAction(this)).contains(SexAreaOrifice.VAGINA);
@@ -248,13 +248,13 @@ public class DoggyStyle {
 			try {
 				analSex = Sex.getOngoingActionsMap(Sex.getCharacterPerformingAction()).get(SexAreaPenetration.PENIS).get(Sex.getCharacterTargetedForSexAction(this)).contains(SexAreaOrifice.ANUS);
 			} catch(Exception ex) {
-			} 
+			}
 
 			String tag = "pussy";
 			if(analSex) {
 				tag = "asshole";
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					if(vaginalSex || analSex) {
@@ -265,7 +265,7 @@ public class DoggyStyle {
 										+(Sex.getCharacterPerformingAction().isFeminine()?" softly giggling":" smirking")+" to [npc.herself] as [npc2.name] [npc2.verb(let)] out [npc2.moan+].",
 								"Continuing to slowly sink [npc.her] [npc.cock+] in and out of [npc2.namePos] [npc2."+tag+"+], [npc.name] [npc.verb(reach)] forwards and [npc.verb(take)] a gentle hold of [npc2.her] [npc2.hair],"
 										+ " before pulling [npc2.her] head back and causing [npc2.herHim] to let out [npc2.a_moan+].");
-						
+
 					} else {
 						return UtilText.returnStringAtRandom(
 								"Reaching forwards, [npc.name] gently [npc.verb(take)] hold of [npc2.namePos] [npc2.hair], before slowly pulling [npc2.her] head back and causing [npc2.herHim] to let out [npc2.a_moan+].",
@@ -283,7 +283,7 @@ public class DoggyStyle {
 										+(Sex.getCharacterPerformingAction().isFeminine()?" maniacally giggling":" deeply grunting")+" in pleasure as [npc2.name] [npc2.verb(let)] out [npc2.moan+].",
 								"Continuing to roughly slam [npc.her] [npc.cock+] in and out of [npc2.namePos] [npc2."+tag+"+], [npc.name] [npc.verb(reach)] forwards and [npc.verb(grab)] a fistful of [npc2.her] [npc2.hair],"
 										+ " before violently yanking [npc2.her] head back and causing [npc2.herHim] to let out [npc2.a_moan+].");
-						
+
 					} else {
 						return UtilText.returnStringAtRandom(
 								"Reaching forwards, [npc.name] roughly [npc.verb(grab)] a handful of [npc2.namePos] [npc2.hair], before sharply yanking [npc2.her] head back and causing [npc2.herHim] to let out [npc2.a_moan+].",
@@ -301,7 +301,7 @@ public class DoggyStyle {
 										+(Sex.getCharacterPerformingAction().isFeminine()?" happily giggling":" grunting")+" in pleasure as [npc2.name] [npc2.verb(let)] out [npc2.moan+].",
 								"Continuing to energetically thrust [npc.her] [npc.cock+] in and out of [npc2.namePos] [npc2."+tag+"+], [npc.name] [npc.verb(reach)] forwards and [npc.verb(take)] a firm hold of [npc2.her] [npc2.hair],"
 										+ " before pulling [npc2.her] head back and causing [npc2.herHim] to let out [npc2.a_moan+].");
-						
+
 					} else {
 						return UtilText.returnStringAtRandom(
 								"Reaching forwards, [npc.name] firmly [npc.verb(take)] hold of [npc2.namePos] [npc2.hair], before steadily pulling [npc2.her] head back and causing [npc2.herHim] to let out [npc2.a_moan+].",
@@ -312,11 +312,11 @@ public class DoggyStyle {
 					}
 			}
 		}
-		
+
 	};
-	
+
 	// Player's orgasms:
-	
+
 	public static final SexAction PLAYER_DOGGY_OVER_BACK_ORGASM = new SexAction(
 			SexActionType.ORGASM,
 			ArousalIncrease.FOUR_HIGH,
@@ -328,7 +328,7 @@ public class DoggyStyle {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Cum on back";
@@ -343,22 +343,22 @@ public class DoggyStyle {
 		public boolean isBaseRequirementsMet() {
 			return Main.game.getPlayer().hasPenisIgnoreDildo();
 		}
-		
+
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(!Sex.isPenetrationTypeFree(Main.game.getPlayer(), SexAreaPenetration.PENIS)) {
 				UtilText.nodeContentSB.append("As you feel yourself reaching your climax, you decide that you're going to shoot your sticky seed all over [npc.namePos] ass."
 						+ " Grabbing [npc.her] hips, you slide backwards, slipping your cock free from [npc.her] well-used hole, and brace for your orgasm. ");
-				
+
 			} else {
 				UtilText.nodeContentSB.append("As you feel yourself reaching your climax, you decide that you're going to shoot your sticky seed all over [npc.namePos] ass."
 						+ " Grabbing [npc.her] hips, you shuffle forwards, lining your [pc.cock+] up to [npc.her] [npc.ass+], and brace for your orgasm. ");
 			}
-			
+
 			String flaredSpecial = "", knottedSpecial = "", barbedSpecial = "";
-			
+
 			if(Main.game.getPlayer().hasPenisModifier(PenetrationModifier.KNOTTED)) {
 				knottedSpecial = " Your [pc.cock+] suddenly starts violently throbbing, and you know that you're about to cum."
 										+ " Grabbing your [pc.cock] in one [pc.hand], you point it at [npc.namePos] ass, furiously masturbating as your thick knot swells up.";
@@ -371,14 +371,14 @@ public class DoggyStyle {
 				flaredSpecial = " Your flared [pc.cock] suddenly starts violently throbbing, and you know that you're about to cum."
 						+ " Grabbing your [pc.cock] in one [pc.hand], you point it at [npc.namePos] ass, furiously masturbating as your flared head swells up.";
 			}
-			
+
 			UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 					flaredSpecial,
 					knottedSpecial,
 					barbedSpecial,
 					"Your [pc.cock+] suddenly starts violently throbbing, and you know that you're about to cum."
 							+ " Grabbing your [pc.cock] in one hand, you point it at [npc.namePos] ass, furiously masturbating as you let out [pc.a_moan+]."));
-			
+
 			if(Main.game.getPlayer().isWearingCondom()) {
 				UtilText.nodeContentSB.append(" As your [pc.balls+] tense up");
 				switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
@@ -410,7 +410,7 @@ public class DoggyStyle {
 						break;
 				}
 				UtilText.nodeContentSB.append(" out into the condom that you're wearing.");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(" You feel your [pc.balls+] tense up as your orgasm washes over you.");
 				switch (Main.game.getPlayer().getPenisOrgasmCumQuantity()) {
@@ -461,7 +461,7 @@ public class DoggyStyle {
 				UtilText.nodeContentSB.append("<br/>"
 						+ "You pant heavily as you pull your softening member out of [npc.namePos] used hole, before giving [npc.her] [npc.ass] a slap.");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -470,7 +470,7 @@ public class DoggyStyle {
 			Sex.stopOngoingAction(Main.game.getPlayer(), SexAreaPenetration.PENIS, Sex.getActivePartner(), SexAreaOrifice.ANUS);
 			Sex.stopOngoingAction(Main.game.getPlayer(), SexAreaPenetration.PENIS, Sex.getActivePartner(), SexAreaOrifice.VAGINA);
 		}
-		
+
 		@Override
 		public List<CoverableArea> getAreasCummedOn(GameCharacter cumProvider, GameCharacter cumTarget) {
 			if(cumProvider.equals(Sex.getCharacterPerformingAction()) && cumTarget.equals(Sex.getTargetedPartner(cumProvider))) {
@@ -480,7 +480,7 @@ public class DoggyStyle {
 			return null;
 		}
 	};
-	
+
 	public static final SexAction PLAYER_DOGGY_DOMINANT_ORGASM = new SexAction(
 			SexActionType.ORGASM,
 			ArousalIncrease.FOUR_HIGH,
@@ -500,7 +500,7 @@ public class DoggyStyle {
 					&& Sex.isDom(Main.game.getPlayer())
 					&& Main.game.getPlayer().hasPenisIgnoreDildo();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Ass to mouth";
@@ -570,7 +570,7 @@ public class DoggyStyle {
 						+ " Grabbing [npc.her] hips to brace yourself, you go weak at the knees and clench your thighs together as your [pc.pussy+] shudders and quivers."
 						+ " A mind-splitting orgasm washes through you, and you [pc.moanVerb] in delight as your feminine sex joins in on the fun."
 						+ " Panting heavily, you suddenly remember what you had planned, and shuffle around to where [npc.namePos] face is still collapsed down against the floor.");
-				
+
 			} else {
 				UtilText.nodeContentSB.append("<br/><br/>"
 						+ "As you slide your softening member out from [npc.namePos] well-used ass, you look down, grinning, at the mess you've made of [npc.herHim]."
@@ -591,7 +591,7 @@ public class DoggyStyle {
 
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 
 		@Override
 		public List<SexAreaInterface> getAreasCummedIn(GameCharacter cumProvider, GameCharacter cumTarget) {
@@ -606,9 +606,9 @@ public class DoggyStyle {
 		public void applyEffects() {
 			Sex.stopOngoingAction(Main.game.getPlayer(), SexAreaPenetration.PENIS, Sex.getActivePartner(), SexAreaOrifice.ANUS);
 		}
-		
+
 	};
-	
+
 	public static final SexAction PLAYER_DOGGY_DOMINANT_ORGASM_PUSSY = new SexAction(
 			SexActionType.ORGASM,
 			ArousalIncrease.FOUR_HIGH,
@@ -628,7 +628,7 @@ public class DoggyStyle {
 					&& Sex.isDom(Main.game.getPlayer())
 					&& Main.game.getPlayer().hasPenisIgnoreDildo();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Pussy to mouth";
@@ -688,13 +688,13 @@ public class DoggyStyle {
 						+ " Grabbing [npc.her] hips to brace yourself, you go weak at the knees and clench your thighs together as your [pc.pussy+] shudders and quivers."
 						+ " A mind-splitting orgasm washes through you, and you [pc.moanVerb] in delight as your feminine sex joins in on the fun."
 						+ " Panting heavily, you suddenly remember what you had planned, and shuffle around to where [npc.namePos] face is still collapsed down against the floor.");
-				
+
 			} else {
 				UtilText.nodeContentSB.append("<br/><br/>"
 						+ "As you slide your softening member out from [npc.namePos] well-used [npc.pussy], you look down, grinning, at the mess you've made of [npc.herHim]."
 						+ " Panting heavily, you suddenly remember what you had planned, and shuffle around to where [npc.namePos] face is still collapsed down against the floor.");
 			}
-			
+
 			UtilText.nodeContentSB.append("<br/><br/>"
 					+ "Reaching down, you grab a fistful of [npc.namePos] [npc.hair+], and before [npc.she] has a chance to react, you shove [npc.her] [npc.face+] down onto your [pc.cock+]."
 					+ " [npc.She] [npc.moansVerb] and squirms as you give [npc.herHim] a taste of [npc.her] [npc.pussy], but you hold [npc.herHim] tightly in position, [pc.moaning] softly as [npc.her] frantic [npc.tongue] cleans you off."
@@ -717,7 +717,7 @@ public class DoggyStyle {
 		public void applyEffects() {
 			Sex.stopOngoingAction(Main.game.getPlayer(), SexAreaPenetration.PENIS, Sex.getActivePartner(), SexAreaOrifice.VAGINA);
 		}
-		
+
 	};
 
 	public static final SexAction LOOK_BACK = new SexAction(
@@ -727,13 +727,13 @@ public class DoggyStyle {
 			CorruptionLevel.ONE_VANILLA,
 			null,
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public boolean isBaseRequirementsMet() {
 			SexSlot targetedSlot = Sex.getSexPositionSlot(Sex.getCharacterTargetedForSexAction(this));
 			return Sex.getSexPace(Sex.getCharacterPerformingAction())!=SexPace.SUB_RESISTING && (targetedSlot==SexSlotBipeds.DOGGY_BEHIND || targetedSlot==SexSlotBipeds.DOGGY_BEHIND_ORAL);
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Seductive look";
@@ -742,7 +742,7 @@ public class DoggyStyle {
 		public String getActionDescription() {
 			return "Turn your head back and give [npc2.name] a seductive look.";
 		}
-		
+
 		@Override
 		public SexActionCategory getCategory() {
 			return SexActionCategory.SEX;

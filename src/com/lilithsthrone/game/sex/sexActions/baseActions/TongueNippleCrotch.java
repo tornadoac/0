@@ -28,7 +28,7 @@ public class TongueNippleCrotch {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.TONGUE, SexAreaOrifice.NIPPLE_CROTCH)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).getBreastCrotchShape()==BreastShape.UDDERS) {
@@ -53,7 +53,7 @@ public class TongueNippleCrotch {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -78,7 +78,7 @@ public class TongueNippleCrotch {
 				default:
 					break;
 			}
-			
+
 			switch (Sex.getCharacterTargetedForSexAction(this).getBreastCrotchStoredMilk()) {
 				case ZERO_NONE:
 					UtilText.nodeContentSB.append("You [npc2.verb(feel)] no [npc2.crotchMilk+] coming from [npc2.namePos] [npc2.crotchBoobs+],"); //Shouldn't be able to be reached
@@ -106,7 +106,7 @@ public class TongueNippleCrotch {
 							" [npc.Name] quickly [npc.verb(get)] a taste of [npc2.her] [npc2.crotchMilk+] as it gushes out into [npc.her] mouth,"));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -135,10 +135,10 @@ public class TongueNippleCrotch {
 							" and, desperately trying to push [npc.namePos] head away from [npc2.her] [npc2.crotchBoob+], [npc2.name] [npc2.verb(plead)] with [npc.herHim] to leave [npc2.herHim] alone."));
 					break;
 			}
-		
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Sex.getCharacterPerformingAction().ingestFluid(
@@ -149,7 +149,7 @@ public class TongueNippleCrotch {
 					+ Sex.getCharacterTargetedForSexAction(this).incrementBreastCrotchStoredMilk(-Sex.getCharacterTargetedForSexAction(this).getBreastCrotchRawMilkStorageValue()/5);
 		}
 	};
-	
+
 	public static final SexAction BREASTFEED = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.TWO_LOW,
@@ -157,7 +157,7 @@ public class TongueNippleCrotch {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.NIPPLE_CROTCH, SexAreaPenetration.TONGUE)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			if(Sex.getCharacterTargetedForSexAction(this).getBreastCrotchShape()==BreastShape.UDDERS) {
@@ -183,7 +183,7 @@ public class TongueNippleCrotch {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -214,7 +214,7 @@ public class TongueNippleCrotch {
 				default:
 					break;
 			}
-			
+
 			switch (Sex.getCharacterPerformingAction().getBreastCrotchStoredMilk()) {
 				case ZERO_NONE:
 					UtilText.nodeContentSB.append("[npc.Name] [npc.verb(feel)] no [npc.crotchMilk+] coming from [npc.namePos] [npc.crotchBoobs+],"); //Shouldn't be able to be reached
@@ -242,7 +242,7 @@ public class TongueNippleCrotch {
 							" [npc2.Name] quickly [npc2.verb(get)] a taste of [npc.her] [npc.crotchMilk+] as it gushes out into [npc2.her] mouth,"));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -271,10 +271,10 @@ public class TongueNippleCrotch {
 							" and, desperately trying to pull away from [npc.namePos] [npc.crotchBoobs+], [npc2.she] [npc2.verb(plead)] with [npc.herHim] to leave [npc2.herHim] alone."));
 					break;
 			}
-		
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Sex.getCharacterTargetedForSexAction(this).ingestFluid(
@@ -284,6 +284,6 @@ public class TongueNippleCrotch {
 					Sex.getCharacterPerformingAction().getBreastCrotchRawMilkStorageValue()/5)
 				+ Sex.getCharacterPerformingAction().incrementBreastCrotchStoredMilk(-Sex.getCharacterPerformingAction().getBreastCrotchRawMilkStorageValue()/5);
 		}
-		
+
 	};
 }

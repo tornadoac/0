@@ -18,7 +18,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 public enum TongueType implements BodyPartTypeInterface {
 
 	HUMAN(BodyCoveringType.TONGUE, Race.HUMAN, 1),
-	
+
 	ANGEL(BodyCoveringType.TONGUE, Race.ANGEL, 1),
 
 	DEMON_COMMON(BodyCoveringType.TONGUE, Race.DEMON, 1, TongueModifier.BIFURCATED),
@@ -26,7 +26,7 @@ public enum TongueType implements BodyPartTypeInterface {
 	DOG_MORPH(BodyCoveringType.TONGUE, Race.DOG_MORPH, 1),
 
 	WOLF_MORPH(BodyCoveringType.TONGUE, Race.WOLF_MORPH, 1),
-	
+
 	FOX_MORPH(BodyCoveringType.TONGUE, Race.FOX_MORPH, 1),
 
 	CAT_MORPH(BodyCoveringType.TONGUE, Race.CAT_MORPH, 1),
@@ -44,11 +44,11 @@ public enum TongueType implements BodyPartTypeInterface {
 	SQUIRREL_MORPH(BodyCoveringType.TONGUE, Race.SQUIRREL_MORPH, 1),
 
 	RAT_MORPH(BodyCoveringType.TONGUE, Race.RAT_MORPH, 1),
-	
+
 	RABBIT_MORPH(BodyCoveringType.TONGUE, Race.RABBIT_MORPH, 1),
 
 	BAT_MORPH(BodyCoveringType.TONGUE, Race.BAT_MORPH, 1);
-	
+
 	private BodyCoveringType skinType;
 	private Race race;
 	private int defaultTongueLength;
@@ -58,7 +58,7 @@ public enum TongueType implements BodyPartTypeInterface {
 		this.skinType = skinType;
 		this.race = race;
 		this.defaultTongueLength = defaultTongueLength;
-		
+
 		this.defaultRacialTongueModifiers = new ArrayList<>();
 		Collections.addAll(this.defaultRacialTongueModifiers, defaultRacialTongueModifiers);
 	}
@@ -82,12 +82,12 @@ public enum TongueType implements BodyPartTypeInterface {
 	public boolean isDefaultPlural() {
 		return false;
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return "tongue";
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return "tongues";

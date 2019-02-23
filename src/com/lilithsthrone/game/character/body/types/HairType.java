@@ -25,7 +25,7 @@ public enum HairType implements BodyPartTypeInterface {
 	DOG_MORPH(BodyCoveringType.HAIR_CANINE_FUR, Race.DOG_MORPH),
 
 	LYCAN(BodyCoveringType.HAIR_LYCAN_FUR, Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.HAIR_FOX_FUR, Race.FOX_MORPH),
 
 	CAT_MORPH(BodyCoveringType.HAIR_FELINE_FUR, Race.CAT_MORPH),
@@ -97,7 +97,7 @@ public enum HairType implements BodyPartTypeInterface {
 				return "hair";
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(coveringType) {
@@ -203,13 +203,13 @@ public enum HairType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	private static Map<Race, List<HairType>> typesMap = new HashMap<>();
 	public static List<HairType> getHairTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<HairType> types = new ArrayList<>();
 		for(HairType type : HairType.values()) {
 			if(type.getRace()==r) {

@@ -23,14 +23,14 @@ public class Hair implements BodyPartInterface {
 		this.type = type;
 		this.length = length;
 		this.style = style;
-		
+
 	}
 
 	@Override
 	public HairType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -40,7 +40,7 @@ public class Hair implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -50,11 +50,11 @@ public class Hair implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	public String getDescriptor(GameCharacter owner) {
 		return type.getDescriptor(owner);
 	}
-	
+
 	public String setType(GameCharacter owner, HairType type) {
 		if(!Main.game.isStarted() || owner==null) {
 			this.type = type;
@@ -63,17 +63,17 @@ public class Hair implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if (owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.hair] of [pc.a_hairRace], so nothing happens...)]</p>";
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.hair] of [npc.a_hairRace], so nothing happens...)]</p>");
 			}
-			
+
 		} else {
 			UtilText.transformationContentSB.setLength(0);
-			
+
 			if (owner.isPlayer()) {
 				UtilText.transformationContentSB.append(
 						"<p>"
@@ -90,7 +90,7 @@ public class Hair implements BodyPartInterface {
 		UtilText.transformationContentSB.setLength(0);
 		UtilText.transformationContentSB.append(s);
 		this.type = type;
-		
+
 		switch (type) {
 			case HUMAN:
 				if (owner.isPlayer()) {
@@ -303,7 +303,7 @@ public class Hair implements BodyPartInterface {
 			case ANGEL://TODO
 				break;
 		}
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<br/><br/>"
 				+ owner.postTransformationCalculation()
@@ -325,11 +325,11 @@ public class Hair implements BodyPartInterface {
 		int oldLength = this.length;
 		this.length = Math.max(0, Math.min(length, HairLength.SEVEN_TO_FLOOR.getMaximumValue()));
 		int sizeChange = this.length - oldLength;
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		String styleChange = "";
 		if(this.length < owner.getHairStyle().getMinimumLengthRequired()) {
 			if(owner.isPlayer()) {
@@ -344,7 +344,7 @@ public class Hair implements BodyPartInterface {
 					+ owner.setHairStyle(HairStyle.NONE);
 			}
 		}
-		
+
 		if (sizeChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(The length of your [pc.hair] doesn't change...)]</p>";
@@ -361,7 +361,7 @@ public class Hair implements BodyPartInterface {
 						+ "[npc.She] now has [style.boldTfGeneric([npc.hairLength], "+this.length+"-inch [npc.hair])]!</p>"
 						+ styleChange);
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				return "<p>Your scalp itches for a moment as you feel your [pc.hair] [style.boldGrow(growing longer)].<br/>"
@@ -378,10 +378,10 @@ public class Hair implements BodyPartInterface {
 	public HairStyle getStyle() {
 		return style;
 	}
-	
+
 	public String setStyle(GameCharacter owner, HairStyle style) {
 		this.style = style;
-		
+
 		switch(style) {
 			case BRAIDED:
 				if(owner.isPlayer()) {
@@ -528,7 +528,7 @@ public class Hair implements BodyPartInterface {
 					return UtilText.parse(owner, "<p>[npc.NamePos] [npc.hair] "+(type.isDefaultPlural()?"are":"is")+" now styled into a crown braid.</p>");
 				}
 		}
-		
+
 		// Catch:
 		return "";
 	}

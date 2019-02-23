@@ -16,7 +16,7 @@
 		<imageEquippedName/>
 		<enchantmentLimit/>
 		<effects/>
-		
+
 		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
@@ -30,9 +30,9 @@
 				<concealedSlots/>
 			</blockedParts>
 		</blockedPartsList>
-		
+
 		<incompatibleSlots/>
-		
+
 		<primaryColors>
 			<color>CLOTHING_BLACK</color>
 			<color>CLOTHING_WHITE</color>
@@ -46,7 +46,7 @@
 		<secondaryColorsDye/>
 		<tertiaryColors/>
 		<tertiaryColorsDye/>
-	
+
 		<itemTags> <!-- tag values: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/ItemTag.java -->
 			<tag>SOLD_BY_FINCH</tag>
 			<tag>REQUIRES_VAGINA</tag>
@@ -108,5 +108,5 @@
 	  <![CDATA[[npc1.Name] holds [npc2.name] still as [npc1.sheHe] roughly forces the dildo into [npc2.herHis] [npc2.pussy+].]]>
 	</NPCOtherNPCRough>
   </replacementText>
-	
+
 </clothing>

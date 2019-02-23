@@ -11,15 +11,15 @@ import com.lilithsthrone.game.sex.Sex;
  * @author Innoxia
  */
 public class SexSlotOther {
-	
+
 	/* STANDING */
-	
+
 	public static final SexSlot STANDING_DOMINANT = new SexSlot(
 			"Standing",
 			"standing (dominant)",
 			"[npc.Name] [npc.verb(reach)] around and [npc.verb(wrap)] [npc.her] [npc.arms] around [npc2.namePos] back, pulling [npc2.herHim] close and letting out [npc.a_moan+] as [npc.she] [npc.verb(prepare)] to reach [npc.her] climax.",
 			true);
-	
+
 	public static final SexSlot STANDING_DOMINANT_TWO = new SexSlot(STANDING_DOMINANT);
 
 	public static final SexSlot STANDING_SUBMISSIVE = new SexSlot(
@@ -29,15 +29,15 @@ public class SexSlotOther {
 			true);
 
 	public static final SexSlot STANDING_SUBMISSIVE_TWO = new SexSlot(STANDING_SUBMISSIVE);
-	
+
 	/* ORAL */
-	
+
 	public static final SexSlot RECEIVING_ORAL = new SexSlot(
 			"Standing",
 			"receiving oral",
 			"With a small thrust of [npc.her] [npc.hips], [npc.name] [npc.verb(push)] [npc.her] groin into [npc2.namePos] [npc2.face], before letting out [npc.a_moan+] as [npc.she] [npc.verb(reach)] [npc.her] climax.",
 			true);
-	
+
 	public static final SexSlot RECEIVING_ORAL_TWO = new SexSlot(
 			"Standing",
 			"receiving oral",
@@ -105,9 +105,9 @@ public class SexSlotOther {
 			return Sex.getTargetedPartner(target).isSizeDifferenceTallerThan(target);
 		}
 	};
-	
+
 	/* MOUTING */
-	
+
 	public static final SexSlot ALL_FOURS_FUCKED = new SexSlot(
 			"Standing/On all fours",
 			"being fucked",
@@ -225,5 +225,5 @@ public class SexSlotOther {
 			return partner!=null && (ALL_FOURS_FUCKED_TWO.isStanding(partner) || partner.getLegConfiguration()==LegConfiguration.TAUR || partner.isSizeDifferenceTallerThan(target));
 		}
 	};
-	
+
 }

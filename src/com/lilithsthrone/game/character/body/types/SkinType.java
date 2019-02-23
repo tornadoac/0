@@ -27,7 +27,7 @@ public enum SkinType implements BodyPartTypeInterface {
 	DOG_MORPH(BodyCoveringType.CANINE_FUR, Race.DOG_MORPH),
 
 	LYCAN(BodyCoveringType.LYCAN_FUR, Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.FOX_FUR, Race.FOX_MORPH),
 
 	CAT_MORPH(BodyCoveringType.FELINE_FUR, Race.CAT_MORPH),
@@ -96,7 +96,7 @@ public enum SkinType implements BodyPartTypeInterface {
 				return coveringType.getName(gc);
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		switch(coveringType) {
@@ -198,13 +198,13 @@ public enum SkinType implements BodyPartTypeInterface {
 	public Race getRace() {
 		return race;
 	}
-	
+
 	private static Map<Race, List<SkinType>> typesMap = new HashMap<>();
 	public static List<SkinType> getSkinTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<SkinType> types = new ArrayList<>();
 		for(SkinType type : SkinType.values()) {
 			if(type.getRace()==r) {

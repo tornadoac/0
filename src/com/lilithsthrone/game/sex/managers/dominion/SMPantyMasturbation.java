@@ -22,7 +22,7 @@ public class SMPantyMasturbation extends SexManagerDefault {
 				dominants,
 				new HashMap<>());
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

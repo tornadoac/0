@@ -15,7 +15,7 @@ public enum ClubberBehavior {
 			return PlaceType.WATERING_HOLE_MAIN_AREA;
 		}
 	},
-	
+
 	BAR_DRINK() {
 		@Override
 		public PlaceType getPlaceType() {
@@ -52,7 +52,7 @@ public enum ClubberBehavior {
 			return PlaceType.WATERING_HOLE_BAR;
 		}
 	},
-	
+
 	DANCE() {
 		@Override
 		public PlaceType getPlaceType() {
@@ -71,7 +71,7 @@ public enum ClubberBehavior {
 			return PlaceType.WATERING_HOLE_DANCE_FLOOR;
 		}
 	},
-	
+
 	SIT_DOWN_TALK() {
 		@Override
 		public PlaceType getPlaceType() {
@@ -108,14 +108,14 @@ public enum ClubberBehavior {
 			return PlaceType.WATERING_HOLE_SEATING_AREA;
 		}
 	},
-	
+
 	TOILETS() {
 		@Override
 		public PlaceType getPlaceType() {
 			return PlaceType.WATERING_HOLE_TOILETS;
 		}
 	};
-	
+
 	public abstract PlaceType getPlaceType();
-	
+
 }

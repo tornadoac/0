@@ -18,7 +18,7 @@ public class SMFaceToWall extends SexManagerDefault {
 		super(SexPositionBipeds.FACING_WALL,
 				dominants,
 				submissives);
-		
+
 	}
 
 }

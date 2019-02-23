@@ -6,7 +6,7 @@ package com.lilithsthrone.game.combat;
  * @author Innoxia
  */
 public enum SpellType {
-	
+
 	OFFENSIVE,
 	DEFENSIVE,
 	DEFENSIVE_SELF_ONLY;

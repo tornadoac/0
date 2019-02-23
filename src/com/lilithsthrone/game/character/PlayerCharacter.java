@@ -84,9 +84,9 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class PlayerCharacter extends GameCharacter implements XMLSaving {
-	
+
 	private String title;
-	
+
 	private int karma;
 
 	private Map<QuestLine, Quest> quests;
@@ -94,37 +94,37 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	private boolean mainQuestUpdated, sideQuestUpdated, relationshipQuestUpdated;
 
 	private Set<Subspecies> racesDiscoveredFromBook;
-	
+
 	protected List<String> friendlyOccupants;
-	
+
 	// Trader buy-back:
 	private SizedStack<ShopTransaction> buybackStack;
 
 	private List<String> charactersEncountered;
 
 	private List<WorldType> worldsVisited;
-	
+
 	public PlayerCharacter(NameTriplet nameTriplet, int level, LocalDateTime birthday, Gender gender, Subspecies startingSubspecies, RaceStage stage, WorldType startingWorld, PlaceType startingPlace) {
 		super(nameTriplet, "", "", level, Main.game.getDateNow().minusYears(22), gender, startingSubspecies, stage, new CharacterInventory(0), startingWorld, startingPlace);
 
 		this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-		
+
 		title = "The Human";
-		
+
 		karma = 0;
-		
+
 		for(PersonalityTrait trait : PersonalityTrait.values()) {
 			this.setPersonalityTrait(trait, PersonalityWeight.AVERAGE);
 		}
-		
+
 		this.setMaxCompanions(1);
-		
+
 		quests = new EnumMap<>(QuestLine.class);
 
 		mainQuestUpdated = false;
 		sideQuestUpdated = false;
 		relationshipQuestUpdated = false;
-		
+
 		racesDiscoveredFromBook = new HashSet<>();
 
 		buybackStack = new SizedStack<>(24);
@@ -132,35 +132,35 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		charactersEncountered = new ArrayList<>();
 
 		friendlyOccupants = new ArrayList<>();
-		
+
 		worldsVisited = new ArrayList<>();
-		
+
 		this.setAttribute(Attribute.MAJOR_PHYSIQUE, 10f, false);
 		this.setAttribute(Attribute.MAJOR_ARCANE, 0f, false);
 		this.setAttribute(Attribute.MAJOR_CORRUPTION, 0f, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element properties = super.saveAsXML(parentElement, doc);
-		
+
 		Element playerSpecific = doc.createElement("playerSpecific");
 		properties.appendChild(playerSpecific);
-		
+
 		CharacterUtils.createXMLElementWithValue(doc, playerSpecific, "title", this.getTitle());
 		CharacterUtils.createXMLElementWithValue(doc, playerSpecific, "karma", String.valueOf(this.getKarma()));
-		
+
 		Element questUpdatesElement = doc.createElement("questUpdates");
 		playerSpecific.appendChild(questUpdatesElement);
 		CharacterUtils.createXMLElementWithValue(doc, playerSpecific, "mainQuestUpdated", String.valueOf(this.mainQuestUpdated));
 		CharacterUtils.createXMLElementWithValue(doc, playerSpecific, "sideQuestUpdated", String.valueOf(this.sideQuestUpdated));
 		CharacterUtils.createXMLElementWithValue(doc, playerSpecific, "relationshipQuestUpdated", String.valueOf(this.relationshipQuestUpdated));
-		
+
 		Element innerElement = doc.createElement("racesDiscovered");
 		playerSpecific.appendChild(innerElement);
 		for(Subspecies subspecies : racesDiscoveredFromBook) {
@@ -168,13 +168,13 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				CharacterUtils.createXMLElementWithValue(doc, innerElement, "race", subspecies.toString());
 			}
 		}
-		
+
 		Element charactersEncounteredElement = doc.createElement("charactersEncountered");
 		playerSpecific.appendChild(charactersEncounteredElement);
 		for(String id : charactersEncountered) {
 			CharacterUtils.createXMLElementWithValue(doc, charactersEncounteredElement, "id", id);
 		}
-		
+
 		innerElement = doc.createElement("questMap");
 		playerSpecific.appendChild(innerElement);
 		for(Entry<QuestLine, Quest> entry : quests.entrySet()) {
@@ -183,39 +183,39 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, e, "questLine", entry.getKey().toString());
 			CharacterUtils.addAttribute(doc, e, "quest", String.valueOf(entry.getValue()));
 		}
-		
+
 		Element friendlyOccupants = doc.createElement("friendlyOccupants");
 		playerSpecific.appendChild(friendlyOccupants);
 		for(String occupant : this.getFriendlyOccupants()) {
 			Element element = doc.createElement("occupant");
 			friendlyOccupants.appendChild(element);
-			
+
 			CharacterUtils.addAttribute(doc, element, "id", occupant);
 		}
-		
+
 		Element worldsVisitedElement = doc.createElement("worldsVisited");
 		playerSpecific.appendChild(worldsVisitedElement);
 		for(WorldType world : this.getWorldsVisited()) {
 			Element element = doc.createElement("world");
 			worldsVisitedElement.appendChild(element);
-			
+
 			CharacterUtils.addAttribute(doc, element, "id", world.toString());
 		}
-		
+
 //		private SizedStack<ShopTransaction> buybackStack; TODO
-		
+
 //		Element slavesOwned = doc.createElement("slavesExported");
 //		properties.appendChild(slavesOwned);
 //		for(String id : this.getSlavesOwned()) {
 //			Main.game.getNPCById(id).saveAsXML(slavesOwned, doc);
 //		}
-		
+
 		return properties;
 	}
-	
+
 	public static PlayerCharacter loadFromXML(StringBuilder log, Element parentElement, Document doc, CharacterImportSetting... settings) {
 		PlayerCharacter character = new PlayerCharacter(new NameTriplet(""), 0, null, Gender.F_V_B_FEMALE, Subspecies.HUMAN, RaceStage.HUMAN, WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME);
-		
+
 		GameCharacter.loadGameCharacterVariablesFromXML(character, log, parentElement, doc, settings);
 
 		NodeList nodes = parentElement.getElementsByTagName("core");
@@ -224,18 +224,18 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		if(element.getElementsByTagName("version").item(0)!=null) {
 			version = ((Element) element.getElementsByTagName("version").item(0)).getAttribute("value");
 		}
-		
+
 		Element playerSpecificElement = (Element) parentElement.getElementsByTagName("playerSpecific").item(0);
-		
+
 		if(playerSpecificElement!=null) {
 			if(playerSpecificElement.getElementsByTagName("title").getLength()!=0) {
 				character.setTitle(((Element)playerSpecificElement.getElementsByTagName("title").item(0)).getAttribute("value"));
 			}
-			
+
 			if(playerSpecificElement.getElementsByTagName("karma").getLength()!=0) {
 				character.setKarma(Integer.valueOf(((Element)playerSpecificElement.getElementsByTagName("karma").item(0)).getAttribute("value")));
 			}
-			
+
 			if(playerSpecificElement.getElementsByTagName("mainQuestUpdated").getLength()!=0) {
 				character.setMainQuestUpdated(Boolean.valueOf(((Element)playerSpecificElement.getElementsByTagName("mainQuestUpdated").item(0)).getAttribute("value")));
 			}
@@ -245,11 +245,11 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			if(playerSpecificElement.getElementsByTagName("relationshipQuestUpdated").getLength()!=0) {
 				character.setRelationshipQuestUpdated(Boolean.valueOf(((Element)playerSpecificElement.getElementsByTagName("relationshipQuestUpdated").item(0)).getAttribute("value")));
 			}
-	
+
 			try {
 				Element racesDiscoveredElement = (Element) playerSpecificElement.getElementsByTagName("racesDiscovered").item(0);
 				if(racesDiscoveredElement != null) {
-					
+
 					NodeList races = racesDiscoveredElement.getElementsByTagName("race");
 					for(int i=0; i < races.getLength(); i++){
 						Element e = (Element) races.item(i);
@@ -261,7 +261,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				}
 			} catch(Exception ex) {
 			}
-			
+
 			Element charactersEncounteredElement = (Element) playerSpecificElement.getElementsByTagName("charactersEncountered").item(0);
 			if(charactersEncounteredElement != null) {
 				NodeList charactersEncounteredIds = charactersEncounteredElement.getElementsByTagName("id");
@@ -270,35 +270,35 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 					character.addCharacterEncountered(e.getAttribute("value"));
 				}
 			}
-			
+
 			Element questMapElement = (Element) playerSpecificElement.getElementsByTagName("questMap").item(0);
 			if(questMapElement!=null) {
 				NodeList questMapEntries = questMapElement.getElementsByTagName("entry");
 				if(Main.isVersionOlderThan(version, "0.1.99.5")) {
-				
+
 					for(int i=0; i< questMapEntries.getLength(); i++){
 						Element e = (Element) questMapEntries.item(i);
-						
+
 						try {
 							int progress = Integer.valueOf(e.getAttribute("progress"));
 							QuestLine questLine = QuestLine.valueOf(e.getAttribute("questLine"));
 							TreeNode<Quest> q = questLine.getQuestTree();
-							
+
 							for(int it=0;it<progress;it++) {
 								if(!q.getChildren().isEmpty()) {
 									q = q.getChildren().get(0);
 								}
 							}
-							
+
 //							// Add one if quest is complete: (This is due to adding a 'complete quest' at the end of each quest line.)
 //							if(questLine!=QuestLine.MAIN && !q.getChildren().isEmpty() && q.getChildren().get(0).getChildren().isEmpty()) {
 //								q = q.getChildren().get(0);
 //							}
-							
+
 							character.quests.put(
 									questLine,
 									q.getData());
-							
+
 						} catch(Exception ex) {
 							System.err.println("ERR Quest!");
 						}
@@ -311,7 +311,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 							if(questLine.contains("SIDE_NYAN")) {
 								questLine = questLine.replace("SIDE_NYAN", "RELATIONSHIP_NYAN");
 							}
-							
+
 							String quest = e.getAttribute("quest");
 							if(quest.contains("SIDE_NYAN")) {
 								quest = quest.replace("SIDE_NYAN", "RELATIONSHIP_NYAN");
@@ -325,29 +325,29 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				}
 			}
 		}
-		
+
 		try {
 			for(int i=0; i<((Element) playerSpecificElement.getElementsByTagName("friendlyOccupants").item(0)).getElementsByTagName("occupant").getLength(); i++){
 				Element e = ((Element)playerSpecificElement.getElementsByTagName("occupant").item(i));
-				
+
 				if(!e.getAttribute("id").equals("NOT_SET")) {
 					character.getFriendlyOccupants().add(e.getAttribute("id"));
 					CharacterUtils.appendToImportLog(log, "<br/>Added occupant: "+e.getAttribute("id"));
 				}
 			}
-		} catch(Exception ex) {	
+		} catch(Exception ex) {
 		}
-		
+
 		try {
 			for(int i=0; i<((Element) playerSpecificElement.getElementsByTagName("worldsVisited").item(0)).getElementsByTagName("world").getLength(); i++){
 				Element e = ((Element)playerSpecificElement.getElementsByTagName("world").item(i));
-				
+
 				character.getWorldsVisited().add(WorldType.valueOf(e.getAttribute("id")));
 				CharacterUtils.appendToImportLog(log, "<br/>Added world visited: "+e.getAttribute("id"));
 			}
-		} catch(Exception ex) {	
+		} catch(Exception ex) {
 		}
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.0.5")) {
 			// Reset player's demon parts to human if prior to 0.3.0.5:
 			if(character.getArmType().getRace()==Race.DEMON) {
@@ -395,7 +395,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			character.setSubspeciesOverride(null);
 			character.getBody().calculateRace(character);
 		}
-		
+
 		return character;
 	}
 
@@ -419,17 +419,17 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			for (CharacterChangeEventListener eventListener : playerInventoryChangeEventListeners)
 				eventListener.onChange();
 	}
-	
+
 	@Override
 	public String getId() {
 		return "PlayerCharacter";//-"+Main.game.getNpcTally();
 	}
-	
+
 	@Override
 	public boolean isPlayer() {
 		return true;
 	}
-	
+
 	@Override
 	public int getAppearsAsAgeValue() {
 		if(Main.game.isInNewWorld()) {
@@ -446,7 +446,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			return (int) ChronoUnit.YEARS.between(birthday, Main.game.getDateNow().minusYears(Game.TIME_SKIP_YEARS));
 		}
 	}
-	
+
 	@Override
 	public String getBodyDescription() {
 		return body.getDescription(this);
@@ -462,26 +462,26 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 					+ " Having convinced her that your story is true, you're now working towards finding a way to get back to your old world.";
 		}
 	}
-	
+
 	@Override
 	public void setLocation(WorldType worldLocation, Vector2i location, boolean setAsHomeLocation) {
 		if(this.getWorldsVisited()!=null && !this.getWorldsVisited().contains(worldLocation)) {
 			this.getWorldsVisited().add(worldLocation);
 		}
-		
+
 		if(this.getWorldLocation()!=worldLocation && !this.getLocation().equals(location)) {
 			Main.game.setPlayerMovedLocation(true);
 		}
-		
+
 		if(this.getWorldLocation()==WorldType.NIGHTLIFE_CLUB) {
 			List<GameCharacter> clubbers = new ArrayList<>(Main.game.getNonCompanionCharactersPresent());
 			clubbers.removeIf((npc) -> !(npc instanceof DominionClubNPC));
-			
+
 			WorldType worldLocationInitial = this.getWorldLocation();
 			Vector2i locationInitial = this.getLocation();
-			
+
 			super.setLocation(worldLocation, location, setAsHomeLocation);
-			
+
 			for(GameCharacter clubber : clubbers) {
 				clubber.setLocation(this, false);
 				// TODO Why is this needed? I can't figure out why IDs are not being removed without this line:
@@ -489,20 +489,20 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 					Main.game.getWorlds().get(worldLocationInitial).getCell(locationInitial).removeCharacterPresentId(clubber.getId());
 				}
 			}
-			
+
 		} else if(this.getWorldLocation()==WorldType.SUBMISSION) {
 			super.setLocation(worldLocation, location, setAsHomeLocation);
-			
+
 			PlaceType place = Main.game.getWorlds().get(WorldType.SUBMISSION).getCell(location).getPlace().getPlaceType();
 			if(place==PlaceType.SUBMISSION_LILIN_PALACE_GATE || place==PlaceType.SUBMISSION_LILIN_PALACE) {
 				Main.game.getNpc(Elizabeth.class).setLocation(this, false);
 			}
-			
+
 		} else {
 			super.setLocation(worldLocation, location, setAsHomeLocation);
 		}
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -510,7 +510,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public String getPetName(GameCharacter target) {
 		if(target instanceof Lyssieth && this.getRace()==Race.DEMON) {
 			if(this.hasFetish(Fetish.FETISH_INCEST)) {
@@ -529,10 +529,10 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public void setKarma(int karma) {
 		this.karma = karma;
 	}
-	
+
 	/**
 	 * This is just an internal stat that isn't used for anything, other than to help me feel better about writing horrible scenes.<br/><br/>
-	 * 
+	 *
 	 * -100 would be for something huge, like attacking and enslaving one of your children.<br/>
 	 * -10 would be for something large, like stealing from someone.<br/>
 	 * -1 would be for something small, like insulting someone who doesn't deserve it.<br/>
@@ -545,7 +545,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public void incrementKarma(int increment) {
 		this.karma += increment;
 	}
-	
+
 	@Override
 	public Set<Relationship> getRelationshipsTo(GameCharacter character, Relationship... excludedRelationships) {
 		if(character instanceof Lilaya) {
@@ -564,13 +564,13 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		}
 		return super.getRelationshipsTo(character, excludedRelationships);
 	}
-	
+
 	// Quests:
 
 	public void resetAllQuests() {
 		quests = new EnumMap<>(QuestLine.class);
 	}
-	
+
 	public boolean isMainQuestUpdated() {
 		return mainQuestUpdated;
 	}
@@ -598,30 +598,30 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public String startQuest(QuestLine questLine) {
 		return setQuestProgress(questLine, questLine.getQuestTree().getData());
 	}
-	
+
 	public String setQuestProgress(QuestLine questLine, Quest quest) {
 		if(!questLine.getQuestTree().childrenContainsData(quest)) {
 			System.err.println("QuestTree in quest line "+questLine+" does not contain quest: "+quest);
 			return "";
 		}
-		
+
 		if (questLine.getType() == QuestType.MAIN) {
 			setMainQuestUpdated(true);
-			
+
 		} else if (questLine.getType() == QuestType.SIDE) {
 			setSideQuestUpdated(true);
-			
+
 		} else {
 			setRelationshipQuestUpdated(true);
 		}
-		
+
 		if(quests.containsKey(questLine)) {
 			Quest currentQuest = questLine.getQuestTree().getFirstNodeWithData(quests.get(questLine)).getData();
-			
+
 			String experienceUpdate = incrementExperience(currentQuest.getExperienceReward(), true);
-			
+
 			quests.put(questLine, quest);
-			
+
 			if (questLine.getQuestTree().getFirstNodeWithData(quest).getChildren().isEmpty()) { // QuestLine complete (No more children in the tree)
 				return "<p style='text-align:center;'>"
 						+ "<b style='color:" + questLine.getType().getColor().toWebHexString() + ";'>Quest - " + questLine.getName() + "</b><br/>"
@@ -635,25 +635,25 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 						+ "<b>New Task - " + quest.getName() + "</b></p>"
 						+ experienceUpdate;
 			}
-			
+
 		} else {
 			quests.put(questLine, quest);
-			
+
 			return "<p style='text-align:center;'>"
 					+ "<b style='color:" + questLine.getType().getColor().toWebHexString() + ";'>New Quest - " + questLine.getName() + "</b><br/>"
 					+ "<b>New Task - " + quest.getName() + "</b></p>";
 		}
-		
+
 	}
-	
+
 	public Map<QuestLine, Quest> getQuests() {
 		return quests;
 	}
-	
+
 	public Quest getQuest(QuestLine questLine) {
 		return quests.get(questLine);
 	}
-	
+
 	public boolean hasQuest(QuestLine questLine) {
 		return quests.containsKey(questLine);
 	}
@@ -664,45 +664,45 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		}
 		return questLine.getQuestTree().getFirstNodeWithData(quests.get(questLine)).getChildren().isEmpty();
 	}
-	
+
 	public boolean isHasSlaverLicense() {
 		return isQuestCompleted(QuestLine.SIDE_SLAVERY) || Main.game.isDebugMode();
 	}
-	
+
 	public boolean isAbleToAccessRoomManagement() {
 		return isHasSlaverLicense() || isQuestCompleted(QuestLine.SIDE_ACCOMMODATION);
 	}
-	
+
 	public boolean isQuestProgressGreaterThan(QuestLine questLine, Quest quest) {
 		if(!hasQuest(questLine)) {
 			System.err.println("Player does not have Quest: "+quest.toString());
 			return false;
 		}
-		
+
 		if(questLine.getQuestTree().getFirstNodeWithData(quest)==null) {
 			System.err.println("Quest "+quest.toString()+" was not in QuestLine!");
 			return false;
 		}
-		
+
 		// Check to see if the current progress does not have a child with quest data:
 		return questLine.getQuestTree().getFirstNodeWithData(getQuest(questLine)).getFirstNodeWithData(quest)==null;
 	}
-	
+
 	public boolean isQuestProgressLessThan(QuestLine questLine, Quest quest) {
 		if(!hasQuest(questLine)) {
 			System.err.println("Player does not have Quest: "+quest.toString());
 			return false;
 		}
-		
+
 		if(getQuest(questLine)==quest) {
 			return false;
 		}
-		
+
 		if(questLine.getQuestTree().getFirstNodeWithData(quest)==null) {
 			System.err.println("Quest "+quest.toString()+" was not in QuestLine!");
 			return false;
 		}
-		
+
 		// Check to see if the current progress has a child with quest data:
 		return questLine.getQuestTree().getFirstNodeWithData(getQuest(questLine)).getFirstNodeWithData(quest)!=null;
 	}
@@ -721,7 +721,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			sortCharactersEncountered();
 		}
 	}
-	
+
 	public void addCharacterEncountered(GameCharacter character) {
 		if (!charactersEncountered.contains(character.getId())) {
 			charactersEncountered.add(character.getId());
@@ -730,7 +730,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 			sortCharactersEncountered();
 		}
 	}
-	
+
 	public List<GameCharacter> getCharactersEncounteredAsGameCharacters() {
 		List<GameCharacter> npcsEncountered = new ArrayList<>();
 		for(String characterId : charactersEncountered) {
@@ -743,7 +743,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		}
 		return npcsEncountered;
 	}
-	
+
 	public void sortCharactersEncountered() {
 		List<GameCharacter> npcsEncountered = new ArrayList<>();
 		for(String characterId : charactersEncountered) {
@@ -767,7 +767,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 		}
 		charactersEncountered = sortedIDs;
 	}
-	
+
 	public SizedStack<ShopTransaction> getBuybackStack() {
 		return buybackStack;
 	}
@@ -775,7 +775,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public boolean addRaceDiscoveredFromBook(Subspecies subspecies) {
 		return racesDiscoveredFromBook.add(subspecies);
 	}
-	
+
 	public Set<Subspecies> getRacesDiscoveredFromBook() {
 		return racesDiscoveredFromBook;
 	}
@@ -850,7 +850,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 										:"")));
 			}
 		}
-		
+
 		if(this.isFeminine()) {
 			description = UtilText.parse(Combat.getTargetedCombatant(this),
 					UtilText.returnStringAtRandom(
@@ -859,7 +859,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 					"As you give [npc.name] your most innocent look, you blow [npc.herHim] a little kiss.",
 					"Turning around, you let out a playful giggle as you give your [pc.ass+] a slap.",
 					"You slowly run your hands up the length of your body, before pouting at [npc.name]."));
-			
+
 		} else {
 			description = UtilText.parse(Combat.getTargetedCombatant(this),
 					UtilText.returnStringAtRandom(
@@ -879,7 +879,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	// This behavior is overridden for unique scenes in which the player's orgasm requires special dialogue or effects.
 	// At the time of this comment (v0.3.1), it's only used for Lilaya's creampie reaction and Lyssieth's demon TF scene.
 	@Override
@@ -890,10 +890,10 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				&& !Main.game.getNpc(Lilaya.class).isVisiblyPregnant()
 				&& this.getPenisRawCumStorageValue()>0
 				&& Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lilaya.class)).contains(SexAreaOrifice.VAGINA)) {
-			
+
 			StringBuilder sb = new StringBuilder();
 			sb.append(GenericOrgasms.getGenericOrgasmDescription(sexAction, this, target));
-			
+
 			if(this.isWearingCondom()) {
 				if(sexAction.getCondomFailure(this, Main.game.getNpc(Lilaya.class))!=CondomFailure.NONE) {
 					Main.game.getDialogueFlags().setFlag(DialogueFlagValue.lilayaCondomBroke, true);
@@ -906,7 +906,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				Main.game.getDialogueFlags().setFlag(DialogueFlagValue.lilayaCondomBroke, false);
 				sb.append(UtilText.parseFromXMLFile("characters/dominion/lilaya", "ORGASM_REACTION_CREAMPIE"));
 			}
-			
+
 			return new SexActionOrgasmOverride(false, sb.toString()) {
 				@Override
 				public void applyEffects() {
@@ -917,49 +917,49 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 				}
 			};
 		}
-		
+
 		if(Sex.getSexManager() instanceof SMLyssiethDemonTF) { // Lyssieth's demon TF scene:
 			StringBuilder sb = new StringBuilder();
 			sb.append(GenericOrgasms.getGenericOrgasmDescription(sexAction, this, target));
-			
+
 			if(Sex.getLastUsedSexAction(Main.game.getNpc(Lyssieth.class)).getActionType()==SexActionType.ORGASM) { //These specials are only for follow-ups to Lyssieth's orgasms:
 				if(Sex.getNumberOfOrgasms(Main.game.getNpc(Lyssieth.class))==1) {
 					// Stage 1) Player is sucking Lyssieth's cock:
 					if(Sex.getContactingSexAreas(this, SexAreaOrifice.MOUTH, Main.game.getNpc(Lyssieth.class)).contains(SexAreaPenetration.PENIS)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_1_PC_GIVING_LYSSITH_BLOWJOB_END"));
-						
+
 						return new SexActionOrgasmOverride(false, sb.toString()) {
 							@Override
 							public void applyEffects() {
 							}
 						};
-		
+
 					// Stage 1) Lyssieth is sucking player's cock:
 					} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lyssieth.class)).contains(SexAreaOrifice.MOUTH)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_1_PC_GETTING_BLOWJOB_FROM_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(false, sb.toString()) {
 							@Override
 							public void applyEffects() {
 							}
 						};
-						
+
 					// Stage 1) Lyssieth is eating the player out:
 					} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.TONGUE, Main.game.getNpc(Lyssieth.class)).contains(SexAreaOrifice.VAGINA)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_1_PC_GETTING_CUNNILINGUS_FROM_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(false, sb.toString()) {
 							@Override
 							public void applyEffects() {
 							}
 						};
 					}
-					
+
 				} else if(Sex.getNumberOfOrgasms(Main.game.getNpc(Lyssieth.class))==2) {
 					// Stage 2) Lyssieth is fucking the player:
 					if(Sex.getContactingSexAreas(this, SexAreaOrifice.VAGINA, Main.game.getNpc(Lyssieth.class)).contains(SexAreaPenetration.PENIS)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_2_PC_PUSSY_FUCKED_BY_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(false, sb.toString()) {
 							@Override
 							public void applyEffects() {
@@ -971,7 +971,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 								}
 							}
 						};
-	
+
 					// Stage 2) Lyssieth is fucking the player's ass:
 					} else if(Sex.getContactingSexAreas(this, SexAreaOrifice.ANUS, Main.game.getNpc(Lyssieth.class)).contains(SexAreaPenetration.PENIS)) {
 						if(Main.game.getPlayer().hasPenis() && Main.game.getPlayer().getPenisType().getRace()==Race.DEMON && Main.game.getPlayer().getPenisRawSizeValue()<=4) {
@@ -979,7 +979,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 						} else {
 							sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_2_PC_ASS_FUCKED_BY_LYSSITH_END"));
 						}
-						
+
 						return new SexActionOrgasmOverride(false, sb.toString()) {
 							@Override
 							public void applyEffects() {
@@ -991,11 +991,11 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 								}
 							}
 						};
-						
+
 					// Stage 2) The player is fucking Lyssieth:
 					} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lyssieth.class)).contains(SexAreaOrifice.VAGINA)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_2_PC_FUCKING_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(false, sb.toString()) {
 							@Override
 							public void applyEffects() {
@@ -1008,7 +1008,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 							}
 						};
 					}
-					
+
 				} else if(Sex.getNumberOfOrgasms(Main.game.getNpc(Lyssieth.class))==3) {
 					// Stage 3) Player is fucking/breeding Lyssieth:
 					if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lyssieth.class)).contains(SexAreaOrifice.VAGINA)) {
@@ -1017,7 +1017,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 						} else {
 							sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_FUCKING_LYSSITH_END"));
 						}
-						
+
 						return new SexActionOrgasmOverride(true, sb.toString()) {
 							@Override
 							public void applyEffects() {
@@ -1027,7 +1027,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 					// Stage 3) Lyssieth is fucking the player:
 					} else if(Sex.getContactingSexAreas(this, SexAreaOrifice.VAGINA, Main.game.getNpc(Lyssieth.class)).contains(SexAreaPenetration.PENIS)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_PUSSY_FUCKED_BY_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(true, sb.toString()) {
 							@Override
 							public void applyEffects() {
@@ -1037,27 +1037,27 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 					// Stage 3) Lyssieth is fucking the player's ass:
 					} else if(Sex.getContactingSexAreas(this, SexAreaOrifice.ANUS, Main.game.getNpc(Lyssieth.class)).contains(SexAreaPenetration.PENIS)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_ASS_FUCKED_BY_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(true, sb.toString()) {
 							@Override
 							public void applyEffects() {
 							}
 						};
-						
+
 					// Stage 3) Lyssieth is sucking player's cock:
 					} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lyssieth.class)).contains(SexAreaOrifice.MOUTH)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_GETTING_BLOWJOB_FROM_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(true, sb.toString()) {
 							@Override
 							public void applyEffects() {
 							}
 						};
-						
+
 					// Stage 3) Lyssieth is eating the player out:
 					} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.TONGUE, Main.game.getNpc(Lyssieth.class)).contains(SexAreaOrifice.VAGINA)) {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_GETTING_CUNNILINGUS_FROM_LYSSITH_END"));
-						
+
 						return new SexActionOrgasmOverride(true, sb.toString()) {
 							@Override
 							public void applyEffects() {
@@ -1070,18 +1070,18 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 
 		return super.getSexActionOrgasmOverride(sexAction, target, applyExtraEffects); // Normal scene
 	}
-	
+
 	/**
 	 * Returns a list of NPCs either living in Lilaya's house or in an apartment known to the player.
 	 */
 	public List<String> getFriendlyOccupants() {
 		return friendlyOccupants;
 	}
-	
+
 	public boolean addFriendlyOccupant(NPC occupant) {
 		return friendlyOccupants.add(occupant.getId());
 	}
-	
+
 	public boolean removeFriendlyOccupant(GameCharacter occupant) {
 		return friendlyOccupants.remove(occupant.getId());
 	}
@@ -1089,7 +1089,7 @@ public class PlayerCharacter extends GameCharacter implements XMLSaving {
 	public List<WorldType> getWorldsVisited() {
 		return worldsVisited;
 	}
-	
+
 	public boolean isDiscoveredWorldMap() {
 		return this.isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN);
 	}

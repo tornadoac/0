@@ -26,7 +26,7 @@ public class BreastType {
 			"[npc.She] no longer [npc.has] [style.boldShrink([npc.crotchBoobs])]!",
 			""){
 	};
-	
+
 	public static AbstractBreastType HUMAN = new AbstractBreastType(BodyCoveringType.HUMAN,
 			Race.HUMAN,
 			NippleType.HUMAN,
@@ -36,7 +36,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldHuman(human)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldHuman(human milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] human, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType ANGEL = new AbstractBreastType(BodyCoveringType.ANGEL,
 			Race.ANGEL,
 			NippleType.ANGEL,
@@ -46,7 +46,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldAngel(angelic)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldAngel(angel milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] angelic, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType DEMON_COMMON = new AbstractBreastType(BodyCoveringType.DEMON_COMMON,
 			Race.DEMON,
 			NippleType.DEMON_COMMON,
@@ -56,7 +56,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldDemon(demonic)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldDemon(demon milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] demonic, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType DOG_MORPH = new AbstractBreastType(BodyCoveringType.CANINE_FUR,
 			Race.DOG_MORPH,
 			NippleType.DOG_MORPH,
@@ -66,7 +66,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldDogMorph(canine)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldDogMorph(dog milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] canine, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType WOLF_MORPH = new AbstractBreastType(BodyCoveringType.LYCAN_FUR,
 			Race.WOLF_MORPH,
 			NippleType.WOLF_MORPH,
@@ -76,7 +76,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldWolfMorph(lupine)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldWolfMorph(wolf milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] lupine, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType FOX_MORPH = new AbstractBreastType(BodyCoveringType.FOX_FUR,
 			Race.FOX_MORPH,
 			NippleType.FOX_MORPH,
@@ -86,7 +86,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldFoxMorph(vulpine)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldFoxMorph(fox milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] vulpine, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType COW_MORPH = new AbstractBreastType(BodyCoveringType.BOVINE_FUR,
 			Race.COW_MORPH,
 			NippleType.COW_MORPH,
@@ -96,7 +96,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldCowMorph(bovine)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldCowMorph(cow milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] bovine, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType CAT_MORPH = new AbstractBreastType(BodyCoveringType.FELINE_FUR,
 			Race.CAT_MORPH,
 			NippleType.CAT_MORPH,
@@ -106,7 +106,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldCatMorph(feline)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldCatMorph(cat milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] feline, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType SQUIRREL_MORPH = new AbstractBreastType(BodyCoveringType.SQUIRREL_FUR,
 			Race.SQUIRREL_MORPH,
 			NippleType.SQUIRREL_MORPH,
@@ -116,7 +116,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldSquirrelMorph(squirrel-like)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldSquirrelMorph(squirrel milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] squirrel-like, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType RAT_MORPH = new AbstractBreastType(BodyCoveringType.RAT_FUR,
 			Race.RAT_MORPH,
 			NippleType.RAT_MORPH,
@@ -126,7 +126,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldRatMorph(rat-like)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldRatMorph(rat milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] rat-like, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType RABBIT_MORPH = new AbstractBreastType(BodyCoveringType.RABBIT_FUR,
 			Race.RABBIT_MORPH,
 			NippleType.RABBIT_MORPH,
@@ -136,7 +136,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldRabbitMorph(rabbit-like)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldRabbitMorph(rabbit milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] rabbit-like, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType BAT_MORPH = new AbstractBreastType(BodyCoveringType.BAT_FUR,
 			Race.BAT_MORPH,
 			NippleType.BAT_MORPH,
@@ -146,7 +146,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldBatMorph(bat-like)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldBatMorph(bat milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] bat-like, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType ALLIGATOR_MORPH = new AbstractBreastType(BodyCoveringType.ALLIGATOR_SCALES,
 			Race.ALLIGATOR_MORPH,
 			NippleType.ALLIGATOR_MORPH,
@@ -156,7 +156,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldGatorMorph(reptilian)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldGatorMorph(alligator milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] reptilian, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType HORSE_MORPH = new AbstractBreastType(BodyCoveringType.HORSE_HAIR,
 			Race.HORSE_MORPH,
 			NippleType.HORSE_MORPH,
@@ -166,7 +166,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldHorseMorph(equine)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldHorseMorph(horse milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] equine, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType REINDEER_MORPH = new AbstractBreastType(BodyCoveringType.REINDEER_FUR,
 			Race.REINDEER_MORPH,
 			NippleType.REINDEER_MORPH,
@@ -176,7 +176,7 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldReindeerMorph(reindeer-like)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldReindeerMorph(reindeer milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] reindeer-like, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	public static AbstractBreastType HARPY = new AbstractBreastType(BodyCoveringType.FEATHERS,
 			Race.HARPY,
 			NippleType.HARPY,
@@ -186,36 +186,36 @@ public class BreastType {
 			"[npc.She] now [npc.has] [style.boldHarpy(avian)], [npc.crotchNipplesFullDescription], and when lactating, [npc.she] will produce [style.boldHarpy(harpy milk)].",
 			"On each of [npc.her] [npc.crotchBoobSize] [npc.crotchBoobs], [npc.she] [npc.has] [npc.crotchNipplesPerBreast] avian, [npc.crotchNipplesFullDescription]."){
 	};
-	
+
 	private static List<AbstractBreastType> allBreastTypes;
 	private static Map<AbstractBreastType, String> breastToIdMap = new HashMap<>();
 	private static Map<String, AbstractBreastType> idToBreastMap = new HashMap<>();
-	
+
 	static {
 		allBreastTypes = new ArrayList<>();
-		
+
 		// Add in hard-coded breast types:
 		Field[] fields = BreastType.class.getFields();
-		
+
 		for(Field f : fields){
 			if (AbstractBreastType.class.isAssignableFrom(f.getType())) {
-				
+
 				AbstractBreastType ct;
 				try {
 					ct = ((AbstractBreastType) f.get(null));
 
 					breastToIdMap.put(ct, f.getName());
 					idToBreastMap.put(f.getName(), ct);
-					
+
 					allBreastTypes.add(ct);
-					
+
 				} catch (IllegalArgumentException | IllegalAccessException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
-	
+
 	public static AbstractBreastType getBreastTypeFromId(String id) {
 		if(id.equals("IMP")) {
 			return BreastType.DEMON_COMMON;
@@ -227,21 +227,21 @@ public class BreastType {
 		id = Util.getClosestStringMatch(id, idToBreastMap.keySet());
 		return idToBreastMap.get(id);
 	}
-	
+
 	public static String getIdFromBreastType(AbstractBreastType breastType) {
 		return breastToIdMap.get(breastType);
 	}
-	
+
 	public static List<AbstractBreastType> getAllBreastTypes() {
 		return allBreastTypes;
 	}
-	
+
 	private static Map<Race, List<AbstractBreastType>> typesMap = new HashMap<>();
 	public static List<AbstractBreastType> getBreastTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<AbstractBreastType> types = new ArrayList<>();
 		for(AbstractBreastType type : BreastType.getAllBreastTypes()) {
 			if(type.getRace()==r) {
@@ -251,5 +251,5 @@ public class BreastType {
 		typesMap.put(r, types);
 		return types;
 	}
-	
+
 }

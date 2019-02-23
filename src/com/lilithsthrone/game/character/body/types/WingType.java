@@ -16,7 +16,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
  * @author Innoxia
  */
 public enum WingType implements BodyPartTypeInterface {
-	
+
 	NONE(null, null, false),
 
 	DEMON_COMMON(BodyCoveringType.DEMON_COMMON, Race.DEMON, true),
@@ -66,7 +66,7 @@ public enum WingType implements BodyPartTypeInterface {
 	public String getNameSingular(GameCharacter gc) {
 		return "wing";
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		return "wings";
@@ -114,13 +114,13 @@ public enum WingType implements BodyPartTypeInterface {
 	public Race getRace() {
 		return race;
 	}
-	
+
 	private static Map<Race, List<WingType>> typesMap = new HashMap<>();
 	public static List<WingType> getWingTypes(Race r) {
 		if(typesMap.containsKey(r)) {
 			return typesMap.get(r);
 		}
-		
+
 		List<WingType> types = new ArrayList<>();
 		for(WingType type : WingType.values()) {
 			if(type.getRace()==r) {

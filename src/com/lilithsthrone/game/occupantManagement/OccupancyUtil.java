@@ -44,91 +44,91 @@ import com.lilithsthrone.world.places.PlaceUpgrade;
 
 /**
  * A class to handle all occupant-related turn mechanics. Deals with moving slaves to/from jobs and generating events for them. Also sends friendly occupants to/from jobs.
- * 
+ *
  * @since 0.1.87
  * @version 0.2.12
  * @author Innoxia
  */
 public class OccupancyUtil implements XMLSaving {
-	
+
 	private Map<SlaveJob, List<NPC>> slavesAtJob;
 	private List<NPC> slavesResting;
 	private int generatedIncome;
 	private int generatedUpkeep;
-	
+
 	private List<MilkingRoom> milkingRooms;
-	
+
 	// Slave income:
 	private Map<NPC, Integer> dailyIncome;
-	
+
 	public OccupancyUtil() {
 		slavesAtJob = new HashMap<>();
 		for(SlaveJob job : SlaveJob.values()) {
 			slavesAtJob.put(job, new ArrayList<>());
 		}
-		
+
 		slavesResting = new ArrayList<>();
 		generatedIncome = 0;
 		generatedUpkeep = 0;
-		
+
 		milkingRooms = new ArrayList<>();
-		
+
 		dailyIncome = new HashMap<>();
 	}
 
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("slavery");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "generatedIncome", String.valueOf(Main.game.getOccupancyUtil().getGeneratedIncome()));
 		CharacterUtils.addAttribute(doc, element, "generatedUpkeep", String.valueOf(Main.game.getOccupancyUtil().getGeneratedUpkeep()));
-		
+
 		for(MilkingRoom room : this.getMilkingRooms()) {
 			room.saveAsXML(element, doc);
 		}
-		
+
 		return element;
 	}
-	
+
 	public static OccupancyUtil loadFromXML(Element parentElement, Document doc) {
 		try {
 			OccupancyUtil slaveryUtil = new OccupancyUtil();
-			
+
 			slaveryUtil.setGeneratedIncome(Integer.valueOf(parentElement.getAttribute("generatedIncome")));
 			slaveryUtil.setGeneratedUpkeep(Integer.valueOf(parentElement.getAttribute("generatedUpkeep")));
-			
+
 			NodeList milkingRoomElements = parentElement.getElementsByTagName("milkingRoom");
 			for(int i=0; i<milkingRoomElements.getLength(); i++){
 				Element e = ((Element)milkingRoomElements.item(i));
-				
+
 				MilkingRoom room = MilkingRoom.loadFromXML(e, doc);
-				
+
 				if(slaveryUtil.getMilkingRoom(room.getWorldType(), room.getLocation())==null) {
 					slaveryUtil.addMilkingRoom(room);
 				}
 			}
-			
+
 			return slaveryUtil;
-			
+
 		} catch(Exception ex) {
 			System.err.println("Warning: SlaveryUtil failed to import!");
 			return null;
 		}
 	}
-	
+
 	private void clearSlavesJobTracking() {
 		for(SlaveJob job : SlaveJob.values()) {
 			slavesAtJob.get(job).clear();
 		}
 		slavesResting.clear();
 	}
-	
+
 	/**
 	 * Resets daily dialogue flags and searches for a job (if the occupant is still marked as a lowlife).
 	 */
 	public void dailyOccupantUpdate(NPC occupant) {
 		occupant.resetOccupantFlags();
-		
+
 		if(!Main.game.getCharactersPresent().contains(occupant)) { // Don't give them a new job if the player is present...
 			if(!occupant.hasJob()) {
 //				System.out.println(occupant.getName());
@@ -140,20 +140,20 @@ public class OccupancyUtil implements XMLSaving {
 			}
 		}
 	}
-	
+
 	public void performHourlyUpdate(int day, int hour) {
-		
+
 		// Non-slave occupants:
-		
+
 		for(String id : Main.game.getPlayer().getFriendlyOccupants()) {
 			try {
 				NPC occupant = (NPC) Main.game.getNPCById(id);
-	
+
 				if(!Main.game.getCharactersPresent().contains(occupant)) { // If the player isn't interacting with them, then move them:
 					if(!occupant.getHistory().getOccupationTags().contains(OccupationTag.LOWLIFE)) {
 						if(occupant.getHistory().isAtWork(hour)) {
 							occupant.setLocation(WorldType.EMPTY, PlaceType.GENERIC_HOLDING_CELL);
-							
+
 						} else {
 							occupant.setLocation(occupant.getHomeWorldLocation(), occupant.getHomeLocation(), false);
 						}
@@ -163,11 +163,11 @@ public class OccupancyUtil implements XMLSaving {
 				Util.logGetNpcByIdError("performHourlyUpdate(), getFriendlyOccupants() section.", id);
 			}
 		}
-		
+
 		// Slaves:
-		
+
 		clearSlavesJobTracking();
-		
+
 		// First need to set correct jobs:
 		for(String id : Main.game.getPlayer().getSlavesOwned()) {
 			try {
@@ -175,12 +175,12 @@ public class OccupancyUtil implements XMLSaving {
 				if(Main.game.getPlayer().hasCompanion(slave)) {
 					continue;
 				}
-				
+
 				if(!Main.game.getCharactersPresent().contains(slave)) { // If the player isn't interacting with them, then move them:
 					if(slave.getWorkHours()[hour]) {
 						slave.getSlaveJob().sendToWorkLocation(slave);
 						slavesAtJob.get(slave.getSlaveJob()).add(slave);
-						
+
 					} else {
 						if(slave.getSlaveJob()==SlaveJob.PROSTITUTE) {
 							// Remove client before leaving:
@@ -199,25 +199,25 @@ public class OccupancyUtil implements XMLSaving {
 				Util.logGetNpcByIdError("performHourlyUpdate(), getSlavesOwned() section.", id);
 			}
 		}
-		
+
 		// Now can apply changes and generate events based on who else is present in the job:
 		for(String id : Main.game.getPlayer().getSlavesOwned()) {
 			NPC slave;
-			
+
 			try {
 				slave = (NPC) Main.game.getNPCById(id);
 			} catch (Exception e) {
 				Util.logGetNpcByIdError("performHourlyUpdate(), getSlavesOwned() section second instance.", id);
 				continue;
 			}
-			
+
 			if(Main.game.getPlayer().hasCompanion(slave)) {
 				continue;
 			}
-			
+
 			slave.incrementAffection(slave.getOwner(), slave.getHourlyAffectionChange(hour));
 			slave.incrementObedience(slave.getHourlyObedienceChange(hour), false);
-			
+
 			// If at work:
 			if(slave.getWorkHours()[hour]) {
 				// Get paid for hour's work:
@@ -230,15 +230,15 @@ public class OccupancyUtil implements XMLSaving {
 				if(slave.hasStatusEffect(StatusEffect.OVERWORKED)) {
 					slave.incrementAffection(slave.getOwner(), -0.1f);
 				}
-				
+
 			} else {
 				if(slave.hasSlavePermissionSetting(SlavePermissionSetting.SEX_MASTURBATE)) {
 					slave.setLastTimeHadSex((day*24*60l) + hour*60l, true);
 				}
 			}
-			
+
 			// ***** EVENTS: ***** //
-			
+
 			// Washing body:
 			if(slave.hasSlavePermissionSetting(SlavePermissionSetting.CLEANLINESS_WASH_BODY)
 					&& !slave.getWorkHours()[hour]
@@ -249,7 +249,7 @@ public class OccupancyUtil implements XMLSaving {
 						SlaveEvent.WASHED_BODY,
 						null,
 						true);
-				
+
 				if(slave.hasStatusEffect(StatusEffect.CREAMPIE_ANUS)) {
 					entry.addTag(SlaveEventTag.WASHED_BODY_ANAL_CREAMPIE, slave, true);
 				}
@@ -259,10 +259,10 @@ public class OccupancyUtil implements XMLSaving {
 				if(slave.hasStatusEffect(StatusEffect.CREAMPIE_NIPPLES)) {
 					entry.addTag(SlaveEventTag.WASHED_BODY_NIPPLE_CREAMPIE, slave, true);
 				}
-				
+
 				Main.game.addSlaveryEvent(day, slave, entry);
 			}
-			
+
 			// Washing clothes:
 			if((slave.hasStatusEffect(StatusEffect.CLOTHING_CUM) || !slave.getDirtySlots().isEmpty())
 					&& !slave.getWorkHours()[hour]
@@ -274,7 +274,7 @@ public class OccupancyUtil implements XMLSaving {
 						Util.newArrayListOfValues(SlaveEventTag.WASHED_CLOTHES),
 						true));
 			}
-			
+
 			// Events:
 			boolean eventAdded = false;
 			SlaveryEventLogEntry entry = null;
@@ -300,7 +300,7 @@ public class OccupancyUtil implements XMLSaving {
 						}
 					}
 				}
-				
+
 				if(Math.random()<0.05f || slave.getSlaveJob()==SlaveJob.MILKING || (Math.random()<0.5f && (slave.getSlaveJob()==SlaveJob.PUBLIC_STOCKS || slave.getSlaveJob()==SlaveJob.PROSTITUTE))) {
 					List<SlaveryEventLogEntry> entries = generateEvents(hour, slave);
 					for(SlaveryEventLogEntry e : entries) {
@@ -309,56 +309,56 @@ public class OccupancyUtil implements XMLSaving {
 					}
 				}
 			}
-			
+
 			if(hour%24==0) { // At the start of a new day:
-				
+
 				SlaveryEventLogEntry dailyEntry = new SlaveryEventLogEntry(hour,
 						slave,
 						SlaveEvent.DAILY_UPDATE,
 						null,
 						true);
-				
+
 				// Payments:
 				if(dailyIncome.containsKey(slave)) {
 					dailyEntry.addExtraEffect("[style.boldGood(Earned)] "+UtilText.formatAsMoney(dailyIncome.get(slave)));
 				}
-				
+
 				// Muscle:
 				if(slave.hasSlavePermissionSetting(SlavePermissionSetting.EXERCISE_FORBIDDEN) && slave.getMuscleValue()>0) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_MUSCLE_LOSS_LARGE, slave, true);
-					
+
 				} else if(slave.hasSlavePermissionSetting(SlavePermissionSetting.EXERCISE_REST) && slave.getMuscleValue()>0) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_MUSCLE_LOSS, slave, true);
-					
+
 				} else if(slave.hasSlavePermissionSetting(SlavePermissionSetting.EXERCISE_TRAINING) && slave.getMuscleValue()<100) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_MUSCLE_GAIN, slave, true);
-					
+
 				} else if(slave.hasSlavePermissionSetting(SlavePermissionSetting.EXERCISE_BODY_BUILDING) && slave.getMuscleValue()<100) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_MUSCLE_GAIN_LARGE, slave, true);
 				}
-				
+
 				// Body size:
 				if(slave.hasSlavePermissionSetting(SlavePermissionSetting.FOOD_DIET_EXTREME) && slave.getBodySizeValue()>0) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_BODY_SIZE_LOSS_LARGE, slave, true);
-					
+
 				} else if(slave.hasSlavePermissionSetting(SlavePermissionSetting.FOOD_DIET) && slave.getMuscleValue()>0) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_BODY_SIZE_LOSS, slave, true);
-					
+
 				} else if(slave.hasSlavePermissionSetting(SlavePermissionSetting.FOOD_PLUS) && slave.getMuscleValue()<100) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_BODY_SIZE_GAIN, slave, true);
-					
+
 				} else if(slave.hasSlavePermissionSetting(SlavePermissionSetting.FOOD_LAVISH) && slave.getMuscleValue()<100) {
 					dailyEntry.addTag(SlaveEventTag.DAILY_BODY_SIZE_GAIN_LARGE, slave, true);
 				}
-				
+
 				if(dailyEntry.getTags()!=null || dailyEntry.getExtraEffects()!=null) {
 					Main.game.addSlaveryEvent(day, slave, dailyEntry);
 				}
-				
+
 				slave.resetSlaveFlags();
 			}
 		}
-		
+
 		if(hour%24==0) { // Reset daily income tracking:
 			dailyIncome.clear();
 			// Rooms:
@@ -376,7 +376,7 @@ public class OccupancyUtil implements XMLSaving {
 				}
 			}
 		}
-		
+
 	}
 
 	/**
@@ -384,61 +384,61 @@ public class OccupancyUtil implements XMLSaving {
 	 * @param slave The slave to calculate an event for.
 	 */
 	private List<SlaveryEventLogEntry> generateEvents(int hour, NPC slave) {
-		
+
 		SlaveJob job = slave.getSlaveJob();
 
 		StringBuilder effectDescriptions = new StringBuilder();
 		List<String> effects = new ArrayList<>();
 		List<SlaveJobSetting> settingsEnabled = new ArrayList<>();
-		
+
 		List<SlaveryEventLogEntry> events = new ArrayList<>();
-		
+
 		if(slave.getWorkHours()[hour] && job != SlaveJob.IDLE) { // Slave is working:
 			switch (job) { //TODO
 				case CLEANING:
 					events.add(new SlaveryEventLogEntry(hour, slave, SlaveEvent.JOB_CLEANING, true));
 					return events;
-					
+
 				case KITCHEN:
 					events.add(new SlaveryEventLogEntry(hour, slave, SlaveEvent.JOB_COOKING, true));
 					return events;
-					
+
 				case LAB_ASSISTANT:
 					events.add(new SlaveryEventLogEntry(hour, slave, SlaveEvent.JOB_LAB_ASSISTANT, true));
 					return events;
-					
+
 				case LIBRARY:
 					events.add(new SlaveryEventLogEntry(hour, slave, SlaveEvent.JOB_LIBRARIAN, true));
 					return events;
-					
+
 				case MILKING:
 					int income = 0;
 
 					Cell c = MilkingRoom.getMilkingCell(slave, false);
 					MilkingRoom room = this.getMilkingRoom(c.getType(), c.getLocation());
-					
+
 					if(slave.getBreastRawStoredMilkValue()>0 && !slave.getSlaveJobSettings().contains(SlaveJobSetting.MILKING_MILK_DISABLE)) {
 						float milked = MilkingRoom.getActualMilkPerHour(slave);
 						if(milked < slave.getBreastRawStoredMilkValue() && milked < MilkingRoom.getMaximumMilkPerHour(slave)) {
 							milked = Math.min(slave.getBreastRawStoredMilkValue(), MilkingRoom.getMaximumMilkPerHour(slave));
 						}
 						slave.incrementBreastStoredMilk(-milked);
-						
+
 						if(milked>0) {
 							if(room.isAutoSellMilk()) {
 								income = Math.max(1, (int) (milked * slave.getMilk().getValuePerMl()));
 								generatedIncome += income;
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_MILK_MILKED,
 										Util.newArrayListOfValues(
 												SlaveEventTag.JOB_MILK_SOLD),
 										Util.newArrayListOfValues("[style.boldGood("+milked+"ml)] milked: +"+UtilText.formatAsMoney(income, "bold")),
 										true));
-								
+
 							} else {
 								room.incrementFluidStored(slave, slave.getMilk(), milked);
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_MILK_MILKED,
 										Util.newArrayListOfValues(
@@ -454,22 +454,22 @@ public class OccupancyUtil implements XMLSaving {
 							milked = Math.min(slave.getBreastCrotchRawStoredMilkValue(), MilkingRoom.getMaximumMilkPerHour(slave));
 						}
 						slave.incrementBreastCrotchStoredMilk(-milked);
-						
+
 						if(milked>0) {
 							if(room.isAutoSellMilk()) {
 								income = Math.max(1, (int) (milked * slave.getMilkCrotch().getValuePerMl()));
 								generatedIncome += income;
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_MILK_CROTCH_MILKED,
 										Util.newArrayListOfValues(
 												SlaveEventTag.JOB_MILK_SOLD),
 										Util.newArrayListOfValues("[style.boldGood("+milked+"ml)] milked: +"+UtilText.formatAsMoney(income, "bold")),
 										true));
-								
+
 							} else {
 								room.incrementFluidStored(slave, slave.getMilkCrotch(), milked);
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_MILK_CROTCH_MILKED,
 										Util.newArrayListOfValues(
@@ -486,17 +486,17 @@ public class OccupancyUtil implements XMLSaving {
 							if(room.isAutoSellCum()) {
 								income = Math.max(1, (int) (milked * slave.getCum().getValuePerMl()));
 								generatedIncome += income;
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_CUM_MILKED,
 										Util.newArrayListOfValues(
 												SlaveEventTag.JOB_CUM_SOLD),
 										Util.newArrayListOfValues("[style.boldGood("+milked+"ml)] milked: +"+UtilText.formatAsMoney(income, "bold")),
 										true));
-							
+
 							} else {
 								room.incrementFluidStored(slave, slave.getCum(), milked);
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_CUM_MILKED,
 										Util.newArrayListOfValues(
@@ -508,22 +508,22 @@ public class OccupancyUtil implements XMLSaving {
 					}
 					if(slave.hasVagina() && !slave.getSlaveJobSettings().contains(SlaveJobSetting.MILKING_GIRLCUM_DISABLE)) {
 						int milked = MilkingRoom.getActualGirlcumPerHour(slave);
-						
+
 						if(milked>0) {
 							if(room.isAutoSellGirlcum()) {
 								income = Math.max(1, (int) (milked * slave.getGirlcum().getValuePerMl()));
 								generatedIncome += income;
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_GIRLCUM_MILKED,
 										Util.newArrayListOfValues(
 												SlaveEventTag.JOB_GIRLCUM_SOLD),
 										Util.newArrayListOfValues("[style.boldGood("+milked+"ml)] milked: +"+UtilText.formatAsMoney(income, "bold")),
 										true));
-							
+
 							} else {
 								room.incrementFluidStored(slave, slave.getGirlcum(), milked);
-								
+
 								events.add(new SlaveryEventLogEntry(hour, slave,
 										SlaveEvent.JOB_GIRLCUM_MILKED,
 										Util.newArrayListOfValues(
@@ -534,7 +534,7 @@ public class OccupancyUtil implements XMLSaving {
 						}
 					}
 					return events;
-					
+
 				case TEST_SUBJECT:
 					if(slave.getSlaveJobSettings().isEmpty()) {
 						if(slave.hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
@@ -550,7 +550,7 @@ public class OccupancyUtil implements XMLSaving {
 									true));
 
 							return events;
-							
+
 						} else {
 							slave.incrementAffection(Main.game.getPlayer(), -1);
 							slave.incrementAffection(Main.game.getNpc(Lilaya.class), -5);
@@ -565,7 +565,7 @@ public class OccupancyUtil implements XMLSaving {
 							return events;
 
 						}
-						
+
 					} else {
 						switch(slave.getSlaveJobSettings().get(Util.random.nextInt(slave.getSlaveJobSettings().size()))) {
 							case TEST_SUBJECT_ALLOW_TRANSFORMATIONS_FEMALE:
@@ -599,7 +599,7 @@ public class OccupancyUtil implements XMLSaving {
 										list,
 										true));
 								return events;
-								
+
 							case TEST_SUBJECT_ALLOW_TRANSFORMATIONS_MALE:
 								List<String> list2 = new ArrayList<>();
 								if(slave.hasFetish(Fetish.FETISH_TRANSFORMATION_RECEIVING)) {
@@ -613,7 +613,7 @@ public class OccupancyUtil implements XMLSaving {
 									list2.add("[style.boldBad(-1)] [style.boldAffection(Affection)]");
 									list2.add("[style.boldBad(-5)] [style.boldAffection(Affection towards Lilaya)]");
 								}
-								
+
 								String tf2 = "";
 								SlaveEventTag mascTag = SlaveEventTag.JOB_LILAYA_MASCULINE_TF;
 								if(slave.getSlaveJobSettings().contains(SlaveJobSetting.TEST_SUBJECT_ALLOW_TRANSFORMATIONS_FEMALE)) {
@@ -631,26 +631,26 @@ public class OccupancyUtil implements XMLSaving {
 										list2,
 										true));
 								return events;
-								
+
 							default:
 								break;
 						}
 					}
 					break;
-					
+
 				case PUBLIC_STOCKS:
 					effectDescriptions = new StringBuilder();
 					effects = new ArrayList<>();
 					settingsEnabled = getSexSettingsEnabled(slave);
-					
+
 					GenericSexualPartner stocksPartner;
-					
+
 					if(Math.random()<0.25f) {
 						stocksPartner = new GenericSexualPartner(Gender.F_P_V_B_FUTANARI, slave.getWorldLocation(), slave.getLocation(), false);
 					} else {
 						stocksPartner = new GenericSexualPartner(Gender.M_P_MALE, slave.getWorldLocation(), slave.getLocation(), false);
 					}
-					
+
 					// If no settings are able to be used, or if a random roll is greater than 0.8, just add a groping event:
 					if(settingsEnabled.isEmpty() || Math.random()>0.8f) {
 							effectDescriptions.append(UtilText.parse(stocksPartner,
@@ -661,10 +661,10 @@ public class OccupancyUtil implements XMLSaving {
 
 						effects.add("<span style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>Molested:</span> "+effectDescriptions.toString());
 						effectDescriptions.setLength(0);
-						
+
 					} else {
 						SlaveJobSetting eventGenerated = settingsEnabled.get(Util.random.nextInt(settingsEnabled.size()));
-						
+
 						switch(eventGenerated) {
 							case SEX_ANAL:
 								effectDescriptions.append(UtilText.parse(stocksPartner,
@@ -672,39 +672,39 @@ public class OccupancyUtil implements XMLSaving {
 												"[npc.A_race] came deep inside "+UtilText.parse(slave, "[npc.namePos] [npc.asshole+]!"),
 												"[npc.A_race] roughly fucked "+UtilText.parse(slave, "[npc.namePos] [npc.asshole+], before filling [npc.herHim] with"+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," [npc.cum+]!")),
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.asshole+]")+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," with [npc.her] [npc.cum+], "))));
-	
+
 								effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Anal Creampie:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 								slave.calculateGenericSexEffects(false, stocksPartner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, SexAreaPenetration.PENIS));
-								
+
 								break;
-								
+
 							case SEX_ORAL:
 								effectDescriptions.append(UtilText.parse(stocksPartner,
 										UtilText.returnStringAtRandom(
 												"[npc.A_race] came deep down "+UtilText.parse(slave, "[npc.namePos] throat!"),
 												"[npc.A_race] roughly face-fucked "+UtilText.parse(slave, "[npc.name], before filling [npc.her] stomach with"+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," [npc.cum+]!")),
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] stomach")+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," with [npc.her] [npc.cum+]!"))));
-	
+
 								effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Swallowed Cum:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 
 								slave.calculateGenericSexEffects(false, stocksPartner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, SexAreaPenetration.PENIS));
 								break;
-								
+
 							case SEX_NIPPLES:
 								effectDescriptions.append(UtilText.parse(stocksPartner,
 										UtilText.returnStringAtRandom(
 												"[npc.A_race] came deep inside "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+]!"),
 												"[npc.A_race] roughly fucked "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+], before filling [npc.her] [npc.breasts+] with"+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," [npc.cum+]!")),
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+]")+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," with [npc.her] [npc.cum+], "))));
-	
+
 								effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Nipple Creampie:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 
 								slave.calculateGenericSexEffects(false, stocksPartner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, SexAreaPenetration.PENIS));
 								break;
-								
+
 							case SEX_VAGINAL:
 								effectDescriptions.append(UtilText.parse(stocksPartner,
 										UtilText.returnStringAtRandom(
@@ -713,17 +713,17 @@ public class OccupancyUtil implements XMLSaving {
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.pussy+]")+UtilText.parse(Main.game.getNpc(GenericFemaleNPC.class)," with [npc.her] [npc.cum+], "))));
 
 								slave.calculateGenericSexEffects(false, stocksPartner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, SexAreaPenetration.PENIS));
-	
+
 								if(slave.isVisiblyPregnant()) {
 									effectDescriptions.append(UtilText.parse(slave, "but as [npc.sheIs] already pregnant, the only result is a fresh creampie..."));
 									effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Pussy Creampie:</span> "+effectDescriptions.toString());
 									effectDescriptions.setLength(0);
-									
+
 								} else if(!slave.getSlavePermissionSettings().get(SlavePermission.PREGNANCY).contains(SlavePermissionSetting.PREGNANCY_PROMISCUITY_PILLS)) {
 									effectDescriptions.append(UtilText.parse(slave, "resulting in a risk of pregnancy!"));
 									effects.add("<span style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Pregnancy Risk:</span> "+effectDescriptions.toString());
 									effectDescriptions.setLength(0);
-									
+
 								} else {
 									if(slave.isHasAnyPregnancyEffects()) {
 										effectDescriptions.append(UtilText.parse(slave, "but as [npc.sheIs] on promiscuity pills, there's no chance of [npc.herHim] getting pregnant. ([npc.She] already has a risk of pregnancy from a previous encounter, however...)"));
@@ -733,12 +733,12 @@ public class OccupancyUtil implements XMLSaving {
 									effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Pussy Creampie:</span> "+effectDescriptions.toString());
 									effectDescriptions.setLength(0);
 								}
-								
+
 								break;
-								
+
 							default:
 								break;
-						
+
 						}
 					}
 
@@ -749,13 +749,13 @@ public class OccupancyUtil implements XMLSaving {
 							effects,
 							true));
 					return events;
-					
+
 				case PROSTITUTE:
 					effectDescriptions = new StringBuilder();
 					effects = new ArrayList<>();
 					settingsEnabled = getSexSettingsEnabled(slave);
 					GenericSexualPartner partner;
-					
+
 					if(Math.random()<0.25f) {
 						partner = new GenericSexualPartner(Gender.F_P_V_B_FUTANARI, slave.getWorldLocation(), slave.getLocation(), false);
 					} else {
@@ -767,7 +767,7 @@ public class OccupancyUtil implements XMLSaving {
 						e.printStackTrace();
 					}
 //					System.out.println("partner spawned for "+slave.getName()+": "+partner.getWorldLocation()+" "+partner.getLocation().getX()+", "+partner.getLocation().getY());
-					
+
 					// If no settings are able to be used, or if a random roll is greater than 0.8, just add a groping event:
 					if(settingsEnabled.isEmpty() || Math.random()>0.8f) {
 						effectDescriptions.append(UtilText.parse(partner,
@@ -778,10 +778,10 @@ public class OccupancyUtil implements XMLSaving {
 
 						effects.add("<span style='color:"+Color.GENERIC_SEX.toWebHexString()+";'>Molested:</span> "+effectDescriptions.toString());
 						effectDescriptions.setLength(0);
-						
+
 					} else {
 						SlaveJobSetting eventGenerated = settingsEnabled.get(Util.random.nextInt(settingsEnabled.size()));
-						
+
 						switch(eventGenerated) {
 							case SEX_ANAL:
 								effectDescriptions.append(UtilText.parse(partner,
@@ -789,38 +789,38 @@ public class OccupancyUtil implements XMLSaving {
 												"[npc.A_race] came deep inside "+UtilText.parse(slave, "[npc.namePos] [npc.asshole+]!"),
 												"[npc.A_race] roughly fucked "+UtilText.parse(slave, "[npc.namePos] [npc.asshole+], before filling [npc.herHim] with")+" [npc.cum+]!",
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.asshole+]")+" with [npc.her] [npc.cum+]!")));
-									
+
 								effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Anal Creampie:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 
 								slave.calculateGenericSexEffects(false, partner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, SexAreaPenetration.PENIS));
 								break;
-								
+
 							case SEX_ORAL:
 								effectDescriptions.append(UtilText.parse(partner,
 										UtilText.returnStringAtRandom(
 												"[npc.A_race] came deep down "+UtilText.parse(slave, "[npc.namePos] throat!"),
 												"[npc.A_race] roughly face-fucked "+UtilText.parse(slave, "[npc.name], before filling [npc.her] stomach with"+UtilText.parse(partner," [npc.cum+]!")),
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] stomach")+UtilText.parse(partner," with [npc.her] [npc.cum+]!"))));
-	
+
 								effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Swallowed Cum:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 
 								slave.calculateGenericSexEffects(false, partner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.MOUTH, SexAreaPenetration.PENIS));
 								break;
-								
+
 							case SEX_NIPPLES:
 								effectDescriptions.append(UtilText.parse(partner,
 										UtilText.returnStringAtRandom(
 												"[npc.A_race] came deep inside "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+]!"),
 												"[npc.A_race] roughly fucked "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+], before filling [npc.her] [npc.breasts+] with"+UtilText.parse(partner," [npc.cum+]!")),
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.nipples+]")+UtilText.parse(partner," with [npc.her] [npc.cum+]!"))));
-									
+
 								effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Nipple Creampie:</span> "+effectDescriptions.toString());
 								effectDescriptions.setLength(0);
 								slave.calculateGenericSexEffects(false, partner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, SexAreaPenetration.PENIS));
 								break;
-								
+
 							case SEX_VAGINAL:
 								effectDescriptions.append(UtilText.parse(partner,
 										UtilText.returnStringAtRandom(
@@ -829,17 +829,17 @@ public class OccupancyUtil implements XMLSaving {
 												"[npc.A_race] filled "+UtilText.parse(slave, "[npc.namePos] [npc.pussy+]")+UtilText.parse(partner," with [npc.her] [npc.cum+], "))));
 
 								slave.calculateGenericSexEffects(false, partner, new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, SexAreaPenetration.PENIS));
-								
+
 								if(slave.isVisiblyPregnant()) {
 									effectDescriptions.append(UtilText.parse(slave, "but as [npc.sheIs] already pregnant, the only result is a fresh creampie..."));
 									effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Pussy Creampie:</span> "+effectDescriptions.toString());
 									effectDescriptions.setLength(0);
-									
+
 								} else if(!slave.getSlavePermissionSettings().get(SlavePermission.PREGNANCY).contains(SlavePermissionSetting.PREGNANCY_PROMISCUITY_PILLS)) {
 									effectDescriptions.append(UtilText.parse(slave, "resulting in a risk of pregnancy!"));
 									effects.add("<span style='color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>Pregnancy Risk:</span> "+effectDescriptions.toString());
 									effectDescriptions.setLength(0);
-									
+
 								} else {
 									if(slave.isHasAnyPregnancyEffects()) {
 										effectDescriptions.append(UtilText.parse(slave, "but as [npc.sheIs] on promiscuity pills, there's no chance of [npc.herHim] getting pregnant. ([npc.She] already has a risk of pregnancy from a previous encounter, however...)"));
@@ -849,12 +849,12 @@ public class OccupancyUtil implements XMLSaving {
 									effects.add("<span style='color:"+Color.CUM.toWebHexString()+";'>Pussy Creampie:</span> "+effectDescriptions.toString());
 									effectDescriptions.setLength(0);
 								}
-								
+
 								break;
-								
+
 							default:
 								break;
-						
+
 						}
 					}
 
@@ -865,19 +865,19 @@ public class OccupancyUtil implements XMLSaving {
 							effects,
 							true));
 					return events;
-					
+
 				case IDLE:
 					// Can not reach :3
 					break;
 			}
-			
+
 		} else { // Slave is resting:
 			events.add(new SlaveryEventLogEntry(hour, slave, SlaveEvent.JOB_IDLE, true));
 		}
 
 		return events;
 	}
-	
+
 	private List<SlaveJobSetting> getSexSettingsEnabled(NPC slave) {
 		List<SlaveJobSetting> settingsEnabled = new ArrayList<>();
 		if(slave.hasVagina() && slave.getSlaveJobSettings().contains(SlaveJobSetting.SEX_VAGINAL) && slave.isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
@@ -894,7 +894,7 @@ public class OccupancyUtil implements XMLSaving {
 		}
 		return settingsEnabled;
 	}
-	
+
 	private String getTestSubjectFeminineTransformation(NPC slave) {
 		if(slave.hasPenis()) {
 			slave.setPenisType(PenisType.NONE);
@@ -903,12 +903,12 @@ public class OccupancyUtil implements XMLSaving {
 			}
 			return "[style.boldShrink(Lost penis)], [style.boldGrow(gained vagina)]";
 		}
-		
+
 		if(!slave.hasVagina()) {
 			slave.setVaginaType(RacialBody.valueOfRace(slave.getRace()).getVaginaType());
 			return "[style.boldGrow(Gained vagina)]";
 		}
-		
+
 		if(Math.random()>0.5f) {
 			if(slave.getFemininityValue()<100) {
 				int increment = Util.random.nextInt(5)+1;
@@ -916,16 +916,16 @@ public class OccupancyUtil implements XMLSaving {
 				return "[style.boldGrow(+"+increment+")] [style.boldFeminine(Femininity)]";
 			}
 		}
-		
+
 		if(slave.getBreastSize().getMeasurement() < CupSize.GG.getMeasurement()) {
 			int increment = Util.random.nextInt(1)+1;
 			slave.incrementBreastSize(increment);
 			return "[style.boldGrow(Gained "+Util.capitalizeSentence(slave.getBreastSize().getCupSizeName())+"-cup breasts)]";
 		}
-		
+
 		return "";
 	}
-	
+
 	private String getTestSubjectMasculineTransformation(NPC slave) {
 		if(slave.hasVagina()) {
 			slave.setVaginaType(VaginaType.NONE);
@@ -934,12 +934,12 @@ public class OccupancyUtil implements XMLSaving {
 			}
 			return "[style.boldShrink(Lost vagina)], [style.boldGrow(gained penis)]";
 		}
-		
+
 		if(!slave.hasPenis()) {
 			slave.setPenisType(RacialBody.valueOfRace(slave.getRace()).getPenisType());
 			return "[style.boldGrow(Gained penis)]";
 		}
-		
+
 		if(Math.random()>0.5f) {
 			if(slave.getFemininityValue()>0) {
 				int increment = Util.random.nextInt(5)+1;
@@ -947,28 +947,28 @@ public class OccupancyUtil implements XMLSaving {
 				return "[style.boldShrink(-"+increment+")] [style.boldFeminine(Femininity)]";
 			}
 		}
-		
+
 		if(slave.getBreastSize().getMeasurement() > 0) {
 			int increment = Util.random.nextInt(1)+1;
 			slave.incrementBreastSize(-increment);
 			return "[style.boldShrink(Breasts shrunk to "+Util.capitalizeSentence(slave.getBreastSize().getCupSizeName())+"-cups)]";
 		}
-		
+
 		return "";
 	}
-	
+
 	private String getTestSubjectFutanariTransformation(NPC slave) {
-		
+
 		if(!slave.hasVagina()) {
 			slave.setVaginaType(RacialBody.valueOfRace(slave.getRace()).getVaginaType());
 			return "[style.boldGrow(Gained vagina)]";
 		}
-		
+
 		if(!slave.hasPenis()) {
 			slave.setPenisType(RacialBody.valueOfRace(slave.getRace()).getPenisType());
 			return "[style.boldGrow(Gained penis)]";
 		}
-		
+
 		if(Math.random()>0.5f) {
 			if(slave.getFemininityValue()<100) {
 				int increment = Util.random.nextInt(5)+1;
@@ -976,35 +976,35 @@ public class OccupancyUtil implements XMLSaving {
 				return "[style.boldGrow(+"+increment+")] [style.boldFeminine(Femininity)]";
 			}
 		}
-		
+
 		if(slave.getBreastSize().getMeasurement() < CupSize.GG.getMeasurement()) {
 			int increment = Util.random.nextInt(1)+1;
 			slave.incrementBreastSize(increment);
 			return "[style.boldGrow(Gained "+Util.capitalizeSentence(slave.getBreastSize().getCupSizeName())+"-cup breasts)]";
 		}
-		
+
 		return "";
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param hour Pass in hour of the day
 	 * @param slave
 	 * @param otherSlavesPresent
 	 * @return
 	 */
 	public static SlaveryEventLogEntry generateNPCInteractionEvent(int day, int hour, NPC slave, List<NPC> otherSlavesPresent) {
-		
+
 		if(slave.getSlaveJob()==SlaveJob.PUBLIC_STOCKS) {
 			return null;
 		}
-		
+
 		Collections.shuffle(otherSlavesPresent);
 		for(NPC npc : otherSlavesPresent) {
 			if(!npc.equals(slave)) {
 				if(slave.getLastTimeHadSex()+24*60<Main.game.getMinutesPassed()) { // They only want sex once a day, to stop the logs from being flooded
 					if(slave.isAttractedTo(npc) && npc.hasSlavePermissionSetting(SlavePermissionSetting.SEX_RECEIVE_SLAVES) && slave.hasSlavePermissionSetting(SlavePermissionSetting.SEX_INITIATE_SLAVES)) {
-						
+
 						boolean canImpregnate =
 								slave.hasSlavePermissionSetting(SlavePermissionSetting.SEX_IMPREGNATE)
 								&& npc.hasSlavePermissionSetting(SlavePermissionSetting.SEX_IMPREGNATED)
@@ -1012,8 +1012,8 @@ public class OccupancyUtil implements XMLSaving {
 								&& slave.isAbleToAccessCoverableArea(CoverableArea.PENIS, true)
 								&& npc.hasVagina()
 								&& npc.isAbleToAccessCoverableArea(CoverableArea.VAGINA, true);
-						
-						boolean canBeImpregnated = 
+
+						boolean canBeImpregnated =
 								!slave.isVaginaVirgin()
 								&& slave.hasSlavePermissionSetting(SlavePermissionSetting.SEX_IMPREGNATED)
 								&& npc.hasSlavePermissionSetting(SlavePermissionSetting.SEX_IMPREGNATE)
@@ -1021,9 +1021,9 @@ public class OccupancyUtil implements XMLSaving {
 								&& npc.isAbleToAccessCoverableArea(CoverableArea.PENIS, true)
 								&& slave.hasVagina()
 								&& slave.isAbleToAccessCoverableArea(CoverableArea.VAGINA, true);
-						
+
 						boolean impregnationAttempt = false, gettingPregnantAttempt = false;
-						
+
 						// Apply sex effects:
 						if(canImpregnate) {
 							npc.ingestFluid(slave, slave.getCum(), SexAreaOrifice.VAGINA, slave.getPenisRawOrgasmCumQuantity());
@@ -1038,7 +1038,7 @@ public class OccupancyUtil implements XMLSaving {
 							gettingPregnantAttempt = true;
 						}
 						slave.setLastTimeHadSex((day*24*60l) + hour*60l, true);
-						
+
 						switch(slave.getSlaveJob()) {
 							case CLEANING:
 								return new SlaveryEventLogEntry(hour,
@@ -1051,7 +1051,7 @@ public class OccupancyUtil implements XMLSaving {
 												+ (impregnationAttempt?"<br/>[style.colorSex([npc2.Name] might have gotten pregnant!)]":"")
 												+ (gettingPregnantAttempt?"<br/>[style.colorSex([npc1.Name] might have gotten pregnant!)]":""))),
 										true);
-								
+
 							case IDLE: //TODO
 								return new SlaveryEventLogEntry(hour,
 										slave,
@@ -1073,7 +1073,7 @@ public class OccupancyUtil implements XMLSaving {
 												+ (impregnationAttempt?"<br/>[style.colorSex([npc2.Name] might have gotten pregnant!)]":"")
 												+ (gettingPregnantAttempt?"<br/>[style.colorSex([npc1.Name] might have gotten pregnant!)]":""))),
 										true);
-								
+
 							case LAB_ASSISTANT: case TEST_SUBJECT:
 								return new SlaveryEventLogEntry(hour,
 										slave,
@@ -1084,7 +1084,7 @@ public class OccupancyUtil implements XMLSaving {
 												+ (impregnationAttempt?"<br/>[style.colorSex([npc2.Name] might have gotten pregnant!)]":"")
 												+ (gettingPregnantAttempt?"<br/>[style.colorSex([npc1.Name] might have gotten pregnant!)]":""))),
 										true);
-								
+
 							case LIBRARY:
 								return new SlaveryEventLogEntry(hour,
 										slave,
@@ -1096,25 +1096,25 @@ public class OccupancyUtil implements XMLSaving {
 												+ (gettingPregnantAttempt?"<br/>[style.colorSex([npc1.Name] might have gotten pregnant!)]":""))),
 										true);
 							case PUBLIC_STOCKS:
-								//TODO 
+								//TODO
 							case MILKING:
-								//TODO 
+								//TODO
 							case PROSTITUTE:
-								//TODO 
+								//TODO
 								break;
 						}
 					}
 				}
 			}
 		}
-		
+
 //		TODO
 //		boolean silence = slave.hasSlavePermissionSetting(SlavePermissionSetting.GENERAL_SILENCE);
 //		boolean crawling = slave.hasSlavePermissionSetting(SlavePermissionSetting.GENERAL_CRAWLING);
-		
+
 		return null;
 	}
-	
+
 	public MilkingRoom getMilkingRoom(WorldType worldType, Vector2i location) {
 		for(MilkingRoom room : getMilkingRooms()) {
 			if(room.getWorldType() == worldType && room.getLocation().equals(location)) {
@@ -1123,34 +1123,34 @@ public class OccupancyUtil implements XMLSaving {
 		}
 		return null;
 	}
-	
+
 	public List<MilkingRoom> getMilkingRooms() {
 		return milkingRooms;
 	}
-	
+
 	public boolean addMilkingRoom(MilkingRoom milkingRoom) {
 		return milkingRooms.add(milkingRoom);
 	}
-	
+
 	public boolean removeMilkingRoom(MilkingRoom milkingRoom) {
 		return milkingRooms.remove(milkingRoom);
 	}
 
 	public void payOutBalance() {
 		Main.game.getPlayer().incrementMoney(getGeneratedBalance());
-		
+
 		generatedIncome = 0;
 		generatedUpkeep = 0;
 	}
-	
+
 	public int getGeneratedBalance() {
 		return generatedIncome - generatedUpkeep;
 	}
-	
+
 	public int getGeneratedIncome() {
 		return generatedIncome;
 	}
-	
+
 	public void setGeneratedIncome(int generatedIncome) {
 		this.generatedIncome = generatedIncome;
 	}
@@ -1162,7 +1162,7 @@ public class OccupancyUtil implements XMLSaving {
 	public int getGeneratedUpkeep() {
 		return generatedUpkeep;
 	}
-	
+
 	private void incrementSlaveDailyIncome(NPC slave, int increment) {
 		dailyIncome.putIfAbsent(slave, 0);
 		dailyIncome.put(slave, dailyIncome.get(slave)+increment);
@@ -1175,14 +1175,14 @@ public class OccupancyUtil implements XMLSaving {
 	public List<NPC> getSlavesResting() {
 		return slavesResting;
 	}
-	
+
 	public static boolean isFreeRoomAvailableForOccupant() {
 		return getFreeRoomForOccupant()!=null;
 	}
-	
+
 	public static Cell getFreeRoomForOccupant() {
 		Cell[][] grid = Main.game.getWorlds().get(WorldType.LILAYAS_HOUSE_GROUND_FLOOR).getCellGrid();
-		
+
 		for(int i=0; i< grid.length; i++) {
 			for(int j=0; j< grid[0].length; j++) {
 				Cell c = grid[i][j];
@@ -1191,9 +1191,9 @@ public class OccupancyUtil implements XMLSaving {
 				}
 			}
 		}
-		
+
 		grid = Main.game.getWorlds().get(WorldType.LILAYAS_HOUSE_FIRST_FLOOR).getCellGrid();
-		
+
 		for(int i=0; i< grid.length; i++) {
 			for(int j=0; j< grid[0].length; j++) {
 				Cell c = grid[i][j];
@@ -1202,7 +1202,7 @@ public class OccupancyUtil implements XMLSaving {
 				}
 			}
 		}
-		
+
 		return null;
 	}
 }

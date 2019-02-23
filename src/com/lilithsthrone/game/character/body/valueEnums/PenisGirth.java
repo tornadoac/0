@@ -14,7 +14,7 @@ public enum PenisGirth {
 	TWO_AVERAGE(2, "averagely-girthed", Color.GENERIC_SIZE_THREE),
 	THREE_THICK(3, "thick", Color.GENERIC_SIZE_FOUR),
 	FOUR_FAT(4, "fat", Color.GENERIC_SIZE_FIVE);
-	
+
 	private int value;
 	private String descriptor;
 	private Color color;
@@ -32,7 +32,7 @@ public enum PenisGirth {
 	public String getName() {
 		return descriptor;
 	}
-	
+
 	public static PenisGirth getPenisGirthFromInt(int size) {
 		for(PenisGirth ls : PenisGirth.values()) {
 			if(size == ls.getValue()) {
@@ -41,7 +41,7 @@ public enum PenisGirth {
 		}
 		return ZERO_SLENDER;
 	}
-	
+
 	public static int getLargest() {
 		int largest = ZERO_SLENDER.value;
 		for(PenisGirth ls : PenisGirth.values()) {

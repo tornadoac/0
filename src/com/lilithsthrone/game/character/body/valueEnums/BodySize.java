@@ -33,7 +33,7 @@ public enum BodySize {
 	public int getMaximumValue() {
 		return maximumBodySize;
 	}
-	
+
 	public int getMedianValue() {
 		return minimumBodySize + (maximumBodySize - minimumBodySize) / 2;
 	}
@@ -46,7 +46,7 @@ public enum BodySize {
 		}
 		return FOUR_HUGE;
 	}
-	
+
 	public String getName(boolean withDeterminer) {
 		if(withDeterminer) {
 			return UtilText.generateSingularDeterminer(name) + " " + name;
@@ -54,7 +54,7 @@ public enum BodySize {
 			return name;
 		}
 	}
-	
+
 	public Color getColor() {
 		return color;
 	}

@@ -14,7 +14,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum Gender {
-	
+
 	// Masculine:
 	M_P_V_B_HERMAPHRODITE(GenderNames.Y_PENIS_Y_VAGINA_Y_BREASTS, PronounType.MASCULINE, Color.MASCULINE, ContentPreferenceValue.ZERO_NONE),
 	M_P_V_HERMAPHRODITE(GenderNames.Y_PENIS_Y_VAGINA_N_BREASTS, PronounType.MASCULINE, Color.MASCULINE, ContentPreferenceValue.ZERO_NONE),
@@ -24,7 +24,7 @@ public enum Gender {
 	M_V_CUNTBOY(GenderNames.N_PENIS_Y_VAGINA_N_BREASTS, PronounType.MASCULINE, Color.MASCULINE, ContentPreferenceValue.ZERO_NONE),
 	M_B_MANNEQUIN(GenderNames.N_PENIS_N_VAGINA_Y_BREASTS, PronounType.MASCULINE, Color.MASCULINE, ContentPreferenceValue.ZERO_NONE),
 	M_MANNEQUIN(GenderNames.N_PENIS_N_VAGINA_N_BREASTS, PronounType.MASCULINE, Color.MASCULINE, ContentPreferenceValue.ZERO_NONE),
-	
+
 	// Feminine:
 	F_P_V_B_FUTANARI(GenderNames.Y_PENIS_Y_VAGINA_Y_BREASTS, PronounType.FEMININE, Color.FEMININE, ContentPreferenceValue.ONE_MINIMAL),
 	F_P_V_FUTANARI(GenderNames.Y_PENIS_Y_VAGINA_N_BREASTS, PronounType.FEMININE, Color.FEMININE, ContentPreferenceValue.ZERO_NONE),
@@ -56,11 +56,11 @@ public enum Gender {
 		this.color = color;
 		this.genderPreferenceDefault = genderPreferenceDefault;
 	}
-	
+
 	public GenderNames getGenderName() {
 		return name;
 	}
-	
+
 	public PronounType getType() {
 		return type;
 	}
@@ -68,7 +68,7 @@ public enum Gender {
 	public boolean isFeminine() {
 		return type == PronounType.FEMININE || type == PronounType.NEUTRAL;
 	}
-	
+
 	public Color getColor() {
 		return color;
 	}
@@ -154,10 +154,10 @@ public enum Gender {
 	public ContentPreferenceValue getGenderPreferenceDefault() {
 		return genderPreferenceDefault;
 	}
-	
+
 	public static Gender getGenderFromUserPreferences(boolean requiresVagina, boolean requiresPenis) {
 		Map<Gender, Integer> genderMap = new HashMap<>();
-		
+
 		for(Gender g : Gender.values()) {
 			if((!requiresVagina || g.getGenderName().isHasVagina())
 					&& (!requiresPenis || g.getGenderName().isHasPenis())
@@ -165,23 +165,23 @@ public enum Gender {
 				genderMap.put(g, Main.getProperties().genderPreferencesMap.get(g));
 			}
 		}
-		
+
 		if(genderMap.isEmpty()) {
 			if(Math.random()>0.5f || requiresVagina) {
 				if(requiresVagina && requiresPenis) {
 					return Gender.F_P_V_B_FUTANARI;
-					
+
 				} else if(requiresPenis) {
 					return Gender.F_P_B_SHEMALE;
 				}
 				return Gender.F_V_B_FEMALE;
-				
+
 			} else {
 				return Gender.M_P_MALE;
 			}
 		}
-		
+
 		return Util.getRandomObjectFromWeightedMap(genderMap);
 	}
-	
+
 }

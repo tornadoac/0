@@ -16,14 +16,14 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public enum TFEssence {
-	
+
 	ARCANE("Arcane",
 			"An exceedingly rare pure arcane essence.",
 			"arcane",
 			"essenceArcane",
 			Color.GENERIC_ARCANE,
 			Rarity.LEGENDARY);
-	
+
 
 	private String name, description, descriptor, SVGString, SVGStringUncolored;
 	private Color color;
@@ -37,7 +37,7 @@ public enum TFEssence {
 		this.SVGStringUncolored = SVGString;
 		this.color = color;
 		this.rarity = rarity;
-		
+
 		// Set this item's file image:
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/crafting/" + SVGString + ".svg");
@@ -45,7 +45,7 @@ public enum TFEssence {
 				System.err.println("Error! TFEssence icon file does not exist (Trying to read from '"+SVGString+"')!");
 			}
 			String base = Util.inputStreamToString(is);
-			
+
 			String s = base;
 			s = SvgUtil.colorReplacement(this.toString(), Color.BASE_GREY, s);
 			this.SVGStringUncolored = s;
@@ -76,7 +76,7 @@ public enum TFEssence {
 	public String getSVGString() {
 		return SVGString;
 	}
-	
+
 	public String getSVGStringUncolored() {
 		return SVGStringUncolored;
 	}
@@ -88,7 +88,7 @@ public enum TFEssence {
 	public Rarity getRarity() {
 		return rarity;
 	}
-	
+
 	public static AbstractItemType essenceToItem(TFEssence essence) {
 		return ItemType.BOTTLED_ESSENCE_ARCANE;
 	}

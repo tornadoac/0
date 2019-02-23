@@ -67,7 +67,7 @@ public class CityHall {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CITY_HALL_PUBLIC_ENQUIRIES = new DialogueNode("Bureau of Demographics", "-", true) {
 
 		@Override
@@ -79,12 +79,12 @@ public class CityHall {
 						+ " If she noticed your arrival, she doesn't show it, and seems to be content to carry on reading what's in front of her as she ignores your presence."
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Name change", "Ask the cat-girl about changing your name.", CITY_HALL_NAME_CHANGE_FORM);
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "Return to the entrance hall.", CITY_HALL_ENTER);
 
@@ -96,7 +96,7 @@ public class CityHall {
 
 	private static boolean unsuitableName = false;
 	private static boolean unsuitableSurname = false;
-	
+
 	public static final DialogueNode CITY_HALL_NAME_CHANGE_FORM = new DialogueNode("Bureau of Demographics", "-", true) {
 
 		@Override
@@ -128,12 +128,12 @@ public class CityHall {
 						+ (unsuitableName ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Invalid name.</b></p>" : "")
 						+ (unsuitableSurname ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Invalid Surname.</b></p>" : "")
 					+ "</div>"
-					
+
 					+ "<p id='hiddenFieldName' style='display:none;'></p>"
 					+ "<p id='hiddenFieldSurname' style='display:none;'></p>";
-			
+
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -141,7 +141,7 @@ public class CityHall {
 					return new Response("Confirm ("+UtilText.formatAsMoneyUncolored(100, "span")+")",
 							"Have your name changed.<br/>[style.italicsBad(You cannot afford this!)]",
 							null);
-					
+
 				} else {
 					return new ResponseEffectsOnly("Confirm ("+UtilText.formatAsMoney(100, "span")+")", "Have your name changed.<br/>This will cost "+UtilText.formatAsMoney(100)+"."){
 						@Override
@@ -150,16 +150,16 @@ public class CityHall {
 						}
 					};
 				}
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().getAllCharactersOfRelationType(Relationship.Parent).isEmpty()) {
 					return new Response("Offspring ("+UtilText.formatAsMoneyUncolored(5000, "span")+")",
 							"Change your name, and also have all lines of your offspring update their surnames to your surname.<br/>[style.italicsBad(You do not have any children, so you can't do this!)]", null);
-					
+
 				} else if (Main.game.getPlayer().getMoney() < 5000) {
 					return new Response("Offspring ("+UtilText.formatAsMoneyUncolored(5000, "span")+")",
 							"Change your name, and also have all lines of your offspring update their surnames to your surname.<br/>[style.italicsBad(You cannot afford this!)]", null);
-					
+
 				} else {
 					return new ResponseEffectsOnly("Offspring ("+UtilText.formatAsMoney(5000, "span")+")",
 							"Change your name, and also have all lines of your offspring update their surnames to your surname.<br/>This will cost "+UtilText.formatAsMoney(5000)+"."){
@@ -169,7 +169,7 @@ public class CityHall {
 						}
 					};
 				}
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "Decide not to change your name.", CITY_HALL_PUBLIC_ENQUIRIES);
 
@@ -178,7 +178,7 @@ public class CityHall {
 			}
 		}
 	};
-	
+
 	private static void applyNameChange(boolean applyOffspringSurnames) {
 		Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('nameInput').value;");
 		if(Main.mainController.getWebEngine().getDocument()!=null) {
@@ -200,18 +200,18 @@ public class CityHall {
 				unsuitableSurname = false;
 			}
 		}
-		
+
 		if(applyOffspringSurnames && Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().length()==0) {
 			unsuitableSurname = true;
 		}
-		
+
 		if (unsuitableName || unsuitableSurname)  {
 			Main.game.setContent(new Response("" ,"", CITY_HALL_NAME_CHANGE_FORM));
-			
+
 		} else {
 			Main.game.getPlayer().setName(new NameTriplet(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent()));
 			Main.game.getPlayer().setSurname(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent());
-			
+
 			if(applyOffspringSurnames && Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().length()>=1) {
 				for(NPC npc : Main.game.getAllNPCs()) {
 					GameCharacter mother = npc.getMother();
@@ -245,5 +245,5 @@ public class CityHall {
 			Main.game.setContent(new Response("" ,"", CITY_HALL_NAME_CHANGE_FORM));
 		}
 	}
-	
+
 }

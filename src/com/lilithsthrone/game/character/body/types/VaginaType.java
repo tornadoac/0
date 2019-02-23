@@ -32,7 +32,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 	DOG_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_DOG_MORPH, Race.DOG_MORPH),
 
 	WOLF_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_WOLF_MORPH, Race.WOLF_MORPH),
-	
+
 	FOX_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_FOX_MORPH, Race.FOX_MORPH),
 
 	SQUIRREL_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_SQUIRREL_MORPH, Race.SQUIRREL_MORPH),
@@ -42,9 +42,9 @@ public enum VaginaType implements BodyPartTypeInterface {
 	RABBIT_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_RABBIT_MORPH, Race.RABBIT_MORPH),
 
 	BAT_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_BAT_MORPH, Race.BAT_MORPH),
-	
+
 	ALLIGATOR_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_ALLIGATOR_MORPH, Race.ALLIGATOR_MORPH),
-	
+
 	CAT_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_CAT_MORPH, Race.CAT_MORPH),
 
 	COW_MORPH(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_COW_MORPH, Race.COW_MORPH),
@@ -64,7 +64,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 		this.skinType = skinType;
 		this.fluidType = fluidType;
 		this.race = race;
-		
+
 		this.defaultRacialOrificeModifiers = new ArrayList<>();
 		Collections.addAll(this.defaultRacialOrificeModifiers, defaultRacialOrificeModifiers);
 	}
@@ -83,12 +83,12 @@ public enum VaginaType implements BodyPartTypeInterface {
 	public String getDeterminer(GameCharacter gc) {
 		return "";
 	}
-	
+
 	@Override
 	public boolean isDefaultPlural() {
 		return false;
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		if(this==NONE) {
@@ -111,7 +111,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 						"cleft",
 						"slit",
 						(this==HORSE_MORPH?"horse-pussy":""));
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"cunny",
@@ -145,7 +145,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 						"twat",
 						"twat",
 						(this==HORSE_MORPH?"horse-pussy":""));
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"vagina",
@@ -165,7 +165,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		if(this==NONE) {
@@ -187,7 +187,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 						"clefts",
 						"slits",
 						(this==HORSE_MORPH?"horse-pussies":""));
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"cunnies",
@@ -219,7 +219,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 						"twats",
 						"twats",
 						(this==HORSE_MORPH?"horse-pussies":""));
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"cunts",
@@ -308,7 +308,7 @@ public enum VaginaType implements BodyPartTypeInterface {
 					return gc.getVaginaCapacity().getDescriptor();
 				}
 		}
-		
+
 	}
 
 	@Override
@@ -351,12 +351,12 @@ public enum VaginaType implements BodyPartTypeInterface {
 		}
 		return "";
 	}
-	
+
 	@Override
 	public BodyCoveringType getBodyCoveringType(Body body) {
 		return skinType;
 	}
-	
+
 	@Override
 	public Race getRace() {
 		return race;
@@ -369,5 +369,5 @@ public enum VaginaType implements BodyPartTypeInterface {
 	public List<OrificeModifier> getDefaultRacialOrificeModifiers() {
 		return defaultRacialOrificeModifiers;
 	}
-	
+
 }

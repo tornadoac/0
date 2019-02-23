@@ -107,7 +107,7 @@ public class Lyssieth extends NPC {
 	public Lyssieth() {
 		this(false);
 	}
-	
+
 	public Lyssieth(boolean isImported) {
 		super(isImported,
 				new NameTriplet("Lyssieth"), "Lilithmartuilani",
@@ -118,7 +118,7 @@ public class Lyssieth extends NPC {
 				new CharacterInventory(10),
 				WorldType.LYSSIETH_PALACE, PlaceType.LYSSIETH_PALACE_OFFICE,
 				true);
-		
+
 		if(!isImported) {
 			this.setPlayerKnowsName(true);
 			//TODO spells
@@ -136,30 +136,30 @@ public class Lyssieth extends NPC {
 			this.equipClothing(true, true, true, true);
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 100);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 100);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-			
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_LILIN);
-			
+
 			this.clearFetishes();
-			
+
 			this.addFetish(Fetish.FETISH_INCEST);
 			this.addFetish(Fetish.FETISH_TRANSFORMATION_GIVING);
 
@@ -178,9 +178,9 @@ public class Lyssieth extends NPC {
 			this.setFetishDesire(Fetish.FETISH_NON_CON_DOM, FetishDesire.ZERO_HATE);
 			this.setFetishDesire(Fetish.FETISH_NON_CON_SUB, FetishDesire.ZERO_HATE);
 		}
-		
+
 		this.setBody(Gender.F_V_B_FEMALE, Subspecies.HUMAN, RaceStage.GREATER);
-		
+
 		// Body:
 		this.setSubspeciesOverride(Subspecies.ELDER_LILIN);
 		this.setAgeAppearanceDifferenceToAppearAsAge(45);
@@ -193,21 +193,21 @@ public class Lyssieth extends NPC {
 		this.setFemininity(100);
 		this.setMuscle(Muscle.ONE_LIGHTLY_MUSCLED.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Color.EYE_GREEN));
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, CoveringPattern.EYE_IRISES, Color.EYE_YELLOW, true, Color.EYE_YELLOW, true));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_OLIVE), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_HUMAN, Color.COVERING_BROWN_DARK), true);
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMaximumValue());
 		this.setHairStyle(HairStyle.WAVY);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
@@ -221,7 +221,7 @@ public class Lyssieth extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.THREE_PLUMP);
@@ -229,7 +229,7 @@ public class Lyssieth extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(false);
 		this.setBreastSize(CupSize.GG.getMeasurement());
@@ -237,17 +237,17 @@ public class Lyssieth extends NPC {
 		this.setNippleSize(NippleSize.THREE_LARGE);
 		this.setAreolaeSize(AreolaeSize.THREE_LARGE);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(true);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FIVE_VERY_WIDE);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		// n/a
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -257,22 +257,22 @@ public class Lyssieth extends NPC {
 		this.setVaginaWetness(Wetness.FIVE_SLOPPY);
 		this.setVaginaElasticity(OrificeElasticity.FIVE_STRETCHY.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		this.resetInventory(true);
-		
+
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_eye_half_rim_glasses", Color.CLOTHING_BROWN_VERY_DARK, Color.CLOTHING_BRASS, Color.CLOTHING_GREY, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torso_plunge_blouse", Color.CLOTHING_WHITE, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_leg_asymmetrical_skirt", Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_strappy_sandals", Color.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_groin_lacy_thong", Color.CLOTHING_RED_DARK, false), true, this);
-		
+
 		this.setPiercedEar(true);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Color.CLOTHING_SILVER, false), true, this);
 	}
@@ -284,7 +284,7 @@ public class Lyssieth extends NPC {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
@@ -295,45 +295,45 @@ public class Lyssieth extends NPC {
 		}
 		return "#E194FF";
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	protected Set<GameCharacter> getChildren() {
 		Set<GameCharacter> children = super.getChildren();
-		
+
 		children.add(Main.game.getNpc(Lilaya.class));
 		children.add(Main.game.getNpc(DarkSiren.class));
 		if(Main.game.getPlayer().getRace()==Race.DEMON) {
 			children.add(Main.game.getPlayer());
 		}
-		
+
 		return children;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public List<Class<?>> getUniqueSexClasses() {
 		return Util.newArrayListOfValues(SALyssiethSpecials.class);
 	}
-	
+
 	private void setPlayerToPartialDemon() {
 		Main.game.getPlayer().setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		Main.game.getPlayer().setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 		Main.game.getPlayer().setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, CoveringPattern.EYE_IRISES, Color.EYE_YELLOW, false, Color.EYE_YELLOW, false));
 		Main.game.getPlayer().setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
-		
+
 		Main.game.getPlayer().setTailType(TailType.DEMON_COMMON);
 		Main.game.getPlayer().setHornType(HornType.SWEPT_BACK);
 		Main.game.getPlayer().setWingType(WingType.DEMON_COMMON);
@@ -342,7 +342,7 @@ public class Lyssieth extends NPC {
 		Main.game.getPlayer().setEyeType(EyeType.DEMON_COMMON);
 		Main.game.getPlayer().setHairType(HairType.DEMON_COMMON);
 	}
-	
+
 	private void setPlayerToFullDemon() {
 		Main.game.getPlayer().setSkinType(SkinType.DEMON_COMMON);
 		Main.game.getPlayer().setFaceType(FaceType.DEMON_COMMON);
@@ -352,7 +352,7 @@ public class Lyssieth extends NPC {
 			Main.game.getPlayer().fillCumToMaxStorage();
 		}
 	}
-	
+
 	public void setDaughterToFullDemon(Class<? extends NPC> daughterClass) {
 		Main.game.getNpc(daughterClass).setAssType(AssType.DEMON_COMMON);
 		Main.game.getNpc(daughterClass).setBreastType(BreastType.DEMON_COMMON);
@@ -367,18 +367,18 @@ public class Lyssieth extends NPC {
 			Main.game.getNpc(DarkSiren.class).setArousal(100);
 		}
 	}
-	
+
 	@Override
 	public SexActionOrgasmOverride getSexActionOrgasmOverride(SexActionInterface sexAction, OrgasmCumTarget target, boolean applyExtraEffects) {
 		if(!Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN)) { // Vision scene:
 			StringBuilder sb = new StringBuilder();
 			sb.append(GenericOrgasms.getGenericOrgasmDescription(sexAction, this, target));
-			
+
 			// Gaining Lyssieth's power:
 			if(Main.game.getPlayer().getQuest(QuestLine.MAIN)==Quest.MAIN_2_D_MEETING_A_LILIN) {
 				sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "SEX_ORGASM_GAINING_POWER"));
 			}
-			
+
 			return new SexActionOrgasmOverride(true, sb.toString()) {
 				@Override
 				public void applyEffects() {
@@ -387,16 +387,16 @@ public class Lyssieth extends NPC {
 					}
 				}
 			};
-			
+
 		} else if(Sex.getSexManager() instanceof SMLyssiethDemonTF) { // Demon TF scene:
 			StringBuilder sb = new StringBuilder();
 			sb.append(GenericOrgasms.getGenericOrgasmDescription(sexAction, this, target));
-			
+
 			if(Sex.getNumberOfOrgasms(Main.game.getNpc(Lyssieth.class))==0) {
 				// Stage 1) Player is sucking Lyssieth's cock:
 				if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.MOUTH)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_1_PC_GIVING_LYSSITH_BLOWJOB"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -413,11 +413,11 @@ public class Lyssieth extends NPC {
 							}
 						}
 					};
-	
+
 				// Stage 1) Lyssieth is sucking player's cock:
 				} else if(Sex.getContactingSexAreas(this, SexAreaOrifice.MOUTH, Main.game.getPlayer()).contains(SexAreaPenetration.PENIS)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_1_PC_GETTING_BLOWJOB_FROM_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -431,11 +431,11 @@ public class Lyssieth extends NPC {
 							}
 						}
 					};
-	
+
 				// Stage 1) Lyssieth is eating the player out:
 				} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.TONGUE, Main.game.getPlayer()).contains(SexAreaOrifice.VAGINA)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_1_PC_GETTING_CUNNILINGUS_FROM_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -446,12 +446,12 @@ public class Lyssieth extends NPC {
 						}
 					};
 				}
-				
+
 			} else if(Sex.getNumberOfOrgasms(Main.game.getNpc(Lyssieth.class))==1) {
 				// Stage 2) Lyssieth is fucking the player:
 				if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.VAGINA)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_2_PC_PUSSY_FUCKED_BY_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -466,7 +466,7 @@ public class Lyssieth extends NPC {
 				// Stage 2) Lyssieth is fucking the player's ass:
 				} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.ANUS)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_2_PC_ASS_FUCKED_BY_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -477,11 +477,11 @@ public class Lyssieth extends NPC {
 							}
 						}
 					};
-					
+
 				// Stage 2) The player is fucking Lyssieth:
 				} else if(Sex.getContactingSexAreas(this, SexAreaOrifice.VAGINA, Main.game.getPlayer()).contains(SexAreaPenetration.PENIS)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_STAGE_2_PC_FUCKING_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -494,7 +494,7 @@ public class Lyssieth extends NPC {
 						}
 					};
 				}
-				
+
 			} else {
 				// Stage 3) The player is fucking/breeding Lyssieth:
 				if(Sex.getContactingSexAreas(this, SexAreaOrifice.VAGINA, Main.game.getPlayer()).contains(SexAreaPenetration.PENIS)) {
@@ -503,7 +503,7 @@ public class Lyssieth extends NPC {
 					} else {
 						sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_FUCKING_LYSSITH"));
 					}
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -521,7 +521,7 @@ public class Lyssieth extends NPC {
 				// Stage 3) Lyssieth is fucking the player:
 				} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.VAGINA)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_PUSSY_FUCKED_BY_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -534,7 +534,7 @@ public class Lyssieth extends NPC {
 				// Stage 3) Lyssieth is fucking the player's ass:
 				} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getPlayer()).contains(SexAreaOrifice.ANUS)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_ASS_FUCKED_BY_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -543,11 +543,11 @@ public class Lyssieth extends NPC {
 							}
 						}
 					};
-					
+
 				// Stage 3) Lyssieth is sucking player's cock:
 				} else if(Sex.getContactingSexAreas(this, SexAreaOrifice.MOUTH, Main.game.getPlayer()).contains(SexAreaPenetration.PENIS)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_GETTING_BLOWJOB_FROM_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -556,11 +556,11 @@ public class Lyssieth extends NPC {
 							}
 						}
 					};
-	
+
 				// Stage 3) Lyssieth is eating the player out:
 				} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.TONGUE, Main.game.getPlayer()).contains(SexAreaOrifice.VAGINA)) {
 					sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "DEMON_TF_FINAL_PC_GETTING_CUNNILINGUS_FROM_LYSSITH"));
-					
+
 					return new SexActionOrgasmOverride(false, sb.toString()) {
 						@Override
 						public void applyEffects() {
@@ -571,15 +571,15 @@ public class Lyssieth extends NPC {
 					};
 				}
 			}
-			
+
 		} else if(Sex.getSexManager() instanceof SMLilayaDemonTF) { // TF Lilaya or Meraxis into full demons
 			StringBuilder sb = new StringBuilder();
 			sb.append(GenericOrgasms.getGenericOrgasmDescription(sexAction, this, target));
-			
+
 			// Lyssieth is fucking Lilaya's pussy:
 			if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lilaya.class)).contains(SexAreaOrifice.VAGINA) && Main.game.getNpc(Lilaya.class).getRaceStage()!=RaceStage.GREATER) {
 				sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "LILAYA_DEMON_TF_VAGINA"));
-				
+
 				return new SexActionOrgasmOverride(false, sb.toString()) {
 					@Override
 					public void applyEffects() {
@@ -588,11 +588,11 @@ public class Lyssieth extends NPC {
 						}
 					}
 				};
-				
+
 			// Lyssieth is fucking Lilaya's ass:
 			} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(Lilaya.class)).contains(SexAreaOrifice.ANUS) && Main.game.getNpc(Lilaya.class).getRaceStage()!=RaceStage.GREATER) {
 				sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "LILAYA_DEMON_TF_ANUS"));
-				
+
 				return new SexActionOrgasmOverride(false, sb.toString()) {
 					@Override
 					public void applyEffects() {
@@ -601,11 +601,11 @@ public class Lyssieth extends NPC {
 						}
 					}
 				};
-			
+
 			// Lyssieth is fucking Meraxis's ass:
 			} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(DarkSiren.class)).contains(SexAreaOrifice.VAGINA) && Main.game.getNpc(DarkSiren.class).getRaceStage()!=RaceStage.GREATER) {
 				sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "MERAXIS_DEMON_TF_VAGINA"));
-				
+
 				return new SexActionOrgasmOverride(false, sb.toString()) {
 					@Override
 					public void applyEffects() {
@@ -614,10 +614,10 @@ public class Lyssieth extends NPC {
 						}
 					}
 				};
-				
+
 			} else if(Sex.getContactingSexAreas(this, SexAreaPenetration.PENIS, Main.game.getNpc(DarkSiren.class)).contains(SexAreaOrifice.ANUS) && Main.game.getNpc(DarkSiren.class).getRaceStage()!=RaceStage.GREATER) {
 				sb.append(UtilText.parseFromXMLFile("characters/submission/lyssieth", "MERAXIS_DEMON_TF_ANUS"));
-				
+
 				return new SexActionOrgasmOverride(false, sb.toString()) {
 					@Override
 					public void applyEffects() {
@@ -631,7 +631,7 @@ public class Lyssieth extends NPC {
 
 		return super.getSexActionOrgasmOverride(sexAction, target, applyExtraEffects); // Normal scene
 	}
-	
+
 	@Override
 	public SexType getForeplayPreference(GameCharacter target) {
 		if(Sex.getSexManager() instanceof SMLyssiethDemonTF) {
@@ -657,7 +657,7 @@ public class Lyssieth extends NPC {
 		}
 		return super.getMainSexPreference(target);
 	}
-	
+
 	@Override
 	public void endSex() {
 		this.setPenisType(PenisType.NONE);
@@ -667,12 +667,12 @@ public class Lyssieth extends NPC {
 	public int getOrgasmsBeforeSatisfied() {
 		return 3;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	public void growCock(PenisType type) {
 		this.setPenisType(type);
 		this.setPenisVirgin(false);
@@ -689,11 +689,11 @@ public class Lyssieth extends NPC {
 		}
 		this.fillCumToMaxStorage();
 	}
-	
+
 	public void setLilinBody() {
-		
+
 		this.setBody(Gender.F_P_V_B_FUTANARI, Subspecies.DEMON, RaceStage.GREATER);
-		
+
 		// Body:
 		this.setSubspeciesOverride(Subspecies.ELDER_LILIN);
 		this.setAgeAppearanceDifferenceToAppearAsAge(45);
@@ -709,21 +709,21 @@ public class Lyssieth extends NPC {
 		this.setFemininity(100);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HUMAN, Color.EYE_GREEN));
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, CoveringPattern.EYE_IRISES, Color.EYE_YELLOW, true, Color.EYE_YELLOW, true));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
 		this.setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_OLIVE), true);
-		
+
 		this.setSkinCovering(new Covering(BodyCoveringType.HORN, Color.HORN_DARK_GREY), false);
 
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_HUMAN, Color.COVERING_BROWN_DARK), true);
 		this.setHairCovering(new Covering(BodyCoveringType.HAIR_DEMON, Color.COVERING_BLACK), true);
 		this.setHairLength(HairLength.THREE_SHOULDER_LENGTH.getMaximumValue());
 		this.setHairStyle(HairStyle.WAVY);
-		
+
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_DEMON, Color.COVERING_BLACK), false);
 		this.setHairCovering(new Covering(BodyCoveringType.BODY_HAIR_HUMAN, Color.COVERING_BLACK), false);
 		this.setUnderarmHair(BodyHair.ZERO_NONE);
@@ -737,7 +737,7 @@ public class Lyssieth extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //			this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_BLACK));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.THREE_PLUMP);
@@ -745,7 +745,7 @@ public class Lyssieth extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(false);
 		this.setBreastSize(CupSize.GG.getMeasurement());
@@ -753,18 +753,18 @@ public class Lyssieth extends NPC {
 		this.setNippleSize(NippleSize.THREE_LARGE);
 		this.setAreolaeSize(AreolaeSize.THREE_LARGE);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(false);
 		this.setAssBleached(true);
 		this.setAssSize(AssSize.FOUR_LARGE);
 		this.setHipSize(HipSize.FIVE_VERY_WIDE);
 		// Anus settings and modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.growCock(PenisType.DEMON_COMMON);
-		
+
 		// Vagina:
 		this.setVaginaVirgin(false);
 		this.setVaginaClitorisSize(ClitorisSize.ZERO_AVERAGE);
@@ -774,23 +774,23 @@ public class Lyssieth extends NPC {
 		this.setVaginaWetness(Wetness.FIVE_SLOPPY);
 		this.setVaginaElasticity(OrificeElasticity.FIVE_STRETCHY.getValue());
 		this.setVaginaPlasticity(OrificePlasticity.ONE_SPRINGY.getValue());
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	public static boolean isPlayersMommy() {
 		return Main.game.getPlayer().hasFetish(Fetish.FETISH_INCEST)
 				&& (Main.game.getPlayer().getRace()==Race.DEMON || (Main.game.isInSex() && Sex.getSexManager() instanceof SMLyssiethDemonTF));
 	}
-	
+
 	@Override
 	public String getDirtyTalkVaginaPenetrated(GameCharacter target, boolean isPlayerDom){
 		if(!isPlayersMommy()) {
 			return super.getDirtyTalkMouthPenetrated(target, isPlayerDom);
 		}
 		String returnedLine = "";
-		
+
 		if(getVaginaType()!=VaginaType.NONE) {
 			if(Sex.getFirstContactingSexAreaPenetration(this, SexAreaOrifice.VAGINA) != null) {
 				switch(Sex.getFirstContactingSexAreaPenetration(this, SexAreaOrifice.VAGINA)) {
@@ -819,7 +819,7 @@ public class Lyssieth extends NPC {
 								"Oh yes! Taste mommy's pussy! Get it deeper! Good [npc2.girl]!");
 						break;
 					default:
-						returnedLine =  UtilText.returnStringAtRandom(
+						returnedLine = UtilText.returnStringAtRandom(
 								"Fuck!",
 								"Yeah!",
 								"Oh yeah!");
@@ -827,11 +827,11 @@ public class Lyssieth extends NPC {
 				}
 			}
 		}
-		
+
 		if(returnedLine.isEmpty()) {
 			return null;
 		}
-		
+
 		return UtilText.parse(this, target, returnedLine);
 	}
 
@@ -888,9 +888,9 @@ public class Lyssieth extends NPC {
 		if(!isPlayersMommy()) {
 			return super.getDirtyTalkPenisPenetrating(target, isPlayerDom);
 		}
-		
+
 		List<String> availableLines = new ArrayList<>();
-		
+
 		if(!Sex.getOrificesBeingPenetratedBy(this, SexAreaPenetration.PENIS, target).isEmpty()) {
 			for(SexAreaOrifice orifice : Sex.getOrificesBeingPenetratedBy(this, SexAreaPenetration.PENIS, target)) {
 				switch(orifice) {
@@ -952,7 +952,7 @@ public class Lyssieth extends NPC {
 			return super.getDirtyTalkTonguePenetrating(target, isPlayerDom);
 		}
 		List<String> availableLines = new ArrayList<>();
-		
+
 		if(!Sex.getOrificesBeingPenetratedBy(this, SexAreaPenetration.TONGUE, target).isEmpty()) {
 			for(SexAreaOrifice orifice : Sex.getOrificesBeingPenetratedBy(this, SexAreaPenetration.TONGUE, target)) {
 				switch(orifice) {

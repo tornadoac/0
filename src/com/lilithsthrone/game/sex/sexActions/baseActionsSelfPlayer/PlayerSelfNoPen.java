@@ -25,7 +25,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PlayerSelfNoPen {
-	
+
 	public static final SexAction PLAYER_STROKE_VAGINA_SUB = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -37,7 +37,7 @@ public class PlayerSelfNoPen {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stroke pussy (self)";
@@ -66,16 +66,16 @@ public class PlayerSelfNoPen {
 								+" being pressed tightly against your neglected [pc.pussy].");
 			}
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			if(Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.VAGINA)) {
 				Sex.transferLubrication(Main.game.getPlayer(), SexAreaPenetration.FINGER, Main.game.getPlayer(), SexAreaOrifice.VAGINA);
 			}
 		}
-		
+
 	};
-	
+
 	public static final SexAction PLAYER_STROKE_PENIS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -87,7 +87,7 @@ public class PlayerSelfNoPen {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.PLAYER_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stroke cock (self)";
@@ -106,7 +106,7 @@ public class PlayerSelfNoPen {
 						"You tease your [pc.fingers] over the [pc.cockHead+] of your [pc.cock+], groaning and sighing as you start jerking off.",
 						"Taking hold of your [pc.cock+] in one hand, you let out [pc.a_moan+] as you start jerking off.",
 						"Wrapping your [pc.fingers] around your [pc.cock+], you let out a series of [pc.groans+] as you start masturbating.");
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"You run your [pc.hand] over your groin, pressing your "+Main.game.getPlayer().getLowestZLayerCoverableArea(CoverableArea.PENIS).getName()+" down against your [pc.cock+] as you let out a little [pc.groan].",
@@ -117,16 +117,16 @@ public class PlayerSelfNoPen {
 								+" being pressed tightly against your concealed [pc.cock].");
 			}
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			if(Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.PENIS)) {
 				Sex.transferLubrication(Main.game.getPlayer(), SexAreaPenetration.FINGER, Main.game.getPlayer(), SexAreaPenetration.PENIS);
 			}
 		}
-		
+
 	};
-	
+
 	public static final SexAction PLAYER_STROKE_MOUND = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -144,7 +144,7 @@ public class PlayerSelfNoPen {
 			return !Main.game.getPlayer().hasPenis()
 					&& !Main.game.getPlayer().hasVagina();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stroke mound (self)";
@@ -163,7 +163,7 @@ public class PlayerSelfNoPen {
 						"You tease your fingers over the sensitive doll-like mound between your legs, sighing and whining as you stimulate yourself.",
 						"With probing fingers, you reach down and start to pinch and rub at your surprisingly delicate genderless crotch.",
 						"Despite lacking genitalia, your crotch remains a highly sensitive erogenous zone, and you eagerly start rubbing and pressing down on it with greedy fingers.");
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"You run your hand over your groin, pressing your "+Main.game.getPlayer().getLowestZLayerCoverableArea(CoverableArea.VAGINA).getName()+" down against your doll-like mound as you let out a little sigh.",
@@ -174,9 +174,9 @@ public class PlayerSelfNoPen {
 						"Pushing down between your legs with the palm of your hand, you squeeze your thighs together as you feel your "+Main.game.getPlayer().getLowestZLayerCoverableArea(CoverableArea.VAGINA).getName()
 								+" being pressed tightly against your genderless mound.");
 			}
-			
+
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {

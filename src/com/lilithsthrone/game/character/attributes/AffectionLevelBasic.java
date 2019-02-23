@@ -8,7 +8,7 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum AffectionLevelBasic {
-	
+
 	/** -100 to -30*/
 	DISLIKE("dislikes", -100, -30, Color.AFFECTION_NEGATIVE_TWO),
 
@@ -17,7 +17,7 @@ public enum AffectionLevelBasic {
 
 	/** -30 to 100*/
 	LIKE("likes", 30, 100, Color.AFFECTION_POSITIVE_FIVE);
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -28,7 +28,7 @@ public enum AffectionLevelBasic {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -40,7 +40,7 @@ public enum AffectionLevelBasic {
 	public int getMaximumValue() {
 		return maximumValue;
 	}
-	
+
 	public int getMedianValue() {
 		return (minimumValue + maximumValue) / 2;
 	}

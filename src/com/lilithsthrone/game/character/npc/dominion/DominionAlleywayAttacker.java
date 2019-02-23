@@ -45,15 +45,15 @@ public class DominionAlleywayAttacker extends NPC {
 	public DominionAlleywayAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
-	
+
 	public DominionAlleywayAttacker(Gender gender) {
 		this(gender, false);
 	}
-	
+
 	public DominionAlleywayAttacker(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, isImported);
 	}
-	
+
 	public DominionAlleywayAttacker(Gender gender, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -62,7 +62,7 @@ public class DominionAlleywayAttacker extends NPC {
 
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), true);
-			
+
 			boolean canalSpecies = false;
 			PlaceType pt = Main.game.getActiveWorld().getCell(location).getPlace().getPlaceType();
 			if(pt == PlaceType.DOMINION_ALLEYS_CANAL_CROSSING
@@ -70,12 +70,12 @@ public class DominionAlleywayAttacker extends NPC {
 					|| pt == PlaceType.DOMINION_CANAL_END) {
 				canalSpecies = true;
 			}
-			
+
 			// Set random level from 1 to 3:
 			setLevel(Util.random.nextInt(3) + 1);
-			
+
 			// RACE & NAME:
-			
+
 			Map<Subspecies, Integer> availableRaces = new HashMap<>();
 			for(Subspecies s : Subspecies.values()) {
 				switch(s) {
@@ -100,7 +100,7 @@ public class DominionAlleywayAttacker extends NPC {
 					case ELEMENTAL_WATER:
 					case HALF_DEMON:
 						break;
-						
+
 					// Canals spawn only:
 					case ALLIGATOR_MORPH:
 						addToSubspeciesMap(canalSpecies?25:0, gender, s, availableRaces);
@@ -111,14 +111,14 @@ public class DominionAlleywayAttacker extends NPC {
 					case RAT_MORPH:
 						addToSubspeciesMap(canalSpecies?15:0, gender, s, availableRaces);
 						break;
-						
+
 					// Special spawns:
 					case REINDEER_MORPH:
 						if(Main.game.getSeason()==Season.WINTER && Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.hasSnowedThisWinter)) {
 							addToSubspeciesMap(canalSpecies?1:10, gender, s, availableRaces);
 						}
 						break;
-						
+
 					// Regular spawns:
 					default:
 						if(Subspecies.getWorldSpecies().get(WorldType.DOMINION).containsKey(s)) {
@@ -126,50 +126,50 @@ public class DominionAlleywayAttacker extends NPC {
 						}
 				}
 			}
-			
+
 			this.setBodyFromSubspeciesPreference(gender, availableRaces);
-			
+
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
-	
+
 			setName(Name.getRandomTriplet(this.getRace()));
 			this.setPlayerKnowsName(false);
 			setDescription(UtilText.parse(this,
 					"[npc.Name] is a resident of Dominion, who, for reasons of [npc.her] own, prowls the back alleys in search of victims to prey upon."));
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, true);
 			if(Main.game.getCurrentWeather()==Weather.MAGIC_STORM) {
 				this.setHistory(Occupation.NPC_MUGGER);
 			}
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 			CharacterUtils.generateItemsInInventory(this);
-	
+
 			CharacterUtils.equipClothing(this, true, false);
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -184,12 +184,12 @@ public class DominionAlleywayAttacker extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public void hourlyUpdate() {
 		if(this.getHistory()==Occupation.NPC_PROSTITUTE && this.getLocationPlace().getPlaceType()==PlaceType.ANGELS_KISS_BEDROOM) {
@@ -202,10 +202,10 @@ public class DominionAlleywayAttacker extends NPC {
 						Main.game.banishNPC(npc);
 					}
 				}
-				
+
 			} else if(Math.random()<0.33f) { // Add client:
 				GenericSexualPartner partner;
-				
+
 				if(Math.random()<0.25f) {
 					partner = new GenericSexualPartner(Gender.F_P_V_B_FUTANARI, this.getWorldLocation(), this.getLocation(), false);
 				} else {
@@ -219,7 +219,7 @@ public class DominionAlleywayAttacker extends NPC {
 			}
 		}
 	}
-	
+
 	@Override
 	public String getDescription() {
 		if(this.getHistory()==Occupation.NPC_PROSTITUTE) {
@@ -230,7 +230,7 @@ public class DominionAlleywayAttacker extends NPC {
 				return (UtilText.parse(this,
 						"[npc.Name] is a prostitute who whores [npc.herself] out in the backalleys of Dominion."));
 			}
-			
+
 		} else {
 			if(this.isSlave()) {
 				return (UtilText.parse(this,
@@ -241,7 +241,7 @@ public class DominionAlleywayAttacker extends NPC {
 			}
 		}
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
@@ -253,29 +253,29 @@ public class DominionAlleywayAttacker extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		PlaceType pt = Main.game.getActiveWorld().getCell(location).getPlace().getPlaceType();
-		
+
 		if(pt == PlaceType.DOMINION_BACK_ALLEYS
 				|| pt == PlaceType.DOMINION_CANAL
 				|| pt == PlaceType.DOMINION_ALLEYS_CANAL_CROSSING
 				|| pt == PlaceType.DOMINION_CANAL_END) {
-			
+
 			if(this.getHistory()==Occupation.NPC_PROSTITUTE) {
 				this.setPlayerKnowsName(true);
 				return AlleywayProstituteDialogue.ALLEY_PROSTITUTE;
-				
+
 			} else {
 				if(Main.game.getPlayer().getCompanions().isEmpty()) {
 					return AlleywayAttackerDialogue.ALLEY_ATTACK;
@@ -283,7 +283,7 @@ public class DominionAlleywayAttacker extends NPC {
 					return AlleywayAttackerDialogueCompanions.ALLEY_ATTACK;
 				}
 			}
-			
+
 		} else {
 			return AlleywayAttackerDialogue.STORM_ATTACK;
 		}

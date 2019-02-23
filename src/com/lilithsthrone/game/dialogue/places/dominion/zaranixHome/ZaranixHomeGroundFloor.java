@@ -36,23 +36,23 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class ZaranixHomeGroundFloor {
-	
+
 	public static void resetHouseAfterLeaving() {
 		// Maids:
 		Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixAmberSubdued, false);
 		Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixKatherineSubdued, false);
 		Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixKellySubdued, false);
-		
+
 		Main.game.getNpc(Amber.class).setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, true);
-		
+
 		((Zaranix)Main.game.getNpc(Zaranix.class)).setStartingBody(false);
 		((Amber)Main.game.getNpc(Amber.class)).setStartingBody(false);
 		((ZaranixMaidKatherine)Main.game.getNpc(ZaranixMaidKatherine.class)).setStartingBody(false);
 		((ZaranixMaidKelly)Main.game.getNpc(ZaranixMaidKelly.class)).setStartingBody(false);
 	}
-	
+
 	public static final DialogueNode OUTSIDE = new DialogueNode("", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return "Zaranix's Home";
@@ -61,18 +61,18 @@ public class ZaranixHomeGroundFloor {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixDiscoveredHome)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "OUTSIDE_REPEAT"));
-				
+
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixMaidsHostile)) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "OUTSIDE_REPEAT_HOSTILE_MAIDS"));
 				} else {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "OUTSIDE_REPEAT_NON_HOSTILE_MAIDS"));
 				}
-				
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "OUTSIDE");
 			}
@@ -124,7 +124,7 @@ public class ZaranixHomeGroundFloor {
 			} else if (index == 3) {
 				if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKickedDownDoor)) {
 					return new Response("Kick down door", "After your last entrance, the front door has been reinforced. You're unable to enter like this again.", null);
-					
+
 				} else if(Main.game.getPlayer().getAttributeValue(Attribute.MAJOR_PHYSIQUE) >= PhysiqueLevel.THREE_POWERFUL.getMinimumValue()) {
 					return new Response("Kick down door", "Kick down the front door.", ENTRANCE_KICK_DOWN_DOOR) {
 						@Override
@@ -144,7 +144,7 @@ public class ZaranixHomeGroundFloor {
 				} else {
 					return new Response("Kick down door", "You don't think you're strong enough to kick down such a sturdy-looking door. (Requires 35 physique.)", null);
 				}
-				
+
 			} else if (index == 0) {
 				return new Response("Leave", "Turn around and walk away.", Main.game.getDefaultDialogueNoEncounter()) {
 					@Override
@@ -158,7 +158,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OUTSIDE_KNOCK_ON_DOOR = new DialogueNode("", "", true) {
 
 		@Override
@@ -170,7 +170,7 @@ public class ZaranixHomeGroundFloor {
 		public String getContent() {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKnockedOnDoor)) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "KNOCK_ON_DOOR_REPEAT");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "KNOCK_ON_DOOR");
 			}
@@ -195,7 +195,7 @@ public class ZaranixHomeGroundFloor {
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Arthur", "Ask to see Arthur.", OUTSIDE_KNOCK_ON_DOOR_ASK_FOR_ARTHUR) {
@@ -204,7 +204,7 @@ public class ZaranixHomeGroundFloor {
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.zaranixKnockedOnDoor, true);
 						}
 					};
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Say that you've got the wrong house and take your leave.", Main.game.getDefaultDialogueNoEncounter()) {
 						@Override
@@ -214,14 +214,14 @@ public class ZaranixHomeGroundFloor {
 							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "KNOCK_ON_DOOR_WRONG_HOUSE"));
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OUTSIDE_KNOCK_ON_DOOR_ASK_FOR_ARTHUR = new DialogueNode("", "", true) {
 
 		@Override
@@ -254,7 +254,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OUTSIDE_KNOCK_ON_DOOR_ASK_FOR_ARTHUR_BEG = new DialogueNode("", "", true) {
 
 		@Override
@@ -303,7 +303,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OUTSIDE_KNOCK_ON_DOOR_ASK_FOR_ARTHUR_SUBMISSIVE_RELUCTANT_LICK = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -332,7 +332,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OUTSIDE_KNOCK_ON_DOOR_ASK_FOR_ARTHUR_SUBMISSIVE_EAGER_LICK = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -367,7 +367,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OUTSIDE_KNOCK_ON_DOOR_ASK_FOR_ARTHUR_SUBMISSIVE_EAGER_LICK_SOLES = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -390,13 +390,13 @@ public class ZaranixHomeGroundFloor {
 						Main.game.getPlayer().setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX = new DialogueNode("", "", true) {
 
 		@Override
@@ -418,7 +418,7 @@ public class ZaranixHomeGroundFloor {
 						Main.game.getNpc(Zaranix.class).setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, false);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Sit on sofa", "Disobey Amber and sit on one of the sofas.", MEETING_ZARANIX_SIT_SOFA) {
 					@Override
@@ -426,13 +426,13 @@ public class ZaranixHomeGroundFloor {
 						Main.game.getNpc(Zaranix.class).setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_SIT_FLOOR = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -449,16 +449,16 @@ public class ZaranixHomeGroundFloor {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Hold back", "Simply say that Lilaya wants Arthur back, and avoid telling Zaranix anything about why.", MEETING_ZARANIX_HOLD_BACK);
-				
+
 			} else if (index == 2) {
 				return new Response("Explain everything", "Tell Zaranix all about your appearance in this world, and how Lilaya needs Arthur's help in order to find out what's going on.", MEETING_ZARANIX_EXPLAIN_EVERYTHING);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_SIT_SOFA = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -475,16 +475,16 @@ public class ZaranixHomeGroundFloor {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Hold back", "Simply say that Lilaya wants Arthur back, and avoid telling Zaranix anything about why.", MEETING_ZARANIX_HOLD_BACK);
-				
+
 			} else if (index == 2) {
 				return new Response("Explain everything", "Tell Zaranix all about your appearance in this world, and how Lilaya needs Arthur's help in order to find out what's going on.", MEETING_ZARANIX_EXPLAIN_EVERYTHING);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_HOLD_BACK = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -507,13 +507,13 @@ public class ZaranixHomeGroundFloor {
 						Main.game.getNpc(Arthur.class).setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_EXPLAIN_EVERYTHING = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -536,13 +536,13 @@ public class ZaranixHomeGroundFloor {
 						Main.game.getNpc(Arthur.class).setLocation(WorldType.ZARANIX_HOUSE_GROUND_FLOOR, PlaceType.ZARANIX_GF_LOUNGE, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_ARTHUR = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -566,11 +566,11 @@ public class ZaranixHomeGroundFloor {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME_ARTHUR, false);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
 					return new Response("'Thank' Zaranix", "You're unable to suck Zaranix's cock, as you can't get access to your mouth!", null);
-					
+
 				} else {
 					return new Response("'Thank' Zaranix", "Show Zaranix how grateful you are. (Suck his cock.)", MEETING_ZARANIX_ARTHUR_THANK_ZARANIX) {
 						@Override
@@ -584,14 +584,14 @@ public class ZaranixHomeGroundFloor {
 						}
 					};
 				}
-				
+
 			} else if (index == 3) {
 				if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true)
 						&& (Main.game.getPlayer().hasVagina()
 								?!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)
 								:true)) {
 					return new Response("'Thank' Amber", "You're unable to get fucked by Amber, as you can't get access to your asshole"+(Main.game.getPlayer().hasVagina()?" or vagina":"")+"!", null);
-					
+
 				} else {
 					return new Response("'Thank' Amber", "Show Amber how grateful you are. (Get fucked by Amber, doggy-style.)", MEETING_ZARANIX_ARTHUR_THANK_AMBER) {
 						@Override
@@ -605,13 +605,13 @@ public class ZaranixHomeGroundFloor {
 						}
 					};
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_ARTHUR_THANK_ZARANIX = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -640,7 +640,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode MEETING_ZARANIX_ARTHUR_THANK_AMBER = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -671,7 +671,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_THANKING_ZARANIX = new DialogueNode("", "", true) {
 
 		@Override
@@ -698,7 +698,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_THANKING_AMBER = new DialogueNode("", "", true) {
 
 		@Override
@@ -725,9 +725,9 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	// Combat route:
-	
+
 	public static final DialogueNode ENTRANCE_KICK_DOWN_DOOR = new DialogueNode("", "", true) {
 
 		@Override
@@ -738,15 +738,15 @@ public class ZaranixHomeGroundFloor {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE_KICK_DOWN_DOOR"));
-			
+
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKnockedOnDoor)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE_KICK_DOWN_DOOR_MAIDS_MET"));
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE_KICK_DOWN_DOOR_MAIDS_NOT_MET"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -764,9 +764,9 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	// General places:
-	
+
 	public static final DialogueNode ENTRANCE = new DialogueNode("", "", false) {
 
 		@Override
@@ -784,11 +784,11 @@ public class ZaranixHomeGroundFloor {
 			UtilText.nodeContentSB.setLength(0);
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE"));
-			
+
 			if(Main.game.getNpc(Amber.class).getLocationPlace().getPlaceType()==PlaceType.ZARANIX_GF_ENTRANCE) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE_AMBER_PRESENT"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -811,7 +811,7 @@ public class ZaranixHomeGroundFloor {
 								Util.newArrayListOfValues(Main.game.getNpc(Amber.class)),
 						null,
 						null), Amber.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE_AMBER_SEX"));
-				
+
 			} else if(index==3 && Main.game.getNpc(Amber.class).getLocationPlace().getPlaceType()==PlaceType.ZARANIX_GF_ENTRANCE) {
 				return new ResponseSex("Submit",
 						"Amber's fiery personality is seriously turning you on. You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with her. Perhaps if you submitted, she'd be willing to fuck you?",
@@ -822,7 +822,7 @@ public class ZaranixHomeGroundFloor {
 								Util.newArrayListOfValues(Main.game.getPlayer()),
 						null,
 						null), Amber.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "ENTRANCE_AMBER_SEX_SUBMIT"));
-				
+
 			} else if (index == 4 && Main.game.getNpc(Amber.class).getLocationPlace().getPlaceType()==PlaceType.ZARANIX_GF_ENTRANCE) {
 				return new Response("Transformations",
 						"Get Amber to use [amber.her] demonic powers to transform [amber.herself]...",
@@ -833,13 +833,13 @@ public class ZaranixHomeGroundFloor {
 						BodyChanging.setTarget(Main.game.getNpc(Amber.class));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode STAIRS = new DialogueNode("", "", false) {
 
 		@Override
@@ -857,11 +857,11 @@ public class ZaranixHomeGroundFloor {
 			UtilText.nodeContentSB.setLength(0);
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "STAIRS"));
-			
+
 			if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKatherineSubdued)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "STAIRS_KATHERINE_NOT_SUBDUED"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -880,7 +880,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CORRIDOR = new DialogueNode("", "", false) {
 
 		@Override
@@ -898,13 +898,13 @@ public class ZaranixHomeGroundFloor {
 			UtilText.nodeContentSB.setLength(0);
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR"));
-			
+
 			if(Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()-1) != null
 					&& Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()-1).getPlace().getPlaceType()==PlaceType.ZARANIX_GF_MAID
 					&& !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKatherineSubdued)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR_KATHERINE_NOT_SUBDUED"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -913,7 +913,7 @@ public class ZaranixHomeGroundFloor {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode GARDEN_ENTRY = new DialogueNode("", "", false) {
 
 		@Override
@@ -969,7 +969,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode GARDEN = new DialogueNode("", "", false) {
 
 		@Override
@@ -992,7 +992,7 @@ public class ZaranixHomeGroundFloor {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode GARDEN_ROOM = new DialogueNode("", "", false) {
 
 		@Override
@@ -1010,13 +1010,13 @@ public class ZaranixHomeGroundFloor {
 			UtilText.nodeContentSB.setLength(0);
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "GARDEN_ROOM"));
-			
+
 			if(Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX()-1, Main.game.getPlayer().getLocation().getY()) != null
 					&& Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX()-1, Main.game.getPlayer().getLocation().getY()).getPlace().getPlaceType()==PlaceType.ZARANIX_GF_MAID
 					&& !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKatherineSubdued)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "GARDEN_ROOM_KATHERINE_NOT_SUBDUED"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1025,7 +1025,7 @@ public class ZaranixHomeGroundFloor {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode CORRIDOR_MAID = new DialogueNode("", "", false) {
 
 		@Override
@@ -1042,10 +1042,10 @@ public class ZaranixHomeGroundFloor {
 		public String getContent() {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKatherineSubdued)) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR_MAID_KATHERINE_SUBDUED");
-			
+
 			} else if(Main.game.getNpc(ZaranixMaidKatherine.class).getFoughtPlayerCount()==0) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR_MAID_KATHERINE_ENCOUNTER");
-			
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR_MAID_KATHERINE_ENCOUNTER_REPEAT");
 			}
@@ -1062,7 +1062,7 @@ public class ZaranixHomeGroundFloor {
 									Util.newArrayListOfValues(Main.game.getNpc(ZaranixMaidKatherine.class)),
 							null,
 							null), ZaranixMaidKatherine.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR_MAID_KATHERINE_SEX"));
-					
+
 				} else if(index==2) {
 					return new ResponseSex("Submit",
 							"You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with Katherine. Perhaps if you submitted, she'd be willing to fuck you?",
@@ -1073,7 +1073,7 @@ public class ZaranixHomeGroundFloor {
 									Util.newArrayListOfValues(Main.game.getPlayer()),
 							null,
 							null), ZaranixMaidKatherine.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "CORRIDOR_MAID_KATHERINE_SEX_SUBMIT"));
-					
+
 				} else if (index == 3) {
 					return new Response("Transformations",
 							"Get Katherine to use [katherine.her] demonic powers to transform [katherine.herself]...",
@@ -1084,7 +1084,7 @@ public class ZaranixHomeGroundFloor {
 							BodyChanging.setTarget(Main.game.getNpc(ZaranixMaidKatherine.class));
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -1102,13 +1102,13 @@ public class ZaranixHomeGroundFloor {
 				}
 			}
 		}
-		
+
 		@Override
 		public boolean isTravelDisabled() {
 			return !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKatherineSubdued);
 		}
 	};
-	
+
 	public static final DialogueNode ROOM = new DialogueNode("", "", false) {
 
 		@Override
@@ -1131,7 +1131,7 @@ public class ZaranixHomeGroundFloor {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LOUNGE = new DialogueNode("", "", false) {
 
 		@Override
@@ -1148,23 +1148,23 @@ public class ZaranixHomeGroundFloor {
 		public String getContent() {
 			if(Main.game.getNpc(Amber.class).getLocationPlace().getPlaceType()!=PlaceType.ZARANIX_GF_LOUNGE) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_EMPTY");
-				
+
 			} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixAmberSubdued)) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_SUBDUED");
-				
+
 			} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKnockedOnDoor) || Main.game.getNpc(Amber.class).getFoughtPlayerCount()!=0) {
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_PRESENT_ALREADY_MET"));
-				
+
 				if(Main.game.getNpc(Amber.class).getFoughtPlayerCount()!=0) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_PRESENT_ALREADY_MET_KNOWS_NAME"));
 				} else {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_PRESENT_ALREADY_MET_DOES_NOT_KNOW_NAME"));
 				}
-				
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_PRESENT");
 			}
@@ -1174,7 +1174,7 @@ public class ZaranixHomeGroundFloor {
 		public Response getResponse(int responseTab, int index) {
 			if(Main.game.getNpc(Amber.class).getLocationPlace().getPlaceType()!=PlaceType.ZARANIX_GF_LOUNGE) {
 				return null;
-				
+
 			} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixAmberSubdued)) {
 				if(index==1) {
 					return new ResponseSex("Use Amber", "Have some fun with this fiery maid.",
@@ -1185,7 +1185,7 @@ public class ZaranixHomeGroundFloor {
 							null,
 							null), Amber.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_SEX")
 							);
-					
+
 				} else if(index==2) {
 					return new ResponseSex("Submit",
 							"Amber's fiery personality is seriously turning you on. You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with her. Perhaps if you submitted, she'd be willing to fuck you?",
@@ -1197,7 +1197,7 @@ public class ZaranixHomeGroundFloor {
 							null,
 							null), Amber.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_SEX_SUBMIT")
 							);
-					
+
 				} else if (index == 3) {
 					return new Response("Transformations",
 							"Get Amber to use [amber.her] demonic powers to transform [amber.herself]...",
@@ -1208,11 +1208,11 @@ public class ZaranixHomeGroundFloor {
 							BodyChanging.setTarget(Main.game.getNpc(Amber.class));
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if(index==1) {
 					return new Response("Approach the maid", "Walk up behind the maid. <b>She's sure to notice your approach, which will most likely result in you having to fight her!</b>", LOUNGE_AMBER) {
@@ -1231,7 +1231,7 @@ public class ZaranixHomeGroundFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode LOUNGE_AMBER = new DialogueNode("", "", true) {
 
 		@Override
@@ -1242,16 +1242,16 @@ public class ZaranixHomeGroundFloor {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_GREETING"));
-			
+
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKnockedOnDoor) || Main.game.getNpc(Amber.class).getFoughtPlayerCount()!=0) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_GREETING_ALREADY_FOUGHT"));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/groundFloor", "LOUNGE_AMBER_GREETING_NEVER_FOUGHT"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 

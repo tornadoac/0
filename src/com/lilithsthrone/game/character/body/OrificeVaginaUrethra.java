@@ -14,7 +14,7 @@ import com.lilithsthrone.game.character.body.valueEnums.Wetness;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 
 public class OrificeVaginaUrethra implements OrificeInterface {
-	
+
 	protected int wetness;
 	protected int elasticity;
 	protected int plasticity;
@@ -30,10 +30,10 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		this.elasticity = elasticity;
 		this.plasticity = plasticity;
 		this.virgin = virgin;
-		
+
 		this.orificeModifiers = new HashSet<>(orificeModifiers);
 	}
-	
+
 	@Override
 	public Wetness getWetness(GameCharacter owner) {
 		return Wetness.valueOf(wetness);
@@ -44,16 +44,16 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		if (!owner.hasVagina()) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You lack a vagina, so nothing happens...)]</p>";
-				
+
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] lacks a vagina, so nothing happens...)]</p>");
 			}
 		}
-		
+
 		int oldWetness = this.wetness;
 		this.wetness = Math.max(0, Math.min(wetness, Wetness.SEVEN_DROOLING.getValue()));
 		int wetnessChange = this.wetness - oldWetness;
-		
+
 		if (wetnessChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your urethral wetness doesn't change...)]</p>";
@@ -61,7 +61,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.NamePos] urethral wetness doesn't change...)]</p>");
 			}
 		}
-		
+
 		String wetnessDescriptor = getWetness(owner).getDescriptor();
 		if (wetnessChange > 0) {
 			if (owner.isPlayer()) {
@@ -70,13 +70,13 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "You now have [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.NamePos] [npc.eyes] widen as [npc.she] feels shudder of excitement run through [npc.her] [npc.pussy+], and [npc.she] realizes that [npc.her] urethra has gotten [style.boldGrow(wetter)].<br/>"
 							+ "[npc.She] now has [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " urethra)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -84,7 +84,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "You now have [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] shifts about uncomfortably and lets out a frustrated groan as [npc.she] feels [npc.her] urethra getting [style.boldShrink(drier)].<br/>"
 							+ "[npc.She] now has [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " urethra)]!"
@@ -108,19 +108,19 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		if (!owner.hasVagina()) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You lack a vagina, so nothing happens...)]</p>";
-				
+
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] lacks a vagina, so nothing happens...)]</p>");
 			}
 		}
-		
+
 		float oldCapacity = this.capacity;
 		this.capacity = Math.max(0, Math.min(capacity, Capacity.SEVEN_GAPING.getMaximumValue()));
 		if(setStretchedValueToNewValue) {
 			this.stretchedCapacity = this.capacity;
 		}
 		float capacityChange = this.capacity - oldCapacity;
-		
+
 		if (capacityChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your urethra's capacity doesn't change...)]</p>";
@@ -128,7 +128,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The capacity of [npc.namePos] urethra doesn't change...)]</p>");
 			}
 		}
-		
+
 		String capacityDescriptor = getCapacity().getDescriptor();
 		if (capacityChange > 0) {
 			if (owner.isPlayer()) {
@@ -137,13 +137,13 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a shocked gasp as [npc.she] feels [npc.her] urethra dilate and stretch out as its internal [style.boldGrow(capacity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " urethra)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -151,7 +151,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a cry as [npc.she] feels [npc.her] urethra uncontrollably tighten and clench as its internal [style.boldShrink(capacity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " urethra)]!"
@@ -159,7 +159,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public float getStretchedCapacity() {
 		return stretchedCapacity;
@@ -182,7 +182,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		int oldElasticity = this.elasticity;
 		this.elasticity = Math.max(0, Math.min(elasticity, OrificeElasticity.SEVEN_ELASTIC.getValue()));
 		int elasticityChange = this.elasticity - oldElasticity;
-		
+
 		if (elasticityChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your urethra's elasticity doesn't change...)]</p>";
@@ -190,7 +190,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The elasticity of [npc.namePos] urethra doesn't change...)]</p>");
 			}
 		}
-		
+
 		String elasticityDescriptor = getElasticity().getDescriptor();
 		if (elasticityChange > 0) {
 			if (owner.isPlayer()) {
@@ -199,13 +199,13 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange slackening sensation pulsating deep within [npc.her] [npc.pussy] as [npc.her] urethra's [style.boldGrow(elasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " urethra)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -213,7 +213,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange clenching sensation pulsating deep within [npc.her] [npc.pussy] as [npc.her] urethra's [style.boldShrink(elasticity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " urethra)]!"
@@ -221,7 +221,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public OrificePlasticity getPlasticity() {
 		return OrificePlasticity.getElasticityFromInt(plasticity);
@@ -232,7 +232,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		int oldPlasticity = this.plasticity;
 		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOLDABLE.getValue()));
 		int plasticityChange = this.plasticity - oldPlasticity;
-		
+
 		if (plasticityChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your urethra's plasticity doesn't change...)]</p>";
@@ -240,7 +240,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The plasticity of [npc.namePos] urethra doesn't change...)]</p>");
 			}
 		}
-		
+
 		String plasticityDescriptor = getPlasticity().getDescriptor();
 		if (plasticityChange > 0) {
 			if (owner.isPlayer()) {
@@ -249,13 +249,13 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange molding sensation pulsating deep within [npc.her] [npc.pussy] as [npc.her] urethra's [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " urethra)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -263,7 +263,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " urethra)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange softening sensation pulsating deep within [npc.her] [npc.pussy] as [npc.her] urethra's [style.boldShrink(plasticity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " urethra)]!"
@@ -292,13 +292,13 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		if(hasOrificeModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		orificeModifiers.add(modifier);
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		switch(modifier) {
 			case MUSCLE_CONTROL:
 				if(owner.isPlayer()) {
@@ -356,7 +356,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
@@ -366,13 +366,13 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 		if(!hasOrificeModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		orificeModifiers.remove(modifier);
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		switch(modifier) {
 			case MUSCLE_CONTROL:
 				if(owner.isPlayer()) {
@@ -430,7 +430,7 @@ public class OrificeVaginaUrethra implements OrificeInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}

@@ -4,7 +4,7 @@ import com.lilithsthrone.utils.Color;
 
 /**
  * Arbitrary measurements in increments of 1, going from 0 to 7.
- * 
+ *
  * @since 0.1.83
  * @version 0.1.90
  * @author Innoxia
@@ -76,7 +76,7 @@ public enum OrificePlasticity {
 	public float getStretchModifier() {
 		return stretchModifier;
 	}
-	
+
 	public float getCapacityIncreaseModifier() {
 		return capacityIncreaseModifier;
 	}

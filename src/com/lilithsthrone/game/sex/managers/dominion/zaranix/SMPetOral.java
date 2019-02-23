@@ -20,7 +20,7 @@ public class SMPetOral extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;
@@ -30,7 +30,7 @@ public class SMPetOral extends SexManagerDefault {
 	public boolean isPartnerUsingForeplayActions() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isPublicSex() {
 		return true;

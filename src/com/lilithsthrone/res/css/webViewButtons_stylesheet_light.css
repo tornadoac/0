@@ -100,7 +100,7 @@ h6{
 	border-radius: 5px;
 	/*background-color: #333333;*/
 	-webkit-user-select: none;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#ddd),
@@ -114,7 +114,7 @@ h6{
 .button.highlight{
 	/*background: #ffdf80;*/
 	-webkit-user-select: none;
-	
+
 	background: -webkit-gradient(
 		linear, left top, left bottom,
 		from(#FFE085),

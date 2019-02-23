@@ -435,7 +435,7 @@ public class MainController implements Initializable {
 
 						 if(event.getCode()==KeyCode.END && Main.DEBUG){
 //							 Main.game.getPlayer().addSpecialPerk(Perk.POWER_OF_LYSSIETH_4);
-//							 System.out.println(UtilText.parse(Main.game.getPlayer(), Sex.getActivePartner(), "[npc.Name], [npc2.Name].  #IFnpc2.isFeminine()#THEN:3#ENDIF #IFnpc.isFeminine()#THEN:0#ENDIF"));
+//							 System.out.println(UtilText.parse(Main.game.getPlayer(), Sex.getActivePartner(), "[npc.Name], [npc2.Name]. #IFnpc2.isFeminine()#THEN:3#ENDIF #IFnpc.isFeminine()#THEN:0#ENDIF"));
 //							 Main.game.getPlayer().setLegConfiguration(LegConfiguration.TAUR, false);
 
 //							 for(KeyboardAction action : KeyboardAction.values()) {
@@ -1045,7 +1045,7 @@ public class MainController implements Initializable {
 		addEventListener(document, id, "mousemove", moveTooltipListener, false);
 		addEventListener(document, id, "mouseleave", hideTooltipListener, false);
 
-		TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(
+		TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation(
 				Util.capitalizeSentence(c.getPlaceName()),
 				c.getPlace().getPlaceType().getWorldPlaceDescription()
 				+(c.getPlace().getPlaceType().isDangerous()
@@ -1077,7 +1077,7 @@ public class MainController implements Initializable {
 			}
 		}
 
-		TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(c.getPlaceName()), charactersPresentDescription.toString());
+		TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation(Util.capitalizeSentence(c.getPlaceName()), charactersPresentDescription.toString());
 		addEventListener(document, id, "mouseenter", el2, false);
 
 		((EventTarget) document.getElementById(id)).addEventListener("click", e -> {
@@ -1141,7 +1141,7 @@ public class MainController implements Initializable {
 			if(i==5) {
 				MainController.addEventListener(MainController.document, id, "mousemove", MainController.moveTooltipListener, false);
 				MainController.addEventListener(MainController.document, id, "mouseleave", MainController.hideTooltipListener, false);
-				TooltipInformationEventListener el2 =  new TooltipInformationEventListener().setInformation("Quest Items", "");
+				TooltipInformationEventListener el2 = new TooltipInformationEventListener().setInformation("Quest Items", "");
 				MainController.addEventListener(MainController.document, id, "mouseenter", el2, false);
 			}
 		}

@@ -8,7 +8,7 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class FootType {
-	
+
 	public static AbstractFootType HUMANOID = new AbstractFootType("humanoid",
 			"foot",
 			"feet",
@@ -70,5 +70,5 @@ public class FootType {
 					FootStructure.DIGITIGRADE,
 					FootStructure.UNGULIGRADE)) {
 	};
-	
+
 }

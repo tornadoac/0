@@ -18,11 +18,11 @@ import com.lilithsthrone.utils.Util;
 public class Eye implements BodyPartInterface {
 
 	public static final int MAXIMUM_PAIRS = 4;
-	
+
 	protected EyeType type;
 	protected int eyePairs;
 	protected EyeShape irisShape, pupilShape;
-	
+
 	public Eye(EyeType type) {
 		this.type = type;
 		eyePairs = type.getEyePairs();
@@ -34,7 +34,7 @@ public class Eye implements BodyPartInterface {
 	public EyeType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		if(gc.getEyePairs()==1) {
@@ -48,7 +48,7 @@ public class Eye implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -63,7 +63,7 @@ public class Eye implements BodyPartInterface {
 	public String getDescriptor(GameCharacter gc) {
 		return type.getDescriptor(gc);
 	}
-	
+
 	public String setType(GameCharacter owner, EyeType type) {
 		if(!Main.game.isStarted() || owner==null) {
 			this.type = type;
@@ -74,7 +74,7 @@ public class Eye implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.eyes] of [pc.a_eyeRace], so nothing happens...)]</p>";
@@ -82,9 +82,9 @@ public class Eye implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.eyes] of [npc.a_eyeRace], so nothing happens...)]</p>");
 			}
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		if (owner.isPlayer()) {
 			UtilText.transformationContentSB.append(
 					"<p>"
@@ -99,11 +99,11 @@ public class Eye implements BodyPartInterface {
 		String s = UtilText.parse(owner, UtilText.transformationContentSB.toString());
 		UtilText.transformationContentSB.setLength(0);
 		UtilText.transformationContentSB.append(s);
-		
+
 		this.type = type;
 		irisShape = type.getIrisShape();
 		pupilShape = type.getPupilShape();
-		
+
 		switch (type) {
 			case HUMAN:
 				if (owner.isPlayer()) {
@@ -303,10 +303,10 @@ public class Eye implements BodyPartInterface {
 			case ANGEL://TODO
 				break;
 		}
-		
+
 		UtilText.transformationContentSB.append(", with [style.boldGenericTF([npc.irisShape])], [npc.irisFullDescription(true)] and [style.boldGenericTF([npc.pupilShape])], [npc.pupilFullDescription(true)]."
 			+ "</p>");
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 					+ owner.postTransformationCalculation()
@@ -319,14 +319,14 @@ public class Eye implements BodyPartInterface {
 
 	public String setEyePairs(GameCharacter owner, int eyePairs) {
 		eyePairs = Math.max(1, Math.min(eyePairs, MAXIMUM_PAIRS));
-		
+
 		if(owner.getEyePairs() == eyePairs) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		boolean removingExtraEyes = owner.getEyePairs() > eyePairs;
 		this.eyePairs = eyePairs;
-		
+
 		if(removingExtraEyes) {
 			if(owner.isPlayer()) {
 				return "<p>"
@@ -342,7 +342,7 @@ public class Eye implements BodyPartInterface {
 							+ "After a few moments, [npc.sheIs] left with [style.boldTfGeneric([npc.a_eyes])]."
 						+ "</p>");
 			}
-			
+
 		} else {
 			if(owner.isPlayer()) {
 				return "<p>"
@@ -371,9 +371,9 @@ public class Eye implements BodyPartInterface {
 		}
 
 		this.irisShape = irisShape;
-		
+
 		if(owner.isPlayer()) {
-			return UtilText.parse(owner, 
+			return UtilText.parse(owner,
 					"<p>"
 						+ "An irritable itchy feeling rises up into your [pc.eyes], but, much to your relief, it passes even before you're able to reach up and rub at them.<br/>"
 						+ "You now have [style.boldTfGeneric([pc.irisShape] irises)]!"
@@ -397,9 +397,9 @@ public class Eye implements BodyPartInterface {
 		}
 
 		this.pupilShape = pupilShape;
-		
+
 		if(owner.isPlayer()) {
-			return UtilText.parse(owner, 
+			return UtilText.parse(owner,
 					"<p>"
 						+ "An irritable itchy feeling rises up into your [pc.eyes], but, much to your relief, it passes even before you're able to reach up and rub at them.<br/>"
 						+ "You now have [style.boldTfGeneric([pc.pupilShape] pupils)]!"
@@ -412,24 +412,24 @@ public class Eye implements BodyPartInterface {
 					+ "</p>");
 		}
 	}
-	
+
 	public String setEyeCovering(GameCharacter owner, Covering covering) {
 		if(owner.getCovering(owner.getEyeCovering()).equals(covering)
 				|| owner.getCovering(BodyCoveringType.EYE_PUPILS).equals(covering)
 				|| owner.getCovering(BodyCoveringType.EYE_SCLERA).equals(covering)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		owner.getBody().getCoverings().put(covering.getType(), covering);
-		
+
 		if (owner.isPlayer()) {
 			UtilText.transformationContentSB.append(
 					"<p>"
 						+ "Your vision goes blurry for a moment as your [pc.eyes] shift and change color.<br/>"
 						+ "You now have ");
-			
+
 			if(covering.getPattern() == CoveringPattern.EYE_IRISES_HETEROCHROMATIC) {
 				UtilText.transformationContentSB.append("heterochromatic [pc.irisPrimaryColor(true)]-and-[pc.irisSecondaryColor(true)] [pc.irisShape] irises, ");
 			} else {
@@ -445,13 +445,13 @@ public class Eye implements BodyPartInterface {
 			} else {
 				UtilText.transformationContentSB.append("and [pc.scleraPrimaryColor(true)] sclerae.</p>");
 			}
-			
+
 		} else {
 			UtilText.transformationContentSB.append(
 					"<p>"
 						+ "[npc.Name] blinks a few times as [npc.her] [npc.eyes] shift and change color.<br/>"
 						+ "[npc.She] now has ");
-		
+
 			if(covering.getPattern() == CoveringPattern.EYE_IRISES_HETEROCHROMATIC) {
 				UtilText.transformationContentSB.append("heterochromatic [npc.irisPrimaryColor(true)]-and-[npc.irisSecondaryColor(true)] [npc.irisShape] irises, ");
 			} else {
@@ -468,7 +468,7 @@ public class Eye implements BodyPartInterface {
 				UtilText.transformationContentSB.append("and [npc.scleraPrimaryColor(true)] sclerae.</p>");
 			}
 		}
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString());
 	}
 

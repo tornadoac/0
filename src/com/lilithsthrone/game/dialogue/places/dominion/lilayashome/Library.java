@@ -27,7 +27,7 @@ import com.lilithsthrone.world.WorldType;
  * @author Innoxia, Rfpnj
  */
 public class Library {
-	
+
 	public static final DialogueNode LIBRARY = new DialogueNode("", "", false) {
 
 		@Override
@@ -39,7 +39,7 @@ public class Library {
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			List<NPC> charactersPresent = Main.game.getNonCompanionCharactersPresent();
-			
+
 			UtilText.nodeContentSB.append("<p>"
 					+ "Pushing open the heavy wooden door, you find yourself walking into Lilaya's library."
 					+ " Much like her lab, all four walls are covered in shelving; stacked full of what must be thousands of books of all shapes and sizes."
@@ -58,7 +58,7 @@ public class Library {
 					+"One of the library's aisles is dedicated to holding copies of the spell books that you've discovered and read in your travels."
 					+ " As you walk down this aisle, you see that the shelves in this section are fashioned out of shimmering purple energy, and seem to shift and move with a life of their own."
 				+ "</p>");
-			
+
 			if(charactersPresent.isEmpty()) {
 				UtilText.nodeContentSB.append("<p>"
 							+ "The library is deserted at the moment..."
@@ -68,7 +68,7 @@ public class Library {
 					UtilText.nodeContentSB.append(UtilText.parse(slave,
 							"<p>"
 								+ "Having been assigned to work as a "+(SlaveJob.LIBRARY.getName(slave))+", <b style='color:"+slave.getFemininity().getColor().toWebHexString()+";'>[npc.name]</b> is present in this area."));
-					
+
 					if(slave.hasSlavePermissionSetting(SlavePermissionSetting.GENERAL_CRAWLING)) {
 						UtilText.nodeContentSB.append(UtilText.parse(slave,
 								" As you've instructed [npc.herHim] to crawl, [npc.sheIs] down on all fours, and "));
@@ -76,7 +76,7 @@ public class Library {
 						UtilText.nodeContentSB.append(UtilText.parse(slave,
 								" [npc.She] "));
 					}
-					
+
 					switch(slave.getObedience()) {
 						case NEGATIVE_FIVE_REBELLIOUS: case NEGATIVE_FOUR_DEFIANT: case NEGATIVE_THREE_STRONG_INSUBORDINATE:
 							UtilText.nodeContentSB.append(UtilText.parse(slave,
@@ -106,30 +106,30 @@ public class Library {
 					}
 				}
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(index==0) {
 				return "Library";
-				
+
 			} else if(index==1) {
 				return "Spells";
-				
+
 			} else if(index==2) {
 				return "Races";
 			}
-			
+
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(responseTab==0) {
 				List<NPC> charactersPresent = Main.game.getNonCompanionCharactersPresent();
-				
+
 				if (index == 1) {
 					return new Response("Arcane Arousal", "A leather-bound tome that seems to offer an insight into how the arcane works.", ARCANE_AROUSAL) {
 						@Override
@@ -184,10 +184,10 @@ public class Library {
 							}
 						}
 					};
-	
+
 				} else if(index>=6 && index-6<charactersPresent.size()) {
 					NPC character = charactersPresent.get(index-6);
-					
+
 					return new Response(UtilText.parse(character, "[npc.Name]"), UtilText.parse(character, "Interact with [npc.name]."), SlaveDialogue.SLAVE_START) {
 						@Override
 						public void effects() {
@@ -195,11 +195,11 @@ public class Library {
 						}
 					};
 				}
-				
+
 			} else if(responseTab==1) {
 				List<Spell> spells = Main.game.getPlayer().getSpells();
 				Spell spell = null;
-				
+
 				if (index == 0) {
 					if(spells.size()>=15) {
 						spell = spells.get(14);
@@ -209,15 +209,15 @@ public class Library {
 
 				} else if (index < 15 && index-1 < spells.size()) {
 					spell = spells.get(index-1);
-					
+
 				} else if (index >= 15 && index < spells.size()) {
 					spell = spells.get(index);
 				}
-				
+
 				if(spell!=null) {
 					return getSpellResponse(spell);
 				}
-				
+
 			} else if(responseTab==2) {
 				if (index == 1) {
 					return new Response("Races of Dominion", "A section of the library dedicated to books concerning the predominate races within the city.", DOMINION_RACES);
@@ -235,11 +235,11 @@ public class Library {
 					return new Response("The Desert", "A section of the library dedicated to books on the area known as the Desert. (Not yet implemented.)", null);
 				}
 			}
-			
+
 			return null;
 		}
 	};
-	
+
 	private static Response getSpellResponse(Spell spell) {
 		return new Response(spell.getName(), "Read about the spell '"+spell.getName()+"'.", SPELL_BOOK) {
 			@Override
@@ -265,13 +265,13 @@ public class Library {
 		public String getResponseTabTitle(int index) {
 			return LIBRARY.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return LIBRARY.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ARCANE_AROUSAL = new DialogueNode("", "", false) {
 
 		@Override
@@ -316,13 +316,13 @@ public class Library {
 		public String getResponseTabTitle(int index) {
 			return LIBRARY.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return LIBRARY.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode LILITHS_DYNASTY = new DialogueNode("", "", false) {
 
 		@Override
@@ -423,7 +423,7 @@ public class Library {
 			return LIBRARY.getResponse(responseTab, lore);
 		}
 	};
-	
+
 	public static final DialogueNode DOMINION_HISTORY = new DialogueNode("", "", false) {
 
 		@Override
@@ -462,7 +462,7 @@ public class Library {
 			return LIBRARY.getResponse(responseTab, lore);
 		}
 	};
-	
+
 	public static final DialogueNode PREGNANCY_INFO = new DialogueNode("", "", false) {
 
 		@Override
@@ -499,7 +499,7 @@ public class Library {
 			return LIBRARY.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode DOMINION_MAP = new DialogueNode("", "", false) {
 
 		@Override
@@ -518,7 +518,7 @@ public class Library {
 						+ "[style.italicsExcellent(Dominion Map fully revealed!)]"
 					+ "</p>"
 					+ RenderingEngine.ENGINE.getFullMap(WorldType.DOMINION, false));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -531,9 +531,9 @@ public class Library {
 		public Response getResponse(int responseTab, int index) {
 			return LIBRARY.getResponse(responseTab, index);
 		}
-		
+
 	};
-	
+
 	public static final DialogueNode DOMINION_RACES = new DialogueNode("", "", false) {
 
 		@Override
@@ -568,54 +568,54 @@ public class Library {
 			if(responseTab==2) {
 				if (index == 1) {
 					return bookResponse(Subspecies.HARPY);
-	
+
 				} else if (index == 2) {
 					return bookResponse(Subspecies.DEMON);
-	
+
 				} else if (index == 3) {
 					return bookResponse(Subspecies.DOG_MORPH);
-	
+
 				} else if (index == 4) {
 					return bookResponse(Subspecies.CAT_MORPH);
-	
+
 				} else if (index == 5) {
 					return bookResponse(Subspecies.HORSE_MORPH);
-	
+
 				} else if (index == 6) {
 					return bookResponse(Subspecies.WOLF_MORPH);
-	
+
 				} else if (index == 7) {
 					return bookResponse(Subspecies.HUMAN);
-	
+
 				} else if (index == 8) {
 					return bookResponse(Subspecies.ALLIGATOR_MORPH);
-	
+
 				} else if (index == 9) {
 					return bookResponse(Subspecies.BAT_MORPH);
-	
+
 				} else if (index == 10) {
 					return bookResponse(Subspecies.IMP);
-	
+
 				} else if (index == 11) {
 					return bookResponse(Subspecies.SLIME);
-	
+
 				} else if (index == 12) {
 					return bookResponse(Subspecies.RAT_MORPH);
-	
+
 				} else if (index == 0) {
 					return new Response("Back", "Return to the race index.", LIBRARY);
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				return LIBRARY.getResponse(responseTab, index);
 			}
 		}
-	
+
 	};
-	
+
 	public static final DialogueNode FIELDS_BOOKS = new DialogueNode("", "", false) {
 
 		@Override
@@ -646,36 +646,36 @@ public class Library {
 			if(responseTab==2) {
 				if (index == 1) {
 					return bookResponse(Subspecies.SQUIRREL_MORPH);
-	
+
 				} else if (index == 2) {
 					return bookResponse(Subspecies.COW_MORPH);
-	
+
 				} else if (index == 3) {
 					return bookResponse(Subspecies.RABBIT_MORPH);
-	
+
 				} else if (index == 4) {
 					return bookResponse(Subspecies.FOX_MORPH);
-	
+
 				} else if (index == 5) {
 					return bookResponse(Subspecies.REINDEER_MORPH);
-	
+
 				} else if (index == 0) {
 					return new Response("Back", "Return to the race index.", LIBRARY);
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				return LIBRARY.getResponse(responseTab, index);
 			}
 		}
-	
+
 	};
-	
+
 	private static Response bookResponse(Subspecies subspecies) {
 		AbstractItemType book = ItemType.getLoreBook(subspecies);
-		
+
 		if(Main.getProperties().isAdvancedRaceKnowledgeDiscovered(subspecies)) {
 			return new Response(book.getName(false), book.getDescription(), LIBRARY) {
 				@Override

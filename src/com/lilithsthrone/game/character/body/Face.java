@@ -25,7 +25,7 @@ public class Face implements BodyPartInterface {
 	protected FaceType type;
 	protected boolean piercedNose;
 	protected BodyHair facialHair;
-	
+
 	protected Mouth mouth;
 	protected Tongue tongue;
 
@@ -33,7 +33,7 @@ public class Face implements BodyPartInterface {
 		this.type = type;
 		piercedNose = false;
 		facialHair = BodyHair.ZERO_NONE;
-		
+
 		mouth = new Mouth(type.getMouthType(), lipSize, Wetness.THREE_WET.getValue(), Capacity.THREE_SLIGHTLY_LOOSE.getMedianValue(), OrificeElasticity.FOUR_LIMBER.getValue(), OrificePlasticity.THREE_RESILIENT.getValue(), true);
 		tongue = new Tongue(type.getTongueType());
 	}
@@ -50,7 +50,7 @@ public class Face implements BodyPartInterface {
 	public FaceType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -60,7 +60,7 @@ public class Face implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -70,11 +70,11 @@ public class Face implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	public String getDescriptor(GameCharacter owner) {
 		return type.getDescriptor(owner);
 	}
-	
+
 	public String getNoseNameSingular(GameCharacter gc) {
 		switch(type) {
 			case HARPY:
@@ -83,7 +83,7 @@ public class Face implements BodyPartInterface {
 				return "nose";
 		}
 	}
-	
+
 	public String getNoseNamePlural(GameCharacter gc) {
 		switch(type) {
 			case HARPY:
@@ -96,7 +96,7 @@ public class Face implements BodyPartInterface {
 	public String getNoseDescriptor(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("");
 	}
-	
+
 	public String setType(GameCharacter owner, FaceType type) {
 		if(!Main.game.isStarted() || owner==null) {
 			this.type = type;
@@ -107,17 +107,17 @@ public class Face implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if (owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.face] of [pc.a_faceRace], so nothing happens...)]</p>";
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.face] of [npc.a_faceRace], so nothing happens...)]</p>");
 			}
-			
+
 		} else {
 			UtilText.transformationContentSB.setLength(0);
-			
+
 			if (owner.isPlayer()) {
 				UtilText.transformationContentSB.append(
 						"<p>"
@@ -139,7 +139,7 @@ public class Face implements BodyPartInterface {
 
 		mouth.setType(type.getMouthType());
 		tongue.setType(type.getTongueType());
-		
+
 		switch (type) {
 			case HUMAN:
 				if (owner.isPlayer()) {
@@ -406,9 +406,9 @@ public class Face implements BodyPartInterface {
 		if(owner.isPiercedNose() == piercedNose) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		this.piercedNose = piercedNose;
-		
+
 		if(piercedNose) {
 			if(owner.isPlayer()) {
 				return "<p>Your [pc.nose] is now [style.boldGrow(pierced)]!</p>";
@@ -416,7 +416,7 @@ public class Face implements BodyPartInterface {
 				return UtilText.parse(owner,
 						"<p>[npc.NamePos] [npc.nose] is now [style.boldGrow(pierced)]!</p>");
 			}
-			
+
 		} else {
 			AbstractClothing c = owner.getClothingInSlot(InventorySlot.PIERCING_NOSE);
 			String piercingUnequip = "";
@@ -424,7 +424,7 @@ public class Face implements BodyPartInterface {
 				owner.forceUnequipClothingIntoVoid(owner, c);
 				piercingUnequip = owner.addClothing(c, false);
 			}
-			
+
 			if(owner.isPlayer()) {
 				return "<p>"
 							+ "Your [pc.nose] is [style.boldShrink(no longer pierced)]!"
@@ -439,7 +439,7 @@ public class Face implements BodyPartInterface {
 			}
 		}
 	}
-	
+
 	public BodyHair getFacialHair() {
 		return facialHair;
 	}
@@ -453,7 +453,7 @@ public class Face implements BodyPartInterface {
 			this.facialHair = facialHair;
 			return "";
 		}
-		
+
 		if(owner.getFemininityValue()>=Femininity.ANDROGYNOUS.getMinimumFemininity() && facialHair!=BodyHair.ZERO_NONE && !Main.getProperties().hasValue(PropertyValue.feminineBeardsContent)) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You're too feminine to be able to grow a beard...)]</p>";
@@ -461,13 +461,13 @@ public class Face implements BodyPartInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.sheIs] too feminine to be able to grow a beard...)]</p>");
 			}
 		}
-		
+
 		if(getFacialHair() == facialHair) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
-			
+
 		} else {
 			UtilText.transformationContentSB.setLength(0);
-			
+
 			switch(facialHair) {
 				case ZERO_NONE:
 					if(owner.isPlayer()) {
@@ -527,7 +527,7 @@ public class Face implements BodyPartInterface {
 					break;
 			}
 		}
-		
+
 		this.facialHair = facialHair;
 
 		return UtilText.transformationContentSB.toString();

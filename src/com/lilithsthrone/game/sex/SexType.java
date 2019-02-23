@@ -12,7 +12,7 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class SexType implements XMLSaving {
-	
+
 	private SexParticipantType asParticipant;
 	private SexAreaInterface performingSexArea;
 	private SexAreaInterface targetedSexArea;
@@ -22,7 +22,7 @@ public class SexType implements XMLSaving {
 		this.performingSexArea = performingSexArea;
 		this.targetedSexArea = targetedSexArea;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(o instanceof SexType){
@@ -34,7 +34,7 @@ public class SexType implements XMLSaving {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = 17;
@@ -42,25 +42,25 @@ public class SexType implements XMLSaving {
 		result = 31 * result + getTargetedSexArea().hashCode();
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element effect = doc.createElement("sexType");
 		parentElement.appendChild(effect);
-		
+
 		CharacterUtils.addAttribute(doc, effect, "SexParticipantType", asParticipant.toString());
 		CharacterUtils.addAttribute(doc, effect, "penetrationType", performingSexArea.toString());
 		CharacterUtils.addAttribute(doc, effect, "orificeType", targetedSexArea.toString());
-		
+
 		return effect;
 	}
-	
+
 	public static SexType loadFromXML(Element parentElement, Document doc) {
 		return new SexType(
 				SexParticipantType.valueOf(parentElement.getAttribute("SexParticipantType")),
 				SexAreaPenetration.valueOf(parentElement.getAttribute("penetrationType")),
 				SexAreaOrifice.valueOf(parentElement.getAttribute("orificeType")));
 	}
-	
+
 	public String getName() {
 		return "";
 	}

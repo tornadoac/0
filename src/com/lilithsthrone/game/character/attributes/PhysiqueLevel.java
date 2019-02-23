@@ -9,49 +9,49 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum PhysiqueLevel {
-	
+
 	ZERO_WEAK("frail", 0, 5, Color.PHYSIQUE_STAGE_ZERO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_0;
 		}
 	},
-	
+
 	ONE_AVERAGE("average", 5, 15, Color.PHYSIQUE_STAGE_ONE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_1;
 		}
 	},
-	
+
 	TWO_STRONG("fit", 15, 35, Color.PHYSIQUE_STAGE_TWO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_2;
 		}
 	},
-	
+
 	THREE_POWERFUL("powerful", 35, 65, Color.PHYSIQUE_STAGE_THREE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_3;
 		}
 	},
-	
+
 	FOUR_MIGHTY("mighty", 65, 95, Color.PHYSIQUE_STAGE_FOUR) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_4;
 		}
 	},
-	
+
 	FIVE_HERCULEAN("herculean", 95, 100, Color.PHYSIQUE_STAGE_FIVE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.PHYSIQUE_PERK_5;
 		}
 	};
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -62,7 +62,7 @@ public enum PhysiqueLevel {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	public abstract StatusEffect getRelatedStatusEffect();
 
 	public String getName() {
@@ -80,7 +80,7 @@ public enum PhysiqueLevel {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public static PhysiqueLevel getPhysiqueLevelFromValue(float value){
 		for(PhysiqueLevel al : PhysiqueLevel.values()) {
 			if(value>=al.getMinimumValue() && value<al.getMaximumValue())

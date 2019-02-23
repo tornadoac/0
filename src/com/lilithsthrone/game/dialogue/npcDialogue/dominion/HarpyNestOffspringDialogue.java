@@ -37,11 +37,11 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class HarpyNestOffspringDialogue {
-	
+
 	private static NPCOffspring offspring() {
 		return (NPCOffspring) Main.game.getActiveNPC();
 	}
-	
+
 	private static String getOffspringLabel() {
 		if(offspring().hasFlag(NPCFlagValue.flagOffspringIntroduced)) {
 			return UtilText.parse(offspring(), "Talking to [npc.Name]");
@@ -49,29 +49,29 @@ public class HarpyNestOffspringDialogue {
 			return "A familiar face";
 		}
 	}
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER = new DialogueNode("", "You encounter a certain special someone in the nests.", true) {
-		
+
 		@Override
 		public String getLabel(){
 			return getOffspringLabel();
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(!offspring().hasFlag(NPCFlagValue.flagOffspringIntroduced)) {
-				
+
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "As you walk past a particularly busy harpy nest, [npc.a_fullRace(true)] suddenly jumps down in front of you, blocking your way."
 						+ "</p>");
-				
+
 				if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) { // Prostitute introduction:
-					
-					int price =  CharacterUtils.getProstitutePrice(offspring());
-					
+
+					int price = CharacterUtils.getProstitutePrice(offspring());
+
 					if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 						UtilText.nodeContentSB.append(
 								"<p>"
@@ -87,13 +87,13 @@ public class HarpyNestOffspringDialogue {
 									+ " [npc.speech(You lookin' for a good time? Only "+Util.intToString(price)+" flames and [npc.namePos] all yours for an hour!)]"
 								+ "</p>");
 					}
-					
+
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Your gaze is drawn to [npc.her] [npc.hands] as [npc.she] sensually runs [npc.her] [npc.fingers+] up the length of [npc.her] body, before stopping at [npc.her] chest to push [npc.her] [npc.breasts+] together."
 								+ " Looking up to [npc.her] face as you prepare to give [npc.herHim] your answer, your planned response leaves your mouth as a surprised gasp, as you find yourself instantly recognizing the person before you."
 							+ "</p>");
-					
+
 					if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 						UtilText.nodeContentSB.append(
 								"<p>"
@@ -109,31 +109,31 @@ public class HarpyNestOffspringDialogue {
 									+ " [npc.speech(N-No way... [npc.PcName]?!)]"
 								+ "</p>");
 					}
-					
+
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Whether by some natural instinct, or perhaps some curious quirk of the arcane, you're instantly left with no doubt in your mind that the [npc.woman] in front of you is your [npc.daughter]."
 								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognized you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
 							+ "</p>");
-					
+
 				} else { // Mugger introduction:
-					
+
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "[npc.speech(Hey there! I just saw you passing by our nest and wanted to-)]"
 								+ " [npc.Her] words are abruptly cut off as [npc.her] [npc.eyeColor] [npc.eyes] finally come to rest on your [pc.face]."
 								+ " [npc.speech(No way... [npc.PcName]?!)]"
 							+ "</p>");
-				
+
 					UtilText.nodeContentSB.append(
 							"<p>"
 								+ "Whether by some natural instinct, or perhaps some curious quirk of the arcane, you're instantly left with no doubt in your mind that the [npc.race] in front of you is your [npc.daughter]."
 								+ " From [npc.her] reaction, it's quite apparent that [npc.sheIs] recognized you as well, and as [npc.her] [npc.hands] reach up to cover [npc.her] [npc.mouth] in shock, you're left to decide how best to respond..."
 							+ "</p>");
 				}
-				
+
 			} else { // Repeat encounter:
-				
+
 				if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) {
 					UtilText.nodeContentSB.append(
 							"<p>"
@@ -151,7 +151,7 @@ public class HarpyNestOffspringDialogue {
 							+ "</p>"
 							+"<p>");
 				}
-				
+
 				// Reaction:
 				switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
 					case NEGATIVE_FIVE_LOATHE: case NEGATIVE_FOUR_HATE:
@@ -217,7 +217,7 @@ public class HarpyNestOffspringDialogue {
 				boolean reactedToOffspringPregnancy = offspring().isCharacterReactedToPregnancy(Main.game.getPlayer());
 				boolean playerPregnant = Main.game.getPlayer().isVisiblyPregnant();
 				boolean reactedToPlayerPregnancy = Main.game.getPlayer().isCharacterReactedToPregnancy(offspring());
-				
+
 				// Taking into account pregnancy reactions
 				if(offspringPregnant || playerPregnant) {
 					UtilText.nodeContentSB.append("<p>");
@@ -247,7 +247,7 @@ public class HarpyNestOffspringDialogue {
 								}
 							}
 							break;
-							
+
 						case NEGATIVE_ONE_ANNOYED:
 							if(playerPregnant) {
 								if(reactedToPlayerPregnancy) {
@@ -273,7 +273,7 @@ public class HarpyNestOffspringDialogue {
 								}
 							}
 							break;
-							
+
 						case ZERO_NEUTRAL: case POSITIVE_ONE_FRIENDLY: case POSITIVE_TWO_LIKE: case POSITIVE_THREE_CARING: case POSITIVE_FOUR_LOVE: case POSITIVE_FIVE_WORSHIP:
 							if(playerPregnant) {
 								if(reactedToPlayerPregnancy) {
@@ -304,7 +304,7 @@ public class HarpyNestOffspringDialogue {
 					}
 					UtilText.nodeContentSB.append("</p>");
 				}
-				
+
 				// Taking into account player not apologized for attack/rape
 				if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) || offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 					UtilText.nodeContentSB.append("<p>");
@@ -331,7 +331,7 @@ public class HarpyNestOffspringDialogue {
 							break;
 					}
 					UtilText.nodeContentSB.append("</p>");
-					
+
 				} else {// Standard greeting
 					UtilText.nodeContentSB.append("<p>");
 					switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
@@ -341,7 +341,7 @@ public class HarpyNestOffspringDialogue {
 									+ " It really seems as though [npc.she] hates you, and you consider that you're quite lucky that [npc.she] didn't run away or attempt to fight you the moment [npc.she] saw you."
 									+ " Realizing that you're not going to be able to have a proper conversation with [npc.herHim] until you've apologized for the way you've acted towards [npc.herHim], you're only left with a few options...");
 							break;
-							
+
 						case NEGATIVE_THREE_STRONG_DISLIKE: case NEGATIVE_TWO_DISLIKE:
 							UtilText.nodeContentSB.append(
 									"Coming to a halt in front of your [npc.daughter], you see that [npc.sheIs] making a point of not looking in your direction, and with head held high, [npc.she] lets out a derisive hum."
@@ -373,13 +373,13 @@ public class HarpyNestOffspringDialogue {
 					UtilText.nodeContentSB.append("</p>");
 				}
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			
+
 			if(offspring().getAffection(Main.game.getPlayer()) < AffectionLevel.NEGATIVE_TWO_DISLIKE.getMaximumValue()) {
 				if (index == 1) {
 					return new Response("Apologize", "Apologize to [npc.name].", OFFSPRING_ENCOUNTER_APOLOGY) {
@@ -400,7 +400,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 8) {
 					return new Response("Sex", "There's no way [npc.she]'ll consider having sex with you when [npc.sheIs] this angry.", null) {
 						@Override
@@ -408,7 +408,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 10) {
 					return new Response("Attack", "How dare [npc.name] talk to you like that! It's time to show [npc.herHim] [npc.her] place!", OFFSPRING_ENCOUNTER_FIGHT) {
 						@Override
@@ -422,7 +422,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll come back some other time.", OFFSPRING_ENCOUNTER) {
 							@Override
@@ -431,11 +431,11 @@ public class HarpyNestOffspringDialogue {
 								return Main.game.getDefaultDialogueNoEncounter();
 							}
 						};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Greeting", "Say hello to [npc.name].", OFFSPRING_ENCOUNTER_TALKING) {
@@ -468,7 +468,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new Response("Hug", "Hug [npc.name].", OFFSPRING_ENCOUNTER_TALKING) {
 						@Override
@@ -505,7 +505,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 3) {
 					return new Response("Kiss", "Give [npc.name] a hug and a kiss.", OFFSPRING_ENCOUNTER_TALKING) {
 						@Override
@@ -544,7 +544,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 4) {
 					return new Response("Passionate kiss", "Passionately kiss [npc.name] on the lips, and feel [npc.herHim] up as you do so.", OFFSPRING_ENCOUNTER_TALKING,
 							Util.newArrayListOfValues(Fetish.FETISH_INCEST),
@@ -615,7 +615,7 @@ public class HarpyNestOffspringDialogue {
 												+ "[npc.speech(Yeah, well, perhaps leave out the whole kissing part next time... Anyway, come with me! We can talk more at my place.)]"
 											+ "</p>");
 								}
-								
+
 							} else {
 								if(offspring().isAttractedTo(Main.game.getPlayer())) {
 									Main.game.getTextStartStringBuilder().append(
@@ -680,7 +680,7 @@ public class HarpyNestOffspringDialogue {
 							}
 							if(offspring().isAttractedTo(Main.game.getPlayer())) {
 								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), 25));
-								
+
 							} else if(
 									((Main.game.getPlayer().isFeminine() && offspring().getSexualOrientation()==SexualOrientation.GYNEPHILIC)
 									|| (!Main.game.getPlayer().isFeminine() && offspring().getSexualOrientation()==SexualOrientation.ANDROPHILIC)
@@ -688,7 +688,7 @@ public class HarpyNestOffspringDialogue {
 									|| offspring().hasFetish(Fetish.FETISH_INCEST)) {
 								//Incest fetish and not attracted to player, or attracted to player and no incest fetish:
 								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), -5));
-								
+
 							} else {
 								//Not attracted to player, and no incest fetish:
 								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), -20));
@@ -696,7 +696,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} if (index == 5) {
 					return new Response("Scold [npc.herHim]",
 							"Ask [npc.name] just what [npc.she] thinks [npc.sheIs] doing!"
@@ -714,7 +714,7 @@ public class HarpyNestOffspringDialogue {
 												+ " Looking into your [npc.daughter]'s [npc.eyes], you frown in disapproval as you start to voice your concerns,"
 												+ " [pc.speech([npc.Name]! Please don't tell me that you're working as a... a prostitute!)]"
 											+ "</p>");
-									
+
 									if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 										Main.game.getTextStartStringBuilder().append("<p>"
 													+ "[npc.speech(So what if I am?!)]"
@@ -727,7 +727,7 @@ public class HarpyNestOffspringDialogue {
 													+ " [npc.name] replies, shuffling [npc.her] [npc.feet]."
 													+ " [npc.speech(I can do what I want. It's <i>my</i> body...)]"
 												+ "</p>");
-										
+
 									}
 								} else { // Mugger:
 									Main.game.getTextStartStringBuilder().append(
@@ -736,7 +736,7 @@ public class HarpyNestOffspringDialogue {
 												+ " Looking into your [npc.daughter]'s [npc.eyes], you frown in disapproval as you start to voice your concerns,"
 												+ " [pc.speech([npc.Name]! Please don't tell me that you're just another low-life mugger!)]"
 											+ "</p>");
-									
+
 									if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 										Main.game.getTextStartStringBuilder().append("<p>"
 													+ "[npc.speech(So what if I am?!)]"
@@ -751,7 +751,7 @@ public class HarpyNestOffspringDialogue {
 												+ "</p>");
 									}
 								}
-								
+
 								Main.game.getTextStartStringBuilder().append(
 										"<p>"
 											+ "[pc.speech(Don't you back-talk me!)]"
@@ -768,7 +768,7 @@ public class HarpyNestOffspringDialogue {
 												+ " Anyway, I don't like to stop and chat in the same place as I work, so let's go back to my place."
 												+ " Perhaps you can have fun lecturing me about the state of my apartment as well...)]"
 										+ "</p>");
-								
+
 							} else {
 								if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) {
 									Main.game.getTextStartStringBuilder().append(
@@ -777,7 +777,7 @@ public class HarpyNestOffspringDialogue {
 												+ " Looking into your [npc.daughter]'s [npc.eyes], you frown in disapproval as you start to voice your concerns,"
 												+ " [pc.speech([npc.Name]! Please don't tell me that you're still out here mugging people!)]"
 											+ "</p>");
-									
+
 									if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 										Main.game.getTextStartStringBuilder().append("<p>"
 													+ "[npc.speech(So what if I am?!)]"
@@ -791,7 +791,7 @@ public class HarpyNestOffspringDialogue {
 													+ " [npc.speech(I need a way to pay the rent...)]"
 												+ "</p>");
 									}
-									
+
 								} else {
 									Main.game.getTextStartStringBuilder().append(
 											"<p>"
@@ -799,7 +799,7 @@ public class HarpyNestOffspringDialogue {
 												+ " Looking into your [npc.daughter]'s [npc.eyes], you frown in disapproval as you start to voice your concerns,"
 												+ " [pc.speech([npc.Name]! Please don't tell me that you're still working as a prostitute!)]"
 											+ "</p>");
-									
+
 									if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 										Main.game.getTextStartStringBuilder().append("<p>"
 													+ "[npc.speech(So what if I am?!)]"
@@ -814,7 +814,7 @@ public class HarpyNestOffspringDialogue {
 												+ "</p>");
 									}
 								}
-								
+
 								Main.game.getTextStartStringBuilder().append(
 										"<p>"
 											+ "[pc.speech(Don't you back-talk me!)]"
@@ -832,17 +832,17 @@ public class HarpyNestOffspringDialogue {
 												+ " Perhaps you can have fun lecturing me about the state of my apartment as well...)]"
 										+ "</p>");
 							}
-							
+
 							// If masochist fetish, +5, if not, -5:
 							if(offspring().hasFetish(Fetish.FETISH_MASOCHIST)) {
-								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), 5)); 
+								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), 5));
 							} else {
 								Main.game.getTextEndStringBuilder().append(offspring().incrementAffection(Main.game.getPlayer(), -5));
 							}
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 10) {
 					return new Response("Attack", "How dare [npc.name] talk to you like that! It's time to show [npc.herHim] [npc.her] place!", OFFSPRING_ENCOUNTER_FIGHT) {
 						@Override
@@ -856,7 +856,7 @@ public class HarpyNestOffspringDialogue {
 							setOffspringFlags();
 						}
 					};
-					
+
 				} else if (index == 0 && offspring().hasFlag(NPCFlagValue.flagOffspringIntroduced)) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", OFFSPRING_ENCOUNTER) {
 							@Override
@@ -865,13 +865,13 @@ public class HarpyNestOffspringDialogue {
 							}
 							@Override
 							public void effects() {
-								
+
 								Main.game.getTextStartStringBuilder().append(
 										"<p>"
 											+ "You don't really have time to stop and talk with [npc.name] at the moment, and you tell [npc.herHim] as much,"
 											+ " [pc.speech(This isn't the best time for me right now, I'll come back later.)]"
 										+ "</p>");
-								
+
 								// Taking into account player not apologized for attack/rape
 								if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) || offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 									Main.game.getTextStartStringBuilder().append("<p>");
@@ -907,7 +907,7 @@ public class HarpyNestOffspringDialogue {
 											break;
 									}
 									Main.game.getTextStartStringBuilder().append("</p>");
-									
+
 								} else {
 									Main.game.getTextStartStringBuilder().append("<p>");
 									switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
@@ -920,7 +920,7 @@ public class HarpyNestOffspringDialogue {
 																:" [npc.speech(Eugh, fine! See if I care!)]")
 													+ "</p>");
 											break;
-											
+
 										case NEGATIVE_THREE_STRONG_DISLIKE: case NEGATIVE_TWO_DISLIKE:
 											Main.game.getTextStartStringBuilder().append(
 													"<p>"
@@ -971,62 +971,62 @@ public class HarpyNestOffspringDialogue {
 									}
 									Main.game.getTextStartStringBuilder().append("</p>");
 								}
-								
+
 								Main.game.getTextStartStringBuilder().append(
 										"<p>"
 											+ "Walking away, you leave your [npc.daughter] to get on with whatever it was that [npc.she] was up to, and continue on your journey."
 										+ "</p>");
-								
+
 								setOffspringFlags();
-							}	
+							}
 						};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	private static void setOffspringFlags() {
 		offspring().setFlag(NPCFlagValue.flagOffspringIntroduced, true);
 		offspring().setCharacterReactedToPregnancy(Main.game.getPlayer(), true);
 		Main.game.getPlayer().setCharacterReactedToPregnancy(offspring(), true);
 		Main.game.getDialogueFlags().offspringDialogueTokens = 2;
 	}
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_APOLOGY = new DialogueNode("A familiar face", "", true) {
-		
+
 		@Override
 		public String getLabel(){
 			return getOffspringLabel();
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded) && offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "Deciding that you need to apologize for both attacking, and then raping your [npc.daughter], you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for what I've done to you. I'm truly sorry...)]"
 						+ "</p>");
-				
+
 			} else if (offspring().hasFlag(NPCFlagValue.flagOffspringFightApologyNeeded)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "Deciding that you need to apologize for attacking your [npc.daughter], you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for what I've done to you. I'm truly sorry...)]"
 						+ "</p>");
-				
+
 			} else if(offspring().hasFlag(NPCFlagValue.flagOffspringRapeApologyNeeded)) {
 				UtilText.nodeContentSB.append(
 						"<p>"
 							+ "Deciding that you need to apologize for attacking your [npc.daughter], you step forwards and start to speak,"
 							+ " [pc.speech([npc.Name], I really am sorry for what I've done to you. I'm truly sorry...)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1034,7 +1034,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [pc.speech([npc.Name], I really am sorry for the way I've treated you. I know I've done some bad things, but please believe me when I say that I'm truly sorry.)]"
 						+ "</p>");
 			}
-			
+
 			if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 				UtilText.nodeContentSB.append("<p>"
 							+ "[npc.Name] turns towards you and puts [npc.her] [npc.hands] on [npc.her] [npc.hips]."
@@ -1077,7 +1077,7 @@ public class HarpyNestOffspringDialogue {
 						+ " [pc.thought(then again, it could also have gone a lot worse...)]"
 					+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1090,30 +1090,30 @@ public class HarpyNestOffspringDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_FIGHT = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
 			return getOffspringLabel();
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>"
 					+ "Just because [npc.sheIs] your [npc.daughter], that doesn't mean [npc.sheIs] any better than the rest of the aggressive harpies living in these nests."
 					+ " So as to avoid interference from the other harpies in the nest, you ask your [npc.daughter] to step down onto a nearby walkway, before dropping down into a combat stance."
 					+ " [pc.speech(No [npc.daughter] of mine is going to live like this and expect not to be punished! I'm going to teach you a lesson!)]"
 				+ "</p>");
-			
+
 			if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1121,7 +1121,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [npc.name] cries out, before jumping back and preparing to defend [npc.herself]."
 							+ " [npc.speech(You'll be sorry!)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1130,7 +1130,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [npc.speech(I can't believe this!)]"
 						+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1149,14 +1149,14 @@ public class HarpyNestOffspringDialogue {
 			}
 		}
 	};
-	
+
 	private static StringBuilder footerSB = new StringBuilder();
-	
+
 	private static String getFooterInformationText() {
 		footerSB.setLength(0);
 
 		//TODO affection
-		
+
 		// Attraction:
 		if(offspring().isAttractedTo(Main.game.getPlayer())) {
 			footerSB.append(
@@ -1170,7 +1170,7 @@ public class HarpyNestOffspringDialogue {
 						+ "<i>[npc.Name] doesn't show any sign of being attracted to you, and any affection that [npc.she] shows is no doubt simply due to your [pc.mother]-[npc.daughter] relationship.</i>"
 					+ "</p>");
 		}
-		
+
 		// Time limitation:
 		if(Main.game.getDialogueFlags().offspringDialogueTokens>=1) {
 			footerSB.append("<p>"
@@ -1181,21 +1181,21 @@ public class HarpyNestOffspringDialogue {
 					+ "[npc.Name] <b>doesn't have any time left</b>, and needs to get back to work."
 				+ "</p>");
 		}
-		
+
 		return footerSB.toString();
 	}
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_TALKING = new DialogueNode("", "You encounter a certain special someone in the nests.", true) {
 
 		@Override
 		public String getLabel(){
 			return getOffspringLabel();
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(!offspring().hasFlag(NPCFlagValue.flagOffspringApartmentIntroduced)) {
 				UtilText.nodeContentSB.append("<p>"
 							+ "[npc.Name] turns around and sets off across the nest."
@@ -1222,7 +1222,7 @@ public class HarpyNestOffspringDialogue {
 							+ " After just a moment [npc.she] returns, and sits down on the sofa next to you."
 							+ " [npc.speech(So, what do you want to talk about? I only have a little while before I need to get back to... erm... 'work', but let's make the most of our time together!)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append("<p>"
 						+ "[npc.Name] turns around and sets off across the nest."
@@ -1251,7 +1251,7 @@ public class HarpyNestOffspringDialogue {
 			}
 
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1283,11 +1283,11 @@ public class HarpyNestOffspringDialogue {
 							return Main.game.getDefaultDialogueNoEncounter();
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Background", "Ask [npc.name] about [npc.her] background, and about what [npc.she] does for a living.", OFFSPRING_ENCOUNTER_BACKGROUND) {
@@ -1298,7 +1298,7 @@ public class HarpyNestOffspringDialogue {
 							Main.game.getDialogueFlags().offspringDialogueTokens--;
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new Response("Small talk", "Chat about this and that with [npc.name].", OFFSPRING_ENCOUNTER_SMALL_TALK) {
 						@Override
@@ -1308,7 +1308,7 @@ public class HarpyNestOffspringDialogue {
 							Main.game.getDialogueFlags().offspringDialogueTokens--;
 						}
 					};
-					
+
 				} else if (index == 3) {
 					return new Response("Encourage", "Encourage [npc.name] to do [npc.her] best.", OFFSPRING_ENCOUNTER_ENCOURAGE) {
 						@Override
@@ -1318,7 +1318,7 @@ public class HarpyNestOffspringDialogue {
 							Main.game.getDialogueFlags().offspringDialogueTokens--;
 						}
 					};
-					
+
 				} else if (index == 4) {
 					return new Response("Scold", "Scold [npc.name], and tell [npc.herHim] to better [npc.herself].", OFFSPRING_ENCOUNTER_SCOLD) {
 						@Override
@@ -1328,7 +1328,7 @@ public class HarpyNestOffspringDialogue {
 							Main.game.getDialogueFlags().offspringDialogueTokens--;
 						}
 					};
-					
+
 				} else if (index == 5) {
 					return new Response("Pet name", "Ask [npc.name] to call you by a different name.", OFFSPRING_ENCOUNTER_CHOOSE_NAME) {
 						@Override
@@ -1337,7 +1337,7 @@ public class HarpyNestOffspringDialogue {
 							Main.game.getDialogueFlags().offspringDialogueTokens--;
 						}
 					};
-					
+
 				} else if (index == 6) {
 					if(offspring().getAffection(Main.game.getPlayer()) < AffectionLevel.POSITIVE_FIVE_WORSHIP.getMinimumValue()) {
 						return new Response("Inventory", "[npc.Name] doesn't like you enough to allow you to choose what [npc.she] wears, or what [npc.she] eats and drinks.", null);
@@ -1361,16 +1361,16 @@ public class HarpyNestOffspringDialogue {
 							}
 						};
 					}
-					
+
 				} else if (index == 7) {
 					if(Main.game.getPlayer().hasItemType(ItemType.PRESENT)) {
 						return new Response("Give Present", "Give [npc.name] the present that you're carrying.", OFFSPRING_PRESENT) {
 							@Override
 							public void effects() {
 								Main.game.getPlayer().removeItem(AbstractItemType.generateItem(ItemType.PRESENT));
-								
+
 								Main.game.getTextEndStringBuilder().append(Main.game.getActiveNPC().incrementAffection(Main.game.getPlayer(), 15));
-								
+
 								offspring().setFlag(NPCFlagValue.flagOffspringApartmentIntroduced, true);
 								Main.game.getDialogueFlags().offspringDialogueTokens--;
 							}
@@ -1378,7 +1378,7 @@ public class HarpyNestOffspringDialogue {
 					} else {
 						return null;
 					}
-					
+
 				} else if (index == 8) {
 					return new Response("Sex", "Tell [npc.name] that you want to have sex with [npc.herHim].", OFFSPRING_ENCOUNTER_SEX,
 							Util.newArrayListOfValues(Fetish.FETISH_INCEST),
@@ -1395,11 +1395,11 @@ public class HarpyNestOffspringDialogue {
 							}
 							offspring().setFlag(NPCFlagValue.flagOffspringApartmentIntroduced, true);
 							Main.game.getDialogueFlags().offspringDialogueTokens--;
-						}	
+						}
 					};
-					
+
 				} else if (index == 10) {
-	
+
 					return new Response("Attack", "It's time to show [npc.herHim] [npc.her] true place in this family!", OFFSPRING_ENCOUNTER_APARTMENT_FIGHT) {
 						@Override
 						public boolean isCombatHighlight() {
@@ -1412,7 +1412,7 @@ public class HarpyNestOffspringDialogue {
 							offspring().setFlag(NPCFlagValue.flagOffspringApartmentIntroduced, true);
 						}
 					};
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", OFFSPRING_ENCOUNTER) {
 							@Override
@@ -1438,14 +1438,14 @@ public class HarpyNestOffspringDialogue {
 								return Main.game.getDefaultDialogueNoEncounter();
 							}
 						};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_BACKGROUND = new DialogueNode("", "", true) {
 
 		@Override
@@ -1456,15 +1456,15 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			// TODO use offspring().flagBackgroundProgress
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Deciding that you'd like to get to know [npc.name] a little better, you ask [npc.herHim] about how [npc.sheIs] doing,"
 						+ " [pc.speech(Tell me about your life! How's everything going for you right now?)]"
 					+ "</p>");
-			
+
 			if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) {
 				if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 					UtilText.nodeContentSB.append(
@@ -1481,7 +1481,7 @@ public class HarpyNestOffspringDialogue {
 							+ "<p>"
 								+ "You're relieved to hear that your [npc.daughter] is doing well for [npc.herself], and after talking about [npc.her] situation a little more,"
 									+ " [npc.she] starts to get carried away and tells you about one of the recent customers [npc.she] had, ");
-					
+
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"[npc.speech(... So then he doesn't pull out, and he's all like 'Get pregnant slut!', and I'm like 'Ah, no! I can't get pregnant, please!', and then I get him to pay me extra for finishing inside!"
 									+ " And the funny thing is, I was on slut pills the whole time!)]",
@@ -1489,9 +1489,9 @@ public class HarpyNestOffspringDialogue {
 							"[npc.speech(... And his knot was like, <i>huge</i>, and it locks us together for about 30 minutes. And I'm just like 'Uhh, I charge by the minute by the way!')]",
 							"[npc.speech(... So this cute little human wanted me to just sit on her face for half an hour, and it was, like, the easiest money I've ever made!)]",
 							"[npc.speech(... And so he's pushing me up against the wall, getting really into fucking me, and then he suddenly pulls out and cums all over my shoes! And I'm like, 'You're paying the cleaning bill for those!')]"));
-					
+
 					UtilText.nodeContentSB.append("</p>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(
 							"<p>"
@@ -1507,7 +1507,7 @@ public class HarpyNestOffspringDialogue {
 							+ "<p>"
 								+ "You're relieved to hear that your [npc.daughter] is doing well for [npc.herself], and after talking about [npc.her] situation a little more,"
 									+ " [npc.she] starts to open up, and gets a little carried away in telling you about one of the recent customers [npc.she] had, ");
-					
+
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"[npc.speech(... So then he doesn't pull out, and he's all like 'Get pregnant slut!', and I'm like 'That's going to cost you more you know!', and so he pays me extra for finishing inside!"
 									+ " And I didn't tell him, but I was on slut pills the whole time!)]",
@@ -1517,10 +1517,10 @@ public class HarpyNestOffspringDialogue {
 							"[npc.speech(... So this cute human wanted to just sit on my face for half an hour, and it was pretty much the easiest money I've ever made!)]",
 							"[npc.speech(... And so he's pushing me up against the wall, getting really into fucking me, and then he suddenly pulls out and cums all over my shoes!"
 									+ " And I'm like, 'Erm... You're going to have to pay the cleaning bill for those...')]"));
-					
+
 					UtilText.nodeContentSB.append("</p>");
 				}
-				
+
 			} else {
 				if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH) {
 					UtilText.nodeContentSB.append(
@@ -1537,16 +1537,16 @@ public class HarpyNestOffspringDialogue {
 							+ "<p>"
 								+ "Wanting to learn more about the manner in which [npc.she] earns a living, you encourage your [npc.daughter] to talk about [npc.her] situation a little more,"
 									+ " and as you ask a few more questions, [npc.she] starts to get carried away while giving you the details of one of the recent encounters [npc.she] had, ");
-					
+
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							"[npc.speech(... And <i>he</i> was the one who attacked me first! So it was only fair that I took everything he had!)]",
 							"[npc.speech(... So then as she runs off, she's like 'You're gonna be sorry when I tell my boyfriend!', and then later this horse-boy shows up claiming to be her boyfriend, so I beat him up too!)]",
 							"[npc.speech(... And then the enforcers turned up, and I only just managed to get away! That was a close one...)]",
 							"[npc.speech(... So after I'd robbed her, that slutty cat-girl starts begging for me to 'show her no mercy', and drops down on all fours right there in front of the whole nest!)]",
 							"[npc.speech(... And I'm pushing him back against the wall, demanding he hands over his wallet, and I feel something pressing out against my leg. That horny dog-boy was getting turned on by being robbed!)]"));
-					
+
 					UtilText.nodeContentSB.append("</p>");
-					
+
 				} else {
 					UtilText.nodeContentSB.append(
 							"<p>"
@@ -1569,13 +1569,13 @@ public class HarpyNestOffspringDialogue {
 							"[npc.speech(... And then the enforcers turned up, and I only managed to get away by climbing up a fire escape! That was a close one...)]",
 							"[npc.speech(... So after I'd robbed her, that slutty cat-girl starts begging for me to 'show her no mercy', and drops down on all fours right there in front of the whole nest!)]",
 							"[npc.speech(... So as I'm demanding he hands over his wallet, I see something pressing out in his trousers. That horny dog-boy was getting turned on by being robbed!)]"));
-					
+
 					UtilText.nodeContentSB.append("</p>");
 				}
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1583,13 +1583,13 @@ public class HarpyNestOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 				return new Response("Background", "You've just talked about [npc.namePos] background.", null);
-				
+
 			} else {
 				return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_SMALL_TALK = new DialogueNode("", "", true) {
 
 		@Override
@@ -1600,14 +1600,14 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "You start to talk with [npc.name] about all sorts of unimportant things, ranging from the recent weather you've been having, to the latest news regarding [npc.her] nest and matriarch."
 						+ " Talking to your [npc.daughter] fills you with a deep sense of calm and happiness, and every time [npc.she] smiles and offers [npc.her] opinion on something,"
 							+ " you listen with rapt attention to every word that comes out of [npc.her] mouth."
 					+ "</p>");
-			
+
 			switch(offspring().getAffectionLevel(Main.game.getPlayer())) {
 				case NEGATIVE_FIVE_LOATHE: case NEGATIVE_FOUR_HATE:case NEGATIVE_THREE_STRONG_DISLIKE: case NEGATIVE_TWO_DISLIKE:case NEGATIVE_ONE_ANNOYED:case ZERO_NEUTRAL:
 					UtilText.nodeContentSB.append(
@@ -1671,9 +1671,9 @@ public class HarpyNestOffspringDialogue {
 				default:
 					break;
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1681,13 +1681,13 @@ public class HarpyNestOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 2 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 				return new Response("Small talk", "You've just had some small talk with [npc.name].", null);
-				
+
 			} else {
 				return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_ENCOURAGE = new DialogueNode("", "", true) {
 
 		@Override
@@ -1698,12 +1698,12 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			// Encourage job
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Thinking that it must be hard for [npc.name] to make a living up here in one of the nests, you decide to offer [npc.her] some words of encouragement,");
-			
+
 			if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) {
 				UtilText.nodeContentSB.append(
 						" [pc.speech(I know that it must be hard to try and make a living out here, so I just wanted you to know that I'm very proud of you, [npc.name].)]"
@@ -1713,7 +1713,7 @@ public class HarpyNestOffspringDialogue {
 						" [pc.speech(I know that it must be hard to try and make a living out here, so I just wanted you to know that I'm happy to see that you're taking good care of yourself, [npc.name].)]"
 						+ "</p>");
 			}
-			
+
 			if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1724,7 +1724,7 @@ public class HarpyNestOffspringDialogue {
 							+ "Despite [npc.her] reaction, you can tell that your words have made a positive difference, and when [npc.she] looks up again, you see that there's a big smile on [npc.her] face."
 							+ " Reiterating what you've just said, you go on to encourage your [npc.daughter] to do [npc.her] best, and once you've finished, [npc.she] sincerely thanks you for your kind words."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1736,9 +1736,9 @@ public class HarpyNestOffspringDialogue {
 							+ " Reiterating what you've just said, you go on to encourage your [npc.daughter] to do [npc.her] best, and once you've finished, [npc.she] lovingly thanks you for your kind words."
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1746,13 +1746,13 @@ public class HarpyNestOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 3 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 				return new Response("Encourage", "You've just encouraged [npc.name].", null);
-				
+
 			} else {
 				return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_SCOLD = new DialogueNode("", "", true) {
 
 		@Override
@@ -1763,12 +1763,12 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			// Scolding related to job
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Unimpressed by [npc.namePos] method of making a living, you decide to scold [npc.her] in the hopes that [npc.she]'ll change [npc.her] ways,");
-			
+
 			if(offspring().getHistory()==Occupation.NPC_PROSTITUTE) {
 				UtilText.nodeContentSB.append(
 						" [pc.speech(I really don't want my [npc.daughter] working as a prostitute. You need to start thinking about getting a real job, [npc.name]!)]"
@@ -1778,7 +1778,7 @@ public class HarpyNestOffspringDialogue {
 						" [pc.speech(I really don't want my [npc.daughter] to be fighting to defend her nest. You need to start thinking about getting a real job, [npc.name]!)]"
 						+ "</p>");
 			}
-			
+
 			if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1790,7 +1790,7 @@ public class HarpyNestOffspringDialogue {
 							+ " Reiterating what you've just said, you tell your [npc.daughter] that you expect far more from [npc.herHim], and that you don't want [npc.herHim] picking fights with intruders any longer."
 							+ " You're not sure if your words really have any effect, but at least [npc.she] now knows that [npc.her] [pc.mother] doesn't approve of the way in which [npc.sheIs] living [npc.her] life."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1803,9 +1803,9 @@ public class HarpyNestOffspringDialogue {
 							+ " You're not sure if your words really have any effect, but at least [npc.she] now knows that [npc.her] [pc.mother] doesn't approve of the way in which [npc.sheIs] living [npc.her] life."
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1813,13 +1813,13 @@ public class HarpyNestOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 4 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 				return new Response("Scold", "You've just scolded [npc.name].", null);
-				
+
 			} else {
 				return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_CHOOSE_NAME = new DialogueNode("", "", true) {
 
 		@Override
@@ -1830,15 +1830,15 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "You decide to ask [npc.name] to call you by a different name."
 						+ " At the moment, [npc.sheIs] calling you '[npc.pcName]'."
 					+ "</p>"
-					
+
 					// TODO align this properly
-					
+
 					+ "<div class='container-full-width' style='text-align:center;'>"
 						+ "<div style='position:relative; display: inline-block; padding:0 auto; margin:0 auto;vertical-align:middle;width:100%;'>"
 							+ "<p style='float:left; padding:0; margin:0; height:32px; line-height:32px;'>[npc.Name] will call you: </p>"
@@ -1851,11 +1851,11 @@ public class HarpyNestOffspringDialogue {
 						+ "<i>The names 'Mom'/'Dad' and 'Mommy'/'Daddy' are special, and will automatically switch to the appropriate femininity of your character.</i>"
 						+ "</p>"
 					+ "</div>"
-					
+
 					+ "<p id='hiddenFieldName' style='display:none;'></p>");
-			
+
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1863,13 +1863,13 @@ public class HarpyNestOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 5 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 				return new Response("Pet name", "You're already asking [npc.name] to call you by a different name.", null);
-				
+
 			} else {
 				return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_PRESENT = new DialogueNode("", "", true) {
 
 		@Override
@@ -1880,7 +1880,7 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "Deciding that it would be nice to give your [npc.daughter] a present this Yuletide, you hold out the gift towards [npc.herHim]."
@@ -1899,9 +1899,9 @@ public class HarpyNestOffspringDialogue {
 						+ " [npc.speech(Really, thank you, [npc.pcName]. That really means a lot to me...)]"
 					+ "</p>"
 					);
-			
+
 			UtilText.nodeContentSB.append(getFooterInformationText());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -1909,13 +1909,13 @@ public class HarpyNestOffspringDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 7 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 				return new Response("Give Present", "You're already giving [npc.name] a present.", null);
-				
+
 			} else {
 				return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_SEX = new DialogueNode("", "", true) {
 
 		@Override
@@ -1926,13 +1926,13 @@ public class HarpyNestOffspringDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "From the moment you entered [npc.namePos] apartment, you haven't been able to take your [pc.eyes] off of [npc.herHim]."
 						+ " The fact that [npc.sheIs] your [npc.daughter] is only serving to make you even more aroused, and as [npc.she] smiles "+(offspring().isFeminine()?"sweetly":"charmingly")+" at you once more, you can't help but act."
 					+ "</p>");
-			
+
 			if(offspring().getHistory()==Occupation.NPC_PROSTITUTE){
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1946,7 +1946,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [pc.speech(you must have taken a little more than just cash from some of the people wandering through 'your territory'... Perhaps you'd like to show me some of the things you do to them?)]"
 						+ "</p>");
 			}
-			
+
 			if(offspring().isAttractedTo(Main.game.getPlayer())) {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1956,7 +1956,7 @@ public class HarpyNestOffspringDialogue {
 						+ "<p>"
 							+ "Reaching up to pull [npc.herHim] close, you eagerly return [npc.namePos] passionate kiss, and, right there in the middle of [npc.her] apartment, you show your [npc.daughter] just how much you love [npc.herHim]..."
 						+ "</p>");
-				
+
 			} else if(offspring().getHistory()==Occupation.NPC_PROSTITUTE){
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1971,7 +1971,7 @@ public class HarpyNestOffspringDialogue {
 						+ "<p>"
 							+ "You wonder if you should pay [npc.name] the 100 flames that [npc.sheIs] asking for, or just forget it and do something else..."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1987,7 +1987,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [npc.she] says, clearly upset by this turn of events."
 						+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -2005,7 +2005,7 @@ public class HarpyNestOffspringDialogue {
 									null),
 							AFTER_SEX_CONSENSUAL,
 							"");
-					
+
 				} else if (index == 2) {
 					return new ResponseSex("Submissive sex",
 							"It's time to let your [npc.daughter] show you what [npc.she] can do!",
@@ -2017,11 +2017,11 @@ public class HarpyNestOffspringDialogue {
 									null),
 							AFTER_SEX_CONSENSUAL,
 							"");
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else if(offspring().getHistory()==Occupation.NPC_PROSTITUTE){
 				if (index == 8) {
 					if(Main.game.getPlayer().getMoney()>=100) {
@@ -2038,7 +2038,7 @@ public class HarpyNestOffspringDialogue {
 					} else {
 						return new Response("Pay "+UtilText.formatAsMoneyUncolored(100, "span"), "You don't have enough money...", null);
 					}
-					
+
 				} else if (index == 9) {
 					if(Main.game.getPlayer().getMoney()>=100) {
 						return new ResponseSex("Submissive sex ("+UtilText.formatAsMoney(100, "span")+")",
@@ -2057,35 +2057,35 @@ public class HarpyNestOffspringDialogue {
 				} else {
 					return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 				}
-				
+
 			} else {
 				if (index == 8 && Main.game.getDialogueFlags().offspringDialogueTokens>0) {
 					return new Response("Sex", "You've just asked [npc.name] to have sex with you...", null);
-					
+
 				} else {
 					return OFFSPRING_ENCOUNTER_TALKING.getResponse(0, index);
 				}
 			}
-			
+
 		}
 	};
-	
+
 	public static final DialogueNode OFFSPRING_ENCOUNTER_APARTMENT_FIGHT = new DialogueNode("", "", true) {
 
 		@Override
 		public String getLabel(){
 			return getOffspringLabel();
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>"
 					+ "Deciding that [npc.name] needs to be taught a lesson, you get up off the sofa and step towards [npc.herHim]."
 					+ " [pc.speech(No [npc.daughter] of mine is going to live like this and expect not to be punished! It's time that I put you in your place!)]"
 				+ "</p>");
-			
+
 			if(offspring().getPersonality().get(PersonalityTrait.EXTROVERSION) == PersonalityWeight.HIGH || offspring().getPersonality().get(PersonalityTrait.NEUROTICISM) == PersonalityWeight.HIGH) {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -2093,7 +2093,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [npc.name] cries out, before jumping up and preparing to defend [npc.herself]."
 							+ " [npc.speech(You'll be sorry!)]"
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -2102,7 +2102,7 @@ public class HarpyNestOffspringDialogue {
 							+ " [npc.speech(I can't believe this!)]"
 						+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -2116,13 +2116,13 @@ public class HarpyNestOffspringDialogue {
 						offspring().setFlag(NPCFlagValue.flagOffspringFightApologyNeeded, true);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_COMBAT_VICTORY = new DialogueNode("Victory", "", true) {
 
 		@Override
@@ -2143,7 +2143,7 @@ public class HarpyNestOffspringDialogue {
 							+ "[npc.speech(Please, [npc.pcName]! Fuck me!)], [npc.she] pleads, biting [npc.her] [npc.lip] as [npc.she] continues touching [npc.herself]."
 							+ " [npc.speech(I'll be a good [npc.daughter]! Just please, fuck me!)]"
 						+ "</p>");
-				
+
 			} else {
 				return UtilText.parse(offspring(),
 						"<p>"
@@ -2157,10 +2157,10 @@ public class HarpyNestOffspringDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			
+
 			if (index == 1) {
 				return new Response("Apologize", "Maybe you went too far... Perhaps you should apologize?", null){
 					@Override
@@ -2192,7 +2192,7 @@ public class HarpyNestOffspringDialogue {
 						offspring().setFlag(NPCFlagValue.flagOffspringFightApologyNeeded, false);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				if(offspring().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled()) {
 					return new ResponseSex("Sex",
@@ -2211,7 +2211,7 @@ public class HarpyNestOffspringDialogue {
 								+ "Much to your delight, you feel [npc.herHim] returning your kiss, and as your [npc.daughter] leans into you, [npc.she] mumbles,"
 								+ " [npc.speech(Yes, [npc.pcName]... Fuck me...)]"
 							+ "</p>");
-					
+
 				} else {
 					return new ResponseSex(
 							"Rape [npc.herHim]", "[npc.She] needs to be punished for attacking you like that...",
@@ -2234,7 +2234,7 @@ public class HarpyNestOffspringDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 3) {
 				if(offspring().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled()) {
 					return new ResponseSex("Gentle sex",
@@ -2256,7 +2256,7 @@ public class HarpyNestOffspringDialogue {
 								+ "Much to your delight, you feel [npc.herHim] returning your loving kiss, and as your [npc.daughter] leans into you, [npc.she] mumbles,"
 								+ " [npc.speech(Yes, [npc.pcName]... Fuck me...)]"
 							+ "</p>");
-					
+
 				} else {
 					return new ResponseSex("Rape [npc.herHim] (gentle)",
 							"[npc.She] needs to be punished for attacking you like that... (Start the sex scene in the 'gentle' pace.)",
@@ -2282,7 +2282,7 @@ public class HarpyNestOffspringDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 4) {
 				if(offspring().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled()) {
 					return new ResponseSex("Rough sex",
@@ -2304,7 +2304,7 @@ public class HarpyNestOffspringDialogue {
 								+ "Much to your delight, you feel [npc.herHim] returning your forceful kiss, and as your [npc.daughter] leans into you, [npc.she] mumbles,"
 								+ " [npc.speech(Yes, [npc.pcName]... Fuck me...)]"
 							+ "</p>");
-					
+
 				} else {
 					return new ResponseSex("Rape [npc.herHim] (rough)",
 							"[npc.She] needs to be punished for attacking you like that... (Start the sex scene in the 'rough' pace.)",
@@ -2329,7 +2329,7 @@ public class HarpyNestOffspringDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 5) {
 				if(offspring().isAttractedTo(Main.game.getPlayer()) || !Main.game.isNonConEnabled()) {
 					return new ResponseSex("Submit",
@@ -2372,7 +2372,7 @@ public class HarpyNestOffspringDialogue {
 							"You can't submit to [npc.herHim], as [npc.she] has no interest in having sex with you!",
 							null);
 				}
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Inventory", "Now that you've defeated [npc.name], there's nothing stopping you from helping yourself to [npc.her] clothing and items..."){
 					@Override
@@ -2380,7 +2380,7 @@ public class HarpyNestOffspringDialogue {
 						Main.mainController.openInventory(offspring(), InventoryInteraction.FULL_MANAGEMENT);
 					}
 				};
-				
+
 			} else if (index == 10) {
 				return new Response(
 						"Remove character",
@@ -2407,7 +2407,7 @@ public class HarpyNestOffspringDialogue {
 									+ "<p>"
 										+ "With that, [npc.sheIs] gone, and you're left with little else to do but set off onto the walkways once again..."
 									+ "</p>");
-							
+
 						} else {
 							Main.game.getTextStartStringBuilder().append(
 									"<p>"
@@ -2423,12 +2423,12 @@ public class HarpyNestOffspringDialogue {
 									+ "<p>"
 										+ "With that, [npc.sheIs] gone, and you're left with little else to do but set off onto the walkways once again..."
 									+ "</p>");
-							
+
 						}
 						Main.game.banishNPC(offspring());
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Leave", "Now that you've taught [npc.name] a lesson, you can be on your way...", AFTER_COMBAT_VICTORY){
 					@Override
@@ -2449,7 +2449,7 @@ public class HarpyNestOffspringDialogue {
 								+ "</p>");
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -2484,7 +2484,7 @@ public class HarpyNestOffspringDialogue {
 							+ " Grinding [npc.herself] up against your body, [npc.she] breaks off the kiss for a moment to [npc.moanVerb] into your [pc.ear],"
 							+ " [npc.speech(So, [npc.pcName] likes a little bit of rough play, huh?! Well, I like that sort of thing too!)]"
 						+ "</p>");
-				
+
 			} else {
 				return UtilText.parse(offspring(),
 						"<p>"
@@ -2511,7 +2511,7 @@ public class HarpyNestOffspringDialogue {
 						+ "</p>");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(offspring().isAttractedTo(Main.game.getPlayer())) {
@@ -2535,7 +2535,7 @@ public class HarpyNestOffspringDialogue {
 							offspring().setFlag(NPCFlagValue.flagOffspringFightApologyNeeded, false);
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new ResponseSex("Eager Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -2560,7 +2560,7 @@ public class HarpyNestOffspringDialogue {
 							offspring().setFlag(NPCFlagValue.flagOffspringFightApologyNeeded, false);
 						}
 					};
-					
+
 				} else if (index == 3 && Main.game.isNonConEnabled()) {
 					return new ResponseSex("Resist Sex",
 							"[npc.Name] forces [npc.herself] on you...",
@@ -2585,11 +2585,11 @@ public class HarpyNestOffspringDialogue {
 							offspring().setFlag(NPCFlagValue.flagOffspringFightApologyNeeded, false);
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				if (index == 1) {
 					return new Response("Continue", "You're left to continue on your way...", AFTER_COMBAT_DEFEAT){
@@ -2602,16 +2602,16 @@ public class HarpyNestOffspringDialogue {
 							offspring().setFlag(NPCFlagValue.flagOffspringFightApologyNeeded, false);
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_CONSENSUAL = new DialogueNode("Post-sex", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "You've satisfied your lust for your [npc.daughter]... For now...";
@@ -2653,15 +2653,15 @@ public class HarpyNestOffspringDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_VICTORY = new DialogueNode("Step back", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Now that you've had your fun, you can step back and leave [npc.name] to recover.";
@@ -2675,7 +2675,7 @@ public class HarpyNestOffspringDialogue {
 							"<p>"
 								+ "As you step back from [npc.name], [npc.she] grabs on to the edge of the sofa and sinks to the floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 							+ "</p>");
-					
+
 				} else {
 					if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 						return UtilText.parse(offspring(),
@@ -2700,14 +2700,14 @@ public class HarpyNestOffspringDialogue {
 								+ "</p>");
 					}
 				}
-				
+
 			} else {
 				if(!offspring().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 					return UtilText.parse(offspring(),
 							"<p>"
 								+ "As you step back from [npc.name], [npc.she] sinks down to floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 							+ "</p>");
-					
+
 				} else {
 					if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 						return UtilText.parse(offspring(),
@@ -2744,7 +2744,7 @@ public class HarpyNestOffspringDialogue {
 						if(offspring().hasFlag(NPCFlagValue.fightOffspringInApartment)) {
 							if(!offspring().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 								Main.game.getTextStartStringBuilder().append(" Smirking down at your [npc.daughter] one last time, you turn around and walk over to the door, before pulling it open and heading back out into the nests.");
-								
+
 							} else {
 								if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 									Main.game.getTextStartStringBuilder().append("Leaving [npc.herHim] to recover by [npc.herself], you turn around and walk over to the door, before pulling it open and heading back out into the nests.");
@@ -2753,12 +2753,12 @@ public class HarpyNestOffspringDialogue {
 												+ " Turning around and walking over to the door, you pull it open and head back out into the nests.");
 								}
 							}
-							
+
 						} else {
 							if(!offspring().isAttractedTo(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
 								Main.game.getTextStartStringBuilder().append("As you step back from [npc.name], [npc.she] sinks down to floor, letting out a thankful sob as [npc.she] realizes that you've finished."
 											+ " Smirking down at your [npc.daughter] one last time, you turn around and take your leave, feeling thoroughly satisfied as you continue on your journey through the nests.");
-								
+
 							} else {
 								if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 									Main.game.getTextStartStringBuilder().append("Leaving [npc.herHim] to recover by [npc.herself], you set off and continue on your journey through the nests.");
@@ -2777,7 +2777,7 @@ public class HarpyNestOffspringDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Inventory", "There's nothing stopping you from helping yourself to [npc.namePos] clothing and items..."){
 					@Override
@@ -2785,7 +2785,7 @@ public class HarpyNestOffspringDialogue {
 						Main.mainController.openInventory(Main.game.getActiveNPC(), InventoryInteraction.FULL_MANAGEMENT);
 					}
 				};
-				
+
 			} else if (index == 10 && Main.game.getPlayer().getLocationPlace().getPlaceType() == PlaceType.DOMINION_BACK_ALLEYS) {
 				return new Response(
 						"Remove character",
@@ -2812,7 +2812,7 @@ public class HarpyNestOffspringDialogue {
 									+ "<p>"
 										+ "With that, [npc.sheIs] gone, and you're left with little else to do but set off into the nests once again..."
 									+ "</p>");
-							
+
 						} else {
 							Main.game.getTextStartStringBuilder().append(
 									"<p>"
@@ -2828,25 +2828,25 @@ public class HarpyNestOffspringDialogue {
 									+ "<p>"
 										+ "With that, [npc.sheIs] gone, and you're left with little else to do but set off into the nests once again..."
 									+ "</p>");
-							
+
 						}
 						Main.game.banishNPC(offspring());
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_DEFEAT = new DialogueNode("Collapse", "", true) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 15;
 		}
-		
+
 		@Override
 		public String getDescription(){
 			return "You're completely worn out from [npc.namePos] dominant treatment, and need a while to recover.";
@@ -2901,15 +2901,15 @@ public class HarpyNestOffspringDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENSLAVEMENT_DIALOGUE = new DialogueNode("New Slave", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return ".";
@@ -2977,7 +2977,7 @@ public class HarpyNestOffspringDialogue {
 						Main.game.getActiveNPC().setLocation(WorldType.SLAVER_ALLEY, PlaceType.SLAVER_ALLEY_SLAVERY_ADMINISTRATION, true);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

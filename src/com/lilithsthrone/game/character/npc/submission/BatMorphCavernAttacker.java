@@ -40,15 +40,15 @@ public class BatMorphCavernAttacker extends NPC {
 	public BatMorphCavernAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
-	
+
 	public BatMorphCavernAttacker(Gender gender) {
 		this(gender, false);
 	}
-	
+
 	public BatMorphCavernAttacker(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, isImported);
 	}
-	
+
 	public BatMorphCavernAttacker(Gender gender, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -60,11 +60,11 @@ public class BatMorphCavernAttacker extends NPC {
 
 			// Set random level from 8 to 12:
 			setLevel(8 + Util.random.nextInt(5));
-			
+
 			// RACE & NAME:
-			
+
 			Subspecies species = Subspecies.BAT_MORPH;
-			
+
 			if(gender.isFeminine()) {
 				switch(Main.getProperties().getSubspeciesFeminineFurryPreferencesMap().get(species)) {
 					case MAXIMUM:
@@ -82,43 +82,43 @@ public class BatMorphCavernAttacker extends NPC {
 						break;
 				}
 			}
-			
+
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
-	
+
 			setName(Name.getRandomTriplet(species.getRace()));
 			this.setPlayerKnowsName(false);
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, true);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 			CharacterUtils.generateItemsInInventory(this);
-	
+
 			equipClothing(true, true, true, true);
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -133,12 +133,12 @@ public class BatMorphCavernAttacker extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		if(this.isSlave()) {
@@ -149,7 +149,7 @@ public class BatMorphCavernAttacker extends NPC {
 					"[npc.Name] is a resident of the bat caverns, and enjoys nothing more than attacking innocent travelers that pass by [npc.her] roost."));
 		}
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
@@ -161,24 +161,24 @@ public class BatMorphCavernAttacker extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		if(this.getBodyMaterial()==BodyMaterial.SLIME) {
 			return BatCavernSlimeAttackerDialogue.SLIME_ATTACK;
-			
+
 		} if(this.getRace()==Race.BAT_MORPH) {
 			return BatCavernBatAttackerDialogue.BAT_MORPH_ATTACK;
-			
+
 		} else {
 			return BatCavernAttackerDialogue.ATTACK;
 		}
@@ -194,14 +194,14 @@ public class BatMorphCavernAttacker extends NPC {
 			} else {
 				return new Response ("", "", BatCavernSlimeAttackerDialogue.AFTER_COMBAT_DEFEAT);
 			}
-			
+
 		} if(this.getRace()==Race.BAT_MORPH) {
 			if (victory) {
 				return new Response("", "", BatCavernBatAttackerDialogue.AFTER_COMBAT_VICTORY);
 			} else {
 				return new Response ("", "", BatCavernBatAttackerDialogue.AFTER_COMBAT_DEFEAT);
 			}
-			
+
 		} else {
 			if (victory) {
 				return new Response("", "", TunnelAttackDialogue.AFTER_COMBAT_VICTORY);

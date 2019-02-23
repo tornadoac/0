@@ -4,7 +4,7 @@ import com.lilithsthrone.utils.Color;
 
 /**
  * Measured in inches.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.83
  * @author Innoxia
@@ -49,7 +49,7 @@ public enum HairLength {
 	public int getMedianValue() {
 		return minimumValue + (maximumValue - minimumValue) / 2;
 	}
-	
+
 	public static HairLength getShorter(int currentHairLength){
 		if (currentHairLength <= ZERO_BALD.maximumValue)
 			return ZERO_BALD;
@@ -68,7 +68,7 @@ public enum HairLength {
 		else
 			return SIX_BELOW_ASS;
 	}
-	
+
 	public static HairLength getLonger(int currentHairLength){
 		if (currentHairLength <= ZERO_BALD.maximumValue)
 			return ONE_VERY_SHORT;

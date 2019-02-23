@@ -6,12 +6,12 @@ package com.lilithsthrone.game.character.body.valueEnums;
  * @author Innoxia
  */
 public enum OrificeModifier {
-	
+
 	PUFFY("puffy"),
 	RIBBED("internally-ribbed"),
 	TENTACLED("tentacled"),
 	MUSCLE_CONTROL("internally-muscled");
-	
+
 	private String descriptor;
 
 	private OrificeModifier(String descriptor) {

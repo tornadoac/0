@@ -27,7 +27,7 @@ public class TongueNipple {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.TONGUE, SexAreaOrifice.NIPPLE)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Suckle";
@@ -47,7 +47,7 @@ public class TongueNipple {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -72,7 +72,7 @@ public class TongueNipple {
 				default:
 					break;
 			}
-			
+
 			switch (Sex.getCharacterTargetedForSexAction(this).getBreastStoredMilk()) {
 				case ZERO_NONE:
 					UtilText.nodeContentSB.append("You [npc2.verb(feel)] no [npc2.milk+] coming from [npc2.namePos] [npc2.breasts+],"); //Shouldn't be able to be reached
@@ -100,7 +100,7 @@ public class TongueNipple {
 							" [npc.Name] quickly [npc.verb(get)] a taste of [npc2.her] [npc2.milk+] as it gushes out into [npc.her] mouth,"));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -129,10 +129,10 @@ public class TongueNipple {
 							" and, desperately trying to push [npc.namePos] head away from [npc2.her] [npc2.breast+], [npc2.name] [npc2.verb(plead)] with [npc.herHim] to leave [npc2.herHim] alone."));
 					break;
 			}
-		
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Sex.getCharacterPerformingAction().ingestFluid(
@@ -143,7 +143,7 @@ public class TongueNipple {
 					+ Sex.getCharacterTargetedForSexAction(this).incrementBreastStoredMilk(-Sex.getCharacterTargetedForSexAction(this).getBreastRawMilkStorageValue()/5);
 		}
 	};
-	
+
 	public static final SexAction BREASTFEED = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION_AND_EXPOSED,
 			ArousalIncrease.TWO_LOW,
@@ -151,7 +151,7 @@ public class TongueNipple {
 			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.NIPPLE, SexAreaPenetration.TONGUE)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Breastfeed";
@@ -171,7 +171,7 @@ public class TongueNipple {
 		@Override
 		public String getDescription() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -202,7 +202,7 @@ public class TongueNipple {
 				default:
 					break;
 			}
-			
+
 			switch (Sex.getCharacterPerformingAction().getBreastStoredMilk()) {
 				case ZERO_NONE:
 					UtilText.nodeContentSB.append("[npc.Name] [npc.verb(feel)] no [npc.milk+] coming from [npc.namePos] [npc.breasts+],"); //Shouldn't be able to be reached
@@ -230,7 +230,7 @@ public class TongueNipple {
 							" [npc2.Name] quickly [npc2.verb(get)] a taste of [npc.her] [npc.milk+] as it gushes out into [npc2.her] mouth,"));
 					break;
 			}
-			
+
 			switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 				case DOM_GENTLE:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -259,10 +259,10 @@ public class TongueNipple {
 							" and, desperately trying to pull away from [npc.namePos] [npc.breasts+], [npc2.she] [npc2.verb(plead)] with [npc.herHim] to leave [npc2.herHim] alone."));
 					break;
 			}
-		
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Sex.getCharacterTargetedForSexAction(this).ingestFluid(
@@ -272,6 +272,6 @@ public class TongueNipple {
 					Sex.getCharacterPerformingAction().getBreastRawMilkStorageValue()/5)
 				+ Sex.getCharacterPerformingAction().incrementBreastStoredMilk(-Sex.getCharacterPerformingAction().getBreastRawMilkStorageValue()/5);
 		}
-		
+
 	};
 }

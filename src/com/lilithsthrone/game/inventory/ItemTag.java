@@ -14,7 +14,7 @@ public enum ItemTag {
 	REMOVE_FROM_DEBUG_SPAWNER(false),
 
 	NOT_FOR_SALE(false),
-	
+
 	REINDEER_GIFT(false), // Can be found in the presents that the reindeer sell (who appear in DOminion during winter months).
 	SOLD_BY_RALPH(false), // Will also be used for any future consumable and miscellaneous item vendors.
 	SOLD_BY_NYAN(false), // Clothing
@@ -28,12 +28,12 @@ public enum ItemTag {
 	ATTRIBUTE_TF_ITEM(false),
 	RACIAL_TF_ITEM(false),
 	MISC_TF_ITEM(false),
-	BOOK(false), 
+	BOOK(false),
 	GIFT(false),
 	DOMINION_ALLEYWAY_SPAWN(false),
 	SUBMISSION_TUNNEL_SPAWN(false),
 	BAT_CAVERNS_SPAWN(false),
-	
+
 	//-------------- WEAPONS & CLOTHING --------------//
 
 	REVEALS_CONCEALABLE_SLOT(false), // If a piece of clothing has this tag, it will always be visible, even if another item of clothing is concealing its slot. (Used for spreader bar.)
@@ -42,9 +42,9 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colorSex(Cannot conceal any body parts)]"),
 			false),
-	
+
 	WEAPON_BLADE(false), // Should be added to all weapons that use an arcane blade
-	
+
 	DRESS(false), // For helping to generate clothing in CharacterUtils
 
 	SPREADS_FEET( // Prevents double foot actions, like wrap-around footjobs
@@ -78,7 +78,7 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colorSex(Sex-equip enabled)]"),
 			false),
-	
+
 	// Self-explanatory requirements in order to equip this clothing:
 	REQUIRES_PENIS(
 			Util.newArrayListOfValues(
@@ -100,7 +100,7 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colorSex(Requires fuckable nipples)]"),
 			false),
-	
+
 	// These 'FITS' tags are used to check for whether clothing is suitable for certain body parts. They should be pretty self-explanatory.
 	FITS_HOOFS(
 			Util.newArrayListOfValues(
@@ -134,7 +134,7 @@ public enum ItemTag {
 	FITS_CEPHALOPOD_BODY(
 			Util.newArrayListOfValues(
 					"[style.colorBestial(Only fits cephalopod bodies)]"),false), //octopuses and squids
-	
+
 	PREVENTS_ERECTION_PHYSICAL( // Prevents the wearer from getting an erection during sex, by means of physically limiting the space into which the erection could take shape (i.e. chastity cages). As of 0.3.1, only affects descriptors.
 			Util.newArrayListOfValues(
 					"[style.colorTerrible(Prevents erection)]"),
@@ -143,14 +143,14 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colorTerrible(Prevents erection)]"),
 			false),
-	
+
 	// Sex-related clothing:
 
 	/**<b>IMPORTANT</b> This tag should only ever be given to clothing going into the PENIS InventorySlot, as otherwise it will throw errors.*/
 	CONDOM(true), // Gives this clothing condom behavior
-	
+
 	// To detect whether creampies should leak out or not:
-	
+
 	PLUGS_ANUS( // Counts as being inserted into the wearer's anus. E.g. butt plugs or anal beads
 			Util.newArrayListOfValues(
 					"[style.colorSex(Plugs asshole)]"),
@@ -159,7 +159,7 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colorSex(Seals asshole)]"),
 			true),
-	
+
 	PLUGS_VAGINA( // Counts as being inserted into the wearer's vagina. E.g. insertable dildo
 			Util.newArrayListOfValues(
 					"[style.colorSex(Plugs pussy)]"),
@@ -168,7 +168,7 @@ public enum ItemTag {
 			Util.newArrayListOfValues(
 					"[style.colorSex(Seals pussy)]"),
 			true),
-	
+
 	PLUGS_NIPPLES( // Counts as being inserted into the wearer's nipples. E.g. insertable nipple-dildos
 			Util.newArrayListOfValues(
 					"[style.colorSex(Plugs nipples)]"),
@@ -234,5 +234,5 @@ public enum ItemTag {
 	public boolean isSexToy() {
 		return sexToy;
 	}
-	
+
 }

@@ -14,11 +14,11 @@ import com.lilithsthrone.utils.Util;
  * @author Innoxia
  */
 public class Covering  {
-	
+
 	protected BodyCoveringType type;
 	protected CoveringPattern pattern;
 	protected CoveringModifier modifier;
-	
+
 	protected Color primaryColor, secondaryColor;
 	protected boolean primaryGlowing, secondaryGlowing;
 
@@ -34,7 +34,7 @@ public class Covering  {
 						?type.getNaturalColorsPrimary().get(Util.random.nextInt(type.getNaturalColorsPrimary().size()))
 						:type.getNaturalColorsSecondary().get(Util.random.nextInt(type.getNaturalColorsSecondary().size()))), false);
 	}
-	
+
 	/**
 	 * Constructor.<br/>
 	 * Initializes CoveringPattern pattern to the first value, boolean glowing to false, and secondaryColor to same as primaryColor (where available).
@@ -48,7 +48,7 @@ public class Covering  {
 						?primaryColor
 						:type.getNaturalColorsSecondary().get(Util.random.nextInt(type.getNaturalColorsSecondary().size()))), false);
 	}
-	
+
 	/**
 	 * Constructor.
 	 * @param type The BodyCoveringType to set this skin to.
@@ -58,7 +58,7 @@ public class Covering  {
 	public Covering(BodyCoveringType type, CoveringPattern pattern, Color primaryColor, boolean primaryGlowing, Color secondaryColor, boolean secondaryGlowing) {
 		this(type, pattern, type.getNaturalModifiers().get(0), primaryColor, primaryGlowing, secondaryColor, secondaryGlowing);
 	}
-	
+
 	public Covering(BodyCoveringType type, CoveringPattern pattern, CoveringModifier modifier, Color primaryColor, boolean primaryGlowing, Color secondaryColor, boolean secondaryGlowing) {
 		this.type = type;
 		this.pattern = pattern;
@@ -68,7 +68,7 @@ public class Covering  {
 		this.secondaryColor = secondaryColor;
 		this.secondaryGlowing = secondaryGlowing;
 	}
-	
+
 	public Covering(Covering coveringToClone) {
 		this.type = coveringToClone.getType();
 		this.pattern = coveringToClone.getPattern();
@@ -78,7 +78,7 @@ public class Covering  {
 		this.secondaryColor = coveringToClone.getSecondaryColor();
 		this.secondaryGlowing = coveringToClone.isSecondaryGlowing();
 	}
-	
+
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
 	}
@@ -86,7 +86,7 @@ public class Covering  {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 //	public String getName(GameCharacter gc, boolean withDescriptor) {
 //		return (getDescriptor(gc).length() > 0 ? getDescriptor(gc) + " " : "") + getName(gc);
 //	}
@@ -102,7 +102,7 @@ public class Covering  {
 	public String getDescriptor(GameCharacter gc) {
 		return modifier.getName();
 	}
-	
+
 	public String getColorDescriptor(GameCharacter gc, boolean colored, boolean capitalized) {
 		String primaryColorName = capitalized?Util.capitalizeSentence(primaryColor.getName()):primaryColor.getName();
 		String secondaryColorName = capitalized?Util.capitalizeSentence(secondaryColor.getName()):secondaryColor.getName();
@@ -166,7 +166,7 @@ public class Covering  {
 						+(secondaryGlowing?spanStartGlowing(secondaryColor)+getGlowingDescriptor()+" ":"<span style='color:"+secondaryColor.toWebHexString()+";'>")+secondaryColorName+"</span>";
 			}
 			return (primaryGlowing?spanStartGlowing(primaryColor)+getGlowingDescriptor()+" ":"<span style='color:"+primaryColor.toWebHexString()+";'>")+primaryColorName+"</span>";
-		
+
 		} else {
 			switch(pattern) {
 				case HIGHLIGHTS:
@@ -209,25 +209,25 @@ public class Covering  {
 			return (primaryGlowing?getGlowingDescriptor()+" ":"")+primaryColorName;
 		}
 	}
-	
+
 	public String getPrimaryColorDescriptor(boolean colored) {
 		if(colored) {
 			return (primaryGlowing?spanStartGlowing(primaryColor)+getGlowingDescriptor()+" ":"<span style='color:"+primaryColor.toWebHexString()+";'>")+primaryColor.getName()+"</span>";
-		
+
 		} else {
 			return (primaryGlowing?getGlowingDescriptor()+" ":"")+primaryColor.getName();
 		}
 	}
-	
+
 	public String getSecondaryColorDescriptor(boolean colored) {
 		if(colored) {
 			return (secondaryGlowing?spanStartGlowing(secondaryColor)+getGlowingDescriptor()+" ":"<span style='color:"+secondaryColor.toWebHexString()+";'>")+secondaryColor.getName()+"</span>";
-		
+
 		} else {
 			return (secondaryGlowing?getGlowingDescriptor()+" ":"")+secondaryColor.getName();
 		}
 	}
-	
+
 	/**
 	 * @return A full description of this covering. e.g. "glowing black, wolf-like fur, with luminescent purple stripes" or "black, shaggy fur"
 	 */
@@ -235,7 +235,7 @@ public class Covering  {
 		//text-shadow: 0px 0px 4px #FF0000;
 		String descriptor = modifier.getName();
 		String name = type.getName(gc);
-		
+
 //		if(gc.getRace()==Race.SLIME) {
 //			if(this.getType()!=BodyCoveringType.SLIME) {
 //				return gc.getCovering(BodyCoveringType.SLIME).getFullDescription(gc, colored);
@@ -304,9 +304,9 @@ public class Covering  {
 				case EYE_SCLERA_HETEROCHROMATIC:
 					return "heterochromatic "+(primaryGlowing?spanStartGlowing(primaryColor)+getGlowingDescriptor()+" ":"<span style='color:"+primaryColor.toWebHexString()+";'>")+primaryColor.getName()+"</span> and "
 						+(secondaryGlowing?spanStartGlowing(secondaryColor)+getGlowingDescriptor()+" ":"<span style='color:"+secondaryColor.toWebHexString()+";'>")+secondaryColor.getName()+"</span> sclerae";
-			
+
 			}
-			
+
 		} else {
 			switch(pattern) {
 				case HIGHLIGHTS:
@@ -359,15 +359,15 @@ public class Covering  {
 		}
 		return (primaryGlowing?getGlowingDescriptor()+" ":"")+primaryColor.getName();
 	}
-	
+
 	private String spanStartGlowing(Color color) {
 		return "<span style='color:"+color.toWebHexString()+"; text-shadow: 0px 0px 4px "+color.getShades()[4]+";'>";
 	}
-	
+
 	private String getGlowingDescriptor() {
 		return UtilText.returnStringAtRandom("glowing", "luminescent", "luminous", "fluorescent");
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 //		if(super.equals(o)){
@@ -385,7 +385,7 @@ public class Covering  {
 //		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();

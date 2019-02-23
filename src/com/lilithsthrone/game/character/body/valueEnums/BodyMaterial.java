@@ -33,17 +33,17 @@ public enum BodyMaterial {
 			true,
 			false,
 			true),
-	
+
 	SLIME("slime", Color.RACE_SLIME, DamageType.PHYSICAL, false, true, false),
 
 	// Fire elementals:
-	
+
 	FIRE("fire", "burning", Color.BASE_ORANGE, DamageType.FIRE, false, false, false),
 
 	// Water elementals:
 
 	WATER("water", "cool", Color.BASE_AQUA, DamageType.ICE, false, true, false),
-	
+
 	ICE("ice", "freezing", Color.BASE_BLUE_LIGHT, DamageType.ICE, true, true, true),
 
 	// Air elementals:
@@ -51,13 +51,13 @@ public enum BodyMaterial {
 	AIR("storm-clouds", "swirling", Color.BASE_BLUE_STEEL, DamageType.POISON, false, false, false),
 
 	// Earth elementals:
-	
+
 	STONE("stone", "hard", Color.BASE_GREY, DamageType.PHYSICAL, true, false, true),
-	
+
 	RUBBER("rubber", Color.BASE_BLACK, DamageType.PHYSICAL, true, false, true),
-	
+
 	// Arcane elementals:
-	
+
 	ARCANE("energy", Color.GENERIC_ARCANE, DamageType.PHYSICAL, false, false, false),
 	;
 
@@ -66,18 +66,18 @@ public enum BodyMaterial {
 	private String skinAltNoun; private String skinAltAdj;
 	private String orificeNoun; private String orificeAdj;
 	private String orificeAltNoun; private String orificeAltAdj;
-	private	String hairNoun; private String hairAdj;
-	private	String hairBodyNoun; private String hairBodyAdj;
+	private String hairNoun; private String hairAdj;
+	private String hairBodyNoun; private String hairBodyAdj;
 	private String hairAltNoun; private String hairAltAdj;
-	private	String furNoun; private String furAdj;
+	private String furNoun; private String furAdj;
 	private String furAltNoun; private String furAltAdj;
-	private	String featherNoun; private String featherAdj;
+	private String featherNoun; private String featherAdj;
 	private String featherAltNoun; private String featherAltAdj;
-	private	String scaleNoun; private String scaleAdj;
+	private String scaleNoun; private String scaleAdj;
 	private String scaleAltNoun; private String scaleAltAdj;
-	private	String shellNoun; private String shellAdj;
+	private String shellNoun; private String shellAdj;
 	private String shellAltNoun; private String shellAltAdj;
-	private	String keratinNoun; private String keratinAdj;
+	private String keratinNoun; private String keratinAdj;
 	private String keratinAltNoun; private String keratinAltAdj;
 	private Color color;
 	private DamageType unarmedDamageType;
@@ -243,31 +243,31 @@ public enum BodyMaterial {
 	public String getSkinNoun() {
 		return skinNoun;
 	}
-	
+
 	public String getSkinAdj() {
 		return skinAdj;
 	}
-	
+
 	public String getSkinAltNoun() {
 		return skinAltNoun;
 	}
-	
+
 	public String getSkinAltAdj() {
 		return skinAltAdj;
 	}
-	
+
 	public String getOrificeNoun() {
 		return orificeNoun;
 	}
-	
+
 	public String getOrificeAdj() {
 		return orificeAdj;
 	}
-	
+
 	public String getOrificeAltNoun() {
 		return orificeAltNoun;
 	}
-	
+
 	public String getOrificeAltAdj() {
 		return orificeAltAdj;
 	}
@@ -275,103 +275,103 @@ public enum BodyMaterial {
 	public String getHairNoun() {
 		return hairNoun;
 	}
-	
+
 	public String getHairAdj() {
 		return hairAdj;
 	}
-	
+
 	public String getHairBodyNoun() {
 		return hairBodyNoun;
 	}
-	
+
 	public String getHairBodyAdj() {
 		return hairBodyAdj;
 	}
-	
+
 	public String getHairAltNoun() {
 		return hairAltNoun;
 	}
-	
+
 	public String getHairAltAdj() {
 		return hairAltAdj;
 	}
-	
+
 	public String getFurNoun() {
 		return furNoun;
 	}
-	
+
 	public String getFurAdj() {
 		return furAdj;
 	}
-	
+
 	public String getFurAltNoun() {
 		return furAltNoun;
 	}
-	
+
 	public String getFurAltAdj() {
 		return furAltAdj;
 	}
-	
+
 	public String getFeatherNoun() {
 		return featherNoun;
 	}
-	
+
 	public String getFeatherAdj() {
 		return featherAdj;
 	}
-	
+
 	public String getFeatherAltNoun() {
 		return featherAltNoun;
 	}
-	
+
 	public String getFeatherAltAdj() {
 		return featherAltAdj;
 	}
-	
+
 	public String getScaleNoun() {
 		return scaleNoun;
 	}
-	
+
 	public String getScaleAdj() {
 		return scaleAdj;
 	}
-	
+
 	public String getScaleAltNoun() {
 		return scaleAltNoun;
 	}
-	
+
 	public String getScaleAltAdj() {
 		return scaleAltAdj;
 	}
-	
+
 	public String getShellNoun() {
 		return shellNoun;
 	}
-	
+
 	public String getShellAdj() {
 		return shellAdj;
 	}
-	
+
 	public String getShellAltNoun() {
 		return shellAltNoun;
 	}
-	
+
 	public String getShellAltAdj() {
 		return shellAltAdj;
 	}
-	
+
 	public String getKeratinNoun() {
 		return keratinNoun;
 	}
-	
+
 	public String getKeratinAdj() {
 		return keratinAdj;
 	}
-	
+
 	public String getKeratinAltNoun() {
 		return keratinAltNoun;
 	}
-	
+
 	public String getKeratinAltAdj() {
 		return keratinAltAdj;
 	}

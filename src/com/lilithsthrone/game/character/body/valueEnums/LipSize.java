@@ -14,7 +14,7 @@ public enum LipSize {
 	TWO_FULL(2, "full", Color.GENERIC_SIZE_THREE),
 	THREE_PLUMP(3, "plump", Color.GENERIC_SIZE_FOUR),
 	FOUR_HUGE(4, "huge", Color.GENERIC_SIZE_FIVE);
-	
+
 	private int value;
 	private String descriptor;
 	private Color color;
@@ -32,7 +32,7 @@ public enum LipSize {
 	public String getName() {
 		return descriptor;
 	}
-	
+
 	public static LipSize getLipSizeFromInt(int inches) {
 		for(LipSize ls : LipSize.values()) {
 			if(inches == ls.getValue()) {
@@ -41,7 +41,7 @@ public enum LipSize {
 		}
 		return ZERO_THIN;
 	}
-	
+
 	public static int getLargest() {
 		int largest = ZERO_THIN.value;
 		for(LipSize ls : LipSize.values()) {

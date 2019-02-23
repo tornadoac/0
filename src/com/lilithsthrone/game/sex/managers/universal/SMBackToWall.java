@@ -19,5 +19,5 @@ public class SMBackToWall extends SexManagerDefault {
 				dominants,
 				submissives);
 	}
-	
+
 }

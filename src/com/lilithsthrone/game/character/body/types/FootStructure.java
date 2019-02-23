@@ -6,7 +6,7 @@ package com.lilithsthrone.game.character.body.types;
  * @author Innoxia
  */
 public enum FootStructure {
-	
+
 	/**walk with feet flat on the ground*/
 	PLANTIGRADE("plantigrade", "[npc.She] [npc.verb(walk)] with [npc.her] feet flat on the ground."),
 
@@ -15,7 +15,7 @@ public enum FootStructure {
 
 	/**walk on hoof with the rest of the foot permanently raised*/
 	UNGULIGRADE("unguligrade", "[npc.She] [npc.verb(walk)] on [npc.her] [npc.toes], with the rest of [npc.her] foot being permanently raised.");
-	
+
 	private String name;
 	private String description;
 

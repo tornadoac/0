@@ -6,11 +6,11 @@ package com.lilithsthrone.game.dialogue;
  * @author Innoxia
  */
 public enum DialogueFlagValue {
-	
+
 	quickTrade,
 	stormTextUpdateRequired,
 	hasSnowedThisWinter,
-	
+
 	// Essence reactions:
 	jinxedClothingDiscovered,
 	essencePostCombatDiscovered,
@@ -21,12 +21,12 @@ public enum DialogueFlagValue {
 	foundHappiness,
 	visitedSubmission,
 	mommyFound,
-	
+
 	// Gym:
 	gymIntroduced,
 	gymHadTour,
 	gymIsMember,
-	
+
 	// Introductions:
 	angelIntroduced,
 	angelsOfficeIntroduced,
@@ -42,10 +42,10 @@ public enum DialogueFlagValue {
 	axelIntroduced,
 	eponaIntroduced,
 	elizabethIntroduced,
-	
+
 	// Red-light district:
 	prostitutionLicenseObtained,
-	
+
 	// Shopping arcade:
 	nyanTalkedTo,
 	nyanComplimented,
@@ -54,16 +54,16 @@ public enum DialogueFlagValue {
 	nyanMakeOut,
 	nyanSex,
 	nyanGift,
-	
+
 	supplierDepotDoorUnlocked,
 	suppliersEncountered,
 	suppliersTriedConvincing,
-	
+
 	ashleySexToysDiscovered,
 	ashleyAttitude,
-	
+
 	reactedToKatePregnancy,
-	
+
 	// Lilaya's Home:
 	knowsDate,
 	lilayaDateTalk,
@@ -76,19 +76,19 @@ public enum DialogueFlagValue {
 	essenceExtractionKnown,
 	roseToldOnYou,
 	lilayaReactedToPlayerAsDemon,
-	
+
 	readBook1,
 	readBook2,
 	readBook3,
 	readBook4,
-	
+
 	arthursRoomInstalled,
 	arthursPackageObtained,
-	
+
 	givenLilayaPresent1,
 	givenLilayaPresent2,
 	givenLilayaPresent3,
-	
+
 	// Brax:
 	braxEncountered,
 	accessToEnforcerHQ,
@@ -97,7 +97,7 @@ public enum DialogueFlagValue {
 	seenBraxAfterQuest,
 	feminizedBrax,
 	bimbofiedBrax,
-	
+
 	// Harpy Nests:
 	hasHarpyNestAccess,
 	bimboEncountered,
@@ -107,31 +107,31 @@ public enum DialogueFlagValue {
 	nymphoEncountered,
 	nymphoPacified,
 	punishedByAlexa,
-	
+
 	// Slaver Alley:
 	finchIntroduced,
 	statueTruthRevealed,
-	
+
 	// Zaranix:
 	zaranixDiscoveredHome,
 	zaranixMaidsHostile,
 	zaranixKnockedOnDoor,
 	zaranixKickedDownDoor,
-	
+
 	zaranixAmberSubdued,
 	zaranixKatherineSubdued,
 	zaranixKellySubdued,
-	
+
 	amberRepeatEncountered,
 	katherineRepeatEncountered,
 	kellyRepeatEncountered,
 	zaranixRepeatEncountered,
-	
+
 	// Lumi:
 	lumiMet,
 	lumiDisabled,
 	lumiPromisedDinner,
-	
+
 	// Slime Queen's Tower:
 	slimeGuardsIntroduced,
 	slimeGuardsBluffed,
@@ -141,13 +141,13 @@ public enum DialogueFlagValue {
 	slimeQueenHelped,
 	slimeQueenConvinced,
 	slimeQueenForced,
-	
+
 	// Gambling Den:
 	axelToldAboutVengar,
 	roxyAddicted,
 	playedPregnancyRouletteAsMother,
 	playedPregnancyRouletteAsBreeder,
-	
+
 	// Nightlife:
 	julesIntroduced,
 	suckedJulesCock,
@@ -155,7 +155,7 @@ public enum DialogueFlagValue {
 	kalahariIntroduced,
 	kalahariWantsSex,
 	krugerIntroduced,
-	
+
 	// Submission:
 	impCitadelEncountered,
 	impCitadelArcanistEncountered,
@@ -166,29 +166,29 @@ public enum DialogueFlagValue {
 	impCitadelPrisonerMale,
 	impCitadelPrisonerFemale,
 	impCitadelPrisonerAlpha,
-	
+
 	impFortressAlphaGuardsPacified,
 	impFortressAlphaBossEncountered,
 	impFortressAlphaPacified,
 	impFortressAlphaDefeated,
-	
+
 	impFortressFemalesGuardsPacified,
 	impFortressFemalesBossEncountered,
 	impFortressFemalesPacified,
 	impFortressFemalesDefeated,
-	
+
 	impFortressMalesGuardsPacified,
 	impFortressMalesBossEncountered,
 	impFortressMalesPacified,
 	impFortressMalesDefeated,
-	
+
 	impFortressDemonBossEncountered,
 	impFortressDemonDefeated,
 	impFortressDemonImpsDefeated,
-	
+
 	elizabethAskedAboutUniforms,
 	elizabethAskedAboutSurname,
-	
+
 	lyssiethQuestionAsked1,
 	lyssiethQuestionAsked2,
 	lyssiethQuestionAsked3,
@@ -196,6 +196,6 @@ public enum DialogueFlagValue {
 	lyssiethQuestionAsked5,
 
 	meraxisRepeatDemonTF,
-	
+
 	;
 }

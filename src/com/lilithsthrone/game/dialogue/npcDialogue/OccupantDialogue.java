@@ -33,18 +33,18 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class OccupantDialogue {
-	
+
 	private static NPC occupant() {
 		return Main.game.getActiveNPC();
 	}
-	
+
 	private static boolean hasJob() {
 		return occupant().hasJob();
 	}
-	
+
 	private static String getFooterText() {
 		StringBuilder sb = new StringBuilder();
-		
+
 		sb.append("<p style='text-align:center;'><i>");
 		AffectionLevel al = occupant().getAffectionLevel(Main.game.getPlayer());
 		switch(al) {
@@ -127,10 +127,10 @@ public class OccupantDialogue {
 				break;
 		}
 		sb.append("</i></p>");
-		
+
 		return UtilText.parse(occupant(), sb.toString());
 	}
-	
+
 	private static void applyReactionReset() {
 		if(occupant().isVisiblyPregnant()){
 			occupant().setCharacterReactedToPregnancy(Main.game.getPlayer(), true);
@@ -140,11 +140,11 @@ public class OccupantDialogue {
 		}
 		occupant().removeFlag(NPCFlagValue.occupantHasNewJob);
 	}
-	
+
 	//TODO most important: add hooks to dominion tiles and set active character
-	
+
 	public static final DialogueNode OCCUPANT_START = new DialogueNode("", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return Main.game.getPlayer().getLocationPlace().getName();
@@ -153,9 +153,9 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START", occupant()));
-			
+
 			if(occupant().isVisiblyPregnant()) {
 				if(!occupant().isCharacterReactedToPregnancy(Main.game.getPlayer())) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_PREGNANCY_REVEAL", occupant()));
@@ -163,7 +163,7 @@ public class OccupantDialogue {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_STILL_PREGNANT", occupant()));
 				}
 			}
-			
+
 			if(Main.game.getPlayer().isVisiblyPregnant()) {
 				if(!Main.game.getPlayer().isCharacterReactedToPregnancy(occupant())) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_PLAYER_PREGNANCY", occupant()));
@@ -171,19 +171,19 @@ public class OccupantDialogue {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_CONTINUED_PLAYER_PREGNANCY", occupant()));
 				}
 			}
-			
+
 			if(occupant().hasFlag(NPCFlagValue.occupantHasNewJob)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_FINISH_WITH_NEW_JOB", occupant()));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_START_FINISH", occupant()));
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
-		
+
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(index == 0) {
@@ -193,10 +193,10 @@ public class OccupantDialogue {
 			} else if(index == 2) {
 				return UtilText.parse("[style.colorCompanion(Manage)]");
 			}
-			
+
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(responseTab == 0) {
@@ -210,11 +210,11 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					} else {
 						return new Response("Life", "You've already talked with [npc.name] about [npc.her] past life today.", null);
 					}
-					
+
 				} else if (index == 2) {
 					if(!occupant().NPCFlagValues.contains(NPCFlagValue.occupantTalkJob)) {
 						return new Response(hasJob()?"Job":"Job hunt",
@@ -227,12 +227,12 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					} else {
 						return new Response("Job", UtilText.parse(occupant(),
 								hasJob()?"You've already asked [npc.name] about [npc.her] job today.":"You've already asked [npc.name] how [npc.her] job hunt is going today."), null);
 					}
-					
+
 				} else if (index == 3) {
 					if(!occupant().NPCFlagValues.contains(NPCFlagValue.occupantTalkLilaya)) {
 						return new Response("Lilaya", "Ask [npc.name] about [npc.her] interactions with Lilaya and Rose.", OCCUPANT_TALK_LILAYA) {
@@ -243,15 +243,15 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					} else {
 						return new Response("Lilaya", "You've already talked with [npc.name] about [npc.her] interactions with Lilaya and Rose today.", null);
 					}
-					
+
 				} else if (index == 4) {
 					if(Main.game.getPlayer().getSlavesOwned().size()==0) {
 						return new Response("Slaves", "You don't own any slaves, so there's nothing to discuss about this with [npc.name].", null);
-						
+
 					} else if(!occupant().NPCFlagValues.contains(NPCFlagValue.occupantTalkSlaves)) {
 						return new Response("Slaves", "Ask [npc.name] about [npc.her] interactions with your slaves.", OCCUPANT_TALK_SLAVES) {
 							@Override
@@ -261,18 +261,18 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					} else {
 						return new Response("Slaves", "You've already talked with [npc.name] about [npc.her] interactions with your slaves today.", null);
 					}
-					
+
 				} else if (index == 5) {
 					if(!Main.game.getPlayer().hasCompanion(occupant())) {
 						if(!occupant().isCompanionAvailable(Main.game.getPlayer())) {
 							return new Response("Add to party",
 									UtilText.parse(occupant(), "[npc.Name] cannot be added to your party!"),
 									null);
-								
+
 						} else if(Main.game.getPlayer().canHaveMoreCompanions()) {
 							return new Response("Add to party",
 									UtilText.parse(occupant(), "Ask [npc.name] if [npc.she] would like to accompany you for a while."),
@@ -288,7 +288,7 @@ public class OccupantDialogue {
 									"You are already at your party limit!",
 									null);
 						}
-						
+
 					} else {
 						return new Response("Remove from party",
 								"Command [npc.name] to leave your party.",
@@ -300,7 +300,7 @@ public class OccupantDialogue {
 							}
 						};
 					}
-					
+
 				} else if (index == 10) {
 					if(hasJob()) {
 						return new Response("Move out", "Tell [npc.name] that you think that [npc.her] idea of moving out would be good for [npc.herHim].<br/>"
@@ -312,7 +312,7 @@ public class OccupantDialogue {
 								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
 							}
 						};
-						
+
 					} else {
 						return new Response("Kick out", "Tell [npc.name] that you want [npc.herHim] to leave.<br/>"
 								+ "[style.italicsBad(Removes this character from the game.)]",
@@ -327,7 +327,7 @@ public class OccupantDialogue {
 							}
 						};
 					}
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 						@Override
@@ -336,20 +336,20 @@ public class OccupantDialogue {
 							Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-			
+
 			} else if(responseTab == 1) {
 				List<GameCharacter> companions = Main.game.getPlayer().getCompanions();
-				
+
 				if (index == 1) {
 					if(!occupant().isAttractedTo(Main.game.getPlayer())) {
 						return new Response("Sex", UtilText.parse(occupant(), "[npc.Name] is not attracted to you..."), null);
-						
+
 					} else {
-						return new ResponseSex("Sex", "Have sex with [npc.name].", 
+						return new ResponseSex("Sex", "Have sex with [npc.name].",
 								true, true,
 								new SMGeneric(
 										Util.newArrayListOfValues(Main.game.getPlayer()),
@@ -370,13 +370,13 @@ public class OccupantDialogue {
 							}
 						};
 					}
-					
+
 				} else if (index == 2) {
 					if(!occupant().isAttractedTo(Main.game.getPlayer())) {
 						return new Response("Submissive sex", "[npc.Name] is not too keen on having sex with you, so you'd need to be the dom...", null);
-						
+
 					} else {
-						return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
+						return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].",
 								Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 								true, true,
 								new SMGeneric(
@@ -396,14 +396,14 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					}
-					
+
 				} else if (index == 3) {
 					if(!companions.isEmpty()) {
 						if(!companions.get(0).isAttractedTo(Main.game.getPlayer()) && !occupant().isAttractedTo(Main.game.getPlayer())) {
 							return new Response("Spitroasted", UtilText.parse(companions.get(0), occupant(), "Neither [npc.name] nor [npc2.name] are attracted to you..."), null);
-							
+
 						} else {
 							return new ResponseSex("Spitroasted",
 									UtilText.parse(companions.get(0), occupant(), "Let [npc.name] and [npc2.name] spitroast you."),
@@ -428,16 +428,16 @@ public class OccupantDialogue {
 								}
 							};
 						}
-						
+
 					} else {
 						return new Response("Spitroasted", "You'd need to bring someone along with you in order to get spitroasted...", null);
 					}
-				
+
 				} else if (index == 4) {
 					if(!companions.isEmpty()) {
 						if(!companions.get(0).isAttractedTo(Main.game.getPlayer()) && !occupant().isAttractedTo(Main.game.getPlayer())) {
 							return new Response("Side-by-side", UtilText.parse(companions.get(0), occupant(), "Neither [npc.name] nor [npc2.name] are attracted to you..."), null);
-							
+
 						} else {
 							return new ResponseSex("Side-by-side",
 									UtilText.parse(companions.get(0), occupant(), "Push [npc1.name] and [npc2.name] down onto all fours and get ready to fuck them side-by-side."),
@@ -461,11 +461,11 @@ public class OccupantDialogue {
 								}
 							};
 						}
-						
+
 					} else {
 						return new Response("Side-by-side", UtilText.parse( occupant(), "You'd need to bring someone along with you in order to fuck both them and [npc.name] at once..."), null);
 					}
-				
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 						@Override
@@ -475,11 +475,11 @@ public class OccupantDialogue {
 							Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
 						}
 					};
-					
-				} else  {
+
+				} else {
 					return null;
 				}
-				
+
 			} else if(responseTab == 2) {
 				switch(index) {
 					case 1:
@@ -494,10 +494,10 @@ public class OccupantDialogue {
 						};
 					case 2:
 						return new Response("Job", "You cannot manage the job of a free-willed occupant. This option is only available for slaves.", null);
-						
+
 					case 3:
 						return new Response("Permissions", "You cannot manage the permissions of a free-willed occupant. This option is only available for slaves.", null);
-						
+
 					case 4:
 						return new ResponseEffectsOnly("Inventory",
 								UtilText.parse(occupant(), "As [npc.name] is indebted to you for having saved [npc.herHim] from a life of crime, [npc.she] will happily let you choose what [npc.she] wears.")) {
@@ -523,7 +523,7 @@ public class OccupantDialogue {
 						} else {
 							return new Response("Send to Kate", "You haven't met Kate yet!", null);
 						}
-						
+
 					case 6:
 						return new Response("Perks", "Assign [npc.namePos] perk points.", OccupantManagementDialogue.SLAVE_MANAGEMENT_PERKS){
 							@Override
@@ -532,11 +532,11 @@ public class OccupantDialogue {
 								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(occupant());
 							}
 						};
-						
+
 					case 7:
 						if(!occupant().isAbleToSelfTransform()) {
 							return new Response("Transformations", occupant().getUnableToTransformDescription(), null);
-							
+
 						} else {
 							return new Response("Transformations",
 									"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
@@ -549,10 +549,10 @@ public class OccupantDialogue {
 								}
 							};
 						}
-						
+
 					case 8:
 						return new Response("Pet name", "Ask [npc.name] to call you by a different name.", OCCUPANT_CHOOSE_NAME);
-						
+
 					case 0:
 						return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 							@Override
@@ -561,24 +561,24 @@ public class OccupantDialogue {
 								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
 							}
 						};
-								
+
 					default:
 						return null;
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_TALK_LIFE = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 10;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return "Talking with [npc.Name]";
@@ -587,12 +587,12 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			//TODO talk about life, family, friends, stories
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_LIFE", occupant()));
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -600,20 +600,20 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_START.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_START.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_TALK_JOB = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 10;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return "Talking with [npc.Name]";
@@ -622,16 +622,16 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			//TODO talk about either finding job, or job stories
 			if(hasJob()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_JOB", occupant()));
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_JOB_HUNTING", occupant()));
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -639,20 +639,20 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_START.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_START.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_TALK_LILAYA = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 10;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return "Talking with [npc.Name]";
@@ -661,12 +661,12 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			//TODO talk about Lilaya and Rose
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_LILAYA", occupant()));
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -674,20 +674,20 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_START.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_START.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_TALK_SLAVES = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 10;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return "Talking with [npc.Name]";
@@ -696,7 +696,7 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			String id = Util.randomItemFrom(Main.game.getPlayer().getSlavesOwned());
 			try {
 				NPC slave = (NPC) Main.game.getNPCById(id);
@@ -706,9 +706,9 @@ public class OccupantDialogue {
 				Util.logGetNpcByIdError("OCCUPANT_TALK_SLAVES.getContent()", id);
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_TALK_SLAVES_NULL_SLAVE", occupant()));
 			}
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -716,15 +716,15 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_START.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_START.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX = new DialogueNode("Finish", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Collapse down onto [npc.namePos] sofa and catch your breath.";
@@ -734,10 +734,10 @@ public class OccupantDialogue {
 		public String getContent() {
 			if(Sex.getAllParticipants().size()>2) {
 				return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "AFTER_SEX_THREESOME", occupant(), Main.game.getPlayer().getCompanions().get(0));
-				
+
 			} else if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 				return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "AFTER_SEX", occupant());
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "AFTER_SEX_NO_ORGASM", occupant());
 			}
@@ -752,15 +752,15 @@ public class OccupantDialogue {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "LEAVE_AFTER_SEX", occupant()));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_KICK_OUT = new DialogueNode("Kicking out", "", false) {
-		
+
 		@Override
 		public String getContent() {
 			return "";
@@ -771,14 +771,14 @@ public class OccupantDialogue {
 			return Main.game.getDefaultDialogue().getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_MOVE_OUT = new DialogueNode("Moving out", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 15;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_MOVE_OUT", occupant());
@@ -797,7 +797,7 @@ public class OccupantDialogue {
 						Main.game.getPlayer().setLocation(occupant().getWorldLocation(), occupant().getLocation(), false);
 					}
 				};
-				
+
 			} else if(index==10) {
 				return new Response("Remove character", "Tell [npc.name] that the [npc.she] should move on with [npc.her] life.<br/>"
 						+ "[style.italicsBad(Removes this character from the game.)]",
@@ -810,35 +810,35 @@ public class OccupantDialogue {
 						Main.game.banishNPC(occupant());
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_MOVE_OUT_APARTMENT = new DialogueNode("Moving out", "", true, true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 60;
 		}
-		
+
 		@Override
 		public String getLabel() {
 			return UtilText.parse(occupant(), "[npc.NamePos] apartment");
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_MOVE_OUT_APARTMENT", occupant());
 		}
-		
+
 		@Override
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_APARTMENT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_APARTMENT.getResponse(responseTab, index);
@@ -846,21 +846,21 @@ public class OccupantDialogue {
 	};
 
 	private static int sleepTimer = 240;
-	
+
 	public static final DialogueNode OCCUPANT_APARTMENT = new DialogueNode("Moving out", "", true) {
 
 		@Override
 		public String getLabel() {
 			return UtilText.parse(occupant(), "[npc.NamePos] Apartment");
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(occupant().isAtHome()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_START", occupant()));
-				
+
 				if(occupant().isVisiblyPregnant() && occupant().isCharacterPossiblyFather(Main.game.getPlayer().getId())) {
 					if(!occupant().isCharacterReactedToPregnancy(Main.game.getPlayer())) {
 						UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_START_PREGNANCY_REVEAL", occupant()));
@@ -868,7 +868,7 @@ public class OccupantDialogue {
 						UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_START_STILL_PREGNANT", occupant()));
 					}
 				}
-	
+
 				if(Main.game.getPlayer().isVisiblyPregnant() && Main.game.getPlayer().isCharacterPossiblyFather(occupant().getId())) {
 					if(!Main.game.getPlayer().isCharacterReactedToPregnancy(occupant())) {
 						UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_START_PLAYER_PREGNANCY", occupant()));
@@ -876,15 +876,15 @@ public class OccupantDialogue {
 						UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_START_CONTINUED_PLAYER_PREGNANCY", occupant()));
 					}
 				}
-				
+
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_START_FINISH", occupant()));
-				
+
 				UtilText.nodeContentSB.append(getFooterText());
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_NOT_AT_HOME", occupant()));
 			}
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -897,21 +897,21 @@ public class OccupantDialogue {
 			} else if(index == 2) {
 				return UtilText.parse("[style.colorCompanion(Manage)]");
 			}
-			
+
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(!occupant().isAtHome()) {
 				if (index == 1) {
 					return new Response("Leave", "As [npc.name] is not at home right now, there's nothing left to do but head back out into Dominion.", Main.game.getDefaultDialogue());
-					
+
 				} else {
 					return null;
 				}
 			}
-			
+
 			if(responseTab == 0) {
 				if (index == 1) {
 					if(!occupant().NPCFlagValues.contains(NPCFlagValue.occupantTalkLife)) {
@@ -923,11 +923,11 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					} else {
 						return new Response("Life", "You've already talked with [npc.name] about [npc.her] past life today.", null);
 					}
-					
+
 				} else if (index == 2) {
 					if(!occupant().NPCFlagValues.contains(NPCFlagValue.occupantTalkJob)) {
 						return new Response("Job",
@@ -940,18 +940,18 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					} else {
 						return new Response("Job", UtilText.parse(occupant(), "You've already asked [npc.name] about [npc.her] job today."), null);
 					}
-					
+
 				} else if (index == 3) {
 
 					int minutesPassed = (int) (Main.game.getMinutesPassed() % (24 * 60));
 					sleepTimer = (Main.game.isDayTime()
 							? (int) ((60 * 21) - minutesPassed)
 							: (int) ((60 * (minutesPassed<(60*7)?7:31)) - minutesPassed));
-					
+
 					return new Response("Rest until " + (Main.game.isDayTime() ? "Evening" : "Morning"),
 							"Ask [npc.name] if you can crash on [npc.her] sofa for " + (sleepTimer >= 60 ? sleepTimer / 60 + " hours " : " ")
 							+ (sleepTimer % 60 != 0 ? sleepTimer % 60 + " minutes" : "")
@@ -969,15 +969,15 @@ public class OccupantDialogue {
 							}
 						}
 					};
-					
+
 				} else if (index == 5) {
 					if(!Main.game.getPlayer().hasCompanion(occupant())) {
-						
+
 						if(!occupant().isCompanionAvailable(Main.game.getPlayer())) {
 							return new Response("Add to party",
 									UtilText.parse(occupant(), "[npc.Name] cannot be added to your party!"),
 									null);
-								
+
 						} else if(Main.game.getPlayer().canHaveMoreCompanions()) {
 							return new Response("Add to party",
 									UtilText.parse(occupant(), "Ask [npc.name] if [npc.she] would like to accompany you for a while."),
@@ -988,13 +988,13 @@ public class OccupantDialogue {
 									Main.game.getPlayer().addCompanion(occupant());
 								}
 							};
-							
+
 						} else {
 							return new Response("Add to party",
 									"You are already at your party limit!",
 									null);
 						}
-						
+
 					} else {
 						return new Response("Remove from party",
 								"Command [npc.name] to leave your party.",
@@ -1006,7 +1006,7 @@ public class OccupantDialogue {
 							}
 						};
 					}
-					
+
 				} else if (index == 10) {
 					return new Response("Remove Character", "Tell [npc.name] that you need to move on, and that you won't see [npc.herHim] ever again.<br/>"
 							+ "[style.italicsBad(This will remove [npc.name] from the game!)]",
@@ -1019,7 +1019,7 @@ public class OccupantDialogue {
 							Main.game.banishNPC(occupant());
 						}
 					};
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 						@Override
@@ -1027,20 +1027,20 @@ public class OccupantDialogue {
 							applyReactionReset();
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-			
+
 			} else if(responseTab == 1) {
 				List<GameCharacter> companions = Main.game.getPlayer().getCompanions();
-				
+
 				if (index == 1) {
 					if(!occupant().isAttractedTo(Main.game.getPlayer())) {
 						return new Response("Sex", UtilText.parse(occupant(), "[npc.Name] is not attracted to you..."), null);
-						
+
 					} else {
-						return new ResponseSex("Sex", "Have sex with [npc.name].", 
+						return new ResponseSex("Sex", "Have sex with [npc.name].",
 								true, true,
 								new SMGeneric(
 										Util.newArrayListOfValues(Main.game.getPlayer()),
@@ -1060,13 +1060,13 @@ public class OccupantDialogue {
 							}
 						};
 					}
-					
+
 				} else if (index == 2) {
 					if(!occupant().isAttractedTo(Main.game.getPlayer())) {
 						return new Response("Submissive sex", "[npc.Name] is not too keen on having sex with you, so you'd need to be the dom...", null);
-						
+
 					} else {
-						return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].", 
+						return new ResponseSex("Submissive sex", "Have submissive sex with [npc.name].",
 								Util.newArrayListOfValues(Fetish.FETISH_SUBMISSIVE), null, Fetish.FETISH_SUBMISSIVE.getAssociatedCorruptionLevel(), null, null, null,
 								true, true,
 								new SMGeneric(
@@ -1086,14 +1086,14 @@ public class OccupantDialogue {
 								Main.game.getTextEndStringBuilder().append(occupant().incrementAffection(Main.game.getPlayer(), 5));
 							}
 						};
-						
+
 					}
-					
+
 				} else if (index == 3) {
 					if(!companions.isEmpty()) {
 						if(!companions.get(0).isAttractedTo(Main.game.getPlayer()) && !occupant().isAttractedTo(Main.game.getPlayer())) {
 							return new Response("Spitroasted", UtilText.parse(companions.get(0), occupant(), "Neither [npc.name] nor [npc2.name] are attracted to you..."), null);
-							
+
 						} else {
 							return new ResponseSex("Spitroasted",
 									UtilText.parse(companions.get(0), occupant(), "Let [npc.name] and [npc2.name] spitroast you."),
@@ -1117,16 +1117,16 @@ public class OccupantDialogue {
 								}
 							};
 						}
-						
+
 					} else {
 						return new Response("Spitroasted", "You'd need to bring someone along with you in order to get spitroasted...", null);
 					}
-				
+
 				} else if (index == 4) {
 					if(!companions.isEmpty()) {
 						if(!companions.get(0).isAttractedTo(Main.game.getPlayer()) && !occupant().isAttractedTo(Main.game.getPlayer())) {
 							return new Response("Side-by-side", UtilText.parse(companions.get(0), occupant(), "Neither [npc.name] nor [npc2.name] are attracted to you..."), null);
-							
+
 						} else {
 							return new ResponseSex("Side-by-side",
 									UtilText.parse(companions.get(0), occupant(), "Push [npc1.name] and [npc2.name] down onto all fours and get ready to fuck them side-by-side."),
@@ -1150,11 +1150,11 @@ public class OccupantDialogue {
 								}
 							};
 						}
-						
+
 					} else {
 						return new Response("Side-by-side", UtilText.parse( occupant(), "You'd need to bring someone along with you in order to fuck both them and [npc.name] at once..."), null);
 					}
-				
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 						@Override
@@ -1163,11 +1163,11 @@ public class OccupantDialogue {
 							applyReactionReset();
 						}
 					};
-					
-				} else  {
+
+				} else {
 					return null;
 				}
-				
+
 			} else if(responseTab == 2) {
 				switch(index) {
 					case 1:
@@ -1182,10 +1182,10 @@ public class OccupantDialogue {
 						};
 					case 2:
 						return new Response("Job", "You cannot manage the job of a free-willed occupant. This option is only available for slaves.", null);
-						
+
 					case 3:
 						return new Response("Permissions", "You cannot manage the permissions of a free-willed occupant. This option is only available for slaves.", null);
-						
+
 					case 4:
 						return new ResponseEffectsOnly("Inventory",
 								UtilText.parse(occupant(), "As [npc.name] is indebted to you for having saved [npc.herHim] from a life of crime, [npc.she] will happily let you choose what [npc.she] wears.")) {
@@ -1211,7 +1211,7 @@ public class OccupantDialogue {
 						} else {
 							return new Response("Send to Kate", "You haven't met Kate yet!", null);
 						}
-						
+
 					case 6:
 						return new Response("Perks", "Assign [npc.namePos] perk points.", OccupantManagementDialogue.SLAVE_MANAGEMENT_PERKS){
 							@Override
@@ -1220,11 +1220,11 @@ public class OccupantDialogue {
 								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(occupant());
 							}
 						};
-						
+
 					case 7:
 						if(!occupant().isAbleToSelfTransform()) {
 							return new Response("Transformations", occupant().getUnableToTransformDescription(), null);
-							
+
 						} else {
 							return new Response("Transformations",
 									"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
@@ -1237,7 +1237,7 @@ public class OccupantDialogue {
 								}
 							};
 						}
-						
+
 					case 0:
 						return new Response("Leave", "Tell [npc.name] that you'll catch up with [npc.herHim] some other time.", Main.game.getDefaultDialogue()) {
 							@Override
@@ -1246,24 +1246,24 @@ public class OccupantDialogue {
 								Main.game.getDialogueFlags().setSlaveryManagerSlaveSelected(null);
 							}
 						};
-								
+
 					default:
 						return null;
 				}
-			
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_APARTMENT_TALK_LIFE = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 10;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return OCCUPANT_APARTMENT.getLabel();
@@ -1272,11 +1272,11 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_TALK_LIFE", occupant()));
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -1284,20 +1284,20 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_APARTMENT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_APARTMENT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_APARTMENT_TALK_JOB = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 10;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return OCCUPANT_APARTMENT.getLabel();
@@ -1306,11 +1306,11 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_TALK_JOB", occupant()));
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -1318,20 +1318,20 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_APARTMENT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return OCCUPANT_APARTMENT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_APARTMENT_SLEEP_OVER = new DialogueNode("", "", true) {
 
 		@Override
 		public int getMinutesPassed() {
 			return sleepTimer;
 		}
-		
+
 		@Override
 		public String getLabel(){
 			return OCCUPANT_APARTMENT.getLabel();
@@ -1340,25 +1340,25 @@ public class OccupantDialogue {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_SLEEP_OVER", occupant()));
-			
+
 			UtilText.nodeContentSB.append(getFooterText());
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Wake up", "You wake up some time later....", OCCUPANT_APARTMENT_SLEEP_OVER_WAKE_UP);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_APARTMENT_SLEEP_OVER_WAKE_UP = new DialogueNode("", "", true) {
 
 		@Override
@@ -1372,12 +1372,12 @@ public class OccupantDialogue {
 
 			if(!occupant().isAtHome()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_SLEEP_OVER_WAKE_UP_ALONE", occupant()));
-			
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "OCCUPANT_APARTMENT_SLEEP_OVER_WAKE_UP", occupant()));
 				UtilText.nodeContentSB.append(getFooterText());
 			}
-			
+
 			return UtilText.parse(occupant(), UtilText.nodeContentSB.toString());
 		}
 
@@ -1385,37 +1385,37 @@ public class OccupantDialogue {
 		public String getResponseTabTitle(int index) {
 			return OCCUPANT_APARTMENT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(!occupant().isAtHome()) {
 				if (index == 1) {
 					return new Response("Outside", "You find yourself back outside in the streets of Dominion.", Main.game.getDefaultDialogue());
-					
+
 				} else {
 					return null;
 				}
 			}
-			
+
 			return OCCUPANT_APARTMENT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode OCCUPANT_APARTMENT_REMOVE = new DialogueNode("", "", false) {
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return Main.game.getDefaultDialogue().getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode APARTMENT_AFTER_SEX = new DialogueNode("Finish", "", true) {
-		
+
 		@Override
 		public String getDescription(){
 			return "Collapse down onto [npc.namePos] sofa and catch your breath.";
@@ -1425,10 +1425,10 @@ public class OccupantDialogue {
 		public String getContent() {
 			if(Sex.getAllParticipants().size()>2) {
 				return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "APARTMENT_AFTER_SEX_THREESOME", occupant(), Main.game.getPlayer().getCompanions().get(0));
-				
+
 			} else if(Sex.getNumberOfOrgasms(Sex.getActivePartner()) >= 1) {
 				return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "APARTMENT_AFTER_SEX", occupant());
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "APARTMENT_AFTER_SEX_NO_ORGASM", occupant());
 			}
@@ -1443,29 +1443,29 @@ public class OccupantDialogue {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("misc/friendlyOccupantDialogue", "APARTMENT_LEAVE_AFTER_SEX", occupant()));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	// MANAGEMENT DIALOGUES:
-	
+
 	public static final DialogueNode OCCUPANT_CHOOSE_NAME = new DialogueNode("", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(
 					"<p>"
 						+ "You decide to ask [npc.name] to call you by a different name."
 						+ " At the moment, [npc.sheIs] calling you '[npc.pcName]'."
 					+ "</p>"
-					
+
 					// TODO align this properly
-					
+
 					+ "<div class='container-full-width' style='text-align:center;'>"
 						+ "<div style='position:relative; display: inline-block; padding:0 auto; margin:0 auto;vertical-align:middle;width:100%;'>"
 							+ "<p style='float:left; padding:0; margin:0; height:32px; line-height:32px;'>[npc.Name] will call you: </p>"
@@ -1478,12 +1478,12 @@ public class OccupantDialogue {
 						+ "<i>The names 'Mom'/'Dad' and 'Mommy'/'Daddy' are special, and will automatically switch to the appropriate femininity of your character.</i>"
 						+ "</p>"
 					+ "</div>"
-					
+
 					+ "<p id='hiddenFieldName' style='display:none;'></p>");
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getResponseTabTitle(int index) {
 			if(occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_GROUND_FLOOR || occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_FIRST_FLOOR) {
@@ -1497,7 +1497,7 @@ public class OccupantDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (responseTab==2 && index == 8) {
 				return new Response("Pet name", "You're already asking [npc.name] to call you by a different name.", null);
-				
+
 			} else {
 				if(occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_GROUND_FLOOR || occupant().getHomeWorldLocation()==WorldType.LILAYAS_HOUSE_FIRST_FLOOR) {
 					return OCCUPANT_START.getResponse(responseTab, index);
@@ -1507,5 +1507,5 @@ public class OccupantDialogue {
 			}
 		}
 	};
-	
+
 }

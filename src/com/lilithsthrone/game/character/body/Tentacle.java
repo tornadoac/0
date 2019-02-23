@@ -26,7 +26,7 @@ public class Tentacle implements BodyPartInterface {
 	public TentacleType getType() {
 		return type;
 	}
-	
+
 	@Override
 	public String getDeterminer(GameCharacter gc) {
 		return type.getDeterminer(gc);
@@ -36,7 +36,7 @@ public class Tentacle implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -60,7 +60,7 @@ public class Tentacle implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if (type == getType()) {
 			if(type == TentacleType.NONE) {
 				if(owner.isPlayer()) {
@@ -76,9 +76,9 @@ public class Tentacle implements BodyPartInterface {
 				}
 			}
 		}
-		
+
 		UtilText.transformationContentSB.setLength(0);
-		
+
 		if(this.type == TentacleType.NONE) {
 			UtilText.transformationContentSB.append(
 					"<p>"
@@ -91,7 +91,7 @@ public class Tentacle implements BodyPartInterface {
 							?"[npc.Name] [npc.verb(feel)] [npc.her] [npc.tentacle] growing hot and itchy, and after just a moment it starts to transform."
 							:"[npc.Name] [npc.verb(feel)] [npc.her] [npc.tentacles] growing hot and itchy, and after just a moment they start to transform."));
 		}
-		
+
 		switch (type) {
 			case NONE:
 				UtilText.transformationContentSB.append(
@@ -115,15 +115,15 @@ public class Tentacle implements BodyPartInterface {
 						);
 				break;
 		}
-		
+
 		this.type = type;
-		
+
 		if(type == TentacleType.NONE) {
 			UtilText.transformationContentSB.append(".</p>");
 		} else {
 			UtilText.transformationContentSB.append(", covered in [npc.tentacleFullDescription(true)].</p>");
 		}
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 					+ owner.postTransformationCalculation()
@@ -136,18 +136,18 @@ public class Tentacle implements BodyPartInterface {
 
 	public String setTentacleCount(GameCharacter owner, int tentacleCount) {
 		tentacleCount = Math.max(1, Math.min(tentacleCount, 9));
-		
+
 		if(owner.getTentacleCount() == tentacleCount) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		boolean removingTentacles = owner.getTentacleCount() > tentacleCount;
 		this.tentacleCount = tentacleCount;
-		
+
 		if (owner.getTentacleType() == TentacleType.NONE) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		if(removingTentacles) {
 			return UtilText.parse(owner,
 					"<p>"
@@ -159,7 +159,7 @@ public class Tentacle implements BodyPartInterface {
 									:Util.intToString(tentacleCount)+" [npc.tentacles]")
 						+ ")]."
 					+ "</p>");
-			
+
 		} else {
 			return UtilText.parse(owner,
 					"<p>"

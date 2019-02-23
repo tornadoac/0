@@ -8,15 +8,15 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum PerkCategory {
-	
+
 	JOB(Color.BASE_BROWN),
-	
+
 	PHYSICAL(Color.ATTRIBUTE_PHYSIQUE),
-	
+
 	BOTH(Color.ATTRIBUTE_CORRUPTION),
-	
+
 	ARCANE(Color.ATTRIBUTE_ARCANE),
-	
+
 	// Just for coloring:
 	PHYSICAL_EARTH(Color.SPELL_SCHOOL_EARTH),
 	PHYSICAL_WATER(Color.SPELL_SCHOOL_WATER),

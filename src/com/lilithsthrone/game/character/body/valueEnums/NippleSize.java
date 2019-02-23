@@ -14,7 +14,7 @@ public enum NippleSize {
 	TWO_BIG(2, "big", Color.GENERIC_SIZE_THREE),
 	THREE_LARGE(3, "large", Color.GENERIC_SIZE_FOUR),
 	FOUR_MASSIVE(4, "massive", Color.GENERIC_SIZE_FIVE);
-	
+
 	private int value;
 	private String descriptor;
 	private Color color;
@@ -32,7 +32,7 @@ public enum NippleSize {
 	public String getName() {
 		return descriptor;
 	}
-	
+
 	public static NippleSize getNippleSizeFromInt(int inches) {
 		for(NippleSize as : NippleSize.values()) {
 			if(inches == as.getValue()) {

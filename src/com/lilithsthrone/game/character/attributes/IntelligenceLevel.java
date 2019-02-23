@@ -10,7 +10,7 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum IntelligenceLevel {
-	
+
 	ZERO_AIRHEAD("arcane impotence", 0, 5, Color.INTELLIGENCE_STAGE_ZERO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
@@ -21,42 +21,42 @@ public enum IntelligenceLevel {
 			}
 		}
 	},
-	
+
 	ONE_AVERAGE("arcane potential", 5, 15, Color.INTELLIGENCE_STAGE_ONE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_1;
 		}
 	},
-	
+
 	TWO_SMART("arcane proficiency", 15, 35, Color.INTELLIGENCE_STAGE_TWO) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_2;
 		}
 	},
-	
+
 	THREE_BRAINY("arcane prowess", 35, 65, Color.INTELLIGENCE_STAGE_THREE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_3;
 		}
 	},
-	
+
 	FOUR_GENIUS("arcane mastery", 65, 95, Color.INTELLIGENCE_STAGE_FOUR) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_4;
 		}
 	},
-	
+
 	FIVE_POLYMATH("arcane brilliance", 95, 100, Color.INTELLIGENCE_STAGE_FIVE) {
 		@Override
 		public StatusEffect getRelatedStatusEffect() {
 			return StatusEffect.INTELLIGENCE_PERK_5;
 		}
 	};
-	
+
 	private String name;
 	private int minimumValue, maximumValue;
 	private Color color;
@@ -67,7 +67,7 @@ public enum IntelligenceLevel {
 		this.maximumValue = maximumValue;
 		this.color = color;
 	}
-	
+
 	public abstract StatusEffect getRelatedStatusEffect();
 
 	public String getName() {
@@ -85,7 +85,7 @@ public enum IntelligenceLevel {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public static IntelligenceLevel getIntelligenceLevelFromValue(float value){
 		for(IntelligenceLevel al : IntelligenceLevel.values()) {
 			if(value>=al.getMinimumValue() && value<al.getMaximumValue())

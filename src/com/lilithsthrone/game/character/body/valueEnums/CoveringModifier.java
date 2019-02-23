@@ -20,7 +20,7 @@ public enum CoveringModifier {
 	BLAZING("blazing"),
 	SHIMMERING("shimmering"),
 	SWIRLING("swirling"),
-	
+
 	GOOEY("gooey") {
 		@Override
 		public String getName() {
@@ -30,7 +30,7 @@ public enum CoveringModifier {
 					"squishy");
 		}
 	},
-	
+
 	SHORT("short"),
 	SILKEN("silken"),
 	SMOOTH("smooth"),
@@ -38,7 +38,7 @@ public enum CoveringModifier {
 	SHAGGY("shaggy"),
 	FURRY("fur-like"),
 	COARSE("coarse");
-	
+
 	private String descriptor;
 
 	private CoveringModifier(String descriptor) {

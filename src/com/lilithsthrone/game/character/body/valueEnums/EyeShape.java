@@ -12,7 +12,7 @@ public enum EyeShape {
 	VERTICAL("vertical"),
 	HEART("heart-shaped"),
 	STAR("star-shaped");
-	
+
 	private String descriptor;
 
 	private EyeShape(String descriptor) {

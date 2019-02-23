@@ -21,9 +21,9 @@ public class ResponseCombat extends Response {
 	private List<NPC> allies;
 	private NPC enemyLeader;
 	private List<NPC> enemies;
-	
+
 	private Map<GameCharacter, String> openingDescriptions;
-	
+
 	public ResponseCombat(String title, String tooltipText, NPC opponent) {
 		super(title, tooltipText, null);
 		this.allies = new ArrayList<>();
@@ -31,18 +31,18 @@ public class ResponseCombat extends Response {
 		{
 			this.allies.add((NPC) companion);
 		}
-		
+
 		this.enemyLeader = opponent;
-		
+
 		this.enemies = new ArrayList<>();
 		this.enemies.add(opponent);
 		for(GameCharacter companion : opponent.getCompanions()) {
 			this.enemies.add((NPC) companion);
 		}
-		
+
 		this.openingDescriptions = new HashMap<>();
 	}
-	
+
 	public ResponseCombat(String title, String tooltipText, NPC opponent, Map<GameCharacter, String> openingDescriptions) {
 		super(title, tooltipText, null);
 		this.allies = new ArrayList<>();
@@ -50,28 +50,28 @@ public class ResponseCombat extends Response {
 		{
 			this.allies.add((NPC) companion);
 		}
-		
+
 		this.enemyLeader = opponent;
-		
+
 		this.enemies = new ArrayList<>();
 		this.enemies.add(opponent);
 		for(GameCharacter companion : opponent.getCompanions())
 		{
 			this.enemies.add((NPC) companion);
 		}
-		
+
 		if(openingDescriptions!=null) {
 			this.openingDescriptions = openingDescriptions;
 		}
 	}
-	
+
 	public ResponseCombat(String title, String tooltipText, NPC enemyLeader, List<GameCharacter> enemies, Map<GameCharacter, String> openingDescriptions) {
 		super(title, tooltipText, null);
 		this.allies = new ArrayList<>();
 		for(GameCharacter companion : Main.game.getPlayer().getCompanions()) {
 			this.allies.add((NPC) companion);
 		}
-		
+
 		this.enemyLeader = enemyLeader;
 
 		// Irbynx's note:
@@ -80,12 +80,12 @@ public class ResponseCombat extends Response {
 		for(GameCharacter enemy : enemies) {
 			this.enemies.add((NPC) enemy);
 		}
-		
+
 		if(openingDescriptions!=null) {
 			this.openingDescriptions = openingDescriptions;
 		}
 	}
-	
+
 	public ResponseCombat(String title, String tooltipText, List<GameCharacter> allies, NPC enemyLeader, List<GameCharacter> enemies, Map<GameCharacter, String> openingDescriptions) {
 		super(title, tooltipText, null);
 		this.allies = new ArrayList<>();
@@ -94,7 +94,7 @@ public class ResponseCombat extends Response {
 				this.allies.add((NPC) companion);
 			}
 		}
-		
+
 		this.enemyLeader = enemyLeader;
 
 		// Irbynx's note:
@@ -103,7 +103,7 @@ public class ResponseCombat extends Response {
 		for(GameCharacter enemy : enemies) {
 			this.enemies.add((NPC) enemy);
 		}
-		
+
 		if(openingDescriptions!=null) {
 			this.openingDescriptions = openingDescriptions;
 		}
@@ -118,7 +118,7 @@ public class ResponseCombat extends Response {
 		Combat.COMBAT.initializeCombat(allies, enemyLeader, enemies, openingDescriptions);
 		return Combat.COMBAT.startCombat();
 	}
-	
+
 	@Override
 	public boolean disabledOnNullDialogue(){
 		return false;

@@ -59,28 +59,28 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class Ralph extends NPC {
-	
+
 	public Ralph() {
 		this(false);
 	}
-	
+
 	public Ralph(boolean isImported) {
 		super(isImported, new NameTriplet("Ralph"), "Armstrong",
 				"Ralph is the owner of the shop 'Ralph's Snacks'. There's an air of confidence in the way he holds himself, and he behaves in a professional manner at all times.",
 				34, Month.MAY, 17,
 				10, Gender.M_P_MALE, Subspecies.HORSE_MORPH, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.SHOPPING_ARCADE, PlaceType.SHOPPING_ARCADE_RALPHS_SHOP, true);
-		
+
 		if(!isImported) {
 			dailyReset();
 		}
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
-		
+
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.10.5")) {
 			resetBodyAfterVersion_2_10_5();
 		}
@@ -88,29 +88,29 @@ public class Ralph extends NPC {
 
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 40);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 60);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_STORE_OWNER);
-	
+
 			this.addFetish(Fetish.FETISH_ORAL_RECEIVING);
 			this.addFetish(Fetish.FETISH_IMPREGNATION);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -118,7 +118,7 @@ public class Ralph extends NPC {
 		this.setFemininity(5);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.THREE_LARGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HORSE_MORPH, Color.EYE_BROWN));
 		this.setSkinCovering(new Covering(BodyCoveringType.HORSE_HAIR, Color.COVERING_BROWN_DARK), true);
@@ -141,7 +141,7 @@ public class Ralph extends NPC {
 //		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_RED));
 //		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 //		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_PURPLE));
-		
+
 		// Face:
 		this.setFaceVirgin(true);
 		// Leave as default:
@@ -150,7 +150,7 @@ public class Ralph extends NPC {
 		// Throat settings and modifiers
 //		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		// Leave as default:
 //		this.setNippleVirgin(true);
@@ -159,7 +159,7 @@ public class Ralph extends NPC {
 //		this.setNippleSize(NippleSize.ZERO_TINY);
 //		this.setAreolaeSize(AreolaeSize.ZERO_TINY);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -171,7 +171,7 @@ public class Ralph extends NPC {
 //		this.setAssElasticity(OrificeElasticity.ONE_RIGID.getValue());
 //		this.setAssPlasticity(OrificePlasticity.THREE_RESILIENT.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.FOUR_FAT);
@@ -180,14 +180,14 @@ public class Ralph extends NPC {
 		this.setPenisCumStorage(65);
 		this.fillCumToMaxStorage();
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
-	
+
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 
@@ -205,7 +205,7 @@ public class Ralph extends NPC {
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	/**
 	 * Discount is active for three days after earning it.
 	 */
@@ -220,7 +220,7 @@ public class Ralph extends NPC {
 	@Override
 	public void dailyReset() {
 		clearNonEquippedInventory();
-		
+
 		for(int i=0;i<25;i++) {
 			this.addItem(AbstractItemType.generateItem(ItemType.DYE_BRUSH), false);
 		}
@@ -231,14 +231,14 @@ public class Ralph extends NPC {
 				}
 			}
 		}
-		
+
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
 			if(clothing.getItemTags().contains(ItemTag.SOLD_BY_RALPH)) {
 				if(clothing.isCondom()) {
 					Color condomColor = Util.randomItemFrom(clothing.getAvailablePrimaryColors());
 					Color condomColorSec = Color.CLOTHING_BLACK;
 					Color condomColorTer = Color.CLOTHING_BLACK;
-					
+
 					if(!clothing.getAvailableSecondaryColors().isEmpty()) {
 						condomColorSec = Util.randomItemFrom(clothing.getAvailableSecondaryColors());
 					}
@@ -248,30 +248,30 @@ public class Ralph extends NPC {
 					for (int i = 0; i < (3+(Util.random.nextInt(4)))*(clothing.getRarity()==Rarity.COMMON?3:(clothing.getRarity()==Rarity.UNCOMMON?2:1)); i++) {
 						this.addClothing(AbstractClothingType.generateClothing(clothing, condomColor, condomColorSec, condomColorTer, false), false);
 					}
-					
+
 				} else {
 					this.addClothing(AbstractClothingType.generateClothing(clothing), false);
 				}
 			}
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
-	
+
 	@Override
 	public String getTraderDescription() {
-		
+
 		if(Main.game.getDialogueFlags().ralphDiscountStartTime>0){
-			
+
 			StringBuilder descriptionSB = new StringBuilder();
-			
+
 			descriptionSB.append("<p>"
 						+ "You look over at the counter to see Ralph smiling back at you. Sensing that you might need some assistance, he briskly walks over to where you're standing."
 					+ "</p>"
@@ -281,7 +281,7 @@ public class Ralph extends NPC {
 						+ " He reminds you that he's also interested in buying any transformative consumables that you're willing to sell."
 						+ " As you turn back to look at the goods, Ralph tells you that he refreshes his stock every day."
 					+ "</p>");
-			
+
 			if(isDiscountActive()){
 				descriptionSB.append("<p>"
 						+ "<b>Ralph is giving you a</b> <b style='color:" + Color.GENERIC_GOOD.toWebHexString() + ";'>"+Main.game.getDialogueFlags().ralphDiscount+"%</b> <b>discount!</b>"
@@ -292,9 +292,9 @@ public class Ralph extends NPC {
 						+ UtilText.parseSpeech("If you're interested in earning a little discount again, just call me over.", Main.game.getNpc(Ralph.class))
 							+ "</p>");
 			}
-			
+
 			return descriptionSB.toString();
-			
+
 		}else
 			return "<p>"
 						+ "You look over at the counter to see Ralph smiling back at you. Sensing that you might need some assistance, he briskly walks over to where you're standing."
@@ -304,7 +304,7 @@ public class Ralph extends NPC {
 						+ " Sensing that you might not be a typical customer, he tell you that he's also interested in buying any transformative consumables that you're willing to sell."
 						+ " As you turn back to look at the goods, Ralph tells you that he refreshes his stock every day."
 					+ "</p>";
-		
+
 	}
 
 	@Override
@@ -320,7 +320,7 @@ public class Ralph extends NPC {
 		if(item instanceof AbstractClothing) {
 			return ((AbstractClothing)item).getClothingType().isCondom();
 		}
-		
+
 		return false;
 	}
 
@@ -330,9 +330,9 @@ public class Ralph extends NPC {
 			c.getDisplacedList().clear();
 		}
 	}
-	
+
 	public static final DialogueNode AFTER_SEX = new DialogueNode("Shopping", "Return to browsing the wares in Ralph's shop.", true, true) {
-		
+
 		@Override
 		public String getContent() {
 			return "<p>"
@@ -350,7 +350,7 @@ public class Ralph extends NPC {
 			}
 		}
 	};
-	
+
 	@Override
 	public String getCondomEquipEffects(GameCharacter equipper, GameCharacter target, boolean rough) {
 		if(Main.game.isInSex() && !target.isPlayer()) {
@@ -393,7 +393,7 @@ public class Ralph extends NPC {
 				"[npc.Name] tears open the packet and rolls the condom down the length of your [pc.penis].",
 				"[npc.Name] tears open the packet and forcefully rolls the condom down the length of your [pc.penis].", null, null);
 	}
-	
+
 	@Override
 	public String getPenetrationDescription(boolean initialPenetration, GameCharacter characterPenetrating, SexAreaPenetration penetrationType, GameCharacter characterPenetrated, SexAreaInterface orifice) {
 		if(Math.random()>0.3) {
@@ -404,7 +404,7 @@ public class Ralph extends NPC {
 						"Ralph's "+Sex.getActivePartner().getPenisName(true)+" carries on slamming in and out of your greedy "+Main.game.getPlayer().getVaginaName(false)+".",
 						"Your pussy lips spread around Ralph's "+Sex.getActivePartner().getPenisName(true)+" as he fucks you on the counter-top.");
 			}
-			
+
 			if(penetrationType == SexAreaPenetration.PENIS && orifice == SexAreaOrifice.MOUTH) {
 				return UtilText.returnStringAtRandom(
 						"Slimy saliva drools down your chin as you carry on sucking Ralph's "+Sex.getActivePartner().getPenisName(true)+".",
@@ -416,9 +416,9 @@ public class Ralph extends NPC {
 
 		return super.getPenetrationDescription(initialPenetration, characterPenetrating, penetrationType, characterPenetrated, orifice);
 	}
-	
+
 	// Vagina:
-	
+
 	@Override
 	public String getStretchingDescription(GameCharacter partner, SexAreaPenetration penetrationType, SexAreaOrifice orifice) {
 		switch(orifice) {
@@ -446,7 +446,7 @@ public class Ralph extends NPC {
 				return super.getStretchingDescription(partner, penetrationType, orifice);
 		}
 	}
-	
+
 	@Override
 	public String getStretchingFinishedDescription(SexAreaOrifice orifice) {
 		switch(orifice) {
@@ -460,7 +460,7 @@ public class Ralph extends NPC {
 				return super.getStretchingFinishedDescription(orifice);
 		}
 	}
-	
+
 	@Override
 	public String getItemUseEffects(AbstractItem item, GameCharacter itemOwner, GameCharacter user, GameCharacter target){
 		// Player is using an item:
@@ -468,7 +468,7 @@ public class Ralph extends NPC {
 			// Player uses item on themselves:
 			if(target.isPlayer()){
 				return itemOwner.useItem(item, target, false);
-				
+
 			// Player uses item on NPC:
 			}else{
 				if(item.getItemType().equals(ItemType.VIXENS_VIRILITY)) {
@@ -505,7 +505,7 @@ public class Ralph extends NPC {
 									+ " He looks down at you, letting out a little laugh and shrugging his shoulders as he sees what you're trying to give him."
 									+ " Quickly popping the pill out of its plastic container, he swallows it, and you let out a happy giggle, knowing that his sperm just got a lot more potent."
 						+ "</p>";
-						
+
 				} else {
 						if(!Sex.getContactingSexAreas(Main.game.getPlayer(), SexAreaOrifice.MOUTH, Main.game.getNpc(Ralph.class)).isEmpty())
 							return "<p>"
@@ -531,11 +531,11 @@ public class Ralph extends NPC {
 							+ "</p>";
 				}
 			}
-			
+
 		// NPC is using an item:
 		}else{
 			return itemOwner.useItem(item, target, false);
 		}
 	}
-	
+
 }

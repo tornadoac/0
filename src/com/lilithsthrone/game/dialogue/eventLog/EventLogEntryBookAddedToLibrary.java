@@ -15,12 +15,12 @@ public class EventLogEntryBookAddedToLibrary extends EventLogEntry {
 	public EventLogEntryBookAddedToLibrary(AbstractItemType book) {
 		super(Main.game.getMinutesPassed(), "Added to Library", "<span style='color:"+book.getRarity().getColor().toWebHexString()+";'>"+Util.capitalizeSentence(book.getName(false))+"</span>");
 	}
-	
+
 	@Override
 	public String getFormattedEntry() {
 		return "<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>"+name+"</span>: "+description;
 	}
-	
+
 	@Override
 	public String getMainDialogueDescription() {
 		return "<p style='text-align:center;'>"

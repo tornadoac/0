@@ -1606,7 +1606,7 @@ public class CharacterModificationUtils {
 		for(OrificeModifier orificeMod : OrificeModifier.values()) {
 			if(BodyChanging.getTarget().hasFaceOrificeModifier(orificeMod)) {
 				contentSB.append(
-						"<div  id='CHANGE_MOUTH_MOD_"+orificeMod+"' class='cosmetics-button active'>"
+						"<div id='CHANGE_MOUTH_MOD_"+orificeMod+"' class='cosmetics-button active'>"
 							+ "<span style='color:"+Color.TRANSFORMATION_GENERIC.toWebHexString()+";'>"+Util.capitalizeSentence(orificeMod.getName())+"</span>"
 						+ "</div>");
 
@@ -1631,7 +1631,7 @@ public class CharacterModificationUtils {
 		for(TongueModifier tongueMod : TongueModifier.values()) {
 			if(BodyChanging.getTarget().hasTongueModifier(tongueMod)) {
 				contentSB.append(
-						"<div  id='CHANGE_TONGUE_MOD_"+tongueMod+"' class='cosmetics-button active'>"
+						"<div id='CHANGE_TONGUE_MOD_"+tongueMod+"' class='cosmetics-button active'>"
 							+ "<span style='color:"+Color.TRANSFORMATION_GENERIC.toWebHexString()+";'>"+Util.capitalizeSentence(tongueMod.getName())+"</span>"
 						+ "</div>");
 
@@ -1831,7 +1831,7 @@ public class CharacterModificationUtils {
 		for(OrificeModifier orificeMod : OrificeModifier.values()) {
 			if(BodyChanging.getTarget().hasAssOrificeModifier(orificeMod)) {
 				contentSB.append(
-						"<div  id='CHANGE_ANUS_MOD_"+orificeMod+"' class='cosmetics-button active'>"
+						"<div id='CHANGE_ANUS_MOD_"+orificeMod+"' class='cosmetics-button active'>"
 							+ "<span style='color:"+Color.RACE_DEMON.toWebHexString()+";'>"+Util.capitalizeSentence(orificeMod.getName())+"</span>"
 						+ "</div>");
 

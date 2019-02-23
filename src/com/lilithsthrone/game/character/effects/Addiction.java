@@ -21,20 +21,20 @@ public class Addiction implements XMLSaving {
 	private FluidType fluid;
 	private long lastTimeSatisfied;
 	private List<String> providerIDs;
-	
+
 	public Addiction(FluidType fluid, long lastTimeSatisfied) {
 		this.fluid = fluid;
 		this.lastTimeSatisfied = lastTimeSatisfied;
 		this.providerIDs = new ArrayList<>();
 	}
-	
+
 	public Addiction(FluidType fluid, long lastTimeSatisfied, String providerID) {
 		this.fluid = fluid;
 		this.lastTimeSatisfied = lastTimeSatisfied;
 		this.providerIDs = new ArrayList<>();
 		this.providerIDs.add(providerID);
 	}
-	
+
 	public Addiction(FluidType fluid, long lastTimeSatisfied, List<String> providerIDs) {
 		this.fluid = fluid;
 		this.lastTimeSatisfied = lastTimeSatisfied;
@@ -52,7 +52,7 @@ public class Addiction implements XMLSaving {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -61,7 +61,7 @@ public class Addiction implements XMLSaving {
 		result = 31 * result + this.getProviderIDs().hashCode();
 		return result;
 	}
-	
+
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("addiction");
@@ -69,7 +69,7 @@ public class Addiction implements XMLSaving {
 
 		CharacterUtils.addAttribute(doc, element, "fluid", this.getFluid().toString());
 		CharacterUtils.addAttribute(doc, element, "lastTimeSatisfied", String.valueOf(this.getLastTimeSatisfied()));
-		
+
 		Element innerElement = doc.createElement("providerIDs");
 		element.appendChild(innerElement);
 		for(String id : this.getProviderIDs()) {
@@ -77,7 +77,7 @@ public class Addiction implements XMLSaving {
 			innerElement.appendChild(idElement);
 			CharacterUtils.addAttribute(doc, idElement, "value", id);
 		}
-		
+
 		return element;
 	}
 
@@ -87,32 +87,32 @@ public class Addiction implements XMLSaving {
 		for(int i = 0; i < idList.getLength(); i++){
 			IDs.add(((Element)idList.item(i)).getAttribute("value"));
 		}
-		
+
 		return new Addiction(FluidType.getTypeFromString(parentElement.getAttribute("fluid")),
 				Long.valueOf(parentElement.getAttribute("lastTimeSatisfied")),
 				IDs);
 	}
-	
+
 	public FluidType getFluid() {
 		return fluid;
 	}
-	
+
 	public void setFluid(FluidType fluid) {
 		this.fluid = fluid;
 	}
-	
+
 	public long getLastTimeSatisfied() {
 		return lastTimeSatisfied;
 	}
-	
+
 	public void setLastTimeSatisfied(long lastTimeSatisfied) {
 		this.lastTimeSatisfied = lastTimeSatisfied;
 	}
-	
+
 	public List<String> getProviderIDs() {
 		return providerIDs;
 	}
-	
+
 	public void addProviderID(String providerID) {
 		getProviderIDs().add(providerID);
 	}

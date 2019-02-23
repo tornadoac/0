@@ -18,12 +18,12 @@ import com.lilithsthrone.world.places.PlaceType;
 public class BatCaverns {
 
 	public static final DialogueNode STAIRCASE = new DialogueNode("Winding Staircase", "", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/batCaverns", "STAIRCASE");
@@ -44,19 +44,19 @@ public class BatCaverns {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CAVERN_DARK = new DialogueNode("Dark Cavern", "", false) {
-		
+
 		@Override
 		public String getAuthor() {
 			return "Duner & Innoxia";
 		}
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/batCaverns", "CAVERN_DARK");
@@ -74,25 +74,25 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", dn));
 							}
 						};
-						
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CAVERN_LIGHT = new DialogueNode("Bioluminescent Cavern", "", false) {
-		
+
 		@Override
 		public String getAuthor() {
 			return "Duner & Innoxia";
 		}
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/batCaverns", "CAVERN_LIGHT");
@@ -110,20 +110,20 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", dn));
 							}
 						};
-						
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode RIVER = new DialogueNode("Underground River", "", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/batCaverns", "RIVER");
@@ -141,20 +141,20 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", dn));
 							}
 						};
-						
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode RIVER_BRIDGE = new DialogueNode("Mushroom Bridge", "", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/batCaverns", "RIVER_BRIDGE");
@@ -172,20 +172,20 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", dn));
 							}
 						};
-						
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode RIVER_END = new DialogueNode("Underground River", "", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/batCaverns", "RIVER_END");
@@ -203,37 +203,37 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", dn));
 							}
 						};
-						
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SLIME_LAKE = new DialogueNode("Slime Lake", "", false) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/batCaverns", "SLIME_LAKE"));
-			
+
 			if(!Main.game.getPlayer().hasQuest(QuestLine.SIDE_SLIME_QUEEN)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/batCaverns", "SLIME_LAKE_QUEEN_UNKNOWN"));
-				
+
 			} else if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_THREE)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/batCaverns", "SLIME_LAKE_QUEEN_KNOWLEDGE"));
-				
+
 			} else if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_TWO)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/batCaverns", "SLIME_LAKE_QUEEN_GUESS"));
-				
+
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -249,7 +249,7 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", dn));
 							}
 						};
-						
+
 			} else if(index==2 && Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_TWO)) {
 				return new Response("Island by boat", "You could use the boat to travel across the lake and reach the island.", SLIME_LAKE_ISLAND) {
 					@Override
@@ -262,7 +262,7 @@ public class BatCaverns {
 						}
 					}
 				};
-				
+
 			} else if(index==3 && Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_TWO)) {
 				if(Main.game.getPlayer().isAbleToFly()) {
 					return new Response("Fly to island", "Fly across to the island.", SLIME_LAKE_ISLAND) {
@@ -279,20 +279,20 @@ public class BatCaverns {
 				} else {
 					return new Response("Fly to island", "You aren't able to fly. It looks like you'll have to use the boat...", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SLIME_LAKE_ISLAND = new DialogueNode("Slime Lake", "", true) {
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
@@ -302,7 +302,7 @@ public class BatCaverns {
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
 				return new Response("Explore", "You'd need to be on the other side of the lake in order to explore this area!", null);
-						
+
 			} else if(index==2 && Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_TWO)) {
 				return new Response("Return by boat", "Return to the other side of the lake by boat.", SLIME_LAKE) {
 					@Override
@@ -310,7 +310,7 @@ public class BatCaverns {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/batCaverns", "SLIME_LAKE_BOAT_RETURN"));
 					}
 				};
-				
+
 			} else if(index==3 && Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_TWO)) {
 				if(Main.game.getPlayer().isAbleToFly()) {
 					return new Response("Return by flying", "Return to the other side of the lake by flying.", SLIME_LAKE) {
@@ -319,11 +319,11 @@ public class BatCaverns {
 							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/batCaverns", "SLIME_LAKE_FLY_RETURN"));
 						}
 					};
-					
+
 				} else {
 					return new Response("Return by flying", "You aren't able to fly. It looks like you'll have to use the boat...", null);
 				}
-				
+
 			} else if (index==4) {
 				return new ResponseEffectsOnly(
 						"Open Door",
@@ -341,7 +341,7 @@ public class BatCaverns {
 								Main.game.setContent(new Response("", "", Main.game.getDefaultDialogueNoEncounter()));
 							}
 						};
-						
+
 			} else {
 				return null;
 			}

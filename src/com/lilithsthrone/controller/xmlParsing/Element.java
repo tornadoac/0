@@ -14,7 +14,7 @@ import org.w3c.dom.Document;
  * @author BlazingMagpie@gmail.com (or ping BlazingMagpie in Discord)
  * @since 0.2.5.8
  * @version 0.2.12
- * 
+ *
  * <p>Wrapper for org.w3c.dom.Element that's supposed to simplify mod support</p>
  */
 public class Element {
@@ -38,7 +38,7 @@ public class Element {
 		this.fileDirectory = fileDirectory;
 		this.document = document;
 	}
-	
+
 	/**
 	 * Loads and prepares document for reading and returns root element, for example {@code <clothing>} in clothes mods.
 	 *
@@ -53,12 +53,12 @@ public class Element {
 			Document parsedDocument = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xmlFile);
 			parsedDocument.getDocumentElement().normalize();
 			return new Element(parsedDocument.getDocumentElement(),fileDirectory, parsedDocument);
-			
+
 		} catch(Exception e){
 			throw new XMLLoadException(e);
 		}
 	}
-	
+
 	/**
 	 * <p>
 	 * Returns tag name of the element</p>
@@ -97,7 +97,7 @@ public class Element {
 	public String getTextContent() {
 		try {
 			return innerElement.getTextContent();
-			
+
 		} catch (DOMException ex) {
 			System.err.println(String.format("DOM exception: text content in element \"%s\" probably exceeds max allowed."
 			+ "XML parsing will try to continue with empty text content",
@@ -105,12 +105,12 @@ public class Element {
 			return "";
 		}
 	}
-	
+
 	/**
 	 * Returns inner element. Used to support legacy code
-	 * 
+	 *
 	 * @return w3c DOM Element that wrapper contains
-	 * @deprecated 
+	 * @deprecated
 	 */
 	@Deprecated
 	public org.w3c.dom.Element getInnerElement(){
@@ -121,13 +121,13 @@ public class Element {
 	 * Returns the document. Used for legacy code
 	 *
 	 * @return w3c DOM Document element is in.
-	 * @deprecated 
+	 * @deprecated
 	 */
 	@Deprecated
 	public org.w3c.dom.Document getDocument(){
 		return document;
 	}
-	
+
 	/**
 	 * <p>
 	 * Returns first child element with a given tag, throwing a
@@ -197,7 +197,7 @@ public class Element {
 		}
 		return returnList;
 	}
-	
+
 	public List<Element> getAll(){
 		org.w3c.dom.NodeList nl = innerElement.getChildNodes();
 		List<Element> returnList = new ArrayList<>();

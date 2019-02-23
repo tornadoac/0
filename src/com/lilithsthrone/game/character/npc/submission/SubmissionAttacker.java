@@ -46,15 +46,15 @@ public class SubmissionAttacker extends NPC {
 	public SubmissionAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
-	
+
 	public SubmissionAttacker(Gender gender) {
 		this(gender, false);
 	}
-	
+
 	public SubmissionAttacker(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, isImported);
 	}
-	
+
 	public SubmissionAttacker(Gender gender, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -63,39 +63,39 @@ public class SubmissionAttacker extends NPC {
 
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), true);
-			
+
 			// Set random level from 5 to 8:
 			setLevel(5 + Util.random.nextInt(4));
-			
+
 			// RACE & NAME:
-			
+
 			int slimeChance = Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.slimeQueenHelped) && Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_SLIME_QUEEN) ? 200 : 80;
-			
+
 			Map<Subspecies, Integer> availableRaces = new HashMap<>();
 			for(Subspecies s : Subspecies.values()) {
 				if(s==Subspecies.SLIME) {
 					addToSubspeciesMap(slimeChance, gender, s, availableRaces);
-					
+
 				} else if(Subspecies.getWorldSpecies().get(WorldType.SUBMISSION).containsKey(s)) {
 					addToSubspeciesMap((int) (100 * Subspecies.getWorldSpecies().get(WorldType.SUBMISSION).get(s).getChanceMultiplier()), gender, s, availableRaces);
 				}
 			}
-			
+
 			this.setBodyFromSubspeciesPreference(gender, availableRaces);
-			
+
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
-	
+
 			setName(Name.getRandomTriplet(this.getRace()));
 			this.setPlayerKnowsName(false);
 			setDescription(UtilText.parse(this,
 					"[npc.Name] is a resident of Submission, who prowls the tunnels looking for strangers to mug and assault..."));
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, true);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
 			if(this.getBodyMaterial()==BodyMaterial.SLIME) {
 				if(Main.game.getPlayer().getQuest(QuestLine.SIDE_SLIME_QUEEN) == Quest.SLIME_QUEEN_ONE) {
@@ -103,30 +103,30 @@ public class SubmissionAttacker extends NPC {
 					this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 				}
 			}
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 			CharacterUtils.generateItemsInInventory(this);
-	
+
 			equipClothing(true, true, true, true);
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
-		
+
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -141,12 +141,12 @@ public class SubmissionAttacker extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		if(this.getHistory()==Occupation.NPC_PROSTITUTE) {
@@ -157,7 +157,7 @@ public class SubmissionAttacker extends NPC {
 				return (UtilText.parse(this,
 						"[npc.Name] is a prostitute who whores [npc.herself] out in the tunnels of Submission."));
 			}
-			
+
 		} else {
 			if(this.isSlave()) {
 				return (UtilText.parse(this,
@@ -168,7 +168,7 @@ public class SubmissionAttacker extends NPC {
 			}
 		}
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
@@ -180,20 +180,20 @@ public class SubmissionAttacker extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		if(this.getBodyMaterial()==BodyMaterial.SLIME) {
-			
+
 			if(this.getLastTimeEncountered()==NPC.DEFAULT_TIME_START_VALUE) {
 				if(this.hasFetish(Fetish.FETISH_TRANSFORMATION_GIVING) && Main.game.getPlayer().getBodyMaterial()!=BodyMaterial.SLIME) {
 					if(Main.game.getPlayer().getQuest(QuestLine.SIDE_SLIME_QUEEN) == Quest.SLIME_QUEEN_ONE) {
@@ -202,22 +202,22 @@ public class SubmissionAttacker extends NPC {
 						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "ATTACK_TRANSFORMER"));
 					}
 				}
-				
+
 				if(Main.game.getPlayer().getQuest(QuestLine.SIDE_SLIME_QUEEN)==Quest.SLIME_QUEEN_ONE) {
 					Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_TWO));
 				}
-				
+
 				return TunnelSlimeDialogue.ATTACK;
-				
+
 			} else {
 				if(!this.isCharacterReactedToPregnancy(Main.game.getPlayer()) && this.isVisiblyPregnant()) {
 					this.setCharacterReactedToPregnancy(Main.game.getPlayer(), true);
 					return TunnelSlimeDialogue.ATTACK_PREGNANCY_REVEAL;
 				}
-				
+
 				return TunnelSlimeDialogue.ATTACK_REPEAT;
 			}
-			
+
 		} else {
 			if(Main.game.getPlayer().getCompanions().isEmpty()) {
 				return TunnelAttackDialogue.TUNNEL_ATTACK;
@@ -228,7 +228,7 @@ public class SubmissionAttacker extends NPC {
 	}
 
 	// Combat:
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {
@@ -237,7 +237,7 @@ public class SubmissionAttacker extends NPC {
 			} else {
 				return new Response("", "", TunnelAttackDialogue.AFTER_COMBAT_VICTORY);
 			}
-			
+
 		} else {
 			if(this.getBodyMaterial()==BodyMaterial.SLIME) {
 				return new Response("", "", TunnelSlimeDialogue.AFTER_COMBAT_PLAYER_DEFEAT);

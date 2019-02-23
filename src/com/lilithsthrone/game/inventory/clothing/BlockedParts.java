@@ -20,7 +20,7 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia, Pimgd
  */
 public class BlockedParts implements XMLSaving {
-	
+
 	public DisplacementType displacementType;
 	public List<ClothingAccess> clothingAccessRequired;
 	public List<CoverableArea> blockedBodyParts;
@@ -30,9 +30,9 @@ public class BlockedParts implements XMLSaving {
 	/**
 	 * A class that holds information about what clothing-related parts are
 	 * blocked.
-	 * 
+	 *
 	 * @param displacementType The type of displacement that's required to block/unblock the areas.
-	 * @param clothingAccessRequired The access required in order to achieve the  DisplacementType.
+	 * @param clothingAccessRequired The access required in order to achieve the DisplacementType.
 	 * @param blockedBodyParts The body parts that this displacement blocks/reveals.
 	 * @param clothingAccessBlocked The clothing access that this displacement blocks/reveals.
 	 * @param concealedSlots Slots that are concealed by this displacementType.
@@ -51,26 +51,26 @@ public class BlockedParts implements XMLSaving {
 		} else {
 			this.clothingAccessRequired = new ArrayList<>();
 		}
-		
+
 		if (blockedBodyParts != null) {
 			this.blockedBodyParts = new ArrayList<>(blockedBodyParts);
 		} else {
 			this.blockedBodyParts = new ArrayList<>();
 		}
-		
+
 		if (clothingAccessBlocked != null) {
 			this.clothingAccessBlocked = new ArrayList<>(clothingAccessBlocked);
 		} else {
 			this.clothingAccessBlocked = new ArrayList<>();
 		}
-		
+
 		if (concealedSlots != null) {
 			this.concealedSlots = new ArrayList<>(concealedSlots);
 		} else {
 			this.concealedSlots = new ArrayList<>();
 		}
 	}
-	
+
 	/**
 	 * @param blockedParts The BlockedParts to copy.
 	 */
@@ -81,15 +81,15 @@ public class BlockedParts implements XMLSaving {
 				blockedParts.clothingAccessBlocked,
 				blockedParts.concealedSlots);
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element blockedParts = doc.createElement("blockedParts");
 		parentElement.appendChild(blockedParts);
-		
+
 		Element displacementTypeElement = doc.createElement("displacementType");
 		blockedParts.appendChild(displacementTypeElement);
 		displacementTypeElement.setTextContent(this.displacementType.toString());
-		
+
 		Element clothingAccessRequiredElement = doc.createElement("clothingAccessRequired");
 		blockedParts.appendChild(clothingAccessRequiredElement);
 		for(ClothingAccess clothingAccess : this.clothingAccessRequired) {
@@ -97,7 +97,7 @@ public class BlockedParts implements XMLSaving {
 			clothingAccessRequiredElement.appendChild(clothingAccessElement);
 			clothingAccessElement.setTextContent(clothingAccess.toString());
 		}
-		
+
 		Element blockedBodyPartsElement = doc.createElement("blockedBodyParts");
 		blockedParts.appendChild(blockedBodyPartsElement);
 		for(CoverableArea coverableArea : this.blockedBodyParts) {
@@ -113,7 +113,7 @@ public class BlockedParts implements XMLSaving {
 			clothingAccessBlockedElement.appendChild(clothingAccessElement);
 			clothingAccessElement.setTextContent(clothingAccess.toString());
 		}
-		
+
 		Element concealedSlotsElement = doc.createElement("concealedSlots");
 		blockedParts.appendChild(concealedSlotsElement);
 		for(InventorySlot inventorySlot : this.concealedSlots) {
@@ -121,14 +121,14 @@ public class BlockedParts implements XMLSaving {
 			concealedSlotsElement.appendChild(inventorySlotElement);
 			inventorySlotElement.setTextContent(inventorySlot.toString());
 		}
-		
+
 		return blockedParts;
 	}
-	
+
 	public static BlockedParts loadFromXML(Element parentElement, Document doc, String contextForErrors) {
 
 		DisplacementType displacementType = DisplacementType.valueOf(parentElement.getElementsByTagName("displacementType").item(0).getTextContent());
-		
+
 		String errorCode = "Unknown Clothing";
 		Element clothingElement = ((Element) doc.getElementsByTagName("clothing").item(0));
 		if(clothingElement.getElementsByTagName("coreAtributes").getLength()>0) {
@@ -136,7 +136,7 @@ public class BlockedParts implements XMLSaving {
 		} else {
 			errorCode = ((Element) clothingElement.getElementsByTagName("coreAttributes").item(0)).getElementsByTagName("name").item(0).getTextContent(); // Fix typo
 		}
-		
+
 		List<ClothingAccess> loadedClothingAccessRequired = new ArrayList<>();
 		Element clothingAccessRequiredElement = (Element)parentElement.getElementsByTagName("clothingAccessRequired").item(0);
 		try {
@@ -149,7 +149,7 @@ public class BlockedParts implements XMLSaving {
 			System.err.println(ex);
 			printHelpfulErrorForEnumValueMismatches(ex, getPossibleEnumValues());
 		}
-		
+
 		List<CoverableArea> loadedBlockedBodyParts = new ArrayList<>();
 		Element blockedBodyPartsElement = (Element)parentElement.getElementsByTagName("blockedBodyParts").item(0);
 		try {
@@ -162,7 +162,7 @@ public class BlockedParts implements XMLSaving {
 			System.err.println(ex);
 			printHelpfulErrorForEnumValueMismatches(ex, getPossibleEnumValues());
 		}
-		
+
 		List<ClothingAccess> loadedClothingAccessBlocked = new ArrayList<>();
 		Element clothingAccessBlockedElement = (Element)parentElement.getElementsByTagName("clothingAccessBlocked").item(0);
 		try {
@@ -175,7 +175,7 @@ public class BlockedParts implements XMLSaving {
 			System.err.println(ex);
 			printHelpfulErrorForEnumValueMismatches(ex, getPossibleEnumValues());
 		}
-		
+
 		List<InventorySlot> loadedConcealedSlots = new ArrayList<>();
 		Element concealedSlotsElement = (Element)parentElement.getElementsByTagName("concealedSlots").item(0);
 		if(!concealedSlotsElement.getAttribute("values").isEmpty()) {
@@ -198,7 +198,7 @@ public class BlockedParts implements XMLSaving {
 				printHelpfulErrorForEnumValueMismatches(ex, getPossibleEnumValues());
 			}
 		}
-		
+
 		return new BlockedParts(displacementType,
 				loadedClothingAccessRequired,
 				loadedBlockedBodyParts,

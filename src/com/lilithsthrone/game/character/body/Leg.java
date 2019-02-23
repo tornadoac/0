@@ -43,14 +43,14 @@ public class Leg implements BodyPartInterface {
 			this.footStructure = footStructure;
 			return "";
 		}
-		
+
 		if(this.getFootStructure()==footStructure) {
 			return UtilText.parse(owner,
 					"<p>"
 						+ "[style.colorDisabled(Nothing happens, as [npc.namePos] [npc.feet] are already [npc.footStructure]...)]"
 					+ "</p>");
 		}
-		
+
 		if(!type.getFootType().getPermittedFootStructures().contains(footStructure)) {
 			return UtilText.parse(owner,
 					"<p>"
@@ -59,13 +59,13 @@ public class Leg implements BodyPartInterface {
 		}
 
 		this.footStructure = footStructure;
-		
+
 		StringBuilder sb = new StringBuilder();
 
 		sb.append("<p>"
 				+ "[npc.Name] [npc.verb(let)] out a shocked gasp as [npc.she] suddenly [npc.verb(feel)] an intense heat shoot down into [npc.her] [npc.legs] and [npc.feet]."
 				+ " Staggering and swaying, [npc.she] almost [npc.verb(lose)] [npc.her] balance as the structure of [npc.her] feet transforms and changes.</br>");
-		
+
 		switch(footStructure) {
 			case DIGITIGRADE:
 				sb.append("After just a moment, [npc.sheIs] left with [style.boldTfGeneric(digitgrade [npc.feet])], meaning that [npc.she] now [npc.verb(walk)] on [npc.her] toes, with [npc.her] heel being permanently raised.");
@@ -77,13 +77,13 @@ public class Leg implements BodyPartInterface {
 				sb.append("After just a moment, [npc.sheIs] left with [style.boldTfGeneric(unguligrade [npc.feet])], meaning that [npc.she] now [npc.verb(walk)] on [npc.her] [npc.toes], with the rest of [npc.her] foot being permanently raised.");
 				break;
 		}
-		
+
 		return UtilText.parse(owner, sb.toString())
 				+ "</p>"
 				+ "<p>"
 				+ owner.postTransformationCalculation()
 				+ "</p>";
-		
+
 	}
 
 	public LegConfiguration getLegConfiguration() {
@@ -105,7 +105,7 @@ public class Leg implements BodyPartInterface {
 	public String getName(GameCharacter gc) {
 		return type.getName(gc);
 	}
-	
+
 	@Override
 	public String getNameSingular(GameCharacter gc) {
 		return type.getNameSingular(gc);
@@ -115,15 +115,15 @@ public class Leg implements BodyPartInterface {
 	public String getNamePlural(GameCharacter gc) {
 		return type.getNamePlural(gc);
 	}
-	
+
 	@Override
 	public String getDescriptor(GameCharacter gc) {
 		List<String> descriptorList = new ArrayList<>();
-		
+
 		descriptorList.add(type.getDescriptor(gc));
 		descriptorList.add(type.getDescriptor(gc));
 		descriptorList.add(Util.randomItemFrom(gc.getBodyShape().getLimbDescriptors()));
-		
+
 		return UtilText.returnStringAtRandom(descriptorList.toArray(new String[]{}));
 	}
 
@@ -140,23 +140,23 @@ public class Leg implements BodyPartInterface {
 			}
 			return "";
 		}
-		
+
 		if(!type.isLegConfigurationAvailable(this.getLegConfiguration())) {
 			return "<p>"
 					+ "[style.italicsDisabled(Nothing happens, as [npc.namePos] "+legConfiguration.getName()+" body cannot be transformed into the type '"+type.getTransformName()+"'...)]"
 					+ "</p>";
 		}
-		
+
 		if (type == getType()) {
 			if (owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(You already have the [pc.legs] of [pc.a_legRace], so nothing happens...)]</p>";
 			} else {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled([npc.Name] already has the [npc.legs] of [npc.a_legRace], so nothing happens...)]</p>");
 			}
-			
+
 		} else {
 			UtilText.transformationContentSB.setLength(0);
-			
+
 			if (owner.isPlayer()) {
 				UtilText.transformationContentSB.append(
 						"<p>"
@@ -174,14 +174,14 @@ public class Leg implements BodyPartInterface {
 		UtilText.transformationContentSB.append(s);
 		this.type = type;
 		this.footStructure = type.getDefaultFootStructure();
-		
+
 		UtilText.transformationContentSB.append(type.getTransformationDescription(owner)+"</p>");
-		
+
 		UtilText.transformationContentSB.append(
 				"<p>"
 					+ "The transformation has left the structure of [npc.her] [npc.feet] as [style.boldTFGeneric("+this.footStructure.getName()+")]! "+this.footStructure.getDescription()
 				+ "</p>");
-		
+
 		return UtilText.parse(owner, UtilText.transformationContentSB.toString())
 				+ "<p>"
 				+ owner.postTransformationCalculation()

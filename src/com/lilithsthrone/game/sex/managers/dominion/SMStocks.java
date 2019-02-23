@@ -21,23 +21,23 @@ public class SMStocks extends SexManagerDefault {
 		super(SexPositionBipeds.STOCKS_SEX,
 				dominants,
 				submissives);
-		
+
 		for(GameCharacter character : submissives.keySet()) {
 			getAreasBannedMap().put(character, new ArrayList<>());
 		}
-		
+
 		if(!vaginalAllowed) {
 			for(GameCharacter character : submissives.keySet()) {
 				getAreasBannedMap().get(character).add(SexAreaOrifice.VAGINA);
 			}
 		}
-		
+
 		if(!analAllowed) {
 			for(GameCharacter character : submissives.keySet()) {
 				getAreasBannedMap().get(character).add(SexAreaOrifice.ANUS);
 			}
 		}
-		
+
 		if(!oralAllowed) {
 			for(GameCharacter character : submissives.keySet()) {
 				getAreasBannedMap().get(character).add(SexAreaOrifice.MOUTH);
@@ -49,12 +49,12 @@ public class SMStocks extends SexManagerDefault {
 	public boolean isAbleToRemoveSelfClothing(GameCharacter character){
 		return getDominants().containsKey(character);
 	}
-	
+
 	@Override
 	public boolean isAbleToRemoveOthersClothing(GameCharacter character, AbstractClothing clothing){
 		return getDominants().containsKey(character);
 	}
-	
+
 	@Override
 	public boolean isPlayerAbleToSwapPositions() {
 		return false;

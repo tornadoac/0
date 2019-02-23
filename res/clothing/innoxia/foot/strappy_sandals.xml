@@ -2,66 +2,66 @@
 <!-- For a version without all of the comments, see "rental_daddy.xml". -->
 <clothing>
 	<coreAttributes>
-		<value>1000</value> 
-		
+		<value>1000</value>
+
 		<determiner><![CDATA[a pair of]]></determiner>
-		
+
 		<name><![CDATA[strappy stiletto sandal]]></name>
-		
-		<namePlural pluralByDefault="true"><![CDATA[strappy stiletto sandals]]></namePlural> 
-		
-		<description><![CDATA[A pair of thin sandals, with buckled straps and stiletto heels.]]></description> 
-		
-		<physicalResistance>1</physicalResistance> 
-		
-		<femininity>FEMININE</femininity> 
-		
-		<slot>FOOT</slot> 
-		
-		<rarity>COMMON</rarity> 
-		
-		<clothingSet/> 
-		
-		<imageName>strappy_sandals.svg</imageName> 
-		
-		<imageEquippedName/> 
-		
+
+		<namePlural pluralByDefault="true"><![CDATA[strappy stiletto sandals]]></namePlural>
+
+		<description><![CDATA[A pair of thin sandals, with buckled straps and stiletto heels.]]></description>
+
+		<physicalResistance>1</physicalResistance>
+
+		<femininity>FEMININE</femininity>
+
+		<slot>FOOT</slot>
+
+		<rarity>COMMON</rarity>
+
+		<clothingSet/>
+
+		<imageName>strappy_sandals.svg</imageName>
+
+		<imageEquippedName/>
+
 		<enchantmentLimit/>
-		
+
 		<effects/>
-		
-		<blockedPartsList> 
-		
+
+		<blockedPartsList>
+
 			<blockedParts>
-				<displacementType>REMOVE_OR_EQUIP</displacementType> 
-				
-				<clothingAccessRequired> 
+				<displacementType>REMOVE_OR_EQUIP</displacementType>
+
+				<clothingAccessRequired>
 					<clothingAccess>FEET</clothingAccess>
 				</clothingAccessRequired>
-				
+
 				<blockedBodyParts>
 					<bodyPart>FEET</bodyPart>
 				</blockedBodyParts>
-				
-				<clothingAccessBlocked> 
+
+				<clothingAccessBlocked>
 					<clothingAccess>FEET</clothingAccess>
 				</clothingAccessBlocked>
-				
+
 				<concealedSlots/>
 			</blockedParts>
-			
+
 		</blockedPartsList>
-		
-		<incompatibleSlots/> 
-		
-		<primaryColors values="ALL"/> 
+
+		<incompatibleSlots/>
+
+		<primaryColors values="ALL"/>
 		<primaryColorsDye/>
 		<secondaryColors values="JUST_TAN"/>
 		<secondaryColorsDye values="ALL"/>
 		<tertiaryColors values="JUST_SILVER"/>
 		<tertiaryColorsDye values="ALL_METAL"/>
-		
-		<itemTags> 
+
+		<itemTags>
 			<tag>SOLD_BY_NYAN</tag>
 		</itemTags>
 	</coreAttributes>
@@ -89,5 +89,5 @@
 	  <![CDATA[[npc.Name] quickly [npc.verb(unbuckle)] [npc2.namePos] sandals, before roughly tugging them off.]]>
 	</otherRough>
   </displacementText>
-	
+
 </clothing>

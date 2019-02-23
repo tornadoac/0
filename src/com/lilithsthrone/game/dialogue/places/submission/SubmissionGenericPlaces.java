@@ -40,17 +40,17 @@ import com.lilithsthrone.world.places.PlaceType;
 public class SubmissionGenericPlaces {
 
 	public static final DialogueNode WALKWAYS = new DialogueNode("Walkways", "", false) {
-		
+
 		@Override
 		public String getAuthor() {
 			return "Duner & Innoxia";
 		}
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "WALKWAYS")
@@ -64,7 +64,7 @@ public class SubmissionGenericPlaces {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode TUNNEL = new DialogueNode("Tunnels", "", false) {
 
 		@Override
@@ -76,11 +76,11 @@ public class SubmissionGenericPlaces {
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "TUNNEL"));
 
 			boolean pacified = true;
@@ -107,11 +107,11 @@ public class SubmissionGenericPlaces {
 						+ UtilText.parseFromXMLFile("places/submission/submissionPlaces", "TUNNEL_IMP_CONTROL")
 						+"</span>");
 			}
-			
+
 			for(GameCharacter npc : Main.game.getCharactersTreatingCellAsHome(Main.game.getPlayerCell())) {
 				UtilText.nodeContentSB.append(((NPC) npc).getPresentInTileDescription(!pacified));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -139,7 +139,7 @@ public class SubmissionGenericPlaces {
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "BAT_CAVERNS");
@@ -161,14 +161,14 @@ public class SubmissionGenericPlaces {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode RAT_WARREN = new DialogueNode("The Rat Warren", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "RAT_WARREN");
@@ -191,7 +191,7 @@ public class SubmissionGenericPlaces {
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "GAMBLING_DEN");
@@ -204,13 +204,13 @@ public class SubmissionGenericPlaces {
 					@Override
 					public void effects() {
 						List<NPC> gamblersPresent = Main.game.getCharactersPresent(Main.game.getWorlds().get(WorldType.GAMBLING_DEN).getCell(PlaceType.GAMBLING_DEN_GAMBLING));
-						
+
 						for(NPC npc : gamblersPresent) {
 							if(npc instanceof GamblingDenPatron) {
 								Main.game.removeNPC(npc);
 							}
 						}
-						
+
 						try {
 							Main.game.addNPC(new GamblingDenPatron(Gender.getGenderFromUserPreferences(false, false), DicePokerTable.COPPER, false), false);
 							Main.game.addNPC(new GamblingDenPatron(Gender.getGenderFromUserPreferences(false, false), DicePokerTable.COPPER, false), false);
@@ -220,7 +220,7 @@ public class SubmissionGenericPlaces {
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
-						
+
 						Main.game.getPlayer().setLocation(WorldType.GAMBLING_DEN, PlaceType.GAMBLING_DEN_ENTRANCE);
 					}
 				};
@@ -237,18 +237,18 @@ public class SubmissionGenericPlaces {
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_CAVERN"));
-			
+
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.elizabethIntroduced)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_CAVERN_MET_ELIZABETH"));
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_CAVERN_NOT_MET_ELIZABETH"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -258,51 +258,51 @@ public class SubmissionGenericPlaces {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LILIN_PALACE_GATE = new DialogueNode("Lyssieth's Palace Gate", "", true) {
 
 		@Override
 		public boolean isTravelDisabled() {
 			return !Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_C_SIRENS_FALL);
 		}
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 1;
 		}
-		
+
 		@Override
 		public String getContent() {
 			Main.game.getDialogueFlags().setFlag(DialogueFlagValue.elizabethAskedAboutUniforms, false);
 			Main.game.getDialogueFlags().setFlag(DialogueFlagValue.elizabethAskedAboutSurname, false);
-			
+
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE"));
-			
+
 			if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_C_SIRENS_FALL)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE_ENTRY_GRANTED"));
-				
+
 			} else if(Main.game.getPlayer().getQuest(QuestLine.MAIN)==Quest.MAIN_2_C_SIRENS_FALL) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE_ENTRY_BLOCKED_QUEST_COMPLETED"));
-				
+
 			} else if(Main.game.getPlayer().getQuest(QuestLine.MAIN)==Quest.MAIN_2_B_SIRENS_CALL) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE_ENTRY_BLOCKED_QUEST_GAINED"));
-			
+
 			} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.elizabethIntroduced)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE_ENTRY_BLOCKED_INTRODUCED"));
-					
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE_ENTRY_BLOCKED"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			
+
 			// First time visiting this tile:
 			if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.elizabethIntroduced)) {
 				if(index==1) {
@@ -317,7 +317,7 @@ public class SubmissionGenericPlaces {
 				}
 				return null;
 			}
-			
+
 			// Completed the Siren's quest:
 			if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_C_SIRENS_FALL)) {
 				if (index == 1) {
@@ -331,7 +331,7 @@ public class SubmissionGenericPlaces {
 							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_GATE_UNIFORMS"));
 						}
 					};
-					
+
 				} else if (index == 2) {
 					if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.elizabethAskedAboutSurname)) {
 						return new Response("Surname", "You've just asked ELizabeth about her surname...", null);
@@ -366,11 +366,11 @@ public class SubmissionGenericPlaces {
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN));
 						}
 					};
-					
+
 				}
 				return null;
 			}
-			
+
 			// Normal dialogue, for before completing the Siren's quest:
 			if (index == 1) {
 				return new ResponseEffectsOnly("Step back", "Decide to step away from Elizabeth and the royal guard, and head back into Submission.") {
@@ -415,7 +415,7 @@ public class SubmissionGenericPlaces {
 								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN));
 							}
 						};
-						
+
 					} else {
 						return new Response("Audience", "Ask Elizabeth how you can earn an audience with Lyssieth.", LILIN_PALACE_GATE_GENERIC_TALK) {
 							@Override
@@ -426,10 +426,10 @@ public class SubmissionGenericPlaces {
 							}
 						};
 					}
-					
+
 				} else if(Main.game.getPlayer().getQuest(QuestLine.MAIN)==Quest.MAIN_2_B_SIRENS_CALL) {
 					return new Response("Audience", "You have already asked Elizabeth how to earn an audience with Lyssieth. You need to find, and then enslave, Lyssieth's daughter; the 'dark siren'.", null);
-					
+
 				} else {
 					return new Response("Audience",
 							"Elizabeth said that Lyssieth isn't receiving visitors, and, for the moment at least, you don't have a particular reason for needing to see her."
@@ -437,23 +437,23 @@ public class SubmissionGenericPlaces {
 							null);
 				}
 			}
-			
+
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode LILIN_PALACE_GATE_GENERIC_TALK = new DialogueNode("Lyssieth's Palace Gate", "", true, true) {
 
 		@Override
 		public boolean isTravelDisabled() {
 			return LILIN_PALACE_GATE.isTravelDisabled();
 		}
-		
+
 		@Override
 		public int getMinutesPassed(){
 			return 1;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
@@ -464,19 +464,19 @@ public class SubmissionGenericPlaces {
 			return LILIN_PALACE_GATE.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode LILIN_PALACE = new DialogueNode("Lyssieth's Palace", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 1;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE"));
-			
+
 			if(Main.game.getPlayer().getQuest(QuestLine.MAIN)==Quest.MAIN_2_D_MEETING_A_LILIN) {
 				if(Main.game.getPlayer().hasCompanions()) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_ELIZABETH_LEADS_COMPANIONS", Main.game.getPlayer().getMainCompanion()));
@@ -486,7 +486,7 @@ public class SubmissionGenericPlaces {
 			} else if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "LILIN_PALACE_ELIZABETH_ESCORT"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -506,7 +506,7 @@ public class SubmissionGenericPlaces {
 							((DarkSiren)Main.game.getNpc(DarkSiren.class)).postDefeatReset();
 						}
 					};
-					
+
 				} else if(Main.game.getPlayer().isQuestProgressGreaterThan(QuestLine.MAIN, Quest.MAIN_2_D_MEETING_A_LILIN)) {
 					return new Response("Enter", "Tell Elizabeth that you'd like to enter the palace, and have her unlock the doors for you.", PlaceType.LYSSIETH_PALACE_ENTRANCE.getDialogue(false)) {
 						@Override
@@ -515,7 +515,7 @@ public class SubmissionGenericPlaces {
 							Main.game.getNpc(Elizabeth.class).setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_LILIN_PALACE_GATE);
 						}
 					};
-					
+
 				} else {
 					return new Response("Enter", "The doors are locked...", null);
 				}
@@ -523,18 +523,18 @@ public class SubmissionGenericPlaces {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode IMP_FORTRESS_ALPHA = new DialogueNode("Crude Fortress", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS"));
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS_ALPHA"));
@@ -546,7 +546,7 @@ public class SubmissionGenericPlaces {
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS_ENTRY"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -554,7 +554,7 @@ public class SubmissionGenericPlaces {
 		public Response getResponse(int responseTab, int index) {
 			boolean canEnter = Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressAlphaDefeated)
 					|| Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressAlphaPacified);
-			
+
 			if(index==1) {
 				return new Response(canEnter?"Enter":"Approach",
 						canEnter?"Enter the fortress.":"Approach the guards at the entrance to the fortress.",
@@ -573,7 +573,7 @@ public class SubmissionGenericPlaces {
 						Main.game.getPlayer().setLocation(WorldType.IMP_FORTRESS_ALPHA, PlaceType.FORTRESS_ALPHA_ENTRANCE);
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isPartyAbleToFly()) {
 					return new Response("Fly",
@@ -604,18 +604,18 @@ public class SubmissionGenericPlaces {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode IMP_FORTRESS_FEMALES = new DialogueNode("Crude Fortress", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS"));
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS_FEMALES"));
@@ -627,7 +627,7 @@ public class SubmissionGenericPlaces {
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS_ENTRY"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -636,7 +636,7 @@ public class SubmissionGenericPlaces {
 		public Response getResponse(int responseTab, int index) {
 			boolean canEnter = Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressFemalesDefeated)
 					|| Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressFemalesPacified);
-			
+
 			if(index==1) {
 				return new Response(canEnter?"Enter":"Approach",
 						canEnter?"Enter the fortress.":"Approach the guards at the entrance to the fortress.",
@@ -655,7 +655,7 @@ public class SubmissionGenericPlaces {
 						Main.game.getPlayer().setLocation(WorldType.IMP_FORTRESS_FEMALES, PlaceType.FORTRESS_FEMALES_ENTRANCE);
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isPartyAbleToFly()) {
 					return new Response("Fly",
@@ -686,18 +686,18 @@ public class SubmissionGenericPlaces {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode IMP_FORTRESS_MALES = new DialogueNode("Crude Fortress", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS"));
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS_MALES"));
@@ -709,7 +709,7 @@ public class SubmissionGenericPlaces {
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_FORTRESS_ENTRY"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -718,7 +718,7 @@ public class SubmissionGenericPlaces {
 		public Response getResponse(int responseTab, int index) {
 			boolean canEnter = Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressMalesDefeated)
 					|| Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressMalesPacified);
-			
+
 			if(index==1) {
 				return new Response(canEnter?"Enter":"Approach",
 						canEnter?"Enter the fortress.":"Approach the guards at the entrance to the fortress.",
@@ -737,7 +737,7 @@ public class SubmissionGenericPlaces {
 						Main.game.getPlayer().setLocation(WorldType.IMP_FORTRESS_MALES, PlaceType.FORTRESS_MALES_ENTRANCE);
 					}
 				};
-				
+
 			} else if(index==2) {
 				if(Main.game.getPlayer().isPartyAbleToFly()) {
 					return new Response("Fly",
@@ -768,22 +768,22 @@ public class SubmissionGenericPlaces {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode IMP_FORTRESS_DEMON = new DialogueNode("Stone Citadel", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.impFortressDemonDefeated)) {
 				return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_CITADEL_DEFEATED");
 			}
-			
+
 			Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelEncountered, true);
-			
+
 			UtilText.nodeContentSB.setLength(0);
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_CITADEL_BASE"));
 
@@ -792,11 +792,11 @@ public class SubmissionGenericPlaces {
 							&& Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY_3))
 						|| Main.game.getPlayer().hasClothingType(ClothingType.getClothingTypeFromId("innoxia_neck_key_chain"), true)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_CITADEL_KEYS"));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_CITADEL_NO_KEYS"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -812,7 +812,7 @@ public class SubmissionGenericPlaces {
 							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/submissionPlaces", "IMP_CITADEL_RUINS_ENTRY"));
 						}
 					};
-					
+
 				} else if((Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY)
 								&& Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY_2)
 								&& Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY_3))
@@ -839,19 +839,19 @@ public class SubmissionGenericPlaces {
 							}
 						}
 					};
-					
+
 				} else {
 					return new Response("Enter", "You don't have the three keys required to open the gates...", null);
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode FORTRESS_DEMON_ENTRANCE_KEY_ENTRY = new DialogueNode("", "", false) {
-		
+
 		@Override
 		public String getContent() {
 			return "";
@@ -871,7 +871,7 @@ public class SubmissionGenericPlaces {
 		public int getMinutesPassed(){
 			return 5;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "SEWER_ENTRANCE");
@@ -905,7 +905,7 @@ public class SubmissionGenericPlaces {
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.SIDE_SLIME_QUEEN, Quest.SLIME_QUEEN_THREE));
 						}
 					};
-					
+
 				} else if(Main.game.getPlayer().getQuest(QuestLine.SIDE_SLIME_QUEEN)==Quest.SLIME_QUEEN_SIX_SUBMIT
 							|| Main.game.getPlayer().getQuest(QuestLine.SIDE_SLIME_QUEEN)==Quest.SLIME_QUEEN_SIX_FORCE
 							|| Main.game.getPlayer().getQuest(QuestLine.SIDE_SLIME_QUEEN)==Quest.SLIME_QUEEN_SIX_CONVINCE) {
@@ -916,24 +916,24 @@ public class SubmissionGenericPlaces {
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.SIDE_SLIME_QUEEN, Quest.SIDE_UTIL_COMPLETE));
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CLAIRE_INFO_REPORT_BACK = new DialogueNode("Enforcer Checkpoint", "", true, true) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 2;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/submissionPlaces", "CLAIRE_INFO_REPORT_BACK");
@@ -943,7 +943,7 @@ public class SubmissionGenericPlaces {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Continue", "Let Claire get back on with her work, and continue on your way.", SEWER_ENTRANCE);
-				
+
 			} else {
 				return null;
 			}
@@ -956,7 +956,7 @@ public class SubmissionGenericPlaces {
 		public int getMinutesPassed(){
 			return 2;
 		}
-		
+
 		@Override
 		public String getContent() {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.slimeQueenHelped)) {
@@ -970,20 +970,20 @@ public class SubmissionGenericPlaces {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Continue", "Let Claire get back on with her work, and continue on your way.", SEWER_ENTRANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CLAIRE_INFO_SUBMISSION_SOCIETY = new DialogueNode("Enforcer Checkpoint", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 2;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return (UtilText.parseFromXMLFile("places/submission/submissionPlaces", "CLAIRE_INFO_SUBMISSION_SOCIETY"));
@@ -997,14 +997,14 @@ public class SubmissionGenericPlaces {
 			return SEWER_ENTRANCE.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode CLAIRE_INFO_LYSSIETH = new DialogueNode("Enforcer Checkpoint", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 2;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return (UtilText.parseFromXMLFile("places/submission/submissionPlaces", "CLAIRE_INFO_LYSSIETH"));
@@ -1018,14 +1018,14 @@ public class SubmissionGenericPlaces {
 			return SEWER_ENTRANCE.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode CLAIRE_INFO_TELEPORTATION = new DialogueNode("Enforcer Checkpoint", "", false) {
 
 		@Override
 		public int getMinutesPassed(){
 			return 2;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return (UtilText.parseFromXMLFile("places/submission/submissionPlaces", "CLAIRE_INFO_TELEPORTATION"));

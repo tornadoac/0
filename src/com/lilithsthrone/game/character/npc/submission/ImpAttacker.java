@@ -70,67 +70,67 @@ public class ImpAttacker extends NPC {
 	public ImpAttacker() {
 		this(Subspecies.IMP, Gender.F_V_B_FEMALE, false);
 	}
-	
+
 	public ImpAttacker(boolean isImported) {
 		this(Subspecies.IMP, Gender.F_V_B_FEMALE, isImported);
 	}
-	
+
 	public ImpAttacker(Subspecies subspecies, Gender gender) {
 		this(subspecies, gender, false);
 	}
-	
+
 	public ImpAttacker(Subspecies subspecies, Gender gender, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
 				3, gender, subspecies, RaceStage.GREATER,
 				new CharacterInventory(10), WorldType.SUBMISSION, PlaceType.SUBMISSION_TUNNELS, false);
-		
+
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), true);
-			
+
 			// Set random level from 5 to 8:
 			setLevel(5 + Util.random.nextInt(4));
-			
+
 			setSexualOrientation(SexualOrientation.AMBIPHILIC);
-	
+
 			setName(Name.getRandomTriplet(this.getRace()));
 			this.setPlayerKnowsName(false);
 			setDescription(UtilText.parse(this,
 					"Imps, such as this one, have no interest in anything but sex, and will attack anyone who's not a member of their clan in order to get what they want..."));
-			
+
 			// PERSONALITY & BACKGROUND:
-			
+
 			CharacterUtils.setHistoryAndPersonality(this, true);
-			
+
 			// ADDING FETISHES:
-			
+
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMIZATION:
-			
+
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
-			
+
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 			CharacterUtils.generateItemsInInventory(this);
-	
+
 			// Clothing is equipped in the Encounter class, when the imps are spawned.
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			// Set starting attributes based on the character's race
 			initAttributes();
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
-		
+
 		if(this.getWorldLocation()==WorldType.SUBMISSION) { //TODO handle enslavement in fortresses
 			this.setEnslavementDialogue(TunnelImpsDialogue.IMP_ENSLAVEMENT_DIALOGUE);
 		}
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -147,18 +147,18 @@ public class ImpAttacker extends NPC {
 	@Override
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) { //TODO gang tattoos?
 		CharacterUtils.equipPiercings(this, true);
-		
+
 		if(!this.getAllSpells().isEmpty()) {
 			if(addWeapons) {
 				this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_arcanistStaff_arcanist_staff")));
 			}
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_impArcanist_arcanist_hat"), false), true, this);
 		}
-		
+
 		if(this.isFeminine()) {
 			AbstractClothing skirt = AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_loinCloth_ragged_skirt"), false);
 			this.equipClothingFromNowhere(skirt, true, this);
-			
+
 			// Imps are flying, and don't wear anything on their feet.
 			// Alpha-thiss also wear accessories as symbols of status.
 			if(this.getSubspecies()==Subspecies.IMP_ALPHA) {
@@ -167,7 +167,7 @@ public class ImpAttacker extends NPC {
 				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, false), true, this);
 				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(Util.randomItemFrom(new AbstractClothingType[] {ClothingType.NECK_ANKH_NECKLACE, ClothingType.NECK_HEART_NECKLACE}), false), true, this);
 			}
-			
+
 			if(!this.hasFetish(Fetish.FETISH_EXHIBITIONIST)) {
 				List<AbstractClothingType> underwear = Util.newArrayListOfValues(
 						ClothingType.GROIN_THONG,
@@ -180,7 +180,7 @@ public class ImpAttacker extends NPC {
 
 				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_loinCloth_ragged_chest_wrap"), skirt.getColor(), false), true, this);
 			}
-			
+
 		} else {
 			this.equipClothingFromNowhere(
 					AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_loinCloth_loin_cloth"), false), true, this);
@@ -193,14 +193,14 @@ public class ImpAttacker extends NPC {
 				this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.STOMACH_SARASHI, false), true, this);
 			}
 		}
-	
+
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		if(this.isSlave()) {
@@ -210,7 +210,7 @@ public class ImpAttacker extends NPC {
 			return (UtilText.parse(this, description));
 		}
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
@@ -222,23 +222,23 @@ public class ImpAttacker extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return TunnelImpsDialogue.IMP_ATTACK;
 	}
 
 	// Combat:
-	
+
 	@Override
 	public int getEscapeChance() {
 		if(Main.game.getPlayer().getWorldLocation()==WorldType.IMP_FORTRESS_DEMON) {
@@ -246,9 +246,9 @@ public class ImpAttacker extends NPC {
 		}
 		return super.getEscapeChance();
 	}
-	
+
 	public Attack attackType() {
-		
+
 		// If can cast spells, then do that:
 		if(!getWeightedSpellsAvailable(Combat.getTargetedCombatant(this)).isEmpty()) {
 			return Attack.SPELL;
@@ -265,12 +265,12 @@ public class ImpAttacker extends NPC {
 		attackWeightingMap.put(Attack.MAIN, this.getRace().getPreferredAttacks().contains(Attack.MAIN)?75:50);
 		attackWeightingMap.put(Attack.OFFHAND, this.getOffhandWeapon()==null?0:(this.getRace().getPreferredAttacks().contains(Attack.MAIN)?50:25));
 		attackWeightingMap.put(Attack.SPECIAL_ATTACK, !canCastASpecialAttack?0:(this.getRace().getPreferredAttacks().contains(Attack.MAIN)?100:50));
-		
+
 		int total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
 			total+=entry.getValue();
 		}
-		
+
 		int index = Util.random.nextInt(total);
 		total = 0;
 		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
@@ -279,29 +279,29 @@ public class ImpAttacker extends NPC {
 				return entry.getKey();
 			}
 		}
-		
+
 		return Attack.MAIN;
 	}
-	
+
 	@Override
 	public void applyEscapeCombatEffects() {
 		if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.FORTRESS_ALPHA_ENTRANCE) {
 			Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_ALPHA);
-			
+
 		} else if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.FORTRESS_DEMON_ENTRANCE) {
 			Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_DEMON);
-			
+
 		} else if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.FORTRESS_MALES_ENTRANCE) {
 			Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_MALES);
-			
+
 		} else if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.FORTRESS_FEMALES_ENTRANCE) {
 			Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_IMP_FORTRESS_FEMALES);
-			
+
 		} else {
 			TunnelImpsDialogue.banishImpGroup();
 		}
 	};
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.FORTRESS_ALPHA_ENTRANCE
@@ -312,7 +312,7 @@ public class ImpAttacker extends NPC {
 			} else {
 				return new Response("", "", ImpFortressDialogue.GUARDS_AFTER_COMBAT_DEFEAT);
 			}
-			
+
 		} else if(Main.game.getPlayer().getWorldLocation()==WorldType.IMP_FORTRESS_DEMON) {
 			if (victory) {
 				if(applyEffects) {
@@ -341,7 +341,7 @@ public class ImpAttacker extends NPC {
 						}
 					};
 				}
-				
+
 			} else {
 				return new Response("", "", ImpCitadelDialogue.IMP_FIGHT_AFTER_COMBAT_DEFEAT) {
 					@Override
@@ -356,7 +356,7 @@ public class ImpAttacker extends NPC {
 					}
 				};
 			}
-			
+
 		} else {
 			if (victory) {
 				Value<String, AbstractItem> potion = TunnelImpsDialogue.getImpLeader().getTransformativePotion(Main.game.getPlayer(), true);
@@ -365,15 +365,15 @@ public class ImpAttacker extends NPC {
 					Value<String, AbstractItem> potion2 = TunnelImpsDialogue.getImpLeader().getTransformativePotion(Main.game.getPlayer().getMainCompanion(), true);
 					TunnelImpsDialogue.getImpGroup().get(1).addItem(potion2.getValue(), false);
 				}
-				
+
 				return new Response("", "", TunnelImpsDialogue.AFTER_COMBAT_VICTORY);
-				
+
 			} else {
 				return new Response("", "", TunnelImpsDialogue.AFTER_COMBAT_DEFEAT);
 			}
 		}
 	}
-	
+
 	// TF potion:
 
 	@Override
@@ -381,13 +381,13 @@ public class ImpAttacker extends NPC {
 		if(generateNew) {
 			this.heldTransformativePotion = generateTransformativePotion(target);
 		}
-		
+
 		return this.heldTransformativePotion;
 	}
-	
+
 	@Override
 	public Value<String, AbstractItem> generateTransformativePotion(GameCharacter target) {
-		
+
 		AbstractItemType itemType = ItemType.RACE_INGREDIENT_HUMAN;
 		switch(target.getRace()) {
 			case ALLIGATOR_MORPH:
@@ -438,32 +438,32 @@ public class ImpAttacker extends NPC {
 			case ELEMENTAL:
 				break;
 		}
-		
+
 		List<ItemEffect> effects = new ArrayList<>();
-		
+
 		if(target.getLocationPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_ALPHA) {
-			
+
 			if(Main.getProperties().getForcedTFTendency()==ForcedTFTendency.FEMININE
 					|| Main.getProperties().getForcedTFTendency()==ForcedTFTendency.FEMININE_HEAVY) {
 				effects.addAll(getFeminineEffects(target, itemType));
 			}
-			
+
 			// Add wet vagina:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.NONE, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
-			
+
 			// Add penis:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.NONE, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_WETNESS, TFPotency.MINOR_BOOST, 1));
-			
+
 		} else if(target.getLocationPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_DEMON) {
 
 			if(Main.getProperties().getForcedTFTendency()==ForcedTFTendency.MASCULINE
 					|| Main.getProperties().getForcedTFTendency()==ForcedTFTendency.MASCULINE_HEAVY) {
 				effects.addAll(getMasculineEffects(target, itemType));
-				
+
 			} else {
 				effects.addAll(getFeminineEffects(target, itemType));
 			}
@@ -474,20 +474,20 @@ public class ImpAttacker extends NPC {
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_WETNESS, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_WETNESS, TFPotency.MINOR_BOOST, 1));
-			
+
 			// Add wet vagina:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.NONE, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
-			
+
 		} else if(target.getLocationPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_FEMALES) {
-			
+
 			if(Main.getProperties().getForcedTFTendency()==ForcedTFTendency.MASCULINE
 					|| Main.getProperties().getForcedTFTendency()==ForcedTFTendency.MASCULINE_HEAVY) {
 				effects.addAll(getMasculineEffects(target, itemType));
 			}
-			
+
 			// Add penis:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.NONE, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE, TFPotency.BOOST, 1));
@@ -499,38 +499,38 @@ public class ImpAttacker extends NPC {
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE_TERTIARY, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
-			
+
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE, TFPotency.BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_PENIS, TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.BOOST, 1));
-			
+
 			// Add long tongue (for cunnilingus):
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_FACE, TFModifier.TF_MOD_SIZE_SECONDARY, TFPotency.BOOST, 1));
-			
+
 		} else if(target.getLocationPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_MALES) {
-			
+
 			if(Main.getProperties().getForcedTFTendency()==ForcedTFTendency.FEMININE
 					|| Main.getProperties().getForcedTFTendency()==ForcedTFTendency.FEMININE_HEAVY) {
 				effects.addAll(getFeminineEffects(target, itemType));
 			}
-			
+
 			// Add wet vagina:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.NONE, TFPotency.MINOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_VAGINA, TFModifier.TF_MOD_WETNESS, TFPotency.MAJOR_BOOST, 1));
-			
+
 		}
-		
+
 		AbstractItem ingredient = AbstractItemType.generateItem(itemType);
 		AbstractItem potion = EnchantingUtils.craftItem(ingredient, effects);
 		potion.setName(EnchantingUtils.getPotionName(ingredient, effects));
-		
+
 		return new Value<>("", potion);
 	}
-	
+
 	private static List<ItemEffect> getMasculineEffects(GameCharacter target, AbstractItemType itemType) {
 		List<ItemEffect>effects = new ArrayList<>();
-		
+
 		for(int i=target.getFemininityValue(); i>Femininity.MASCULINE.getMinimumFemininity(); i-=15) { // Turn masculine:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_CORE, TFModifier.TF_MOD_FEMININITY, TFPotency.MAJOR_DRAIN, 1));
 		}
@@ -560,13 +560,13 @@ public class ImpAttacker extends NPC {
 		for(int i=target.getLipSizeValue(); i>LipSize.TWO_FULL.getValue(); i-=2) {
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_FACE, TFModifier.TF_MOD_SIZE, TFPotency.DRAIN, 1));
 		}
-		
+
 		return effects;
 	}
-	
+
 	private static List<ItemEffect> getFeminineEffects(GameCharacter target, AbstractItemType itemType) {
 		List<ItemEffect>effects = new ArrayList<>();
-		
+
 		for(int i=target.getFemininityValue(); i<Femininity.FEMININE.getMinimumFemininity(); i+=15) { // Turn feminine:
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_CORE, TFModifier.TF_MOD_FEMININITY, TFPotency.MAJOR_BOOST, 1));
 		}
@@ -596,7 +596,7 @@ public class ImpAttacker extends NPC {
 		for(int i=target.getLipSizeValue(); i<LipSize.TWO_FULL.getValue(); i+=2) {
 			effects.add(new ItemEffect(itemType.getEnchantmentEffect(), TFModifier.TF_FACE, TFModifier.TF_MOD_SIZE, TFPotency.BOOST, 1));
 		}
-		
+
 		return effects;
 	}
 }

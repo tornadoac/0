@@ -49,11 +49,11 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class DominionSuccubusAttacker extends NPC {
-	
+
 	public DominionSuccubusAttacker() {
 		this(false);
 	}
-	
+
 	public DominionSuccubusAttacker(boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(50)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -62,53 +62,53 @@ public class DominionSuccubusAttacker extends NPC {
 
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), true);
-			
+
 			// BODY RANDOMIZATION:
 			addFetish(Fetish.FETISH_DEFLOWERING);
 			addFetish(Fetish.FETISH_DOMINANT);
 			CharacterUtils.addFetishes(this);
-			
+
 			if(!Gender.getGenderFromUserPreferences(false, false).isFeminine()) {
 				this.setBody(Gender.M_P_MALE, Subspecies.DEMON, RaceStage.GREATER);
 				this.setGenderIdentity(Gender.M_P_MALE);
 			}
-			
+
 			CharacterUtils.randomiseBody(this, true);
 			//this.setAgeAppearanceDifferenceToAppearAsAge(18+Util.random.nextInt(10)); //18
-			
+
 			this.setVaginaVirgin(false);
 			this.setAssVirgin(false);
 			this.setFaceVirgin(false);
 			this.setNippleVirgin(false);
 			this.setPenisVirgin(false);
-			
+
 			setLevel(Util.random.nextInt(3) + 4);
-			
+
 			setName(Name.getRandomTriplet(Race.DEMON));
 			this.setPlayerKnowsName(false);
-			
+
 			// Set random inventory & weapons:
 			resetInventory(true);
 			inventory.setMoney(50);
 			CharacterUtils.generateItemsInInventory(this);
-			
+
 			// CLOTHING:
-			
+
 			this.equipClothing(true, true, true, true);
-			
+
 			CharacterUtils.applyMakeup(this, true);
-			
+
 			this.addSpell(Spell.ARCANE_AROUSAL);
 			this.addSpell(Spell.TELEPATHIC_COMMUNICATION);
 			this.addSpellUpgrade(SpellUpgrade.TELEPATHIC_COMMUNICATION_1);
-			
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -129,19 +129,19 @@ public class DominionSuccubusAttacker extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
 	}
-	
+
 	@Override
 	public String getDescription() {
 		return UtilText.parse(this,
 				"Although all demons have an extremely powerful libido, some suffer from it far more than others."
 				+ " While most are able to control their sexual desires, others, such as this [npc.race], struggle to think of anything but how to secure their next sexual conquest.");
 	}
-	
+
 	@Override
 	public void endSex() {
 		if(!isSlave()) {
@@ -156,16 +156,16 @@ public class DominionSuccubusAttacker extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		if(Main.game.getPlayer().getCompanions().isEmpty()) {
@@ -203,9 +203,9 @@ public class DominionSuccubusAttacker extends NPC {
 			return new Response ("", "", AlleywayDemonDialogue.AFTER_COMBAT_DEFEAT);
 		}
 	}
-	
+
 	// ****************** Sex & Dirty talk: ***************************
-	
+
 	@Override
 	public String getCondomEquipEffects(GameCharacter equipper, GameCharacter target, boolean rough) {
 		if(Main.game.isInSex()) {
@@ -235,7 +235,7 @@ public class DominionSuccubusAttacker extends NPC {
 				"[npc.Name] tears open the packet and rolls the condom down the length of your [pc.penis].",
 				"[npc.Name] tears open the packet and forcefully rolls the condom down the length of your [pc.penis].", null, null);
 	}
-	
+
 	// Losing virginity:
 	private static StringBuilder StringBuilderSB;
 	@Override
@@ -243,9 +243,9 @@ public class DominionSuccubusAttacker extends NPC {
 		if(!characterPenetrated.isPlayer() || penetrationType!=SexAreaPenetration.PENIS || orifice!=SexAreaOrifice.VAGINA || !characterPenetrating.equals(this)) {
 			return super.getVirginityLossOrificeDescription(characterPenetrating, penetrationType, characterPenetrated, orifice);
 		}
-		
+
 		StringBuilderSB = new StringBuilder();
-		
+
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN)) {
 			StringBuilderSB.append(
 							"<p>"
@@ -341,11 +341,11 @@ public class DominionSuccubusAttacker extends NPC {
 						+ " Moving [npc.her] hands down to take hold of your waist, [npc.she] carries on taunting you, repeating that you'll always remember this moment as the time you discovered that you're just a slut for big, thick demon cock."
 						+ " As the pain between your legs fades away into a dull ache, you find yourself letting out moan after desperate moan, and you start to worry that the [npc.race] might be right..."
 					+ "</p>");
-			
+
 		}
-		
+
 		StringBuilderSB.append(formatVirginityLoss("Your hymen has been torn; you have lost your virginity!"));
-		
+
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_PURE_VIRGIN))
 			StringBuilderSB.append("<p style='text-align:center;'>"
 					+ "<b style='color:"+Color.GENERIC_TERRIBLE.toWebHexString()+";'>Broken Virgin</b>"
@@ -371,17 +371,17 @@ public class DominionSuccubusAttacker extends NPC {
 					+ " With a desperate moan, you start bucking your hips back against [npc.herHim], resigning yourself to the fact that now you're nothing more than a"
 					+ " <b style='color:"+StatusEffect.FETISH_BROKEN_VIRGIN.getColor().toWebHexString()+";'>broken virgin</b>..."
 				+ "</p>");
-		
+
 		return UtilText.parse(Sex.getActivePartner(),
 				StringBuilderSB.toString());
 	}
-	
+
 	// Dirty talk:
-	
+
 	@Override
 	public String getDirtyTalkNoPenetration(GameCharacter target, boolean isPlayerDom){
 		List<String> speech = new ArrayList<>();
-		
+
 		if(isPlayerDom && Sex.getSexPace(this)!=SexPace.SUB_RESISTING){
 			speech.add("Come on, fuck me already!");
 			speech.add("Come on! What's taking so long?!");
@@ -395,7 +395,7 @@ public class DominionSuccubusAttacker extends NPC {
 		} else {
 			return super.getDirtyTalkNoPenetration(target, isPlayerDom);
 		}
-		
+
 		return speech.get(Util.random.nextInt(speech.size()));
 	}
 }

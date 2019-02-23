@@ -19,7 +19,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 	private Race race;
 	private NippleType nippleType;
 	private FluidType fluidType;
-	
+
 	private List<String> namesFlat;
 	private List<String> namesFlatPlural;
 	private List<String> descriptorsFlat;
@@ -27,12 +27,12 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 	private List<String> namesBreasts;
 	private List<String> namesBreastsPlural;
 	private List<String> descriptorsBreasts;
-	
+
 	private String breastsTransformationDescription;
 	private String breastsBodyDescription;
 	private String breastsCrotchTransformationDescription;
 	private String breastsCrotchBodyDescription;
-	
+
 	/**
 	 * @param skinType What covers this breasts type (i.e skin/fur/feather type). This is never used, as skin type covering breasts is determined by torso covering.
 	 * @param race What race has this breasts type.
@@ -63,12 +63,12 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 			String breastsBodyDescription,
 			String breastsCrotchTransformationDescription,
 			String breastsCrotchBodyDescription) {
-		
+
 		this.skinType = skinType;
 		this.race = race;
 		this.nippleType = nippleType;
 		this.fluidType = fluidType;
-		
+
 		this.namesFlat = namesFlat;
 		this.namesFlatPlural = namesFlatPlural;
 		this.descriptorsFlat = descriptorsFlat;
@@ -76,14 +76,14 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 		this.namesBreasts = namesBreasts;
 		this.namesBreastsPlural = namesBreastsPlural;
 		this.descriptorsBreasts = descriptorsBreasts;
-		
+
 		this.breastsTransformationDescription = breastsTransformationDescription;
 		this.breastsBodyDescription = breastsBodyDescription;
-		
+
 		this.breastsCrotchTransformationDescription = breastsCrotchTransformationDescription;
 		this.breastsCrotchBodyDescription = breastsCrotchBodyDescription;
 	}
-	
+
 	public AbstractBreastType(BodyCoveringType skinType,
 			Race race,
 			NippleType nippleType,
@@ -102,7 +102,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 				breastsCrotchBodyDescription,
 				breastsCrotchBodyDescription);
 	}
-	
+
 	public NippleType getNippleType() {
 		return nippleType;
 	}
@@ -132,7 +132,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 				return UtilText.returnStringAtRandom("breast", "boob", "tit");
 			}
 			return Util.randomItemFrom(namesBreasts);
-			
+
 		} else {
 			if(namesFlat==null) {
 				return UtilText.returnStringAtRandom("pec");
@@ -140,7 +140,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 			return Util.randomItemFrom(namesFlat);
 		}
 	}
-	
+
 	@Override
 	public String getNamePlural(GameCharacter gc) {
 		if (gc.hasBreasts()) {
@@ -148,7 +148,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 				return UtilText.returnStringAtRandom("breasts", "boobs", "mammaries", "tits");
 			}
 			return Util.randomItemFrom(namesBreastsPlural);
-			
+
 		} else {
 			if(namesFlatPlural==null) {
 				return UtilText.returnStringAtRandom("pecs");
@@ -175,7 +175,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 	public String getCrotchNameSingular(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("crotch-breast", "crotch-boob", "crotch-boob", "crotch-boob", "crotch-tit");
 	}
-	
+
 	public String getCrotchNamePlural(GameCharacter gc) {
 		return UtilText.returnStringAtRandom("crotch-breasts", "crotch-boobs", "crotch-boobs", "crotch-boobs", "crotch-tits");
 	}
@@ -200,7 +200,7 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 	public String getBodyDescription(GameCharacter owner) {
 		return UtilText.parse(owner, breastsBodyDescription);
 	}
-	
+
 //	@Override
 	public String getTransformationDescription(GameCharacter owner) {
 		return UtilText.parse(owner, breastsTransformationDescription);
@@ -209,9 +209,9 @@ public abstract class AbstractBreastType implements BodyPartTypeInterface {
 	public String getTransformationCrotchDescription(GameCharacter owner) {
 		return UtilText.parse(owner, breastsCrotchTransformationDescription);
 	}
-	
+
 	public String getBodyCrotchDescription(GameCharacter owner) {
 		return UtilText.parse(owner, breastsCrotchBodyDescription);
 	}
-	
+
 }

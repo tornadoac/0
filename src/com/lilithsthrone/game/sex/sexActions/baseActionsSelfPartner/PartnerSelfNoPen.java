@@ -24,7 +24,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class PartnerSelfNoPen {
-	
+
 	public static final SexAction PARTNER_STROKE_VAGINA = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -36,7 +36,7 @@ public class PartnerSelfNoPen {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.NPC_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Touch self";
@@ -68,16 +68,16 @@ public class PartnerSelfNoPen {
 								+Sex.getActivePartner().getLowestZLayerCoverableArea(CoverableArea.VAGINA).getName() +" tightly against [npc.her] neglected [npc.pussy].");
 			}
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			if(Sex.getActivePartner().isCoverableAreaExposed(CoverableArea.VAGINA)) {
 				Sex.transferLubrication(Sex.getActivePartner(), SexAreaPenetration.FINGER, Sex.getActivePartner(), SexAreaOrifice.VAGINA);
 			}
 		}
-		
+
 	};
-	
+
 	public static final SexAction PARTNER_STROKE_PENIS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -89,7 +89,7 @@ public class PartnerSelfNoPen {
 		public SexActionLimitation getLimitation() {
 			return SexActionLimitation.NPC_ONLY;
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Masturbate";
@@ -108,7 +108,7 @@ public class PartnerSelfNoPen {
 						"[npc.Name] teases [npc.her] fingers over the [npc.cockHead+] of [npc.her] [npc.cock+], [npc.groaning+] as [npc.she] rubs [npc.her] thumb over the top.",
 						"Taking hold of [npc.her] [npc.cock+] in one hand, [npc.name] eagerly starts jerking off.",
 						"Wrapping [npc.her] fingers around [npc.her] [npc.cock+], [npc.name] lets out a series of [npc.groans+] as [npc.she] starts masturbating.");
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"[npc.Name] runs [npc.her] [npc.hand] over [npc.her] groin, pressing [npc.her] "+Sex.getActivePartner().getLowestZLayerCoverableArea(CoverableArea.PENIS).getName()
@@ -121,16 +121,16 @@ public class PartnerSelfNoPen {
 								+" tightly against [npc.her] concealed [npc.cock+].");
 			}
 		}
-		
+
 		@Override
 		public void applyEffects() {
 			if(Sex.getActivePartner().isCoverableAreaExposed(CoverableArea.PENIS)) {
 				Sex.transferLubrication(Sex.getActivePartner(), SexAreaPenetration.FINGER, Sex.getActivePartner(), SexAreaPenetration.PENIS);
 			}
 		}
-		
+
 	};
-	
+
 	public static final SexAction PARTNER_STROKE_MOUND = new SexAction(
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
@@ -148,7 +148,7 @@ public class PartnerSelfNoPen {
 			return !Sex.getActivePartner().hasPenis()
 					&& !Sex.getActivePartner().hasVagina();
 		}
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Stroke mound";
@@ -167,7 +167,7 @@ public class PartnerSelfNoPen {
 						"[npc.Name] teases [npc.her] fingers over the sensitive doll-like mound between [npc.her] legs, [npc.moaning+] as [npc.she] stimulates [npc.herself].",
 						"With probing fingers, [npc.name] reaches down and starts to pinch and rub at [npc.her] delicate genderless crotch.",
 						"Despite lacking genitalia, [npc.namePos] crotch remains a highly sensitive erogenous zone, and [npc.she] eagerly starts rubbing and pressing down on it with greedy fingers.");
-				
+
 			} else {
 				return UtilText.returnStringAtRandom(
 						"[npc.Name] runs [npc.her] [npc.hand] over [npc.her] groin, pressing [npc.her] "+Sex.getActivePartner().getLowestZLayerCoverableArea(CoverableArea.VAGINA).getName()
@@ -178,10 +178,10 @@ public class PartnerSelfNoPen {
 								+", before pressing down and trying to stimulate [npc.her] doll-like mound through [npc.her] clothing.",
 						"Pushing down between [npc.her] [npc.legs] with the palm of [npc.her] [npc.hand], [npc.name] squeezes [npc.her] thighs together as [npc.she] presses [npc.her] "
 								+Sex.getActivePartner().getLowestZLayerCoverableArea(CoverableArea.VAGINA).getName()+" tightly down against [npc.her] genderless mound.");
-				
+
 			}
 		}
-		
+
 		@Override
 		public List<Fetish> getFetishes(GameCharacter character) {
 			if(character.isPlayer()) {
@@ -191,5 +191,5 @@ public class PartnerSelfNoPen {
 			}
 		}
 	};
-	
+
 }

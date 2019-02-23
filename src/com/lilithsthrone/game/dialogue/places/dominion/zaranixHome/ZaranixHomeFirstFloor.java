@@ -29,7 +29,7 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class ZaranixHomeFirstFloor {
-	
+
 	public static final DialogueNode STAIRS = new DialogueNode("", "", false) {
 
 		@Override
@@ -62,7 +62,7 @@ public class ZaranixHomeFirstFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CORRIDOR = new DialogueNode("", "", false) {
 
 		@Override
@@ -78,19 +78,19 @@ public class ZaranixHomeFirstFloor {
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR"));
-			
+
 			if(((Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()-1) != null
 					&& Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()-1).getPlace().getPlaceType()==PlaceType.ZARANIX_FF_MAID)
-					
+
 						|| (Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()+1) != null
 								&& Main.game.getActiveWorld().getCell(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()+1).getPlace().getPlaceType()==PlaceType.ZARANIX_FF_MAID))
-					
+
 					&& !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKellySubdued)) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR_KELLY_NOT_SUBDUED"));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -99,7 +99,7 @@ public class ZaranixHomeFirstFloor {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode CORRIDOR_MAID = new DialogueNode("", "", false) {
 
 		@Override
@@ -116,10 +116,10 @@ public class ZaranixHomeFirstFloor {
 		public String getContent() {
 			if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKellySubdued)) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR_MAID_KELLY_SUBDUED");
-			
+
 			} else if(Main.game.getNpc(ZaranixMaidKelly.class).getFoughtPlayerCount()==0) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR_MAID_KELLY_ENCOUNTER");
-			
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR_MAID_KELLY_ENCOUNTER_REPEAT");
 			}
@@ -136,7 +136,7 @@ public class ZaranixHomeFirstFloor {
 									Util.newArrayListOfValues(Main.game.getNpc(ZaranixMaidKelly.class)),
 							null,
 							null), ZaranixMaidKelly.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR_MAID_KELLY_SEX"));
-					
+
 				} else if(index==2) {
 					return new ResponseSex("Submit",
 							"You can't bring yourself to take the dominant role, but you <i>do</i> want to have sex with Kelly. Perhaps if you submitted, she'd be willing to fuck you?",
@@ -147,7 +147,7 @@ public class ZaranixHomeFirstFloor {
 									Util.newArrayListOfValues(Main.game.getPlayer()),
 							null,
 							null), ZaranixMaidKelly.AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "CORRIDOR_MAID_KELLY_SEX_SUBMIT"));
-					
+
 				} else if (index == 3) {
 					return new Response("Transformations",
 							"Get Kelly to use [kelly.her] demonic powers to transform [kelly.herself]...",
@@ -158,7 +158,7 @@ public class ZaranixHomeFirstFloor {
 							BodyChanging.setTarget(Main.game.getNpc(ZaranixMaidKelly.class));
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -176,13 +176,13 @@ public class ZaranixHomeFirstFloor {
 				}
 			}
 		}
-		
+
 		@Override
 		public boolean isTravelDisabled() {
 			return !Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.zaranixKellySubdued);
 		}
 	};
-	
+
 	public static final DialogueNode ROOM = new DialogueNode("", "", false) {
 
 		@Override
@@ -205,7 +205,7 @@ public class ZaranixHomeFirstFloor {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM = new DialogueNode("", "", true) {
 
 		@Override
@@ -232,7 +232,7 @@ public class ZaranixHomeFirstFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_ENTRY = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -244,7 +244,7 @@ public class ZaranixHomeFirstFloor {
 		public String getContent() {
 			if(Main.game.getNpc(Zaranix.class).getFoughtPlayerCount()==0) {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "ZARANIX_ROOM_ENTRY");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloor", "ZARANIX_ROOM_ENTRY_REPEAT");
 			}
@@ -260,7 +260,7 @@ public class ZaranixHomeFirstFloor {
 							return true;
 						}
 					};
-					
+
 				} else if(index==2) {
 					return new Response("Explain everything", "Tell Zaranix that Lilaya needs Arthur in order to help her unravel the mystery of inter-dimensional travel.", ZARANIX_ROOM_EXPLANATION) {
 						@Override
@@ -269,7 +269,7 @@ public class ZaranixHomeFirstFloor {
 							Main.game.getNpc(Arthur.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, true);
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -282,7 +282,7 @@ public class ZaranixHomeFirstFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_NO_EXPLANATION = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -304,7 +304,7 @@ public class ZaranixHomeFirstFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_EXPLANATION = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -327,7 +327,7 @@ public class ZaranixHomeFirstFloor {
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_DEMON_HOME_ARTHUR, false);
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("'Thank' Zaranix", "You feel a little sorry for Zaranix. Perhaps you could offer to give him a blowjob as thanks...", ZARANIX_ROOM_EXPLANATION_THANK_ZARANIX,
 						Util.newArrayListOfValues(Fetish.FETISH_ORAL_GIVING), CorruptionLevel.TWO_HORNY, null, null, null) {
@@ -336,13 +336,13 @@ public class ZaranixHomeFirstFloor {
 						return true;
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ZARANIX_ROOM_EXPLANATION_THANK_ZARANIX = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -371,7 +371,7 @@ public class ZaranixHomeFirstFloor {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode AFTER_SEX_THANKING_ZARANIX = new DialogueNode("", "", true) {
 
 		@Override

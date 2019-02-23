@@ -16,11 +16,11 @@ public abstract class ParserCommand {
 	private String description, arguments;
 	private List<String> tags;
 	private BodyPartType relatedBodyPart;
-	
+
 	public ParserCommand(List<String> tags, boolean allowsCapitalization, boolean allowPronoun, String arguments, String description) {
 		this(tags, allowsCapitalization, allowPronoun, arguments, description, BodyPartType.GENERIC);
 	}
-	
+
 	public ParserCommand(List<String> tags, boolean allowsCapitalization, boolean allowPronoun, String arguments, String description, BodyPartType relatedBodyPart) {
 		this.tags=tags;
 		this.allowsCapitalization=allowsCapitalization;
@@ -29,11 +29,11 @@ public abstract class ParserCommand {
 		this.arguments=arguments;
 		this.relatedBodyPart=relatedBodyPart;
 	}
-	
+
 	public boolean isAllowsCapitalization() {
 		return allowsCapitalization;
 	}
-	
+
 	public boolean isAllowsPronoun() {
 		return allowPronoun;
 	}
@@ -41,7 +41,7 @@ public abstract class ParserCommand {
 	public String getDescription() {
 		return description;
 	}
-	
+
 	public String getArguments() {
 		return arguments;
 	}
@@ -49,11 +49,11 @@ public abstract class ParserCommand {
 	public List<String> getTags() {
 		return tags;
 	}
-	
+
 	public BodyPartType getRelatedBodyPart() {
 		return relatedBodyPart;
 	}
-	
+
 	public String getArgumentExample() {
 		return "Example argument";
 	}
@@ -62,9 +62,9 @@ public abstract class ParserCommand {
 		return "[<i style='color:"+Color.CLOTHING_BLUE_LIGHT.toWebHexString()+";'>"+target+"</i>.<i style='color:"+Color.CLOTHING_PINK_LIGHT.toWebHexString()+";'>"+tags.get(0)+"</i>"
 				+(arguments==""?"":"<i style='color:"+Color.CLOTHING_YELLOW.toWebHexString()+";'>("+arguments+")</i>")+"]";
 	}
-	
+
 	public abstract String parse(String command, String arguments, String target, GameCharacter character);
-	
+
 	/**
 	 * Some methods might return a null or empty string for a descriptor. This method accounts for that, applying a descriptor if one is available and then returning the descriptor + name combination.
 	 */
@@ -72,17 +72,17 @@ public abstract class ParserCommand {
 		if(descriptor==null) {
 			return name;
 		}
-		
+
 		return (descriptor.length() > 0 ? descriptor + (descriptor.charAt(descriptor.length()-1)=='-'?"":" ") : "") + name;
 	}
-	
+
 	/**
 	 * Some methods might return a null or empty string for a determiner. This method accounts for that, applying a special determiner if one is available and then returning the descriptor + name combination.
 	 */
 	protected String applyDeterminer(String descriptor, String input) {
 		if(descriptor==null)
 			return input;
-		
+
 		return (descriptor.length() > 0 ? descriptor + " " : (UtilText.isVowel(input.charAt(0))?"an ":"a ")) + input;
 	}
 }

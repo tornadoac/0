@@ -10,7 +10,7 @@ public enum CoverableArea {
 	NONE("none"), // Utility value
 
 	HANDS("hands"),
-	
+
 	ASS("ass"),
 	ANUS("asshole"),
 
@@ -19,15 +19,15 @@ public enum CoverableArea {
 	FEET("feet"),
 	BACK("back"),
 	THIGHS("thighs"),
-	
+
 	VAGINA("pussy"),
 	MOUND("mound"),
 	PENIS("cock"),
 	TESTICLES("balls"),
-	
+
 	BREASTS("breasts"),
 	NIPPLES("nipples"),
-	
+
 	BREASTS_CROTCH("crotch-breasts"),
 	NIPPLES_CROTCH("crotch-nipples"),
 

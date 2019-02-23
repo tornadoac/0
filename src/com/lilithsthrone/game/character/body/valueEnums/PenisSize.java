@@ -4,7 +4,7 @@ import com.lilithsthrone.utils.Color;
 
 /**
  * Sizes in inches.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.83
  * @author Innoxia

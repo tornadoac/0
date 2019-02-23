@@ -14,7 +14,7 @@ import com.lilithsthrone.game.character.body.valueEnums.Wetness;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 
 public class OrificeMouth implements OrificeInterface {
-	
+
 	protected int wetness;
 	protected int elasticity;
 	protected int plasticity;
@@ -30,10 +30,10 @@ public class OrificeMouth implements OrificeInterface {
 		this.elasticity = elasticity;
 		this.plasticity = plasticity;
 		this.virgin = virgin;
-		
+
 		this.orificeModifiers = new HashSet<>(orificeModifiers);
 	}
-	
+
 	@Override
 	public Wetness getWetness(GameCharacter owner) {
 		return Wetness.valueOf(wetness);
@@ -44,7 +44,7 @@ public class OrificeMouth implements OrificeInterface {
 		int oldWetness = this.wetness;
 		this.wetness = Math.max(0, Math.min(wetness, Wetness.SEVEN_DROOLING.getValue()));
 		int wetnessChange = this.wetness - oldWetness;
-		
+
 		if (wetnessChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your throat's wetness doesn't change...)]</p>";
@@ -52,7 +52,7 @@ public class OrificeMouth implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The wetness of [npc.namePos] throat doesn't change...)]</p>");
 			}
 		}
-		
+
 		String wetnessDescriptor = getWetness(owner).getDescriptor();
 		if (wetnessChange > 0) {
 			if (owner.isPlayer()) {
@@ -61,13 +61,13 @@ public class OrificeMouth implements OrificeInterface {
 							+ "You now have [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.NamePos] throat suddenly fills with saliva, and [npc.she] gulps as [npc.she] realizes that it's permanently [style.boldGrow(got wetter)].<br/>"
 							+ "[npc.Name] now has [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " throat)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -75,7 +75,7 @@ public class OrificeMouth implements OrificeInterface {
 							+ "You now have [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] shifts about uncomfortably as [npc.she] feels [npc.her] throat [style.boldShrink(getting drier)].<br/>"
 							+ "[npc.Name] now has [style.boldSex(" + UtilText.generateSingularDeterminer(wetnessDescriptor) + " " + wetnessDescriptor + " throat)]!"
@@ -102,7 +102,7 @@ public class OrificeMouth implements OrificeInterface {
 			this.stretchedCapacity = this.capacity;
 		}
 		float capacityChange = this.capacity - oldCapacity;
-		
+
 		if (capacityChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your throat's capacity doesn't change...)]</p>";
@@ -110,7 +110,7 @@ public class OrificeMouth implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The capacity of [npc.namePos] throat doesn't change...)]</p>");
 			}
 		}
-		
+
 		String capacityDescriptor = getCapacity().getDescriptor();
 		if (capacityChange > 0) {
 			if (owner.isPlayer()) {
@@ -119,13 +119,13 @@ public class OrificeMouth implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] feels [npc.her] throat's [style.boldGrow(capacity increasing)] as it relaxes and stretches out with a mind of its own.<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " throat)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -133,7 +133,7 @@ public class OrificeMouth implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a cry as [npc.she] feels [npc.her] throat close up and tighten as its internal [style.boldShrink(capacity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(capacityDescriptor) + " " + capacityDescriptor + " throat)]!"
@@ -141,7 +141,7 @@ public class OrificeMouth implements OrificeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public float getStretchedCapacity() {
 		return stretchedCapacity;
@@ -164,7 +164,7 @@ public class OrificeMouth implements OrificeInterface {
 		int oldElasticity = this.elasticity;
 		this.elasticity = Math.max(0, Math.min(elasticity, OrificeElasticity.SEVEN_ELASTIC.getValue()));
 		int elasticityChange = this.elasticity - oldElasticity;
-		
+
 		if (elasticityChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your throat's elasticity doesn't change...)]</p>";
@@ -172,7 +172,7 @@ public class OrificeMouth implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The elasticity of [npc.namePos] throat doesn't change...)]</p>");
 			}
 		}
-		
+
 		String elasticityDescriptor = getElasticity().getDescriptor();
 		if (elasticityChange > 0) {
 			if (owner.isPlayer()) {
@@ -181,13 +181,13 @@ public class OrificeMouth implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange slackening sensation pulsating deep within [npc.her] throat as its [style.boldGrow(elasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " throat)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -195,7 +195,7 @@ public class OrificeMouth implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange clenching sensation pulsating deep within [npc.her] throat as its [style.boldShrink(elasticity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(elasticityDescriptor) + " " + elasticityDescriptor + " throat)]!"
@@ -203,7 +203,7 @@ public class OrificeMouth implements OrificeInterface {
 			}
 		}
 	}
-	
+
 	@Override
 	public OrificePlasticity getPlasticity() {
 		return OrificePlasticity.getElasticityFromInt(plasticity);
@@ -214,7 +214,7 @@ public class OrificeMouth implements OrificeInterface {
 		int oldPlasticity = this.plasticity;
 		this.plasticity = Math.max(0, Math.min(plasticity, OrificePlasticity.SEVEN_MOLDABLE.getValue()));
 		int plasticityChange = this.plasticity - oldPlasticity;
-		
+
 		if (plasticityChange == 0) {
 			if(owner.isPlayer()) {
 				return "<p style='text-align:center;'>[style.colorDisabled(Your throat's plasticity doesn't change...)]</p>";
@@ -222,7 +222,7 @@ public class OrificeMouth implements OrificeInterface {
 				return UtilText.parse(owner, "<p style='text-align:center;'>[style.colorDisabled(The plasticity of [npc.namePos] throat doesn't change...)]</p>");
 			}
 		}
-		
+
 		String plasticityDescriptor = getPlasticity().getDescriptor();
 		if (plasticityChange > 0) {
 			if (owner.isPlayer()) {
@@ -231,13 +231,13 @@ public class OrificeMouth implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange molding sensation pulsating deep within [npc.her] throat as its [style.boldGrow(plasticity increases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " throat)]!"
 						+ "</p>");
 			}
-			
+
 		} else {
 			if (owner.isPlayer()) {
 				return "<p>"
@@ -245,7 +245,7 @@ public class OrificeMouth implements OrificeInterface {
 							+ "The transformation quickly passes, leaving you with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " throat)]!"
 						+ "</p>";
 			} else {
-				return UtilText.parse(owner, 
+				return UtilText.parse(owner,
 						"<p>"
 							+ "[npc.Name] lets out a little gasp as [npc.she] feels a strange softening sensation pulsating deep within [npc.her] throat as its [style.boldShrink(plasticity decreases)].<br/>"
 							+ "The transformation quickly passes, leaving [npc.herHim] with [style.boldSex(" + UtilText.generateSingularDeterminer(plasticityDescriptor) + " " + plasticityDescriptor + " throat)]!"
@@ -274,13 +274,13 @@ public class OrificeMouth implements OrificeInterface {
 		if(hasOrificeModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		orificeModifiers.add(modifier);
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		switch(modifier) {
 			case MUSCLE_CONTROL:
 				if(owner.isPlayer()) {
@@ -339,7 +339,7 @@ public class OrificeMouth implements OrificeInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}
@@ -349,13 +349,13 @@ public class OrificeMouth implements OrificeInterface {
 		if(!hasOrificeModifier(modifier)) {
 			return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 		}
-		
+
 		orificeModifiers.remove(modifier);
-		
+
 		if(owner==null) {
 			return "";
 		}
-		
+
 		switch(modifier) {
 			case MUSCLE_CONTROL:
 				if(owner.isPlayer()) {
@@ -412,7 +412,7 @@ public class OrificeMouth implements OrificeInterface {
 							+ "</p>";
 				}
 		}
-		
+
 		// Catch:
 		return "<p style='text-align:center;'>[style.colorDisabled(Nothing happens...)]</p>";
 	}

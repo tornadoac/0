@@ -47,19 +47,19 @@ public class PrologueDialogue {
 	private static boolean femalePrologueNPC() {
 		return CharacterCreation.femalePrologueNPC();
 	}
-	
+
 	public static final DialogueNode INTRO = new DialogueNode("In the Museum", "", true) {
 
 		@Override
 		public String getContent() {
 			if(femalePrologueNPC()) {
 				return UtilText.parseFromXMLFile("misc/prologue", "INTRO_FEMALE");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("misc/prologue", "INTRO_MALE");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -74,7 +74,7 @@ public class PrologueDialogue {
 						}
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Say No", "You don't think it's a good idea to sneak off and have sex when you're supposed to be here to see your aunt Lily. Say no.", INTRO_NO) {
 					@Override
@@ -82,25 +82,25 @@ public class PrologueDialogue {
 						Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_CROWDS);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTRO_EMPTY_ROOM = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
 			if(femalePrologueNPC()) {
 				return UtilText.parseFromXMLFile("misc/prologue", "INTRO_EMPTY_ROOM_FEMALE");
-				
+
 			} else {
 				return UtilText.parseFromXMLFile("misc/prologue", "INTRO_EMPTY_ROOM_MALE");
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -126,7 +126,7 @@ public class PrologueDialogue {
 							}
 						}
 					};
-					
+
 				} else {
 					return new ResponseSex("Sex", "Give in to your lust and start having sex with [prologueMale.name]...",
 							null, null, null,
@@ -148,7 +148,7 @@ public class PrologueDialogue {
 						}
 					};
 				}
-				
+
 			} else if (index == 2) {
 				return new Response("Second Thoughts", "Decide that this is a bad idea after all, and put an end to this.", INTRO_SECOND_THOUGHTS) {
 					@Override
@@ -156,42 +156,42 @@ public class PrologueDialogue {
 						Main.game.getPlayer().setLocation(WorldType.MUSEUM, PlaceType.MUSEUM_CROWDS);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 
 	public static final DialogueNode AFTER_SEX = new DialogueNode("In the Museum", "", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(femalePrologueNPC()) {
 				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueFemale.class))>0) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_FEMALE_SATISFIED"));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_FEMALE_NOT_SATISFIED"));
 				}
-				
+
 			} else {
 				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueMale.class))>0) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_MALE_SATISFIED"));
-					
+
 				} else {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_MALE_NOT_SATISFIED"));
 				}
 			}
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -206,25 +206,25 @@ public class PrologueDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTRO_SECOND_THOUGHTS = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(femalePrologueNPC()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_SECOND_THOUGHTS_FEMALE"));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_SECOND_THOUGHTS_MALE"));
 			}
 
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_SECOND_THOUGHTS"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -239,25 +239,25 @@ public class PrologueDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTRO_NO = new DialogueNode("In the Museum", "", true, true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			if(femalePrologueNPC()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_NO_FEMALE"));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_NO_MALE"));
 			}
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_NO"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -279,7 +279,7 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_2");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -356,13 +356,13 @@ public class PrologueDialogue {
 				return new Response("Wake up", "You slowly start to regain consciousness.", INTRO_NEW_WORLD_1){
 					@Override
 					public void effects() {
-						
+
 						Main.game.setWeather(Weather.MAGIC_STORM, 300);
 
 						Main.game.setRenderMap(true);
-						
+
 						MainController.updateUI();
-						
+
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME);
 					}
 				};
@@ -378,17 +378,17 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_1");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Struggle", "Try to struggle out of their grip.", INTRO_NEW_WORLD_1_STRUGGLE);
-				
+
 			} else if (index == 2) {
 				return new Response("Furries?! Yes!",
 						"Furries are real?! You <b>love</b> furries!<br/>"
 						+ "<b>This will set all of your starting furry preferences to </b><b style='color:"+ RaceStage.GREATER.getColor().toWebHexString()+ ";'>"+FurryPreference.MAXIMUM.getName()+"</b><b>."
-						+ " This can be changed at any time from the options menu.</b>", 
+						+ " This can be changed at any time from the options menu.</b>",
 						INTRO_NEW_WORLD_1_BY_THE_POWER_OF_LOVING_FURRIES){
 					@Override
 					public void effects(){
@@ -399,12 +399,12 @@ public class PrologueDialogue {
 						Main.saveProperties();
 					}
 				};
-				
+
 			} else if (index == 3) {
 				return new Response("Furries?! No!",
 						"Why are furries real?! You <b>hate</b> furries! Channel your rage and try to break free.<br/>"
 						+ "<b>This will set all of your starting furry preferences to </b><b style='color:"+ RaceStage.HUMAN.getColor().toWebHexString()+ ";'>"+FurryPreference.HUMAN.getName()+"</b><b>."
-						+ " This can be changed at any time from the options menu.</b>", 
+						+ " This can be changed at any time from the options menu.</b>",
 						INTRO_NEW_WORLD_1_BY_THE_POWER_OF_HATING_FURRIES){
 					@Override
 					public void effects(){
@@ -415,7 +415,7 @@ public class PrologueDialogue {
 						Main.saveProperties();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -430,7 +430,7 @@ public class PrologueDialogue {
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_1_STRUGGLE_END"));
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -440,13 +440,13 @@ public class PrologueDialogue {
 						Main.game.getNpc(Lilaya.class).setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTRO_NEW_WORLD_1_BY_THE_POWER_OF_HATING_FURRIES = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -467,13 +467,13 @@ public class PrologueDialogue {
 						Main.game.getNpc(Lilaya.class).setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTRO_NEW_WORLD_1_BY_THE_POWER_OF_LOVING_FURRIES = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -494,13 +494,13 @@ public class PrologueDialogue {
 						Main.game.getNpc(Lilaya.class).setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME, false);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode INTRO_NEW_WORLD_2 = new DialogueNode("", "", true, true) {
 
 		@Override
@@ -512,7 +512,7 @@ public class PrologueDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Explain", "Quickly explain to Lily what happened back at the museum.", INTRO_NEW_WORLD_2_A);
-				
+
 			} else {
 				return null;
 			}
@@ -537,7 +537,7 @@ public class PrologueDialogue {
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_ENTRANCE_HALL);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -545,12 +545,12 @@ public class PrologueDialogue {
 	};
 
 	public static final DialogueNode INTRO_NEW_WORLD_3 = new DialogueNode("Lilaya's Home", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_3");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -562,7 +562,7 @@ public class PrologueDialogue {
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -575,7 +575,7 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_4");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -591,7 +591,7 @@ public class PrologueDialogue {
 						}
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -620,14 +620,14 @@ public class PrologueDialogue {
 								Main.game.getPlayer().equipClothingFromGround(c, true, Main.game.getPlayer());
 							}
 						}
-						
+
 						Main.game.getPlayer().equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_RARE, DamageType.FIRE));
-						
+
 						Main.game.clearTextStartStringBuilder();
 						Main.game.clearTextEndStringBuilder();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -640,7 +640,7 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_6");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -653,7 +653,7 @@ public class PrologueDialogue {
 							return "You're a witch!";
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -666,7 +666,7 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_7");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -677,7 +677,7 @@ public class PrologueDialogue {
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -690,7 +690,7 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_8");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -704,7 +704,7 @@ public class PrologueDialogue {
 						Main.game.getTextEndStringBuilder().append("<p style='text-align:center;'>[style.boldExcellent("+spellBook.getName()+")] added to your room's storage!</p>");
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -717,7 +717,7 @@ public class PrologueDialogue {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_NEW_WORLD_9");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -729,7 +729,7 @@ public class PrologueDialogue {
 						Main.saveGame("AutoSave_"+Main.game.getPlayer().getName(), true);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

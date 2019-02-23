@@ -64,7 +64,7 @@ public class HarpyDominantCompanion extends NPC {
 	public HarpyDominantCompanion() {
 		this(false);
 	}
-	
+
 	public HarpyDominantCompanion(boolean isImported) {
 		super(isImported, new NameTriplet("Harley"), "Orlov",
 				"Diana's favorite pet, Harley, does everything she can to please her matriarch."
@@ -72,9 +72,9 @@ public class HarpyDominantCompanion extends NPC {
 				19, Month.JUNE, 14,
 				5, Gender.M_P_MALE, Subspecies.HARPY, RaceStage.LESSER,
 				new CharacterInventory(30), WorldType.HARPY_NEST, PlaceType.HARPY_NESTS_HARPY_NEST_RED, true);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -83,32 +83,32 @@ public class HarpyDominantCompanion extends NPC {
 			resetBodyAfterVersion_2_10_5();
 		}
 	}
-	
+
 	@Override
 	public void setStartingBody(boolean setPersona) {
-		
+
 		// Persona:
 
 		if(setPersona) {
 			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 12f);
 			this.setAttribute(Attribute.MAJOR_ARCANE, 0f);
 			this.setAttribute(Attribute.MAJOR_CORRUPTION, 80);
-	
+
 			this.setPersonality(Util.newHashMapOfValues(
 					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
 					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
 					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
 					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
-			
+
 			this.setSexualOrientation(SexualOrientation.GYNEPHILIC);
-			
+
 			this.setHistory(Occupation.NPC_HARPY_FLOCK_MEMBER);
-	
+
 			this.addFetish(Fetish.FETISH_SUBMISSIVE);
 			this.addFetish(Fetish.FETISH_MASOCHIST);
 		}
-		
+
 		// Body:
 
 		// Core:
@@ -116,7 +116,7 @@ public class HarpyDominantCompanion extends NPC {
 		this.setFemininity(90);
 		this.setMuscle(Muscle.THREE_MUSCULAR.getMedianValue());
 		this.setBodySize(BodySize.TWO_AVERAGE.getMedianValue());
-		
+
 		// Coverings:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_HARPY, Color.EYE_BROWN));
 		this.setSkinCovering(new Covering(BodyCoveringType.FEATHERS, Color.COVERING_GINGER), true);
@@ -139,7 +139,7 @@ public class HarpyDominantCompanion extends NPC {
 		this.setLipstick(new Covering(BodyCoveringType.MAKEUP_LIPSTICK, Color.COVERING_AUBURN));
 		this.setEyeLiner(new Covering(BodyCoveringType.MAKEUP_EYE_LINER, Color.COVERING_BLACK));
 		this.setEyeShadow(new Covering(BodyCoveringType.MAKEUP_EYE_SHADOW, Color.COVERING_AUBURN));
-		
+
 		// Face:
 		this.setFaceVirgin(false);
 		this.setLipSize(LipSize.TWO_FULL);
@@ -147,7 +147,7 @@ public class HarpyDominantCompanion extends NPC {
 		// Throat settings and modifiers
 		this.setTongueLength(TongueLength.ZERO_NORMAL.getMedianValue());
 		// Tongue modifiers
-		
+
 		// Chest:
 		this.setNippleVirgin(true);
 		this.setBreastSize(CupSize.AA.getMeasurement());
@@ -155,7 +155,7 @@ public class HarpyDominantCompanion extends NPC {
 		this.setNippleSize(NippleSize.TWO_BIG);
 		this.setAreolaeSize(AreolaeSize.TWO_BIG);
 		// Nipple settings and modifiers
-		
+
 		// Ass:
 		this.setAssVirgin(true);
 		this.setAssBleached(false);
@@ -166,17 +166,17 @@ public class HarpyDominantCompanion extends NPC {
 		this.setAssElasticity(OrificeElasticity.TWO_FIRM.getValue());
 		this.setAssPlasticity(OrificePlasticity.FOUR_ACCOMMODATING.getValue());
 		// Anus modifiers
-		
+
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.TWO_AVERAGE);
 		this.setPenisSize(5);
 		this.setTesticleSize(TesticleSize.ONE_TINY);
 		// Leave cum as normal value
-		
+
 		// Vagina:
 		// No vagina
-		
+
 		// Feet:
 		// Foot shape
 	}
@@ -200,37 +200,37 @@ public class HarpyDominantCompanion extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Color.CLOTHING_SILVER, false), true, this);
 
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return true;
 	}
-	
+
 	@Override
 	public String getSpeechColor() {
 		if(Main.getProperties().hasValue(PropertyValue.lightTheme)) {
 			return "#D72D33";
-			
+
 		} else {
 			return "#E36D71";
 		}
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		return null;
 	}
 
 	// Combat:
-	
+
 	public int getEscapeChance() {
 		return 0;
 	}
-	
+
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
 		if (victory) {

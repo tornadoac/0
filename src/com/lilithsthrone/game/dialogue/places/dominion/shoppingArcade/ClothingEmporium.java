@@ -34,17 +34,17 @@ public class ClothingEmporium {
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/clothingEmporium", "NYAN_EXTERIOR");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				if(Main.game.getDialogueFlags().values.contains(DialogueFlagValue.nyanIntroduced)) {
 					return new Response("Enter", "Step inside Nyan's Clothing Emporium.", SHOP_CLOTHING_REPEAT);
-					
+
 				} else {
 					return new Response("Enter", "Step inside Nyan's Clothing Emporium.", SHOP_CLOTHING);
 				}
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Arcade Entrance", "Fast travel to the entrance to the arcade."){
 					@Override
@@ -58,7 +58,7 @@ public class ClothingEmporium {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_CLOTHING = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -79,7 +79,7 @@ public class ClothingEmporium {
 			return null;
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_CLOTHING_STOCK_ROOM = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -91,13 +91,13 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_CLOTHING_REPEAT = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -108,7 +108,7 @@ public class ClothingEmporium {
 				return "Innoxia";
 			}
 		}
-		
+
 		@Override
 		public String getContent() {
 			if(Main.game.getNpc(Nyan.class).isVisiblyPregnant() && !Main.game.getNpc(Nyan.class).isCharacterReactedToPregnancy(Main.game.getPlayer())) {
@@ -128,7 +128,7 @@ public class ClothingEmporium {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(responseTab==1) {
@@ -136,7 +136,7 @@ public class ClothingEmporium {
 					if(index==1) {
 						if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanTalkedTo)) {
 							return new Response("Small Talk", "You've already had a chat with Nyan today. You can repeat this action tomorrow.", null);
-							
+
 						} else {
 							return new Response("Small Talk", "Talk with Nyan about her store, the weather, and other such topics.", ROMANCE_TALK) {
 								@Override
@@ -149,11 +149,11 @@ public class ClothingEmporium {
 								}
 							};
 						}
-						
+
 					} else if(index==2) {
 						if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanComplimented)) {
 							return new Response("Compliment", "You've already complimented Nyan today. You can repeat this action tomorrow.", null);
-							
+
 						} else {
 							return new Response("Compliment", "Compliment Nyan's appearance and abilities.", ROMANCE_COMPLIMENT) {
 								@Override
@@ -166,15 +166,15 @@ public class ClothingEmporium {
 								}
 							};
 						}
-						
+
 					} else if(index==3) {
 						if(Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())<40) {
 							return new Response("Flirt", "You can tell that attempting to flirt with Nyan would end in disaster."
 									+ " You should work on getting to know her a little better first. ([style.boldBad(Requires Nyan's affection to be greater than 40 (currently "+Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())+").)])", null);
-							
+
 						} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanFlirtedWith)) {
 							return new Response("Flirt", "You've already flirted with Nyan today. You can repeat this action tomorrow.", null);
-							
+
 						} else {
 							return new Response("Flirt", "Flirt with Nyan a little.", ROMANCE_FLIRT) {
 								@Override
@@ -187,15 +187,15 @@ public class ClothingEmporium {
 								}
 							};
 						}
-						
+
 					} else if(index==4) {
 						if(Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())<60) {
 							return new Response("Kiss", "You can tell that attempting to kiss Nyan would end in disaster."
 									+ " You should work on getting to know her a little better first. ([style.boldBad(Requires Nyan's affection to be greater than 60 (currently "+Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())+").)])", null);
-							
+
 						} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanKissed)) {
 							return new Response("Kiss", "You've already kissed Nyan today. You can repeat this action tomorrow.", null);
-							
+
 						} else {
 							return new Response("Kiss", "You can tell from the way Nyan looks at you that she wouldn't mind being kissed. Lean forwards and give her what she wants.", ROMANCE_KISS) {
 								@Override
@@ -208,15 +208,15 @@ public class ClothingEmporium {
 								}
 							};
 						}
-						
+
 					} else if(index==5) {
 						if(Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())<80) {
 							return new Response("Make Out", "You can tell that attempting to make out with Nyan would end in disaster."
 									+ " You should work on getting to know her a little better first. ([style.boldBad(Requires Nyan's affection to be greater than 80 (currently "+Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())+").)])", null);
-							
+
 						} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanMakeOut)) {
 							return new Response("Make Out", "You've already made out with Nyan today. You can repeat this action tomorrow.", null);
-							
+
 						} else {
 							return new Response("Make Out", "You can tell that Nyan is desperate for some intense physical contact with you. Lean forwards and passionately start making out with her.", ROMANCE_MAKE_OUT) {
 								@Override
@@ -229,7 +229,7 @@ public class ClothingEmporium {
 								}
 							};
 						}
-						
+
 					} else if(index==6) {
 						if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanGift)) {
 							return new Response("Gift", "You've already given Nyan a gift today. You can repeat this action tomorrow.", null);
@@ -247,14 +247,14 @@ public class ClothingEmporium {
 								}
 							};
 						}
-						
+
 					} else if(index==10) {
 						if(Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())<95) {
 							return new Response("Sex", "You can tell that propositioning Nyan for sex would end in disaster."
 									+ " You should work on getting to know her a little better first. ([style.boldBad(Requires Nyan's affection to be maxxed out at 100 (currently "+Main.game.getNpc(Nyan.class).getAffection(Main.game.getPlayer())+").)])", null);
 						} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.nyanSex)) {
 							return new Response("Sex", "You've already had sex with Nyan today. You can repeat this action tomorrow.", null);
-							
+
 						} else {
 							return new ResponseSex("Sex",
 									"Have sex with Nyan.",
@@ -274,7 +274,7 @@ public class ClothingEmporium {
 							};
 						}
 					}
-					
+
 				} else if(Main.game.getPlayer().getQuest(QuestLine.RELATIONSHIP_NYAN_HELP) == Quest.RELATIONSHIP_NYAN_STOCK_ISSUES_SUPPLIERS_BEATEN) {
 					if(index==1) {
 						return new Response("Report back", "Tell Nyan that you've dealt with the suppliers.", SHOP_REPORT_BACK) {
@@ -287,12 +287,12 @@ public class ClothingEmporium {
 							}
 						};
 					}
-					
+
 				} else if(Main.game.getPlayer().getQuest(QuestLine.RELATIONSHIP_NYAN_HELP) == Quest.RELATIONSHIP_NYAN_STOCK_ISSUES_AGREED_TO_HELP) {
 					if(index==1) {
 						return new Response("Report back", "Report back to Nyan once you've dealt with the suppliers.", null);
 					}
-					
+
 				} else if(Main.game.getPlayer().getQuest(QuestLine.RELATIONSHIP_NYAN_HELP) == Quest.RELATIONSHIP_NYAN_STOCK_ISSUES) {
 					if(index==1) {
 						return new Response("Offer help", "Tell Nyan that you'll help her with her supplier problem.", SHOP_OFFER_HELP) {
@@ -303,7 +303,7 @@ public class ClothingEmporium {
 							}
 						};
 					}
-					
+
 				} else if(!Main.game.getPlayer().hasQuest(QuestLine.RELATIONSHIP_NYAN_HELP)){
 					if(index==1) {
 						return new Response("Enchanted Clothing", "Ask Nyan if she stocks enchanted clothing.", SHOP_ENCHANTED_CLOTHING) {
@@ -314,7 +314,7 @@ public class ClothingEmporium {
 						};
 					}
 				}
-				
+
 				if (index == 0) {
 					return new Response("Leave", "Tell Nyan that you've got to get going.", EXTERIOR) {
 						@Override
@@ -325,18 +325,18 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
-				
+
 			} else if(responseTab==0) {
 				if (index == 1) {
 					return new ResponseTrade("Female Clothing", "Ask her what female clothing is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonFemaleClothing()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -345,13 +345,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 2) {
 					return new ResponseTrade("Female Lingerie", "Ask her what female lingerie is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonFemaleUnderwear()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -360,13 +360,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 3) {
 					return new ResponseTrade("Female Accessories", "Ask her what female accessories are available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonFemaleAccessories()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -375,13 +375,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 6) {
 					return new ResponseTrade("Male Clothing", "Ask her what male clothing is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonMaleClothing()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -390,13 +390,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 7) {
 					return new ResponseTrade("Male Underwear", "Ask her what male underwear is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonMaleLingerie()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -405,13 +405,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 8) {
 					return new ResponseTrade("Male Accessories", "Ask her what male accessories are is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonMaleAccessories()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -420,13 +420,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 11) {
 					return new ResponseTrade("Unisex Clothing", "Ask her what unisex clothing is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonAndrogynousClothing()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -435,13 +435,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 12) {
 					return new ResponseTrade("Unisex Underwear", "Ask her what unisex underwear is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonAndrogynousLingerie()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -450,13 +450,13 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 13) {
 					return new ResponseTrade("Unisex Accessories", "Ask her what unisex accessories are is available.", Main.game.getNpc(Nyan.class)){
 						@Override
 						public void effects() {
 							Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-	
+
 							for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getCommonAndrogynousAccessories()) {
 								if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 									break;
@@ -465,14 +465,14 @@ public class ClothingEmporium {
 							}
 						}
 					};
-					
+
 				} else if (index == 5) {
 					if(Main.game.getPlayer().isQuestCompleted(QuestLine.RELATIONSHIP_NYAN_HELP)) {
 						return new ResponseTrade("Specials", "Ask Nyan about any special items of clothing she might have in stock.", Main.game.getNpc(Nyan.class)){
 							@Override
 							public void effects() {
 								Main.game.getNpc(Nyan.class).clearNonEquippedInventory();
-		
+
 								for (AbstractClothing c : ((Nyan) Main.game.getNpc(Nyan.class)).getSpecials()) {
 									if(Main.game.getNpc(Nyan.class).isInventoryFull()) {
 										break;
@@ -484,7 +484,7 @@ public class ClothingEmporium {
 					} else {
 						return new Response("Specials", "Nyan doesn't have any special items of clothing on offer at the moment...", null);
 					}
-					
+
 				} else if (index == 0) {
 					return new Response("Leave", "Tell Nyan that you've got to get going.", EXTERIOR) {
 						@Override
@@ -492,7 +492,7 @@ public class ClothingEmporium {
 							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/shoppingArcade/clothingEmporium", "NYAN_EXIT"));
 						}
 					};
-					
+
 				} else {
 					return null;
 				}
@@ -501,7 +501,7 @@ public class ClothingEmporium {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_ENCHANTED_CLOTHING = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -513,13 +513,13 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_OFFER_HELP = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -531,20 +531,20 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_REPORT_BACK = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/dominion/shoppingArcade/clothingEmporium", "NYAN_REPORT_BACK");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
@@ -554,28 +554,28 @@ public class ClothingEmporium {
 						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/shoppingArcade/clothingEmporium", "NYAN_EXIT_EMBARRASSED"));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ROMANCE_TALK = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
-		
+
 		@Override
 		public int getMinutesPassed() {
 			return 60;
 		}
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_TALK_BASE"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_TALK"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_TALK_FINAL"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -583,23 +583,23 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ROMANCE_COMPLIMENT = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_COMPLIMENT_BASE"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_COMPLIMENT"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_COMPLIMENT_FINAL"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -607,23 +607,23 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ROMANCE_FLIRT = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_FLIRT_BASE"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_FLIRT"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_FLIRT_FINAL"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -631,23 +631,23 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ROMANCE_KISS = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_KISS_BASE"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_KISS"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_KISS_FINAL"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -655,23 +655,23 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ROMANCE_MAKE_OUT = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_MAKE_OUT_BASE"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_MAKE_OUT"));
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("characters/dominion/nyan", "NYAN_MAKE_OUT_FINAL"));
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
 
@@ -679,13 +679,13 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode END_SEX = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -701,13 +701,13 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 	public static final DialogueNode ROMANCE_GIFT = new DialogueNode("Nyan's Clothing Emporium", "-", true) {
 
 		@Override
@@ -719,11 +719,11 @@ public class ClothingEmporium {
 		public String getResponseTabTitle(int index) {
 			return SHOP_CLOTHING_REPEAT.getResponseTabTitle(index);
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return SHOP_CLOTHING_REPEAT.getResponse(responseTab, index);
 		}
 	};
-	
+
 }

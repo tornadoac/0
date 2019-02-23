@@ -30,7 +30,7 @@ public class FingerBreasts {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.BREAST)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Grope breasts";
@@ -51,7 +51,7 @@ public class FingerBreasts {
 		public String getDescription() {
 			if(!Sex.getCharacterTargetedForSexAction(this).isCoverableAreaExposed(CoverableArea.NIPPLES)){
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -162,7 +162,7 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-				
+
 				switch (Sex.getCharacterTargetedForSexAction(this).getBreastStoredMilk()) {
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(" A small trickle of [npc2.milk] leaks out into [npc2.namePos] [npc2.lowClothing(NIPPLES)] as [npc.name] squeezes down on [npc2.her] [npc2.nipples+].");
@@ -190,13 +190,13 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-		
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			} else {
-				
+
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -306,7 +306,7 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-				
+
 				switch (Sex.getCharacterTargetedForSexAction(this).getBreastStoredMilk()) {
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(" A small trickle of [npc2.milk] leaks out onto [npc.namePos] fingertips as [npc.she] squeezes down on [npc2.namePos] [npc2.nipples+].");
@@ -334,9 +334,9 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-		
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			}
 		}
 
@@ -348,14 +348,14 @@ public class FingerBreasts {
 				Sex.getCharacterTargetedForSexAction(this).getLowestZLayerCoverableArea(CoverableArea.NIPPLES).setDirty(true);
 			}
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Sex.getCharacterTargetedForSexAction(this).incrementBreastStoredMilk(-10);
 		}
-		
+
 	};
-	
+
 	public static final SexAction FORCE_FEEL_BREASTS = new SexAction(
 			SexActionType.REQUIRES_NO_PENETRATION,
 			ArousalIncrease.THREE_NORMAL,
@@ -363,7 +363,7 @@ public class FingerBreasts {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.BREAST, SexAreaPenetration.FINGER)),
 			SexParticipantType.NORMAL) {
-		
+
 		@Override
 		public String getActionTitle() {
 			return "Have breasts groped";
@@ -385,7 +385,7 @@ public class FingerBreasts {
 			if(!Sex.getCharacterPerformingAction().isCoverableAreaExposed(CoverableArea.NIPPLES)){
 
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -513,7 +513,7 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-				
+
 				switch (Sex.getCharacterPerformingAction().getBreastStoredMilk()) {
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(" A small trickle of [npc.milk] leaks out into [npc.namePos] [npc.lowClothing(NIPPLES)] as [npc2.name] squeezes down on [npc.her] [npc.nipples+].");
@@ -540,13 +540,13 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-		
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			} else {
-				
+
 				UtilText.nodeContentSB.setLength(0);
-				
+
 				switch(Sex.getSexPace(Sex.getCharacterPerformingAction())) {
 					case DOM_GENTLE:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -657,7 +657,7 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-				
+
 				switch (Sex.getCharacterPerformingAction().getBreastStoredMilk()) {
 					case ONE_TRICKLE:
 						UtilText.nodeContentSB.append(" A small trickle of [npc.milk] leaks out onto [npc2.namePos] fingertips as [npc2.she] squeezes down on [npc.namePos] [npc.nipples+].");
@@ -686,9 +686,9 @@ public class FingerBreasts {
 					default:
 						break;
 				}
-		
+
 				return UtilText.nodeContentSB.toString();
-				
+
 			}
 		}
 
@@ -700,11 +700,11 @@ public class FingerBreasts {
 				Sex.getCharacterPerformingAction().getLowestZLayerCoverableArea(CoverableArea.NIPPLES).setDirty(true);
 			}
 		}
-		
+
 		@Override
 		public String applyEffectsString() {
 			return Sex.getCharacterPerformingAction().incrementBreastStoredMilk(-10);
 		}
-		
+
 	};
 }

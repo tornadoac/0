@@ -21,14 +21,14 @@ public class TattooCounter implements XMLSaving {
 	private TattooCountType countType;
 	private Color color;
 	private boolean glow;
-	
+
 	public TattooCounter(TattooCounterType type, TattooCountType countType, Color color, boolean glow) {
 		this.type = type;
 		this.countType = countType;
 		this.color = color;
 		this.glow = glow;
 	}
-	
+
 	public static List<Color> getAvailableColors() {
 		return ColorListPresets.ALL.getPresetColorList();
 	}
@@ -45,7 +45,7 @@ public class TattooCounter implements XMLSaving {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -55,7 +55,7 @@ public class TattooCounter implements XMLSaving {
 		result = 31 * result + (isGlow() ? 1 : 0);
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("tattooCounter");
 		parentElement.appendChild(element);
@@ -64,10 +64,10 @@ public class TattooCounter implements XMLSaving {
 		CharacterUtils.addAttribute(doc, element, "countType", this.getCountType().toString());
 		CharacterUtils.addAttribute(doc, element, "color", this.getColor().toString());
 		CharacterUtils.addAttribute(doc, element, "glow", String.valueOf(this.isGlow()));
-		
+
 		return element;
 	}
-	
+
 	public static TattooCounter loadFromXML(Element parentElement, Document doc) {
 		try {
 			return new TattooCounter(
@@ -75,13 +75,13 @@ public class TattooCounter implements XMLSaving {
 					TattooCountType.valueOf(parentElement.getAttribute("countType")),
 					Color.valueOf(parentElement.getAttribute("color")),
 					Boolean.valueOf(parentElement.getAttribute("glow")));
-			
+
 		} catch(Exception ex) {
 			System.err.println("Warning: An instance of TattooCounter was unable to be imported!");
 			return null;
 		}
 	}
-	
+
 	public TattooCounterType getType() {
 		return type;
 	}
@@ -113,5 +113,5 @@ public class TattooCounter implements XMLSaving {
 	public void setGlow(boolean glow) {
 		this.glow = glow;
 	}
-	
+
 }

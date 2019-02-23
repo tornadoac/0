@@ -36,15 +36,15 @@ public class HarpyNestsAttacker extends NPC {
 	public HarpyNestsAttacker() {
 		this(Gender.F_V_B_FEMALE, false);
 	}
-	
+
 	public HarpyNestsAttacker(Gender gender) {
 		this(gender, false);
 	}
-	
+
 	public HarpyNestsAttacker(boolean isImported) {
 		this(Gender.F_V_B_FEMALE, isImported);
 	}
-	
+
 	public HarpyNestsAttacker(Gender gender, boolean isImported) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
@@ -53,10 +53,10 @@ public class HarpyNestsAttacker extends NPC {
 
 		if(!isImported) {
 			this.setLocation(Main.game.getPlayer(), true);
-			
+
 			// Set random level from 2 to 5:
 			setLevel(Util.random.nextInt(4) + 2);
-			
+
 			// RACE & NAME:
 			if(this.hasPenis()) {
 				if(this.hasBreasts()) {
@@ -71,34 +71,34 @@ public class HarpyNestsAttacker extends NPC {
 					setBody(Gender.F_V_FEMALE, Subspecies.HARPY, RaceStage.LESSER);
 				}
 			}
-	
+
 			setName(Name.getRandomTriplet(Race.HARPY));
 			this.setPlayerKnowsName(false);
 			setDescription(UtilText.parse(this,
 					"[npc.Name] is angry with the fact that you've walked into what [npc.she] considers to be '[npc.her]' territory. It seems as though [npc.sheIs] prepared to fight you in order to teach you a lesson..."));
-	
+
 			// Add fetishes:
 			CharacterUtils.addFetishes(this);
-			
+
 			// BODY RANDOMIZATION:
 			CharacterUtils.randomiseBody(this, true);
-			
+
 			// INVENTORY:
 			resetInventory(true);
 			inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 			CharacterUtils.generateItemsInInventory(this);
-			
+
 			equipClothing(true, true, true, true);
 			CharacterUtils.applyMakeup(this, true);
-	
+
 			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
 			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
 		}
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
-		
+
 	}
-	
+
 	@Override
 	public void loadFromXML(Element parentElement, Document doc, CharacterImportSetting... settings) {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
@@ -113,7 +113,7 @@ public class HarpyNestsAttacker extends NPC {
 	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
 		CharacterUtils.equipClothing(this, replaceUnsuitableClothing, false);
 	}
-	
+
 	@Override
 	public boolean isUnique() {
 		return false;
@@ -130,16 +130,16 @@ public class HarpyNestsAttacker extends NPC {
 	public boolean isClothingStealable() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isAbleToBeImpregnated() {
 		return true;
 	}
-	
+
 	@Override
 	public void changeFurryLevel(){
 	}
-	
+
 	@Override
 	public DialogueNode getEncounterDialogue() {
 		if(Main.game.getPlayer().getCompanions().isEmpty()) {
