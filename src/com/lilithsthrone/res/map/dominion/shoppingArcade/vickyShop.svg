@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
-    <defs>
-        <linearGradient id="vickyShopGradient">
-            <stop offset="0" stop-color="#f55"/>
-            <stop offset="1" stop-color="#ff8080"/>
-        </linearGradient>
-        <linearGradient id="linearGradient15" x1="29.5" x2="44.125" y1="1025.487" y2="1003.362" gradientTransform="matrix(1.28844 0 0 1.29051 -9.225 -296.313)" gradientUnits="userSpaceOnUse" xlink:href="#vickyShopGradient"/>
-    </defs>
-    <g fill-rule="evenodd" transform="translate(0 -988.362)">
-        <ellipse cx="32" cy="1020.368" fill="url(#linearGradient15)" rx="30.383" ry="30.381"/>
-        <path fill="#fff" d="M16.192 1037.516l7.92 4.133 25.214-9.408 4.055-6.82-6.345-1.397-11.592 5.224 12.984-14.21.367-12.375-8.539-3.868-10.087 3.484-8.714 21.969-1.813-7.136-5.282-1.719-1.692 6.341z"/>
-    </g>
+	<defs>
+		<linearGradient id="vickyShopGradient">
+			<stop offset="0" stop-color="#f55"/>
+			<stop offset="1" stop-color="#ff8080"/>
+		</linearGradient>
+		<linearGradient id="linearGradient15" x1="29.5" x2="44.125" y1="1025.487" y2="1003.362" gradientTransform="matrix(1.28844 0 0 1.29051 -9.225 -296.313)" gradientUnits="userSpaceOnUse" xlink:href="#vickyShopGradient"/>
+	</defs>
+	<g fill-rule="evenodd" transform="translate(0 -988.362)">
+		<ellipse cx="32" cy="1020.368" fill="url(#linearGradient15)" rx="30.383" ry="30.381"/>
+		<path fill="#fff" d="M16.192 1037.516l7.92 4.133 25.214-9.408 4.055-6.82-6.345-1.397-11.592 5.224 12.984-14.21.367-12.375-8.539-3.868-10.087 3.484-8.714 21.969-1.813-7.136-5.282-1.719-1.692 6.341z"/>
+	</g>
 </svg>

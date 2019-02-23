@@ -9,14 +9,14 @@
 		[npc.speech(Ooh! It's you again!)] [npc.she] giggles, clearly high on mushrooms again. [npc.speech(Look! You went and got me all pregnant!)]
 	</p>
 	<p>
-		You look down at [npc.her] swollen belly, but before you can make a comment, [npc.she] continues, [npc.speech(So, I'm gonna need some cash from you, ok? I'm no going to take no for an answer.)]
+		You look down at [npc.her] swollen belly, but before you can make a comment, [npc.she] continues, [npc.speech(So, I'm gonna need some cash from you, OK? I'm no going to take no for an answer.)]
 	</p>
 	<p>
 		You can tell that [npc.name] is willing to fight, and you only have a moment in which to decide what to do...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_REPEAT_PREGNANCY"><![CDATA[
 	<p>
 		In your peripheral vision, you suddenly see a glowing [npc.skinColor] light starting to draw near. Turning towards it, you ready yourself for a fight, and within just a moment, the familiar figure of [npc.name] draws to a halt before you.
@@ -25,40 +25,40 @@
 		[npc.speech(Ooh! It's you again!)] [npc.she] giggles, clearly high on mushrooms again. [npc.speech(Look! I'm still pregnant with our kids!)]
 	</p>
 	<p>
-		You look down at [npc.her] swollen belly, but before you can make a comment, [npc.she] continues, [npc.speech(So, I'm gonna need some cash from you, ok? I'm no going to take no for an answer.)]
+		You look down at [npc.her] swollen belly, but before you can make a comment, [npc.she] continues, [npc.speech(So, I'm gonna need some cash from you, OK? I'm no going to take no for an answer.)]
 	</p>
 	<p>
 		You can tell that [npc.name] is willing to fight, and you only have a moment in which to decide what to do...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_REPEAT"><![CDATA[
 	<p>
 		In your peripheral vision, you suddenly see a glowing [npc.skinColor] light starting to draw near. Turning towards it, you ready yourself for a fight, and within just a moment, the familiar figure of [npc.name] draws to a halt before you.
 	</p>
 	<p>
-		[npc.speech(Ooh! It's you again!)] [npc.she] giggles, clearly high on mushrooms again. [npc.speech(I'm gonna need some cash from you, ok? I spent all my flames on buying some 'shrooms from my friend, and now I need more for... umm... more 'shrooms!)]
+		[npc.speech(Ooh! It's you again!)] [npc.she] giggles, clearly high on mushrooms again. [npc.speech(I'm gonna need some cash from you, OK? I spent all my flames on buying some 'shrooms from my friend, and now I need more for... umm... more 'shrooms!)]
 	</p>
 	<p>
 		You can tell that [npc.name] is willing to fight, and you only have a moment in which to decide what to do...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK"><![CDATA[
 	<p>
 		In your peripheral vision, you suddenly see a glowing [npc.skinColor] light starting to draw near. Turning towards it, you ready yourself for a fight, and within just a moment, [npc.a_fullRace(true)] draws to a halt before you.
 	</p>
 	<p>
-		[npc.speech(Ooh! A poor innocent traveler wandering through my magical realm!)] [npc.she] giggles, clearly high on mushrooms. [npc.speech(I'm gonna need some cash from you, ok? I spent all my flames on buying some 'shrooms from my friend, and now I need more for... umm... more 'shrooms!)]
+		[npc.speech(Ooh! A poor innocent traveler wandering through my magical realm!)] [npc.she] giggles, clearly high on mushrooms. [npc.speech(I'm gonna need some cash from you, OK? I spent all my flames on buying some 'shrooms from my friend, and now I need more for... umm... more 'shrooms!)]
 	</p>
 	<p>
 		You can tell that [npc.name] is willing to fight, and you only have a moment in which to decide what to do...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTRACTED_TO_PLAYER"><![CDATA[
 	<p>
 		From the way [npc.she] keeps on glancing hungrily down at your body, you can tell that [npc.name] is attracted to you. If you were to fight [npc.herHim], and lose, [npc.she]'d be sure to force [npc.herself] on you...
@@ -75,7 +75,7 @@
 
 	<htmlContent tag="ATTACK_PAID_OFF"><![CDATA[
 	<p>
-		You really don't want to fight [npc.name], and take a step backwards as you agree to [npc.her] demands. [pc.speech(Ok, ok. I'll give you your money. There's no need for violence, ok?)]
+		You really don't want to fight [npc.name], and take a step backwards as you agree to [npc.her] demands. [pc.speech(OK, OK. I'll give you your money. There's no need for violence, OK?)]
 	</p>
 	<p>
 		[npc.speech(Uh-huh. Just give me your flames already! I need to go buy more 'shrooms!)] [npc.name] desperately whines, stepping forwards and holding out [npc.her] [npc.hands].
@@ -88,10 +88,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_OFFER_BODY"><![CDATA[
 	<p>
-		Wanting to avoid a fight, and unwilling to hand over any of your money, you decide to do the only other thing you can think of, and step forwards smiling seductively at [npc.name]. 
+		Wanting to avoid a fight, and unwilling to hand over any of your money, you decide to do the only other thing you can think of, and step forwards smiling seductively at [npc.name].
 		 [pc.speech(There's no need to fight. If you're looking for a bit of fun, all you had to do was ask...)]
 	</p>
 	<p>
@@ -109,7 +109,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_PAID_OFF_WITH_MUSHROOM"><![CDATA[
 	<p>
 		You really don't want to fight [npc.name], and take a step backwards as you offer [npc.herHim] the thing [npc.she] seems to want the most. [pc.speech(Well, instead of money, how about I give you this mushroom I found?)]
@@ -125,7 +125,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENEMY_DEFEATED_WANTS_SEX"><![CDATA[
 	<p>
 		[npc.Name] collapses to the floor, letting out a defeated sigh as [npc.she] gazes up at you. Looking down at the vanquished [npc.race] before you, you see that [npc.she]'s got a desperately hungry look in [npc.her] eyes. Before you can say anything, [npc.she] suddenly reaches down to [npc.her] crotch and starts stroking [npc.herself], making pitiful little whining noises as [npc.she] squirms on the floor.
@@ -138,7 +138,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENEMY_DEFEATED"><![CDATA[
 	<p>
 		[npc.Name] collapses to the floor, letting out a defeated sigh as [npc.she] gazes up at you. Looking down at the vanquished [npc.race] before you, you see that [npc.she]'s got a desperate look of regret in [npc.her] eyes. Making pitiful little whining noises, [npc.she] tries to shuffle away from you, clearly worried about what your intentions might be.
@@ -151,7 +151,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ENEMY_DEFEATED_SUBMIT"><![CDATA[
 	<p>
 		You really aren't sure what to do next, and start to feel pretty uncomfortable with the fact that you just beat up this poor [npc.race]. Leaning down, you do the first thing that comes into your mind, and start apologizing. [pc.speech(Sorry... I was just trying to defend myself, you know... Erm... Is there anything I can do to make it up to you?)]
@@ -167,5 +167,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

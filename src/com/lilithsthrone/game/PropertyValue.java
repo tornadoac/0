@@ -6,14 +6,14 @@ package com.lilithsthrone.game;
  * @author Innoxia
  */
 public enum PropertyValue {
-	
+
 	debugMode(false),
 	mapReveal(false),
 	concealedSlotsReveal(false),
-	
+
 	artwork(true),
 	thumbnail(true),
-	
+
 	lightTheme(false),
 	overwriteWarning(true),
 	fadeInText(false),
@@ -23,7 +23,7 @@ public enum PropertyValue {
 	sillyMode(false),
 
 	autoSexClothingManagement(true),
-	
+
 	ageContent(true),
 	furryTailPenetrationContent(false),
 	nonConContent(false),
@@ -50,13 +50,13 @@ public enum PropertyValue {
 	newClothingDiscovered(false),
 	newItemDiscovered(false),
 	newRaceDiscovered(false);
-	
+
 	private boolean defaultValue;
 
 	private PropertyValue(boolean defaultValue) {
 		this.defaultValue = defaultValue;
 	}
-	
+
 	public boolean getDefaultValue() {
 		return defaultValue;
 	}

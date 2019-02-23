@@ -75,9 +75,9 @@ public class AlleywayProstituteDialogue {
 									"<p>"
 										+ "Instantly, your eyes are drawn down to the clearly-visible bump in [npc.her] stomach, and as [npc.name] looks across at you, [npc.she] lets out a shocked gasp."
 										+ UtilText.returnStringAtRandom(
-												"[npc.speech(Oh, it's you again... There's no need for violence this time, ok? Look! You knocked me up!)]",
-												"[npc.speech(Oh, hi again... There's no need for violence, ok? Look what you did! I'm carrying your kids!)]",
-												"[npc.speech(Hey again... We don't need to fight this time, ok? Anyway, look, you managed to knock me up!)]")
+												"[npc.speech(Oh, it's you again... There's no need for violence this time, OK? Look! You knocked me up!)]",
+												"[npc.speech(Oh, hi again... There's no need for violence, OK? Look what you did! I'm carrying your kids!)]",
+												"[npc.speech(Hey again... We don't need to fight this time, OK? Anyway, look, you managed to knock me up!)]")
 									+ "</p>"
 									+ "<p>"
 										+ "[pc.speech(How can you be sure that it's mine?)]"
@@ -97,9 +97,9 @@ public class AlleywayProstituteDialogue {
 									"<p>"
 										+ "Instantly, your eyes are drawn down to the still-visible bump in [npc.her] stomach, and as [npc.name] looks across at you, [npc.she] lets out a shocked gasp."
 										+ UtilText.returnStringAtRandom(
-												"[npc.speech(Oh, it's you again... There's no need for violence this time, ok? I'm still waiting for our kids to pop out!)]",
-												"[npc.speech(Oh, hi again... There's no need for violence, ok? Take a look, I'm still carrying your kids!)]",
-												"[npc.speech(Hey again... We don't need to fight this time, ok? These kids of ours sure do take a while to grow!)]")
+												"[npc.speech(Oh, it's you again... There's no need for violence this time, OK? I'm still waiting for our kids to pop out!)]",
+												"[npc.speech(Oh, hi again... There's no need for violence, OK? Take a look, I'm still carrying your kids!)]",
+												"[npc.speech(Hey again... We don't need to fight this time, OK? These kids of ours sure do take a while to grow!)]")
 									+ "</p>"
 									+ "<p>"
 										+ "You walk up to [npc.name], once again allowing [npc.her] to take hold of your [pc.hands] and gingerly guide them down to stroke [npc.her] swollen bump."
@@ -112,9 +112,9 @@ public class AlleywayProstituteDialogue {
 						UtilText.nodeContentSB.append("<p>"
 									+ "Looking over at you, [npc.she] smiles and steps back, clearly nervous about what your intentions are, "
 									+ UtilText.returnStringAtRandom(
-											"[npc.speech(Oh, it's you again... There's no need for violence this time, ok? You lookin' for a good time?)]",
-											"[npc.speech(Oh, hi again... There's no need for violence, ok? You want a good time?)]",
-											"[npc.speech(Hey again... We don't need to fight this time, ok? I can show you a real good time!)]")
+											"[npc.speech(Oh, it's you again... There's no need for violence this time, OK? You lookin' for a good time?)]",
+											"[npc.speech(Oh, hi again... There's no need for violence, OK? You want a good time?)]",
+											"[npc.speech(Hey again... We don't need to fight this time, OK? I can show you a real good time!)]")
 								+"</p>"
 								+ "<p>"
 									+ "From [npc.her] slutty clothing, the heavy amount of makeup on [npc.her] face, and, of course, [npc.her] reaction upon seeing you, it's quite obvious that [npc.sheIs] still working as a prostitute."

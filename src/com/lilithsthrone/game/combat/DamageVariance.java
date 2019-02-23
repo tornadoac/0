@@ -6,13 +6,13 @@ package com.lilithsthrone.game.combat;
  * @author Innoxia
  */
 public enum DamageVariance {
-	
+
 	NONE(0),
-	
+
 	LOW(0.1f),
-	
+
 	MEDIUM(0.2f),
-	
+
 	HIGH(0.5f);
 
 	private float percentage;

@@ -740,7 +740,7 @@ public class HarpyNestNympho {
 					+ " As you collapse, you hear [harpyNympho.name] ordering her flock to retrain you, and, rushing to obey their matriarch, you're quickly pinned to the floor by a group of her obedient harpies."
 				+ "</p>"
 				+ "<p>"
-					+ "[harpyNympho.speech([nymphoHarpyCompanion.name], are you ok?!)] you hear [nymphoHarpy.name] asking her boy-toy."
+					+ "[harpyNympho.speech([nymphoHarpyCompanion.name], are you OK?!)] you hear [nymphoHarpy.name] asking her boy-toy."
 					+ " [harpyNympho.speech(Come on, I'll make you feel better!)]"
 				+ "</p>"
 				+ "<p>"

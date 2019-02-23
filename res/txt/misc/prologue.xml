@@ -162,7 +162,7 @@
 		[lilaya.speech(Yes! This is to do with the delay! Arthur's gone missing, and I can't start without him! Everyone's crowding me asking questions, so I can't go out and look for him myself.	 Please, please <i>please</i> can you go and find him for me?)]
 	</p>
 	<p>
-		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(Ok, Lily, I'll find him for you, don't worry.)]
+		Lily's puppy-dog eyes always were too much for you to say no to, and you find yourself agreeing to do as she asks, [pc.speech(OK, Lily, I'll find him for you, don't worry.)]
 	</p>
 	<p>
 		As Lily starts thanking you, someone calls out from behind her, asking her to return to the stage. Thanking you once more, she then rushes off, leaving you to do as you said you would...
@@ -566,11 +566,11 @@
 		Every single street seems to be pedestrianized, and there isn't a single car to be seen anywhere. The street lights are curiously different from the ones you're used to seeing, and instead of producing the usual dull fluorescent glow, tiny little balls of energetic light dance within glass globes, casting a steady, albeit slightly flickering, orange glow over the street's clean paving stones. The buildings on either side all adhere to old-fashioned designs that look very similar to pictures you've seen of Victorian architecture. When combined with the style of street-lights, a casual observer could easily be confused into believing that they'd been transported back to an alternate version of mid-nineteenth century central London. As you look closer, however, the fashion trends being displayed in shop-fronts and on advertisement billboards make it quite clear that this 'alternate dimension' must be of the same time period that you're familiar with.
 	</p>
 	<p>
-		[lilaya.speech(Right, here we are,)] Lily suddenly says, snapping you out of your trance. [lilaya.speech(You're going to come inside and let me run a few little tests on you, ok? After all, I <i>did</i> save you back there,)] she finishes, walking up a short external staircase to a rather imposing-looking front door.
+		[lilaya.speech(Right, here we are,)] Lily suddenly says, snapping you out of your trance. [lilaya.speech(You're going to come inside and let me run a few little tests on you, OK? After all, I <i>did</i> save you back there,)] she finishes, walking up a short external staircase to a rather imposing-looking front door.
 	</p>
 
 	<p>
-		You decide not to mention the fact that Lily said earlier that she 'wasn't trying to save you', and instead answer as you always do when your aunt holds you to ransom like this, [pc.speech(Ok, Lily, I guess you're right,)] you sigh, following her up the steps. [pc.speech(I hope these 'little tests' aren't anything I should worry about...)]
+		You decide not to mention the fact that Lily said earlier that she 'wasn't trying to save you', and instead answer as you always do when your aunt holds you to ransom like this, [pc.speech(OK, Lily, I guess you're right,)] you sigh, following her up the steps. [pc.speech(I hope these 'little tests' aren't anything I should worry about...)]
 	</p>
 
 	<p>
@@ -743,7 +743,7 @@
 		[lilaya.speech(What? Oh, no, that's fine, you keep it!)] Lilaya exclaims, still piling books up on the table. [lilaya.speech(You should be able to cast Fireball while you've got that absorbed! If you want to permanently learn how to cast spells, you'll need to reference a spell tome. I know I've got a tome for Ice Shard somewhere around here. I'll get Rose to deliver it to you once I find it!)]
 	</p>
 	<p>
-		[pc.speech(Ok, thanks Lilaya. So... What now?)] you ask.
+		[pc.speech(OK, thanks Lilaya. So... What now?)] you ask.
 	</p>
 	<p>
 		[lilaya.speech(This is all just the beginning!)] Lilaya calls out, stopping what she's doing and turning to face you. [lilaya.speech(Look, once I've got through all this, we'll need to run more tests! Inter-dimensional travel! And you've somehow been <i>given</i> a demon's aura! You're the most amazing discovery since, well, <i>ever</i>! I'd like it if you'd stay here so I can keep an eye on you. After all, it's not like you have anywhere else to go, right?)]

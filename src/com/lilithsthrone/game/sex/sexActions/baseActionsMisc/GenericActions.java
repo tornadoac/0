@@ -1165,7 +1165,7 @@ public class GenericActions {
 		@Override
 		public String getDescription() {
 			return "With an annoyed sigh, [npc.name] disentangles [npc.herself] from [npc2.namePos] clutches,"
-					+ " [npc.speechNoEffects(Eugh... I'm not really feeling this right now, ok?)]";
+					+ " [npc.speechNoEffects(Eugh... I'm not really feeling this right now, OK?)]";
 		}
 		
 		@Override

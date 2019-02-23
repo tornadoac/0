@@ -81,7 +81,7 @@
 		[pc.speech(Well, if they've formed gangs, then surely they have some kind of leadership? Can't you just raid that or something?)] You ask.
 	</p>
 	<p>
-		[claire.speech(If only! Yes, they have leadership. The problem is, they've gone and built fortresses in those tunnels, and, crude as they are, we're not exactly equipped to go and lay siege! Just accept that those tunnels are off-limits, ok? There are so many imps down there, even if you beat one of the gangs, another'll be lying in wait around the next corner.)]
+		[claire.speech(If only! Yes, they have leadership. The problem is, they've gone and built fortresses in those tunnels, and, crude as they are, we're not exactly equipped to go and lay siege! Just accept that those tunnels are off-limits, OK? There are so many imps down there, even if you beat one of the gangs, another'll be lying in wait around the next corner.)]
 	</p>
 	<p>
 		[pc.speech(Well, I'll keep all of that in mind. Thanks for the warning.)] You reply as you wonder to yourself if you'd ever have a chance at clearing some of those fortresses Claire just mentioned.

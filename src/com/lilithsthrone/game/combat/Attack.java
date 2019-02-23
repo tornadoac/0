@@ -207,11 +207,11 @@ public enum Attack {
 	 * chance/damage, which is handled in the calculateDamage() method.
 	 * 
 	 * @param attacker
-	 *            The attacking character.
+	 *			The attacking character.
 	 * @param defender
-	 *            The defending character.
+	 *			The defending character.
 	 * @param attackType
-	 *            Type of this attack.
+	 *			Type of this attack.
 	 * @return Minimum damage possible for this attack.
 	 */
 
@@ -276,11 +276,11 @@ public enum Attack {
 	 * chance/damage, which is handled in the calculateDamage() method.
 	 * 
 	 * @param attacker
-	 *            The attacking character.
+	 *			The attacking character.
 	 * @param defender
-	 *            The defending character.
+	 *			The defending character.
 	 * @param attackType
-	 *            Type of this attack.
+	 *			Type of this attack.
 	 * @return Minimum damage possible for this attack.
 	 */
 	public static float getMaximumDamage(GameCharacter attacker, GameCharacter defender, Attack attackType) {
@@ -371,11 +371,11 @@ public enum Attack {
 	 * 
 	 * 
 	 * @param attacker
-	 *            The attacking character.
+	 *			The attacking character.
 	 * @param defender
-	 *            The defending character.
+	 *			The defending character.
 	 * @param attackType
-	 *            Type of this attack.
+	 *			Type of this attack.
 	 * @return Modified damage value.
 	 */
 	public static float getModifiedDamage(GameCharacter attacker, GameCharacter defender, Attack attackType, DamageType damageType, float attackersDamage) {

@@ -6,15 +6,15 @@ package com.lilithsthrone.game.settings;
  * @author FeiFongWong
  */
 public enum ForcedTFTendency {
-	
+
 	FEMININE_HEAVY("Feminine+", "There is a strong chance that forced transformations will make you more feminine regardless of NPC tastes."),
-	
+
 	FEMININE("Feminine", "While NPC tastes still matter, forced transformations will often make you more feminine."),
-	
+
 	NEUTRAL("Neutral", "Gender effects of forced transformations will be determined solely by the tastes and whims of the controlling NPC, and the inherent randomness of the universe."),
-	
+
 	MASCULINE("Masculine", "While NPC tastes still matter, forced transformations will often make you more masculine."),
-	
+
 	MASCULINE_HEAVY("Masculine+", "There is a strong chance that forced transformations will make you more masculine regardless of NPC tastes.");
 
 
@@ -30,9 +30,8 @@ public enum ForcedTFTendency {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
-
 }

@@ -39,7 +39,7 @@ import javafx.scene.paint.Color;
 
 /**
  * This is just a big mess of utility classes that I wanted to throw somewhere.
- * 
+ *
  * @since 0.1.0
  * @version 0.3
  * @author Innoxia
@@ -121,12 +121,23 @@ public class Util {
 			return s.useDelimiter("\\A").hasNext() ? s.next() : "";
 		}
 	}
-	
+
 	public static Color midpointColor(Color first, Color second) {
-		
+
 		double r = (first.getRed() + second.getRed())/2,
 				g = (first.getGreen() + second.getGreen())/2,
 					b = (first.getBlue() + second.getBlue())/2;
+<<<<<<< HEAD
+
+		return newColour(r*255, g*255, b*255);
+	}
+
+	public static String toWebHexString(Color colour) {
+		return colour.toString().substring(2, 8);
+	}
+
+	public static Color newColour(double r, double g, double b) {
+=======
 		
 		return newColor(r*255, g*255, b*255);
 	}
@@ -136,13 +147,14 @@ public class Util {
 	}
 	
 	public static Color newColor(double r, double g, double b) {
+>>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 		return Color.color(r / 255, g / 255, b / 255);
 	}
 
 	public static Color newColor(int hex) {
 		return newColor((hex & 0xFF0000) >> 16, (hex & 0xFF00) >> 8, (hex & 0xFF));
 	}
-	
+
 	/**
 	 * Takes an input, and a maximum value, and returns LT's universal "dropoff" formula to it.
 	 * @param input
@@ -156,11 +168,11 @@ public class Util {
 //		float value = Math.abs(input)/Math.abs(maxValue);
 //		//y = 0.75 * cos((x*(pi/2))-(pi/2))
 //		return ((int)((Math.signum(input) * maxValue * 0.75f * Math.cos((value * (Math.PI/2)) - (Math.PI/2)))*100))/100f;
-		
+
 //		sin(x*pi/2)/2
 		if(input < maxValue/2) {
 			return input;
-			
+
 		} else {
 			float excess = Math.abs(input) - Math.abs(maxValue/2);
 			float value = (excess/Math.abs(maxValue))*2;
@@ -195,7 +207,7 @@ public class Util {
 		for (Value<T, S> v : values) {
 			map.put(v.getKey(), v.getValue());
 		}
-		
+
 		return map;
 	}
 
@@ -218,7 +230,7 @@ public class Util {
 			return keyCode.toString();
 		}
 	}
-	
+
 	public static void openLinkInDefaultBrowser(String url) {
 		Runtime runtime = Runtime.getRuntime();
 		try {
@@ -233,12 +245,12 @@ public class Util {
 			}
 		}
 	}
-	
+
 	public static String getFileTime(File file) throws IOException {
-	    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy - hh:mm");
-	    return dateFormat.format(file.lastModified());
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy - hh:mm");
+		return dateFormat.format(file.lastModified());
 	}
-	
+
 	@SafeVarargs
 	/**
 	 * @param values The values to add to the new list.
@@ -249,7 +261,7 @@ public class Util {
 		list.removeIf(e -> e==null);
 		return list;
 	}
-	
+
 	@SafeVarargs
 	/**
 	 * @param lists The lists to merge.
@@ -257,21 +269,21 @@ public class Util {
 	 */
 	public static <U> ArrayList<U> mergeLists(List<U>... lists) {
 		ArrayList<U> mergedList = new ArrayList<>();
-		
+
 		for(List<U> list : lists) {
 			for(U value : list) {
 				mergedList.add(value);
 			}
 		}
-		
+
 		return mergedList;
 	}
-	
+
 	@SafeVarargs
 	public static <U> HashSet<U> newHashSetOfValues(U... values) {
 		return new HashSet<>(Arrays.asList(values));
 	}
-	
+
 	@SafeVarargs
 	/**
 	 * @param maps The maps to draw entries from.
@@ -279,7 +291,7 @@ public class Util {
 	 */
 	public static <U, T> Map<U, List<T>> mergeMaps(Map<U, List<T>>... maps) {
 		Map<U, List<T>> mergedMap = new HashMap<>();
-		
+
 		for(Map<U, List<T>> map : maps) {
 			if(map!=null) {
 				for(Entry<U, List<T>> entry : map.entrySet()) {
@@ -288,22 +300,22 @@ public class Util {
 				}
 			}
 		}
-		
+
 		return mergedMap;
 	}
-	
+
 	public static <T> T getRandomObjectFromWeightedMap(Map<T, Integer> map) {
 		int total = 0;
 		for(int i : map.values()) {
 			total+=i;
 		}
-		
+
 		if(total==0) {
 			return null;
 		}
-		
+
 		int choice = Util.random.nextInt(total) + 1;
-		
+
 		total = 0;
 		for(Entry<T, Integer> entry : map.entrySet()) {
 			total+=entry.getValue();
@@ -314,15 +326,15 @@ public class Util {
 
 		return null;
 	}
-	
+
 	public static <T> T getRandomObjectFromWeightedFloatMap(Map<T, Float> map) {
 		int total = 0;
 		for(float f : map.values()) {
 			total+=f;
 		}
-		
+
 		float choice = (float) (Math.random()*total);
-		
+
 		total = 0;
 		for(Entry<T, Float> entry : map.entrySet()) {
 			total+=entry.getValue();
@@ -336,20 +348,20 @@ public class Util {
 
 	public static String getDayOfMonthSuffix(int n) {
 		if (n >= 11 && n <= 13) {
-	    	return "th";
-	    }
-	    switch (n % 10) {
-	    	case 1:  return "st";
-	    	case 2:  return "nd";
-	    	case 3:  return "rd";
-	    	default: return "th";
-	    }
+			return "th";
+		}
+		switch (n % 10) {
+			case 1:  return "st";
+			case 2:  return "nd";
+			case 3:  return "rd";
+			default: return "th";
+		}
 	}
-	
+
 	public static float getRoundedFloat(float input, int significantFigures) {
 		return (float) (((int)(input*Math.pow(10, significantFigures)))/Math.pow(10, significantFigures));
 	}
-	
+
 	private static String[] numbersLessThanTwenty = {
 			"zero",
 			"one",
@@ -418,11 +430,11 @@ public class Util {
 			return integer+"th";
 		}
 	}
-	
+
 	public static String getStringOfLocalDateTime(LocalDateTime date) {
 		return intToDate(date.getDayOfMonth())+" "+date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH)+", "+date.getYear();
 	}
-	
+
 	/**
 	 * Only works for values -99,999 to 99,999.
 	 * @param integer
@@ -430,7 +442,7 @@ public class Util {
 	 */
 	public static String intToString(int integer) {
 		String intToString = "";
-		
+
 		if(integer<0) {
 			intToString = "minus ";
 		}
@@ -438,7 +450,7 @@ public class Util {
 		if (integer >= 100_000) {
 			return intToString + " a lot";
 		}
-		
+
 		if(integer>=1000) {
 			if((integer/1000)<20) {
 				intToString+=numbersLessThanTwenty[(integer/1000)]+" thousand";
@@ -446,7 +458,7 @@ public class Util {
 				intToString+=tensGreaterThanNineteen[integer/10000] + (((integer/1000)%10!=0)?"-"+numbersLessThanTwenty[(integer/1000)%10]:"")+" thousand";
 			}
 		}
-		
+
 		if(integer>=100) {
 			if(integer>=1000 && integer%1000 != 0) {
 				intToString+=", ";
@@ -460,7 +472,7 @@ public class Util {
 				integer = integer % 100;
 			}
 		}
-		
+
 		if(integer%100<20) {
 			if (integer%100 == 0) {
 				if (intToString.isEmpty()) {
@@ -472,7 +484,7 @@ public class Util {
 		} else {
 			intToString+=tensGreaterThanNineteen[(integer%100)/10] + ((integer%10!=0)?"-"+numbersLessThanTwenty[integer%10]:"");
 		}
-		
+
 		return intToString;
 	}
 
@@ -486,13 +498,13 @@ public class Util {
 		} else if(integer==2) {
 			return "twice";
 		}
-		
+
 		return intToString(integer)+" times";
 	}
-		
+
 	public static String intToPosition(int integer) {
 		String intToString = "";
-		
+
 		if(integer<0) {
 			intToString = "minus ";
 		}
@@ -500,7 +512,7 @@ public class Util {
 		if (integer >= 100_000) {
 			return intToString + " a lot";
 		}
-		
+
 		if(integer>=1000) {
 			if((integer/1000)<20) {
 				intToString+=numbersLessThanTwenty[(integer/1000)]+" thousand";
@@ -508,7 +520,7 @@ public class Util {
 				intToString+=tensGreaterThanNineteen[integer/10000] + (((integer/1000)%10!=0)?"-"+numbersLessThanTwenty[(integer/1000)%10]:"")+" thousand";
 			}
 		}
-		
+
 		if(integer>=100) {
 			if(integer>=1000 && integer%1000 != 0) {
 				intToString+=", ";
@@ -522,7 +534,7 @@ public class Util {
 				integer = integer % 100;
 			}
 		}
-		
+
 		if(integer%100<20) {
 			if (integer%100 == 0) {
 				if (intToString.isEmpty()) {
@@ -534,38 +546,38 @@ public class Util {
 		} else {
 			intToString+=tensGreaterThanNineteen[(integer%100)/10] + ((integer%10!=0)?"-"+positionsLessThanTwenty[integer%10]:"");
 		}
-		
+
 		return intToString;
 	}
-	
+
 	private final static TreeMap<Integer, String> numeralMap = new TreeMap<Integer, String>();
 	static {
-        numeralMap.put(1000, "M");
-        numeralMap.put(900, "CM");
-        numeralMap.put(500, "D");
-        numeralMap.put(400, "CD");
-        numeralMap.put(100, "C");
-        numeralMap.put(90, "XC");
-        numeralMap.put(50, "L");
-        numeralMap.put(40, "XL");
-        numeralMap.put(10, "X");
-        numeralMap.put(9, "IX");
-        numeralMap.put(5, "V");
-        numeralMap.put(4, "IV");
-        numeralMap.put(1, "I");
-    }
-	
+		numeralMap.put(1000, "M");
+		numeralMap.put(900, "CM");
+		numeralMap.put(500, "D");
+		numeralMap.put(400, "CD");
+		numeralMap.put(100, "C");
+		numeralMap.put(90, "XC");
+		numeralMap.put(50, "L");
+		numeralMap.put(40, "XL");
+		numeralMap.put(10, "X");
+		numeralMap.put(9, "IX");
+		numeralMap.put(5, "V");
+		numeralMap.put(4, "IV");
+		numeralMap.put(1, "I");
+	}
+
 	public static String intToNumerals(int integer) {
 		if(integer<=0) {
 			return "0";
 		}
 		int l =  numeralMap.floorKey(integer);
-        if (integer == l) {
-            return numeralMap.get(integer);
-        }
-        return numeralMap.get(l) + intToNumerals(integer-l);
+		if (integer == l) {
+			return numeralMap.get(integer);
+		}
+		return numeralMap.get(l) + intToNumerals(integer-l);
 	}
-	
+
 	public static String intToTally(int integer) {
 		StringBuilder numeralSB = new StringBuilder();
 		for(int i=0; i<integer/5; i++) {
@@ -574,10 +586,10 @@ public class Util {
 		for(int i=0; i<integer%5; i++) {
 			numeralSB.append("I");
 		}
-		
+
 		return numeralSB.toString();
 	}
-	
+
 	public static String getKeyCodeCharacter(KeyCode code) {
 		String name = KEY_NAMES.get(code);
 		return name != null? name : code.getName();
@@ -625,13 +637,13 @@ public class Util {
 	 * Turns a normal sentence into a stuttering sentence. Example:
 	 * "How far is it to the town hall?" "H-How far is it to the town h-hall?"
 	 * "How far i-is it to the t-town hall?"
-	 * 
+	 *
 	 * @param sentence
-	 *            sentence to apply stutters
+	 *			sentence to apply stutters
 	 * @param frequency
-	 *            of stutter words (i.e. 4 would be 1 in 4 words are stutters)
+	 *			of stutter words (i.e. 4 would be 1 in 4 words are stutters)
 	 * @return
-	 *            modified sentence
+	 *			modified sentence
 	 */
 	public static String addStutter(String sentence, int frequency) {
 		splitSentence = sentence.split(" ");
@@ -676,16 +688,16 @@ public class Util {
 	 * Inserts words randomly into a sentence.<br/>
 	 *
 	 * @param sentence
-	 *            sentence to insert words into
+	 *			sentence to insert words into
 	 * @param frequency
-	 *            how often words are inserted. 1/frequency is the probability of inserting a word
+	 *			how often words are inserted. 1/frequency is the probability of inserting a word
 	 * @param inserts
-	 *            list of strings to insert into. These are appended to the end of words, so ensure
-	 *            any whitespace wanted is put before the insert. A space separates the next word
+	 *			list of strings to insert into. These are appended to the end of words, so ensure
+	 *			any whitespace wanted is put before the insert. A space separates the next word
 	 * @param middle
-	 *            boolean, whether to avoid inserting at the start/end of a sentence
+	 *			boolean, whether to avoid inserting at the start/end of a sentence
 	 * @return
-	 *            modified sentence
+	 *			modified sentence
 	 */
 	private static String insertIntoSentences(String sentence, int frequency, String[] inserts, boolean middle) {
 		splitSentence = sentence.split(" ");
@@ -729,23 +741,23 @@ public class Util {
 	private static String insertIntoSentences(String sentence, int frequency, String[] inserts) {
 		return insertIntoSentences(sentence, frequency, inserts, true);
 	}
-	
+
 	private static String insertIntoSentencesAtPunctuation(String sentence, String[] inserts) {
 		splitSentence = sentence.split(" ");
 		utilitiesStringBuilder.setLength(0);
-		
+
 		utilitiesStringBuilder.append(inserts[random.nextInt(inserts.length)]+" ");
-		
+
 		char cOld = 'X';
 		for(char c : sentence.toCharArray()) {
 			utilitiesStringBuilder.append(c);
-			
+
 			if((cOld=='.'||cOld=='!'||cOld=='?'||cOld==',')
 					&& c==' ') {
 				utilitiesStringBuilder.append(inserts[random.nextInt(inserts.length)]+" ");
 			}
 			cOld = c;
-		}//^\.\. |! |\? 
+		}//^\.\. |! |\?
 
 		return utilitiesStringBuilder.toString();
 	}
@@ -762,12 +774,12 @@ public class Util {
 	 * Used in conjunction with addStutter(): "L-Like, How far is it t-to the, like, town hall?"
 	 *
 	 * @param sentence
-	 *            sentence to apply bimbo modifications
+	 *			sentence to apply bimbo modifications
 	 * @param frequency
-	 *            of bimbo interjections (i.e. 4 would be 1 in 4 words have a
-	 *            bimbo interjection)
+	 *			of bimbo interjections (i.e. 4 would be 1 in 4 words have a
+	 *			bimbo interjection)
 	 * @return
-	 *            modified sentence
+	 *			modified sentence
 	 */
 	public static String addBimbo(String sentence, int frequency) {
 		sentence = insertIntoSentences(sentence, frequency, bimboWords);
@@ -803,11 +815,11 @@ public class Util {
 	 * "How ~Mrph~ far is it ~Mmm~ to the town ~Mrph~ hall?"<br/>
 	 *
 	 * @param sentence
-	 *            sentence to apply muffles
+	 *			sentence to apply muffles
 	 * @param frequency
-	 *            of muffled words (i.e. 4 would be 1 in 4 words are muffled)
+	 *			of muffled words (i.e. 4 would be 1 in 4 words are muffled)
 	 * @return
-	 *            modified sentence
+	 *			modified sentence
 	 */
 	public static String addMuffle(String sentence, int frequency) {
 		return insertIntoSentences(sentence, frequency, muffledSounds);
@@ -821,11 +833,11 @@ public class Util {
 	 * "How ~Aah!~ far is it ~Mmm!~ to the town ~Aah!~ hall?"<br/>
 	 *
 	 * @param sentence
-	 *            sentence to apply sexy modifications
+	 *			sentence to apply sexy modifications
 	 * @param frequency
-	 *            of sex sounds (i.e. 4 would be 1 in 4 words are sexy)
+	 *			of sex sounds (i.e. 4 would be 1 in 4 words are sexy)
 	 * @return
-	 *            modified sentence
+	 *			modified sentence
 	 */
 	public static String addSexSounds(String sentence, int frequency) {
 		if(Math.random()<0.75f) { // 75% chance of the sex sounds to be more readable:
@@ -843,11 +855,11 @@ public class Util {
 	 * "How ~Hic!~ far is it ~Hic!~ to the town ~Hic!~ hall?"<br/>
 	 *
 	 * @param sentence
-	 *            sentence to apply sexy modifications
+	 *			sentence to apply sexy modifications
 	 * @param frequency
-	 *            of drunk sounds (i.e. 4 would be 1 in 4 words are drunk)
+	 *			of drunk sounds (i.e. 4 would be 1 in 4 words are drunk)
 	 * @return
-	 *            modified sentence
+	 *			modified sentence
 	 */
 	public static String addDrunkSlur(String sentence, int frequency) {
 		return insertIntoSentences(sentence, frequency, drunkSounds, false)
@@ -879,7 +891,7 @@ public class Util {
 		utilitiesStringBuilder.setLength(0);
 		try {
 			T currentItem = itemIterator.next();
-	
+
 			utilitiesStringBuilder.append(stringExtractor.apply(currentItem));
 			if (itemIterator.hasNext()) { // If more than one item, enter the loop
 				currentItem = itemIterator.next();
@@ -894,10 +906,19 @@ public class Util {
 		}
 		return utilitiesStringBuilder.toString();
 	}
-	
+
 	public static String SplitR(String choices, String splitter) {
-	    return choices.split(splitter)[random.nextInt(choices.length() - choices.replace(splitter, "").length() + 1)];
+		return choices.split(splitter)[random.nextInt(choices.length() - choices.replace(splitter, "").length() + 1)];
 	};
+<<<<<<< HEAD
+
+	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalise) {
+		return Util.toStringList(subspecies,
+				(Subspecies o) ->
+				"<span style='color:"+o.getColour(null).toWebHexString()+";'>"
+					+(capitalise
+							?Util.capitaliseSentence(o.getNamePlural(null))
+=======
 	
 	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalize) {
 		return Util.toStringList(subspecies,
@@ -905,6 +926,7 @@ public class Util {
 				"<span style='color:"+o.getColor(null).toWebHexString()+";'>"
 					+(capitalize
 							?Util.capitalizeSentence(o.getNamePlural(null))
+>>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 							:o.getNamePlural(null))
 					+"</span>",
 				"and");
@@ -937,7 +959,7 @@ public class Util {
 	public static String inventorySlotsToStringList(List<InventorySlot> inventorySlots) {
 		return Util.toStringList(inventorySlots, InventorySlot::getName, "and");
 	}
-	
+
 	public static String tattooInventorySlotsToStringList(List<InventorySlot> inventorySlots) {
 		return Util.toStringList(inventorySlots, InventorySlot::getTattooSlotName, "and");
 	}
@@ -957,7 +979,7 @@ public class Util {
 	public static int randomItemFrom(int[] array) {
 		return array[Util.random.nextInt(array.length)];
 	}
-	
+
 	public static String getClosestStringMatch(String input, Collection<String> choices) {
 		int distance = Integer.MAX_VALUE;
 		String closestString = input;
@@ -970,15 +992,15 @@ public class Util {
 		}
 		return closestString;
 	}
-	
+
 	public static int getLevenshteinDistance(String inputOne, String inputTwo) {
 		// Don't care about case:
 		inputOne = inputOne.toLowerCase();
 		inputTwo = inputTwo.toLowerCase();
-		
+
 		// i == 0
 		int[] costs = new int[inputTwo.length() + 1];
-		
+
 		for (int j = 0; j < costs.length; j++) {
 			costs[j] = j;
 		}
@@ -998,7 +1020,7 @@ public class Util {
 		}
 		return costs[inputTwo.length()];
 	}
-	
+
 	private static Map<String, List<String>> errorLogMap = new HashMap<>();
 	public static void logGetNpcByIdError(String method, String id) {
 		errorLogMap.putIfAbsent(method, new ArrayList<>());

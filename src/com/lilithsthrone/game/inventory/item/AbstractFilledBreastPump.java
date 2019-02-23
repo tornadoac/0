@@ -25,14 +25,14 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving {
-	
+
 	private String milkProvidor;
 	private FluidMilk milk;
-	private int millilitresStored;
-	
-	public AbstractFilledBreastPump(AbstractItemType itemType, Color color, GameCharacter milkProvidor, FluidMilk milk, int millilitresStored) {
+	private int millilitersStored;
+
+	public AbstractFilledBreastPump(AbstractItemType itemType, Color color, GameCharacter milkProvidor, FluidMilk milk, int millilitersStored) {
 		super(itemType);
-		
+
 		this.milkProvidor = milkProvidor.getId();
 		this.milk = new FluidMilk(milk.getType());
 		this.milk.setFlavor(milkProvidor, milk.getFlavor());
@@ -41,12 +41,12 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 		}
 		this.colorShade = color;
 		SVGString = getSVGString(itemType.getPathName(), color);
-		this.millilitresStored = millilitresStored;
+		this.millilitersStored = millilitersStored;
 	}
-	
-	public AbstractFilledBreastPump(AbstractItemType itemType, Color color, String milkProvidorId, FluidMilk milk, int millilitresStored) {
+
+	public AbstractFilledBreastPump(AbstractItemType itemType, Color color, String milkProvidorId, FluidMilk milk, int millilitersStored) {
 		super(itemType);
-		
+
 		this.milkProvidor = milkProvidorId;
 		this.milk = new FluidMilk(milk.getType());
 		this.milk.setFlavor(null, milk.getFlavor());
@@ -55,9 +55,9 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 		}
 		this.colorShade = color;
 		SVGString = getSVGString(itemType.getPathName(), color);
-		this.millilitresStored = millilitresStored;
+		this.millilitersStored = millilitersStored;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(super.equals(o)) {
@@ -68,7 +68,7 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -81,12 +81,12 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("item");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "id", this.getItemType().getId());
 		CharacterUtils.addAttribute(doc, element, "color", String.valueOf(this.getColor()));
 		CharacterUtils.addAttribute(doc, element, "milkProvidor", this.getMilkProvidorId());
-		CharacterUtils.addAttribute(doc, element, "millilitresStored", String.valueOf(this.getMillilitresStored()));
-		
+		CharacterUtils.addAttribute(doc, element, "millilitersStored", String.valueOf(this.getMillilitersStored()));
+
 		Element innerElement = doc.createElement("itemEffects");
 		element.appendChild(innerElement);
 		for(ItemEffect ie : this.getEffects()) {
@@ -96,7 +96,7 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 		innerElement = doc.createElement("milk");
 		element.appendChild(innerElement);
 		this.getMilk().saveAsXML(innerElement, doc);
-		
+
 		return element;
 	}
 
@@ -108,39 +108,39 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 				((Element) parentElement.getElementsByTagName("milk").item(0)==null
 					?new FluidMilk(FluidType.MILK_HUMAN)
 					:FluidMilk.loadFromXML((Element) parentElement.getElementsByTagName("milk").item(0), doc)),
-				(parentElement.getAttribute("millilitresStored").isEmpty()
+				(parentElement.getAttribute("millilitersStored").isEmpty()
 					?25
-					:Integer.valueOf(parentElement.getAttribute("millilitresStored"))));
+					:Integer.valueOf(parentElement.getAttribute("millilitersStored"))));
 	}
-	
+
 	private String getSVGString(String pathName, Color color) {
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/" + pathName + ".svg");
 			String s = Util.inputStreamToString(is);
-			
+
 			s = SvgUtil.colorReplacement(String.valueOf(this.hashCode()), color, s);
-			
+
 			is.close();
-			
+
 			return s;
-			
+
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		return "";
 	}
-	
+
 	@Override
 	public String applyEffect(GameCharacter user, GameCharacter target) {
-		return target.ingestFluid(getMilkProvidor(), milk, SexAreaOrifice.MOUTH, millilitresStored)
+		return target.ingestFluid(getMilkProvidor(), milk, SexAreaOrifice.MOUTH, millilitersStored)
 				+ target.addItem(AbstractItemType.generateItem(ItemType.MOO_MILKER_EMPTY), false);
 	}
-	
+
 	public String getMilkProvidorId() {
 		return milkProvidor;
 	}
-	
+
 	public GameCharacter getMilkProvidor() {
 		try {
 			return Main.game.getNPCById(milkProvidor);
@@ -154,12 +154,12 @@ public class AbstractFilledBreastPump extends AbstractItem implements XMLSaving 
 		return milk;
 	}
 
-	public int getMillilitresStored() {
-		return millilitresStored;
+	public int getMillilitersStored() {
+		return millilitersStored;
 	}
 
-	public void setMillilitresStored(int millilitresStored) {
-		this.millilitresStored = millilitresStored;
+	public void setMillilitersStored(int millilitersStored) {
+		this.millilitersStored = millilitersStored;
 	}
-	
+
 }

@@ -205,7 +205,7 @@ public class SlaveDialogue {
 								switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 									case DISOBEDIENT:
 										UtilText.nodeContentSB.append(" sighing,"
-												+ " [npc.speech(Hi, [npc.pcName]. You got me pregnant, so I'm going to need to take it easy for a while, ok?)]");
+												+ " [npc.speech(Hi, [npc.pcName]. You got me pregnant, so I'm going to need to take it easy for a while, OK?)]");
 										break;
 									case NEUTRAL:
 										UtilText.nodeContentSB.append(" sighing,"
@@ -221,7 +221,7 @@ public class SlaveDialogue {
 								switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 									case DISOBEDIENT:
 										UtilText.nodeContentSB.append(" a huge smile breaking out across [npc.her] face as [npc.she] joyously calls out,"
-												+ " [npc.speech([npc.PcName]! Look! You got me pregnant, isn't it wonderful?! I'm going to need to take it easy for a while, so that I can take good care of myself, ok?)]");
+												+ " [npc.speech([npc.PcName]! Look! You got me pregnant, isn't it wonderful?! I'm going to need to take it easy for a while, so that I can take good care of myself, OK?)]");
 										break;
 									case NEUTRAL:
 										UtilText.nodeContentSB.append(" a huge smile breaking out across [npc.her] face as [npc.she] joyously calls out,"
@@ -237,7 +237,7 @@ public class SlaveDialogue {
 						UtilText.nodeContentSB.append("</p>"
 								+ "<p>"
 									+ "You walk over to your slave, and, running your [pc.hands] over [npc.her] pregnant belly, you smile reassuringly at the mother of your children."
-									+ " [pc.speech(When the time's right, Lilaya will be able to help you give birth, ok?)]"
+									+ " [pc.speech(When the time's right, Lilaya will be able to help you give birth, OK?)]"
 								+ "</p>"
 								+ "<p>"
 									+ "[npc.Name] responds in the affirmative, and after stroking and caressing [npc.her] belly for a little while, you wonder what to do next..."
@@ -247,11 +247,11 @@ public class SlaveDialogue {
 						switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 							case DISOBEDIENT:
 								UtilText.nodeContentSB.append(" sighing,"
-										+ " [npc.speech(Hi, [npc.pcName]. "+(father==null?"I ended up getting pregnant":father.getName("A")+" got me pregnant")+", so I'm going to take it easy for a while. Get one of the other slaves to cover for me, ok?)]");
+										+ " [npc.speech(Hi, [npc.pcName]. "+(father==null?"I ended up getting pregnant":father.getName("A")+" got me pregnant")+", so I'm going to take it easy for a while. Get one of the other slaves to cover for me, OK?)]");
 								break;
 							case NEUTRAL:
 								UtilText.nodeContentSB.append(" sighing,"
-										+ " [npc.speech(Hi, [npc.pcName]. "+(father==null?"I ended up getting pregnant":father.getName("A")+" got me pregnant")+", so I'm going to need to take it easy for a while, ok?)]");
+										+ " [npc.speech(Hi, [npc.pcName]. "+(father==null?"I ended up getting pregnant":father.getName("A")+" got me pregnant")+", so I'm going to need to take it easy for a while, OK?)]");
 								break;
 							case OBEDIENT:
 								UtilText.nodeContentSB.append(" obediently informing you of what happened,"
@@ -261,7 +261,7 @@ public class SlaveDialogue {
 						UtilText.nodeContentSB.append("</p>"
 								+ "<p>"
 									+ "You walk over to your slave, and, running your [pc.hands] over [npc.her] pregnant belly, you smile reassuringly at [npc.herHim]."
-									+ " [pc.speech(When the time's right, Lilaya will be able to help you give birth, ok?)]"
+									+ " [pc.speech(When the time's right, Lilaya will be able to help you give birth, OK?)]"
 								+ "</p>"
 								+ "<p>"
 									+ "[npc.Name] responds in the affirmative, and after stroking and caressing [npc.her] belly for a little while, you wonder what to do next..."
@@ -293,7 +293,7 @@ public class SlaveDialogue {
 							switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 								case DISOBEDIENT:
 									UtilText.nodeContentSB.append(" sighing,"
-											+ " [npc.speech(Hi, [npc.pcName]. I'm taking it easy, what with the pregnancy and all, ok?)]");
+											+ " [npc.speech(Hi, [npc.pcName]. I'm taking it easy, what with the pregnancy and all, OK?)]");
 									break;
 								case NEUTRAL:
 									UtilText.nodeContentSB.append(" sighing,"
@@ -309,7 +309,7 @@ public class SlaveDialogue {
 							switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 								case DISOBEDIENT:
 									UtilText.nodeContentSB.append(" a huge smile breaking out across [npc.her] face as [npc.she] joyously calls out,"
-											+ " [npc.speech(Hi, [npc.pcName]! How are you doing?! I'm taking it easy at the moment, so that I can take good care of myself, ok?)]");
+											+ " [npc.speech(Hi, [npc.pcName]! How are you doing?! I'm taking it easy at the moment, so that I can take good care of myself, OK?)]");
 									break;
 								case NEUTRAL:
 									UtilText.nodeContentSB.append(" a huge smile breaking out across [npc.her] face as [npc.she] joyously calls out,"
@@ -325,7 +325,7 @@ public class SlaveDialogue {
 					UtilText.nodeContentSB.append("</p>"
 							+ "<p>"
 								+ "You walk over to your slave, and, running your [pc.hands] over [npc.her] pregnant belly, you smile reassuringly at [npc.herHim]."
-								+ " [pc.speech(Remember that Lilaya will be able to help you to give birth. Make sure you visit her when the time's right, ok?)]"
+								+ " [pc.speech(Remember that Lilaya will be able to help you to give birth. Make sure you visit her when the time's right, OK?)]"
 							+ "</p>"
 							+ "<p>"
 								+ "[npc.Name] responds in the affirmative, and after stroking and caressing [npc.her] belly for a little while, you wonder what to do next..."
@@ -1111,7 +1111,7 @@ public class SlaveDialogue {
 					switch(ObedienceLevelBasic.getObedienceLevelFromValue(Main.game.getActiveNPC().getObedienceValue())) {
 						case DISOBEDIENT:
 							UtilText.nodeContentSB.append("Although [npc.she] doesn't seem to hate you, [npc.name] obviously doesn't feel too comfortable talking about [npc.her] past with you, and sighs,"
-									+ " [npc.speech(I don't know, [npc.pcName], it's not like there's anything to tell, really. Let's just talk about something else, ok?)]");
+									+ " [npc.speech(I don't know, [npc.pcName], it's not like there's anything to tell, really. Let's just talk about something else, OK?)]");
 							break;
 						case NEUTRAL:
 							UtilText.nodeContentSB.append("Although [npc.she] doesn't seem to hate you, [npc.name] obviously doesn't feel too comfortable talking about [npc.her] past with you, and sighs,"

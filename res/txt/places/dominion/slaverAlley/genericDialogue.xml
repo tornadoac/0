@@ -112,7 +112,7 @@
 	#IF pc.isHasSlaverLicense()
 	#THEN
 		<p>
-			[pc.speech(Ok, sure, why not)] you reply, stepping forwards into the rat-boy's store...
+			[pc.speech(OK, sure, why not)] you reply, stepping forwards into the rat-boy's store...
 		</p>
 	#ELSE
 		<p>

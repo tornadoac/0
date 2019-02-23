@@ -75,7 +75,7 @@ public class CharacterCreation {
 		public String getContent() {
 			return Main.disclaimer;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -87,23 +87,23 @@ public class CharacterCreation {
 	};
 
 	public static final DialogueNode ALPHA_MESSAGE = new DialogueNode("", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return "Version " + Main.VERSION_NUMBER + " | <b style='color:" + Color.BASE_YELLOW_LIGHT.toWebHexString() + ";'>"+Main.VERSION_DESCRIPTION+"</b>";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return Main.patchNotes;
-			
+
 		}
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Continue", "Continue to the next screen.", CONTENT_PREFERENCES);
-				
+
 			} else {
 				return null;
 			}
@@ -142,14 +142,14 @@ public class CharacterCreation {
 						Main.game.getPlayer().calculateStatusEffects(0);
 						getDressed();
 						resetBodyAppearance();
-						
+
 						Main.game.setRenderAttributesSection(true);
 						Main.game.getPlayer().setName(new NameTriplet("Unknown", "Unknown", "Unknown"));
 						Main.game.getPlayer().setSurname("");
 						BodyChanging.setTarget(Main.game.getPlayer());
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Start (Import)", "Import a character from a previous version to use on game start.", IMPORT_CHOOSE) {
 					@Override
@@ -157,13 +157,13 @@ public class CharacterCreation {
 						Main.game.getPlayerCell().resetInventory();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static void resetBodyAppearance() {
 		Main.game.getPlayer().setSkinCovering(new Covering(BodyCoveringType.HUMAN, Color.SKIN_LIGHT), true);
 		Main.game.getNpc(Lilaya.class).setSkinCovering(new Covering(BodyCoveringType.HUMAN, Main.game.getPlayer().getCovering(BodyCoveringType.HUMAN).getPrimaryColor()), true);
@@ -201,7 +201,7 @@ public class CharacterCreation {
 				break;
 		}
 	}
-	
+
 	public static void setGenderFemale() {
 		Femininity fem = Femininity.FEMININE;
 		switch(Main.game.getPlayer().getFemininity()) {
@@ -219,12 +219,12 @@ public class CharacterCreation {
 		}
 		Main.game.getPlayer().setBody(Gender.F_V_B_FEMALE, RacialBody.HUMAN, RaceStage.HUMAN);
 		Main.game.getPlayer().setFemininity(fem.getMedianFemininity());
-		
+
 		getDressed();
-		
+
 		CharacterCreation.resetBodyAppearance();
 	}
-	
+
 	public static void setGenderMale() {
 		Femininity fem = Femininity.MASCULINE;
 		switch(Main.game.getPlayer().getFemininity()) {
@@ -242,42 +242,42 @@ public class CharacterCreation {
 		}
 		Main.game.getPlayer().setBody(Gender.M_P_MALE, RacialBody.HUMAN, RaceStage.HUMAN);
 		Main.game.getPlayer().setFemininity(fem.getMedianFemininity());
-		
+
 		getDressed();
-		
+
 		CharacterCreation.resetBodyAppearance();
 	}
-	
+
 	private static void equipPiercings() {
 		Color color1 = Main.game.getPlayer().isFeminine()?Color.CLOTHING_GOLD:Color.CLOTHING_BLACK_STEEL;
 		Color color2 = Main.game.getPlayer().isFeminine()?Color.CLOTHING_ROSE_GOLD:Color.CLOTHING_SILVER;
-		
+
 		for(InventorySlot slot : InventorySlot.getPiercingSlots()) {
 			if(Main.game.getPlayer().getClothingInSlot(slot)!=null){
 				Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(slot), true, Main.game.getPlayer());
 			}
 		}
-		
+
 		// Ear piercings:
 		if(Main.game.getPlayer().isPiercedEar()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, color1, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_EAR)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_EAR), true, Main.game.getPlayer());
 		}
-		
+
 		// Lip piercings:
 		if(Main.game.getPlayer().isPiercedLip()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_LIP_RINGS, color1, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_LIP)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_LIP), true, Main.game.getPlayer());
 		}
-		
+
 		// Navel piercings:
 		if(Main.game.getPlayer().isPiercedNavel() && Main.game.getPlayer().isFeminine()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, color2, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_STOMACH)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_STOMACH), true, Main.game.getPlayer());
 		}
@@ -285,7 +285,7 @@ public class CharacterCreation {
 		// Nipples piercings:
 		if(Main.game.getPlayer().isPiercedNipple()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NIPPLE_BARS, color2, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_NIPPLE)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_NIPPLE), true, Main.game.getPlayer());
 		}
@@ -293,7 +293,7 @@ public class CharacterCreation {
 		// Nose piercings:
 		if(Main.game.getPlayer().isPiercedNose()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NOSE_BASIC_RING, color1, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_NOSE)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_NOSE), true, Main.game.getPlayer());
 		}
@@ -301,7 +301,7 @@ public class CharacterCreation {
 		// Penis piercings:
 		if(Main.game.getPlayer().hasPenis() && Main.game.getPlayer().isPiercedPenis()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_PENIS_RING, color2, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_PENIS)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_PENIS), true, Main.game.getPlayer());
 		}
@@ -309,7 +309,7 @@ public class CharacterCreation {
 		// Tongue piercings:
 		if(Main.game.getPlayer().isPiercedTongue()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_TONGUE_BAR, color1, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_TONGUE)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_TONGUE), true, Main.game.getPlayer());
 		}
@@ -317,22 +317,22 @@ public class CharacterCreation {
 		// Vagina piercings:
 		if(Main.game.getPlayer().hasVagina() && Main.game.getPlayer().isPiercedVagina()) {
 			Main.game.getPlayer().equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_VAGINA_BARBELL_RING, color2, false), true, Main.game.getPlayer());
-			
+
 		} else if(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_VAGINA)!=null){
 			Main.game.getPlayer().unequipClothingIntoVoid(Main.game.getPlayer().getClothingInSlot(InventorySlot.PIERCING_VAGINA), true, Main.game.getPlayer());
 		}
 	}
-	
+
 	public static void getDressed() {
 		getDressed(Main.game.getPlayer(), true);
 	}
-	
+
 	public static void getDressed(GameCharacter character, boolean spawnClothingOnFloor) {
 		character.resetInventory(false);
 		Main.game.getPlayerCell().resetInventory();
-		
+
 		equipPiercings();
-		
+
 		switch(character.getFemininity()) {
 			case MASCULINE_STRONG:
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Color.CLOTHING_WHITE, false), true, character);
@@ -344,12 +344,12 @@ public class CharacterCreation {
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Color.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Color.CLOTHING_GOLD, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_MENS_WATCH, Color.CLOTHING_GOLD, false), true, character);
-				
+
 				if(spawnClothingOnFloor) {
 					spawnClothingInArea();
 				}
 				break;
-				
+
 			case MASCULINE:
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BOXERS, Color.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SHORT_SLEEVE_SHIRT, Color.CLOTHING_WHITE, false), true, character);
@@ -363,7 +363,7 @@ public class CharacterCreation {
 					spawnClothingInArea();
 				}
 				break;
-				
+
 			case ANDROGYNOUS:
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_WHITE, false), true, character);
 				if(character.getBreastRawSizeValue()!=0) {
@@ -375,12 +375,12 @@ public class CharacterCreation {
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_JEANS, Color.CLOTHING_BLUE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Color.CLOTHING_WHITE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_LOW_TOP_SKATER_SHOES, Color.CLOTHING_RED, false), true, character);
-				
+
 				if(spawnClothingOnFloor) {
 					spawnClothingInArea();
 				}
 				break;
-				
+
 			case FEMININE:
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Color.CLOTHING_WHITE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_PLUNGE_BRA, Color.CLOTHING_WHITE, false), true, character);
@@ -395,7 +395,7 @@ public class CharacterCreation {
 					spawnClothingInArea();
 				}
 				break;
-				
+
 			case FEMININE_STRONG:
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Color.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_PLUNGE_BRA, Color.CLOTHING_BLACK, false), true, character);
@@ -413,7 +413,7 @@ public class CharacterCreation {
 			default:
 				break;
 		}
-		
+
 		if(character.isPlayer()
 				&& ((character.getName().equals("James") || character.getName().equals("Jane") || character.getName().equals("Tracy")) && character.getSurname().equals("Bond"))) {
 			character.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WESTERN_KKP));
@@ -423,7 +423,7 @@ public class CharacterCreation {
 	private static void generateClothingOnFloor(AbstractClothingType clothingType, Color color) {
 		generateClothingOnFloor(clothingType, color, null, null);
 	}
-	
+
 	private static void generateClothingOnFloor(AbstractClothingType clothingType, Color color, Color color2, Color color3) {
 		for(AbstractClothing clothing : Main.game.getPlayer().getClothingCurrentlyEquipped()) {
 			if(clothing.getClothingType()==clothingType) {
@@ -432,7 +432,7 @@ public class CharacterCreation {
 		}
 		Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing(clothingType, color, color2, color3, false));
 	}
-	
+
 	private static void spawnClothingInArea() {
 		switch(Main.game.getPlayer().getFemininity()) {
 			case MASCULINE:
@@ -458,11 +458,11 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.NECK_TIE, Color.CLOTHING_RED);
 				generateClothingOnFloor(ClothingType.TORSO_OVER_SUIT_JACKET, Color.CLOTHING_BLACK);
 				break;
-				
+
 			case ANDROGYNOUS:
 				generateClothingOnFloor(ClothingType.FOOT_TRAINERS, Color.CLOTHING_PURPLE);
 				generateClothingOnFloor(ClothingType.FOOT_HEELS, Color.CLOTHING_BLACK);
-				
+
 				generateClothingOnFloor(ClothingType.GROIN_THONG, Color.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.GROIN_LACY_PANTIES, Color.CLOTHING_RED);
 				generateClothingOnFloor(ClothingType.GROIN_BRIEFS, Color.CLOTHING_WHITE);
@@ -477,15 +477,15 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.LEG_YOGA_PANTS, Color.CLOTHING_PINK_LIGHT);
 
 				generateClothingOnFloor(ClothingType.NECK_SCARF, Color.CLOTHING_RED);
-				
+
 				generateClothingOnFloor(ClothingType.HEAD_CAP, Color.CLOTHING_BLUE);
-				
+
 				generateClothingOnFloor(ClothingType.STOMACH_UNDERBUST_CORSET, Color.CLOTHING_BLACK);
 
 				generateClothingOnFloor(ClothingType.TORSO_TSHIRT, Color.CLOTHING_BLUE_LIGHT);
 				generateClothingOnFloor(ClothingType.TORSO_BLOUSE, Color.CLOTHING_BLUE_LIGHT);
 				generateClothingOnFloor(ClothingType.TORSO_CAMITOP_STRAPS, Color.CLOTHING_GREEN);
-				
+
 				generateClothingOnFloor(ClothingType.TORSO_OVER_HOODIE, Color.CLOTHING_PINK_LIGHT);
 				generateClothingOnFloor(ClothingType.TORSO_OVER_OPEN_CARDIGAN, Color.CLOTHING_BLACK);
 
@@ -493,10 +493,10 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.NECK_HEART_NECKLACE, Color.CLOTHING_SILVER);
 				generateClothingOnFloor(ClothingType.WRIST_BANGLE, Color.CLOTHING_SILVER);
 				generateClothingOnFloor(ClothingType.ANKLE_BRACELET, Color.CLOTHING_SILVER);
-				
+
 				generateClothingOnFloor(ClothingType.EYES_GLASSES, Color.CLOTHING_BLACK_STEEL);
 				break;
-				
+
 			case FEMININE:
 			case FEMININE_STRONG:
 				generateClothingOnFloor(ClothingType.GROIN_PANTIES, Color.CLOTHING_WHITE);
@@ -530,7 +530,7 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.LEG_YOGA_PANTS, Color.CLOTHING_PINK_LIGHT);
 
 				generateClothingOnFloor(ClothingType.NECK_SCARF, Color.CLOTHING_RED);
-				
+
 				generateClothingOnFloor(ClothingType.STOMACH_UNDERBUST_CORSET, Color.CLOTHING_BLACK);
 
 				generateClothingOnFloor(ClothingType.getClothingTypeFromId("innoxia_torso_feminine_short_sleeve_shirt"), Color.CLOTHING_BLUE_LIGHT);
@@ -541,17 +541,17 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.TORSO_VIRGIN_KILLER_SWEATER, Color.CLOTHING_WHITE);
 				generateClothingOnFloor(ClothingType.TORSO_SLIP_DRESS, Color.CLOTHING_RED);
 				generateClothingOnFloor(ClothingType.TORSO_SKATER_DRESS, Color.CLOTHING_BLACK);
-				
+
 				generateClothingOnFloor(ClothingType.TORSO_OVER_OPEN_CARDIGAN, Color.CLOTHING_BLACK);
-				
+
 				generateClothingOnFloor(ClothingType.WRIST_BANGLE, Color.CLOTHING_GOLD);
 				generateClothingOnFloor(ClothingType.ANKLE_BRACELET, Color.CLOTHING_GOLD);
 				break;
 		}
 	}
-	
+
 	public static final DialogueNode CHOOSE_APPEARANCE = new DialogueNode("A Night Out", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<p>"
@@ -565,15 +565,15 @@ public class CharacterCreation {
 						+ " Having no choice but to step in line and wait your turn, you briefly glance over at the large glass windows of the building's modern façade to see your blurry reflection in the glass..."
 					+ "</p>"
 					+ "<br/>"
-					
+
 					+ CharacterModificationUtils.getStartDateDiv()
-					
+
 					+ "<div class='cosmetics-container' style='background:transparent;'>"
-					
+
 						+ CharacterModificationUtils.getGenderChoiceDiv()
-						
+
 						+ CharacterModificationUtils.getFemininityChoiceDiv()
-						
+
 						+ "<div class='container-full-width' style='text-align:center;'>"
 							+ "You will be referred to as <span style='color:"+Main.game.getPlayer().getGender().getColor().toWebHexString()+";'>"
 								+UtilText.generateSingularDeterminer(Main.game.getPlayer().getGender().getName())+ " " + Main.game.getPlayer().getGender().getName()+"</span>.<br/>"
@@ -581,38 +581,38 @@ public class CharacterCreation {
 						+ "</div>"
 
 						+ CharacterModificationUtils.getBirthdayChoiceDiv()
-						
+
 						+ CharacterModificationUtils.getOrientationChoiceDiv()
-						
+
 						+ CharacterModificationUtils.getPersonalityChoiceDiv()
-						
+
 					+"</div>";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Continue", "Wait your turn, and hope that the event hasn't started yet.", CHOOSE_NAME);
-				
+
 			}
 			else if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CONTENT_PREFERENCES);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_NAME = new DialogueNode("A Night Out", "", true) {
 
 		boolean unsuitableName = false, unsuitableSurname = false;
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<p>"
@@ -650,16 +650,16 @@ public class CharacterCreation {
 						+ (unsuitableName ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Invalid name.</b></p>" : "")
 						+ (unsuitableSurname ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Color.GENERIC_BAD.toWebHexString()+ ";'>Invalid Surname.</b></p>" : "")
 					+ "</div>"
-					
+
 					+ "<p id='hiddenFieldName' style='display:none;'></p>"
 					+ "<p id='hiddenFieldSurname' style='display:none;'></p>";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -686,9 +686,9 @@ public class CharacterCreation {
 								unsuitableSurname = false;
 							}
 						}
-						if (unsuitableName || unsuitableSurname)  {
+						if (unsuitableName || unsuitableSurname) {
 							Main.game.setContent(new Response("" ,"", CHOOSE_NAME));
-							
+
 						} else {
 							Main.game.getPlayer().setName(new NameTriplet(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent()));
 							Main.game.getPlayer().setSurname(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent());
@@ -700,7 +700,7 @@ public class CharacterCreation {
 						}
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Random", "Generate a random name based on your gender.", CHOOSE_NAME){
 					@Override
@@ -722,7 +722,7 @@ public class CharacterCreation {
 						Main.game.getPlayer().setName(new NameTriplet(Name.getRandomName(Main.game.getPlayer())));
 					}
 				};
-				
+
 			} else if (index == 3) {
 				return new Response("Random Surname", "Generate a random surname.", CHOOSE_NAME){
 					@Override
@@ -740,22 +740,22 @@ public class CharacterCreation {
 						if(!unsuitableName) {
 							Main.game.getPlayer().setName(new NameTriplet(Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent()));
 						}
-						
+
 						Main.game.getPlayer().setSurname(Name.getSurname(Main.game.getPlayer()));
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "Return to gender selection.", CHOOSE_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE = new DialogueNode("In the Museum", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<p>"
@@ -789,12 +789,12 @@ public class CharacterCreation {
 						+ "<i>You can modify your appearance by entering each of the sub-menus below.</i>"
 					+ "</div>";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -807,90 +807,90 @@ public class CharacterCreation {
 						InventoryDialogue.setNPCInventoryInteraction(InventoryInteraction.CHARACTER_CREATION);
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new Response("Core", "Enter the customization menu for all of your body's core aspects.", CHOOSE_ADVANCED_APPEARANCE_CORE);
-				
+
 			} else if (index == 3) {
 				return new Response("Face", "Enter the customization menu for aspects related to your face.", CHOOSE_ADVANCED_APPEARANCE_FACE);
-				
+
 			} else if (index == 4) {
 				return new Response("Hair", "Enter the customization menu for your hair.", CHOOSE_ADVANCED_APPEARANCE_HAIR);
-				
+
 			} else if (index == 5) {
 				return new Response("Breasts", "Enter the customization menu for your breasts.", CHOOSE_ADVANCED_APPEARANCE_BREASTS);
-				
+
 			} else if (index == 6) {
 				return new Response("Ass & Hips", "Enter the customization menu for aspects related to your ass, hips, and anus.", CHOOSE_ADVANCED_APPEARANCE_ASS);
-				
+
 			} else if (index == 7) {
 				return new Response((Main.game.getPlayer().hasPenis()?"Penis":"Vagina"), "Enter the customization menu for aspects related to your "+(Main.game.getPlayer().hasPenis()?"penis":"vagina")+".", CHOOSE_ADVANCED_APPEARANCE_GENITALS);
-				
-			}  else if (index == 8) {
+
+			} else if (index == 8) {
 				return new Response("Makeup", "Enter the customization menu for makeup.", CHOOSE_ADVANCED_APPEARANCE_COSMETICS);
-				
+
 			} else if (index == 9) {
 				return new Response("Piercings", "Enter the customization menu for body piercings.", CHOOSE_ADVANCED_APPEARANCE_PIERCINGS);
-				
+
 			} else if (index == 10) {
 				return new Response("Tattoos", "Enter the customization menu for tattoos.", CHOOSE_ADVANCED_APPEARANCE_TATTOOS);
-				
+
 			} else if (index == 11) {
 				return new Response("Extra hair", "Enter the customization menu for facial, pubic, and body hair.", CHOOSE_ADVANCED_APPEARANCE_BODY_HAIR);
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_NAME);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_CORE = new DialogueNode("Core Body Appearance", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
 						+ "<i>All of these options can be influenced later on in the game.</i>"
 					+ "</div>"
-						
+
 					+ CharacterModificationUtils.getHeightChoiceDiv()
-					
+
 					+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.HUMAN, "Skin Color", "The color of the skin that's covering your body.", true, false, false)
-					
+
 					+ "<div class='cosmetics-container' style='background:transparent;'>"
-					
+
 						+ CharacterModificationUtils.getBodySizeChoiceDiv()
-						
+
 						+ CharacterModificationUtils.getMuscleChoiceDiv()
-						
+
 						+ "<div class='container-full-width' style='text-align:center;'>"
 							+ "Your muscle and body size values result in your appearance being:<br/>"
 							+ "<b style='color:"+Main.game.getPlayer().getBodyShape().toWebHexStringColor()+";'>"+Util.capitalizeSentence(Main.game.getPlayer().getBodyShape().getName(false))+"</b>"
 						+ "</div>"
-					
+
 					+"</div>";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_FACE = new DialogueNode("Face Appearance", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
@@ -898,30 +898,30 @@ public class CharacterCreation {
 					+ "</div>"
 
 					+ CharacterModificationUtils.getLipSizeDiv()
-					
-					+ CharacterModificationUtils.getLipPuffynessDiv()
+
+					+ CharacterModificationUtils.getLipPuffinessDiv()
 
 					+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.EYE_HUMAN, "Iris Color", "The color of your eye's irises.", true, false, false);
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_HAIR = new DialogueNode("Hair Appearance", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
@@ -929,98 +929,98 @@ public class CharacterCreation {
 					+ "</div>"
 
 					+ CharacterModificationUtils.getKatesDivHairLengths(false, "Hair Length", "Choose how long your hair is.")
-					
+
 					+ CharacterModificationUtils.getKatesDivHairStyles(false, "Hair Style", "Choose your hair style. Certain hair styles are unavailable at shorter hair lengths.")
 
 					+ CharacterModificationUtils.getKatesDivCoveringsNew(false, BodyCoveringType.HAIR_HUMAN, "Hair Color", "The color of your hair.", true, false);
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_BREASTS = new DialogueNode("Breasts Appearance", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
 						+ "<i>All of these options can be influenced later on in the game.</i>"
 					+ "</div>"
-						
+
 					+ CharacterModificationUtils.getBreastSizeDiv()
-					
+
 					+ CharacterModificationUtils.getBreastShapeDiv()
-					
+
 					+ CharacterModificationUtils.getNippleSizeDiv()
-					
+
 					+ CharacterModificationUtils.getAreolaeSizeDiv()
-					
-					+ CharacterModificationUtils.getNipplePuffynessDiv()
-					
+
+					+ CharacterModificationUtils.getNipplePuffinessDiv()
+
 					+ CharacterModificationUtils.getLactationDiv();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_ASS = new DialogueNode("Ass Appearance", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
 						+ "<i>All of these options can be influenced later on in the game.</i>"
 					+ "</div>"
-						
+
 					+ CharacterModificationUtils.getAssSizeDiv()
-					
+
 					+ CharacterModificationUtils.getHipSizeDiv()
-					
+
 					+ CharacterModificationUtils.getBleachedAnusDiv();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_GENITALS = new DialogueNode("Genitals Appearance", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			if(Main.game.getPlayer().hasPenis()) {
@@ -1029,93 +1029,93 @@ public class CharacterCreation {
 				return "Vagina Appearance";
 			}
 		}
-		
+
 		@Override
 		public String getHeaderContent() {
 			if(Main.game.getPlayer().hasPenis()) {
 				return "<div class='container-full-width' style='text-align:center;'>"
 							+ "<i>All of these options can be influenced later on in the game.</i>"
 						+ "</div>"
-							
+
 							+ CharacterModificationUtils.getPenisSizeDiv()
-							
+
 							+ CharacterModificationUtils.getTesticleSizeDiv()
-							
+
 							+ CharacterModificationUtils.getCumProductionDiv();
-				
+
 			} else {
 				return "<div class='container-full-width' style='text-align:center;'>"
 							+ "<i>All of these options can be influenced later on in the game.</i>"
 						+ "</div>"
-	
+
 							+ CharacterModificationUtils.getVaginaCapacityDiv()
-							
+
 							+ CharacterModificationUtils.getLabiaSizeDiv()
-							
+
 							+ CharacterModificationUtils.getClitorisSizeDiv();
-				
+
 			}
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_PIERCINGS = new DialogueNode("Piercings", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
 						+ "<i>All of these options can be influenced later on in the game.</i>"
 					+ "</div>"
-						
+
 					+CharacterModificationUtils.getKatesDivPiercings(PiercingType.EAR, "Ear Piercing", "Ears are the most common area of the body that are pierced, and enable the equipping of earrings and other ear-related jewelry.")
-					
+
 					+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NOSE, "Nose Piercing", "Having a nose piercing allows you to equip jewelry such as nose rings or studs.")
-					
+
 					+CharacterModificationUtils.getKatesDivPiercings(PiercingType.LIP, "Lip Piercing", "Lip piercings allow you to wear lip rings.")
-					
+
 					+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NAVEL, "Navel Piercing", "Getting your navel (belly button) pierced allows you to equip navel-related jewelry.")
-					
+
 					+CharacterModificationUtils.getKatesDivPiercings(PiercingType.TONGUE, "Tongue Piercing", "Getting a tongue piercing will allow you to equip tongue bars.")
-					
+
 					+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NIPPLE, "Nipple Piercing", "Nipple piercings will allow you to equip nipple bars.")
-					
+
 					+(Main.game.getPlayer().hasPenis()?CharacterModificationUtils.getKatesDivPiercings(PiercingType.PENIS, "Penis Piercing", "Having a penis piercing will allow you to equip penis-related jewelry."):"")
-					
+
 					+(Main.game.getPlayer().hasVagina()?CharacterModificationUtils.getKatesDivPiercings(PiercingType.VAGINA, "Vagina Piercing", "Having a vagina piercing will allow you to equip vagina-related jewelry."):"");
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_TATTOOS = new DialogueNode("Tattoos", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
@@ -1123,35 +1123,35 @@ public class CharacterCreation {
 					+ "</div>"
 					+CharacterModificationUtils.getKatesDivTattoos();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_TATTOOS_ADD = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getLabel() {
 			return "Add "+Util.capitalizeSentence(CharacterModificationUtils.tattooInventorySlot.getName()) +" Tattoo";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return CharacterModificationUtils.getKatesDivTattoosAdd();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -1159,9 +1159,9 @@ public class CharacterCreation {
 						&& CharacterModificationUtils.tattoo.getWriting().getText().isEmpty()
 						&& CharacterModificationUtils.tattoo.getCounter().getType()==TattooCounterType.NONE) {
 					return new Response("Apply", "You need to select a tattoo type, add some writing, or add a counter in order to make a tattoo!", null);
-					
+
 				} else {
-					return new Response("Apply", 
+					return new Response("Apply",
 							UtilText.parse(BodyChanging.getTarget(), "Add this tattoo."), CHOOSE_ADVANCED_APPEARANCE_TATTOOS) {
 						@Override
 						public void effects() {
@@ -1172,11 +1172,11 @@ public class CharacterCreation {
 						}
 					};
 				}
-			
+
 			} else if(index==0) {
 				return new Response("Back", "Decide not to get this tattoo and return to the main selection screen.", CHOOSE_ADVANCED_APPEARANCE_TATTOOS);
 			}
-			
+
 			return null;
 		}
 
@@ -1185,18 +1185,18 @@ public class CharacterCreation {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_COSMETICS = new DialogueNode("Cosmetics", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
 						+ "<i>All of these options can be influenced later on in the game.</i>"
 					+ "</div>"
-							
+
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							false, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to color the cheeks so as to provide a more youthful appearance, and to emphasise the cheekbones.", true, false)
-					
+							false, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to color the cheeks so as to provide a more youthful appearance, and to emphasize the cheekbones.", true, false)
+
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							false, BodyCoveringType.MAKEUP_LIPSTICK, "Lipstick", "Lipstick is used to provide color, texture, and protection to the wearer's lips.", true, false)
 
@@ -1212,43 +1212,43 @@ public class CharacterCreation {
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							false, BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, "Toenail polish", "Toenail polish is used to color and protect the nails on your [pc.feet].", true, false);
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_ADVANCED_APPEARANCE_BODY_HAIR = new DialogueNode("Body Hair", "", true) {
-		
+
 		@Override
 		public String getHeaderContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<div class='container-full-width' style='text-align:center;'>"
 												+ "<i>All of these options can be influenced later on in the game.</i>"
 											+ "</div>");
-			
+
 			if(Main.game.isPubicHairEnabled() || Main.game.isFacialHairEnabled() || Main.game.isBodyHairEnabled()) {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivCoveringsNew(
 						false, Main.game.getPlayer().getBodyHairCoveringType(), "Body hair", "This is the hair that covers all areas other than the head.", false, false, false));
 			} else {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivGenericBodyHairDisabled(
 						"Body hair", "This is the hair that covers all areas other than the head.", "All extra body hair options are disabled. You will not see any extra hair content."));
-				
+
 				return UtilText.nodeContentSB.toString();
 			}
-			
+
 			if(Main.game.isFacialHairEnabled()) {
 				if (Main.game.isFemaleFacialHairEnabled()) {
 					UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivFacialHair("Facial hair", "The body hair found on your face."));
@@ -1259,51 +1259,51 @@ public class CharacterCreation {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivGenericBodyHairDisabled(
 						"Facial hair", "The body hair found on your face. Feminine characters cannot grow facial hair.", "Facial hair is currently disabled in the options. You will not see any facial hair content while it is disabled."));
 			}
-			
+
 			if(Main.game.isPubicHairEnabled()) {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivPubicHair("Pubic hair", "The body hair found in the genital area; located on and around your sex organs and crotch."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivGenericBodyHairDisabled(
 						"Pubic hair", "The body hair found in the genital area; located on and around your sex organs and crotch.", "Pubic hair is currently disabled in the options. You will not see any pubic hair content while it is disabled."));
 			}
-			
+
 			if(Main.game.isBodyHairEnabled()) {
 				UtilText.nodeContentSB.append(
 						CharacterModificationUtils.getKatesDivUnderarmHair("Underarm hair", "The body hair found in your armpits."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivGenericBodyHairDisabled(
 						"Underarm hair", "The hair found in your armpits.", "Underarm hair is currently disabled in the options. You will not see any underarm hair content while it is disabled."));
 			}
-			
+
 			if(Main.game.isAssHairEnabled()) {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivAssHair("Ass hair", "The body hair found around your asshole."));
-				
+
 			} else {
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivGenericBodyHairDisabled(
 						"Ass hair", "The body hair found around your asshole.", "Ass hair is currently disabled in the options. You will not see any ass hair content while it is disabled."));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Confirm your choices and return to the content preferences menu.", CHOOSE_ADVANCED_APPEARANCE);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static String getCheckingClothingDescription() {
 		return "<div class='container-full-width' style='background:transparent;'>"
 					+ "<p>"
@@ -1322,31 +1322,31 @@ public class CharacterCreation {
 					+ "</div>"
 				+ "</div>";
 	}
-	
+
 	public static void moveNPCIntoPlayerTile() {
 		if(Main.game.getPlayer().getSexualOrientation()==SexualOrientation.ANDROPHILIC || (Main.game.getPlayer().getSexualOrientation()==SexualOrientation.AMBIPHILIC && Main.game.getPlayer().hasVagina())) {
 			Main.game.getNpc(PrologueMale.class).setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), false);
-			
+
 		} else {
 			Main.game.getNpc(PrologueFemale.class).setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), false);
 		}
 	}
-	
+
 	public static void moveNPCOutOfPlayerTile() {
 		Main.game.getNpc(PrologueMale.class).setLocation(WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, false);
 		Main.game.getNpc(PrologueFemale.class).setLocation(WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, false);
 	}
-	
+
 	public static boolean femalePrologueNPC() {
 		return Main.game.getPlayer().getSexualOrientation()==SexualOrientation.GYNEPHILIC || (Main.game.getPlayer().getSexualOrientation()==SexualOrientation.AMBIPHILIC && Main.game.getPlayer().hasPenis());
 	}
-	
+
 	public static final DialogueNode CHOOSE_BACKGROUND = new DialogueNode("In the Museum", "-", true) {
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>"
 						+ "Satisfied with your appearance, you turn away from the mirror and begin to walk towards the main stage."
 						+ " With each step you take, you inexplicably find yourself getting more and more turned on, and by the time you've barely covered half the distance to the bustling crowd of visitors,"
@@ -1357,7 +1357,7 @@ public class CharacterCreation {
 					+ "<p>"
 						+ "Ducking behind a nearby pillar, you shake your head to try and dislodge the dirty thoughts that are starting to seep into your mind."
 						+ " As you lean back against the cold stone and take a deep breath, a voice suddenly interrupts your thoughts,");
-			
+
 			if(!femalePrologueNPC()) {
 				UtilText.nodeContentSB.append(" [prologueMale.speech(Taking a break from the crowds as well?)]"
 						+ "</p>"
@@ -1394,7 +1394,7 @@ public class CharacterCreation {
 							+ " Before long, the subject shifts to work, and you find out that he's an airline pilot, based out of the airport on the city's outskirts."
 							+ " Conversation then moves on to what it is you do, and you end up talking about that for a little while..."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(" [prologueFemale.speech(Taking a break from the crowds as well?)]"
 						+ "</p>"
@@ -1432,10 +1432,10 @@ public class CharacterCreation {
 							+ " Conversation then moves on to what it is you do, and you end up talking about that for a little while..."
 						+ "</p>");
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
@@ -1449,18 +1449,18 @@ public class CharacterCreation {
 						Main.game.setContent(new Response("", "", InventoryDialogue.INVENTORY_MENU));
 					}
 				};
-				
+
 			} else if (index == 1) {
 				return new Response("Select Job", "Proceed to the job selection screen.", BACKGROUND_SELECTION_MENU);
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode BACKGROUND_SELECTION_MENU = new DialogueNode("In the Museum", "-", true) {
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
@@ -1491,7 +1491,7 @@ public class CharacterCreation {
 							+ "</div>"
 						+ "</div>");
 			}
-			
+
 //				int i=0;
 //				for(History history : History.getAvailableHistories(Main.game.getPlayer())) {
 //					if(i%2==0) {
@@ -1522,15 +1522,15 @@ public class CharacterCreation {
 //					UtilText.nodeContentSB.append("</div>");
 //				}
 			UtilText.nodeContentSB.append("</div>");
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 0) {
 				return new Response("Back", "Return to the previous screen.", CHOOSE_BACKGROUND);
-				
+
 			} else if (index == 1) {
 				if(Main.game.getPlayer().getHistory().getAssociatedPerk()==null) {
 					return new Response("Continue", "You need to select a job before continuing!", null);
@@ -1546,19 +1546,19 @@ public class CharacterCreation {
 						}
 					};
 				}
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode CHOOSE_SEX_EXPERIENCE = new DialogueNode("Start", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>");
 			switch(Main.game.getPlayer().getHistory()) {
 				case ATHLETE:
@@ -1634,7 +1634,7 @@ public class CharacterCreation {
 					break;
 			}
 			UtilText.nodeContentSB.append("</p>");
-			
+
 			if(femalePrologueNPC()) {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1648,7 +1648,7 @@ public class CharacterCreation {
 						+ "<p>"
 							+ "And so, after talking with [prologueFemale.name] for no longer than ten minutes, you're telling her every little detail about your sexual experiences..."
 						+ "</p>");
-				
+
 			} else {
 				UtilText.nodeContentSB.append(
 						"<p>"
@@ -1663,16 +1663,16 @@ public class CharacterCreation {
 							+ "And so, after talking with [prologueMale.name] for no longer than ten minutes, you're telling him every little detail about your sexual experiences..."
 						+ "</p>");
 			}
-			
+
 			UtilText.nodeContentSB.append(
 					"<div class='container-full-width' style='text-align:center;'>"
 							+ "<i>For each increase in sexual experience, you will gain 1 corruption. (You can see your corruption, along with your other attributes, in the character panel in the left of the screen.)</i>"
 						+ "</div>"
 							+CharacterModificationUtils.getSexualExperienceDiv());
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -1687,7 +1687,7 @@ public class CharacterCreation {
 								Main.game.getPlayer().resetVirginityLoss(st);
 							}
 							Main.game.getPlayer().setPenisVirgin(true);
-							
+
 						}
 						if(!Main.game.getPlayer().hasVagina()) {
 							for(SexAreaPenetration pt : SexAreaPenetration.values()) {
@@ -1700,10 +1700,10 @@ public class CharacterCreation {
 						}
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "Return to background selection.", BACKGROUND_SELECTION_MENU);
-				
+
 			} else {
 				return null;
 			}
@@ -1712,32 +1712,32 @@ public class CharacterCreation {
 
 	private static void applyGameStart() {
 		Main.getProperties().addRaceDiscovered(Subspecies.HUMAN);
-		
+
 		Main.game.getNpc(Lilaya.class).setSkinCovering(new Covering(BodyCoveringType.HUMAN, Main.game.getPlayer().getCovering(BodyCoveringType.HUMAN).getPrimaryColor()), true);
 
 		Main.game.getNpc(Lilaya.class).setBirthday(LocalDateTime.of(Main.game.getPlayer().getBirthday().getYear()-22, Main.game.getNpc(Lilaya.class).getBirthMonth(), Main.game.getNpc(Lilaya.class).getDayOfBirth(), 12, 0));
-		
+
 		Main.game.clearTextStartStringBuilder();
 		Main.game.clearTextEndStringBuilder();
 
 		Main.game.setWeather(Weather.MAGIC_STORM, 300);
-		
+
 		Main.game.getPlayerCell().resetInventory();
 	}
 
 	private static void applySkipPrologueStart() {
 		Main.game.getPlayer().addCharacterEncountered(Main.game.getNpc(Lilaya.class));
 		Main.game.getPlayer().addCharacterEncountered(Main.game.getNpc(Rose.class));
-		
+
 		Main.getProperties().addRaceDiscovered(Main.game.getNpc(Lilaya.class).getSubspecies());
 		Main.getProperties().addRaceDiscovered(Main.game.getNpc(Rose.class).getSubspecies());
 
 		moveNPCOutOfPlayerTile();
 		Main.game.setPrologueFinished(true);
 	}
-	
+
 	public static final DialogueNode FINAL_CHECK = new DialogueNode("Start", "", true) {
-		
+
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
@@ -1751,10 +1751,10 @@ public class CharacterCreation {
 					+ "<h5 style='text-align:center;'>Final Appearance</h5>"
 					+ Main.game.getPlayer().getBodyDescription()
 				+ "</div>");
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -1762,34 +1762,34 @@ public class CharacterCreation {
 					@Override
 					public void effects() {
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.MAIN));
-						
+
 						applyGameStart();
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new ResponseEffectsOnly("Skip prologue", "Start the game and skip the prologue.<br/><br/><i style='color:" + Color.GENERIC_BAD.toWebHexString() + ";'>Not recommended for first time playing!</i>"){
 					@Override
 					public void effects() {
-						
+
 						Main.game.setRenderMap(true);
-						
+
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.MAIN));
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_A_LILAYAS_TESTS));
-						
+
 						Main.game.getPlayer().setMoney(5000);
 						Main.game.getPlayer().equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_RARE, DamageType.FIRE));
-						
+
 						AbstractItem spellBook = AbstractItemType.generateItem(ItemType.getSpellBookType(Spell.ICE_SHARD));
 						Main.game.getWorlds().get(WorldType.LILAYAS_HOUSE_FIRST_FLOOR).getCell(PlaceType.LILAYA_HOME_ROOM_PLAYER).getInventory().addItem(spellBook);
-						
+
 						applyGameStart();
 						applySkipPrologueStart();
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER);
 						Main.game.setContent(new Response("", "", Main.game.getDefaultDialogueNoEncounter()));
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new Response("Back", "Return to background selection.", CHOOSE_SEX_EXPERIENCE){
 					@Override
@@ -1798,16 +1798,16 @@ public class CharacterCreation {
 						Main.game.clearTextEndStringBuilder();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	private static StringBuilder importSB;
 	public static final DialogueNode IMPORT_CHOOSE = new DialogueNode("Import", "", true) {
-		
+
 		@Override
 		public String getContent(){
 			importSB = new StringBuilder();
@@ -1828,7 +1828,7 @@ public class CharacterCreation {
 					+ "<th>Name</th>"
 					+ "<th></th>"
 					+ "</tr>");
-			
+
 			int i=1;
 			for(File f : Main.getCharactersForImport()){
 				importSB.append(getImportRow(i, f.getName()));
@@ -1841,23 +1841,23 @@ public class CharacterCreation {
 
 			return importSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Refresh", "Refresh this page.", IMPORT_CHOOSE);
-				
+
 			} else if (index == 0) {
 				return new ResponseEffectsOnly("Back", "Return to new game screen."){
 					@Override
 					public void effects() {
 						Main.mainController.setAttributePanelContent("");
 						Main.mainController.setButtonsContent("");
-						
+
 						Main.startNewGame(CharacterCreation.CONTENT_PREFERENCES);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -1865,7 +1865,7 @@ public class CharacterCreation {
 	};
 	private static String getImportRow(int i, String name) {
 		String baseName = name.substring(0, name.lastIndexOf('.'));
-		
+
 		return "<tr>"
 				+ "<td>"
 					+ i+"."
@@ -1878,14 +1878,14 @@ public class CharacterCreation {
 				+ "</td>"
 				+ "</tr>";
 	}
-	
+
 	public static final DialogueNode START_GAME_WITH_IMPORT = new DialogueNode("Start game", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return "Imported Character";
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "<p>"
@@ -1901,7 +1901,7 @@ public class CharacterCreation {
 						+ Main.game.getPlayer().getBodyDescription()
 					+ "</div>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -1914,7 +1914,7 @@ public class CharacterCreation {
 						applyGameStart();
 					}
 				};
-				
+
 			} else if (index == 2) {
 				return new ResponseEffectsOnly("Skip prologue", "Start the game and skip the prologue.<br/><br/><i style='color:" + Color.GENERIC_BAD.toWebHexString() + ";'>Not recommended for first time playing!</i>"){
 					@Override
@@ -1925,34 +1925,34 @@ public class CharacterCreation {
 						Main.game.getPlayer().getCharactersEncountered().clear();
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.MAIN));
 						Main.game.getTextStartStringBuilder().append(Main.game.getPlayer().setQuestProgress(QuestLine.MAIN, Quest.MAIN_1_A_LILAYAS_TESTS));
-						
+
 						Main.game.getPlayer().equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MELEE_CHAOS_RARE, DamageType.FIRE));
-						
+
 						AbstractItem spellBook = AbstractItemType.generateItem(ItemType.getSpellBookType(Spell.ICE_SHARD));
 						Main.game.getWorlds().get(WorldType.LILAYAS_HOUSE_FIRST_FLOOR).getCell(PlaceType.LILAYA_HOME_ROOM_PLAYER).getInventory().addItem(spellBook);
-						
+
 						applyGameStart();
 						applySkipPrologueStart();
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER);
 						Main.game.setContent(new Response("", "", Main.game.getDefaultDialogueNoEncounter()));
 					}
 				};
-				
+
 			} else if (index == 0) {
 				return new ResponseEffectsOnly("Back", "Return to new game screen."){
 					@Override
 					public void effects() {
 						Main.mainController.setAttributePanelContent("");
 						Main.mainController.setButtonsContent("");
-						
+
 						Main.startNewGame(CharacterCreation.CONTENT_PREFERENCES);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 }

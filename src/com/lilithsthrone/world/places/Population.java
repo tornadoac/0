@@ -11,11 +11,11 @@ import com.lilithsthrone.game.character.race.SubspeciesSpawnRarity;
  * @author Innoxia
  */
 public class Population {
-	
+
 	private PopulationType type;
 	private PopulationDensity density;
 	private Map<Subspecies, SubspeciesSpawnRarity> species;
-	
+
 	public Population(PopulationType type, PopulationDensity density, Map<Subspecies, SubspeciesSpawnRarity> species) {
 		this.type = type;
 		this.density = density;
@@ -33,10 +33,10 @@ public class Population {
 	public PopulationDensity getDensity() {
 		return density;
 	}
-	
+
 	public String getDescription(boolean includeDeterminer) {
 		StringBuilder sb = new StringBuilder();
-		
+
 		switch(this.getDensity()) {
 			case COUPLE:
 				if(includeDeterminer) {
@@ -73,7 +73,7 @@ public class Population {
 					if(includeDeterminer) {
 						sb.append("a ");
 					}
-					sb.append("sizable");
+					sb.append("sizeable");
 				} else {
 					sb.append("numerous");
 				}
@@ -102,5 +102,5 @@ public class Population {
 		sb.append(" "+getType().getName());
 		return sb.toString();
 	}
-	
+
 }

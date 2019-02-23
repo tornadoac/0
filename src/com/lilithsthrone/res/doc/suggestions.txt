@@ -1,4 +1,3 @@
-
 	I'll probably add some more detailed descriptions of how much pre-cum is being produced based on how much cum you're producing. If I do create a dedicated pre-cum stat, it will most likely be based off your cum volume.
 
 	isPenisPrehensile()
@@ -14,7 +13,7 @@ This gives the user both a good experience on entering the game and allows you t
 	3) You'll have masturbation scenes with your pets.
 	4) Combat will have a round by round system, with each character only choosing actions once per round.
 	5) Winning or losing in combat will be based on a single health bar on both sides, representing aura strength.  It will be depleted by all forms of attack.
-	6) Attacks are either lust or physical, modified by attack and defense stats.
+	6) Attacks are either lust or physical, modified by attack and defence stats.
 	7) Attacks also have a type associated with them, modified by resistances.
 	8) Lust based attacks will have as many types or elements associated with it as physical/magical attacks.
 	9) Attack types are, fire, water, air, earth.  Possibly have corresponding seductive versions that use the same affinities to determine damage/resistance?  (display, mind, voice, and touch.)
@@ -47,7 +46,7 @@ This gives the user both a good experience on entering the game and allows you t
 
 There's a lot of detail to this one and that's great. Lots of different pieces for different slots, negative status effects, you even went through the trouble of inventing the jinxed equipment mechanic for it, truly a lot of attention to detail. Some of it seems unnecessarily tedious though.
 
--The "enchanted Karada" blocks your underwear slots (even nipple tape? Oo) Is that intended? Im not knowledgeable on BDSM at all but is there no way for a person to wear that kind of rope underneath underwear?
+-The "enchanted Karada" blocks your underwear slots (even nipple tape? Oo) Is that intended? I'm not knowledgeable on BDSM at all but is there no way for a person to wear that kind of rope underneath underwear?
 
 -"wrist restraints" and "spreader bar" blocking you from equipping pieces onto your arms and legs is...logical but also annoying in a way...may I suggest that for reconsideration? As for how its possible to, for example, equip something to your "hand slot" even though the PC is wearing wrist restraints, it could just be handwaved as a magic attribute of the BDSM-set for practicality. (Just like how the PC can still walk, even though she/he is wearing a spreader bar. I'm handwaving that already in my mind.)
 
@@ -82,7 +81,7 @@ restraining ropes (tail slot)
 
 - The slave rules are straightforward and easy to set, but the impact of many of them is a mystery. For instance, permissions toggling silence, crawling, house freedom and outside freedoms don't seem to do much to influence slave behavior, affection or obedience. I suspect these are in an early implementation stage, but the impact of these choices could be clearer. Additionally, some of the ones that seem to be fully implemented have AI oddities - for instance, pairs of slaves with both the "Initiate Sex" and "Sex Toy" traits still seldom find each other, even with a "Pent Up" status. Perhaps there is a more useful way to organize what is seen in the Slavery Overview, to enable better understanding of the relationship between slave permissions and their actions (including +/- to obedience/affection).
 
-- Enchanting needs some basic instructions - Lilaya's dialogue was an ok clue, but it was still a bit of a stumbling block for awhile to discover the menu location for the enchanting feature or how it worked, especially since it's not accessible if you first try it with non-enchantable items (like weapons or clothing, which seemed the most likely to be enchantable items even though they are currently not). A direct discussion or intro-based tutorial of how to clearly identify enchantable items and how to use them would help. There should also be a reference tutorial in the encyclopedia. I cannot understate how much better a game this was for me once I figured out how to deliberately enchant TF items - this one is a core mechanic that shouldn't be hard to find in the least!
+- Enchanting needs some basic instructions - Lilaya's dialogue was an OK clue, but it was still a bit of a stumbling block for awhile to discover the menu location for the enchanting feature or how it worked, especially since it's not accessible if you first try it with non-enchantable items (like weapons or clothing, which seemed the most likely to be enchantable items even though they are currently not). A direct discussion or intro-based tutorial of how to clearly identify enchantable items and how to use them would help. There should also be a reference tutorial in the encyclopedia. I cannot understate how much better a game this was for me once I figured out how to deliberately enchant TF items - this one is a core mechanic that shouldn't be hard to find in the least!
 
 - A tool tip-based character summary accessed from the "Characters Present" menu would be helpful, to avoid the menu detour required for a full description. Ideally, it would include most of the info shown in the right column in the full character page (name, level, species, core stats, combat levels and effects, plus a compact version of the body part descriptions and inventory). This tool tip would be especially helpful while working on enchantments and/or planning TFs, since clicking any character description means you have to start your enchanting over from scratch, and when trying to distinguish between similarly-named characters.
 
@@ -384,7 +383,7 @@ Miscellaneous things I've noted:
 		For example, mini-races require romancing an NPC that started as that race, demon animals come from demons.
 		  In turn, generic NPCs of a specific race are more likely to call on their mini-race as a summon while demons are more likely to rely on demon animals.
 
-	How about an option to cum on your partners tits (assuming they haev any.) Or instead of deep throating, pull out until only the tip is in, forcing them to taste your cum. Spitting/swallowing/cum-shooting-out-the-nose dependant on partners fetish or yourown production rate
+	How about an option to cum on your partner's tits (assuming they have any.) Or instead of deep throating, pull out until only the tip is in, forcing them to taste your cum. Spitting/swallowing/cum-shooting-out-the-nose dependent on partners fetish or your own production rate
 
 	Clothing sets:
 		Princess
@@ -562,7 +561,7 @@ more for the proof of concept of the current clothing system:
 		if you have them grappled when the fight ends, it transitions directly into dominant sex
 		grapple them to get them hot and bothered for submissive sex
 
-	larger inventory in bedroom. Since we can store stuff there seems reasonable that itd be a lot more than personal inventory.
+	larger inventory in bedroom. Since we can store stuff there seems reasonable that it'd be a lot more than personal inventory.
 
 	Speaking of which would it be possible/logical/worth implementing 2 fetishes. Alpha female and alpha male, it would give you a tease option that is particularly effective against members of the opposite gender
 	 (And maybe a stat boost or something).
@@ -890,7 +889,7 @@ While that should probably be gated, and fall under non-con, I don't want to be 
 		a few rounds after orgasm
 		And add an extra scene of waiting it out if you choose to end sex before it deflate
 		70% arousal, 'Knot them' action appears -> 'knot them' locks you into that orifice, and replaces penetrative actions with humping versions -> orgasm -> stay knotted for 4 or so more rounds
-		I guess knots could increase pregnancy chance, yeahs
+		I guess knots could increase pregnancy chance, yeah
 
 	horseshoes
 	sandals

@@ -9,7 +9,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_TRANSFORMER_PLAYER_SLIME"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
@@ -24,7 +24,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="TRANSFORMER_PLAYER_SLIME_OFFER_SEX"><![CDATA[
 	<p>
 		[npc.speech(So, you wanna have sex, or what?)]
@@ -36,7 +36,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="TRANSFORMER_PLAYER_SLIME_NO_SEX"><![CDATA[
 	<p>
 		[npc.speech(Well, you stay safe out there,)]
@@ -48,7 +48,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_TRANSFORMER_SLIME_QUEEN"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
@@ -68,7 +68,7 @@
 	</p>
 	<p>
 		[pc.speech(So she's the one behind all these slime transformations?)]
-		 you ask, remembering what Claire told you about the increase in slime transformations, and about the one-thousand flame reward for any information about it. 
+		 you ask, remembering what Claire told you about the increase in slime transformations, and about the one-thousand flame reward for any information about it.
 	</p>
 	<p>
 		[npc.speech(Well, that's pretty obvious, isn't it? But if you think I'm going to tell you any more about her, then you're as stupid as you look!)]
@@ -80,7 +80,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
@@ -97,7 +97,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
@@ -114,7 +114,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_TRANSFORMER_PLAYER_SLIME_TURN_DOWN_SEX"><![CDATA[
 	<p>
 		You don't really want to have sex with [npc.name] right now, and tell [npc.herHim] as such.
@@ -126,14 +126,14 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_TRANSFORMER_PLAYER_SLIME_LEAVE"><![CDATA[
 	<p>
 		You don't really want to fight [npc.name], so simply say goodbye, before turning around and continuing on your way.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="SLIME_SEX_AS_DOM"><![CDATA[
 	<p>
 		Not being able to resist [npc.name]'s offer of sex, you step forwards and pull [npc.herHim] into a firm embrace.
@@ -144,7 +144,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="SLIME_SEX_AS_SUB"><![CDATA[
 	<p>
 		Not being able to resist [npc.name]'s offer of sex, you shuffle your feet and reply in the affirmative.
@@ -156,11 +156,11 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFER_BODY"><![CDATA[
 	<p>
 		Wanting to avoid a fight, and unwilling to hand over any of your money, you decide to do the only other thing you can think of.
-		 Putting on your most seductive tone, you step towards [npc.name] and make your offer. 
+		 Putting on your most seductive tone, you step towards [npc.name] and make your offer.
 		 [pc.speech(There's no need to fight. If you're looking for a bit of fun, you can use me however you'd like...)]
 	</p>
 	<p>
@@ -178,9 +178,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- Repeats: -->
-	
+
 	<htmlContent tag="ATTACK_REPEAT_TRANSFORMER_PLAYER_SLIME"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
@@ -195,7 +195,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_REPEAT_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Haha! Did I make you jump?)]
@@ -212,7 +212,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_REPEAT"><![CDATA[
 	<p>
 		#IF npc.isVisiblyPregnant()
@@ -230,7 +230,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_PREGNANCY_REVEAL_TRANSFORMER_PLAYER_SLIME"><![CDATA[
 	<p>
 		[npc.speech(Haha! It's you again! Look here, you've gone and got me knocked up!)]
@@ -242,7 +242,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_PREGNANCY_REVEAL_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Haha! It's you again! Look here, you've gone and got me knocked up!)]
@@ -254,7 +254,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="ATTACK_PREGNANCY_REVEAL"><![CDATA[
 	<p>
 		[npc.speech(Haha! It's you again! Look here, you've gone and got me knocked up!)]
@@ -267,7 +267,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SLIME_SEX_AS_DOM"><![CDATA[
 	<p>
 		As you step back from [npc.name], [npc.she] sinks to the floor, letting out a deeply satisfied sigh as [npc.she] [npc.moans],
@@ -278,7 +278,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SLIME_SEX_AS_DOM_NO_ORGASM"><![CDATA[
 	<p>
 		As you step back from [npc.name], [npc.she] sinks to the floor, letting out a frustrated sigh as [npc.she] [npc.moans],
@@ -289,7 +289,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SLIME_SEX_AS_SUB"><![CDATA[
 	<p>
 		[npc.Name] steps back, letting out a deeply satisfied sigh as [npc.she] [npc.moans],
@@ -300,7 +300,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_SLIME_SEX_AS_SUB_NO_ORGASM"><![CDATA[
 	<p>
 		[npc.Name] steps back, letting out a frustrated sigh as [npc.she] [npc.moans],
@@ -311,10 +311,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="TRANSFORMED"><![CDATA[
 	<p>
-		[pc.speech(Ok, I'll become a slime...)] you say, eyeing the canister of pink liquid in [npc.name]'s hand.
+		[pc.speech(OK, I'll become a slime...)] you say, eyeing the canister of pink liquid in [npc.name]'s hand.
 	</p>
 	<p>
 		Grinning, [npc.name] steps forwards, before reaching out to grab your [pc.arm]. Sliding up against you, [npc.she] brings [npc.her] face to within inches of yours, and sneers,
@@ -338,7 +338,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="TRANSFORMED_SLIME_OFFER_SEX"><![CDATA[
 	<p>
 		You're suddenly reminded of the fact that [npc.name] has been watching this whole process, as [npc.she] steps forwards and [npc.moans],
@@ -349,7 +349,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="TRANSFORMED_SLIME_NO_SEX"><![CDATA[
 	<p>
 		You're suddenly reminded of the fact that [npc.name] has been watching this whole process, as [npc.she] steps forwards and laughs,
@@ -360,7 +360,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RESIST_TRANSFORMED"><![CDATA[
 	<p>
 		You definitely aren't interested in being transformed into a slime, and, with your final burst of energy, jump forwards and knock the canister of pink goo from [npc.name]'s hand. The glass container falls to the floor, where it smashes into pieces, spraying the pink liquid all over the surrounding area.
@@ -370,7 +370,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="RESIST_TRANSFORMED_RAPE"><![CDATA[
 	<p>
 		You can't help but smirk as you realize that you've ruined [npc.name]'s plans. Seeing the smile on your face makes [npc.herHim] even angrier, and a manic, evil snarl flashes across [npc.her] face as [npc.she] leans down on top of you. [npc.speech(Let's see if you're still smiling after I'm done with you, hmm?! I'm going to fuck you so hard, the entire of Submission's gonna hear your screams!)]
@@ -380,7 +380,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="OFFER_MONEY"><![CDATA[
 	<p>
 		Wanting to avoid a fight if at all possible, you take a step backwards, fumbling about to grab a handful of flames to offer to [npc.name].
@@ -399,12 +399,12 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- Combat -->
-	
+
 	<htmlContent tag="AFTER_COMBAT_VICTORY_ENEMY_WANTS_SEX"><![CDATA[
 	<p>
-		[npc.Name] staggers back, bracing [npc.herself] against a nearby wall as [npc.she] pants, [npc.speech(Ok... Enough... You win!)]
+		[npc.Name] staggers back, bracing [npc.herself] against a nearby wall as [npc.she] pants, [npc.speech(OK... Enough... You win!)]
 	</p>
 	<p>
 		You can't help but grin as you hear those words, and, stepping forwards, you place your [pc.hands] on your [pc.hips] and smirk at the defeated [npc.race]. [pc.speech(Maybe this experience will teach you a lesson!)]
@@ -419,10 +419,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_COMBAT_VICTORY"><![CDATA[
 	<p>
-		[npc.Name] staggers back, bracing [npc.herself] against a nearby wall as [npc.she] pants, [npc.speech(Ok... Enough... You win!)]
+		[npc.Name] staggers back, bracing [npc.herself] against a nearby wall as [npc.she] pants, [npc.speech(OK... Enough... You win!)]
 	</p>
 	<p>
 		You can't help but grin as you hear those words, and, stepping forwards, you place your [pc.hands] on your [pc.hips] and smirk at the defeated [npc.race]. [pc.speech(Maybe this experience will teach you a lesson!)]
@@ -437,10 +437,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_COMBAT_DEFEAT"><![CDATA[
 	<p>
-		You stagger back, bracing yourself against a nearby wall as you pant, [pc.speech(Ok... Enough... You win!)]
+		You stagger back, bracing yourself against a nearby wall as you pant, [pc.speech(OK... Enough... You win!)]
 	</p>
 	<p>
 		[npc.Name] can't help but grin as [npc.she] hears those words, and, stepping forwards, [npc.she] places [npc.her] [npc.hands] on [npc.her] [npc.hips] and smirks at you. [npc.speech(Next time, don't bother trying to fight back! You'll only embarrass yourself even more!)]
@@ -451,17 +451,17 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_COMBAT_DEFEAT_RAPE"><![CDATA[
 	<p>
-		[npc.speech(You know, that fight's got me all fired up...)] [npc.Name] grins, advancing on you with lust in [npc.her] [npc.eyes]. [npc.speech(And you look like you'll be a good fuck!)] 
+		[npc.speech(You know, that fight's got me all fired up...)] [npc.Name] grins, advancing on you with lust in [npc.her] [npc.eyes]. [npc.speech(And you look like you'll be a good fuck!)]
 	</p>
 	<p>
 		Before you have a chance to respond, [npc.name] suddenly bounds forwards, before pulling you into a tight embrace. As you look at [npc.herHim], [npc.she] suddenly presses [npc.lips] against yours, thrusting [npc.her] [npc.tongue] into your mouth as [npc.she] forces [npc.herself] on you...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_COMBAT_DEFEAT_NO_RAPE"><![CDATA[
 	<p>
 		[npc.speech(Now get out of my sight!)] [npc.Name] laughs, grabbing some of your money before pushing you away from [npc.herHim].
@@ -471,7 +471,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="AFTER_COMBAT_DEFEAT_TRANSFORMER"><![CDATA[
 	<p>
 		[npc.speech(Now,)] [npc.name] says, in an evil tone, [npc.speech(it's time for me to carry out the Queen's orders! I'm sure you'll love being a slime!)]
@@ -481,5 +481,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

@@ -27,9 +27,9 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public enum Perk {
-	
+
 	// NPC Histories:
-	
+
 	JOB_MISC(20,
 			true,
 			"Misc",
@@ -43,7 +43,7 @@ public enum Perk {
 			return ".";//TODO
 		}
 	},
-	
+
 	JOB_SLAVE(20,
 			true,
 			"A life of servitude",
@@ -59,7 +59,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NameHasFull] steeled [npc.her] body and mind to help [npc.herHim] deal with the fact that [npc.sheIs] now just someone else's property.");
 		}
 	},
-	
+
 	JOB_PROSTITUTE(20,
 			true,
 			"The oldest profession",
@@ -75,7 +75,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NameIsFull] experienced at selling [npc.her] body to strangers in order to make a living. After having sex so many times, it takes a lot to get [npc.herHim] really turned on.");
 		}
 	},
-	
+
 	JOB_MUGGER(20,
 			true,
 			"Outlaw",
@@ -91,9 +91,9 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.Name] [npc.verb(live)] a life of crime, stealing from the rich and poor alike.");
 		}
 	},
-	
+
 	// Player Histories:
-	
+
 	JOB_UNEMPLOYED(20,
 			true,
 			"NEET",
@@ -112,7 +112,7 @@ public enum Perk {
 					+ " You also benefit from knowing exactly how best to relax, boosting the bonus you get from sleeping.";
 		}
 	},
-	
+
 	JOB_OFFICE_WORKER(20,
 			true,
 			"The Salaryman",
@@ -136,7 +136,7 @@ public enum Perk {
 					+ " The stressful work environment has caused you to bottle up a lot of frustration, which manifests in increased critical damage.";
 		}
 	},
-	
+
 	JOB_STUDENT(20,
 			true,
 			"Student Discount",
@@ -152,7 +152,7 @@ public enum Perk {
 					+ " Along with a guaranteed 25% discount in all stores, you can be confident in your ability to quickly learn new things.";
 		}
 	},
-	
+
 	JOB_MUSICIAN(20,
 			true,
 			"Arcane Composition",
@@ -168,7 +168,7 @@ public enum Perk {
 					+ " You feel the same sort of rhythm in casting spells as you do with music, resulting in all of your spell effects lasting twice as long as usual.";
 		}
 	},
-	
+
 	JOB_TEACHER(20,
 			true,
 			"In Control",
@@ -184,7 +184,7 @@ public enum Perk {
 					+ " Your ability to clearly understand and explain difficult subjects is reflected in a reduced cost of casting spells.";
 		}
 	},
-	
+
 	JOB_WRITER(20,
 			true,
 			"Meditations",
@@ -287,9 +287,9 @@ public enum Perk {
 					+ " You also know how to train maids and other butlers to be exceptional at their jobs.";
 		}
 	},
-	
+
 	// Physical:
-	
+
 	PHYSICAL_BASE(20,
 			false,
 			"natural fitness",
@@ -304,7 +304,7 @@ public enum Perk {
 			return "You have a natural amount of physical fitness.";
 		}
 	},
-	
+
 	PHYSIQUE_1(20,
 			false,
 			"physically fit I",
@@ -319,7 +319,7 @@ public enum Perk {
 			return "You feel as though your physical fitness is improving!";
 		}
 	},
-	
+
 	PHYSIQUE_3(20,
 			false,
 			"physically fit III",
@@ -349,7 +349,7 @@ public enum Perk {
 			return "Your physical fitness is improving massively!";
 		}
 	},
-	
+
 	PHYSICAL_DAMAGE_5(20,
 			false,
 			"striker V",
@@ -364,7 +364,7 @@ public enum Perk {
 			return "Your physical damage is improving massively!";
 		}
 	},
-	
+
 	PHYSICAL_RESISTANCE_5(20,
 			false,
 			"defender V",
@@ -379,7 +379,7 @@ public enum Perk {
 			return "Your physical resistance is improving massively!";
 		}
 	},
-	
+
 	SPELL_DAMAGE_5(20,
 			false,
 			"spell power V",
@@ -393,7 +393,7 @@ public enum Perk {
 			return "Your spell damage is improving massively!";
 		}
 	},
-	
+
 	SPELL_EFFICIENCY_5(20,
 			false,
 			"spell efficiency V",
@@ -407,7 +407,7 @@ public enum Perk {
 			return "Your spell efficiency is improving massively!";
 		}
 	},
-	
+
 	AURA_BOOST_10(20,
 			false,
 			"aura reserves X",
@@ -422,7 +422,7 @@ public enum Perk {
 			return "The capacity of your aura is growing!";
 		}
 	},
-	
+
 	ENERGY_BOOST_10(20,
 			false,
 			"energy reserves X",
@@ -437,7 +437,7 @@ public enum Perk {
 			return "Your energy reserves are growing!";
 		}
 	},
-	
+
 	ELEMENTALIST_5(20,
 			false,
 			"elementalist V",
@@ -455,7 +455,7 @@ public enum Perk {
 			return "You are learning how to harness arcane elements more effectively.";
 		}
 	},
-	
+
 	ARCANE_BASE(20,
 			false,
 			"natural arcane power",
@@ -485,7 +485,7 @@ public enum Perk {
 			return "Everybody in this world has an arcane aura, no matter how weak, and so at the very least has a tiny hint of arcane power available to them.";
 		}
 	},
-	
+
 	ARCANE_1(20,
 			false,
 			"arcane affinity I",
@@ -500,7 +500,7 @@ public enum Perk {
 			return "You feel as though your ability to harness the arcane is improving!";
 		}
 	},
-	
+
 	ARCANE_3(20,
 			false,
 			"arcane affinity III",
@@ -530,7 +530,7 @@ public enum Perk {
 			return "Your ability to harness the arcane is improving massively!";
 		}
 	},
-	
+
 	SEDUCTION_1(20,
 			false,
 			"seductive I",
@@ -547,7 +547,7 @@ public enum Perk {
 				return UtilText.parse(owner, "[npc.Name] is extremely flirty.");
 		}
 	},
-	
+
 	SEDUCTION_3(20,
 			false,
 			"seductive III",
@@ -564,7 +564,7 @@ public enum Perk {
 				return UtilText.parse(owner, "[npc.Name] moves in a highly seductive manner.");
 		}
 	},
-	
+
 	SEDUCTION_5(20,
 			false,
 			"seductive V",
@@ -581,7 +581,7 @@ public enum Perk {
 				return UtilText.parse(owner, "[npc.Name] is a walking sex bomb. [npc.Her] every movement drips with suggestive body language, and you can't help but feel extremely aroused just by looking at [npc.herHim].");
 		}
 	},
-	
+
 	SEDUCTION_5_B(20,
 			false,
 			"seductive V",
@@ -598,7 +598,7 @@ public enum Perk {
 				return UtilText.parse(owner, "[npc.Name] is a walking sex bomb. [npc.Her] every movement drips with suggestive body language, and you can't help but feel extremely aroused just by looking at [npc.herHim].");
 		}
 	},
-	
+
 	ARCANE_COMBATANT(20,
 			true,
 			"arcane combatant",
@@ -613,7 +613,7 @@ public enum Perk {
 			return "You're quite competent at fighting using the arcane. You gain a bonus to your spell damage and efficiency.";
 		}
 	},
-	
+
 	AURA_RESILIENCE(20,
 			true,
 			"resilient aura",
@@ -628,7 +628,7 @@ public enum Perk {
 			return "You have a considerable pool of arcane energy stored in your aura.";
 		}
 	},
-	
+
 	AURA_RESILIENCE_2(20,
 			true,
 			"indomitable aura",
@@ -643,7 +643,7 @@ public enum Perk {
 			return "Your aura reserves are seemingly endless.";
 		}
 	},
-	
+
 	BRAWLER(20,
 			true,
 			"brawler",
@@ -661,7 +661,7 @@ public enum Perk {
 					+ " but [npc.is] also able to shrug off punches that would stagger or even incapacitate a normal person.");
 		}
 	},
-	
+
 	OBSERVANT(60,
 			true,
 			"observant",
@@ -693,7 +693,7 @@ public enum Perk {
 	},
 
 	// Arcane:
-	
+
 	ARCANE_CRITICALS(60,
 			true,
 			"arcane precision",
@@ -718,8 +718,8 @@ public enum Perk {
 					+ " Any critical hits from your spells apply 'Arcane weakness' for one turn (-10 to all resistances).";
 		}
 	},
-	
-//	
+
+//
 //	TELEPATHY(60,
 //			true,
 //			"arcane telepathy",
@@ -747,7 +747,7 @@ public enum Perk {
 //			}
 //		}
 //	},
-	
+
 //	SPELL_POWER_1(20,
 //			true,
 //			"arcane power",
@@ -990,7 +990,7 @@ public enum Perk {
 		}
 
 	},
-	
+
 	NYMPHOMANIAC(20,
 			true,
 			"nymphomaniac",
@@ -1009,7 +1009,7 @@ public enum Perk {
 				return UtilText.parse(owner, "[npc.Name] is completely and hopelessly addicted to sex.");
 		}
 	},
-	
+
 	CLOTHING_ENCHANTER(20,
 			false,
 			"arcane weaver",
@@ -1023,7 +1023,7 @@ public enum Perk {
 		public boolean isAlwaysAvailable() {
 			return true;
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer()) {
@@ -1033,7 +1033,7 @@ public enum Perk {
 			}
 		}
 	},
-	
+
 	BARREN(20,
 			true,
 			"barren",
@@ -1046,7 +1046,7 @@ public enum Perk {
 		public boolean isAlwaysAvailable() {
 			return true;
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer()) {
@@ -1056,7 +1056,7 @@ public enum Perk {
 			}
 		}
 	},
-	
+
 	FIRING_BLANKS(20,
 			true,
 			"firing blanks",
@@ -1069,7 +1069,7 @@ public enum Perk {
 		public boolean isAlwaysAvailable() {
 			return true;
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer()) {
@@ -1079,7 +1079,7 @@ public enum Perk {
 			}
 		}
 	},
-	
+
 	FETISH_BROODMOTHER(20,
 			true,
 			"broodmother",
@@ -1104,13 +1104,13 @@ public enum Perk {
 		public boolean isAlwaysAvailable() {
 			return true;
 		}
-		
+
 		@Override
 		public CorruptionLevel getAssociatedCorruptionLevel() {
 			return CorruptionLevel.TWO_HORNY;
 		}
 	},
-	
+
 	FETISH_SEEDER(20,
 			true,
 			"seeder",
@@ -1124,7 +1124,7 @@ public enum Perk {
 		public boolean isAlwaysAvailable() {
 			return true;
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer()) {
@@ -1139,7 +1139,7 @@ public enum Perk {
 			return CorruptionLevel.TWO_HORNY;
 		}
 	},
-	
+
 	CHUUNI(20,
 			true,
 			"chuuni",
@@ -1157,7 +1157,7 @@ public enum Perk {
 					+ " While chuunis may once have been purely delusional, the arcane now lends some truth to their beliefs...");
 		}
 	},
-	
+
 	// HIDDEN PERKS:
 
 
@@ -1179,7 +1179,7 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of any aquatic species!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of any aquatic species!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
@@ -1204,7 +1204,7 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
@@ -1229,13 +1229,13 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
 		}
 	},
-	
+
 	POWER_OF_LYSSIETH_4(23,
 			false,
 			"Lyssieth's Power",
@@ -1256,13 +1256,13 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
 		}
 	},
-	
+
 	POWER_OF_LUNETTE_5(24,
 			false,
 			"Lunette's Power",
@@ -1281,13 +1281,13 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
 		}
 	},
-	
+
 	POWER_OF_LYXIAS_6(25,
 			false,
 			"Lyxias's Power",
@@ -1306,13 +1306,13 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
 		}
 	},
-	
+
 	POWER_OF_LISOPHIA_7(26,
 			false,
 			"Lisophia's Power",
@@ -1331,7 +1331,7 @@ public enum Perk {
 							?" Her power has additionally enabled you to transform your demonic body into that of a regular human!"
 							:" If you were a demon, this power would enable you to transform your body parts into those of a regular human!"));
 		}
-		
+
 		@Override
 		public boolean isHiddenPerk() {
 			return true;
@@ -1339,7 +1339,7 @@ public enum Perk {
 	},
 
 	// SPECIFIC TO ELEMENTAL PERK TREE:
-	
+
 	ELEMENTAL_BOUND_EARTH(20,
 			true,
 			"Bound to Earth",
@@ -1466,7 +1466,7 @@ public enum Perk {
 					+ " If nothing else, they can always be relied upon to be willing and ready to have sex with anyone or anything...");
 		}
 	},
-	
+
 	// ELEMENTAL FIRE
 
 	ELEMENTAL_FIRE_SPELL_1(20,
@@ -1480,7 +1480,7 @@ public enum Perk {
 			Spell.FIREBALL,
 			null,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -1491,7 +1491,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] will be able to use the spell '"+getSpell().getName()+"'.");
@@ -1514,7 +1514,7 @@ public enum Perk {
 			Spell.FIREBALL,
 			SpellUpgrade.FIREBALL_1,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1525,7 +1525,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1548,7 +1548,7 @@ public enum Perk {
 			Spell.FIREBALL,
 			SpellUpgrade.FIREBALL_2,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1559,7 +1559,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1582,7 +1582,7 @@ public enum Perk {
 			Spell.FIREBALL,
 			SpellUpgrade.FIREBALL_3,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1593,7 +1593,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1616,7 +1616,7 @@ public enum Perk {
 			Spell.FLASH,
 			null,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -1627,7 +1627,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] will be able to use the spell '"+getSpell().getName()+"'.");
@@ -1650,7 +1650,7 @@ public enum Perk {
 			Spell.FLASH,
 			SpellUpgrade.FLASH_1,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1661,7 +1661,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1684,7 +1684,7 @@ public enum Perk {
 			Spell.FLASH,
 			SpellUpgrade.FLASH_2,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1695,7 +1695,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1718,7 +1718,7 @@ public enum Perk {
 			Spell.FLASH,
 			SpellUpgrade.FLASH_3,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1729,7 +1729,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1752,7 +1752,7 @@ public enum Perk {
 			Spell.CLOAK_OF_FLAMES,
 			null,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -1763,7 +1763,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] will be able to use the spell '"+getSpell().getName()+"'.");
@@ -1786,7 +1786,7 @@ public enum Perk {
 			Spell.CLOAK_OF_FLAMES,
 			SpellUpgrade.CLOAK_OF_FLAMES_1,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1797,7 +1797,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1820,7 +1820,7 @@ public enum Perk {
 			Spell.CLOAK_OF_FLAMES,
 			SpellUpgrade.CLOAK_OF_FLAMES_2,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1831,7 +1831,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1854,7 +1854,7 @@ public enum Perk {
 			Spell.CLOAK_OF_FLAMES,
 			SpellUpgrade.CLOAK_OF_FLAMES_3,
 			SpellSchool.FIRE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -1865,7 +1865,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -1876,7 +1876,7 @@ public enum Perk {
 			return getSpellUpgrade().getSVGString();
 		}
 	},
-	
+
 	ELEMENTAL_FIRE_BOOST_MINOR(20,
 			false,
 			"ignition",
@@ -1893,7 +1893,7 @@ public enum Perk {
 			return UtilText.parse(owner, "If instructed to focus on [npc.her] ability at harnessing and taking the form of arcane fire, [npc.name] could take the first step towards unlocking the next secret of the school of arcane Fire.");
 		}
 	},
-	
+
 	ELEMENTAL_FIRE_BOOST(20,
 			false,
 			"ablaze",
@@ -1911,7 +1911,7 @@ public enum Perk {
 					+ " while [npc.she] still has a way to go before reaching a new milestone, [npc.her] affinity with arcane fire is steadily increasing.");
 		}
 	},
-	
+
 	ELEMENTAL_FIRE_BOOST_MAJOR(20,
 			false,
 			"conflagration",
@@ -1928,7 +1928,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NamePos] affinity with arcane fire has massively increased, and [npc.sheIs] on the verge of discovering something incredibly powerful!");
 		}
 	},
-	
+
 	ELEMENTAL_FIRE_BOOST_ULTIMATE(20,
 			false,
 			"incineration",
@@ -1946,7 +1946,7 @@ public enum Perk {
 			return UtilText.parse(owner, "Burning with the beautiful and terrifying power of the sun itself, one strike from [npc.name] is typically all it takes to incapacitate anyone unfortunate enough to incur [npc.her] wrath.");
 		}
 	},
-	
+
 	// ELEMENTAL EARTH
 
 	ELEMENTAL_EARTH_SPELL_1(20,
@@ -1960,7 +1960,7 @@ public enum Perk {
 			Spell.SLAM,
 			null,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -1971,7 +1971,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -1994,7 +1994,7 @@ public enum Perk {
 			Spell.SLAM,
 			SpellUpgrade.SLAM_1,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2005,7 +2005,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2028,7 +2028,7 @@ public enum Perk {
 			Spell.SLAM,
 			SpellUpgrade.SLAM_2,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2039,7 +2039,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2062,7 +2062,7 @@ public enum Perk {
 			Spell.SLAM,
 			SpellUpgrade.SLAM_3,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2073,7 +2073,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2096,7 +2096,7 @@ public enum Perk {
 			Spell.TELEKENETIC_SHOWER,
 			null,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -2107,7 +2107,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -2130,7 +2130,7 @@ public enum Perk {
 			Spell.TELEKENETIC_SHOWER,
 			SpellUpgrade.TELEKENETIC_SHOWER_1,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2141,7 +2141,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2164,7 +2164,7 @@ public enum Perk {
 			Spell.TELEKENETIC_SHOWER,
 			SpellUpgrade.TELEKENETIC_SHOWER_2,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2175,7 +2175,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2198,7 +2198,7 @@ public enum Perk {
 			Spell.TELEKENETIC_SHOWER,
 			SpellUpgrade.TELEKENETIC_SHOWER_3,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2209,7 +2209,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2232,7 +2232,7 @@ public enum Perk {
 			Spell.STONE_SHELL,
 			null,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -2243,7 +2243,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -2266,7 +2266,7 @@ public enum Perk {
 			Spell.STONE_SHELL,
 			SpellUpgrade.STONE_SHELL_1,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2277,7 +2277,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2300,7 +2300,7 @@ public enum Perk {
 			Spell.STONE_SHELL,
 			SpellUpgrade.STONE_SHELL_2,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2311,7 +2311,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2334,7 +2334,7 @@ public enum Perk {
 			Spell.STONE_SHELL,
 			SpellUpgrade.STONE_SHELL_3,
 			SpellSchool.EARTH) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2345,7 +2345,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2373,7 +2373,7 @@ public enum Perk {
 			return UtilText.parse(owner, "If instructed to focus on [npc.her] ability to create powerful physical manifestations, [npc.name] could take the first step towards unlocking the next secret of the school of arcane Earth.");
 		}
 	},
-	
+
 	ELEMENTAL_EARTH_BOOST(20,
 			false,
 			"building pressure",
@@ -2391,7 +2391,7 @@ public enum Perk {
 					+ " while [npc.she] still has a way to go before reaching a new milestone, [npc.her] affinity with arcane force is steadily increasing.");
 		}
 	},
-	
+
 	ELEMENTAL_EARTH_BOOST_MAJOR(20,
 			false,
 			"seismic activity",
@@ -2408,7 +2408,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NamePos] affinity with arcane force has massively increased, and [npc.sheIs] on the verge of discovering something incredibly powerful!");
 		}
 	},
-	
+
 	ELEMENTAL_EARTH_BOOST_ULTIMATE(20,
 			false,
 			"epicenter",
@@ -2426,7 +2426,7 @@ public enum Perk {
 			return UtilText.parse(owner, "Taking on a nigh-invincible form, [npc.name] is now able to shrug off almost any attack, which allows [npc.herHim] to get close to [npc.her] enemies and deliver a knock-out punch or kick.");
 		}
 	},
-	
+
 	// ELEMENTAL WATER
 
 	ELEMENTAL_WATER_SPELL_1(20,
@@ -2440,7 +2440,7 @@ public enum Perk {
 			Spell.ICE_SHARD,
 			null,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -2451,7 +2451,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -2474,7 +2474,7 @@ public enum Perk {
 			Spell.ICE_SHARD,
 			SpellUpgrade.ICE_SHARD_1,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2485,7 +2485,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2508,7 +2508,7 @@ public enum Perk {
 			Spell.ICE_SHARD,
 			SpellUpgrade.ICE_SHARD_2,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2519,7 +2519,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2542,7 +2542,7 @@ public enum Perk {
 			Spell.ICE_SHARD,
 			SpellUpgrade.ICE_SHARD_3,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2553,7 +2553,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2564,7 +2564,7 @@ public enum Perk {
 			return getSpellUpgrade().getSVGString();
 		}
 	},
-	
+
 	ELEMENTAL_WATER_SPELL_2(20,
 			false,
 			"Spell",
@@ -2576,7 +2576,7 @@ public enum Perk {
 			Spell.RAIN_CLOUD,
 			null,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -2587,7 +2587,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -2610,7 +2610,7 @@ public enum Perk {
 			Spell.RAIN_CLOUD,
 			SpellUpgrade.RAIN_CLOUD_1,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2621,7 +2621,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2644,7 +2644,7 @@ public enum Perk {
 			Spell.RAIN_CLOUD,
 			SpellUpgrade.RAIN_CLOUD_2,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2655,7 +2655,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2678,7 +2678,7 @@ public enum Perk {
 			Spell.RAIN_CLOUD,
 			SpellUpgrade.RAIN_CLOUD_3,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2689,7 +2689,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2712,7 +2712,7 @@ public enum Perk {
 			Spell.SOOTHING_WATERS,
 			null,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -2723,7 +2723,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -2746,7 +2746,7 @@ public enum Perk {
 			Spell.SOOTHING_WATERS,
 			SpellUpgrade.SOOTHING_WATERS_1,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2757,7 +2757,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2780,7 +2780,7 @@ public enum Perk {
 			Spell.SOOTHING_WATERS,
 			SpellUpgrade.SOOTHING_WATERS_2,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2791,7 +2791,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2814,7 +2814,7 @@ public enum Perk {
 			Spell.SOOTHING_WATERS,
 			SpellUpgrade.SOOTHING_WATERS_3,
 			SpellSchool.WATER) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2825,7 +2825,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2853,7 +2853,7 @@ public enum Perk {
 			return UtilText.parse(owner, "If instructed to focus on [npc.her] ability at harnessing and taking the form of arcane ice, [npc.name] could take the first step towards unlocking the next secret of the school of arcane Water.");
 		}
 	},
-	
+
 	ELEMENTAL_WATER_BOOST(20,
 			false,
 			"frost",
@@ -2871,7 +2871,7 @@ public enum Perk {
 					+ " while [npc.she] still has a way to go before reaching a new milestone, [npc.her] affinity with arcane ice is steadily increasing.");
 		}
 	},
-	
+
 	ELEMENTAL_WATER_BOOST_MAJOR(20,
 			false,
 			"freeze",
@@ -2888,7 +2888,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NamePos] affinity with arcane ice has massively increased, and [npc.sheIs] on the verge of discovering something incredibly powerful!");
 		}
 	},
-	
+
 	ELEMENTAL_WATER_BOOST_ULTIMATE(20,
 			false,
 			"ice-age",
@@ -2906,7 +2906,7 @@ public enum Perk {
 			return UtilText.parse(owner, "Gliding from place to place with an ethereal grace, [npc.name] is able to shift and reform [npc.her] body in an instant, enabling [npc.herHim] to perform the most impossible of physical feats.");
 		}
 	},
-	
+
 	// ELEMENTAL AIR
 
 	ELEMENTAL_AIR_SPELL_1(20,
@@ -2917,10 +2917,10 @@ public enum Perk {
 			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
-			Spell.POISON_VAPOURS,
+			Spell.POISON_VAPORS,
 			null,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -2931,7 +2931,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -2951,10 +2951,10 @@ public enum Perk {
 			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
-			Spell.POISON_VAPOURS,
-			SpellUpgrade.POISON_VAPOURS_1,
+			Spell.POISON_VAPORS,
+			SpellUpgrade.POISON_VAPORS_1,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2965,7 +2965,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -2985,10 +2985,10 @@ public enum Perk {
 			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
-			Spell.POISON_VAPOURS,
-			SpellUpgrade.POISON_VAPOURS_2,
+			Spell.POISON_VAPORS,
+			SpellUpgrade.POISON_VAPORS_2,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -2999,7 +2999,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3019,10 +3019,10 @@ public enum Perk {
 			Color.DAMAGE_TYPE_POISON,
 			Util.newHashMapOfValues(),
 			Util.newArrayListOfValues(""),
-			Spell.POISON_VAPOURS,
-			SpellUpgrade.POISON_VAPOURS_3,
+			Spell.POISON_VAPORS,
+			SpellUpgrade.POISON_VAPORS_3,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3033,7 +3033,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3056,7 +3056,7 @@ public enum Perk {
 			Spell.VACUUM,
 			null,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -3067,7 +3067,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -3090,7 +3090,7 @@ public enum Perk {
 			Spell.VACUUM,
 			SpellUpgrade.VACUUM_1,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3101,7 +3101,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3124,7 +3124,7 @@ public enum Perk {
 			Spell.VACUUM,
 			SpellUpgrade.VACUUM_2,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3135,7 +3135,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3158,7 +3158,7 @@ public enum Perk {
 			Spell.VACUUM,
 			SpellUpgrade.VACUUM_3,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3169,7 +3169,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3192,7 +3192,7 @@ public enum Perk {
 			Spell.PROTECTIVE_GUSTS,
 			null,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -3203,7 +3203,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -3226,7 +3226,7 @@ public enum Perk {
 			Spell.PROTECTIVE_GUSTS,
 			SpellUpgrade.PROTECTIVE_GUSTS_1,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3237,7 +3237,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3260,7 +3260,7 @@ public enum Perk {
 			Spell.PROTECTIVE_GUSTS,
 			SpellUpgrade.PROTECTIVE_GUSTS_2,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3271,7 +3271,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3294,7 +3294,7 @@ public enum Perk {
 			Spell.PROTECTIVE_GUSTS,
 			SpellUpgrade.PROTECTIVE_GUSTS_3,
 			SpellSchool.AIR) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3305,7 +3305,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3333,7 +3333,7 @@ public enum Perk {
 			return UtilText.parse(owner, "If instructed to focus on [npc.her] ability at harnessing the power of arcane poison, [npc.name] could take the first step towards unlocking the next secret of the school of arcane Air.");
 		}
 	},
-	
+
 	ELEMENTAL_AIR_BOOST(20,
 			false,
 			"gale",
@@ -3351,7 +3351,7 @@ public enum Perk {
 					+ " while [npc.she] still has a way to go before reaching a new milestone, [npc.her] affinity with arcane poison is steadily increasing.");
 		}
 	},
-	
+
 	ELEMENTAL_AIR_BOOST_MAJOR(20,
 			false,
 			"storm",
@@ -3368,7 +3368,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NamePos] affinity with arcane poison has massively increased, and [npc.sheIs] on the verge of discovering something incredibly powerful!");
 		}
 	},
-	
+
 	ELEMENTAL_AIR_BOOST_ULTIMATE(20,
 			false,
 			"supercell",
@@ -3387,7 +3387,7 @@ public enum Perk {
 					+ " with each of [npc.her] devastating missiles landing perfectly on-target thanks to the guiding gusts that [npc.she] summons.");
 		}
 	},
-	
+
 	// ELEMENTAL ARCANE
 
 	ELEMENTAL_ARCANE_SPELL_1(20,
@@ -3401,7 +3401,7 @@ public enum Perk {
 			Spell.ARCANE_AROUSAL,
 			null,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -3412,7 +3412,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.GENERIC_ARCANE.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -3435,7 +3435,7 @@ public enum Perk {
 			Spell.ARCANE_AROUSAL,
 			SpellUpgrade.ARCANE_AROUSAL_1,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3446,7 +3446,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3469,7 +3469,7 @@ public enum Perk {
 			Spell.ARCANE_AROUSAL,
 			SpellUpgrade.ARCANE_AROUSAL_2,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3480,7 +3480,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3503,7 +3503,7 @@ public enum Perk {
 			Spell.ARCANE_AROUSAL,
 			SpellUpgrade.ARCANE_AROUSAL_3,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3514,7 +3514,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3537,7 +3537,7 @@ public enum Perk {
 			Spell.TELEPATHIC_COMMUNICATION,
 			null,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -3548,7 +3548,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -3571,7 +3571,7 @@ public enum Perk {
 			Spell.TELEPATHIC_COMMUNICATION,
 			SpellUpgrade.TELEPATHIC_COMMUNICATION_1,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3582,7 +3582,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3605,7 +3605,7 @@ public enum Perk {
 			Spell.TELEPATHIC_COMMUNICATION,
 			SpellUpgrade.TELEPATHIC_COMMUNICATION_2,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3616,7 +3616,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3639,7 +3639,7 @@ public enum Perk {
 			Spell.TELEPATHIC_COMMUNICATION,
 			SpellUpgrade.TELEPATHIC_COMMUNICATION_3,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3650,7 +3650,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3673,7 +3673,7 @@ public enum Perk {
 			Spell.ARCANE_CLOUD,
 			null,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Spell: "+getSpell().getName();
@@ -3684,7 +3684,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Gain spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " when bound to <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSchool().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "When bound to the school of "+getSchool().getName()+", [npc.name] is able to use the spell '"+getSpell().getName()+"'.");
@@ -3707,7 +3707,7 @@ public enum Perk {
 			Spell.ARCANE_CLOUD,
 			SpellUpgrade.ARCANE_CLOUD_1,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3718,7 +3718,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3741,7 +3741,7 @@ public enum Perk {
 			Spell.ARCANE_CLOUD,
 			SpellUpgrade.ARCANE_CLOUD_2,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3752,7 +3752,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3775,7 +3775,7 @@ public enum Perk {
 			Spell.ARCANE_CLOUD,
 			SpellUpgrade.ARCANE_CLOUD_3,
 			SpellSchool.ARCANE) {
-		
+
 		@Override
 		public String getName(GameCharacter owner) {
 			return "Upgrade: "+getSpellUpgrade().getName();
@@ -3786,7 +3786,7 @@ public enum Perk {
 			return Util.newArrayListOfValues("Upgrades spell '<span style='color:"+ Color.DAMAGE_TYPE_LUST.toWebHexString()+ ";'>"+getSpell().getName()+"</span>'"
 					+ " with <span style='color:"+ getSchool().getColor().toWebHexString()+ ";'>"+getSpellUpgrade().getName()+"</span>");
 		}
-		
+
 		@Override
 		public String getDescription(GameCharacter owner) {
 			return UtilText.parse(owner, "[npc.NamePos] spell, "+getSpell().getName()+", will be upgraded to have the extra power '"+getSpellUpgrade().getName()+"'.");
@@ -3814,7 +3814,7 @@ public enum Perk {
 			return UtilText.parse(owner, "If instructed to focus on [npc.her] ability at harnessing the pure power of the arcane, [npc.name] could take the first step towards unlocking the next secret of the school of the Arcane.");
 		}
 	},
-	
+
 	ELEMENTAL_ARCANE_BOOST(20,
 			false,
 			"passion",
@@ -3832,7 +3832,7 @@ public enum Perk {
 					+ " while [npc.she] still has a way to go before reaching a new milestone, [npc.her] affinity with arcane lust is steadily increasing.");
 		}
 	},
-	
+
 	ELEMENTAL_ARCANE_BOOST_MAJOR(20,
 			false,
 			"infatuation",
@@ -3849,7 +3849,7 @@ public enum Perk {
 			return UtilText.parse(owner, "[npc.NamePos] affinity with the arcane has massively increased, and [npc.sheIs] on the verge of discovering something incredibly powerful!");
 		}
 	},
-	
+
 	ELEMENTAL_ARCANE_BOOST_ULTIMATE(20,
 			false,
 			"nympholepsy",
@@ -3868,14 +3868,14 @@ public enum Perk {
 					+" face find themselves falling under [npc.her] spell, and within moments, are completely consumed by a wild, animalistic lust.");
 		}
 	},
-	
+
 	;
 
 	private int renderingPriority;
 	protected String name;
 	private Color color;
 	private boolean equippableTrait;
-	
+
 	private Spell spell;
 	private SpellUpgrade spellUpgrade;
 	private SpellSchool school;
@@ -3890,9 +3890,9 @@ public enum Perk {
 	private List<String> extraEffects;
 
 	private List<String> modifiersList;
-	
+
 	public static List<Perk> hiddenPerks;
-	
+
 	static{
 		hiddenPerks = new ArrayList<>();
 		for(Perk p : Perk.values()) {
@@ -3902,7 +3902,7 @@ public enum Perk {
 		}
 		hiddenPerks.sort((p1, p2) -> p1.getRenderingPriority()-p2.getRenderingPriority());
 	}
-	
+
 
 	private Perk(int renderingPriority,
 			boolean major,
@@ -3924,7 +3924,7 @@ public enum Perk {
 				null,
 				null);
 	}
-	
+
 	private Perk(int renderingPriority,
 			boolean major,
 			String name,
@@ -3940,9 +3940,9 @@ public enum Perk {
 		this.renderingPriority = renderingPriority;
 		this.name = name;
 		this.color = color;
-		
+
 		this.equippableTrait = major;
-		
+
 		this.perkCategory = perkCategory;
 
 		this.attributeModifiers = attributeModifiers;
@@ -3952,7 +3952,7 @@ public enum Perk {
 		} else {
 			this.extraEffects = new ArrayList<>();
 		}
-		
+
 		if(pathName!=null) {
 			try {
 				InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/" + pathName + ".svg");
@@ -3960,16 +3960,16 @@ public enum Perk {
 					System.err.println("Error! Perk icon file does not exist (Trying to read from '"+pathName+"')!");
 				}
 				SVGString = Util.inputStreamToString(is);
-				
+
 				SVGString = SvgUtil.colorReplacement(this.toString(), color, SVGString);
-	
+
 				is.close();
-	
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		modifiersList = new ArrayList<>();
 
 		if (attributeModifiers != null) {
@@ -3978,16 +3978,16 @@ public enum Perk {
 						+ " <b style='color: "+ e.getKey().getColor().toWebHexString()+ ";'>"+ Util.capitalizeSentence(e.getKey().getAbbreviatedName())+ "</b>");
 			}
 		}
-		
+
 		this.spell = spell;
 		this.spellUpgrade = spellUpgrade;
 		this.school = school;
 	}
-	
+
 	public static List<Perk> getHiddenPerks() {
 		return hiddenPerks;
 	}
-	
+
 	public boolean isAlwaysAvailable() {
 		return false;
 	}
@@ -3996,7 +3996,7 @@ public enum Perk {
 	public boolean isHiddenPerk() {
 		return false;
 	}
-	
+
 	public String getName(GameCharacter owner) {
 		return name;
 	}

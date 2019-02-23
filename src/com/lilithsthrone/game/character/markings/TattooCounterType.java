@@ -13,14 +13,14 @@ import com.lilithsthrone.main.Main;
  * @author Innoxia
  */
 public enum TattooCounterType {
-	
+
 	NONE("none", "Do not add a tracker to this tattoo.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
 			return 0;
 		}
 	},
-	
+
 	SEX_SUB("sub sex", "Keeps a count of how many times the bearer has had submissive sex.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
@@ -69,7 +69,7 @@ public enum TattooCounterType {
 			return bearer.getTotalCumCountInArea(SexAreaPenetration.FOOT, true, false);
 		}
 	},
-	
+
 	CUM_TAKEN("total creampies received", "Keeps a count of how many times the bearer has taken a load of cum in their orifices.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
@@ -101,16 +101,16 @@ public enum TattooCounterType {
 	CUM_TAKEN_FEET("footjob climaxes given", "Keeps a count of how many times the bearer has had their partner cum over their feet.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
-			return bearer.getTotalCumCountInArea(SexAreaPenetration.FOOT, false, true); 
+			return bearer.getTotalCumCountInArea(SexAreaPenetration.FOOT, false, true);
 		}
 	},
-	
+
 
 	VIRGINITIES_TAKEN_TOTAL("total deflowerments", "Keeps a count of how many virginities of all types (vaginal, anal, oral, nipple, urethral) the bearer has taken.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
 			int count = 0;
-			
+
 			for(GameCharacter character : Main.game.getAllNPCs()) {
 				if(!character.equals(bearer)) {
 					for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
@@ -127,7 +127,7 @@ public enum TattooCounterType {
 					}
 				}
 			}
-			
+
 			GameCharacter character = Main.game.getPlayer();
 			if(!character.equals(bearer)) {
 				for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
@@ -143,16 +143,16 @@ public enum TattooCounterType {
 					}
 				}
 			}
-			
-			return count; 
+
+			return count;
 		}
 	},
-	
+
 	VIRGINITIES_TAKEN_VAGINAL("vaginal deflowerments", "Keeps a count of how many vaginal virginities the bearer has taken.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
 			int count = 0;
-			
+
 			for(GameCharacter character : Main.game.getAllNPCs()) {
 				if(!character.equals(bearer)) {
 					for(SexAreaPenetration pen : SexAreaPenetration.values()) {
@@ -165,7 +165,7 @@ public enum TattooCounterType {
 					}
 				}
 			}
-			
+
 			GameCharacter character = Main.game.getPlayer();
 			if(!character.equals(bearer)) {
 				for(SexAreaPenetration pen : SexAreaPenetration.values()) {
@@ -177,16 +177,16 @@ public enum TattooCounterType {
 					}
 				}
 			}
-			
-			return count; 
+
+			return count;
 		}
 	},
-	
+
 	VIRGINITIES_TAKEN_ANAL("anal deflowerments", "Keeps a count of how many anal virginities the bearer has taken.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
 			int count = 0;
-			
+
 			for(GameCharacter character : Main.game.getAllNPCs()) {
 				if(!character.equals(bearer)) {
 					for(SexAreaPenetration pen : SexAreaPenetration.values()) {
@@ -199,7 +199,7 @@ public enum TattooCounterType {
 					}
 				}
 			}
-			
+
 			GameCharacter character = Main.game.getPlayer();
 			if(!character.equals(bearer)) {
 				for(SexAreaPenetration pen : SexAreaPenetration.values()) {
@@ -211,8 +211,8 @@ public enum TattooCounterType {
 					}
 				}
 			}
-			
-			return count; 
+
+			return count;
 		}
 	},
 
@@ -225,24 +225,24 @@ public enum TattooCounterType {
 			return bearer.getPregnantLitter().getTotalLitterCount();
 		}
 	},
-	
+
 	PREGNANCY("pregnancy", "Keeps a count of the bearer's completed pregnancies.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
 			return bearer.getLittersBirthed().size();
 		}
 	},
-	
+
 	IMPREGNATIONS("impregnation", "Keeps a count of the number of times the bearer has impregnated someone.") {
 		@Override
 		public int getCount(GameCharacter bearer) {
 			return bearer.getLittersFathered().size();
 		}
 	};
-	
+
 	private String name;
 	private String description;
-	
+
 	private TattooCounterType(String name, String description) {
 		this.name = name;
 		this.description = description;

@@ -685,7 +685,7 @@
 
 	<htmlContent tag="OCCUPANT_APARTMENT_SLEEP_OVER"><![CDATA[
 	<p>
-		[pc.speech(Hey, [npc.name], is it ok if I crash on your sofa for while?)] you ask. [pc.speech(I'm absolutely shattered, and really need some sleep.)]
+		[pc.speech(Hey, [npc.name], is it OK if I crash on your sofa for while?)] you ask. [pc.speech(I'm absolutely shattered, and really need some sleep.)]
 	</p>
 	<p>
 		[npc.speech(Of course!)] [npc.name] replies. [npc.speech(After all you've done for me, you're welcome to sleep over any time you want!)]

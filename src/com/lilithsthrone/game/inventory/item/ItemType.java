@@ -3328,7 +3328,7 @@ public class ItemType {
 
 		@Override
 		public String getUseName() {
-			return "hypnotise";
+			return "hypnotize";
 		}
 
 		@Override
@@ -4608,7 +4608,7 @@ public class ItemType {
 				// Tier 1:
 				case ARCANE_AROUSAL:
 				case ICE_SHARD:
-				case POISON_VAPOURS:
+				case POISON_VAPORS:
 				case FIREBALL:
 				case SLAM:
 					break;

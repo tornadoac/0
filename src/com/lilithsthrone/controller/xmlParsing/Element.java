@@ -176,7 +176,7 @@ public class Element {
 	public Optional<Element> getOptionalFirstOf(String tag) {
 		org.w3c.dom.Element foundElement = (org.w3c.dom.Element) innerElement.getElementsByTagName(tag).item(0);
 		if (foundElement == null) {
-		    return Optional.empty(); //return empty Optional if there's no elements found
+			return Optional.empty(); //return empty Optional if there's no elements found
 		}
 		return Optional.of(new Element(foundElement, fileDirectory, document));
 	}

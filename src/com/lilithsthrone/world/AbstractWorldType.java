@@ -20,17 +20,17 @@ public abstract class AbstractWorldType {
 	private Color color;
 	private int worldSize;
 	private int timeToTransition;
-	
+
 	private int tileSetRowNumber;
 	private int moveCost;
 	private PlaceType standardPlace;
 	private PlaceType cutOffZone;
 	private List<PlaceType> places;
 	private List<PlaceType> dangerousPlaces;
-	
+
 	private boolean usesFile;
 	private Map<Color, PlaceType> placesMap;
-	
+
 	@Deprecated
 	AbstractWorldType(int worldSize,
 			String name,
@@ -41,7 +41,7 @@ public abstract class AbstractWorldType {
 			List<PlaceType> places,
 			List<PlaceType> dangerousPlaces) {
 		this.worldSize=worldSize;
-		
+
 		this.name = name;
 		this.color = color;
 		this.timeToTransition=timeToTransition;
@@ -52,11 +52,11 @@ public abstract class AbstractWorldType {
 
 		this.places = places;
 		this.dangerousPlaces = dangerousPlaces;
-		
+
 		fileLocation = null;
 		usesFile = false;
 	}
-	
+
 	protected AbstractWorldType(String name,
 			Color color,
 			int timeToTransition,
@@ -72,12 +72,12 @@ public abstract class AbstractWorldType {
 
 		places = null;
 		dangerousPlaces = null;
-		
+
 		this.fileLocation = fileLocation;
 		usesFile = true;
 		this.placesMap=placesMap;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) { // I know it doesn't include everything, but this should be enough to check for equality.
 		if(super.equals(o)){
@@ -94,7 +94,7 @@ public abstract class AbstractWorldType {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() { // I know it doesn't include everything, but this should be enough to check for equality.
 		int result = super.hashCode();
@@ -106,7 +106,7 @@ public abstract class AbstractWorldType {
 		result = 31 * result + getPlacesMap().hashCode();
 		return result;
 	}
-	
+
 	public int getTileSetRowNumber() {
 		return tileSetRowNumber;
 	}
@@ -126,7 +126,7 @@ public abstract class AbstractWorldType {
 	public int getMoveCost() {
 		return moveCost;
 	}
-	
+
 	public boolean isRevealedOnStart() {
 		return false;
 	}
@@ -162,11 +162,11 @@ public abstract class AbstractWorldType {
 	public int getWorldSize() {
 		return worldSize;
 	}
-	
+
 	public boolean isCompanionSexBlocked(GameCharacter companion) {
 		return getCompanionSexBlockedReason(companion)!=null || getCompanionSexBlockedReason(companion).isEmpty();
 	}
-	
+
 	public abstract String getCompanionSexBlockedReason(GameCharacter companion);
 
 }

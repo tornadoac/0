@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
-    <defs>
-        <linearGradient id="receptionDeskGradient">
-            <stop offset="0" stop-color="#f55"/>
-            <stop offset="1" stop-color="#ff8080"/>
-        </linearGradient>
-        <linearGradient id="linearGradient15" x1="29.5" x2="44.125" y1="1025.487" y2="1003.362" gradientTransform="matrix(1.28844 0 0 1.29051 -9.225 -296.313)" gradientUnits="userSpaceOnUse" xlink:href="#receptionDeskGradient"/>
-    </defs>
-    <g transform="translate(0 -988.362)">
-        <ellipse cx="32" cy="1020.368" fill="url(#linearGradient15)" fill-rule="evenodd" rx="30.383" ry="30.381"/>
-        <ellipse cx="32.355" cy="1020.473" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" rx="19.086" ry="18.943"/>
-        <path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5.997" d="M32.355 1031.345l.072-12.352"/>
-        <path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" d="M27.932 1017.444c1.094 0 4.625.03 4.625.03"/>
-        <ellipse cx="32.063" cy="1010.216" fill="#fff" rx="3.609" ry="3.594"/>
-    </g>
+	<defs>
+		<linearGradient id="receptionDeskGradient">
+			<stop offset="0" stop-color="#f55"/>
+			<stop offset="1" stop-color="#ff8080"/>
+		</linearGradient>
+		<linearGradient id="linearGradient15" x1="29.5" x2="44.125" y1="1025.487" y2="1003.362" gradientTransform="matrix(1.28844 0 0 1.29051 -9.225 -296.313)" gradientUnits="userSpaceOnUse" xlink:href="#receptionDeskGradient"/>
+	</defs>
+	<g transform="translate(0 -988.362)">
+		<ellipse cx="32" cy="1020.368" fill="url(#linearGradient15)" fill-rule="evenodd" rx="30.383" ry="30.381"/>
+		<ellipse cx="32.355" cy="1020.473" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5" rx="19.086" ry="18.943"/>
+		<path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="5.997" d="M32.355 1031.345l.072-12.352"/>
+		<path fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3" d="M27.932 1017.444c1.094 0 4.625.03 4.625.03"/>
+		<ellipse cx="32.063" cy="1010.216" fill="#fff" rx="3.609" ry="3.594"/>
+	</g>
 </svg>

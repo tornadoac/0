@@ -19,7 +19,7 @@ import com.lilithsthrone.utils.Util;
 public enum SpellUpgrade {
 
 	// Fire:
-	
+
 	FIREBALL_1(true,
 			1,
 			SpellSchool.FIRE,
@@ -42,7 +42,7 @@ public enum SpellUpgrade {
 			"Fireball's twin comets now burn with an intense fury, doing considerably more damage.",
 			null, Util.newArrayListOfValues(
 					"Twin Comets now do <b>15</b> [style.colorFire(Fire Damage)] each")),
-	
+
 	FLASH_1(true,
 			2,
 			SpellSchool.FIRE,
@@ -65,7 +65,7 @@ public enum SpellUpgrade {
 			"By focusing its power into a smaller, more concentrated burst, the caster is able to reduce the cost of Flash, while losing none of its effectiveness.",
 			null, Util.newArrayListOfValues(
 					"[style.colorExcellent(Reduces)] base cost to [style.boldMana(40)] aura")),
-	
+
 	CLOAK_OF_FLAMES_1(true,
 			2,
 			SpellSchool.FIRE,
@@ -117,7 +117,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_FIRE_3B);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Binding of Fire'!)]";
@@ -139,7 +139,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_FIRE_3A);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Servant of Fire'!)]";
@@ -148,7 +148,7 @@ public enum SpellUpgrade {
 			}
 		}
 	},
-	
+
 	// Water:
 
 	ICE_SHARD_1(true,
@@ -248,7 +248,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_WATER_3B);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Binding of Water'!)]";
@@ -270,7 +270,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_WATER_3A);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Servant of Water'!)]";
@@ -279,32 +279,32 @@ public enum SpellUpgrade {
 			}
 		}
 	},
-	
+
 	// Air:
 
-	POISON_VAPOURS_1(true,
+	POISON_VAPORS_1(true,
 			2,
 			SpellSchool.AIR,
-			"poison_vapours_choking_haze",
+			"poison_vapors_choking_haze",
 			"Choking Haze",
-			"The clouds of Poison Vapours become far thicker, becoming a stifling, choking haze that causes the target to occasionally miss their attacks.",
+			"The clouds of Poison Vapors become far thicker, becoming a stifling, choking haze that causes the target to occasionally miss their attacks.",
 			null, Util.newArrayListOfValues(
-					"Poison Vapours additionally applies <b>+10</b> "+Attribute.MISS_CHANCE.getColoredName("b"))),
-	POISON_VAPOURS_2(5,
+					"Poison Vapors additionally applies <b>+10</b> "+Attribute.MISS_CHANCE.getColoredName("b"))),
+	POISON_VAPORS_2(5,
 			SpellSchool.AIR,
-			"poison_vapours_arcane_sickness",
+			"poison_vapors_arcane_sickness",
 			"Arcane Sickness",
-			"Poison Vapours become infused with a potent arcane sickness, which steadily drains the target's arcane aura.",
+			"Poison Vapors become infused with a potent arcane sickness, which steadily drains the target's arcane aura.",
 			null, Util.newArrayListOfValues(
-					"Poison Vapours additionally drains <b>10</b> "+Attribute.MANA_MAXIMUM.getColoredName("b")+" per turn")),
-	POISON_VAPOURS_3(2,
+					"Poison Vapors additionally drains <b>10</b> "+Attribute.MANA_MAXIMUM.getColoredName("b")+" per turn")),
+	POISON_VAPORS_3(2,
 			SpellSchool.AIR,
-			"poison_vapours_weakening_cloud",
+			"poison_vapors_weakening_cloud",
 			"Weakening Cloud",
-			"Poison Vapours starts to seep into the target's body, significantly weakening their attacks.",
+			"Poison Vapors starts to seep into the target's body, significantly weakening their attacks.",
 			null, Util.newArrayListOfValues(
-					"Poison Vapours additionally applies <b>-15</b> "+Attribute.DAMAGE_PHYSICAL.getColoredName("b"),
-					"Poison Vapours additionally applies <b>-25</b> "+Attribute.CRITICAL_DAMAGE.getColoredName("b"))),
+					"Poison Vapors additionally applies <b>-15</b> "+Attribute.DAMAGE_PHYSICAL.getColoredName("b"),
+					"Poison Vapors additionally applies <b>-25</b> "+Attribute.CRITICAL_DAMAGE.getColoredName("b"))),
 
 	VACUUM_1(true,
 			5,
@@ -384,7 +384,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_AIR_3B);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Binding of Air'!)]";
@@ -406,7 +406,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_AIR_3A);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Servant of Air'!)]";
@@ -516,7 +516,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_EARTH_3B);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Binding of Earth'!)]";
@@ -538,7 +538,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_EARTH_3A);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Servant of Earth'!)]";
@@ -757,7 +757,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_ARCANE_3B);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Binding of Arcane'!)]";
@@ -779,7 +779,7 @@ public enum SpellUpgrade {
 		public boolean isAvailable(GameCharacter caster) {
 			return !caster.hasSpellUpgrade(ELEMENTAL_ARCANE_3A);
 		}
-		
+
 		public String getUnavailableReason(GameCharacter caster) {
 			if(this.isAvailable(caster) && !caster.hasSpellUpgrade(this)) {
 				return "[style.boldMinorBad(Mutually exclusive with 'Servant of Arcane'!)]";
@@ -798,9 +798,9 @@ public enum SpellUpgrade {
 	private HashMap<Attribute, Integer> attributeModifiers;
 	private List<String> extraEffects;
 	private List<String> modifiersList;
-	
+
 	private String SVGString;
-	
+
 	private SpellUpgrade(int pointCost,
 			SpellSchool spellSchool,
 			String pathName,
@@ -809,7 +809,7 @@ public enum SpellUpgrade {
 			HashMap<Attribute, Integer> attributeModifiers, List<String> extraEffects) {
 		this(false, pointCost, spellSchool, pathName, name, description, attributeModifiers, extraEffects);
 	}
-	
+
 	private SpellUpgrade(boolean isAlwaysAvailable,
 			int pointCost,
 			SpellSchool spellSchool,
@@ -817,28 +817,28 @@ public enum SpellUpgrade {
 			String name,
 			String description,
 			HashMap<Attribute, Integer> attributeModifiers, List<String> extraEffects) {
-		
+
 		this.isAlwaysAvailable = isAlwaysAvailable;
 		this.pointCost = pointCost;
 		this.spellSchool = spellSchool;
 		this.name = name;
 		this.description = description;
-		
+
 		this.attributeModifiers = attributeModifiers;
 		this.extraEffects = extraEffects;
-		
+
 		modifiersList = new ArrayList<>();
-		
+
 		if (attributeModifiers != null) {
 			for (Entry<Attribute, Integer> e : attributeModifiers.entrySet())
 				modifiersList.add("<b>" + (e.getValue() > 0 ? "+" : "") + e.getValue() + "</b>"
 						+ " <b style='color: " + e.getKey().getColor().toWebHexString() + ";'>" + Util.capitalizeSentence(e.getKey().getAbbreviatedName()) + "</b>");
 		}
-		
+
 		if (extraEffects != null) {
 			modifiersList.addAll(extraEffects);
 		}
-		
+
 		try {
 			if(!pathName.isEmpty()) {
 				InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/combat/spell/upgrade/" + pathName + ".svg");
@@ -852,11 +852,11 @@ public enum SpellUpgrade {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean isAlwaysAvailable() {
 		return isAlwaysAvailable;
 	}
-	
+
 	public int getPointCost() {
 		return pointCost;
 	}
@@ -864,15 +864,15 @@ public enum SpellUpgrade {
 	public boolean isAvailable(GameCharacter caster) {
 		return true;
 	}
-	
+
 	public String getUnavailableReason(GameCharacter caster) {
 		return "";
 	}
-	
+
 	public SpellSchool getSpellSchool() {
 		return spellSchool;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -896,5 +896,5 @@ public enum SpellUpgrade {
 	public String getSVGString() {
 		return SVGString;
 	}
-	
+
 }

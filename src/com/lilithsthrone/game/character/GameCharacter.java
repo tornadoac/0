@@ -5891,10 +5891,10 @@ public abstract class GameCharacter implements XMLSaving {
 			case SUB_NORMAL:
 				if(this.isVaginaVirgin() && this.hasVagina()) {
 					returnedLine = UtilText.returnStringAtRandom(
-							"I'll be a good [npc1.girl]! Just... I'm still a virgin, ok?",
+							"I'll be a good [npc1.girl]! Just... I'm still a virgin, OK?",
 							"I'll do whatever you want! I'm still a virgin though...",
 							"Let's get started! But... I'm still a virgin...",
-							"Let's have some fun! But... I'm still a virgin, ok?");
+							"Let's have some fun! But... I'm still a virgin, OK?");
 				} else {
 					returnedLine = UtilText.returnStringAtRandom(
 							"I'll be a good [npc.girl]!",
@@ -12244,11 +12244,11 @@ public abstract class GameCharacter implements XMLSaving {
 
 
 	public String ingestFluid(FluidStored fluid, SexAreaOrifice orificeIngestedThrough) {
-		return ingestFluid(fluid.getFluidCharacter(), fluid.getCumSubspecies(), fluid.getFluid(), orificeIngestedThrough, fluid.getMillilitres());
+		return ingestFluid(fluid.getFluidCharacter(), fluid.getCumSubspecies(), fluid.getFluid(), orificeIngestedThrough, fluid.getMilliliters());
 	}
 
-	public String ingestFluid(GameCharacter charactersFluid, FluidInterface fluid, SexAreaOrifice orificeIngestedThrough, int millilitres) {
-		return ingestFluid(charactersFluid, null, fluid, orificeIngestedThrough, millilitres);
+	public String ingestFluid(GameCharacter charactersFluid, FluidInterface fluid, SexAreaOrifice orificeIngestedThrough, int milliliters) {
+		return ingestFluid(charactersFluid, null, fluid, orificeIngestedThrough, milliliters);
 	}
 
 	/**
@@ -12257,12 +12257,12 @@ public abstract class GameCharacter implements XMLSaving {
 	 * @param addictive Is this fluid addictive or not.
 	 * @return A <b>formatted paragraph</b> description of addiction increasing/satisfied, or an empty String if no addictive effects occur.
 	 */
-	public String ingestFluid(GameCharacter charactersFluid, Subspecies subspecies, FluidInterface fluid, SexAreaOrifice orificeIngestedThrough, int millilitres) {
+	public String ingestFluid(GameCharacter charactersFluid, Subspecies subspecies, FluidInterface fluid, SexAreaOrifice orificeIngestedThrough, int milliliters) {
 		StringBuilder fluidIngestionSB = new StringBuilder();
 
 		List<FluidModifier> modifiers = fluid.getFluidModifiers();
 
-		//TODO convert all instances of this method to just (GameCharacter charactersFluid, BodyPartInterface fluid, int millilitres)
+		//TODO convert all instances of this method to just (GameCharacter charactersFluid, BodyPartInterface fluid, int milliliters)
 		boolean found = false;
 
 		if(fluid.getType().getBaseType()==FluidTypeBase.CUM) {
@@ -12273,14 +12273,14 @@ public abstract class GameCharacter implements XMLSaving {
 			if(fluidsStoredMap.containsKey(orificeIngestedThrough) && charactersFluid!=null) {
 				for(FluidStored fluidStored : fluidsStoredMap.get(orificeIngestedThrough)) {
 					if(fluidStored.getFluid().equals(charactersFluid.getCum())) {
-						fluidStored.incrementMillilitres(millilitres);
+						fluidStored.incrementMilliliters(milliliters);
 						found = true;
 						break;
 					}
 				}
 			}
 			if(!found) {
-				this.addFluidStored(orificeIngestedThrough, new FluidStored(charactersFluid==null?"":charactersFluid.getId(), subspecies!=null?subspecies:charactersFluid.getSubspecies(), (FluidCum)fluid, millilitres));
+				this.addFluidStored(orificeIngestedThrough, new FluidStored(charactersFluid==null?"":charactersFluid.getId(), subspecies!=null?subspecies:charactersFluid.getSubspecies(), (FluidCum)fluid, milliliters));
 			}
 
 		} else if(fluid.getType().getBaseType()==FluidTypeBase.MILK) {
@@ -12291,14 +12291,14 @@ public abstract class GameCharacter implements XMLSaving {
 			if(fluidsStoredMap.containsKey(orificeIngestedThrough) && charactersFluid!=null) {
 				for(FluidStored fluidStored : fluidsStoredMap.get(orificeIngestedThrough)) {
 					if(fluidStored.getFluid().equals(charactersFluid.getMilk())) {
-						fluidStored.incrementMillilitres(millilitres);
+						fluidStored.incrementMilliliters(milliliters);
 						found = true;
 						break;
 					}
 				}
 			}
 			if(!found) {
-				this.addFluidStored(orificeIngestedThrough, new FluidStored(charactersFluid==null?"":charactersFluid.getId(), (FluidMilk)fluid, millilitres));
+				this.addFluidStored(orificeIngestedThrough, new FluidStored(charactersFluid==null?"":charactersFluid.getId(), (FluidMilk)fluid, milliliters));
 			}
 
 		} else if(fluid.getType().getBaseType()==FluidTypeBase.GIRLCUM) {
@@ -12309,30 +12309,30 @@ public abstract class GameCharacter implements XMLSaving {
 			if(fluidsStoredMap.containsKey(orificeIngestedThrough) && charactersFluid!=null) {
 				for(FluidStored fluidStored : fluidsStoredMap.get(orificeIngestedThrough)) {
 					if(fluidStored.getFluid().equals(charactersFluid.getGirlcum())) {
-						fluidStored.incrementMillilitres(millilitres);
+						fluidStored.incrementMilliliters(milliliters);
 						found = true;
 						break;
 					}
 				}
 			}
 			if(!found) {
-				this.addFluidStored(orificeIngestedThrough, new FluidStored(charactersFluid==null?"":charactersFluid.getId(), (FluidGirlCum)fluid, millilitres));
+				this.addFluidStored(orificeIngestedThrough, new FluidStored(charactersFluid==null?"":charactersFluid.getId(), (FluidGirlCum)fluid, milliliters));
 			}
 		}
 
 		if((this.getBodyMaterial()==BodyMaterial.SLIME || orificeIngestedThrough == SexAreaOrifice.VAGINA)
 				&& fluid.getType().getBaseType()==FluidTypeBase.CUM) {
 			if(charactersFluid!=null) {
-				fluidIngestionSB.append(rollForPregnancy(charactersFluid, millilitres));
+				fluidIngestionSB.append(rollForPregnancy(charactersFluid, milliliters));
 			}
 			//TODO need to store relevant cum data and provide that in the case of the charactersFluid not being in the game any more
 //			else if(subspecies!=null) {
-//				fluidIngestionSB.append(rollForPregnancy(subspecies, millilitres));
+//				fluidIngestionSB.append(rollForPregnancy(subspecies, milliliters));
 //			}
 		}
 
 		if(modifiers.contains(FluidModifier.ALCOHOLIC)) { //TODO factor in body size:
-			fluidIngestionSB.append(this.incrementAlcoholLevel(millilitres * 0.001f));
+			fluidIngestionSB.append(this.incrementAlcoholLevel(milliliters * 0.001f));
 		}
 
 		if(modifiers.contains(FluidModifier.HALLUCINOGENIC)) {
@@ -12376,10 +12376,10 @@ public abstract class GameCharacter implements XMLSaving {
 
 	//TODO remove:
 //	@Deprecated
-//	public String ingestFluid(FluidType fluid, SexAreaOrifice orificeIngestedThrough, int millilitres, List<FluidModifier> modifiers) {
+//	public String ingestFluid(FluidType fluid, SexAreaOrifice orificeIngestedThrough, int milliliters, List<FluidModifier> modifiers) {
 //		StringBuilder fluidIngestionSB = new StringBuilder();
 //		if(modifiers.contains(FluidModifier.ALCOHOLIC)) { //TODO factor in body size:
-//			fluidIngestionSB.append(this.incrementAlcoholLevel(millilitres * 0.001f));
+//			fluidIngestionSB.append(this.incrementAlcoholLevel(milliliters * 0.001f));
 //		}
 //
 //		if(modifiers.contains(FluidModifier.HALLUCINOGENIC)) {
@@ -13058,7 +13058,7 @@ public abstract class GameCharacter implements XMLSaving {
 						}
 					}
 					if(partner!=null) {
-						rollForPregnancy(partner, fs.getMillilitres());
+						rollForPregnancy(partner, fs.getMilliliters());
 					}
 				}
 			}
@@ -13352,7 +13352,7 @@ public abstract class GameCharacter implements XMLSaving {
 		int total = 0;
 		fluidsStoredMap.putIfAbsent(area, new ArrayList<>());
 		for(FluidStored f : fluidsStoredMap.get(area)) {
-			total+=f.getMillilitres();
+			total+=f.getMilliliters();
 		}
 		return total;
 	}
@@ -13365,19 +13365,19 @@ public abstract class GameCharacter implements XMLSaving {
 				break;
 			}
 
-			int drainAmount = Math.min(Math.abs(drain), f.getMillilitres());
-			f.incrementMillilitres(-drainAmount);
+			int drainAmount = Math.min(Math.abs(drain), f.getMilliliters());
+			f.incrementMilliliters(-drainAmount);
 			drained+=drainAmount;
 		}
-		fluidsStoredMap.get(area).removeIf((fs) -> fs.getMillilitres()<=0);
+		fluidsStoredMap.get(area).removeIf((fs) -> fs.getMilliliters()<=0);
 	}
 
 	public void incrementAllFluidsStored(SexAreaOrifice area, int increment) {
 		fluidsStoredMap.putIfAbsent(area, new ArrayList<>());
 		for(FluidStored f : fluidsStoredMap.get(area)) {
-			f.incrementMillilitres(increment);
+			f.incrementMilliliters(increment);
 		}
-		fluidsStoredMap.get(area).removeIf((fs) -> fs.getMillilitres()<=0);
+		fluidsStoredMap.get(area).removeIf((fs) -> fs.getMilliliters()<=0);
 	}
 
 	public void addFluidStored(SexAreaOrifice area, FluidStored fluid) {

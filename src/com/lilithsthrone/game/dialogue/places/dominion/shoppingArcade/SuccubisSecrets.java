@@ -46,16 +46,16 @@ import com.lilithsthrone.world.places.PlaceType;
  * @author Innoxia
  */
 public class SuccubisSecrets {
-	
+
 	private static StringBuilder descriptionSB;
-	
+
 	public static final int BASE_COSMETICS_COST = 200;
 	public static final int BASE_PIERCINGS_COST = 25;
 	public static final int BASE_HAIR_LENGTH_COST = 25;
 	public static final int BASE_HAIR_STYLE_COST = 50;
 	public static final int BASE_ANAL_BLEACHING_COST = 100;
 	public static final int BASE_BODY_HAIR_COST = 50;
-	
+
 	public static final HashMap<BodyCoveringType, Integer> cosmeticCostsMap = Util.newHashMapOfValues(
 			new Value<>(BodyCoveringType.MAKEUP_BLUSHER, 25),
 			new Value<>(BodyCoveringType.MAKEUP_EYE_LINER, 25),
@@ -73,13 +73,13 @@ public class SuccubisSecrets {
 			new Value<>(PiercingType.PENIS, 100),
 			new Value<>(PiercingType.TONGUE, 50),
 			new Value<>(PiercingType.VAGINA, 100));
-	
+
 
 	public static int getBodyCoveringTypeCost(BodyCoveringType type) {
 		if(cosmeticCostsMap.containsKey(type)) {
 			return cosmeticCostsMap.get(type);
 		}
-		
+
 		return BASE_COSMETICS_COST;
 	}
 
@@ -87,10 +87,10 @@ public class SuccubisSecrets {
 		if(piercingCostsMap.containsKey(type)) {
 			return piercingCostsMap.get(type);
 		}
-		
+
 		return BASE_PIERCINGS_COST;
 	}
-	
+
 	public static final DialogueNode EXTERIOR = new DialogueNode("Succubi's Secrets (Exterior)", "-", false) {
 
 		@Override
@@ -101,7 +101,7 @@ public class SuccubisSecrets {
 							+ " You notice that everyone around you is completely ignoring the uninviting façade, and you smile to yourself as you realize that's exactly what its lazy owner wants."
 							+ " Now that you're here, you wonder if you should pay Kate another visit..."
 						+ "</p>";
-				
+
 			} else {
 				return "<p>"
 						+ "You find yourself standing in a quiet corner of the Shopping Arcade, and before you, there's a dark, shut-up store front."
@@ -110,7 +110,7 @@ public class SuccubisSecrets {
 					+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -121,7 +121,7 @@ public class SuccubisSecrets {
 							BodyChanging.setTarget(Main.game.getPlayer());
 						}
 					};
-					
+
 				} else {
 					return new Response("Enter", "Step inside Succubi's Secrets.", SHOP_BEAUTY_SALON) {
 						@Override
@@ -130,7 +130,7 @@ public class SuccubisSecrets {
 						}
 					};
 				}
-				
+
 			} else if (index == 6) {
 				return new ResponseEffectsOnly("Arcade Entrance", "Fast travel to the entrance to the arcade."){
 					@Override
@@ -144,7 +144,7 @@ public class SuccubisSecrets {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
@@ -171,12 +171,12 @@ public class SuccubisSecrets {
 						+ " [kate.speech(Mmrph... A little deeper...)]"
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				return new Response("Wake her", "Wake the sleeping demon.", SHOP_BEAUTY_SALON_WAKE);
-				
+
 			} else if (index == 2) {
 				return new Response("Watch", "Wait for the sleeping demon to wake up.", SHOP_BEAUTY_SALON_WATCH);
 
@@ -204,7 +204,7 @@ public class SuccubisSecrets {
 							+ " Y'know, that's one downside of not having any customers. I haven't had sex in, like, three whole days! And then, when someone finally arrives, they don't even want to have any fun!)]"
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -240,7 +240,7 @@ public class SuccubisSecrets {
 						+ "<p>"
 						+ "With that, she reaches around and grabs the back of your head, pulling you into a desperate, passionate kiss as you press yourself down against her."
 						+ "</p>");
-				
+
 			} else if (index == 2) {
 				return new Response("No thanks", "Tell her that you're not the sort of person who just has sex with random shopkeepers.", SHOP_BEAUTY_SALON_NO_THANKS);
 
@@ -277,7 +277,7 @@ public class SuccubisSecrets {
 							Main.game.getNpc(Kate.class))
 					+ "</p>";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -313,7 +313,7 @@ public class SuccubisSecrets {
 						+ "<p>"
 						+ "With that, she reaches around and grabs the back of your head, pulling you into a desperate, passionate kiss as you press yourself down against her."
 						+ "</p>");
-				
+
 			} else if (index == 2) {
 				return new Response("No thanks", "Tell her that you're not the sort of person who just has sex with random shopkeepers.", SHOP_BEAUTY_SALON_NO_THANKS);
 
@@ -322,7 +322,7 @@ public class SuccubisSecrets {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_NO_THANKS = new DialogueNode("Succubi's Secrets", "-", true, true) {
 
 		@Override
@@ -386,7 +386,7 @@ public class SuccubisSecrets {
 						+ " As you look through the little pamphlet, Kate sinks down onto one of the chairs next to you, and within a few seconds, her snores start to fill the empty shop once more..."
 						+ "</p>");
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
@@ -396,7 +396,7 @@ public class SuccubisSecrets {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.kateIntroduced);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
@@ -406,7 +406,7 @@ public class SuccubisSecrets {
 
 		@Override
 		public String getContent() {
-			
+
 			if(Main.game.getNpc(Kate.class).isVisiblyPregnant() && !Main.game.getDialogueFlags().values.contains(DialogueFlagValue.reactedToKatePregnancy)) {
 				return "<p>"
 						+ "With the knowledge that appearances can be deceiving, you stride over to the door and push it open."
@@ -445,7 +445,7 @@ public class SuccubisSecrets {
 						+ "You look through the brochure of all the services Kate's capable of providing."
 						+ " Out of the corner of your eye, you see her tail snaking its way up beneath her skirt, and her snores start being punctuated by lewd moans..."
 						+ "</p>";
-				
+
 			} else {
 				return "<p>"
 						+ "You make your way over to the boarded-up beauty salon; 'Succubi's Secrets'."
@@ -473,21 +473,21 @@ public class SuccubisSecrets {
 						+ "</p>";
 			}
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
 		}
 	};
-	
+
 	private static Map<BodyCoveringType, List<String>> CoveringsNamesMap;
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_MAIN = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getContent() {
 			descriptionSB = new StringBuilder();
-			
+
 			descriptionSB.append("<p>"
 						+ "You find yourself sitting on a comfortable leather chair in the beauty salon 'Succubi's Secrets'."
 						+ " The only other person to be seen is sitting in a chair right next to you, and takes the form of Kate; the shop's lazy, perpetually-horny, demonic owner."
@@ -497,16 +497,16 @@ public class SuccubisSecrets {
 						+ "You look through the brochure of all the services Kate's capable of providing."
 						+ " Out of the corner of your eye, you see her tail snaking its way up beneath her skirt, and her snores start being punctuated by lewd moans..."
 						+ "</p>");
-			
+
 			return descriptionSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
 		}
 	};
-	
+
 	private static Response getMainResponse(int index) {
 		if(index == 1){
 			return new ResponseTrade("Trade with Kate", "There's a separate leaflet tucked into the back of the brochure. It informs you that Kate is a registered distributor for a large jewelry firm.", Main.game.getNpc(Kate.class)){
@@ -516,11 +516,11 @@ public class SuccubisSecrets {
 						Main.game.getDialogueFlags().values.add(DialogueFlagValue.reactedToKatePregnancy);
 				}
 			};
-			
+
 		} else if (index == 2) {
 			if(!Main.game.getPlayer().getBodyMaterial().isAbleToWearMakeup()) {
 				return new Response("Makeup", "As your body is made of "+Main.game.getPlayer().getBodyMaterial().getName()+", Kate is unable to apply any makeup!", null);
-				
+
 			} else {
 				return new Response("Makeup",
 						"Kate offers a wide range of different cosmetic services, and several pages of the brochure are devoted to images displaying different styles and colors of lipstick, nail polish, and other forms of makeup.",
@@ -577,25 +577,25 @@ public class SuccubisSecrets {
 					SHOP_BEAUTY_SALON_SKIN_COLOR){
 				@Override
 				public void effects() {
-					
+
 					CoveringsNamesMap = new LinkedHashMap<>();
-					
+
 					if(Main.game.getPlayer().getBodyMaterial()==BodyMaterial.SLIME) {
 						CoveringsNamesMap.put(BodyCoveringType.SLIME, Util.newArrayListOfValues("SLIME"));
-						
+
 					} else {
 						for(BodyPartInterface bp : Main.game.getPlayer().getAllBodyParts()){
 							if(bp.getBodyCoveringType(Main.game.getPlayer())!=null
 									&& !(bp instanceof Hair)
 									&& !(bp instanceof Eye)) {
-								
+
 								String name = bp.getName(Main.game.getPlayer());
 								if(bp instanceof Skin) {
 									name = "torso";
 								} else if(bp instanceof Vagina) {
 									name = "vagina";
 								}
-								
+
 								if(CoveringsNamesMap.containsKey(bp.getBodyCoveringType(Main.game.getPlayer()))) {
 									CoveringsNamesMap.get(bp.getBodyCoveringType(Main.game.getPlayer())).add(name);
 								} else {
@@ -606,7 +606,7 @@ public class SuccubisSecrets {
 						if(Main.game.getPlayer().getTailType()==TailType.DEMON_HAIR_TIP && !CoveringsNamesMap.containsKey(BodyCoveringType.HAIR_DEMON)) {
 							CoveringsNamesMap.put(BodyCoveringType.HAIR_DEMON, Util.newArrayListOfValues(BodyCoveringType.HAIR_DEMON.getName(Main.game.getPlayer())));
 						}
-						
+
 						if(Main.getProperties().hasValue(PropertyValue.pubicHairContent)) {
 							CoveringsNamesMap.putIfAbsent(Main.game.getPlayer().getPubicHairType().getType(), new ArrayList<>());
 							CoveringsNamesMap.get(Main.game.getPlayer().getPubicHairType().getType()).add("growing around your pubic region");
@@ -623,7 +623,7 @@ public class SuccubisSecrets {
 							CoveringsNamesMap.putIfAbsent(Main.game.getPlayer().getAssHairType().getType(), new ArrayList<>());
 							CoveringsNamesMap.get(Main.game.getPlayer().getAssHairType().getType()).add("growing around your anus");
 						}
-						
+
 						CoveringsNamesMap.put(BodyCoveringType.ANUS, Util.newArrayListOfValues("anus"));
 						CoveringsNamesMap.put(BodyCoveringType.MOUTH, Util.newArrayListOfValues("mouth"));
 						CoveringsNamesMap.put(BodyCoveringType.NIPPLES, Util.newArrayListOfValues("nipples"));
@@ -680,7 +680,7 @@ public class SuccubisSecrets {
 					}
 				}
 			};
-			
+
 		} else if (index == 0) {
 			return new Response("Leave", "Leave Kate's shop, heading back out into the Shopping Arcade.", EXTERIOR){
 				@Override
@@ -690,17 +690,17 @@ public class SuccubisSecrets {
 					}
 				}
 			};
-			
+
 		} else {
 			return null;
 		}
 	}
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_HAIR = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getHeaderContent() {
-			
+
 			return "<p>"
 						+ "There's a large section near the front of the brochure which shows all the different hair colors that are on offer."
 						+ " A picture of a surprisingly energetic Kate is located in the bottom-right of the double-page spread."
@@ -709,7 +709,7 @@ public class SuccubisSecrets {
 					+ "</p>"
 					+ "<p>"
 						+ "Just beneath this, a small paragraph informs you that Kate uses a special arcane power to change her client's hair coloring."
-						+ " It seems to be trying to emphasise the fact that this isn't a temporary dye, and will permanently change your natural coloring."
+						+ " It seems to be trying to emphasize the fact that this isn't a temporary dye, and will permanently change your natural coloring."
 					+ "</p>"
 					+ "<h6 style='text-align:center;'>"
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
@@ -717,22 +717,22 @@ public class SuccubisSecrets {
 					+CharacterModificationUtils.getKatesDivHairLengths(true, "Hair Length", "Hair length determines what hair styles you're able to have. The longer the hair, the more styles are available.")
 
 					+CharacterModificationUtils.getKatesDivHairStyles(true, "Hair Style", "Hair style availability is determined by your hair length.")
-					
+
 					+CharacterModificationUtils.getKatesDivCoveringsNew(true, Main.game.getPlayer().getCovering(Main.game.getPlayer().getHairCovering()).getType(),
 							"[pc.Hair] Color", "All hair recolorings are permanent, so if you want to change your color again at a later time, you'll have to visit Kate again.", true, true)
 					;
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
 		}
-		
+
 		@Override
 		public boolean reloadOnRestore() {
 			return true;
@@ -750,33 +750,33 @@ public class SuccubisSecrets {
 								+ "<h6 style='text-align:center;'>"
 									+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 								+ "</h6>");
-			
+
 			for(Entry<BodyCoveringType, List<String>> entry : CoveringsNamesMap.entrySet()){
 				BodyCoveringType bct = entry.getKey();
-				
+
 				String title = Util.capitalizeSentence(bct.getName(Main.game.getPlayer()));
 				String description = "This is the "+bct.getName(Main.game.getPlayer())+" that's currently covering your "+Util.stringsToStringList(entry.getValue(), false)+".";
-				
+
 				if(bct == BodyCoveringType.SLIME) {
 					title = "Slime";
 					description = "Your entire body is made of slime!";
-					
+
 				} else if(bct == BodyCoveringType.ANUS) {
 					title = "Anus";
 					description = "This is the skin that's currently covering your anal rim. The secondary color determines what your anus's inner-walls look like.";
-					
+
 				} else if(bct == BodyCoveringType.VAGINA) {
 					title = "Vagina";
 					description = "This is the skin that's currently covering your labia. The secondary color determines what your vagina's inner-walls look like.";
-					
+
 				} else if(bct == BodyCoveringType.PENIS) {
 					title = "Penis";
 					description = "This is the skin that's currently covering your penis. The secondary color determines what the inside of your urethra looks like (if it's fuckable).";
-					
+
 				} else if(bct == BodyCoveringType.NIPPLES) {
 					title = "Nipples";
 					description = "This is the skin that's currently covering your nipples and areolae. The secondary color determines what your nipples' inner-walls look like (if they are fuckable).";
-					
+
 				} else if(bct == BodyCoveringType.MOUTH) {
 					title = "Lips & Throat";
 					if(Main.game.getPlayer().getFaceType() == FaceType.HARPY) {
@@ -784,57 +784,57 @@ public class SuccubisSecrets {
 					} else {
 						description = "This is the skin that's currently covering your lips. The secondary color determines what the insides of your mouth and throat look like.";
 					}
-					
+
 				} else if(bct == BodyCoveringType.TONGUE) {
 					title = "Tongue";
 					description = "This is the skin that's currently covering your tongue.";
-				
+
 				} else if(Main.getProperties().hasValue(PropertyValue.pubicHairContent) && bct == Main.game.getPlayer().getPubicHairType().getType()) {
 					title = "Pubic "+bct.getName(Main.game.getPlayer());
 					description = "This is the "+bct.getName(Main.game.getPlayer())+" that's currently "+Util.stringsToStringList(entry.getValue(), false)+".";
-					
+
 				} else if(Main.getProperties().hasValue(PropertyValue.facialHairContent) && bct == Main.game.getPlayer().getFacialHairType().getType()) {
 					title = "Facial "+bct.getName(Main.game.getPlayer());
 					description = "This is the "+bct.getName(Main.game.getPlayer())+" that's currently "+Util.stringsToStringList(entry.getValue(), false)+".";
-					
+
 				} else if(Main.getProperties().hasValue(PropertyValue.bodyHairContent) && bct == Main.game.getPlayer().getBodyHairCoveringType()) {
 					title = "Body "+bct.getName(Main.game.getPlayer());
 					description = "This is the "+bct.getName(Main.game.getPlayer())+" that's currently "+Util.stringsToStringList(entry.getValue(), false)+".";
 				}
-					
+
 				UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivCoveringsNew(
-						true, 
+						true,
 						bct,
 						title,
 						description,
 						true,
 						true));
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
 		}
-		
+
 		@Override
 		public boolean reloadOnRestore() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_EYES = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getHeaderContent() {
-			
+
 
 			return "<p>"
 						+ "There's a page near the front of the brochure which displays all the different eye colorings that Kate has on offer."
@@ -852,28 +852,28 @@ public class SuccubisSecrets {
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.EYE_SCLERA, "Sclerae", "The sclera is the (typically white) part of the eye that surrounds the iris.", true, true);
 		}
-		
+
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
 		}
-		
+
 		@Override
 		public boolean reloadOnRestore() {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_PIERCINGS = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getHeaderContent() {
-			
+
 			return "<p>"
 					+ "You ask Kate about the different piercings she's able to apply and remove, and, after sleepily responding that she's capable of anything, you wonder if you should take advantage of this opportunity to change your piercings..."
 				+ "</p>"
@@ -883,26 +883,26 @@ public class SuccubisSecrets {
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.EAR, "Ear Piercing", "Ears are the most common area of the body that are pierced, and enable the equipping of earrings and other ear-related jewelry.")
 
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NOSE, "Nose Piercing", "Having a nose piercing allows you to equip jewelry such as nose rings or studs.")
-				
+
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.LIP, "Lip Piercing", "Lip piercings allow you to wear lip rings.")
-				
+
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NAVEL, "Navel Piercing", "Getting your navel (belly button) pierced allows you to equip navel-related jewelry.")
-				
+
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.TONGUE, "Tongue Piercing", "Getting a tongue piercing will allow you to equip tongue bars.")
-				
+
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.NIPPLE, "Nipple Piercing", "Nipple piercings will allow you to equip nipple bars.")
-				
+
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.PENIS, "Penis Piercing", "Having a penis piercing will allow you to equip penis-related jewelry.")
-				
+
 				+CharacterModificationUtils.getKatesDivPiercings(PiercingType.VAGINA, "Vagina Piercing", "Having a vagina piercing will allow you to equip vagina-related jewelry.");
-		
+
 		}
 
 		@Override
 		public String getContent() {
 			return "";
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
@@ -913,9 +913,9 @@ public class SuccubisSecrets {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_OTHER = new DialogueNode("", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return "Cosmetics";
@@ -924,7 +924,7 @@ public class SuccubisSecrets {
 		@Override
 		public String getHeaderContent() {
 			UtilText.nodeContentSB.setLength(0);
-			
+
 			UtilText.nodeContentSB.append("<p>"
 						+ "Kate also offers some other miscellaneous services, such as anal bleaching and body hair coloring."
 					+ "</p>"
@@ -937,25 +937,25 @@ public class SuccubisSecrets {
 //							?CharacterModificationUtils.getKatesDivCoveringsNew(
 //									true, Main.game.getPlayer().getBodyHairCoveringType(), "Body hair", "This is the hair that covers all areas other than the head.", true, true)
 //							:"")
-					
+
 					+(Main.game.isFacialHairEnabled()
-							? CharacterModificationUtils.getKatesDivFacialHair("Facial hair", "The body hair found on your face." 
+							? CharacterModificationUtils.getKatesDivFacialHair("Facial hair", "The body hair found on your face."
 									+ (Main.game.isFemaleFacialHairEnabled() ? "" : " Feminine characters cannot grow facial hair."))
 							:"")
-					
+
 					+(Main.game.isPubicHairEnabled()
 							?CharacterModificationUtils.getKatesDivPubicHair("Pubic hair", "The body hair found in the genital area; located on and around your sex organs and crotch.")
 							:"")
-					
+
 					+(Main.game.isBodyHairEnabled()
 							?CharacterModificationUtils.getKatesDivUnderarmHair("Underarm hair", "The body hair found in your armpits.")
 							:"")
-					
+
 					+(Main.game.isAssHairEnabled()
 							?CharacterModificationUtils.getKatesDivAssHair("Ass hair", "The body hair found around your asshole.")
 							:"")
 					);
-			
+
 			for(BodyCoveringType bct : BodyCoveringType.values()) {
 				if((Main.game.isFacialHairEnabled() && Main.game.getPlayer().getFacialHairType().getType()==bct)
 						|| (Main.game.isBodyHairEnabled() && Main.game.getPlayer().getUnderarmHairType().getType()==bct)
@@ -963,19 +963,19 @@ public class SuccubisSecrets {
 						|| (Main.game.isPubicHairEnabled() && Main.game.getPlayer().getPubicHairType().getType()==bct)) {
 					UtilText.nodeContentSB.append(CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, bct, "Body hair", "Your body hair.", true, true));
-					
+
 				}
 			}
-			
+
 			return UtilText.nodeContentSB.toString();
-			
+
 		}
 
 		@Override
 		public String getContent() {
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
@@ -986,9 +986,9 @@ public class SuccubisSecrets {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_COSMETICS = new DialogueNode("", "", true) {
-		
+
 		@Override
 		public String getLabel() {
 			return "Cosmetics";
@@ -996,7 +996,7 @@ public class SuccubisSecrets {
 
 		@Override
 		public String getHeaderContent() {
-			
+
 			return "<p>"
 						+ "You ask Kate about the different types of makeup she's able to apply, and, after reluctantly getting up out of her chair, she informs you that all of her cosmetics are enchanted to be permanent,"
 						+ " so if you want to remove or change them at a later time, you'll have to come back and use her services again. If you choose to set a cosmetic's color to 'None', then glow will also be removed."
@@ -1005,8 +1005,8 @@ public class SuccubisSecrets {
 						+ "You currently have "+UtilText.formatAsMoney(Main.game.getPlayer().getMoney(), "span")
 					+ "</h6>"
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
-							true, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to color the cheeks so as to provide a more youthful appearance, and to emphasise the cheekbones.", true, true)
-					
+							true, BodyCoveringType.MAKEUP_BLUSHER, "Blusher", "Blusher (also called rouge) is used to color the cheeks so as to provide a more youthful appearance, and to emphasize the cheekbones.", true, true)
+
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.MAKEUP_LIPSTICK, "Lipstick", "Lipstick is used to provide color, texture, and protection to the wearer's lips.", true, true)
 
@@ -1021,14 +1021,14 @@ public class SuccubisSecrets {
 
 					+CharacterModificationUtils.getKatesDivCoveringsNew(
 							true, BodyCoveringType.MAKEUP_NAIL_POLISH_FEET, "Toenail polish", "Toenail polish is used to color and protect the nails on your [pc.feet].", true, true);
-			
+
 		}
 
 		@Override
 		public String getContent() {
 			return null;
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			return getMainResponse(index);
@@ -1039,13 +1039,13 @@ public class SuccubisSecrets {
 			return true;
 		}
 	};
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_TATTOOS = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getContent() {
 			descriptionSB = new StringBuilder();
-			
+
 			descriptionSB.append("<p>"
 							+ "[kate.speech(So, you want a tattoo, huh?)]"
 							+ " Kate grins, exhibiting a rare sign of energy as she quickly sits upright in her chair."
@@ -1054,10 +1054,10 @@ public class SuccubisSecrets {
 							+ " Enchanting tattoos easily runs up into the tens of thousands, due to the very expensive refined essences that it requires. So, what'll it be?)]"
 						+ "</p>"
 						+CharacterModificationUtils.getKatesDivTattoos());
-			
+
 			return descriptionSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 8) {
@@ -1074,7 +1074,7 @@ public class SuccubisSecrets {
 									?"<span style='color:"+Color.GENERIC_GOOD.toWebHexString()+";'>ON</span>"
 									:"<span style='color:"+Color.GENERIC_BAD.toWebHexString()+";'>OFF</span>");
 					}
-					
+
 					@Override
 					public void effects() {
 						Main.getProperties().setValue(PropertyValue.tattooRemovalConfirmations, !Main.getProperties().hasValue(PropertyValue.tattooRemovalConfirmations));
@@ -1082,7 +1082,7 @@ public class SuccubisSecrets {
 					}
 				};
 			}
-			
+
 			return getMainResponse(index);
 		}
 
@@ -1091,37 +1091,37 @@ public class SuccubisSecrets {
 			return true;
 		}
 	};
-	
+
 	public static InventorySlot invSlotTattooToRemove = null;
-	
+
 	public static final DialogueNode SHOP_BEAUTY_SALON_TATTOOS_ADD = new DialogueNode("Succubi's Secrets", "-", true) {
 
 		@Override
 		public String getLabel() {
 			return "Succubi's Secrets - "+Util.capitalizeSentence(CharacterModificationUtils.tattooInventorySlot.getName()) +" Tattoo";
 		}
-		
+
 		@Override
 		public String getContent() {
 			descriptionSB = new StringBuilder();
-			
+
 			descriptionSB.append(CharacterModificationUtils.getKatesDivTattoosAdd());
-			
+
 			return descriptionSB.toString();
 		}
-		
+
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			int value = CharacterModificationUtils.tattoo.getValue();
 			if (index == 1) {
 				if(Main.game.getPlayer().getMoney()<value) {
 					return new Response("Apply ("+UtilText.formatAsMoneyUncolored(value, "span")+")", "You don't have enough money to get a tattoo!", null);
-					
+
 				} else if(CharacterModificationUtils.tattoo.getType().equals(TattooType.NONE)
 						&& CharacterModificationUtils.tattoo.getWriting().getText().isEmpty()
 						&& CharacterModificationUtils.tattoo.getCounter().getType()==TattooCounterType.NONE) {
 					return new Response("Apply ("+UtilText.formatAsMoneyUncolored(value, "span")+")", "You need to select a tattoo type, add some writing, or add a counter in order to make a tattoo!", null);
-					
+
 				} else {
 					return new Response("Apply ("+UtilText.formatAsMoney(value, "span")+")", "Tell Kate that you'd like her to give you this tattoo.", SHOP_BEAUTY_SALON_TATTOOS) {
 						@Override
@@ -1135,11 +1135,11 @@ public class SuccubisSecrets {
 						}
 					};
 				}
-			
+
 			} else if(index==0) {
 				return new Response("Back", "Decide not to get this tattoo and return to the main selection screen.", SHOP_BEAUTY_SALON_TATTOOS);
 			}
-			
+
 			return null;
 		}
 

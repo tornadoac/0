@@ -1,5 +1,4 @@
-﻿
-	Long hotkeys overflow on the world map
+﻿	Long hotkeys overflow on the world map
 	It isn't possible to use a hotkey with CTRL in it for map navigation as this will move the response selection cursor instead
 
 	--------
@@ -11,7 +10,7 @@
 
 	Perhaps adding a 'cute' element to responses under the different Talks to include hearts?
 
-	dnieing selfaction still has no effect :/
+	denying selfaction still has no effect :/
 
 	NPCs don't have pace change mechanic it seems. I am certain you'll work on that, just putting it out there.
 
@@ -128,7 +127,7 @@
 
 	(Possibly referring to brax) -> NPC also refuse feminization potion still, despite being available and noted as usable in sex, they never work
 
-	Futa enemy -> im stroking her penis -> she says: "go on keep using your fingers"
+	Futa enemy -> i'm stroking her penis -> she says: "go on keep using your fingers"
 
 	The only thing allowed to be done at the Lab are "tests"
 		somehow the options magically appeared because I got a birthing notice

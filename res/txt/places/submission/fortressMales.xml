@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dialogue>
-	
+
 	<!-- COURTYARD -->
-	
+
 	<htmlContent tag="COURTYARD"><![CDATA[
 	<p>
-		Separating the gateway from the fortress's wooden keep, there's a deserted courtyard, which has a very militarized feel to it. Numerous straw dummies are lined up in front of the far-side wall, with all but one missing a limb or two. 
+		Separating the gateway from the fortress's wooden keep, there's a deserted courtyard, which has a very militarized feel to it. Numerous straw dummies are lined up in front of the far-side wall, with all but one missing a limb or two.
 		#IF pc.hasTraitActivated(PERK_OBSERVANT)
 		#THEN
 		 Thanks to your observant nature, you're able to pick up on the fact that the damage they've sustained looks to have been caused by a bladed weapon, and, lacking any obvious burn, freeze, or corrosive marks, you deduce that the one practicing their sword-work has a blade that deals physical damage.
@@ -17,20 +17,20 @@
 		Over in one corner of the courtyard, a row of archery targets have been set up; their bright rings add a splash of color to the otherwise drab and grey surroundings. Although there are no stray arrows in sight, the conspicuous burn marks scarring their surface inform you that they must, at one time, have seen regular use as a focal point for arcane archery practice.
 	</p>
 	<p>
-		In the opposite corner to these targets, sits the main keep. Being of significantly better construction than the perimeter wall, you find yourself thinking that the leader of this fortress must have put all of their construction efforts into making this structure as presentable as possible. With the framework made primarily out of dark wooden boards, and the areas in-between covered with very oriental-looking paper sheeting, this solitary building strongly reminds you of Japanese architecture. 
+		In the opposite corner to these targets, sits the main keep. Being of significantly better construction than the perimeter wall, you find yourself thinking that the leader of this fortress must have put all of their construction efforts into making this structure as presentable as possible. With the framework made primarily out of dark wooden boards, and the areas in-between covered with very oriental-looking paper sheeting, this solitary building strongly reminds you of Japanese architecture.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="IMP_FORTRESS_FLY_EXIT"><![CDATA[
 	<p>
 		While the perimeter wall's hazardous construction prohibits anyone from climbing over it, there's nothing stopping you from utilizing your ability to fly in order to get to the other side. Breaking out into a short sprint, you quickly launch yourself into the air, before flying over the defensive barrier and swooping back down to land on the floor of the cavern beyond.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP -->
-	
+
 	<htmlContent tag="KEEP"><![CDATA[
 	<p>
 		Thanks to the builders' liberal use of translucent paper in place of solid walls, the keep's arcane lighting is able to shine out to cast a pale golden glow on the floor and walls of the fortress's courtyard.
@@ -43,7 +43,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_DEFEATED"><![CDATA[
 	<p>
 		Having defeated [impMaleLeader.name], the [impMaleLeader.race] who led the imp gangs roaming the surrounding tunnels, [impMaleLeader.her] keep is now completely deserted. The sliding doors before you have been left wide open, and, taking a cursory glance inside, you see that there's absolutely nothing within that would be of interest to you. There's nothing more to do here except turn around and go back the way you came...
@@ -58,7 +58,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED"><![CDATA[
 	<p>
 		Thanks to the builders' liberal use of translucent paper in place of solid walls, the keep's arcane lighting is able to shine out to cast a pale golden glow on the floor and walls of the fortress's courtyard.
@@ -71,9 +71,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_ENTRY -->
-	
+
 	<htmlContent tag="KEEP_ENTRY"><![CDATA[
 	<p>
 		Stepping up to the keep's paper doors, you're pleased to discover that there's no way to lock them, and, sliding them aside, you step forwards into the building. You see that the interior of the structure is one big open hall, with the polished, perfectly-level wooden flooring broken only by a series of dark, carved wooden beams which run around the edge of the room and hold up the ceiling. Numerous arcane-powered lanterns are fixed to these pillars, which cast a light golden glow over the curious display in the middle of the room.
@@ -89,7 +89,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_RETURN"><![CDATA[
 	<p>
 		Once again sliding the keep's paper doors aside, you step forwards into the building. The hall beyond appears much as it did the last time you were here, with the many pillar-mounted arcane lanterns casting a soft golden glow over both the polished, perfectly-level wooden flooring, as well as the bamboo 'test cutting' setup in the middle of the room.
@@ -102,38 +102,38 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED"><![CDATA[
 	<p>
 		Once again sliding the keep's paper doors aside, you step forwards into the building. The hall beyond appears much as it did the last time you were here, with the many pillar-mounted arcane lanterns casting a soft golden glow over both the polished, perfectly-level wooden flooring, as well as the familiar bamboo setup in the middle of the room.
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_BREEDING"><![CDATA[
 	<p>
 		In the very center of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! And with a flat stomach! Good! I was just thinking that I need a break, so come over here and let me put some imps in that belly of yours!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_PACIFIED_DEMAND_IMPS"><![CDATA[
 	<p>
 		In the very center of the hall, you spot the familiar occupants of [npc.namePos] dojo gathered around the bamboo poles. The [npc.race] [npc.himself] is the first to notice your arrival, and, sheathing his sword and placing his hands on his hips, he booms, [npc.speech(Back again, hmm?! But it looks like you're not one to be bred... Damn! Well, I was just thinking that I need a break anyway, so come over here and entertain my imps while I rest!)]
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_LEAVE"><![CDATA[
 	<p>
-		Not wanting to have sex right now, you quickly blurt out, [pc.speech(Ah, sorry, [npc.name], I was just checking everything was ok. I've got to go now!)]
+		Not wanting to have sex right now, you quickly blurt out, [pc.speech(Ah, sorry, [npc.name], I was just checking everything was OK. I've got to go now!)]
 	</p>
 	<p>
 		Ignoring the booming admonishment that's shouted after you in response, you quickly turn your back on [npc.name] and [npc.her] imps, and make haste as you exit [npc.her] dojo...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX"><![CDATA[
 	<p>
 		Obediently doing as you're told, you hurry over to where [npc.name] is standing, and drop down onto your knees before [npc.herHim]. Smirking down at you, the [npc.race] raises [npc.her] voice so that [npc.she] can be heard over the gleeful chatter coming from [npc.her] imp guards, and commands, [npc.speech(So, you know your place! Good! Now, on your back. Let's get you bred.)]
@@ -149,7 +149,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_PACIFIED_REPEAT_SEX_IMPS"><![CDATA[
 	<p>
 		Obediently doing as you're told, you hurry over to where [npc.name] is standing, and drop down onto your knees before [npc.herHim]. Smirking down at you, the [npc.race] raises [npc.her] voice so that [npc.she] can be heard over the gleeful chatter coming from [npc.her] imp guards, and commands, [npc.speech(So, you know your place! Good! Now, on your back, and do your best to satisfy my guards.)]
@@ -165,7 +165,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX"><![CDATA[
 	<p>
 		The prospect of having to fight such a fearsome opponent is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
@@ -180,11 +180,11 @@
 		[npc.speech(That's right!)] [npc.Name] bellows, before dropping to [npc.her] knees before you and firmly pushing you down onto your back. [npc.speech(For one such as you, the only suitable punishment is having your belly filled with imps!)]
 	</p>
 	<p>
-		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to fuck you in the missionary position...  
+		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to fuck you in the missionary position...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_ENTRY_OFFER_SEX_IMPS"><![CDATA[
 	<p>
 		The prospect of having to fight such a fearsome opponent is too much for you to handle, and you hold up your [pc.hands] as you cry out, [pc.speech(W-Wait! There's no need for violence!)]
@@ -206,9 +206,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_MALES_TAMESHIGIRI -->
-	
+
 	<htmlContent tag="KEEP_MALES_TAMESHIGIRI_MAIN"><![CDATA[
 	<p>
 		Sensing an opportunity to intimidate this [npc.race] into submission, you grip your weapon as you step forwards and issue your challenge, [pc.speech(Your blades are no match for my [pc.mainWeapon], and it would be a disgrace for me to have to fight someone with such puny swords. Stand aside, and I'll demonstrate this on those bamboo poles for you.)]
@@ -230,7 +230,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_MALES_TAMESHIGIRI_OFFHAND"><![CDATA[
 	<p>
 		Sensing an opportunity to intimidate this [npc.race] into submission, you grip your weapon as you step forwards and issue your challenge, [pc.speech(Your blades are no match for my [pc.secondaryWeapon], and it would be a disgrace for me to have to fight someone with such puny swords. Stand aside, and I'll demonstrate this on those bamboo poles for you.)]
@@ -252,7 +252,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_MALES_TAMESHIGIRI_KEY"><![CDATA[
 	<p>
 		[npc.speech(I-Impossible...)] [npc.name] stutters, [npc.her] voice lowering to the volume of a regular person for the first time since you entered [npc.her] dojo. Shaking [npc.her] head, [npc.she] clears [npc.her] throat and scowls angrily at you, before shouting, [npc.speech(That was some kind of trick! It won't work on my blade, fool!)]
@@ -277,7 +277,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_MALES_TAMESHIGIRI_DEFEATED"><![CDATA[
 	<p>
 		Having once again proven yourself to [npc.name], you ask [npc.herHim], [pc.speech(Why did you come back? I told you to stay away from here!)]
@@ -296,7 +296,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_MALES_TAMESHIGIRI_DEFEATED_DS_DEALT_WITH"><![CDATA[
 	<p>
 		Having once again proven yourself to [npc.name], you ask [npc.herHim], [pc.speech(Why did you come back? I've already dealt with your leader, and I told you to stay away from here!)]
@@ -315,7 +315,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_MALES_TAMESHIGIRI_ALLOW_TO_LEAVE"><![CDATA[
 	<p>
 		Seeing no reason to fight [npc.name], you lower your weapon and command, [pc.speech(Go on then, get out of here! And don't come back!)]
@@ -328,9 +328,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_TALK -->
-	
+
 	<htmlContent tag="KEEP_AUDIENCE"><![CDATA[
 	<p>
 		[pc.speech(Wait, there's no need for violence,)] you say, holding up your [pc.hands]. [pc.speech(I just have some questions about the demon calling herself 'The Dark Siren'.)]
@@ -343,7 +343,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_BREEDING"><![CDATA[
 	<p>
 		A grin breaks out across [npc.namePos] face as [npc.she] hears what it is you're after. With [npc.her] gaze hungrily roaming up and down over your body, [npc.she] offers [npc.her] terms, [npc.speech(Well, I haven't had the opportunity to breed [pc.a_race] as fine as you in a good long while, so you let me fill your belly with imps, and then I'll give you my help in getting to meet with our boss.)]
@@ -356,7 +356,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_IMPS"><![CDATA[
 	<p>
 		A grin breaks out across [npc.namePos] face as [npc.she] hears what it is you're after. Dismissively tutting as [npc.she] sizes you up, [npc.she] offers [npc.her] terms, [npc.speech(Well, I would have liked to have fathered more imps with you, but as that's not possible, I think surrendering your body to satisfy my guards would be a suitable offer. You let them fuck you, and I'll give you my help in getting to meet with our boss.)]
@@ -369,10 +369,10 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX"><![CDATA[
 	<p>
-		Deciding to do as [npc.name] asks, you sigh, [pc.speech(Ok, I'll do it.)]
+		Deciding to do as [npc.name] asks, you sigh, [pc.speech(OK, I'll do it.)]
 	</p>
 	<p>
 		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] hears your reply. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(Excellent! Now surrender your womb to me!)]
@@ -384,14 +384,14 @@
 		[npc.speech(That's what I like to hear!)] [npc.Name] bellows, before dropping to [npc.her] knees before you and firmly pushing you down onto your back. [npc.speech(Now, let's get started!)]
 	</p>
 	<p>
-		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to fuck you in the missionary position...  
+		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to fuck you in the missionary position...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AUDIENCE_SEX_IMPS"><![CDATA[
 	<p>
-		Deciding to do as [npc.name] asks, you sigh, [pc.speech(Ok, I'll do it.)]
+		Deciding to do as [npc.name] asks, you sigh, [pc.speech(OK, I'll do it.)]
 	</p>
 	<p>
 		[npc.Name] releases [npc.her] grip on [npc.her] katana as [npc.she] hears your reply. Striding forwards and coming to a halt right in front of you, [npc.she] reaches out to grab you by the shoulders, and, before you can react, [npc.she] pushes you down onto your knees, before booming, [npc.speech(Excellent! Now make sure to satisfy all three of them!)]
@@ -410,9 +410,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_AUDIENCE -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE"><![CDATA[
 	<p>
 		[npc.speech(Good enough, I suppose,)] [npc.name] says, smirking down at you as you pant and sigh on the floor. [npc.speech(A deal's a deal, and I'm sure our boss won't mind meeting someone as submissive as you.)]
@@ -425,9 +425,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_JOINING_GAIN_KEY -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_AUDIENCE_KEY"><![CDATA[
 	<p>
 		Taking the key, you thank [npc.name] and turn to leave. As you're heading towards the sliding doors, the [npc.race] calls after you, [npc.speech(Come back when you're ready to be knocked up!)]
@@ -437,9 +437,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_COMBAT_VICTORY -->
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY_KEY"><![CDATA[
 	<p>
 		You let out a relived sigh as [npc.name] and [npc.her] guards slump down onto the floor before you, defeated. Stepping forwards, you look down at the [npc.race] and ask, [pc.speech(Why do you do this? Getting all those imps to attack people in Submission, I mean.)]
@@ -455,7 +455,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY"><![CDATA[
 	<p>
 		You let out a relived sigh as [npc.name] and [npc.her] guards slump down onto the floor before you, defeated. Stepping forwards, you look down at the [npc.race] and ask, [pc.speech(Why did you come back? I told you to stay away from here!)]
@@ -471,7 +471,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY_DS_DEFEATED"><![CDATA[
 	<p>
 		You let out a relived sigh as [npc.name] and [npc.her] guards slump down onto the floor before you, defeated. Stepping forwards, you look down at the [npc.race] and ask, [pc.speech(Why did you come back? I told you to stay away from here!)]
@@ -487,7 +487,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_VICTORY_SCARE_OFF"><![CDATA[
 	<p>
 		Having dealt with [npc.name], and not wanting to go any further, you stand before [npc.herHim] and [npc.her] imps and declare, [pc.speech(Go on then, get out of here, all of you! And don't come back!)]
@@ -500,7 +500,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc.name] and [npc.her] imps before you let them go, you reach down and start moving them into position. As you do this, the [npc.race] lets out a surprisingly erotic groan, before thrusting [npc.her] [npc.hips] towards you. [npc.speech(Come on then, ride my cock!)]
@@ -513,7 +513,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_GENTLE"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc.name] and [npc.her] imps before you let them go, you reach down and start gently moving them into position. As you do this, the [npc.race] lets out a surprisingly erotic groan, before thrusting [npc.her] [npc.hips] towards you. [npc.speech(Come on then, ride my cock!)]
@@ -526,7 +526,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_ROUGH"><![CDATA[
 	<p>
 		Wanting to have a little fun with [npc.name] and [npc.her] imps before you let them go, you reach down and start roughly forcing them into position. As you do this, the [npc.race] lets out a surprisingly erotic groan, before thrusting [npc.her] [npc.hips] towards you. [npc.speech(Come on then, ride my cock!)]
@@ -539,13 +539,13 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
-		Feeling sorry for [npc.name] and [npc.her] imps, you bend down next to [npc.herHim] and ask, [pc.speech(Are you ok? Sorry, I think I went a little too far...)]
+		Feeling sorry for [npc.name] and [npc.her] imps, you bend down next to [npc.herHim] and ask, [pc.speech(Are you OK? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not ok! Now help me up!)]
+		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not OK! Now help me up!)]
 	</p>
 	<p>
 		Submissively doing as you're told, you assist [npc.name] as [npc.she] pushes [npc.herself] to [npc.her] feet. Refusing to let go of your wrists, [npc.she] suddenly yanks you forwards, pressing you tightly against [npc.herHim] as [npc.she] growls, [npc.speech(So, how are you going to apologize for what you did?!)]
@@ -563,17 +563,17 @@
 		[npc.speech(That's right!)] [npc.Name] bellows, before dropping to [npc.her] knees before you and firmly pushing you down onto your back. [npc.speech(For one such as you, the only suitable punishment for what you've done is to have your belly filled with imps!)]
 	</p>
 	<p>
-		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to fuck you in the missionary position...  
+		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to fuck you in the missionary position...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_COMBAT_VICTORY_SEX_SUBMIT_IMPS"><![CDATA[
 	<p>
-		Feeling sorry for [npc.name] and [npc.her] imps, you bend down next to [npc.herHim] and ask, [pc.speech(Are you ok? Sorry, I think I went a little too far...)]
+		Feeling sorry for [npc.name] and [npc.her] imps, you bend down next to [npc.herHim] and ask, [pc.speech(Are you OK? Sorry, I think I went a little too far...)]
 	</p>
 	<p>
-		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not ok! Now help me up!)]
+		[npc.NamePos] defeated expression quickly shifts into a hungry grin as [npc.she] realizes that you're going to be easy to take advantage of. Grabbing hold of your wrists, [npc.she] booms, [npc.speech(No, I'm not OK! Now help me up!)]
 	</p>
 	<p>
 		Submissively doing as you're told, you assist [npc.name] as [npc.she] pushes [npc.herself] to [npc.her] feet. Refusing to let go of your wrists, [npc.she] suddenly yanks you forwards, pressing you tightly against [npc.herHim] as [npc.she] growls, [npc.speech(So, how are you going to apologize for what you did?!)]
@@ -592,9 +592,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_COMBAT_DEFEAT -->
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_BREEDING"><![CDATA[
 	<p>
 		[npc2.Name] lets out a triumphant bellow as [npc2.she] watches you fall to the floor, defeated. With a hungry tone in [npc.her] voice, [npc.she] steps forwards and booms, [npc.speech(I think it's time for your punishment!)]
@@ -603,11 +603,11 @@
 		Looking up and letting out a startled groan, you see the [npc.race] rubbing the thick bulge in [npc.her] hakama. As your eyes open wide, [npc.she] drops to [npc.her] knees before you and firmly pushes you down onto your back. [npc.speech(You'll be the mother to a big brood of imps soon enough!)]
 	</p>
 	<p>
-		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to breed you in the missionary position...  
+		Taking hold of your [pc.legs], [npc.name] starts to push them apart, getting ready to breed you in the missionary position...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_IMPS"><![CDATA[
 	<p>
 		[npc.Name] lets out a triumphant bellow as [npc.she] watches you fall to the floor, defeated. [npc.Her] attitude soon changes, however, and [npc.she] dismissively tuts as [npc.she] sizes you up, before sighing, [npc.speech(Well, I would have liked to have fathered more imps with you as your punishment, but that's not possible. I think having my guards use your body is a suitable substitute. So go on, you three, have your fun with [pc.herHim]!)]
@@ -617,7 +617,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX"><![CDATA[
 	<p>
 		Submissively allowing [npc.name] to spread your [pc.legs], you can't help but let out a small [pc.moan] as you realize that you're about to be bred by this strong, dominant [npc.race].
@@ -626,11 +626,11 @@
 		[npc.speech(Eager to get knocked up, are you?)] [npc.name] laughs, before shuffling forwards and bumping [npc.her] bulge against your groin. [npc.speech(I'll have you know that my seed's extra virile, so you're all but guaranteed to get pregnant from this!)]
 	</p>
 	<p>
-		Letting out yet another [pc.moan] as you hear [npc.herHim] say that, you prepare to be made into a mother by [npc.name]...  
+		Letting out yet another [pc.moan] as you hear [npc.herHim] say that, you prepare to be made into a mother by [npc.name]...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_EAGER"><![CDATA[
 	<p>
 		Submissively spreading your [pc.legs] for [npc.name], you can't help but let out a desperate [pc.moan] as you realize that you're about to be bred by this strong, dominant [npc.race]. [pc.speech(Oh, yes! Come on, breed me!)]
@@ -639,11 +639,11 @@
 		[npc.speech(My, my, so eager to get knocked up!)] [npc.name] laughs, before shuffling forwards and bumping [npc.her] bulge against your groin. [npc.speech(In that case, I'm sure you'll be pleased to hear that my seed's extra virile, so you're all but guaranteed to get pregnant from this!)]
 	</p>
 	<p>
-		Letting out yet another lustful [pc.moan] as you hear [npc.herHim] say that, you eagerly anticipate being made into a mother by [npc.name]...  
+		Letting out yet another lustful [pc.moan] as you hear [npc.herHim] say that, you eagerly anticipate being made into a mother by [npc.name]...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_RESIST"><![CDATA[
 	<p>
 		You frantically try to close your [pc.legs], but [npc.name] is far too strong, and easily manages to force them open. Realizing that you're about to be bred by this strong, dominant [npc.race], you let out a frantic scream, before trying to shuffle away from [npc.herHim].
@@ -652,11 +652,11 @@
 		[npc.speech(Not liking the idea of being knocked up, eh?)] [npc.name] laughs, before shuffling forwards and bumping [npc.her] bulge against your groin. [npc.speech(Well, you should have thought about that before barging in here uninvited! I'll have you know that my seed's extra virile, so you're all but guaranteed to get pregnant from this!)]
 	</p>
 	<p>
-		Letting out yet another desperate wail as you hear [npc.herHim] say that, you do your best to resist being made into a mother by [npc.name]...  
+		Letting out yet another desperate wail as you hear [npc.herHim] say that, you do your best to resist being made into a mother by [npc.name]...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, before quickly surrounding you and starting to grope and squeeze your body. [npc.Name] lets out a booming laugh, before stepping back and making sure that [npc.her] horny imps are enough to handle you. Before you can react to what's going on, two of the imps suddenly push you down onto your back, with the third stepping up between your [pc.legs] and chuckling, [npc2.speech(Mmm, yeah, you're gonna love my cock!)]
@@ -666,7 +666,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_EAGER"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, before quickly surrounding you and starting to grope and squeeze your body. [npc.Name] lets out a booming laugh, before stepping back and making sure that [npc.her] horny imps are enough to handle you. Before you can react to what's going on, two of the imps suddenly push you down onto your back, with the third stepping up between your [pc.legs] and chuckling, [npc2.speech(Mmm, yeah, you're gonna love my cock!)]
@@ -676,7 +676,7 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_COMBAT_DEFEAT_SEX_IMPS_RESIST"><![CDATA[
 	<p>
 		The three alpha-imps move forwards, before quickly surrounding you and starting to grope and squeeze your body. [npc.Name] lets out a booming laugh, before stepping back and making sure that [npc.her] horny imps are enough to handle you. Before you can react to what's going on, two of the imps suddenly push you down onto your back, with the third stepping up between your [pc.legs] and chuckling, [npc2.speech(Mmm, yeah, you're gonna love my cock!)]
@@ -686,9 +686,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_PACIFIED -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_PACIFIED"><![CDATA[
 	<p>
 		You collapse to the floor, and with a satisfied [pc.moan], you look up to see [npc.name] smiling down at you.
@@ -701,19 +701,19 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_VICTORY -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_VICTORY"><![CDATA[
 	<p>
 		[npc.Name] and [npc.her] imps collapse to the floor, utterly exhausted. Quickly getting your things in order, you can't help but smile as you hear the [npc.race] panting, [npc.speech(Oh... Fuck...)]
-	</p>	
+	</p>
 	<p>
 		Grinning down at the worn out gang, you wonder if you should tell them to get out of here right away, or perhaps you could first take this opportunity to confiscate their belongs...
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_VICTORY_SCARE_OFF"><![CDATA[
 	<p>
 		[pc.speech(Get out of here, all of you! And don't come back!)] you order, smirking down at the gang.
@@ -726,9 +726,9 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 	<!-- KEEP_AFTER_SEX_DEFEAT -->
-	
+
 	<htmlContent tag="KEEP_AFTER_SEX_DEFEAT"><![CDATA[
 	#IF impMaleLeader.isAbleToEquipDildo(pc)
 	#THEN
@@ -760,7 +760,7 @@
 			</p>
 		#ELSE
 			<p>
-				Having finished with you, [npc.name] then stands up, before dismissively shooing you away with one hand. [npc.speech(Come back once your pregnancy is over, and I'll knock you up all over again. Don't get that dildo removed too soon, ok?!)]
+				Having finished with you, [npc.name] then stands up, before dismissively shooing you away with one hand. [npc.speech(Come back once your pregnancy is over, and I'll knock you up all over again. Don't get that dildo removed too soon, OK?!)]
 			</p>
 		#ENDIF
 	#ELSE
@@ -795,5 +795,5 @@
 	</p>
 	]]>
 	</htmlContent>
-	
+
 </dialogue>

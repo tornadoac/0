@@ -8,7 +8,7 @@ package com.lilithsthrone.utils;
 public class CreditsSlot {
 
 	private String name, tagLine;
-	
+
 	private int uncommonCount, rareCount, epicCount, legendaryCount;
 
 	public CreditsSlot(String name, String tagLine, int uncommonCount, int rareCount, int epicCount, int legendaryCount) {
@@ -44,5 +44,4 @@ public class CreditsSlot {
 	public int getLegendaryCount() {
 		return legendaryCount;
 	}
-	
 }

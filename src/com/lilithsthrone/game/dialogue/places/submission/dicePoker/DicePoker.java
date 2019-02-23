@@ -605,7 +605,7 @@ public class DicePoker {
 						null),
 						END_LOSS_SEX,
 						UtilText.parse(gambler,"<p>"
-							+ "[pc.speech(Ok...)] you reply. [pc.speech(You can use me however you like...)]"
+							+ "[pc.speech(OK...)] you reply. [pc.speech(You can use me however you like...)]"
 						+ "</p>"
 						+ "<p>"
 							+ "[npc.Name] lets out a lustful [npc.moan], before stepping forwards and wrapping [npc.her] [npc.arms] around your back."

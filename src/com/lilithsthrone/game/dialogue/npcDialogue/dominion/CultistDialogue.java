@@ -30,7 +30,7 @@ import com.lilithsthrone.utils.Util.Value;
  * @author Innoxia
  */
 public class CultistDialogue {
-	
+
 	public static final DialogueNode ENCOUNTER_START = new DialogueNode("A Witch Appears!", "", true) {
 
 		@Override
@@ -84,7 +84,7 @@ public class CultistDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else if(index==2) {
 				return new Response("Chapel", "Do as the cultist asks and follow her down a nearby back-alley. What could possibly go wrong?", ENCOUNTER_CHAPEL) {
 					@Override
@@ -93,13 +93,13 @@ public class CultistDialogue {
 						Main.game.getActiveNPC().displaceClothingForAccess(CoverableArea.PENIS);
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL = new DialogueNode("The Witch's Chapel", "", true) {
 
 		@Override
@@ -147,7 +147,7 @@ public class CultistDialogue {
 				return new ResponseCombat("Fight", "You're left with no choice but to fight!", Main.game.getActiveNPC(), Util.newHashMapOfValues(
 						new Value<>(Main.game.getPlayer(), "You tell the succubus that you're not interested, and just as you expected, she moves to attack!"),
 						new Value<>(Main.game.getActiveNPC(), "[npc.Name] readies her broomstick and shouts, [npc.speech(How <i>dare</i> you try to refuse my gift! I'll give it to you by force!)]")));
-				
+
 			} else if(index==2) {
 				return new ResponseSex("Accept", "Drop to your knees and prepare to service her orally.",
 						true, true,
@@ -180,19 +180,19 @@ public class CultistDialogue {
 					@Override
 					public void effects() {
 						((Cultist)Main.game.getActiveNPC()).setSealedSex(false);
-						
+
 						// Remove jinxes so that player can get access to mouth:
 						if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.MOUTH, true)) {
 							AbstractClothing clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.MOUTH, true);
 							while (clothing != null) {
 								clothing.setSealed(false);
-								
+
 								clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.MOUTH, true);
 							}
 						}
 					}
 				};
-				
+
 			} else if(index == 3) {
 				if(Main.game.getPlayer().hasVagina()) {
 					return new ResponseSex("Offer Pussy", "Offer [npc.name] your pussy instead.", Util.newArrayListOfValues(Fetish.FETISH_PREGNANCY),
@@ -227,7 +227,7 @@ public class CultistDialogue {
 						public void effects() {
 							((Cultist)Main.game.getActiveNPC()).setSealedSex(false);
 							((Cultist)Main.game.getActiveNPC()).setRequestedAnal(false);
-							
+
 							// Remove jinxes so that player can get access to vagina:
 							if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
 								AbstractClothing clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.VAGINA, true);
@@ -239,11 +239,11 @@ public class CultistDialogue {
 							}
 						}
 					};
-					
+
 				} else {
 					return new Response("Offer Pussy", "You'd need a vagina in order to offer it to [npc.name]...", null);
 				}
-				
+
 			} else if(index==4) {
 				return new ResponseSex("Offer Ass", "Offer [npc.name] your ass instead.", Util.newArrayListOfValues(Fetish.FETISH_ANAL_RECEIVING),
 						null, Fetish.FETISH_ANAL_RECEIVING.getAssociatedCorruptionLevel(), null, null, null,
@@ -277,13 +277,13 @@ public class CultistDialogue {
 					public void effects() {
 						((Cultist)Main.game.getActiveNPC()).setSealedSex(false);
 						((Cultist)Main.game.getActiveNPC()).setRequestedAnal(true);
-						
+
 						// Remove jinxes so that player can get access to vagina:
 						if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.ANUS, true)) {
 							AbstractClothing clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.ANUS, true);
 							while (clothing != null) {
 								clothing.setSealed(false);
-								
+
 								clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.ANUS, true);
 							}
 						}
@@ -294,7 +294,7 @@ public class CultistDialogue {
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_REPEAT = new DialogueNode("The Witch's Chapel", "", true) {
 
 		@Override
@@ -331,7 +331,7 @@ public class CultistDialogue {
 			return ENCOUNTER_CHAPEL.getResponse(0, index);
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_LEAVING = new DialogueNode("The Witch's Chapel", "", true, true) {
 
 		@Override
@@ -355,7 +355,7 @@ public class CultistDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-			
+
 			} else if(index==10) {
 				return new Response(
 						"Remove character",
@@ -370,18 +370,18 @@ public class CultistDialogue {
 						Main.game.banishNPC(Main.game.getActiveNPC());
 					}
 				};
-			
+
 			} else {
 				return null;
 			}
 		}
-		
+
 		@Override
 		public boolean isInventoryDisabled() {
 			return false;
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_COMBAT_VICTORY = new DialogueNode("The Witch's Chapel", "", true) {
 
 		@Override
@@ -413,7 +413,7 @@ public class CultistDialogue {
 						if(Main.game.getActiveNPC().getClothingInSlot(InventorySlot.TORSO_UNDER) != null && Main.game.getActiveNPC().getClothingInSlot(InventorySlot.TORSO_UNDER).getColor() == Color.CLOTHING_WHITE) {
 							 color = Color.CLOTHING_WHITE;
 						}
-						
+
 						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots_thigh_high", color, false));
 						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_boots", color, false));
 						Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing("innoxia_witch_witch_dress", color, false));
@@ -422,7 +422,7 @@ public class CultistDialogue {
 						Main.game.getPlayerCell().getInventory().addWeapon(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 					}
 				};
-			
+
 			} else if(index==2) {
 				return new ResponseSex("Sex", "Sex.",
 						true, false,
@@ -445,7 +445,7 @@ public class CultistDialogue {
 						((Cultist)Main.game.getActiveNPC()).setSealedSex(false);
 					}
 				};
-			
+
 			} else if(index == 3) {
 				return new ResponseSex("Witch's Seal", "Use her broomstick to cast Witch's Seal on her.",
 						false, false,
@@ -468,7 +468,7 @@ public class CultistDialogue {
 							+ " A jolt of purple energy shoots out and strikes [npc.name], and as a ghostly purple pentagram flashes beneath her body, she suddenly stops moving."
 						+ "</p>"
 						+ "<p>"
-							+ "Dropping the broomstick to the floor, you step forwards between her legs and make sure that she's ok."
+							+ "Dropping the broomstick to the floor, you step forwards between her legs and make sure that she's OK."
 							+ " Thankfully, as you take a closer look, you see that she's still breathing, and her eyes flick up to gaze into yours as you stand over her vulnerable form."
 							+ " The Witch's Seal appears to have completely immobilized her, but as you reach out and lift one of her legs, you discover that the spell still allows you to move her around."
 						+ "</p>"
@@ -480,7 +480,7 @@ public class CultistDialogue {
 						((Cultist)Main.game.getActiveNPC()).setSealedSex(true);
 					}
 				};
-				
+
 			} else if (index == 4) {
 				return new Response("Full transformations",
 						"Take a very detailed look at what [npc.name] can transform [npc.herself] into...",
@@ -491,13 +491,13 @@ public class CultistDialogue {
 						BodyChanging.setTarget(Main.game.getActiveNPC());
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_COMBAT_LOSS = new DialogueNode("The Witch's Chapel", "", true) {
 
 		@Override
@@ -553,13 +553,13 @@ public class CultistDialogue {
 					public void effects() {
 						((Cultist)Main.game.getActiveNPC()).setSealedSex(true);
 						((Cultist)Main.game.getActiveNPC()).setRequestedAnal(false);
-						
+
 						// Remove jinxes so that player can get access to vagina:
 						if(!Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
 							AbstractClothing clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.VAGINA, true);
 							while (clothing != null) {
 								clothing.setSealed(false);
-								
+
 								clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.VAGINA, true);
 							}
 						}
@@ -568,19 +568,19 @@ public class CultistDialogue {
 							AbstractClothing clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.ANUS, true);
 							while (clothing != null) {
 								clothing.setSealed(false);
-								
+
 								clothing = Main.game.getPlayer().getClothingBlockingCoverableAreaAccess(CoverableArea.ANUS, true);
 							}
 						}
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_POST_ORAL_SEX = new DialogueNode("Post-sex", "", true) {
 
 		@Override
@@ -608,13 +608,13 @@ public class CultistDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_POST_VAGINAL_SEX = new DialogueNode("Post-sex", "", true) {
 
 		@Override
@@ -642,13 +642,13 @@ public class CultistDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_POST_ANAL_SEX = new DialogueNode("Post-sex", "", true) {
 
 		@Override
@@ -676,13 +676,13 @@ public class CultistDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_POST_SUB_SEALED_SEX = new DialogueNode("Post-sex", "", true) {
 
 		@Override
@@ -724,13 +724,13 @@ public class CultistDialogue {
 						return Main.game.getDefaultDialogueNoEncounter();
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_POST_DOM_SEX = new DialogueNode("Post-sex", "", true) {
 
 		@Override
@@ -764,13 +764,13 @@ public class CultistDialogue {
 						Main.game.getPlayerCell().getInventory().addWeapon(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}
 		}
 	};
-	
+
 	public static final DialogueNode ENCOUNTER_CHAPEL_POST_DOM_SEALED_SEX = new DialogueNode("Post-sex", "", true) {
 
 		@Override
@@ -804,7 +804,7 @@ public class CultistDialogue {
 						Main.game.getPlayerCell().getInventory().addWeapon(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WITCH_BROOM));
 					}
 				};
-				
+
 			} else {
 				return null;
 			}

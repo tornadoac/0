@@ -16,21 +16,21 @@ public enum DamageType {
 			Attribute.RESISTANCE_PHYSICAL,
 			Attribute.DAMAGE_PHYSICAL,
 			SpellSchool.EARTH),
-	
+
 	ICE("ice",
 			Color.DAMAGE_TYPE_COLD,
 			"freezing",
 			Attribute.RESISTANCE_ICE,
 			Attribute.DAMAGE_ICE,
 			SpellSchool.WATER),
-	
+
 	FIRE("fire",
 			Color.DAMAGE_TYPE_FIRE,
 			"burning",
 			Attribute.RESISTANCE_FIRE,
 			Attribute.DAMAGE_FIRE,
 			SpellSchool.FIRE),
-	
+
 	POISON("poison",
 			Color.DAMAGE_TYPE_POISON,
 			"poisoned",
@@ -44,7 +44,7 @@ public enum DamageType {
 			Attribute.RESISTANCE_LUST,
 			Attribute.DAMAGE_LUST,
 			SpellSchool.ARCANE),
-	
+
 	MISC("generic",
 			Color.DAMAGE_TYPE_PHYSICAL,
 			"standard",
@@ -91,5 +91,4 @@ public enum DamageType {
 	public SpellSchool getSpellSchool() {
 		return spellSchool;
 	}
-	
 }

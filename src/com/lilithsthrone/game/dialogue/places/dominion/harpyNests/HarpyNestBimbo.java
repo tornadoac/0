@@ -693,7 +693,7 @@ public class HarpyNestBimbo {
 					+ " As you collapse, [bimboHarpy.name] orders her flock to hold you still, and, quickly jumping down on top of you, you're quickly pinned to the floor by several bimbo harpies."
 				+ "</p>"
 				+ "<p>"
-					+ "[bimboHarpy.speechNoEffects(Like, [bimboHarpyCompanion.name], are you ok?!)] you hear [bimboHarpy.name] softly calling out to her friend."
+					+ "[bimboHarpy.speechNoEffects(Like, [bimboHarpyCompanion.name], are you OK?!)] you hear [bimboHarpy.name] softly calling out to her friend."
 					+ " [bimboHarpy.speechNoEffects(Come on, it's time to teach this little [pc.race] a lesson!)]"
 				+ "</p>"
 				+ "<p>"

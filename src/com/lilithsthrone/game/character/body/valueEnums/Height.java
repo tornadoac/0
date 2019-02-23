@@ -8,21 +8,21 @@ import com.lilithsthrone.utils.Color;
  * @author Innoxia
  */
 public enum Height {
-	
-	// Need to standardise to 1.5 each category
+
+	// Need to standardize to 1.5 each category
 
 //	/**6" to 2'*/
 //	NEGATIVE_THREE_MIMIMUM("fairy-sized", 15, 61, Color.GENERIC_SIZE_ONE),
-	
+
 	/**2' to 3'6"*/
 	NEGATIVE_TWO_MIMIMUM("very tiny", 61, 106, Color.GENERIC_SIZE_ONE),
-	
+
 	/**3'6" to 4'*/
 	NEGATIVE_ONE_TINY("tiny", 106, 122, Color.GENERIC_SIZE_ONE),
-	
+
 	/**4' to 5'*/
 	ZERO_TINY("small", 122, 152, Color.GENERIC_SIZE_ONE),
-	
+
 	/**5' to 5'6"*/
 	ONE_SHORT("short", 152, 166, Color.GENERIC_SIZE_TWO),
 
@@ -43,7 +43,7 @@ public enum Height {
 
 	/**9' to 12'*/
 	SEVEN_COLOSSAL("colossal", 274, 366, Color.GENERIC_SIZE_EIGHT);
-	
+
 	private int minimumValue, maximumValue;
 	private String descriptor;
 	private Color color;
@@ -67,7 +67,7 @@ public enum Height {
 	public int getMedianValue() {
 		return minimumValue + (maximumValue - minimumValue) / 2;
 	}
-	
+
 	/**
 	 * If height is less than this value, then that height is short stature.
 	 */
@@ -83,7 +83,7 @@ public enum Height {
 		}
 		return SEVEN_COLOSSAL;
 	}
-	
+
 	public String getDescriptor() {
 		return descriptor;
 	}

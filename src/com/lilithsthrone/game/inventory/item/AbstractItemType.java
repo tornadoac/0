@@ -151,8 +151,8 @@ public abstract class AbstractItemType extends AbstractCoreType {
 		return new AbstractItem(itemType) {};
 	}
 
-	public static AbstractItem generateFilledCondom(Color color, GameCharacter character, FluidCum cum, int millilitres) {
-		return new AbstractFilledCondom(ItemType.CONDOM_USED, color, character, cum, millilitres) {};
+	public static AbstractItem generateFilledCondom(Color color, GameCharacter character, FluidCum cum, int milliliters) {
+		return new AbstractFilledCondom(ItemType.CONDOM_USED, color, character, cum, milliliters) {};
 	}
 
 	public static AbstractItem generateFilledBreastPump(Color color, GameCharacter character, FluidMilk milk, int quantity) {

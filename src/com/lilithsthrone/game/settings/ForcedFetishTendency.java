@@ -34,5 +34,4 @@ public enum ForcedFetishTendency {
 	public String getDescription() {
 		return description;
 	}
-
 }

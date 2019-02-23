@@ -723,12 +723,12 @@ public class PixShower {
 		@Override
 		public String getDescription() {
 			return "Pix suddenly slams you up against the wall, and, leaning in over your shoulder, she starts softly growling into your ear, "
-						+"[npc.speech(Y'know, I've got a little deal for you, so hear me out, ok?"
-						+ " So, like, what's going to happen here, is that when you feel close to getting off, you're gonna promise me that you're gonna come back and do more training in the future, ok?"
+						+"[npc.speech(Y'know, I've got a little deal for you, so hear me out, OK?"
+						+ " So, like, what's going to happen here, is that when you feel close to getting off, you're gonna promise me that you're gonna come back and do more training in the future, OK?"
 						+ " And I mean a <i>real</i> promise!)]"
 					+ "<br/><br/>"
 					+ "You aren't really in any position to interrupt, so as Pix continues to press you up against the wall, you listen to her as she offers you her 'deal', "
-					+"[npc.speech(Y'know, I can keep doing this all day, so when you're ready to cum for me, you're gonna promise that you're gonna come back to train, ok?!"
+					+"[npc.speech(Y'know, I can keep doing this all day, so when you're ready to cum for me, you're gonna promise that you're gonna come back to train, OK?!"
 					+ " And if you don't promise, I'm not gonna let you get off!"
 					+ " I sure hope you're listening, 'cause I'm like, totally serious here!)]"
 					+ "<br/><br/>"
@@ -849,7 +849,7 @@ public class PixShower {
 			UtilText.nodeContentSB.setLength(0);
 			
 			UtilText.nodeContentSB.append("You can't take any more of Pix's teasing, and as a desperate heat starts to build in your groin, you let out [pc.a_moan+] and do as she asks, "
-										+ "[pc.speech(Ok! I promise to come back and train again! Please, just let me get off!)]."
+										+ "[pc.speech(OK! I promise to come back and train again! Please, just let me get off!)]."
 										+ "<br/><br/>"
 										+ "Pix lets out a delighted cry in response, and before you know what's happening, she's darting both of her hands down between your legs and softly growling into your ear, "
 										+ "[pix.speech(Good [pc.girl]! Y'know, I think you deserve a little reward for being such a good little thing!)]");

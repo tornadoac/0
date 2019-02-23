@@ -31,7 +31,7 @@ public enum SexualOrientation {
 	public Color getColor() {
 		return color;
 	}
-	
+
 	public SexualOrientationPreference getOrientationPreferenceDefault() {
 		return orientationPreferenceDefault;
 	}

@@ -5,7 +5,7 @@ html {
 	color: #eeeeee;
 	padding: 0;
 	border:0;
-    margin: 0;
+	margin: 0;
 	overflow:hidden;
 }
 
@@ -14,25 +14,25 @@ body{
 	margin:0;
 	
 	 -webkit-animation-name: fadeIn;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-out;
-    -webkit-animation-duration: 0.3s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-duration: 0.3s;
 }
 
 @-webkit-keyframes fadeIn {
-    0% {
+	0% {
 		opacity:0;
-    }
-    100% {
+	}
+	100% {
 		opacity:1;
-    }
+	}
 }
 
 div {
 	float:left;
-    padding: 0;
+	padding: 0;
 	border: 0;
-    margin: 0;
+	margin: 0;
 	border-radius:5px;
 }
 
@@ -40,37 +40,37 @@ h1{
 	font-size:2.5em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h2{
 	font-size:2em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h3{
 	font-size:1.8em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h4{
 	font-size:1.6em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h5{
 	font-size:1.4em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 h6{
 	font-size:1.2em;
 	font-weight: bold;
 	padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 /******************************************************/

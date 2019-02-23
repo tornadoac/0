@@ -27,7 +27,7 @@
 		The three smaller imps flutter forwards to back their leader up, and [npc4.name] sneers, [npc4.speech([pc.InsultPlural]! You're gonna get a taste of [npc.her] spells now!)]
 	</p>
 	<p>
-		Taking this opportunity to throw [npc4.her] own insult your way, [npc5.name] cruelly spits, [npc5.speech(That's right, [pc.InsultPlural]! And once you're grovellin' before us, we're gonna fuck you real good! I'm gonna love hearin' the two of you squeal!)]
+		Taking this opportunity to throw [npc4.her] own insult your way, [npc5.name] cruelly spits, [npc5.speech(That's right, [pc.InsultPlural]! And once you're grovelin' before us, we're gonna fuck you real good! I'm gonna love hearin' the two of you squeal!)]
 	</p>
 	<p>
 		It's quite clear that these imps are only interested in one thing, and as they start to advance, the third imp, who up until now had been quite content to simply sneer and scowl at the two of you, puts any doubts as to their intentions to rest, as [npc3.she] calls out,
@@ -81,7 +81,7 @@
 
 	<htmlContent tag="IMP_ATTACK_OFFER_COMPANION"><![CDATA[
 	<p>
-		Realizing that these imps aren't going to be satisfied with anything other than sex, you turn towards your companion, [npc.name], and say, [pc.speech(You're going to have to give the imps what they want. We're not going to get out of this until they're satisfied, so just tell them they can fuck you, and try to have fun, ok?)]
+		Realizing that these imps aren't going to be satisfied with anything other than sex, you turn towards your companion, [npc.name], and say, [pc.speech(You're going to have to give the imps what they want. We're not going to get out of this until they're satisfied, so just tell them they can fuck you, and try to have fun, OK?)]
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()
@@ -483,10 +483,10 @@
 
 	<htmlContent tag="IMP_ATTACK_COMBAT_VICTORY_SEX_SUBMIT"><![CDATA[
 	<p>
-		The pile of defeated imps before you is truly a saddening sight to see, and as you catch the eye of [npc2.name], you think that it almost looks like [npc2.sheIs] crying. Feeling immensely guilty, and wanting to put things right, you drop down to your knees before them, and ask, [pc.speech(Are you all ok? I didn't mean to go so far...)]
+		The pile of defeated imps before you is truly a saddening sight to see, and as you catch the eye of [npc2.name], you think that it almost looks like [npc2.sheIs] crying. Feeling immensely guilty, and wanting to put things right, you drop down to your knees before them, and ask, [pc.speech(Are you all OK? I didn't mean to go so far...)]
 	</p>
 	<p>
-		[npc2.speech(What does it look like, [pc.insult]?!)] [npc2.Name] snaps. [npc2.speech(Of course we're not ok!)]
+		[npc2.speech(What does it look like, [pc.insult]?!)] [npc2.Name] snaps. [npc2.speech(Of course we're not OK!)]
 	</p>
 	<p>
 		[pc.speech(Well, what can I do to make things better?)] You ask, desperate to do anything in order to earn the gang's forgiveness.
@@ -545,10 +545,10 @@
 
 	<htmlContent tag="IMP_ATTACK_COMBAT_VICTORY_GROUP_SEX_SUBMISSION"><![CDATA[
 	<p>
-		The pile of defeated imps before you is truly a saddening sight to see, and as you catch the eye of [npc2.name], you think that it almost looks like [npc2.sheIs] crying. Feeling immensely guilty, and wanting to put things right, you drop down to your knees before them, and ask, [pc.speech(Are you all ok? I didn't mean to go so far...)]
+		The pile of defeated imps before you is truly a saddening sight to see, and as you catch the eye of [npc2.name], you think that it almost looks like [npc2.sheIs] crying. Feeling immensely guilty, and wanting to put things right, you drop down to your knees before them, and ask, [pc.speech(Are you all OK? I didn't mean to go so far...)]
 	</p>
 	<p>
-		[npc2.speech(What does it look like, [pc.insult]?!)] [npc2.Name] snaps. [npc2.speech(Of course we're not ok!)]
+		[npc2.speech(What does it look like, [pc.insult]?!)] [npc2.Name] snaps. [npc2.speech(Of course we're not OK!)]
 	</p>
 	<p>
 		[pc.speech(Well, what can I do to make things better?)] You ask, desperate to do anything in order to earn the gang's forgiveness.
@@ -1055,7 +1055,7 @@
 		#ENDIF
 	</p>
 	<p>
-		[pc.speech(Are you ok, [npc.name]?)] you ask, stepping out from the shadows to return to your companion's side once more.
+		[pc.speech(Are you OK, [npc.name]?)] you ask, stepping out from the shadows to return to your companion's side once more.
 	</p>
 	<p>
 		#IFnpc.isAttractedTo(npc2) || !game.isNonConEnabled()

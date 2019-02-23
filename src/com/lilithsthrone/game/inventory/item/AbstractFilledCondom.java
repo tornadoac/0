@@ -27,14 +27,14 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
-	
+
 	private String cumProvidor;
 	private FluidCum cum;
-	private int millilitresStored;
-	
-	public AbstractFilledCondom(AbstractItemType itemType, Color color, GameCharacter cumProvidor, FluidCum cum, int millilitresStored) {
+	private int millilitersStored;
+
+	public AbstractFilledCondom(AbstractItemType itemType, Color color, GameCharacter cumProvidor, FluidCum cum, int millilitersStored) {
 		super(itemType);
-		
+
 		this.cumProvidor = cumProvidor.getId();
 		this.cum = new FluidCum(cum.getType());
 		this.cum.setFlavor(cumProvidor, cum.getFlavor());
@@ -43,12 +43,12 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 		}
 		this.colorShade = color;
 		SVGString = getSVGString(itemType.getPathName(), color);
-		this.millilitresStored = millilitresStored;
+		this.millilitersStored = millilitersStored;
 	}
-	
-	public AbstractFilledCondom(AbstractItemType itemType, Color color, String cumProvidorId, FluidCum cum, int millilitresStored) {
+
+	public AbstractFilledCondom(AbstractItemType itemType, Color color, String cumProvidorId, FluidCum cum, int millilitersStored) {
 		super(itemType);
-		
+
 		this.cumProvidor = cumProvidorId;
 		this.cum = new FluidCum(cum.getType());
 		this.cum.setFlavor(null, cum.getFlavor());
@@ -57,9 +57,9 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 		}
 		this.colorShade = color;
 		SVGString = getSVGString(itemType.getPathName(), color);
-		this.millilitresStored = millilitresStored;
+		this.millilitersStored = millilitersStored;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		if(super.equals(o)) {
@@ -70,7 +70,7 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -83,12 +83,12 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("item");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "id", this.getItemType().getId());
 		CharacterUtils.addAttribute(doc, element, "color", String.valueOf(this.getColor()));
 		CharacterUtils.addAttribute(doc, element, "cumProvidor", this.getCumProvidorId());
-		CharacterUtils.addAttribute(doc, element, "millilitresStored", String.valueOf(this.getMillilitresStored()));
-		
+		CharacterUtils.addAttribute(doc, element, "millilitersStored", String.valueOf(this.getMillilitersStored()));
+
 		Element innerElement = doc.createElement("itemEffects");
 		element.appendChild(innerElement);
 		for(ItemEffect ie : this.getEffects()) {
@@ -98,7 +98,7 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 		innerElement = doc.createElement("cum");
 		element.appendChild(innerElement);
 		this.getCum().saveAsXML(innerElement, doc);
-		
+
 		return element;
 	}
 
@@ -110,29 +110,29 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 				((Element) parentElement.getElementsByTagName("cum").item(0)==null
 					?new FluidCum(FluidType.CUM_HUMAN)
 					:FluidCum.loadFromXML((Element) parentElement.getElementsByTagName("cum").item(0), doc)),
-				(parentElement.getAttribute("millilitresStored").isEmpty()
+				(parentElement.getAttribute("millilitersStored").isEmpty()
 					?25
-					:Integer.valueOf(parentElement.getAttribute("millilitresStored"))));
+					:Integer.valueOf(parentElement.getAttribute("millilitersStored"))));
 	}
-	
+
 	private String getSVGString(String pathName, Color color) {
 		try {
 			InputStream is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/items/" + pathName + ".svg");
 			String s = Util.inputStreamToString(is);
 
 			s = SvgUtil.colorReplacement(String.valueOf(this.hashCode()), color, s);
-			
+
 			is.close();
-			
+
 			return s;
-			
+
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		return "";
 	}
-	
+
 	@Override
 	public String applyEffect(GameCharacter user, GameCharacter target) {
 		if(target.hasFetish(Fetish.FETISH_CUM_ADDICT)) {
@@ -141,22 +141,22 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 						+ "[npc.Name] can't help but let out a delighted [npc.moan] as [npc.she] greedily [npc.verb(gulp)] down the slimy fluid."
 						+ " Darting [npc.her] [npc.tongue] out, [npc.she] desperately [npc.verb(lick)] up every last drop of cum; only discarding the condom once [npc.sheIs] sure that's it's completely empty."
 					+ "</p>"
-					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitresStored));
+					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitersStored));
 		} else {
 			return UtilText.parse(user, target,
 					"<p>"
 						+ "[npc.Name] scrunches [npc.her] [npc.eyes] shut as [npc.she] [npc.verb(gulp)] down the slimy fluid,"
 						+ " trying [npc.her] best not to think about what [npc.sheHas] just done as "+(user.equals(target)?"[npc.she] [npc.verb(throw)]":"[npc2.name] [npc2.verb(throw)]")+" the now-empty condom to the floor..."
 					+ "</p>"
-					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitresStored));
+					+ target.ingestFluid(getCumProvidor(), cum, SexAreaOrifice.MOUTH, millilitersStored));
 		}
-		
+
 	}
-	
+
 	public String getCumProvidorId() {
 		return cumProvidor;
 	}
-	
+
 	public GameCharacter getCumProvidor() {
 		try {
 			return Main.game.getNPCById(cumProvidor);
@@ -170,12 +170,12 @@ public class AbstractFilledCondom extends AbstractItem implements XMLSaving {
 		return cum;
 	}
 
-	public int getMillilitresStored() {
-		return millilitresStored;
+	public int getMillilitersStored() {
+		return millilitersStored;
 	}
 
-	public void setMillilitresStored(int millilitresStored) {
-		this.millilitresStored = millilitresStored;
+	public void setMillilitersStored(int millilitersStored) {
+		this.millilitersStored = millilitersStored;
 	}
-	
+
 }

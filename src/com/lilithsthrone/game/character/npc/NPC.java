@@ -544,7 +544,7 @@ public abstract class NPC extends GameCharacter implements XMLSaving {
 				case ARCANE_AROUSAL:
 				case FIREBALL:
 				case ICE_SHARD:
-				case POISON_VAPOURS:
+				case POISON_VAPORS:
 				case SLAM:
 				case VACUUM:
 					if(Combat.isOpponent(this, target)) {

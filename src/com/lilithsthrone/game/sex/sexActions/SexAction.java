@@ -28,12 +28,12 @@ import com.lilithsthrone.game.sex.SexParticipantType;
 public abstract class SexAction implements SexActionInterface {
 
 	private SexActionType sexActionType;
-	
+
 	private ArousalIncrease selfArousalGain;
 	private ArousalIncrease targetArousalGain;
-	
+
 	private CorruptionLevel minimumCorruptionNeeded;
-	
+
 	/**A map of all the SexAreaInterfaces that are interacting with one another in this SexAction.
 	 *  The keys are representing ownership of the character who performs the action, while the values are owned by the character upon which this is being performed.*/
 	private Map<SexAreaInterface, SexAreaInterface> sexAreaInteractions;
@@ -42,7 +42,7 @@ public abstract class SexAction implements SexActionInterface {
 	private SexPace associatedSexPace;
 	private Map<GameCharacter, Set<Fetish>> characterFetishes;
 	private Map<GameCharacter, Set<Fetish>> characterFetishesForPartner;
-	
+
 	public SexAction(SexActionInterface sexActionToCopy) {
 		this.sexActionType = sexActionToCopy.getActionType();
 		this.selfArousalGain = sexActionToCopy.getArousalGainSelf();
@@ -52,7 +52,7 @@ public abstract class SexAction implements SexActionInterface {
 		this.participantType = sexActionToCopy.getParticipantType();
 		this.associatedSexPace = sexActionToCopy.getSexPace();
 	}
-	
+
 	public SexAction(
 			SexActionType sexActionType,
 			ArousalIncrease selfArousalGain,
@@ -60,7 +60,7 @@ public abstract class SexAction implements SexActionInterface {
 			CorruptionLevel minimumCorruptionNeeded,
 			Map<SexAreaInterface, SexAreaInterface> sexAreaInteractions,
 			SexParticipantType participantType) {
-		
+
 		this(sexActionType,
 				selfArousalGain,
 				targetArousalGain,
@@ -69,7 +69,7 @@ public abstract class SexAction implements SexActionInterface {
 				participantType,
 				null);
 	}
-	
+
 	public SexAction(
 			SexActionType sexActionType,
 			ArousalIncrease selfArousalGain,
@@ -78,18 +78,18 @@ public abstract class SexAction implements SexActionInterface {
 			Map<SexAreaInterface, SexAreaInterface> sexAreaInteractions,
 			SexParticipantType participantType,
 			SexPace associatedSexPace) {
-		
+
 		this.sexActionType = sexActionType;
 		this.selfArousalGain = selfArousalGain;
 		this.targetArousalGain = targetArousalGain;
 		this.minimumCorruptionNeeded = minimumCorruptionNeeded;
-		
+
 		if(sexAreaInteractions==null) {
 			this.sexAreaInteractions = new HashMap<>();
 		} else {
 			this.sexAreaInteractions = sexAreaInteractions;
 		}
-		
+
 		this.participantType = participantType;
 		this.associatedSexPace = associatedSexPace;
 	}
@@ -98,7 +98,7 @@ public abstract class SexAction implements SexActionInterface {
 	public SexPace getSexPace(){
 		return associatedSexPace;
 	}
-	
+
 	public Map<SexAreaInterface, SexAreaInterface> getSexAreaInteractions() {
 		return sexAreaInteractions;
 	}
@@ -107,7 +107,7 @@ public abstract class SexAction implements SexActionInterface {
 	public SexParticipantType getParticipantType() {
 		return participantType;
 	}
-	
+
 	@Override
 	public SexActionType getActionType(){
 		return sexActionType;
@@ -120,7 +120,7 @@ public abstract class SexAction implements SexActionInterface {
 				&& this.getActionType()!=SexActionType.SPECIAL) {
 			if(Sex.getCharacterPerformingAction().hasFetish(Fetish.FETISH_NON_CON_SUB)) {
 				return ArousalIncrease.FOUR_HIGH;
-				
+
 			} else {
 				// If it's an erogenous zone, they gain arousal. If not, arousal gain is 0.
 				for(SexAreaInterface sArea : this.getSexAreaInteractions().keySet()) {
@@ -132,7 +132,7 @@ public abstract class SexAction implements SexActionInterface {
 				return ArousalIncrease.ZERO_NONE;
 			}
 		}
-		
+
 		return selfArousalGain;
 	}
 
@@ -144,7 +144,7 @@ public abstract class SexAction implements SexActionInterface {
 					&& this.getActionType()!=SexActionType.SPECIAL) {
 				if(Sex.getCharacterTargetedForSexAction(this).hasFetish(Fetish.FETISH_NON_CON_SUB)) {
 					return ArousalIncrease.FOUR_HIGH;
-					
+
 				} else {
 					// If it's an erogenous zone, they gain arousal. If not, arousal gain is 0.
 					for(SexAreaInterface sArea : this.getSexAreaInteractions().values()) {
@@ -157,7 +157,7 @@ public abstract class SexAction implements SexActionInterface {
 				}
 			}
 		}
-		
+
 		return targetArousalGain;
 	}
 
@@ -171,7 +171,7 @@ public abstract class SexAction implements SexActionInterface {
 
 	@Override
 	public abstract String getDescription();
-	
+
 	@Override
 	public List<Fetish> getFetishesForTargetedPartner(GameCharacter characterPerformingAction) {
 		return getFetishesForEitherPartner(characterPerformingAction, false);
@@ -181,24 +181,24 @@ public abstract class SexAction implements SexActionInterface {
 	public List<Fetish> getFetishes(GameCharacter characterPerformingAction) {
 		return getFetishesForEitherPartner(characterPerformingAction, true);
 	}
-	
+
 	/**
 	 * To be overridden to add extra fetishes on top of the automatically-generated ones in getFetishes() and getFetishesForTargetedPartner().
 	 */
 	public List<Fetish> getExtraFetishes(GameCharacter character) {
 		return null;
 	}
-	
+
 	public List<Fetish> getFetishesForEitherPartner(GameCharacter characterPerformingAction, boolean characterPerformingActionFetishes) {
 //		if(characterFetishes==null || characterFetishes.get(characterPerformingAction)==null) {
 			GameCharacter characterTarget = Sex.getTargetedPartner(characterPerformingAction);
-			
+
 			characterFetishes = new HashMap<>();
 			characterFetishesForPartner = new HashMap<>();
-			
+
 			characterFetishes.putIfAbsent(characterPerformingAction, new HashSet<>());
 			characterFetishesForPartner.putIfAbsent(characterPerformingAction, new HashSet<>());
-			
+
 			if(getExtraFetishes(characterPerformingAction)!=null) {
 				for(Fetish f : getExtraFetishes(characterPerformingAction)) {
 					characterFetishes.get(characterPerformingAction).add(f);
@@ -209,21 +209,21 @@ public abstract class SexAction implements SexActionInterface {
 					characterFetishesForPartner.get(characterPerformingAction).add(f);
 				}
 			}
-			
+
 //			if(this.getParticipantType()==SexParticipantType.SELF && !characterPerformingActionFetishes) { // If this is a self action, do not apply fetishes to other partner.
 //				return new ArrayList<>(characterFetishesForPartner.get(characterPerformingAction));
 //			}
-			
+
 			if(this.getParticipantType()!=SexParticipantType.SELF && characterPerformingAction.isRelatedTo(characterTarget)) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_INCEST);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_INCEST);
 			}
-			
+
 			if(Sex.isPublicSex()) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_EXHIBITIONIST);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_EXHIBITIONIST);
 			}
-			
+
 			if(this.getSexPace()!=null) {
 				switch(this.getSexPace()) {
 					case DOM_GENTLE:
@@ -256,7 +256,7 @@ public abstract class SexAction implements SexActionInterface {
 						break;
 				}
 			}
-			
+
 			List<CoverableArea> cummedOnList = this.getAreasCummedOn(characterPerformingAction, characterTarget);
 			if(cummedOnList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);
@@ -316,12 +316,12 @@ public abstract class SexAction implements SexActionInterface {
 					}
 				}
 			}
-			
+
 			cummedOnList = this.getAreasCummedOn(characterTarget, characterPerformingAction);
 			if(cummedOnList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_ADDICT);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);
-				
+
 				for(CoverableArea area : cummedOnList) {
 					switch(area) {
 						case NONE:
@@ -377,12 +377,12 @@ public abstract class SexAction implements SexActionInterface {
 					}
 				}
 			}
-			
+
 			List<SexAreaInterface> cummedInList = this.getAreasCummedIn(characterPerformingAction, characterTarget);
 			if(cummedInList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_CUM_ADDICT);
-				
+
 				for(SexAreaInterface area : cummedInList) {
 					if(area.isOrifice()) {
 						switch((SexAreaOrifice)area) {
@@ -460,12 +460,12 @@ public abstract class SexAction implements SexActionInterface {
 					}
 				}
 			}
-			
+
 			cummedInList = this.getAreasCummedIn(characterTarget, characterPerformingAction);
 			if(cummedInList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_ADDICT);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);
-				
+
 				for(SexAreaInterface area : cummedInList) {
 					if(area.isOrifice()) {
 						switch((SexAreaOrifice)area) {
@@ -543,7 +543,7 @@ public abstract class SexAction implements SexActionInterface {
 					}
 				}
 			}
-			
+
 			for(Entry<SexAreaInterface, SexAreaInterface> entry : this.getSexAreaInteractions().entrySet()) {
 				if(this.getActionType()!=SexActionType.STOP_ONGOING) {
 					if(characterPerformingActionFetishes) {
@@ -553,7 +553,7 @@ public abstract class SexAction implements SexActionInterface {
 						}
 						characterFetishes.get(characterPerformingAction).addAll(
 								getFetishesFromPenetrationAndOrificeTypes(characterPerformingAction, entry.getKey(), Sex.getTargetedPartner(characterPerformingAction), entry.getValue(), characterPerformingActionFetishes));
-						
+
 					} else {
 						if(this.getParticipantType()==SexParticipantType.SELF) {
 							characterFetishesForPartner.get(characterPerformingAction).addAll(
@@ -564,14 +564,14 @@ public abstract class SexAction implements SexActionInterface {
 					}
 				}
 			}
-			
+
 			characterFetishes.get(characterPerformingAction).removeIf(f -> !characterTarget.hasVagina() && (f==Fetish.FETISH_VAGINAL_GIVING || f==Fetish.FETISH_IMPREGNATION));
 			characterFetishesForPartner.get(characterPerformingAction).removeIf(f -> !characterTarget.hasVagina() && (f==Fetish.FETISH_VAGINAL_GIVING || f==Fetish.FETISH_IMPREGNATION));
 //		}
-		
+
 		if(characterPerformingActionFetishes) {
 			return new ArrayList<>(characterFetishes.get(characterPerformingAction));
-			
+
 		} else {
 			return new ArrayList<>(characterFetishesForPartner.get(characterPerformingAction));
 		}

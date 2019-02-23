@@ -30,7 +30,7 @@ DONE Ass
 		Orifice stats
 		[Interior color]
 		[Rim color]
-		[Puffyness]
+		[Puffiness]
 		[Internal tentacles]
 		[Internally ribbed]
 		[Muscle control]
@@ -56,7 +56,7 @@ DONE Breast
 		Orifice stats
 		[Interior color]
 		[Areolae color]
-		[Puffyness]
+		[Puffiness]
 		[Internal tentacles]
 		[Internally ribbed]
 	[Fluid milk] (Type derived from breast type)
@@ -145,7 +145,7 @@ DONE Vagina
 	Clit size
 	[Clit color]
 	Orifice stats
-		[Puffyness]
+		[Puffiness]
 		[Internal tentacles]
 		[Internally ribbed]
 		[Expert muscle control]

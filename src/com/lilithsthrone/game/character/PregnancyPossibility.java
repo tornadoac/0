@@ -15,16 +15,16 @@ import com.lilithsthrone.utils.XMLSaving;
  * @author Innoxia
  */
 public class PregnancyPossibility implements XMLSaving {
-	
+
 	private String motherId, fatherId;
 	private float probability;
-	
+
 	public PregnancyPossibility(String motherId, String fatherId, float probability) {
 		this.motherId = motherId;
 		this.fatherId = fatherId;
 		this.probability = probability;
 	}
-	
+
 	@Override
 	public boolean equals(Object o) {
 		return (o instanceof PregnancyPossibility)
@@ -32,7 +32,7 @@ public class PregnancyPossibility implements XMLSaving {
 				&& ((PregnancyPossibility)o).getFatherId().equals(fatherId)
 				&& ((PregnancyPossibility)o).getProbability() == probability;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int result = super.hashCode();
@@ -41,25 +41,25 @@ public class PregnancyPossibility implements XMLSaving {
 		result = 31 * result + (int)probability;
 		return result;
 	}
-	
+
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("pregnancyPossibility");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "motherId", this.getMotherId());
 		CharacterUtils.addAttribute(doc, element, "fatherId", this.getFatherId());
 		CharacterUtils.addAttribute(doc, element, "probability", String.valueOf(this.getProbability()));
-		
+
 		return element;
 	}
-	
+
 	public static PregnancyPossibility loadFromXML(Element parentElement, Document doc) {
 		return new PregnancyPossibility(
 				parentElement.getAttribute("motherId"),
 				parentElement.getAttribute("fatherId"),
 				Float.valueOf(parentElement.getAttribute("probability")));
 	}
-	
+
 	public String getMotherId() {
 		return motherId;
 	}
@@ -93,5 +93,4 @@ public class PregnancyPossibility implements XMLSaving {
 	public void setProbability(float probability) {
 		this.probability = probability;
 	}
-	
 }

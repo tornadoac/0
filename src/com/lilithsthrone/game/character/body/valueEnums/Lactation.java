@@ -1,14 +1,14 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
 /**
- * Measured in millilitres.
- * 
+ * Measured in milliliters.
+ *
  * @since 0.1.0
  * @version 0.1.83
  * @author Innoxia
  */
 public enum Lactation {
-	
+
 	ZERO_NONE("no", 0, 1, Wetness.ZERO_DRY),
 	/** This, and all before, require actual milking to produce milk. */
 	ONE_TRICKLE("a tiny trickle of", 1, 30, Wetness.ONE_SLIGHTLY_MOIST),

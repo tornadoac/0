@@ -16,11 +16,11 @@
 		<imageEquippedName/>
 		<enchantmentLimit>15</enchantmentLimit>
 		<effects>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_UNARMED" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_MELEE_WEAPON" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_UNARMED" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_MELEE_WEAPON" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_MAJOR_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
 		</effects>
-		
+
 		<blockedPartsList>
 			<blockedParts>
 				<displacementType>REMOVE_OR_EQUIP</displacementType>
@@ -30,9 +30,9 @@
 				<concealedSlots/>
 			</blockedParts>
 		</blockedPartsList>
-		
+
 		<incompatibleSlots/>
-		
+
 		<primaryColors>
 			<color>CLOTHING_SILVER</color>
 		</primaryColors>
@@ -45,32 +45,32 @@
 			<color>CLOTHING_GOLD</color>
 		</tertiaryColors>
 		<tertiaryColorsDye values="ALL_METAL"/>
-	
+
 		<itemTags/>
 	</coreAttributes>
 
   <replacementText type="REMOVE_OR_EQUIP">
-    <self>
-      <![CDATA[[npc.Name] [npc.verb(drape)] the key-chain around [npc.her] neck.]]>
-    </self>
-    <other>
-      <![CDATA[[npc.Name] [npc.verb(drape)] the key-chain around [npc2.namePos] neck.]]>
-    </other>
-    <otherRough>
-      <![CDATA[[npc.Name] firmly [npc.verb(grab)] [npc2.namePos], before [npc.verb(drape)] the key-chain around [npc2.her] neck.]]>
-    </otherRough>
+	<self>
+	  <![CDATA[[npc.Name] [npc.verb(drape)] the key-chain around [npc.her] neck.]]>
+	</self>
+	<other>
+	  <![CDATA[[npc.Name] [npc.verb(drape)] the key-chain around [npc2.namePos] neck.]]>
+	</other>
+	<otherRough>
+	  <![CDATA[[npc.Name] firmly [npc.verb(grab)] [npc2.namePos], before [npc.verb(drape)] the key-chain around [npc2.her] neck.]]>
+	</otherRough>
   </replacementText>
 
   <displacementText type="REMOVE_OR_EQUIP">
-    <self>
-      <![CDATA[[npc.Name] [npc.verb(take)] hold of [npc.her] key-chain, before lifting it up and over [npc.her] head.]]>
-    </self>
-    <other>
-      <![CDATA[[npc.Name] [npc.verb(take)] hold of the key-chain, before lifting it up and over [npc2.namePos] head.]]>
-    </other>
-    <otherRough>
-      <![CDATA[[npc.Name] roughly [npc.verb(grab)] the key-chain, before yanking it up and over [npc2.namePos] head.]]>
-    </otherRough>
+	<self>
+	  <![CDATA[[npc.Name] [npc.verb(take)] hold of [npc.her] key-chain, before lifting it up and over [npc.her] head.]]>
+	</self>
+	<other>
+	  <![CDATA[[npc.Name] [npc.verb(take)] hold of the key-chain, before lifting it up and over [npc2.namePos] head.]]>
+	</other>
+	<otherRough>
+	  <![CDATA[[npc.Name] roughly [npc.verb(grab)] the key-chain, before yanking it up and over [npc2.namePos] head.]]>
+	</otherRough>
   </displacementText>
-	
+
 </clothing>

@@ -2,53 +2,53 @@
 <!-- For a version without all of the comments, see "rental_daddy.xml". -->
 <clothing>
 	<coreAttributes>
-		<value>5</value> 
-		
+		<value>5</value>
+
 		<determiner><![CDATA[a]]></determiner>
-		
+
 		<name><![CDATA[ragged chest wrap]]></name>
-		
-		<namePlural pluralByDefault="false"><![CDATA[ragged chest wraps]]></namePlural> 
-		
-		<description><![CDATA[A thick strip of ragged, tattered cloth, that's been shaped in such a way so as to be wrapped around the chest in order to support a pair of breasts. A single loop has been incorporated into the crude design, which is meant to be slung over one shoulder.]]></description> 
-		
-		<physicalResistance>0</physicalResistance> 
-		
-		<femininity>FEMININE</femininity> 
-		
-		<slot>CHEST</slot> 
-		
-		<rarity>COMMON</rarity> 
-		
-		<clothingSet/> 
-		
-		<imageName>ragged_chest_wrap.svg</imageName> 
-		
-		<imageEquippedName/> 
-		
+
+		<namePlural pluralByDefault="false"><![CDATA[ragged chest wraps]]></namePlural>
+
+		<description><![CDATA[A thick strip of ragged, tattered cloth, that's been shaped in such a way so as to be wrapped around the chest in order to support a pair of breasts. A single loop has been incorporated into the crude design, which is meant to be slung over one shoulder.]]></description>
+
+		<physicalResistance>0</physicalResistance>
+
+		<femininity>FEMININE</femininity>
+
+		<slot>CHEST</slot>
+
+		<rarity>COMMON</rarity>
+
+		<clothingSet/>
+
+		<imageName>ragged_chest_wrap.svg</imageName>
+
+		<imageEquippedName/>
+
 		<enchantmentLimit/>
-		
+
 		<effects/>
-		
-		<blockedPartsList> 
+
+		<blockedPartsList>
 			<blockedParts>
-				<displacementType>PULLS_UP</displacementType> 
-				
+				<displacementType>PULLS_UP</displacementType>
+
 				<clothingAccessRequired>CHEST</clothingAccessRequired>
-				
+
 				<blockedBodyParts>
 					<bodyPart>BREASTS</bodyPart>
 					<bodyPart>NIPPLES</bodyPart>
 				</blockedBodyParts>
-				
+
 				<clothingAccessBlocked/>
-				
+
 				<concealedSlots values="CONCEALED_BREASTS"/>
 			</blockedParts>
 		</blockedPartsList>
-		
-		<incompatibleSlots/> 
-		
+
+		<incompatibleSlots/>
+
 		<primaryColors>
 			<color>CLOTHING_BLACK</color>
 			<color>CLOTHING_BROWN</color>
@@ -60,7 +60,7 @@
 		<secondaryColorsDye/>
 		<tertiaryColors/>
 		<tertiaryColorsDye/>
-		
+
 		<itemTags/>
 	</coreAttributes>
 
@@ -118,5 +118,5 @@
 			[npc1.Name] holds [npc2.name] still as [npc1.she] roughly forces [npc2.herHim] to wear the chest wrap.
 		]]></NPCOtherNPCRough>
 	</replacementText>
-	
+
 </clothing>

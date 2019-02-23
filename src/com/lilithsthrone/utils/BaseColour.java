@@ -9,6 +9,63 @@ import javafx.scene.paint.Color;
  */
 public enum BaseColor {
 
+<<<<<<< HEAD
+	WHITE(Util.newColour(0xFFFFFF), Util.newColour(0x636363)),
+	SILVER(Util.newColour(0xF3F3F3), Util.newColour(0x636363)),
+	PLATINUM(Util.newColour(0xE4E5E2), Util.newColour(0xE4E5E2)),
+
+	ROSE(Util.newColour(0xEBC2FF), Util.newColour(0xB800E6)),
+	LILAC(Util.newColour(0x978AFF), Util.newColour(0x8170FF)),
+	LILAC_LIGHT(Util.newColour(0xC2BDFF), Util.newColour(0x8E3DFF)),
+	PURPLE_DARK(Util.newColour(0x740AFF), Util.newColour(0x6000D6)),
+	PURPLE(Util.newColour(0xB980FF), Util.newColour(0x943DFF)),
+	PURPLE_LIGHT(Util.newColour(0xDA8FFF), Util.newColour(0xC552FF)),
+
+	VIOLET(Util.newColour(0xFF99C9), Util.newColour(0xFF57A5)),
+	PINK(Util.newColour(0xFF6BDA), Util.newColour(0xFF0FC3)),
+	PINK_LIGHT(Util.newColour(0xF5A8FF), Util.newColour(0xCF26BE)),
+	PINK_DEEP(Util.newColour(0xFF33CC), Util.newColour(0xFF33CC)),
+
+	MAGENTA(Util.newColour(0xFF1472), Util.newColour(0xFF1472)),
+	CRIMSON(Util.newColour(0xFF385D), Util.newColour(0xFF385D)),
+	RED(Util.newColour(0xEA5D76), Util.newColour(0xDD1D40)),
+	RED_DARK(Util.newColour(0xA61641), Util.newColour(0x960012)),
+	RED_LIGHT(Util.newColour(0xEE95A6), Util.newColour(0xE9536F)),
+	ROSE_GOLD(Util.newColour(0xE7C1BB), Util.newColour(0xE7C1BB)),
+
+	TAN(Util.newColour(0xEDC491), Util.newColour(0xDC8D2E)),
+	BROWN(Util.newColour(0xD0A38B), Util.newColour(0xB5714A)),
+	BROWN_DARK(Util.newColour(0x9F775B), Util.newColour(0x785945)),
+	AUBURN(Util.newColour(0xCF6654), Util.newColour(0xBB4935)),
+	ORANGE(Util.newColour(0xFF9970), Util.newColour(0xFA4700)),
+	AMBER(Util.newColour(0xFFC552), Util.newColour(0xBD7E00)),
+	GINGER(Util.newColour(0xFF9147), Util.newColour(0xF06000)),
+	COPPER(Util.newColour(0xD46F2B), Util.newColour(0xB96227)),
+
+	GOLD(Util.newColour(0xFFCC00), Util.newColour(0xCCA300)),
+	YELLOW(Util.newColour(0xECEC5B), Util.newColour(0xC4C700)),
+	YELLOW_LIGHT(Util.newColour(0xF8F8B9), Util.newColour(0xC1A42F)),
+
+	GREEN_LIME(Util.newColour(0xB4D987), Util.newColour(0x83BE3C)),
+	GREEN_LIGHT(Util.newColour(0x8fefbf), Util.newColour(0x1DB96B)),
+	GREEN(Util.newColour(0x57DB7E), Util.newColour(0x0D683B)),
+	GREEN_DARK(Util.newColour(0x209746), Util.newColour(0x209746)),
+
+	AQUA(Util.newColour(0x61FFFF), Util.newColour(0x009999)), // Ne, Kazuma...
+	TEAL(Util.newColour(0x6CBCB1), Util.newColour(0x439389)),
+	PERIWINKLE(Util.newColour(0xCCCCFF), Util.newColour(0xCCCCFF)),
+	BLUE_LIGHT(Util.newColour(0x99EBFF), Util.newColour(0x00A7D1)),
+	BLUE(Util.newColour(0x05CDFF), Util.newColour(0x00627A)),
+	BLUE_DARK(Util.newColour(0x0090BF), Util.newColour(0x002E43)),
+	BLUE_STEEL(Util.newColour(0xA7B7D2), Util.newColour(0x5671A4)),
+
+	GREY(Util.newColour(0xB3B3B3), Util.newColour(0x777777)),
+	GREY_DARK(Util.newColour(0x999999), Util.newColour(0x515151)),
+	PITCH_BLACK(Util.newColour(0x222222), Util.newColour(0x222222)),
+	BLACK(Util.newColour(0x777777), Util.newColour(0x1F1F1F));
+
+	private Color colour, lightColour;
+=======
 	WHITE(Util.newColor(0xFFFFFF), Util.newColor(0x636363)),
 	SILVER(Util.newColor(0xF3F3F3), Util.newColor(0x636363)),
 	PLATINUM(Util.newColor(0xE4E5E2), Util.newColor(0xE4E5E2)),
@@ -64,6 +121,7 @@ public enum BaseColor {
 	BLACK(Util.newColor(0x777777), Util.newColor(0x1F1F1F));
 	
 	private Color color, lightColor;
+>>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 
 	private BaseColor(Color color, Color lightColor) {
 		this.color = color;
@@ -77,11 +135,11 @@ public enum BaseColor {
 	public Color getLightColor() {
 		return lightColor;
 	}
-	
+
 	public String toWebHexString() {
 		return getColor().toString().substring(2, 8);
 	}
-	
+
 	/**
 	 * Shades goes from dark to light. So shades[0] is the darkest.
 	 * length 5

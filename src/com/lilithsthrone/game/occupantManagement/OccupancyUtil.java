@@ -545,7 +545,7 @@ public class OccupancyUtil implements XMLSaving {
 									Util.newArrayListOfValues(
 											SlaveEventTag.JOB_LILAYA_INTRUSIVE_TESTING),
 									Util.newArrayListOfValues(
-                      "[style.boldGood(+1)] [style.boldAffection(Affection)]",
+					  "[style.boldGood(+1)] [style.boldAffection(Affection)]",
 											"[style.boldGood(+5)] [style.boldAffection(Affection towards Lilaya)]"),
 									true));
 

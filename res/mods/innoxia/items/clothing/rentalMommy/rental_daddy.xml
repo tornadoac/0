@@ -16,11 +16,11 @@
 		<imageEquippedName/>
 		<enchantmentLimit/>
 		<effects>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="VIRILITY" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="VIRILITY" timer="0"/>
-              <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="TF_MOD_FETISH_BEHAVIOR" secondaryModifier="TF_MOD_FETISH_IMPREGNATION" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="DAMAGE_LUST" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="VIRILITY" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="CLOTHING_ATTRIBUTE" secondaryModifier="VIRILITY" timer="0"/>
+			  <effect itemEffectType="CLOTHING" limit="0" potency="MAJOR_BOOST" primaryModifier="TF_MOD_FETISH_BEHAVIOR" secondaryModifier="TF_MOD_FETISH_IMPREGNATION" timer="0"/>
 		</effects>
 		<blockedPartsList>
 			<blockedParts>
@@ -147,7 +147,7 @@
 			[npc.Name] roughly pulls up [npc2.name]'s T-shirt.
 		]]></NPCOtherNPCRough>
 	</displacementText>
-	
+
 	<replacementText type="PULLS_DOWN">
 		<playerSelf><![CDATA[
 			You pull your T-shirt back down, covering your torso.
@@ -174,5 +174,5 @@
 			[npc.Name] roughly pulls down [npc2.name]'s T-shirt.
 		]]></NPCOtherNPCRough>
 	</replacementText>
-	
+
 </clothing>

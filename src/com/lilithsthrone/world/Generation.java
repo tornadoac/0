@@ -25,7 +25,7 @@ import javafx.concurrent.Task;
  * @author Innoxia
  */
 public class Generation extends Task<Boolean> {
-	
+
 	/* TODO
 	 * Only supports an even number for world sizes.
 	 */
@@ -41,7 +41,7 @@ public class Generation extends Task<Boolean> {
 	public Boolean call() {
 		int maxSize = WorldType.values().length;
 		int count = 0;
-		
+
 		for(WorldType wt : WorldType.values()) {
 			if(debug) {
 				System.out.println(wt);
@@ -50,24 +50,24 @@ public class Generation extends Task<Boolean> {
 			count++;
 			updateProgress(count, maxSize);
 		}
-		
+
 		return true;
 	}
 
 	public void worldGeneration(WorldType worldType) {
-		
+
 		if(worldType.isUsesFile()) {
 			try {
 				BufferedImage img = ImageIO.read((getClass().getResource(worldType.getFileLocation())));
-				
+
 				World world = new World(img.getWidth(), img.getHeight(), null, worldType);
 				Main.game.getWorlds().put(worldType, world);
 
 				if(debug)
 					System.out.println(worldType.getName()+" Start-File 1");
-				
+
 				Cell[][] grid = new Cell[img.getWidth()][img.getHeight()];
-				
+
 				for (int i = 0; i < img.getWidth(); i++) {
 					for (int j = 0; j < img.getHeight(); j++) {
 						grid[i][j] = new Cell(worldType, new Vector2i(i, j));
@@ -80,7 +80,7 @@ public class Generation extends Task<Boolean> {
 
 				if(debug)
 					System.out.println(worldType.getName()+" Start-File 2");
-				
+
 				for(int w = 0 ; w < img.getWidth(); w++) {
 					for(int h = 0 ; h < img.getHeight(); h++) {
 						grid[w][img.getHeight()-1-h].setPlace(new GenericPlace(worldType.getPlacesMap().get(new Color(img.getRGB(w, h)))), true);
@@ -89,38 +89,43 @@ public class Generation extends Task<Boolean> {
 
 				if(debug)
 					System.out.println(worldType.getName()+" Start-File 3");
-				
+
 				world.setGrid(grid);
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 		} else {
-			
+
 			if(debug)
 				System.out.println(worldType.getName()+" Start 1");
-			
+
 			int width = worldType.getWorldSize();
 			int height = worldType.getWorldSize();
 
 			if(debug)
 				System.out.println(worldType.getName()+" Start 2  [width:"+width+"] [height:"+height+"]");
-			
+
 			// Create new world of this type:
 			World w = new World(width * 2 - 1, height * 2 - 1, null, worldType);
-	
+
 			Main.game.getWorlds().put(w.getWorldType(), w);
 
 			if(debug)
 				System.out.println(worldType.getName()+" Start 3");
+<<<<<<< HEAD
+
+			// Initialise grid:
+=======
 			
 			// Initialize grid:
+>>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 			Cell[][] grid = new Cell[width][height];
-			
+
 			if(debug)
 				System.out.println(worldType.getName()+" Start 4");
-			
+
 			for (int i = 0; i < width; i++) {
 				for (int j = 0; j < height; j++) {
 					grid[i][j] = new Cell(worldType, new Vector2i(i, j));
@@ -130,10 +135,10 @@ public class Generation extends Task<Boolean> {
 					}
 				}
 			}
-			
+
 			if(debug)
 				System.out.println(worldType.getName()+" Init finished");
-			
+
 			// Put blocks in alternating checkerboard of 4 squares:
 			/*
 			 * C = chance for 1 block in the 2x2 square . = never a block here
@@ -143,7 +148,7 @@ public class Generation extends Task<Boolean> {
 			 * .|.|C|C|.|.
 			 * C|C|.|.|C|C
 			 * C|C|.|.|C|C
-			 * 
+			 *
 			 * This will stop any impassable areas being created
 			 */
 			boolean[][] visited = new boolean[width][height];
@@ -179,21 +184,21 @@ public class Generation extends Task<Boolean> {
 					}
 				}
 			}
-			
+
 			if(debug)
 				System.out.println(worldType.getName()+" Break 1");
-			
+
 			int coreX = 0, coreY = 0;
-			
+
 			if(debug)
 				System.out.println(worldType.getName()+" Break 2");
-			
+
 			// Set exits:
 			for(PlaceType pt : worldType.getPlaces()){
 				if(pt.getBearing()!=null){
 					// To get a little bit of spread, use quadrants of map to place exits.
 					int quadrant = 1;
-	
+
 					// Don't place exits in corners.
 					do {
 						if (pt.getBearing() == Bearing.NORTH) {
@@ -286,7 +291,7 @@ public class Generation extends Task<Boolean> {
 							}
 						}
 					} while (grid[coreX][coreY].isBlocked());
-	
+
 					grid[coreX][coreY].setBlocked(false);
 					visited[coreX][coreY] = false;
 					grid[coreX][coreY].setPlace(new GenericPlace(pt), true);
@@ -301,10 +306,10 @@ public class Generation extends Task<Boolean> {
 						grid[coreX][coreY].setWestAccess(true);
 				}
 			}
-			
+
 			if(debug)
 				System.out.println(worldType.getName()+" Break 3");
-			
+
 			// Add places:
 			int quadrant = 1;
 			List<PlaceType> places = new ArrayList<>();
@@ -313,7 +318,7 @@ public class Generation extends Task<Boolean> {
 					places.add(p);
 			}
 			Collections.shuffle(places);
-	
+
 			for (PlaceType p : places) {
 				do {
 					coreX = rnd.nextInt(width);
@@ -332,38 +337,38 @@ public class Generation extends Task<Boolean> {
 						coreY = height / 2 + rnd.nextInt(height / 2);
 					}
 				} while (grid[coreX][coreY].isBlocked() || grid[coreX][coreY].getPlace().getPlaceType() != worldType.getStandardPlace());
-	
+
 				quadrant++;
 				if (quadrant > 4)
 					quadrant = 1;
-	
+
 				grid[coreX][coreY].setPlace(new GenericPlace(p), true);
-	
+
 			}
-	
+
 			// Add cuttOffZone places:
 			if (worldType.getDangerousPlaces() != null)
 				for (PlaceType p : worldType.getDangerousPlaces()) {
 					Vector2i vTemp = dangerousPlaces.get(Util.random.nextInt(dangerousPlaces.size()));
-	
+
 					grid[vTemp.getX()][vTemp.getY()].setPlace(new GenericPlace(p), true);
-	
+
 					dangerousPlaces.remove(vTemp);
 				}
-	
+
 			Cell[][] finalGrid = generateMap(width / 2, height / 2, grid, visited);
-	
+
 
 			if(debug)
 				System.out.println(worldType.getName()+" Break 4");
-			
+
 			// Expand the generated grid:
-	
+
 			Cell[][] expandedGrid = new Cell[width * 2 - 1][height * 2 - 1];
 			for (int i = 0; i < width * 2 - 1; i++)
 				for (int j = 0; j < height * 2 - 1; j++)
 					expandedGrid[i][j] = new Cell(worldType, new Vector2i(i, j));
-	
+
 			for (int i = 0; i < width * 2 - 1; i++)
 				for (int j = 0; j < height * 2 - 1; j++) {
 					if (i % 2 == 0 && j % 2 == 0) {
@@ -378,7 +383,7 @@ public class Generation extends Task<Boolean> {
 						if (!finalGrid[i / 2][j / 2].isNorthAccess() && !finalGrid[i / 2][(j + 1) / 2].isSouthAccess()) {
 							expandedGrid[i][j].setPlace(new GenericPlace(worldType.getCutOffZone()), true);
 						}
-	
+
 					} else if (j % 2 == 0) {
 						if (finalGrid[i / 2][j / 2].isEastAccess())
 							expandedGrid[i][j].setWestAccess(true);
@@ -387,7 +392,7 @@ public class Generation extends Task<Boolean> {
 						if (!finalGrid[i / 2][j / 2].isEastAccess() && !finalGrid[(i + 1) / 2][j / 2].isWestAccess()) {
 							expandedGrid[i][j].setPlace(new GenericPlace(worldType.getCutOffZone()), true);
 						}
-	
+
 					} else {
 						if (Math.random() > 0.8) {
 							expandedGrid[i][j].setPlace(new GenericPlace(worldType.getCutOffZone()), true);
@@ -395,11 +400,11 @@ public class Generation extends Task<Boolean> {
 							expandedGrid[i][j].setPlace(new GenericPlace(PlaceType.GENERIC_IMPASSABLE), true);
 						}
 					}
-	
+
 				}
-	
+
 //			printMaze(expandedGrid);
-	
+
 			w.setGrid(expandedGrid);
 		}
 	}
@@ -411,10 +416,10 @@ public class Generation extends Task<Boolean> {
 		if (Math.random() >= 0.5) {
 			visited[x][y] = true;
 		}
-		
+
 		int width = grid.length;
 		int height = grid[0].length;
-		
+
 		// Check each surrounding cell to see if it's been visited. If it has,
 		// skip over it. If it hasn't, break the wall to it:
 		// y+2
@@ -473,7 +478,7 @@ public class Generation extends Task<Boolean> {
 
 		return grid;
 	}
-	
+
 	/*
 	 * Take in grid where important places need to go
 	 * Take in important places list
@@ -482,12 +487,12 @@ public class Generation extends Task<Boolean> {
 	 * Start from middle and explore grid until visited all original places, changing IMPASSABLE to generic path or dangerous path as you go
 	 * cannot explore into corners
 	 */
-	
+
 	public static Cell[][] generateTestMap(WorldType worldType, int x, int y, Cell[][] grid, int padding) {
 		int paddedCellSize = 2*padding+1;
-		
+
 		Cell[][] paddedGrid = new Cell[(grid.length*paddedCellSize)-(2*padding)][(grid[0].length*paddedCellSize)-(2*padding)];
-		
+
 		for(int i=0; i<paddedGrid.length;i++) {
 			for(int j=0; j<paddedGrid[0].length;j++) {
 				if(i%paddedCellSize==0 && j%paddedCellSize==0) {
@@ -502,17 +507,17 @@ public class Generation extends Task<Boolean> {
 		List<Vector2i> discoveredMajorPlaces = new ArrayList<>();
 		return recursiveGenerateTestMap(worldType, (paddedGrid.length/2)+1, (paddedGrid[0].length/2)+1, paddedGrid, totalMajorPlaces, discoveredMajorPlaces);
 	}
-	
+
 	private static Cell[][] recursiveGenerateTestMap(WorldType worldType, int x, int y, Cell[][] grid, int totalMajorPlaces, List<Vector2i> discoveredMajorPlaces) {
 		if(totalMajorPlaces == discoveredMajorPlaces.size()) {
 			return grid;
 		}
-		
+
 		Random rnd = new Random();
 
 		int width = grid.length;
 		int height = grid[0].length;
-		
+
 		// randomise this order:
 		int[] direction = { 1, 2, 3, 4 };
 		for (int i = direction.length - 1; i > 0; i--) {
@@ -530,7 +535,7 @@ public class Generation extends Task<Boolean> {
 						if (!isCorner(x - 1, y, grid) && grid[x - 1][y].getPlace().getPlaceType()==PlaceType.GENERIC_IMPASSABLE) {
 							grid[x - 1][y].setPlace(new GenericPlace(worldType.getStandardPlace()), true);
 							recursiveGenerateTestMap(worldType, x - 1, y, grid, totalMajorPlaces, discoveredMajorPlaces);
-							
+
 						} else if(grid[x - 1][y].getPlace().getPlaceType()!=worldType.getStandardPlace()) {
 							if(!discoveredMajorPlaces.contains(new Vector2i(x-1, y))) {
 								discoveredMajorPlaces.add(new Vector2i(x-1, y));
@@ -539,13 +544,13 @@ public class Generation extends Task<Boolean> {
 						}
 					}
 					break;
-	
+
 				case 2: // East
 					if (x + 1 <= width - 1 && y >= 0 && y <= height - 1) {
 						if (!isCorner(x + 1, y, grid) &&grid[x + 1][y].getPlace().getPlaceType()==PlaceType.GENERIC_IMPASSABLE) {
 							grid[x + 1][y].setPlace(new GenericPlace(worldType.getStandardPlace()), true);
 							recursiveGenerateTestMap(worldType, x + 1, y, grid, totalMajorPlaces, discoveredMajorPlaces);
-							
+
 						} else if(grid[x + 1][y].getPlace().getPlaceType()!=worldType.getStandardPlace()) {
 							if(!discoveredMajorPlaces.contains(new Vector2i(x+1, y))) {
 								discoveredMajorPlaces.add(new Vector2i(x+1, y));
@@ -554,13 +559,13 @@ public class Generation extends Task<Boolean> {
 						}
 					}
 					break;
-	
+
 				case 3: // South
 					if (y - 1 >= 0 && x >= 0 && x <= width - 1) {
 						if (!isCorner(x, y-1, grid) &&grid[x][y - 1].getPlace().getPlaceType()==PlaceType.GENERIC_IMPASSABLE) {
 							grid[x][y - 1].setPlace(new GenericPlace(worldType.getStandardPlace()), true);
 							recursiveGenerateTestMap(worldType, x, y - 1, grid, totalMajorPlaces, discoveredMajorPlaces);
-							
+
 						} else if(grid[x][y-1].getPlace().getPlaceType()!=worldType.getStandardPlace()) {
 							if(!discoveredMajorPlaces.contains(new Vector2i(x, y-1))) {
 								discoveredMajorPlaces.add(new Vector2i(x, y-1));
@@ -569,13 +574,13 @@ public class Generation extends Task<Boolean> {
 						}
 					}
 					break;
-	
+
 				case 4: // North
 					if (y + 1 <= height - 1 && x >= 0 && x <= width - 1) {
 						if (!isCorner(x, y+1, grid) &&grid[x][y + 1].getPlace().getPlaceType()==PlaceType.GENERIC_IMPASSABLE) {
 							grid[x][y + 1].setPlace(new GenericPlace(worldType.getStandardPlace()), true);
 							recursiveGenerateTestMap(worldType, x, y + 1, grid, totalMajorPlaces, discoveredMajorPlaces);
-							
+
 						} else if(grid[x][y+1].getPlace().getPlaceType()!=worldType.getStandardPlace()) {
 							if(!discoveredMajorPlaces.contains(new Vector2i(x, y+1))) {
 								discoveredMajorPlaces.add(new Vector2i(x, y+1));
@@ -589,11 +594,11 @@ public class Generation extends Task<Boolean> {
 		System.out.println(discoveredMajorPlaces.size());
 		return grid;
 	}
-	
+
 	private static boolean isCorner(int x, int y, Cell[][] grid) {
 		int x1[] = new int[] {-1, 0, 1, 1, 1, 0, -1, -1};
 		int y1[] = new int[] {1, 1, 1, 0, -1, -1, -1, 0};
-		
+
 		int count=0;
 		for(int i=0;i<8;i++) {
 			if(x+x1[i]>0 && x+x1[i]<grid.length
@@ -627,7 +632,7 @@ public class Generation extends Task<Boolean> {
 			lineOneBuffer = new StringBuilder("");
 		}
 	}
-	
+
 //	public static void printMaze(Cell[][] maze) {
 //		StringBuilder lineOneBuffer = new StringBuilder(""), lineTwoBuffer = new StringBuilder(""), lineThreeBuffer = new StringBuilder("");
 //		for (int y = maze[0].length - 1; y >= 0; y--) {
