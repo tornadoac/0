@@ -117,7 +117,6 @@ import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.game.inventory.weapon.AbstractWeapon;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.rendering.Pattern;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.ColourListPresets;
 import com.lilithsthrone.utils.Util;
@@ -126,7 +125,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.67
- * @version 0.2.8
+ * @version 0.3.2
  * @author Innoxia, tukaima
  */
 public class CharacterUtils {
@@ -296,13 +295,13 @@ public class CharacterUtils {
 			if(Math.random()<=0.5) {
 				startingBodyType = motherBody;
 				stage = mother.getRaceStage();
+				
 			} else {
 				startingBodyType = fatherBody;
 				stage = father.getRaceStage();
 				raceTakesAfter = father.getSubspecies();
 				takesAfterMother = false;
 				raceFromMother = false;
-				
 			}
 			
 			switch(startingGender.isFeminine()
@@ -332,9 +331,7 @@ public class CharacterUtils {
 			}
 			
 			body = generateBody(linkedCharacter, startingGender, startingBodyType, stage);
-//			System.out.println(":3");
 		}
-//		System.out.println(body.getSubspecies().getName(linkedCharacter));
 		body.setBodyMaterial(mother.getBodyMaterial());
 		
 		// Genetics! (Sort of...)
@@ -343,6 +340,17 @@ public class CharacterUtils {
 		if(Math.abs(mother.getFemininityValue()-body.getFemininity()) > Math.abs(father.getFemininityValue()-body.getFemininity())) {
 			takesAfterMother = false;
 			parentTakesAfter = father;
+		}
+		
+		// Non-biped parents:
+		if(takesAfterMother) {
+			if(body.getLeg().getType().isLegConfigurationAvailable(mother.getLegConfiguration())) {
+				body.getLeg().setLegConfigurationForced(body.getLeg().getType(), mother.getLegConfiguration());
+			}
+		} else {
+			if(body.getLeg().getType().isLegConfigurationAvailable(father.getLegConfiguration())) {
+				body.getLeg().setLegConfigurationForced(body.getLeg().getType(), father.getLegConfiguration());
+			}
 		}
 		
 		float takesAfterMotherChance = takesAfterMother?0.75f:0.25f;
@@ -938,7 +946,6 @@ public class CharacterUtils {
 		}
 		Body body = CharacterUtils.generateBody(linkedCharacter, startingGender, halfSubspecies, stage);
 		body.setSubspeciesOverride(Subspecies.HALF_DEMON);
-		body.setHalfDemonSubspecies(halfSubspecies);
 		
 		body.setAss(new Ass(AssType.DEMON_COMMON,
 				(startingGender.isFeminine() ? demonBody.getFemaleAssSize() : demonBody.getMaleAssSize()),
@@ -950,7 +957,9 @@ public class CharacterUtils {
 		
 		body.setBreast(new Breast(BreastType.DEMON_COMMON,
 				Util.randomItemFrom(demonBody.getBreastShapes()),
-				(startingGender.getGenderName().isHasBreasts()? demonBody.getBreastSize() : demonBody.getNoBreastSize()),
+				(startingGender.getGenderName().isHasBreasts()
+						? Math.max(CupSize.getMinimumCupSizeForBreasts().getMeasurement(), demonBody.getBreastSize()+Main.getProperties().breastSizePreference)
+						: demonBody.getNoBreastSize()),
 				(startingGender.isFeminine() ? demonBody.getFemaleLactationRate() : demonBody.getMaleLactationRate()),
 				(startingGender.isFeminine() ? demonBody.getBreastCountFemale() : demonBody.getBreastCountMale()),
 				(startingGender.isFeminine() ? demonBody.getFemaleNippleSize() : demonBody.getMaleNippleSize()),
@@ -996,7 +1005,7 @@ public class CharacterUtils {
 		
 		body.setPenis(startingGender.getGenderName().isHasPenis()
 				? new Penis(demonBody.getPenisType(),
-					demonBody.getPenisSize(),
+					Math.max(Math.min(8, demonBody.getPenisSize()), demonBody.getPenisSize()+Main.getProperties().penisSizePreference),
 					demonBody.getPenisGirth(),
 					demonBody.getTesticleSize(),
 					demonBody.getCumProduction(),
@@ -1034,8 +1043,10 @@ public class CharacterUtils {
 			}
 		}
 		
-		body.setWing(new Wing(demonBody.getRandomWingType(false),
-				(startingGender.isFeminine() ? demonBody.getFemaleWingSize() : demonBody.getMaleWingSize())));
+		if(!body.getArm().getType().allowsFlight()) { // Do not give back wings to characters who have arm wings.
+			body.setWing(new Wing(demonBody.getRandomWingType(false),
+					(startingGender.isFeminine() ? demonBody.getFemaleWingSize() : demonBody.getMaleWingSize())));
+		}
 		
 //		startingBodyType.getBodyMaterial(),
 //		startingBodyType.getGenitalArrangement(),
@@ -1146,7 +1157,9 @@ public class CharacterUtils {
 						true),
 				new Breast(stage.isBreastFurry()?startingBodyType.getBreastType():BreastType.HUMAN,
 						Util.randomItemFrom(startingBodyType.getBreastShapes()),
-						(hasBreasts? startingBodyType.getBreastSize() : startingBodyType.getNoBreastSize()),
+						(hasBreasts
+								? Math.max(CupSize.getMinimumCupSizeForBreasts().getMeasurement(), startingBodyType.getBreastSize()+Main.getProperties().breastSizePreference)
+								: startingBodyType.getNoBreastSize()),
 						(startingGender.isFeminine() ? startingBodyType.getFemaleLactationRate() : startingBodyType.getMaleLactationRate()),
 						(startingGender.isFeminine() ? startingBodyType.getBreastCountFemale() : startingBodyType.getBreastCountMale()),
 						(startingGender.isFeminine() ? startingBodyType.getFemaleNippleSize() : startingBodyType.getMaleNippleSize()),
@@ -1188,7 +1201,7 @@ public class CharacterUtils {
 						: new Vagina(VaginaType.NONE, 0, 0, 0, 0, 3, 3, true))
 				.penis(hasPenis
 						? new Penis(stage.isPenisFurry()?startingBodyType.getPenisType():PenisType.HUMAN,
-							startingBodyType.getPenisSize(),
+							Math.max(Math.min(8, startingBodyType.getPenisSize()), startingBodyType.getPenisSize()+Main.getProperties().penisSizePreference),
 							startingBodyType.getPenisGirth(),
 							startingBodyType.getTesticleSize(),
 							startingBodyType.getCumProduction(),
@@ -1262,7 +1275,9 @@ public class CharacterUtils {
 		
 		body.setBreast(new Breast(stage.isBreastFurry()?startingBodyType.getBreastType():BreastType.HUMAN,
 				Util.randomItemFrom(startingBodyType.getBreastShapes()),
-				(hasBreasts? startingBodyType.getBreastSize() : startingBodyType.getNoBreastSize()),
+				(hasBreasts
+						? Math.max(CupSize.getMinimumCupSizeForBreasts().getMeasurement(), startingBodyType.getBreastSize()+Main.getProperties().breastSizePreference)
+						: startingBodyType.getNoBreastSize()),
 				(startingGender.isFeminine() ? startingBodyType.getFemaleLactationRate() : startingBodyType.getMaleLactationRate()),
 				(startingGender.isFeminine() ? startingBodyType.getBreastCountFemale() : startingBodyType.getBreastCountMale()),
 				(startingGender.isFeminine() ? startingBodyType.getFemaleNippleSize() : startingBodyType.getMaleNippleSize()),
@@ -1338,7 +1353,7 @@ public class CharacterUtils {
 		
 		body.setPenis(hasPenis
 				? new Penis(stage.isPenisFurry()?startingBodyType.getPenisType():PenisType.HUMAN,
-						startingBodyType.getPenisSize(),
+						Math.max(Math.min(8, startingBodyType.getPenisSize()), startingBodyType.getPenisSize()+Main.getProperties().penisSizePreference),
 						startingBodyType.getPenisGirth(),
 						startingBodyType.getTesticleSize(),
 						startingBodyType.getCumProduction(),
@@ -2075,9 +2090,9 @@ public class CharacterUtils {
 			}
 		}
 		
-		Colour primaryColour = ColourListPresets.ALL.getPresetColourList().get(Util.random.nextInt(ColourListPresets.ALL.getPresetColourList().size())),
-				secondaryColour = ColourListPresets.ALL.getPresetColourList().get(Util.random.nextInt(ColourListPresets.ALL.getPresetColourList().size())),
-				lingerieColour = ColourListPresets.LINGERIE.getPresetColourList().get(Util.random.nextInt(ColourListPresets.LINGERIE.getPresetColourList().size()));
+		Colour primaryColour = ColourListPresets.ALL.get(Util.random.nextInt(ColourListPresets.ALL.size())),
+				secondaryColour = ColourListPresets.ALL.get(Util.random.nextInt(ColourListPresets.ALL.size())),
+				lingerieColour = ColourListPresets.LINGERIE.get(Util.random.nextInt(ColourListPresets.LINGERIE.size()));
 		
 		// Remove exposing underwear if replaceUnsuitableClothing and is exposed:
 		if(replaceUnsuitableClothing
@@ -2140,9 +2155,6 @@ public class CharacterUtils {
 															?ct.getAvailablePrimaryColours().contains(primaryColour)?primaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size()))
 															:ct.getAvailablePrimaryColours().contains(secondaryColour)?secondaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size())))),
 											false);
-									if(ct.isPatternAvailable() && Math.random() >= 0.8f) {
-										clothingToAdd.setPattern(Util.randomItemFrom(new ArrayList<>(Pattern.getAllPatterns().values())).getName());
-									}
 									character.equipClothingFromNowhere(clothingToAdd, true, character);
 								}
 							}
@@ -2194,10 +2206,6 @@ public class CharacterUtils {
 																	?ct.getAvailablePrimaryColours().contains(primaryColour)?primaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size()))
 																	:ct.getAvailablePrimaryColours().contains(secondaryColour)?secondaryColour:ct.getAvailablePrimaryColours().get(Util.random.nextInt(ct.getAvailablePrimaryColours().size())))),
 											false);
-									if(ct.isPatternAvailable() && Math.random() >= 0.8f) {
-										clothingToAdd.setPattern(Util.randomItemFrom(new ArrayList<>(Pattern.getAllPatterns().values())).getName());
-									}
-									
 									character.equipClothingFromNowhere(clothingToAdd, true, character);
 								}
 							}
@@ -2360,10 +2368,10 @@ public class CharacterUtils {
 						ClothingType.CHEST_PLUNGE_BRA,
 						ClothingType.EYES_AVIATORS,
 						ClothingType.FINGER_RING,
-						ClothingType.FOOT_ANKLE_BOOTS,
-						ClothingType.FOOT_HEELS,
-						ClothingType.FOOT_THIGH_HIGH_BOOTS,
-						ClothingType.FOOT_STILETTO_HEELS,
+						ClothingType.getClothingTypeFromId("innoxia_foot_ankle_boots"),
+						ClothingType.getClothingTypeFromId("innoxia_foot_heels"),
+						ClothingType.getClothingTypeFromId("innoxia_foot_thigh_high_boots"),
+						ClothingType.getClothingTypeFromId("innoxia_foot_stiletto_heels"),
 						ClothingType.GROIN_BACKLESS_PANTIES,
 						ClothingType.GROIN_CROTCHLESS_PANTIES,
 						ClothingType.GROIN_CROTCHLESS_THONG,

@@ -209,13 +209,14 @@ public class Sex {
 	private static Set<GameCharacter> charactersForbiddenByOthersFromPositioning;
 	private static Set<GameCharacter> charactersSelfActionsBlocked;
 	private static Set<GameCharacter> charactersDeniedOrgasm;
+	private static Map<GameCharacter, SexControl> forcedSexControlMap;
 
 	private static Value<GameCharacter, Class<? extends BodyPartInterface>> creampieLockedBy;
 	
 	// Clothes:
 
-	private static Set<GameCharacter> charactersAbleToRemoveSelfClothing;
-	private static Set<GameCharacter> charactersAbleToRemoveOthersClothing;
+	private static Set<GameCharacter> charactersBannedFromRemovingSelfClothing;
+	private static Set<GameCharacter> charactersBannedFromRemovingOthersClothing;
 	
 	private static AbstractClothing clothingBeingRemoved;
 	
@@ -362,6 +363,15 @@ public class Sex {
 		positionRequest = null;
 		charactersBannedFromPositioning = new HashSet<>();
 		
+		
+		charactersSelfActionsBlocked = new HashSet<>();
+		charactersDeniedOrgasm = new HashSet<>();
+		
+		forcedSexControlMap = new HashMap<>();
+		for(GameCharacter character : Sex.getAllParticipants()) {
+			forcedSexControlMap.put(character, null);
+		}
+
 		charactersForbiddenByOthersFromPositioning = new HashSet<>();
 		for(GameCharacter character : Sex.getAllParticipants()) {
 			if(!character.isPlayer() && (Sex.getSexControl(character)!=SexControl.FULL || !Sex.isDom(character))) {
@@ -369,10 +379,6 @@ public class Sex {
 			}
 		}
 		
-		
-		charactersSelfActionsBlocked = new HashSet<>();
-		charactersDeniedOrgasm = new HashSet<>();
-
 		areasStretched = new HashMap<>();
 		for(GameCharacter character : Sex.getAllParticipants()) {
 			areasStretched.put(character, new HashSet<>());
@@ -508,8 +514,8 @@ public class Sex {
 		
 		sexSB.append(calculateWetAreas(true));
 		
-		charactersAbleToRemoveSelfClothing = new HashSet<>();
-		charactersAbleToRemoveOthersClothing = new HashSet<>();
+		charactersBannedFromRemovingSelfClothing = new HashSet<>();
+		charactersBannedFromRemovingOthersClothing = new HashSet<>();
 		
 		// Store status of all clothes for both partners (so they can be restored afterwards):
 		clothingPreSexMap = new HashMap<>();
@@ -633,14 +639,14 @@ public class Sex {
 				boolean satisfiedPartners = false;
 				if(Sex.isDom(participant)) {
 					for(GameCharacter sub : Sex.getSubmissiveParticipants(false).keySet()) {
-						if(Sex.getNumberOfOrgasms(sub)>0) {
+						if(Sex.getNumberOfOrgasms(sub)>=sub.getOrgasmsBeforeSatisfied()) {
 							satisfiedPartners = true;
 							break;
 						}
 					}
 				} else {
 					for(GameCharacter dom : Sex.getDominantParticipants(false).keySet()) {
-						if(Sex.getNumberOfOrgasms(dom)>0) {
+						if(Sex.getNumberOfOrgasms(dom)>=dom.getOrgasmsBeforeSatisfied()) {
 							satisfiedPartners = true;
 							break;
 						}
@@ -1612,26 +1618,13 @@ public class Sex {
 			if(SexFlags.playerPreparedForCharactersOrgasm.contains(Sex.getCharacterPerformingAction())) {
 				for (SexActionInterface sexAction : Sex.getOrgasmActionsPartner(Sex.getCharacterPerformingAction(), targetedCharacter)) {
 					if (sexAction.isAddedToAvailableSexActions()) {
-						boolean dislikedAction = false;
-//						if(sexAction.getFetishes(Sex.getCharacterPerformingAction())!=null) {
-//							for(Fetish f : sexAction.getFetishes(Sex.getCharacterPerformingAction())) {
-//								if(f!=Fetish.FETISH_EXHIBITIONIST // Do not include exhibitionist, as otherwise NPC will never do anything in public sex.
-//										&& (Sex.getCharacterPerformingAction().getFetishDesire(f)==FetishDesire.ONE_DISLIKE
-//											|| Sex.getCharacterPerformingAction().getFetishDesire(f)==FetishDesire.ZERO_HATE)) {
-//									lowPriority.add(sexAction);
-//									dislikedAction = true;
-//									break;
-//								}
-//							}
-//						}
+						
 						int weight = ((NPC)Sex.getCharacterPerformingAction()).calculateSexTypeWeighting(sexAction.getAsSexType(), targetedCharacter, null);
 						
 						if(weight<0) {
 							lowPriority.add(sexAction);
-							dislikedAction = true;
-						}
-						
-						if(!dislikedAction) {
+							
+						} else {
 							switch(sexAction.getPriority()){
 								case LOW:
 									lowPriority.add(sexAction);
@@ -1680,26 +1673,12 @@ public class Sex {
 			for (SexActionInterface sexAction : Sex.getActionsAvailablePartner(Sex.getCharacterPerformingAction(), targetedCharacter)) {
 				if (sexAction.getActionType()==SexActionType.PREPARE_FOR_PARTNER_ORGASM) {
 					if (sexAction.isAddedToAvailableSexActions()) {
-						boolean dislikedAction = false;
-//						if(sexAction.getFetishes(Sex.getCharacterPerformingAction())!=null) {
-//							for(Fetish f : sexAction.getFetishes(Sex.getCharacterPerformingAction())) {
-//								if(f!=Fetish.FETISH_EXHIBITIONIST // Do not include exhibitionist, as otherwise NPC will never do anything in public sex.
-//										&& (Sex.getCharacterPerformingAction().getFetishDesire(f)==FetishDesire.ONE_DISLIKE
-//											|| Sex.getCharacterPerformingAction().getFetishDesire(f)==FetishDesire.ZERO_HATE)) {
-//									lowPriority.add(sexAction);
-//									dislikedAction = true;
-//									break;
-//								}
-//							}
-//						}
 						int weight = ((NPC)Sex.getCharacterPerformingAction()).calculateSexTypeWeighting(sexAction.getAsSexType(), targetedCharacter, null);
 						
 						if(weight<0) {
 							lowPriority.add(sexAction);
-							dislikedAction = true;
-						}
-						
-						if(!dislikedAction) {
+							
+						} else {
 							switch(sexAction.getPriority()){
 								case LOW:
 									lowPriority.add(sexAction);
@@ -1756,26 +1735,13 @@ public class Sex {
 						
 					} else {
 						// Add action as normal:
-						boolean dislikedAction = false;
-//						if(sexAction.getFetishes(Sex.getCharacterPerformingAction())!=null) {
-//							for(Fetish f : sexAction.getFetishes(Sex.getCharacterPerformingAction())) {
-//								if(f!=Fetish.FETISH_NON_CON_SUB
-//										&& f!=Fetish.FETISH_EXHIBITIONIST // Do not include exhibitionist, as otherwise NPC will never do anything in public sex.
-//										&& (Sex.getCharacterPerformingAction().getFetishDesire(f)==FetishDesire.ONE_DISLIKE
-//											|| Sex.getCharacterPerformingAction().getFetishDesire(f)==FetishDesire.ZERO_HATE)) {
-//									dislikedAction = true;
-//									break;
-//								}
-//							}
-//						}
+						
 						int weight = ((NPC)Sex.getCharacterPerformingAction()).calculateSexTypeWeighting(sexAction.getAsSexType(), targetedCharacter, null);
 						
 						if(weight<0 && !sexAction.equals(GenericActions.PARTNER_STOP_SEX_NOT_HAVING_FUN)) {
 							lowPriority.add(sexAction);
-							dislikedAction = true;
-						}
-						
-						if(!dislikedAction) {
+							
+						} else {
 							switch(sexAction.getPriority()){
 								case LOW:
 									lowPriority.add(sexAction);
@@ -1811,7 +1777,6 @@ public class Sex {
 				availableSexActionsPartner.addAll(normalPriority);
 
 			} else if(!lowPriority.isEmpty()) {
-				System.out.println("low priority added");
 				availableSexActionsPartner.addAll(lowPriority);
 			}
 			
@@ -2011,101 +1976,19 @@ public class Sex {
 				}
 
 				List<CoverableArea> cummedOnAreas = sexAction.getAreasCummedOn(cumProvider, cumTarget);
-				if (cummedOnAreas == null)
+				if (cummedOnAreas == null) {
 					continue;
-
+				}
 				for(CoverableArea area : cummedOnAreas) {
-
-					InventorySlot invSlot = InventorySlot.MOUTH;
-					switch(area) {
-						case NONE:
-							continue;
-	
-						case MOUTH: // Facial:
-							if(cumTarget.getClothingInSlot(InventorySlot.EYES)!=null) {
-								cumTarget.getClothingInSlot(InventorySlot.EYES).setDirty(true);
-							} else {
-								cumTarget.addDirtySlot(InventorySlot.EYES);
+					for(InventorySlot slot : area.getAssociatedInventorySlots(cumTarget)) {
+						List<AbstractClothing> dirtyClothing = cumTarget.getVisibleClothingConcealingSlot(slot);
+						if(!dirtyClothing.isEmpty()) {
+							for(AbstractClothing c : dirtyClothing) {
+								c.setDirty(true);
 							}
-							if(cumTarget.getClothingInSlot(InventorySlot.NECK)!=null) {
-								cumTarget.getClothingInSlot(InventorySlot.NECK).setDirty(true);
-							} else {
-								cumTarget.addDirtySlot(InventorySlot.NECK);
-							}
-							// invSlot = InventorySlot.MOUTH;
-							break;
-	
-						case FEET:
-							if (cumTarget.getHighestZLayerCoverableArea(CoverableArea.FEET)==null) {
-								cumTarget.addDirtySlot(InventorySlot.ANKLE);
-								invSlot = InventorySlot.FOOT;
-							}
-							break;
-	
-						case HAIR:
-							invSlot = InventorySlot.HAIR;
-							break;
-	
-						case HANDS:
-							invSlot = InventorySlot.HAND;
-							break;
-	
-						case STOMACH:
-							invSlot = InventorySlot.STOMACH;
-							break;
-	
-						case BACK:
-							invSlot = InventorySlot.TORSO_OVER;
-							break;
-	
-						case ASS: case ANUS:
-							invSlot = InventorySlot.ANUS;
-							break;
-	
-						case NIPPLES:
-							area = CoverableArea.BREASTS;
-							invSlot = InventorySlot.CHEST;
-							break;
-						case BREASTS:
-							invSlot = InventorySlot.CHEST;
-							break;
-	
-						case NIPPLES_CROTCH:
-							area = CoverableArea.LEGS;
-							invSlot = InventorySlot.GROIN;
-							break;
-						case BREASTS_CROTCH:
-							invSlot = InventorySlot.GROIN;
-							break;
-	
-						case TESTICLES:
-							area = CoverableArea.PENIS;
-							invSlot = InventorySlot.GROIN;
-							break;
-						case PENIS:
-							invSlot = InventorySlot.GROIN;
-							break;
-	
-						case MOUND:
-							area = CoverableArea.VAGINA;
-							invSlot = InventorySlot.GROIN;
-							break;
-						case VAGINA:
-							invSlot = InventorySlot.GROIN;
-							break;
-	
-						case THIGHS:
-							area = CoverableArea.LEGS;
-							invSlot = InventorySlot.LEG;
-							break;
-						case LEGS:
-							invSlot = InventorySlot.LEG;
-							break;
-					}
-					if (cumTarget.getHighestZLayerCoverableArea(area)!=null) {
-						cumTarget.getHighestZLayerCoverableArea(area).setDirty(true);
-					} else {
-						cumTarget.addDirtySlot(invSlot);
+						} else if(slot!=InventorySlot.TORSO_OVER) { // Do not dirty over-torso slot, as it doesn't really make much sense...
+							cumTarget.addDirtySlot(slot);
+						}
 					}
 				}
 			}
@@ -3114,7 +2997,14 @@ public class Sex {
 		Sex.subHasEqualControl = subHasEqualControl;
 	}
 
+	public static void setForcedSexControl(GameCharacter character, SexControl sexControl) {
+		forcedSexControlMap.put(character, sexControl);
+	}
+	
 	public static SexControl getSexControl(GameCharacter character) {
+		if(forcedSexControlMap.get(character)!=null) {
+			return forcedSexControlMap.get(character);
+		}
 		return initialSexManager.getSexControl(character);
 	}
 	
@@ -4272,32 +4162,32 @@ public class Sex {
 	}
 
 	public static boolean isCanRemoveSelfClothing(GameCharacter character) {
-		if(charactersAbleToRemoveSelfClothing.contains(character)) {
-			return true;
+		if(charactersBannedFromRemovingSelfClothing.contains(character)) {
+			return false;
 		}
 		return initialSexManager.isAbleToRemoveSelfClothing(character);
 	}
 
 	public static void setCanRemoveSelfClothing(GameCharacter character, boolean canRemoveSelfClothing) {
 		if(canRemoveSelfClothing) {
-			charactersAbleToRemoveSelfClothing.add(character);
+			charactersBannedFromRemovingSelfClothing.remove(character);
 		} else {
-			charactersAbleToRemoveSelfClothing.remove(character);
+			charactersBannedFromRemovingSelfClothing.add(character);
 		}
 	}
 	
 	public static boolean isCanRemoveOthersClothing(GameCharacter character, AbstractClothing clothing) {
-		if(charactersAbleToRemoveOthersClothing.contains(character)) {
-			return true;
+		if(charactersBannedFromRemovingOthersClothing.contains(character)) {
+			return false;
 		}
 		return initialSexManager.isAbleToRemoveOthersClothing(character, clothing);
 	}
 
 	public static void setCanRemoveOthersClothing(GameCharacter character, boolean canRemoveOthersClothing) {
 		if(canRemoveOthersClothing) {
-			charactersAbleToRemoveOthersClothing.add(character);
+			charactersBannedFromRemovingOthersClothing.remove(character);
 		} else {
-			charactersAbleToRemoveOthersClothing.remove(character);
+			charactersBannedFromRemovingOthersClothing.add(character);
 		}
 	}
 	

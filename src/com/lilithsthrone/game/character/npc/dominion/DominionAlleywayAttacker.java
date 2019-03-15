@@ -12,6 +12,7 @@ import org.w3c.dom.Element;
 import com.lilithsthrone.game.character.CharacterImportSetting;
 import com.lilithsthrone.game.character.CharacterUtils;
 import com.lilithsthrone.game.character.attributes.Attribute;
+import com.lilithsthrone.game.character.body.valueEnums.LegConfiguration;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.NPCGenerationFlag;
@@ -132,17 +133,14 @@ public class DominionAlleywayAttacker extends NPC {
 				}
 			}
 			
-//			int count=0;
-//			for(Entry<Subspecies, Integer> entry : availableRaces.entrySet()) {
-//				System.out.println(entry.getKey()+", "+entry.getValue());
-//				count+=entry.getValue();
-//			}
-//			System.out.println("Toatl: "+count);
-			
 			this.setBodyFromSubspeciesPreference(gender, availableRaces);
 			
-			if(Math.random()<0.025) { //2.5% chance for the NPC to be a half-demon
+			if(Math.random()<0.05) { //5% chance for the NPC to be a half-demon
 				this.setBody(CharacterUtils.generateHalfDemonBody(this, Subspecies.getFleshSubspecies(this)));
+				
+			}
+			if(Math.random()<0.05 && this.isLegConfigurationAvailable(LegConfiguration.TAUR)) { //5% chance for the NPC to be a taur
+				this.setLegConfiguration(LegConfiguration.TAUR);
 			}
 			
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));

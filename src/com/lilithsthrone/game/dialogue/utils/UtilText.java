@@ -56,6 +56,7 @@ import com.lilithsthrone.utils.Units;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.Season;
 import com.lilithsthrone.world.Weather;
+import com.lilithsthrone.world.places.PlaceUpgrade;
 
 import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 import org.w3c.dom.Document;
@@ -699,6 +700,7 @@ public class UtilText {
 //			String conditionalTrue = null;
 //			String conditionalFalse = null;
 			boolean usingConditionalBrackets = false;
+			boolean lastConditionalUsedBrackets = false;
 			int conditionalOpenBrackets = 0;
 			int conditionalCloseBrackets = 0;
 			
@@ -733,10 +735,13 @@ public class UtilText {
 							for(int j=i+1;j<input.length();j++) {
 								if(!Character.isWhitespace(input.charAt(j))) {
 									usingConditionalBrackets = input.charAt(j)=='(';
+									lastConditionalUsedBrackets = usingConditionalBrackets;
 //									System.out.println("usingConditionalBrackets: "+usingConditionalBrackets);
 									break;
 								}
 							}
+						} else {
+							lastConditionalUsedBrackets = false;
 						}
 						
 						openBrackets++;
@@ -790,14 +795,17 @@ public class UtilText {
 							
 						} else {
 							if(c == 'N' && substringMatchesInReverseAtIndex(input, "#THEN", i)) {
-//								conditionalThens++;
-								
-								if (openBrackets-1==closeBrackets) {//conditionalThens == 1){
-	//								if (conditionalStatement == null) {
-										conditionalStatement = sb.toString().substring(1, sb.length()-4); // Cut off the '#THEN' at the end of the conditional statement.
-										conditionalStatement = conditionalStatement.replaceAll("\n", "").replaceAll("\t", "");
-										conditionalStatement = conditionalStatement.trim();
-	//								}
+//								#IF(pc.​​​​​​isFeminine())#THEN#IF!pc.​​​​​​isFeminine()#THEN:3#ELSE>:(#ENDIF#ELSE:(#ENDIF
+								// If last conditional was brackets, remove the THEN
+								if(lastConditionalUsedBrackets) {
+									sb.replace(sb.length()-4, sb.length(), ""); // Reset StringBuilder to exclude #THEN
+									i++;
+									c = input.charAt(i);
+									
+								} else if (openBrackets-1==closeBrackets) {
+									conditionalStatement = sb.toString().substring(1, sb.length()-4); // Cut off the '#THEN' at the end of the conditional statement.
+									conditionalStatement = conditionalStatement.replaceAll("\n", "").replaceAll("\t", "");
+									conditionalStatement = conditionalStatement.trim();
 									sb.setLength(0);
 								}
 								
@@ -1288,6 +1296,9 @@ public class UtilText {
 			@Override
 			public String parse(String command, String arguments, String target, GameCharacter character) {
 				if(arguments!=null) {
+					if(arguments.equals(" ") || arguments.equalsIgnoreCase("true")) {
+						return character.getNameIgnoresPlayerKnowledge()+(character.getSurname().isEmpty()?"":" "+character.getSurname());
+					}
 					return character.getName(arguments)+(character.getSurname().isEmpty()?"":" "+character.getSurname());
 				} else {
 					return character.getName(false)+(character.getSurname().isEmpty()?"":" "+character.getSurname());
@@ -1497,6 +1508,26 @@ public class UtilText {
 			}
 		});
 
+		commandsList.add(new ParserCommand(
+				Util.newArrayListOfValues(
+						"affection"),
+				true,
+				true,
+				"(target)",
+				"Prints out the name of this character's affection towards the target. e.g. lilaya.relation(pc) would print 'likes' by default"){
+			@Override
+			public String parse(String command, String arguments, String target, GameCharacter character) {
+				ParserTarget parserTarget = findParserTargetWithTag(arguments.replaceAll("\u200b", ""));
+				try {
+					GameCharacter targetedCharacter = parserTarget.getCharacter(arguments.toLowerCase());
+					return character.getAffectionLevel(targetedCharacter).getDescriptor();
+				} catch(Exception ex) {
+					ex.printStackTrace();
+					return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>Error: affection command character argument not found! ("+arguments+")</i>";
+				}
+			}
+		});
+		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
 						"relation",
@@ -6241,6 +6272,9 @@ public class UtilText {
 		for(LegConfiguration legConf : LegConfiguration.values()) {
 			engine.put("LEG_CONFIGURATION_"+legConf.toString(), legConf);
 		}
+		for(BodyMaterial material : BodyMaterial.values()) {
+			engine.put("BODY_MATERIAL_"+material.toString(), material);
+		}
 		for(Fetish f : Fetish.values()) {
 			engine.put(f.toString(), f);
 		}
@@ -6321,6 +6355,9 @@ public class UtilText {
 		}
 		for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
 			engine.put("PENETRATION_"+penetration.toString(), penetration);
+		}
+		for(PlaceUpgrade upgrade : PlaceUpgrade.values()) {
+			engine.put("PLACE_UPGRADE_"+upgrade.toString(), upgrade);
 		}
 		engine.put("RND", Util.random);
 		
