@@ -20,15 +20,15 @@ public class InventoryClothingComparator implements Comparator<AbstractClothing>
 		} else if(!first.isEnchantmentKnown() && second.isEnchantmentKnown()) {
 			return 1;
 		}
-		
+
 		int result = first.getRarity().compareTo(second.getRarity());
-		
+
 		if (result != 0) {
 			return result;
-			
+
 		} else {
 			result = first.getClothingType().toString().compareTo(second.getClothingType().toString());
-			
+
 			if(result!=0) {
 				return result;
 			} else {

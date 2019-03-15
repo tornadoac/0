@@ -1337,7 +1337,7 @@ public class ImpFortressDialogue {
 				return "Transformations";
 
 			}
- 			return null;
+			return null;
 		}
 
 		@Override
@@ -3100,7 +3100,7 @@ public class ImpFortressDialogue {
 				return "Transformations";
 
 			}
- 			return null;
+			return null;
 		}
 
 		@Override

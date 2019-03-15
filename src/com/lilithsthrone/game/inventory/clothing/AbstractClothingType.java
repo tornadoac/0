@@ -375,7 +375,7 @@ public abstract class AbstractClothingType extends AbstractCoreType {
 			this.plural =			 Boolean.valueOf(coreAttributes.getMandatoryFirstOf("namePlural").getAttribute("pluralByDefault"));
 			this.baseValue =		  Integer.valueOf(coreAttributes.getMandatoryFirstOf("value").getTextContent());
 			this.physicalResistance = Integer.valueOf(coreAttributes.getMandatoryFirstOf("physicalResistance").getTextContent());
-			this.slot =	   		  InventorySlot.valueOf(coreAttributes.getMandatoryFirstOf("slot").getTextContent());
+			this.slot =	  		  InventorySlot.valueOf(coreAttributes.getMandatoryFirstOf("slot").getTextContent());
 			this.rarity =			 Rarity.valueOf(coreAttributes.getMandatoryFirstOf("rarity").getTextContent());
 
 			this.femininityRestriction = Femininity.valueOf(coreAttributes.getMandatoryFirstOf("femininity").getTextContent());

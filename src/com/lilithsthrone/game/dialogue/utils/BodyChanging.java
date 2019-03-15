@@ -977,7 +977,7 @@ public class BodyChanging {
 						+ "</div>"
 
 	//					Breasts:
-	//						 * 	TODO milk-related changes
+	//						 *	TODO milk-related changes
 
 						+ CharacterModificationUtils.getSelfTransformBreastChoiceDiv(slimeRaces)
 
@@ -1022,7 +1022,7 @@ public class BodyChanging {
 						+ "</div>"
 
 	//					Breasts:
-	//						 * 	TODO milk-related changes
+	//						 *	TODO milk-related changes
 						+ CharacterModificationUtils.getSelfTransformBreastChoiceDiv(getMinorPartsDemonRaces(false))
 
 						+ CharacterModificationUtils.getSelfTransformBreastSizeDiv()
@@ -1067,7 +1067,7 @@ public class BodyChanging {
 						+ "</div>"
 
 	//					Breasts:
-	//						 * 	TODO milk-related changes
+	//						 *	TODO milk-related changes
 
 						+ CharacterModificationUtils.getSelfTransformBreastChoiceDiv(slimeRaces)
 
@@ -1471,7 +1471,7 @@ public class BodyChanging {
 						+ "</div>"
 
 	//					Breasts:
-	//						 * 	TODO milk-related changes
+	//						 *	TODO milk-related changes
 
 						+ CharacterModificationUtils.getSelfTransformBreastCrotchChoiceDiv(slimeRaces)
 
@@ -1516,7 +1516,7 @@ public class BodyChanging {
 						+ "</div>"
 
 	//					Breasts:
-	//						 * 	TODO milk-related changes
+	//						 *	TODO milk-related changes
 						+ CharacterModificationUtils.getSelfTransformBreastCrotchChoiceDiv(getMinorPartsDemonRaces(false))
 
 						+ CharacterModificationUtils.getSelfTransformBreastCrotchSizeDiv()
@@ -1561,7 +1561,7 @@ public class BodyChanging {
 						+ "</div>"
 
 	//					Breasts:
-	//						 * 	TODO milk-related changes
+	//						 *	TODO milk-related changes
 
 						+ CharacterModificationUtils.getSelfTransformBreastCrotchChoiceDiv(slimeRaces)
 

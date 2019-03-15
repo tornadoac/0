@@ -18,7 +18,7 @@ import com.lilithsthrone.world.Cell;
  * @author Innoxia
  */
 public enum PlaceUpgrade {
-	
+
 	SLAVERY_ADMINISTRATION_CELLS(true,
 			Color.GENERIC_ARCANE,
 			"Dingy Cells",
@@ -32,7 +32,7 @@ public enum PlaceUpgrade {
 			-0.5f,
 			-0.5f,
 			null),
-	
+
 	LILAYA_EMPTY_ROOM(true,
 			Color.GENERIC_ARCANE,
 			"Empty Room",
@@ -46,12 +46,12 @@ public enum PlaceUpgrade {
 			0,
 			0,
 			null) {
-		
+
 		@Override
 		public boolean isSlaverUpgrade() {
 			return false;
 		}
-		
+
 		@Override
 		public void applyInstallationEffects(Cell c) {
 			GenericPlace place = c.getPlace();
@@ -61,7 +61,7 @@ public enum PlaceUpgrade {
 				}
 			}
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return Main.game.getCharactersTreatingCellAsHome(cell).isEmpty() && !cell.getPlace().getPlaceUpgrades().contains(LILAYA_ARTHUR_ROOM);
@@ -76,7 +76,7 @@ public enum PlaceUpgrade {
 			}
 		}
 	},
-	
+
 	LILAYA_ARTHUR_ROOM(true,
 			Color.RACE_HUMAN,
 			"Arthur's Room",
@@ -94,14 +94,14 @@ public enum PlaceUpgrade {
 		public void applyInstallationEffects(Cell c) {
 			GenericPlace place = c.getPlace();
 			place.setPlaceType(PlaceType.LILAYA_HOME_ARTHUR_ROOM);
-			
+
 			for(PlaceUpgrade upgrade : PlaceUpgrade.values()) {
 				if(upgrade != LILAYA_ARTHUR_ROOM) {
 					place.removePlaceUpgrade(c, upgrade);
 				}
 			}
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return Main.game.getCharactersTreatingCellAsHome(cell).isEmpty();
@@ -116,7 +116,7 @@ public enum PlaceUpgrade {
 			}
 		}
 	},
-	
+
 	LILAYA_GUEST_ROOM(true,
 			Color.GENERIC_ARCANE,
 			"Guest Room",
@@ -134,19 +134,19 @@ public enum PlaceUpgrade {
 			0,
 			0,
 			null) {
-		
+
 		@Override
 		public boolean isSlaverUpgrade() {
 			return false;
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION)
 					&& Main.game.getCharactersTreatingCellAsHome(cell).isEmpty()
 					&& !cell.getPlace().getPlaceUpgrades().contains(LILAYA_ARTHUR_ROOM);
 		}
-		
+
 		@Override
 		protected String getExtraConditionalAvailabilityDescription(Cell cell) {
 			if(!Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION)) {
@@ -155,7 +155,7 @@ public enum PlaceUpgrade {
 				return super.getExtraConditionalAvailabilityDescription(cell);
 			}
 		}
-		
+
 		@Override
 		public void applyInstallationEffects(Cell c) {
 			GenericPlace place = c.getPlace();
@@ -166,7 +166,7 @@ public enum PlaceUpgrade {
 			}
 		}
 	},
-	
+
 	LILAYA_SLAVE_ROOM(true,
 			Color.GENERIC_ARCANE,
 			"Slave's Room",
@@ -184,23 +184,23 @@ public enum PlaceUpgrade {
 			0,
 			0,
 			null) {
-		
+
 		@Override
 		public String getRoomDescription(Cell c) {
 			GenericPlace place = c.getPlace();
-			
+
 			if(place.getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_SLAVE_ROOM_UPGRADE_BED)) {
 				return "You've paid to have this room converted into basic slave's quarters."
 						+ " A comfortable double size bed, covered in a warm, fluffy duvet, sits against one wall."
 						+ " Beside it, there's a simple bedside cabinet, complete with arcane-powered lamp."
 						+ " Other than that, the only other pieces of furniture in here are a wooden wardrobe and chest of drawers.";
-				
+
 			} else if(place.getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_SLAVE_ROOM_DOWNGRADE_BED)) {
 				return "You've paid to have this room converted into basic slave's quarters."
 						+ " An uncomfortable single-size bed, covered in a thin blanket, sits against one wall."
 						+ " Beside it, there's a simple bedside cabinet, complete with arcane-powered lamp."
 						+ " Other than that, the only other pieces of furniture in here are a wooden wardrobe and chest of drawers.";
-		
+
 			}else {
 				return "You've paid to have this room converted into basic slave's quarters."
 						+ " A single-size bed, covered in a plain white duvet, sits against one wall."
@@ -208,12 +208,12 @@ public enum PlaceUpgrade {
 						+ " Other than that, the only other pieces of furniture in here are a wooden wardrobe and chest of drawers.";
 			}
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return Main.game.getCharactersTreatingCellAsHome(cell).isEmpty() && !cell.getPlace().getPlaceUpgrades().contains(LILAYA_ARTHUR_ROOM);
 		}
-		
+
 		@Override
 		public void applyInstallationEffects(Cell c) {
 			GenericPlace place = c.getPlace();
@@ -224,7 +224,7 @@ public enum PlaceUpgrade {
 			}
 		}
 	},
-	
+
 	LILAYA_MILKING_ROOM(true,
 			Color.BASE_ORANGE,
 			"Milking Room",
@@ -239,14 +239,14 @@ public enum PlaceUpgrade {
 			0,
 			0,
 			null) {
-		
+
 		@Override
 		public String getRoomDescription(Cell c) {
 			MilkingRoom room = Main.game.getOccupancyUtil().getMilkingRoom(c.getType(), c.getLocation());
-			
+
 			return room.getRoomDescription();
 		}
-		
+
 		@Override
 		public void applyInstallationEffects(Cell c) {
 			GenericPlace place = c.getPlace();
@@ -259,7 +259,7 @@ public enum PlaceUpgrade {
 				Main.game.getOccupancyUtil().addMilkingRoom(new MilkingRoom(c.getType(), c.getLocation()));
 			}
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return Main.game.getCharactersTreatingCellAsHome(cell).isEmpty() && !cell.getPlace().getPlaceUpgrades().contains(LILAYA_ARTHUR_ROOM);
@@ -274,7 +274,7 @@ public enum PlaceUpgrade {
 			}
 		}
 	},
-	
+
 	LILAYA_SLAVE_ROOM_DOUBLE(true,
 			Color.BASE_MAGENTA,
 			"Double Slave Room",
@@ -292,23 +292,23 @@ public enum PlaceUpgrade {
 			-0.05f,
 			0,
 			null) {
-		
+
 		@Override
 		public String getRoomDescription(Cell c) {
 			GenericPlace place = c.getPlace();
-			
+
 			if(place.getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_SLAVE_ROOM_UPGRADE_BED)) {
 				return "You've paid to have this room converted so that it's suitable for housing two of your slaves."
 							+ " A single double size bed, covered in a warm, fluffy duvet, sits against one of the room's walls."
 							+ " On either side of it, there's a simple bedside cabinet, each complete with its own arcane-powered lamp."
 							+ " Other than those, the only other pieces of furniture in here are a single wooden wardrobe and a solitary chest of drawers.";
-				
+
 			} else if(place.getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_SLAVE_ROOM_DOWNGRADE_BED)) {
 				return "You've paid to have this room converted so that it's suitable for housing two of your slaves."
 						+ " A pair of uncomfortable single-size beds, covered in thin blankets, sit against opposite walls."
 						+ " Beside each one, there's a simple bedside cabinet, complete with arcane-powered lamp."
 						+ " Other than that, the only other pieces of furniture in here are a single wooden wardrobe and solitary chest of drawers.";
-		
+
 			}else {
 				return "You've paid to have this room converted so that it's suitable for housing two of your slaves."
 					+ " A pair of single-size beds, covered in a plain white duvets, sit against opposite walls."
@@ -316,20 +316,20 @@ public enum PlaceUpgrade {
 					+ " Other than that, the only other pieces of furniture in here are a single wooden wardrobe and solitary chest of drawers.";
 			}
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return (Main.game.getCharactersTreatingCellAsHome(cell).isEmpty()
 					&& !cell.getPlace().getPlaceUpgrades().contains(LILAYA_ARTHUR_ROOM))
 					|| cell.getPlace().getPlaceUpgrades().contains(LILAYA_SLAVE_ROOM);
 		}
-		
+
 		@Override
 		public void applyInstallationEffects(Cell c) {
 			GenericPlace place = c.getPlace();
 			if(place.getPlaceUpgrades().contains(LILAYA_SLAVE_ROOM)) {
 				place.removePlaceUpgrade(c, LILAYA_SLAVE_ROOM);
-				
+
 			} else {
 				for(PlaceUpgrade upgrade : PlaceUpgrade.values()) {
 					if(upgrade != LILAYA_SLAVE_ROOM_DOUBLE) {
@@ -339,7 +339,7 @@ public enum PlaceUpgrade {
 			}
 		}
 	},
-	
+
 	LILAYA_SLAVE_ROOM_DOWNGRADE_BED(false,
 			Color.GENERIC_BAD,
 			"Small Steel Bed",
@@ -355,7 +355,7 @@ public enum PlaceUpgrade {
 			-0.1f,
 			0.2f,
 			null) {
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return !cell.getPlace().getPlaceUpgrades().contains(LILAYA_SLAVE_ROOM_UPGRADE_BED);
@@ -369,7 +369,7 @@ public enum PlaceUpgrade {
 			return "";
 		}
 	},
-	
+
 	LILAYA_SLAVE_ROOM_UPGRADE_BED(false,
 			Color.GENERIC_GOOD,
 			"Double Size Bed",
@@ -385,11 +385,11 @@ public enum PlaceUpgrade {
 			0.2f,
 			-0.1f,
 			null) {
-		
+
 		@Override
 		public String getRoomDescription(Cell c) {
 			GenericPlace place = c.getPlace();
-			
+
 			if(place.getPlaceUpgrades().contains(LILAYA_SLAVE_ROOM_DOUBLE)) {
 				return "This room's pair of single-sized beds have been replaced with a solitary double-sized one, complete with a comfortable mattress, fluffy pillows, and a warm duvet."
 						+ " The pair of slaves assigned to be this room's occupants will have to learn to live with the fact that they now sleep in the same bed...";
@@ -398,7 +398,7 @@ public enum PlaceUpgrade {
 						+ " Providing this room's occupant with such a delightful place to sleep will definitely get them to like you more, although such luxury might make them forget their place...";
 			}
 		}
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return !cell.getPlace().getPlaceUpgrades().contains(LILAYA_SLAVE_ROOM_DOWNGRADE_BED);
@@ -412,7 +412,7 @@ public enum PlaceUpgrade {
 			return "";
 		}
 	},
-	
+
 	LILAYA_SLAVE_ROOM_OBEDIENCE_TRAINER(false,
 			Color.GENERIC_ARCANE,
 			"Obedience Trainer",
@@ -432,7 +432,7 @@ public enum PlaceUpgrade {
 			-0.2f,
 			0.4f,
 			null),
-	
+
 	LILAYA_SLAVE_ROOM_ROOM_SERVICE(false,
 			Color.GENERIC_ARCANE,
 			"Room service",
@@ -449,7 +449,7 @@ public enum PlaceUpgrade {
 			0.4f,
 			-0.2f,
 			null),
-	
+
 	LILAYA_SLAVE_ROOM_ARCANE_INSTRUMENTS(false,
 			Color.GENERIC_ARCANE,
 			"Arcane Instruments",
@@ -466,7 +466,7 @@ public enum PlaceUpgrade {
 			-0.1f,
 			0f,
 			null),
-	
+
 	LILAYA_MILKING_ROOM_ARTISAN_MILKERS(false,
 			Color.GENERIC_ARCANE,
 			"Artisan Milkers",
@@ -489,7 +489,7 @@ public enum PlaceUpgrade {
 			1f,
 			0.5f,
 			null) {
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return !cell.getPlace().getPlaceUpgrades().contains(LILAYA_MILKING_ROOM_INDUSTRIAL_MILKERS);
@@ -503,7 +503,7 @@ public enum PlaceUpgrade {
 			return "";
 		}
 	},
-	
+
 	LILAYA_MILKING_ROOM_INDUSTRIAL_MILKERS(false,
 			Color.GENERIC_ARCANE,
 			"Industrial Milkers",
@@ -526,7 +526,7 @@ public enum PlaceUpgrade {
 			-1f,
 			0.5f,
 			null) {
-		
+
 		@Override
 		protected boolean isExtraConditionsMet(Cell cell) {
 			return !cell.getPlace().getPlaceUpgrades().contains(LILAYA_MILKING_ROOM_ARTISAN_MILKERS);
@@ -540,7 +540,7 @@ public enum PlaceUpgrade {
 			return "";
 		}
 	},
-	
+
 	LILAYA_MILKING_ROOM_MILK_EFFICIENCY(false,
 			Color.MILK,
 			"Lact-o-Cups",
@@ -554,7 +554,7 @@ public enum PlaceUpgrade {
 			0,
 			0,
 			null),
-	
+
 	LILAYA_MILKING_ROOM_CUM_EFFICIENCY(false,
 			Color.CUM,
 			"Succ-u-Buses",
@@ -582,11 +582,11 @@ public enum PlaceUpgrade {
 			0,
 			0,
 			null),
-	
+
 	;
-	
+
 	private static ArrayList<PlaceUpgrade> coreRoomUpgrades, guestRoomUpgrades, slaveQuartersUpgradesSingle, slaveQuartersUpgradesDouble, getMilkingUpgrades;
-	
+
 	public static ArrayList<PlaceUpgrade> getCoreRoomUpgrades() {
 		if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursRoomInstalled) || Main.game.getPlayer().isQuestProgressLessThan(QuestLine.MAIN, Quest.MAIN_1_J_ARTHURS_ROOM)) {
 			ArrayList<PlaceUpgrade> listArthurRemoved = new ArrayList<>(coreRoomUpgrades);
@@ -613,7 +613,7 @@ public enum PlaceUpgrade {
 		}
 		return slaveQuartersUpgradesSingle;
 	}
-	
+
 	public static ArrayList<PlaceUpgrade> getSlaveQuartersUpgradesDouble() {
 		if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursRoomInstalled) || Main.game.getPlayer().isQuestProgressLessThan(QuestLine.MAIN, Quest.MAIN_1_J_ARTHURS_ROOM)) {
 			ArrayList<PlaceUpgrade> listArthurRemoved = new ArrayList<>(slaveQuartersUpgradesDouble);
@@ -622,7 +622,7 @@ public enum PlaceUpgrade {
 		}
 		return slaveQuartersUpgradesDouble;
 	}
-	
+
 	public static ArrayList<PlaceUpgrade> getMilkingUpgrades() {
 		return getMilkingUpgrades;
 	}
@@ -630,42 +630,42 @@ public enum PlaceUpgrade {
 	static {
 		coreRoomUpgrades = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_GUEST_ROOM,
-				
+
 				PlaceUpgrade.LILAYA_SLAVE_ROOM,
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_DOUBLE,
-				
+
 				PlaceUpgrade.LILAYA_MILKING_ROOM,
-				
+
 				PlaceUpgrade.LILAYA_ARTHUR_ROOM);
 
 		guestRoomUpgrades = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_EMPTY_ROOM);
-				
+
 		slaveQuartersUpgradesSingle = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_ROOM_SERVICE,
-				
+
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_UPGRADE_BED,
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_DOWNGRADE_BED,
-				
+
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_ARCANE_INSTRUMENTS,
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_OBEDIENCE_TRAINER,
 
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_DOUBLE,
 				PlaceUpgrade.LILAYA_EMPTY_ROOM,
 				PlaceUpgrade.LILAYA_ARTHUR_ROOM);
-		
+
 		slaveQuartersUpgradesDouble = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_ROOM_SERVICE,
-				
+
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_UPGRADE_BED,
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_DOWNGRADE_BED,
-				
+
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_ARCANE_INSTRUMENTS,
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_OBEDIENCE_TRAINER,
-				
+
 				PlaceUpgrade.LILAYA_EMPTY_ROOM,
 				PlaceUpgrade.LILAYA_ARTHUR_ROOM);
-		
+
 		getMilkingUpgrades = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_MILKING_ROOM_ARTISAN_MILKERS,
 				PlaceUpgrade.LILAYA_MILKING_ROOM_INDUSTRIAL_MILKERS,
@@ -673,27 +673,27 @@ public enum PlaceUpgrade {
 				PlaceUpgrade.LILAYA_MILKING_ROOM_MILK_EFFICIENCY,
 				PlaceUpgrade.LILAYA_MILKING_ROOM_CUM_EFFICIENCY,
 				PlaceUpgrade.LILAYA_MILKING_ROOM_GIRLCUM_EFFICIENCY,
-				
+
 				PlaceUpgrade.LILAYA_EMPTY_ROOM);
 	}
-	
+
 	private boolean isCoreRoomUpgrade;
-	
+
 	protected String name;
 	protected String descriptionForPurchase;
 	protected String descriptionAfterPurchase;
 	protected String roomDescription;
-	
+
 	private int installCost;
 	private int removalCost;
 	private int upkeep;
 	private int capacity;
-	
+
 	private Color color;
-	
+
 	private float affectionGain;
 	private float obedienceGain;
-	
+
 	private List<PlaceUpgrade> prerequisites;
 
 	private PlaceUpgrade(boolean isCoreRoomUpgrade,
@@ -709,31 +709,31 @@ public enum PlaceUpgrade {
 			float affectionGain,
 			float obedienceGain,
 			List<PlaceUpgrade> prerequisites) {
-		
+
 		this.isCoreRoomUpgrade = isCoreRoomUpgrade;
 		this.color = color;
 		this.name = name;
 		this.descriptionForPurchase = descriptionForPurchase;
 		this.descriptionAfterPurchase = descriptionAfterPurchase;
 		this.roomDescription = roomDescription;
-		
+
 		this.installCost = installCost;
 		this.removalCost = removalCost;
 		this.upkeep = upkeep;
 		this.capacity = capacity;
-		
+
 		this.affectionGain = affectionGain;
-		
+
 		this.obedienceGain = obedienceGain;
-		
+
 		if(prerequisites==null) {
 			this.prerequisites = new ArrayList<>();
-			
+
 		} else {
 			this.prerequisites = prerequisites;
 		}
 	}
-	
+
 	protected boolean isExtraConditionsMet(Cell cell) {
 		return true;
 	}
@@ -741,24 +741,24 @@ public enum PlaceUpgrade {
 	protected String getExtraConditionalAvailabilityDescription(Cell cell) {
 		return "";
 	}
-	
+
 	public boolean isAvailable(Cell cell) {
 		return (Main.game.getPlayer().isHasSlaverLicense() || (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION) && !this.isSlaverUpgrade()))
 				&& isExtraConditionsMet(cell);
 	}
-	
+
 	public String getAvailabilityDescription(Cell cell) {
 		if(!(Main.game.getPlayer().isHasSlaverLicense() || (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION) && !this.isSlaverUpgrade()))) {
 			return "You are unable to purchase this upgrade without a slaver license!";
 		}
-		
+
 		return getExtraConditionalAvailabilityDescription(cell);
 	}
-	
+
 	public boolean isSlaverUpgrade() {
 		return true;
 	}
-	
+
 	public boolean isCoreRoomUpgrade() {
 		return isCoreRoomUpgrade;
 	}
@@ -810,11 +810,11 @@ public enum PlaceUpgrade {
 	public List<PlaceUpgrade> getPrerequisites() {
 		return prerequisites;
 	}
-	
+
 	public boolean isPrerequisitesMet(GenericPlace place) {
 		return place.getPlaceUpgrades().containsAll(prerequisites);
 	}
-	
+
 	public void applyInstallationEffects(Cell c) {
 	}
 

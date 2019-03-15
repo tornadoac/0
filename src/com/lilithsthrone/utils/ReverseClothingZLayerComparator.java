@@ -6,7 +6,7 @@ import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 
 /**
  * Compares by zLayer.
- * 
+ *
  * @since 0.1.0
  * @version 0.1.0
  * @author Innoxia
