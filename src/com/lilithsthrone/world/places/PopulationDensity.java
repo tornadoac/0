@@ -8,19 +8,19 @@ package com.lilithsthrone.world.places;
 public enum PopulationDensity {
 
 	COUPLE("one or two"),
-	
+
 	FEW("few"),
-	
+
 	SPARSE("sparse"),
-	
+
 	SEVERAL("several"),
-	
+
 	NUMEROUS("numerous"),
-	
+
 	DENSE("dense");
 
 	String name;
-	
+
 	private PopulationDensity(String name) {
 		this.name = name;
 	}

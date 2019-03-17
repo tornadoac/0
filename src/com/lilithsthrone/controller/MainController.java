@@ -616,7 +616,7 @@ public class MainController implements Initializable {
 								if (event.getCode() == KeyCode.ENTER) {
 									enterConsumed = true;
 									boolean unsuitableName = false;
-								 	if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveToPlayerNameInput')")!=null) {
+									if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveToPlayerNameInput')")!=null) {
 
 										Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('slaveToPlayerNameInput').value;");
 										if(Main.mainController.getWebEngine().getDocument()!=null) {
@@ -643,7 +643,7 @@ public class MainController implements Initializable {
 								if (event.getCode() == KeyCode.ENTER) {
 									enterConsumed = true;
 									boolean unsuitableName = false;
-								 	if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveNameInput')")!=null) {
+									if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveNameInput')")!=null) {
 
 										Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('slaveNameInput').value;");
 										if(Main.mainController.getWebEngine().getDocument()!=null) {
@@ -669,7 +669,7 @@ public class MainController implements Initializable {
 								if (event.getCode() == KeyCode.ENTER) {
 									enterConsumed = true;
 									boolean unsuitableName = false;
-								 	if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveSurnameInput')")!=null) {
+									if(Main.mainController.getWebEngine().executeScript("document.getElementById('slaveSurnameInput')")!=null) {
 
 										Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('slaveSurnameInput').value;");
 										if(Main.mainController.getWebEngine().getDocument()!=null) {
@@ -697,7 +697,7 @@ public class MainController implements Initializable {
 							if (event.getCode() == KeyCode.ENTER) {
 								enterConsumed = true;
 								boolean unsuitableName = false;
-							 	if(Main.mainController.getWebEngine().executeScript("document.getElementById('offspringPetNameInput')")!=null) {
+								if(Main.mainController.getWebEngine().executeScript("document.getElementById('offspringPetNameInput')")!=null) {
 
 									Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('offspringPetNameInput').value;");
 									if(Main.mainController.getWebEngine().getDocument()!=null) {

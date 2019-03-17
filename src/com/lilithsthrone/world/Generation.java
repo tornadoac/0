@@ -114,13 +114,8 @@ public class Generation extends Task<Boolean> {
 
 			if(debug)
 				System.out.println(worldType.getName()+" Start 3");
-<<<<<<< HEAD
 
-			// Initialise grid:
-=======
-			
 			// Initialize grid:
->>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 			Cell[][] grid = new Cell[width][height];
 
 			if(debug)

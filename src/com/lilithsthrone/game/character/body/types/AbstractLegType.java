@@ -528,7 +528,7 @@ public abstract class AbstractLegType implements BodyPartTypeInterface {
 						: new Vagina(VaginaType.NONE, 0, 0, 0, 0, 3, 3, true));
 			body.getVagina().getGirlcum().addFluidModifier(null, FluidModifier.MUSKY);
 		}
- 	}
+	}
 
 	/**
 	 * @param legConfiguration The configuration to check transformation availability of.

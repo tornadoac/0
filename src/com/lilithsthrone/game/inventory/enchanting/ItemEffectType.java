@@ -1510,7 +1510,7 @@ public class ItemEffectType {
 		}
 	};
 
- 	public static AbstractItemEffectType BOTTLED_ESSENCE_SQUIRREL_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
+	public static AbstractItemEffectType BOTTLED_ESSENCE_SQUIRREL_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
 			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldSquirrel(squirrel-morphs)]",
 			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldSquirrel(squirrel-morphs)]"),
@@ -1524,7 +1524,7 @@ public class ItemEffectType {
 		}
 	};
 
- 	public static AbstractItemEffectType BOTTLED_ESSENCE_RAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
+	public static AbstractItemEffectType BOTTLED_ESSENCE_RAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
 			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldRat(rat-morphs)]",
 			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldRat(rat-morphs)]"),
@@ -1538,7 +1538,7 @@ public class ItemEffectType {
 		}
 	};
 
- 	public static AbstractItemEffectType BOTTLED_ESSENCE_RABBIT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
+	public static AbstractItemEffectType BOTTLED_ESSENCE_RABBIT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
 			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldRabbit(rabbit-morphs)]",
 			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldRabbit(rabbit-morphs)]"),
@@ -1552,7 +1552,7 @@ public class ItemEffectType {
 		}
 	};
 
- 	public static AbstractItemEffectType BOTTLED_ESSENCE_BAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
+	public static AbstractItemEffectType BOTTLED_ESSENCE_BAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
 			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldBat(bat-morphs)]",
 			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldBat(bat-morphs)]"),
@@ -1566,7 +1566,7 @@ public class ItemEffectType {
 		}
 	};
 
- 	public static AbstractItemEffectType BOTTLED_ESSENCE_ALLIGATOR_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
+	public static AbstractItemEffectType BOTTLED_ESSENCE_ALLIGATOR_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
 			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldAlligator(alligator-morphs)]",
 			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldAlligator(alligator-morphs)]"),

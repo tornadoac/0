@@ -113,13 +113,8 @@ public class Cell implements XMLSaving {
 
 		cell.setDiscovered(Boolean.valueOf(parentElement.getAttribute("discovered")));
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.11.5")) {
-<<<<<<< HEAD
-			cell.setTravelledTo(Boolean.valueOf(parentElement.getAttribute("discovered")));
-
-=======
 			cell.setTraveledTo(Boolean.valueOf(parentElement.getAttribute("discovered")));
-			
->>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
+
 		} else {
 			try {
 				if(type.isRevealedOnStart()) {

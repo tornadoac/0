@@ -169,7 +169,7 @@ public class RalphsSnacks {
 						+ "[ralph.speech(Hey, are you alright?)]"
 					+ "</p>"
 					+ "<p>"
-					 	+ "You were so engrossed in your fantasy that you didn't notice Ralph walking up to you, and you're taken completely off-guard as you blurt out a reply, "
+						+ "You were so engrossed in your fantasy that you didn't notice Ralph walking up to you, and you're taken completely off-guard as you blurt out a reply, "
 						+ "[pc.speech(Oh! Yeah... Thanks! I was just thinking... Erm...)]"
 					+ "</p>"
 					+ "<p>"

@@ -1803,14 +1803,14 @@ public class CharacterInventory implements XMLSaving {
 	public AbstractClothing getClothingBlockingCoverableAreaAccess(GameCharacter character, CoverableArea area, boolean byRemovingClothing) {
 		List<AbstractClothing> blockingClothingList = getBlockingCoverableAreaClothingList(character, area, byRemovingClothing);
 
- 		if(!blockingClothingList.isEmpty()) {
-	 		for(AbstractClothing c : blockingClothingList) {
-	 			if(c.isSealed()) {
-	 				return c;
-	 			}
-	 		}
-	 		return blockingClothingList.get(0);
- 		}
+		if(!blockingClothingList.isEmpty()) {
+			for(AbstractClothing c : blockingClothingList) {
+				if(c.isSealed()) {
+					return c;
+				}
+			}
+			return blockingClothingList.get(0);
+		}
 
 		return null;
 	}
@@ -1820,7 +1820,7 @@ public class CharacterInventory implements XMLSaving {
 
 		// For every piece of equipped clothing, if it's blocking the coverable area, see if it can be displaced or removed.
 		// If it can't, continue searching to see if another displacement type has revealed that area.
- 		for (AbstractClothing clothing : clothingCurrentlyEquipped) {
+		for (AbstractClothing clothing : clothingCurrentlyEquipped) {
 			for (BlockedParts bp : clothing.getClothingType().getBlockedPartsList(character)) {
 				if (bp.blockedBodyParts.contains(area)) {// If this clothing is blocking the area you are trying to access:
 					if (!clothing.getDisplacedList().contains(bp.displacementType)) { // If the clothing  hasn't been displaced:
@@ -1851,7 +1851,7 @@ public class CharacterInventory implements XMLSaving {
 			}
 		}
 
-	 	return blockingClothingList;
+		return blockingClothingList;
 	}
 
 	private boolean isCoverableAreaExposedFromElsewhere(GameCharacter character, AbstractClothing clothing, CoverableArea area) {

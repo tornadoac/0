@@ -127,27 +127,15 @@ public class Util {
 		double r = (first.getRed() + second.getRed())/2,
 				g = (first.getGreen() + second.getGreen())/2,
 					b = (first.getBlue() + second.getBlue())/2;
-<<<<<<< HEAD
 
-		return newColour(r*255, g*255, b*255);
-	}
-
-	public static String toWebHexString(Color colour) {
-		return colour.toString().substring(2, 8);
-	}
-
-	public static Color newColour(double r, double g, double b) {
-=======
-		
 		return newColor(r*255, g*255, b*255);
 	}
-	
+
 	public static String toWebHexString(Color color) {
 		return color.toString().substring(2, 8);
 	}
-	
+
 	public static Color newColor(double r, double g, double b) {
->>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 		return Color.color(r / 255, g / 255, b / 255);
 	}
 
@@ -910,23 +898,13 @@ public class Util {
 	public static String SplitR(String choices, String splitter) {
 		return choices.split(splitter)[random.nextInt(choices.length() - choices.replace(splitter, "").length() + 1)];
 	};
-<<<<<<< HEAD
 
-	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalise) {
-		return Util.toStringList(subspecies,
-				(Subspecies o) ->
-				"<span style='color:"+o.getColour(null).toWebHexString()+";'>"
-					+(capitalise
-							?Util.capitaliseSentence(o.getNamePlural(null))
-=======
-	
 	public static String subspeciesToStringList(Collection<Subspecies> subspecies, boolean capitalize) {
 		return Util.toStringList(subspecies,
-				(Subspecies o) -> 
+				(Subspecies o) ->
 				"<span style='color:"+o.getColor(null).toWebHexString()+";'>"
 					+(capitalize
 							?Util.capitalizeSentence(o.getNamePlural(null))
->>>>>>> 0948c6a18224b62e752f69a45f26096c86bc585b
 							:o.getNamePlural(null))
 					+"</span>",
 				"and");

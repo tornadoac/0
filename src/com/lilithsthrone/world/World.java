@@ -23,7 +23,7 @@ public class World implements XMLSaving {
 
 	public final int WORLD_WIDTH, WORLD_HEIGHT;
 	public static final int CELL_SIZE = 64;
-	
+
 	private Cell[][] grid;
 	private WorldType worldType;
 
@@ -34,16 +34,16 @@ public class World implements XMLSaving {
 		this.grid = grid;
 		this.worldType = worldType;
 	}
-	
+
 	@Override
 	public Element saveAsXML(Element parentElement, Document doc) {
 		Element element = doc.createElement("world");
 		parentElement.appendChild(element);
-		
+
 		CharacterUtils.addAttribute(doc, element, "worldType", this.getWorldType().toString());
 		CharacterUtils.addAttribute(doc, element, "width", String.valueOf(this.WORLD_WIDTH));
 		CharacterUtils.addAttribute(doc, element, "height", String.valueOf(this.WORLD_HEIGHT));
-		
+
 		Element innerElement = doc.createElement("grid");
 		element.appendChild(innerElement);
 		for(int i=0; i<grid.length; i++) {
@@ -53,10 +53,10 @@ public class World implements XMLSaving {
 				}
 			}
 		}
-		
+
 		return element;
 	}
-	
+
 	public static World loadFromXML(Element parentElement, Document doc) {
 		WorldType type = WorldType.EMPTY;
 		String worldType = parentElement.getAttribute("worldType");
@@ -65,7 +65,7 @@ public class World implements XMLSaving {
 		} else {
 			type = WorldType.valueOf(worldType);
 		}
-		
+
 		int width = Integer.valueOf(parentElement.getAttribute("width"));
 		int height = Integer.valueOf(parentElement.getAttribute("height"));
 		Cell[][] newGrid = new Cell[width][height];
@@ -75,15 +75,15 @@ public class World implements XMLSaving {
 				newGrid[i][j].getPlace().setPlaceType(PlaceType.GENERIC_IMPASSABLE);
 			}
 		}
-		
+
 		NodeList cells = ((Element) parentElement.getElementsByTagName("grid").item(0)).getElementsByTagName("cell");
 		for(int i = 0; i < cells.getLength(); i++){
 			Element e = (Element) cells.item(i);
-			
+
 			Cell c = Cell.loadFromXML(e, doc);
 			newGrid[c.getLocation().getX()][c.getLocation().getY()] = c;
 		}
-		
+
 		return new World(width, height, newGrid, type);
 	}
 
@@ -102,7 +102,7 @@ public class World implements XMLSaving {
 			throw ex;
 		}
 	}
-	
+
 	/**
 	 * @param place The PlaceType to find a Cell of.
 	 * @return A Cell of the PlaceType defined by the argument 'place'. If there are multiple Cells with the same PlaceType, the first one that is found is returned.
@@ -117,7 +117,7 @@ public class World implements XMLSaving {
 		}
 		return null;
 	}
-	
+
 	public Cell getClosestCell(Vector2i location, PlaceType place) {
 		float distance = 10000f;
 		Cell closestCell = null;
@@ -134,7 +134,7 @@ public class World implements XMLSaving {
 		}
 		return closestCell;
 	}
-	
+
 	/**
 	 * @param place The PlaceType to find a Cell of.
 	 * @return A random, unoccupied Cell of the PlaceType defined by the argument 'place'. If there are no unoccupied Cells with this PlaceType, a random occupied one is returned instead.
@@ -154,7 +154,7 @@ public class World implements XMLSaving {
 		}
 		return cells.get(Util.random.nextInt(cells.size()));
 	}
-	
+
 	/**
 	 * @param place The PlaceType to find a Cell of.
 	 * @return A Cell of the PlaceType defined by the argument 'place'. If there are multiple Cells with the same PlaceType, a random one is returned.
@@ -171,14 +171,14 @@ public class World implements XMLSaving {
 		if(corridorCells.isEmpty()) {
 			return null;
 		}
-		
+
 		return corridorCells.get(Util.random.nextInt(corridorCells.size()));
 	}
-	
+
 	public Cell getNearestCell(PlaceType place, Vector2i startLocation) {
 		Cell nearestCell = null;
 		float closestDistance = 10000f;
-		
+
 		for(int i=0; i<grid.length; i++) {
 			for(int j=0; j<grid[0].length; j++) {
 				if(grid[i][j].getPlace().getPlaceType().equals(place)) {
@@ -190,10 +190,10 @@ public class World implements XMLSaving {
 				}
 			}
 		}
-		
+
 		return nearestCell;
 	}
-	
+
 
 	public Cell[][] getCellGrid() {
 		return grid;
