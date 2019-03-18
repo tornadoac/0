@@ -772,17 +772,23 @@ public class Name {
 		return name;
 	}
 	
-	private static NameTriplet getDemonName() {
-		String[] prefixFem = new String[] {"Aella", "Bella", "Cae", "Deva", "Ella", "Fae", "Hela", "Isa", "Katha", "Loe", "Nysa", "Oella", "Rae", "Sytha", "Vixxa", "Wynna"};
-		String[] prefixMas = new String[] {"Ada", "Boro", "Foro", "Helio", "Kiri", "Zara"};
-		
-		String[] postfixFem = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix"};
-		String[] postfixMas = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix"};
-		
-		String femName = prefixFem[Util.random.nextInt(prefixFem.length)] + postfixFem[Util.random.nextInt(postfixFem.length)];
-		char startingChar = femName.charAt(0);
-
-		String masName = prefixMas[Util.random.nextInt(prefixMas.length)] + postfixMas[Util.random.nextInt(postfixMas.length)];
+////Expanded Demon Name List, simple tweak by SVNaas
+////Install to game.character.persona/Name.java Line 702
+ 
+    private static NameTriplet getDemonName() {
+        String[] prefixFem = new String[] {"A", "Ael", "Ag", "Ah", "Al", "Ar", "As", "Au", "Ba", "Bel", "C", "Cae", "De", "E", "Ei", "El", "F", "G", "Ge", "Gre", "He", "I", "K", "L", "Li", "Lu", "Ly", "N", "Ny", "Oel", "Rae", "Sy", "Vix", "Wyn"};
+        String[] prefixMas = new String[] {"Ab", "Aba", "Ag", "Ah", "Al", "Ar", "As", "Ash", "Au", "Az", "Ba", "Bel", "B", "Bee", "Bo", "Cas", "De", "E", "Ei", "El", "Fo", "G", "Ge", "Gre", "He", "Ki", "Li", "Lu", "Mi", "N", "Ny", "Va", "Za", "Z", "Za"};
+       
+        String[] infixFem = new String[] {"ae", "al", "as", "ci", "ch", "el", "ha", "hae", "he", "io", "il", "la", "lae", "li", "lyn", "oe", "m", "mo", "mode", "n", "na", "nae", "pho", "ra", "rem", "ri", "ryn", "sa", "sae", "she", "te", "ti", "tha", "va", "vae", "xa"};
+        String[] infixMas = new String[] {"ae", "al", "as", "ci", "ch", "el", "ha", "hae", "he", "io", "il", "la", "lae", "li", "lyn", "oe", "mo", "mode", "n", "na", "nae", "pho", "ra", "rae", "rem", "ri", "ryn", "sa", "sae", "te", "ti", "tha", "va", "vae", "xa", "lze"};
+       
+        String[] postfixFem = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix", "la", "lyth", "yth", "yx", "iya", "is", "ya", "na", "yna", "mis", "eth", "ry", "cys", "ys", "yn", "rys", "nys", "us", "dai", "n", "y"};
+        String[] postfixMas = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix", "ial", "iel", "yx", "mas", "xas", "man", "ias", "tor", "mis", "ius", "cer", "ces", "met", "ry", "rys", "nys", "us", "dai", "fer"};
+       
+        String femName = prefixFem[Util.random.nextInt(prefixFem.length)] + infixFem[Util.random.nextInt(infixFem.length)] + postfixFem[Util.random.nextInt(postfixFem.length)];
+        char startingChar = femName.charAt(0);
+ 
+        String masName = prefixMas[Util.random.nextInt(prefixMas.length)] + infixMas[Util.random.nextInt(infixMas.length)] + postfixMas[Util.random.nextInt(postfixMas.length)];
 		
 		List<String> masculineNames = new ArrayList<>();
 		for(String s : prefixMas) {
