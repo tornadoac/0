@@ -3445,6 +3445,10 @@ public class Game implements XMLSaving {
 		return Main.getProperties().hasValue(PropertyValue.incestContent);
 	}
 	
+	public boolean inIncestPlusEnabled() {
+		return Main.getProperties().hasValue(PropertyValue.incestContentPlus);
+	}
+	
 	public boolean isFacialHairEnabled() {
 		return Main.getProperties().hasValue(PropertyValue.facialHairContent);
 	}
