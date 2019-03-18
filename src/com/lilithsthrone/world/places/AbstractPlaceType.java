@@ -320,7 +320,7 @@ public class AbstractPlaceType {
 			return getSVGOverride("dominion/lilayasHome/roomSlaveDouble", Colour.BASE_MAGENTA);
 			
 		} else if(upgrades.contains(PlaceUpgrade.LILAYA_SLAVE_ROOM_CABIN)) {
-			return getSVGOverride("dominion/lilayasHome/roomSlaveDouble", Colour.BASE_GOLD);
+			return getSVGOverride("dominion/lilayasHome/roomSlaveCabin", Colour.BASE_GOLD);
 			
 		} else {
 			return SVGString;
