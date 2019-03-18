@@ -34,6 +34,7 @@ public enum PropertyValue {
 	furryTailPenetrationContent(false),
 	nonConContent(false),
 	incestContent(false),
+	incestContentPlus(false),
 	forcedTransformationContent(false),
 	inflationContent(true),
 	facialHairContent(false),

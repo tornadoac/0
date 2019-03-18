@@ -1837,6 +1837,13 @@ public class OptionsDialogue {
 							"Incest",
 							"This will enable sexual actions with all of your blood-relatives.",
 							Main.getProperties().hasValue(PropertyValue.incestContent)));
+			
+			UtilText.nodeContentSB.append(getContentPreferenceDiv(
+							"INCESTPLUS",
+							Colour.BASE_ROSE,
+							"Incest Plus",
+							"This will increase the odds of finding blood relatives on the streets",
+							Main.getProperties().hasValue(PropertyValue.incestContentPlus)));
 				
 			UtilText.nodeContentSB.append(getContentPreferenceDiv(
 							"LACTATION",

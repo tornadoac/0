@@ -952,6 +952,9 @@ public enum Encounter {
 		if (!Main.game.isIncestEnabled()) {
 			return -1;
 		}
+		else if(Main.game.inIncestPlusEnabled()) {
+			return 0.75;
+		}
 		return INCEST_ENCOUNTER_RATE;
 	}
 

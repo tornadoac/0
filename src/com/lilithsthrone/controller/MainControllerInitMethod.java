@@ -5066,6 +5066,7 @@ public class MainControllerInitMethod {
 					new Value<>("VOLUNTARY_NTR", PropertyValue.voluntaryNTR),
 					new Value<>("INVOLUNTARY_NTR", PropertyValue.involuntaryNTR),
 					new Value<>("INCEST", PropertyValue.incestContent),
+					new Value<>("INCESTPLUS", PropertyValue.incestContentPlus),
 					new Value<>("LACTATION", PropertyValue.lactationContent),
 					new Value<>("CUM_REGENERATION", PropertyValue.cumRegenerationContent),
 					new Value<>("URETHRAL", PropertyValue.urethralContent),
