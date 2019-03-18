@@ -260,7 +260,6 @@ public class AbstractPlaceType {
 	
 	public WorldType getParentWorldType() {
 		return null;
-		break;
 	}
 	
 	public AbstractPlaceType getParentPlaceType() {
