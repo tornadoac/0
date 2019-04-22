@@ -946,9 +946,9 @@ public enum Encounter {
 	private static final double INCEST_ENCOUNTER_RATE = 0.2f;
 
 	private static double IncestEncounterRate() {
-//		if (!Main.game.isIncestEnabled()) {
-//			return -1;
-//		}
+		if (!Main.game.isIncestEnabled()) {
+			return -1;
+		}
 		return INCEST_ENCOUNTER_RATE;
 	}
 
