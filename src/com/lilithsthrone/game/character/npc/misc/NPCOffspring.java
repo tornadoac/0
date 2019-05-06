@@ -19,6 +19,7 @@ import com.lilithsthrone.game.character.body.valueEnums.AgeCategory;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.Name;
+import com.lilithsthrone.game.character.persona.Occupation;
 import com.lilithsthrone.game.character.persona.Relationship;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.RacialBody;
@@ -28,6 +29,7 @@ import com.lilithsthrone.game.dialogue.npcDialogue.offspring.GenericOffspringDia
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.CharacterInventory;
+import com.lilithsthrone.game.inventory.clothing.OutfitType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Units;
 import com.lilithsthrone.utils.Util;
@@ -155,7 +157,11 @@ public class NPCOffspring extends NPC {
 
 	@Override
 	public void equipClothing(List<EquipClothingSetting> settings) {
-		super.equipClothing(settings); //TODO - add unique outfit type
+		if(this.getHistory()==Occupation.NPC_PROSTITUTE) {
+			CharacterUtils.equipClothingFromOutfitType(this, OutfitType.PROSTITUTE, settings);
+		} else {
+			CharacterUtils.equipClothingFromOutfitType(this, OutfitType.MUGGER, settings);
+		}
 	}
 	
 	@Override

@@ -926,8 +926,8 @@ public class CharacterUtils {
 //		return (int) ((baseSize + (Math.signum(difference)*Util.random.nextInt(Math.abs(difference) +1)))*(0.9f+(Math.random()*0.2f)));
 	}
 
-	public static Body generateHalfDemonBody(GameCharacter linkedCharacter, Subspecies halfSubspecies, boolean applyHalfDemonAttributeChanges) {
-		Gender startingGender;
+	public static Body generateHalfDemonBody(GameCharacter linkedCharacter, Gender startingGender, Subspecies halfSubspecies, boolean applyHalfDemonAttributeChanges) {
+//		Gender startingGender;
 		RaceStage stage;
 		AbstractRacialBody demonBody = RacialBody.DEMON;
 		
@@ -1157,7 +1157,7 @@ public class CharacterUtils {
 				species = Util.randomItemFrom(slimeSubspecies);
 				
 				if(isHalfDemon) {
-					return generateHalfDemonBody(linkedCharacter, species, true);
+					return generateHalfDemonBody(linkedCharacter, startingGender, species, true);
 				}
 				
 				if(startingGender.isFeminine()) {
@@ -1786,16 +1786,16 @@ public class CharacterUtils {
 		int tempAge = character.getAppearsAsAgeValue();
 		//Height
 		if (tempAge > 12 && tempAge <= 16) {
-			character.setHeight(Math.max((int) (character.getHeightValue() * .8),
+			character.setHeight(Math.max((int) (character.getHeightValue() * .9),
 					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
 		} else if (tempAge > 10 && tempAge <= 12) {
-			character.setHeight(Math.max((int) (character.getHeightValue() * .6),
+			character.setHeight(Math.max((int) (character.getHeightValue() * .8),
 					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
 		} else if (tempAge > 6 &&tempAge <= 10) {
-			character.setHeight(Math.max((int) (character.getHeightValue() * .4),
+			character.setHeight(Math.max((int) (character.getHeightValue() * .6),
 					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
 		} else if (tempAge <= 6) {
-			character.setHeight(Math.max((int) (character.getHeightValue() * .2),
+			character.setHeight(Math.max((int) (character.getHeightValue() * .4),
 					Height.NEGATIVE_TWO_MIMIMUM.getMinimumValue()));
 		}
 		
