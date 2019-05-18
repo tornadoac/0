@@ -808,9 +808,9 @@ public enum Perk {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer())
-				return "You have a heightened affinity with arcane fire. You know just how to manipulate it in order to maximise the damage caused.";
+				return "You have a heightened affinity with arcane fire. You know just how to manipulate it in order to maximize the damage caused.";
 			else
-				return UtilText.parse(owner, "[npc.Name] has a heightened affinity with arcane fire. [npc.She] knows just how to manipulate it in order to maximise the damage caused.");
+				return UtilText.parse(owner, "[npc.Name] has a heightened affinity with arcane fire. [npc.She] knows just how to manipulate it in order to maximize the damage caused.");
 		}
 	},
 	FIRE_ENHANCEMENT_2(20,
@@ -824,9 +824,9 @@ public enum Perk {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer())
-				return "You are an expert at manipulating arcane fire. Not only are you able to maximise its damage, but you also have a heightened resistance to its effects.";
+				return "You are an expert at manipulating arcane fire. Not only are you able to maximize its damage, but you also have a heightened resistance to its effects.";
 			else
-				return UtilText.parse(owner, "[npc.Name] is an expert at manipulating arcane fire. Not only is [npc.she] able to maximise its damage, but [npc.she] also has a heightened resistance to its effects.");
+				return UtilText.parse(owner, "[npc.Name] is an expert at manipulating arcane fire. Not only is [npc.she] able to maximize its damage, but [npc.she] also has a heightened resistance to its effects.");
 		}
 	},
 	COLD_ENHANCEMENT(20,
@@ -840,9 +840,9 @@ public enum Perk {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer())
-				return "You have a heightened affinity with arcane ice. You know just how to manipulate it in order to maximise the damage caused.";
+				return "You have a heightened affinity with arcane ice. You know just how to manipulate it in order to maximize the damage caused.";
 			else
-				return UtilText.parse(owner, "[npc.Name] has a heightened affinity with arcane ice. [npc.She] knows just how to manipulate it in order to maximise the damage caused.");
+				return UtilText.parse(owner, "[npc.Name] has a heightened affinity with arcane ice. [npc.She] knows just how to manipulate it in order to maximize the damage caused.");
 		}
 	},
 	COLD_ENHANCEMENT_2(20,
@@ -856,9 +856,9 @@ public enum Perk {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer())
-				return "You are an expert at manipulating arcane ice. Not only are you able to maximise its damage, but you also have a heightened resistance to its effects.";
+				return "You are an expert at manipulating arcane ice. Not only are you able to maximize its damage, but you also have a heightened resistance to its effects.";
 			else
-				return UtilText.parse(owner, "[npc.Name] is an expert at manipulating arcane ice. Not only is [npc.she] able to maximise its damage, but [npc.she] also has a heightened resistance to its effects.");
+				return UtilText.parse(owner, "[npc.Name] is an expert at manipulating arcane ice. Not only is [npc.she] able to maximize its damage, but [npc.she] also has a heightened resistance to its effects.");
 		}
 	},
 	POISON_ENHANCEMENT(20,
@@ -872,9 +872,9 @@ public enum Perk {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer())
-				return "You have a heightened affinity with arcane poison. You know just how to manipulate it in order to maximise the damage caused.";
+				return "You have a heightened affinity with arcane poison. You know just how to manipulate it in order to maximize the damage caused.";
 			else
-				return UtilText.parse(owner, "[npc.Name] has a heightened affinity with arcane poison. [npc.She] knows just how to manipulate it in order to maximise the damage caused.");
+				return UtilText.parse(owner, "[npc.Name] has a heightened affinity with arcane poison. [npc.She] knows just how to manipulate it in order to maximize the damage caused.");
 		}
 	},
 	POISON_ENHANCEMENT_2(20,
@@ -888,9 +888,9 @@ public enum Perk {
 		@Override
 		public String getDescription(GameCharacter owner) {
 			if (owner.isPlayer())
-				return "You are an expert at manipulating arcane poison. Not only are you able to maximise its damage, but you also have a heightened resistance to its effects.";
+				return "You are an expert at manipulating arcane poison. Not only are you able to maximize its damage, but you also have a heightened resistance to its effects.";
 			else
-				return UtilText.parse(owner, "[npc.Name] is an expert at manipulating arcane poison. Not only is [npc.she] able to maximise its damage, but [npc.she] also has a heightened resistance to its effects.");
+				return UtilText.parse(owner, "[npc.Name] is an expert at manipulating arcane poison. Not only is [npc.she] able to maximize its damage, but [npc.she] also has a heightened resistance to its effects.");
 		}
 	},
 

@@ -158,7 +158,7 @@ public class FortressMalesLeader extends NPC {
 
 		// Coverings:
 
-		// Allow to be randomised:
+		// Allow to be randomized:
 		this.setEyeCovering(new Covering(BodyCoveringType.EYE_DEMON_COMMON, Color.EYE_YELLOW));
 		this.setSkinCovering(new Covering(BodyCoveringType.DEMON_COMMON, Color.SKIN_RED), true);
 
