@@ -1214,6 +1214,7 @@ public abstract class GameCharacter implements XMLSaving {
 		boolean noCompanions = Arrays.asList(settings).contains(CharacterImportSetting.NO_COMPANIONS);
 		boolean noElemental = Arrays.asList(settings).contains(CharacterImportSetting.NO_ELEMENTAL);
 		boolean noSlavery = Arrays.asList(settings).contains(CharacterImportSetting.CLEAR_SLAVERY);
+		boolean noLocationSetup = Arrays.asList(settings).contains(CharacterImportSetting.NO_LOCATION_SETUP);
 		
 		// ************** Core information **************//
 		
@@ -1541,132 +1542,132 @@ public abstract class GameCharacter implements XMLSaving {
 		
 		// ************** Location Information **************//
 		
-		nodes = parentElement.getElementsByTagName("locationInformation");
-		element = (Element) nodes.item(0);
-		if(element!=null) {
-			
-			String worldName = ((Element)element.getElementsByTagName("worldLocation").item(0)).getAttribute("value");
-			
-			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.1.1") && worldName.equals("JUNGLE")) {
-				character.setLocation(
-						WorldType.EMPTY,
-						Main.game.getWorlds().get(WorldType.EMPTY).getRandomCell(PlaceType.GENERIC_EMPTY_TILE).getLocation(),
-						true);
+		if(!noLocationSetup) {
+			nodes = parentElement.getElementsByTagName("locationInformation");
+			element = (Element) nodes.item(0);
+			if(element!=null) {
+				String worldName = ((Element)element.getElementsByTagName("worldLocation").item(0)).getAttribute("value");
 				
-			} else {
-			
-				WorldType worldType = WorldType.valueOf(worldName);
-				
-				if((worldType==WorldType.DOMINION || worldType==WorldType.SUBMISSION || worldType==WorldType.HARPY_NEST) && Main.isVersionOlderThan(version, "0.2.1.5")) {
-					AbstractPlaceType placeType = PlaceType.DOMINION_BACK_ALLEYS;
+				if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.1.1") && worldName.equals("JUNGLE")) {
+					character.setLocation(
+							WorldType.EMPTY,
+							Main.game.getWorlds().get(WorldType.EMPTY).getRandomCell(PlaceType.GENERIC_EMPTY_TILE).getLocation(),
+							true);
 					
-					if(character.isPlayer()) {
-						if(worldType==WorldType.DOMINION) {
-							placeType = PlaceType.DOMINION_AUNTS_HOME;
-							
-						} else if(worldType==WorldType.SUBMISSION) {
-							placeType = PlaceType.SUBMISSION_ENTRANCE;
+				} else {
+					WorldType worldType = WorldType.valueOf(worldName);
+					
+					if((worldType==WorldType.DOMINION || worldType==WorldType.SUBMISSION || worldType==WorldType.HARPY_NEST) && Main.isVersionOlderThan(version, "0.2.1.5")) {
+						AbstractPlaceType placeType = PlaceType.DOMINION_BACK_ALLEYS;
+						
+						if(character.isPlayer()) {
+							if(worldType==WorldType.DOMINION) {
+								placeType = PlaceType.DOMINION_AUNTS_HOME;
+								
+							} else if(worldType==WorldType.SUBMISSION) {
+								placeType = PlaceType.SUBMISSION_ENTRANCE;
+								
+							} else {
+								placeType = PlaceType.HARPY_NESTS_ENTRANCE_ENFORCER_POST;
+							}
 							
 						} else {
-							placeType = PlaceType.HARPY_NESTS_ENTRANCE_ENFORCER_POST;
+							
+							if(character instanceof DominionAlleywayAttacker) {
+								placeType = PlaceType.DOMINION_BACK_ALLEYS;
+								
+							} else if(character instanceof DominionSuccubusAttacker) {
+								placeType = PlaceType.DOMINION_DARK_ALLEYS;
+								
+							} else if(character instanceof Cultist) {
+								placeType = PlaceType.DOMINION_STREET;
+								
+							} else if(character instanceof ReindeerOverseer) {
+								placeType = PlaceType.DOMINION_STREET;
+								
+							} else if(character instanceof SubmissionAttacker) {
+								placeType = PlaceType.SUBMISSION_TUNNELS;
+								
+							} else if(character instanceof HarpyNestsAttacker) {
+								placeType = PlaceType.HARPY_NESTS_WALKWAYS;
+								
+							} else if(character instanceof HarpyBimbo || character instanceof HarpyBimboCompanion) {
+								placeType = PlaceType.HARPY_NESTS_HARPY_NEST_YELLOW;
+								
+							} else if(character instanceof HarpyDominant || character instanceof HarpyDominantCompanion) {
+								placeType = PlaceType.HARPY_NESTS_HARPY_NEST_RED;
+								
+							} else if(character instanceof HarpyNympho || character instanceof HarpyNymphoCompanion) {
+								placeType = PlaceType.HARPY_NESTS_HARPY_NEST_PINK;
+								
+							} else if(character instanceof Scarlett || character instanceof Alexa) {
+								placeType = PlaceType.HARPY_NESTS_ALEXAS_NEST;
+								
+							} else { // Catch if no location found:
+								if(worldType==WorldType.DOMINION) {
+									placeType = PlaceType.DOMINION_BACK_ALLEYS;
+									
+								} else if(worldType==WorldType.SUBMISSION) {
+									placeType = PlaceType.SUBMISSION_TUNNELS;
+									
+								} else {
+									placeType = PlaceType.HARPY_NESTS_WALKWAYS;
+								}
+							}
+						}
+						
+		//				if(Main.game.getWorlds().get(worldType).getRandomUnoccupiedCell(placeType) == null) {
+		//					System.out.println(worldType+", "+placeType);
+		//				}
+						
+						character.setLocation(
+								worldType,
+								Main.game.getWorlds().get(worldType).getRandomUnoccupiedCell(placeType).getLocation(),
+								!character.isPlayer());
+						
+						if(character.isPlayer()) {
+							Main.game.getWorlds().get(worldType).getCell(character.getLocation()).setDiscovered(true);
+							if (character.getLocation().getY() < Main.game.getWorlds().get(worldType).WORLD_HEIGHT - 1) {
+								Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX(), character.getLocation().getY() + 1).setDiscovered(true);
+							}
+							if (character.getLocation().getY() != 0) {
+								Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX(), character.getLocation().getY() - 1).setDiscovered(true);
+							}
+							if (character.getLocation().getX() < Main.game.getWorlds().get(worldType).WORLD_WIDTH - 1) {
+								Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX() + 1, character.getLocation().getY()).setDiscovered(true);
+							}
+							if (character.getLocation().getX() != 0) {
+								Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX() - 1, character.getLocation().getY()).setDiscovered(true);	
+							}
 						}
 						
 					} else {
+						character.setLocation(
+								worldType,
+								new Vector2i(
+										Integer.valueOf(((Element)element.getElementsByTagName("location").item(0)).getAttribute("x")),
+										Integer.valueOf(((Element)element.getElementsByTagName("location").item(0)).getAttribute("y"))),
+								false);
+						character.setHomeLocation(
+								WorldType.valueOf(((Element)element.getElementsByTagName("homeWorldLocation").item(0)).getAttribute("value")),
+								new Vector2i(
+										Integer.valueOf(((Element)element.getElementsByTagName("homeLocation").item(0)).getAttribute("x")),
+										Integer.valueOf(((Element)element.getElementsByTagName("homeLocation").item(0)).getAttribute("y"))));
 						
-						if(character instanceof DominionAlleywayAttacker) {
-							placeType = PlaceType.DOMINION_BACK_ALLEYS;
-							
-						} else if(character instanceof DominionSuccubusAttacker) {
-							placeType = PlaceType.DOMINION_DARK_ALLEYS;
-							
-						} else if(character instanceof Cultist) {
-							placeType = PlaceType.DOMINION_STREET;
-							
-						} else if(character instanceof ReindeerOverseer) {
-							placeType = PlaceType.DOMINION_STREET;
-							
-						} else if(character instanceof SubmissionAttacker) {
-							placeType = PlaceType.SUBMISSION_TUNNELS;
-							
-						} else if(character instanceof HarpyNestsAttacker) {
-							placeType = PlaceType.HARPY_NESTS_WALKWAYS;
-							
-						} else if(character instanceof HarpyBimbo || character instanceof HarpyBimboCompanion) {
-							placeType = PlaceType.HARPY_NESTS_HARPY_NEST_YELLOW;
-							
-						} else if(character instanceof HarpyDominant || character instanceof HarpyDominantCompanion) {
-							placeType = PlaceType.HARPY_NESTS_HARPY_NEST_RED;
-							
-						} else if(character instanceof HarpyNympho || character instanceof HarpyNymphoCompanion) {
-							placeType = PlaceType.HARPY_NESTS_HARPY_NEST_PINK;
-							
-						} else if(character instanceof Scarlett || character instanceof Alexa) {
-							placeType = PlaceType.HARPY_NESTS_ALEXAS_NEST;
-							
-						} else { // Catch if no location found:
-							if(worldType==WorldType.DOMINION) {
-								placeType = PlaceType.DOMINION_BACK_ALLEYS;
-								
-							} else if(worldType==WorldType.SUBMISSION) {
-								placeType = PlaceType.SUBMISSION_TUNNELS;
-								
-							} else {
-								placeType = PlaceType.HARPY_NESTS_WALKWAYS;
+						try {
+							if(element.getElementsByTagName("globalLocation").getLength()>0) {
+								character.setGlobalLocation(new Vector2i(
+										Integer.valueOf(((Element)element.getElementsByTagName("globalLocation").item(0)).getAttribute("x")),
+										Integer.valueOf(((Element)element.getElementsByTagName("globalLocation").item(0)).getAttribute("y"))));
 							}
+						} catch(Exception ex) {
 						}
-					}
-					
-	//				if(Main.game.getWorlds().get(worldType).getRandomUnoccupiedCell(placeType) == null) {
-	//					System.out.println(worldType+", "+placeType);
-	//				}
-					
-					character.setLocation(
-							worldType,
-							Main.game.getWorlds().get(worldType).getRandomUnoccupiedCell(placeType).getLocation(),
-							!character.isPlayer());
-					
-					if(character.isPlayer()) {
-						Main.game.getWorlds().get(worldType).getCell(character.getLocation()).setDiscovered(true);
-						if (character.getLocation().getY() < Main.game.getWorlds().get(worldType).WORLD_HEIGHT - 1) {
-							Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX(), character.getLocation().getY() + 1).setDiscovered(true);
-						}
-						if (character.getLocation().getY() != 0) {
-							Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX(), character.getLocation().getY() - 1).setDiscovered(true);
-						}
-						if (character.getLocation().getX() < Main.game.getWorlds().get(worldType).WORLD_WIDTH - 1) {
-							Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX() + 1, character.getLocation().getY()).setDiscovered(true);
-						}
-						if (character.getLocation().getX() != 0) {
-							Main.game.getWorlds().get(worldType).getCell(character.getLocation().getX() - 1, character.getLocation().getY()).setDiscovered(true);	
-						}
-					}
-					
-				} else {
-					character.setLocation(
-							worldType,
-							new Vector2i(
-									Integer.valueOf(((Element)element.getElementsByTagName("location").item(0)).getAttribute("x")),
-									Integer.valueOf(((Element)element.getElementsByTagName("location").item(0)).getAttribute("y"))),
-							false);
-					character.setHomeLocation(
-							WorldType.valueOf(((Element)element.getElementsByTagName("homeWorldLocation").item(0)).getAttribute("value")),
-							new Vector2i(
-									Integer.valueOf(((Element)element.getElementsByTagName("homeLocation").item(0)).getAttribute("x")),
-									Integer.valueOf(((Element)element.getElementsByTagName("homeLocation").item(0)).getAttribute("y"))));
-					
-					try {
-						if(element.getElementsByTagName("globalLocation").getLength()>0) {
-							character.setGlobalLocation(new Vector2i(
-									Integer.valueOf(((Element)element.getElementsByTagName("globalLocation").item(0)).getAttribute("x")),
-									Integer.valueOf(((Element)element.getElementsByTagName("globalLocation").item(0)).getAttribute("y"))));
-						}
-					} catch(Exception ex) {
 					}
 				}
+				
+			} else {
+				character.setLocation(new Vector2i(0, 0));
 			}
-			
-		} else {
-			character.setLocation(new Vector2i(0, 0));
 		}
 		
 		
@@ -3161,6 +3162,10 @@ public abstract class GameCharacter implements XMLSaving {
 		this.genderIdentity = genderIdentity;
 	}
 
+	public String getName() {
+		return getName(true);
+	}
+	
 	/**
 	 * @param applyNameAlteringEffects true if you want special effects to be applied. This mainly affects youko, as their special name effect is using their surname instead of their first name when their full name is not known.
 	 * @return This character's name.
@@ -4205,7 +4210,9 @@ public abstract class GameCharacter implements XMLSaving {
 						listToReturn.add(npc.getElemental());
 					}
 				} catch(Exception e) {
-					Util.logGetNpcByIdError("getCompanions()", companionID);
+					if(Main.game.isStarted()) {
+						Util.logGetNpcByIdError("getCompanions()", companionID);
+					}
 				}
 			}
 			Collections.sort(listToReturn, (c1, c2) -> c1 instanceof Elemental?(c2 instanceof Elemental?0:1):(c2 instanceof Elemental?-1:0));
@@ -5850,9 +5857,22 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			};
 	}
-
-
+	
+	/**
+	 * Overloaded method in which lustOrArousalCalculation is considered false.
+	 */
 	public int calculateSexTypeWeighting(SexType type, GameCharacter target, List<SexType> request) {
+		return calculateSexTypeWeighting(type, target, request, false);
+	}
+	
+	/**
+	 * @param type The SexType to find the weight of.
+	 * @param target The targeted character for the type.
+	 * @param request Any requests from the target that should be taken into account for weighting.
+	 * @param lustOrArousalCalculation True if this weighting calculation is for calculating lust or arousal increases. This slightly differs from normal by removing hugely negative weightings from anal actions.
+	 * @return The weight value of the type, usually of a value of around +/- 20, but sometimes higher for requests.
+	 */
+	public int calculateSexTypeWeighting(SexType type, GameCharacter target, List<SexType> request, boolean lustOrArousalCalculation) {
 		int weight = 0;
 		
 		List<Fetish> fetishes = type.getRelatedFetishes(this, target, true, false);
@@ -5918,7 +5938,7 @@ public abstract class GameCharacter implements XMLSaving {
 			if(type.getAsParticipant()==SexParticipantType.SELF && !this.getFetishDesire(Fetish.FETISH_ANAL_RECEIVING).isPositive()) {
 				weight-=100000; // ban self-anal actions unless the character likes anal
 			}
-			if(!fetishes.contains(Fetish.FETISH_PENIS_RECEIVING) && !this.getFetishDesire(Fetish.FETISH_ANAL_RECEIVING).isPositive()) {
+			if(!fetishes.contains(Fetish.FETISH_PENIS_RECEIVING) && ((!this.getFetishDesire(Fetish.FETISH_ANAL_RECEIVING).isPositive() && !lustOrArousalCalculation) || this.getFetishDesire(Fetish.FETISH_ANAL_GIVING).isNegative())) {
 				weight-=100000; // Ban non-penis anal actions (like fingering and tail sex) unless the character likes anal
 			}
 		}
@@ -5926,7 +5946,7 @@ public abstract class GameCharacter implements XMLSaving {
 			if(type.getAsParticipant()==SexParticipantType.SELF && !this.getFetishDesire(Fetish.FETISH_ANAL_GIVING).isPositive()) {
 				weight-=100000; // ban self-anal actions unless the character likes anal
 			}
-			if(!fetishes.contains(Fetish.FETISH_PENIS_GIVING) && !this.getFetishDesire(Fetish.FETISH_ANAL_GIVING).isPositive()) {
+			if(!fetishes.contains(Fetish.FETISH_PENIS_GIVING) && ((!this.getFetishDesire(Fetish.FETISH_ANAL_GIVING).isPositive() && !lustOrArousalCalculation) || this.getFetishDesire(Fetish.FETISH_ANAL_GIVING).isNegative())) {
 				weight-=100000; // Ban non-penis anal actions (like fingering and tail sex) unless the character likes anal
 			}
 		}
@@ -11905,87 +11925,43 @@ public abstract class GameCharacter implements XMLSaving {
 		return "";
 	}
 	
-	public String getStopPenetrationDescription(GameCharacter characterPenetrating, SexAreaPenetration penetrationType, GameCharacter characterPenetrated, SexAreaOrifice orifice) {
-		String orificeName = "", penetrationName = "";
-
-		switch(penetrationType) {
-			case FINGER:
-				penetrationName = "[npc.fingers]";
-				break;
-			case PENIS:
-				penetrationName = "[npc.cock+]";
-				break;
-			case TAIL:
-				penetrationName = "[npc.tail+]";
-				break;
-			case TENTACLE:
-				penetrationName = "tentacle";
-				break;
-			case TONGUE:
-				penetrationName = "[npc.tongue+]";
-				break;
-			case CLIT:
-				penetrationName = "[npc.clit+]";
-				break;
-			case FOOT:
-				penetrationName = "[npc.toes]";
-				break;
-		}
-		
-		switch(orifice) {
-			case ANUS:
-				orificeName = "[npc2.asshole+]";
-				break;
-			case ASS:
-				orificeName = "[npc2.ass+]";
-				break;
-			case MOUTH:
-				orificeName = "mouth";
-				break;
-			case BREAST:
-				orificeName = "[npc2.breasts+]";
-				break;
-			case BREAST_CROTCH:
-				orificeName = "[npc2.crotchBoobs+]";
-				break;
-			case NIPPLE:
-				orificeName = "[npc2.nipple+]";
-				break;
-			case NIPPLE_CROTCH:
-				orificeName = "[npc2.crotchNipple+]";
-				break;
-			case URETHRA_PENIS:
-			case URETHRA_VAGINA:
-				orificeName = "urethra";
-				break;
-			case VAGINA:
-				orificeName = "[npc2.pussy+]";
-				break;
-			case THIGHS:
-				orificeName = "thighs";
-				break;
-		}
-		
-		
-		if(characterPenetrating.isPlayer()) {
-			if(characterPenetrated.isPlayer()) {
-				return UtilText.parse(characterPenetrating, characterPenetrated,
-						"You slide your "+penetrationName+" out of your "+orificeName+".");
+	public String getStopPenetrationDescription(GameCharacter characterPerformer, SexAreaInterface performerArea, GameCharacter characterTarget, SexAreaInterface targetArea) {
+		if(characterPerformer.equals(characterTarget)) {
+			if(performerArea.isPenetration()) {
+				if(targetArea.isPenetration()) {
+					return UtilText.parse(characterPerformer,
+							"[npc.Name] [npc.verb(take)] [npc.her] "+performerArea.getName(characterPerformer)+" away from [npc.her] "+targetArea.getName(characterPerformer)+".");
+				} else {
+					return UtilText.parse(characterPerformer,
+							"[npc.Name] [npc.verb(slide)] [npc.her] "+performerArea.getName(characterPerformer)+" out of [npc.her] "+targetArea.getName(characterPerformer)+".");
+				}
 			} else {
-				return UtilText.parse(characterPenetrating, characterPenetrated,
-						"You slide your "+penetrationName+" out of [npc2.namePos] "+orificeName+".");
+				if(targetArea.isPenetration()) {
+					return UtilText.parse(characterPerformer,
+							"[npc.Name] [npc.verb(slide)] [npc.her] "+targetArea.getName(characterPerformer)+" out of [npc.her] "+performerArea.getName(characterPerformer)+".");
+				} else {
+					return UtilText.parse(characterPerformer,
+							"[npc.Name] [npc.verb(take)] [npc.her] "+performerArea.getName(characterPerformer)+" away from [npc.her] "+targetArea.getName(characterPerformer)+".");
+				}
 			}
 			
 		} else {
-			if(characterPenetrated.isPlayer()) {
-				return UtilText.parse(characterPenetrating, characterPenetrated,
-						"[npc.Name] slides [npc.her] "+penetrationName+" out of your "+orificeName+".");
-			} else if(characterPenetrating.equals(characterPenetrated)) {
-				return UtilText.parse(characterPenetrating, characterPenetrated,
-						"[npc.Name] slides [npc.her] "+penetrationName+" out of [npc.her] "+orificeName+".");
+			if(performerArea.isPenetration()) {
+				if(targetArea.isPenetration()) {
+					return UtilText.parse(characterPerformer, characterTarget,
+							"[npc.Name] [npc.verb(take)] [npc.her] "+performerArea.getName(characterPerformer)+" away from [npc2.namePos] "+targetArea.getName(characterTarget)+".");
+				} else {
+					return UtilText.parse(characterPerformer, characterTarget,
+							"[npc.Name] [npc.verb(slide)] [npc.her] "+performerArea.getName(characterPerformer)+" out of [npc2.namePos] "+targetArea.getName(characterTarget)+".");
+				}
 			} else {
-				return UtilText.parse(characterPenetrating, characterPenetrated,
-						"[npc.Name] slides [npc.her] "+penetrationName+" out of [npc2.namePos] "+orificeName+".");
+				if(targetArea.isPenetration()) {
+					return UtilText.parse(characterPerformer, characterTarget,
+							"[npc.Name] [npc.verb(slide)] [npc2.namePos] "+targetArea.getName(characterTarget)+" out of [npc.her] "+performerArea.getName(characterPerformer)+".");
+				} else {
+					return UtilText.parse(characterPerformer, characterTarget,
+							"[npc.Name] [npc.verb(take)] [npc.her] "+performerArea.getName(characterPerformer)+" away from [npc2.namePos] "+targetArea.getName(characterTarget)+".");
+				}
 			}
 		}
 	}
@@ -15135,22 +15111,24 @@ public abstract class GameCharacter implements XMLSaving {
 	public String equipClothingFromInventory(AbstractClothing newClothing, boolean automaticClothingManagement, GameCharacter characterClothingEquipper, GameCharacter fromCharactersInventory) {
 		fromCharactersInventory.removeClothing(newClothing);
 		
-		boolean wasAbleToEquip = inventory.isAbleToEquip(newClothing, true, automaticClothingManagement, this, characterClothingEquipper);
+		AbstractClothing clonedClothing = new AbstractClothing(newClothing) {};
+		
+		boolean wasAbleToEquip = inventory.isAbleToEquip(clonedClothing, true, automaticClothingManagement, this, characterClothingEquipper);
 
 		// If this item was able to be equipped, and it was equipped, apply its attribute bonuses:
 		if (wasAbleToEquip) {
-			applyEquipClothingEffects(newClothing);
+			applyEquipClothingEffects(clonedClothing);
 			
 			updateInventoryListeners();
 
 			if (isPlayer() && Main.game.isInNewWorld()) {
-				if (Main.getProperties().addClothingDiscovered(newClothing.getClothingType())) {
-					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColour()), true);
+				if (Main.getProperties().addClothingDiscovered(clonedClothing.getClothingType())) {
+					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(clonedClothing.getClothingType().getName(), clonedClothing.getRarity().getColour()), true);
 				}
 			}
 			
 		} else {
-			fromCharactersInventory.addClothing(newClothing, false);
+			fromCharactersInventory.addClothing(clonedClothing, false);
 		}
 
 		return inventory.getEquipDescription();
@@ -15188,17 +15166,19 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 
 	public String equipClothingFromNowhere(AbstractClothing newClothing, boolean automaticClothingManagement, GameCharacter characterClothingEquipper) {
-		boolean wasAbleToEquip = inventory.isAbleToEquip(newClothing, true, automaticClothingManagement, this, characterClothingEquipper);
+		AbstractClothing clonedClothing = new AbstractClothing(newClothing) {};
 		
+		boolean wasAbleToEquip = inventory.isAbleToEquip(clonedClothing, true, automaticClothingManagement, this, characterClothingEquipper);
+
 		// If this item was able to be equipped, and it was equipped, apply its attribute bonuses:
 		if (wasAbleToEquip) {
-			applyEquipClothingEffects(newClothing);
+			applyEquipClothingEffects(clonedClothing);
 			
 			updateInventoryListeners();
 			
 			if (isPlayer() && Main.game.isInNewWorld()) {
-				if (Main.getProperties().addClothingDiscovered(newClothing.getClothingType())) {
-					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColour()), true);
+				if (Main.getProperties().addClothingDiscovered(clonedClothing.getClothingType())) {
+					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(clonedClothing.getClothingType().getName(), clonedClothing.getRarity().getColour()), true);
 				}
 			}
 		}
@@ -15211,22 +15191,24 @@ public abstract class GameCharacter implements XMLSaving {
 
 		Main.game.getWorlds().get(getWorldLocation()).getCell(getLocation()).getInventory().removeClothing(newClothing);
 		
-		boolean wasAbleToEquip = inventory.isAbleToEquip(newClothing, true, automaticClothingManagement, this, characterClothingEquipper);
+		AbstractClothing clonedClothing = new AbstractClothing(newClothing) {};
+		
+		boolean wasAbleToEquip = inventory.isAbleToEquip(clonedClothing, true, automaticClothingManagement, this, characterClothingEquipper);
 
 		// If this item was able to be equipped, and it was equipped, apply its attribute bonuses:
 		if (wasAbleToEquip) {
-			applyEquipClothingEffects(newClothing);
+			applyEquipClothingEffects(clonedClothing);
 
 			updateInventoryListeners();
 
 			if(isPlayer() && Main.game.isInNewWorld()) {
-				if (Main.getProperties().addClothingDiscovered(newClothing.getClothingType())) {
-					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(newClothing.getClothingType().getName(), newClothing.getRarity().getColour()), true);
+				if (Main.getProperties().addClothingDiscovered(clonedClothing.getClothingType())) {
+					Main.game.addEvent(new EventLogEntryEncyclopediaUnlock(clonedClothing.getClothingType().getName(), clonedClothing.getRarity().getColour()), true);
 				}
 			}
 			
 		} else {
-			Main.game.getWorlds().get(getWorldLocation()).getCell(getLocation()).getInventory().addClothing(newClothing, 1);
+			Main.game.getWorlds().get(getWorldLocation()).getCell(getLocation()).getInventory().addClothing(clonedClothing, 1);
 		}
 
 		return inventory.getEquipDescription();
@@ -15838,8 +15820,8 @@ public abstract class GameCharacter implements XMLSaving {
 	public boolean isOrificeTypeExposed(SexAreaOrifice ot) {
 		switch(ot) {
 			case ANUS:
-				if(this.getGenitalArrangement()==GenitalArrangement.CLOACA) {
-					return isCoverableAreaExposed(CoverableArea.VAGINA) || isCoverableAreaExposed(CoverableArea.PENIS);
+				if(this.getGenitalArrangement()==GenitalArrangement.CLOACA) { //TODO 
+					return (isCoverableAreaExposed(CoverableArea.VAGINA) || isCoverableAreaExposed(CoverableArea.PENIS)) && (this.getClothingInSlot(InventorySlot.ANUS)==null);
 				} else {
 					return isCoverableAreaExposed(CoverableArea.ANUS);
 				}
@@ -20120,6 +20102,9 @@ public abstract class GameCharacter implements XMLSaving {
 	public int getPenisRawCumStorageValue() {
 		return body.getPenis().getTesticle().getRawCumStorageValue();
 	}
+	public int getCurrentPenisRawCumStorageValue() {
+		return getCurrentPenis().getTesticle().getRawCumStorageValue();
+	}
 	public String setPenisCumStorage(int cumProduction) {
 		return body.getPenis().getTesticle().setCumStorage(this, cumProduction);
 	}
@@ -20157,7 +20142,7 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		return body.getPenis().getTesticle().getCumExpulsion();
 	}
-	/** As a percentage from 5 -> 100. */
+	/** As a percentage from 0 -> 100. */
 	public int getPenisRawCumExpulsionValue() {
 		if (!Main.getProperties().hasValue(PropertyValue.cumRegenerationContent)) {
 			return FluidExpulsion.FOUR_HUGE.getMaximumValue();
@@ -20175,17 +20160,23 @@ public abstract class GameCharacter implements XMLSaving {
 	}
 	public int getPenisRawOrgasmCumQuantity() {
 		if (!Main.getProperties().hasValue(PropertyValue.cumRegenerationContent)) {
-			return body.getPenis().getTesticle().getRawCumStorageValue();
+			return getCurrentPenis().getTesticle().getRawCumStorageValue();
 		}
-		if(body.getPenis().getTesticle().getRawStoredCumValue() <= Testicle.MINIMUM_VALUE_FOR_ALL_CUM_TO_BE_EXPELLED) {
-			return (int) body.getPenis().getTesticle().getRawStoredCumValue();
+		if(getCurrentPenis().getTesticle().getRawStoredCumValue() <= Testicle.MINIMUM_VALUE_FOR_ALL_CUM_TO_BE_EXPELLED) {
+			return (int) getCurrentPenis().getTesticle().getRawStoredCumValue();
 		}
-		return (int) (body.getPenis().getTesticle().getRawStoredCumValue() * (getPenisRawCumExpulsionValue()/100f));
+		return (int) (getCurrentPenis().getTesticle().getRawStoredCumValue() * (getPenisRawCumExpulsionValue()/100f));
 	}
-	public void applyOrgasmCumEffect() {
+	/**
+	 * @param cumQuantityModifier A percentage of the normal cum expulsion that you want to be drained. Should nowmally be 1.
+	 */
+	public void applyOrgasmCumEffect(float cumQuantityModifier) {
 		if(Main.getProperties().hasValue(PropertyValue.cumRegenerationContent)) {
 			this.incrementPenisStoredCum(-getPenisRawOrgasmCumQuantity());
 		}
+	}
+	public void applyOrgasmCumEffect() {
+		this.applyOrgasmCumEffect(1);
 	}
 	// Regen:
 	public FluidRegeneration getPenisCumProductionRegeneration() {

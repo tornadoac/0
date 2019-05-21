@@ -5632,6 +5632,7 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
+						"pussyUrethra",
 						"vaginaUrethra",
 						"vaginalUrethra",
 						"urethraVagina",
@@ -5649,11 +5650,13 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
+						"pussyUrethra+",
 						"vaginaUrethra+",
 						"vaginalUrethra+",
 						"urethraVagina+",
 						"urethraVaginal+",
 						"vaginaUrethraD",
+						"pussyUrethraD",
 						"vaginalUrethraD",
 						"urethraVaginaD",
 						"urethraVaginalD"),
@@ -6180,6 +6183,7 @@ public class UtilText {
 			} catch (ScriptException e) {
 				System.err.println("Scripting parsing error: "+command);
 				System.err.println(e.getMessage());
+//				e.printStackTrace();
 				return "<i style='color:"+Colour.GENERIC_BAD.toWebHexString()+";'>(Error in script parsing!)</i>";
 			}
 		}

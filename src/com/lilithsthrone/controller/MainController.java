@@ -355,7 +355,6 @@ public class MainController implements Initializable {
 		}
 		
 		if(characterViewed!=null && characterViewed != CharactersPresentDialogue.characterViewed) {
-			
 			if (Main.game.getCurrentDialogueNode().getDialogueNodeType() == DialogueNodeType.NORMAL
 					|| Main.game.getCurrentDialogueNode().getDialogueNodeType() == DialogueNodeType.OCCUPANT_MANAGEMENT) {
 				Main.game.saveDialogueNode();
@@ -369,7 +368,6 @@ public class MainController implements Initializable {
 				Main.game.restoreSavedContent(false);
 				
 			} else if (!Main.game.getCharactersPresent().isEmpty()) {
-	
 				if (Main.game.getCurrentDialogueNode().getDialogueNodeType() == DialogueNodeType.NORMAL
 						|| Main.game.getCurrentDialogueNode().getDialogueNodeType() == DialogueNodeType.OCCUPANT_MANAGEMENT) {
 					Main.game.saveDialogueNode();
@@ -789,8 +787,10 @@ public class MainController implements Initializable {
 						}
 						
 						if(Main.game.getCurrentDialogueNode() == DebugDialogue.PARSER){
-							if((boolean) Main.mainController.getWebEngine().executeScript("document.getElementById('parseInput') === document.activeElement"))
+							if((boolean) Main.mainController.getWebEngine().executeScript("document.getElementById('parseInput') === document.activeElement")
+									|| (boolean) Main.mainController.getWebEngine().executeScript("document.getElementById('xmlTest') === document.activeElement")) {
 								allowInput = false;
+							}
 						}
 						
 						if(allowInput){
@@ -964,7 +964,7 @@ public class MainController implements Initializable {
 		} else {
 			webEngineTooltip.setUserStyleSheetLocation(getClass().getResource("/com/lilithsthrone/res/css/webViewTooltip_stylesheet.css").toExternalForm());
 		}
-
+		
 		// Main WebView:
 		webViewMain.setContextMenuEnabled(false);
 		webEngine = webViewMain.getEngine();
@@ -985,6 +985,7 @@ public class MainController implements Initializable {
 				}
 			});
 		}
+		webEngine.executeScript("var timer = false;");
 
 		// Buttons webview:
 

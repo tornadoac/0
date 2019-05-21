@@ -281,7 +281,8 @@ public class Game implements XMLSaving {
 				
 				// Load NPCs:
 				SlaveImport importedSlave = new SlaveImport();
-				importedSlave.loadFromXML(characterElement, doc, CharacterImportSetting.NO_PREGNANCY, CharacterImportSetting.NO_COMPANIONS, CharacterImportSetting.NO_ELEMENTAL, CharacterImportSetting.CLEAR_SLAVERY);
+				importedSlave.loadFromXML(characterElement, doc,
+						CharacterImportSetting.NO_PREGNANCY, CharacterImportSetting.NO_COMPANIONS, CharacterImportSetting.NO_ELEMENTAL, CharacterImportSetting.CLEAR_SLAVERY, CharacterImportSetting.NO_LOCATION_SETUP);
 				Main.game.addNPC(importedSlave, false);
 				importedSlave.applyNewlyImportedSlaveVariables();
 				
@@ -1314,8 +1315,10 @@ public class Game implements XMLSaving {
 			}
 			companion.companionshipCheck();
 		}
-		for(GameCharacter character : Main.game.getPlayer().getCompanions()) {
-			character.setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), false);
+		if(!Main.game.getCurrentDialogueNode().isTravelDisabled()) {
+			for(GameCharacter character : Main.game.getPlayer().getCompanions()) {
+				character.setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), false);
+			}
 		}
 
 		if(loopDebug) {
@@ -2901,6 +2904,12 @@ public class Game implements XMLSaving {
 
 	public int getWeatherTimeRemainingInSeconds() {
 		return weatherTimeRemainingInSeconds;
+	}
+
+	public String getWeatherTimeRemainingAsTimeString() {
+		long minutes = weatherTimeRemainingInSeconds/60;
+		long hours = minutes/60;
+		return (hours/24)+" days, "+hours%24+" hours, "+minutes%60+" minutes";
 	}
 	
 	public void setWeatherInSeconds(Weather weather, int secondsRemaining) {
