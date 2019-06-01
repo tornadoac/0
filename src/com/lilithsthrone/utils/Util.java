@@ -323,7 +323,7 @@ public class Util {
 		return null;
 	}
 	
-	public static <T> T getFirstObjectFromWeightedMap(Map<T, Integer> map) {
+	/*public static <T> T getFirstObjectFromWeightedMap(Map<T, Integer> map) { //returning last entry added?
 		int total = 0;
 		for(int i : map.values()) {
 			total+=i;
@@ -344,7 +344,7 @@ public class Util {
 		}
 
 		return null;
-	}
+	}*/
 
 	public static <T> T getRandomObjectFromWeightedFloatMap(Map<T, Float> map) {
 		int total = 0;

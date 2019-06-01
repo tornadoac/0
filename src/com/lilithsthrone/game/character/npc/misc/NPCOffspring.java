@@ -55,7 +55,7 @@ public class NPCOffspring extends NPC {
 	
 	public NPCOffspring(GameCharacter mother, GameCharacter father) {
 		super(false, null, null, "",
-				0, Main.game.getDateNow().getMonth(), Main.game.getDateNow().getDayOfMonth(),
+				AgeCategory.getAgeFromCategory(AgeCategory.valueOf(Main.getProperties().birthAge)), Main.game.getDateNow().getMonth(), Main.game.getDateNow().getDayOfMonth(),
 				3, Gender.F_V_B_FEMALE, Subspecies.HUMAN, RaceStage.HUMAN,
 				new CharacterInventory(10), WorldType.EMPTY, PlaceType.GENERIC_EMPTY_TILE, true);
 
@@ -90,7 +90,7 @@ public class NPCOffspring extends NPC {
 			setBody(gender, mother, father);
 		}
 		
-		this.setAgeAppearanceDifferenceToAppearAsAge(AgeCategory.getMinimumAgeFromPreferences(gender));
+		//this.setAgeAppearanceDifferenceToAppearAsAge(AgeCategory.getMinimumAgeFromPreferences(gender));
 		setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(getGender()));
 
 		setName(Name.getRandomTriplet(getRace()));

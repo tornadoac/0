@@ -1802,6 +1802,16 @@ public class OptionsDialogue {
 							"This enables descriptions of the age that characters appear to be.",
 							Main.getProperties().hasValue(PropertyValue.ageContent)));
 			
+			UtilText.nodeContentSB.append(OptionsDialogue.getContentPreferenceVariableDiv(
+                    		"BIRTH_AGE",
+                    		Colour.BASE_BLUE_LIGHT,
+                    		"Age offspring spawn at",
+                    		"This changes the age group of spawned offspring, current age group is "+AgeCategory.valueOf(Main.getProperties().birthAge).getName()+" because of the current target age.",
+                    		Main.getProperties().birthAge+"",
+                    		Main.getProperties().birthAge,
+                    		1,
+                    		30));
+			
 			UtilText.nodeContentSB.append(getContentPreferenceDiv(
 							"NON_CON",
 							Colour.BASE_CRIMSON,

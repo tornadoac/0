@@ -5476,6 +5476,22 @@ public class MainControllerInitMethod {
 				}, false);
 			}
 			
+			id = "BIRTH_AGE_ON";
+			if (((EventTarget) MainController.document.getElementById(id)) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+					Main.getProperties().birthAge = Math.min(30, Main.getProperties().birthAge+1);
+					Main.saveProperties();
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
+			id = "BIRTH_AGE_OFF";
+			if (((EventTarget) MainController.document.getElementById(id)) != null) {
+				((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+					Main.getProperties().birthAge = Math.max(1, Main.getProperties().birthAge-1);
+					Main.saveProperties();
+					Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+				}, false);
+			}
 			
 			// Forced TF Tendency setting events
 			id = "FORCED_TF_TENDENCY_"+ForcedTFTendency.NEUTRAL;

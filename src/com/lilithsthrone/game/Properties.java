@@ -72,6 +72,8 @@ public class Properties {
 	
 	public int forcedTFPercentage = 40;
 	public int forcedFetishPercentage = 0;
+	
+	public int birthAge = 6;
 
 	public float randomRacePercentage = 0.15f;
 
@@ -259,6 +261,8 @@ public class Properties {
 			createXMLElementWithValue(doc, settings, "forcedFetishPercentage", String.valueOf(forcedFetishPercentage));
 
 			createXMLElementWithValue(doc, settings, "difficultyLevel", difficultyLevel.toString());
+			
+			createXMLElementWithValue(doc, settings, "birthAge", String.valueOf(birthAge));
 			
 			
 			
