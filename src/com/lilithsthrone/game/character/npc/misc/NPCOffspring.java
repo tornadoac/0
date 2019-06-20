@@ -129,8 +129,8 @@ public class NPCOffspring extends NPC {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
 		
 		if(this.getConceptionDate().isAfter(this.getBirthday())) {
-			this.setBirthday(this.getConceptionDate().plusMonths(2));
-			
+			//this.setBirthday(this.getConceptionDate().plusMonths(2));
+			this.setConceptionDate(this.getBirthday().minusMonths(2));
 		} else if(Math.abs((int) ChronoUnit.DAYS.between(this.getConceptionDate(), this.getBirthday()))>300) {
 			this.setConceptionDate(this.getBirthday().minusMonths(2));
 		}

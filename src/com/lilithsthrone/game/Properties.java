@@ -734,6 +734,7 @@ public class Properties {
 
 					breastSizePreference = Integer.valueOf(((Element)element.getElementsByTagName("breastSizePreference").item(0)).getAttribute("value"));
 					penisSizePreference = Integer.valueOf(((Element)element.getElementsByTagName("penisSizePreference").item(0)).getAttribute("value"));
+					birthAge = Integer.valueOf(((Element)element.getElementsByTagName("birthAge").item(0)).getAttribute("value"));
 				}catch(Exception ex) {
 				}
 				
