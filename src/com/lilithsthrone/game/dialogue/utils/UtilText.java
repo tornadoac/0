@@ -2538,14 +2538,14 @@ public class UtilText {
 		
 		commandsList.add(new ParserCommand(
 				Util.newArrayListOfValues(
-						"CharAge"),
-				false,
+						"charAge"),
+				true,
 				false,
 				"",//TODO
 				"Description of method"){//TODO
 			@Override
-			public String parse(String command, String arguments, String target, GameCharacter character) {
-				return String.valueOf(character.getAppearsAsAge());
+			public String parse(List<GameCharacter> specialNPCs, String command, String arguments, String target, GameCharacter character) {
+				return Util.intToString(character.getAgeValue());
 			}
 		});
 		

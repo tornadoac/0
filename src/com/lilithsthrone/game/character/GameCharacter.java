@@ -14460,7 +14460,7 @@ public abstract class GameCharacter implements XMLSaving {
 				for(String id: birthedLitter.getOffspring()) {
 					try {
 						NPC npc = (NPC) Main.game.getNPCById(id);
-						npc.setConceptionDate(birthedLitter.getConceptionDate());
+						npc.setConceptionDate(birthedLitter.getBirthDate().minusMonths(2));
 						//npc.setBirthday(LocalDateTime.of(Main.game.getDateNow().getYear(), Main.game.getDateNow().getMonth(), Main.game.getDateNow().getDayOfMonth(), Main.game.getDateNow().getHour(), Main.game.getDateNow().getMinute()));
 					} catch(Exception e) {
 						Util.logGetNpcByIdError("endPregnancy()", id);

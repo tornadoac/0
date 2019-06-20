@@ -539,7 +539,7 @@ public enum PlaceUpgrade {
 				return "This is a duplicate? This room's pair of single-sized beds have been replaced with double-sized ones, complete with comfortable mattresses, fluffy pillows, and a warm duvet each.";
 						//+ " The pair of slaves assigned to be this room's occupants will have to learn to live with the fact that they now sleep in the same bed...";
 			} else {
-				return "This is a duplicate A double size bed, complete with a comfortable mattress, fluffy pillows, and a warm duvet, sits against one side of the room."
+				return "A double size bed, complete with a comfortable mattress, fluffy pillows, and a warm duvet, sits against one side of the room."
 						+ " Providing this room's occupant with such a delightful place to sleep will definitely get them to like you more, although such luxury might make them forget their place...";
 			}
 		}
