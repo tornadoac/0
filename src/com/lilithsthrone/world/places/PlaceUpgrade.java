@@ -508,7 +508,7 @@ public enum PlaceUpgrade {
 			Color.GENERIC_ARCANE,
 			"Industrial Milkers",
 			"You could replace the standard milking machines in this room with industrial-grade ones."
-					+ " While being far less comfortable for the slaves that use them, these milking machines maximise both milk output and profit.<br/>"
+					+ " While being far less comfortable for the slaves that use them, these milking machines maximize both milk output and profit.<br/>"
 					+ "<i>Milk: 500ml to 1000ml per hour<br/>"
 					+ "Cum: 50ml to 250ml per hour<br/>"
 					+ "Girlcum: 10ml to 50ml per hour</i>",
@@ -518,7 +518,7 @@ public enum PlaceUpgrade {
 					+ "Cum: 50ml to 250ml per hour<br/>"
 					+ "Girlcum: 10ml to 50ml per hour</i>",
 			"The industrial, arcane-powered milking machines that have been placed in this room fill the air with a steady background humming noise."
-					+ " Although they're sure to maximise milk output, and profits, these machines aren't exactly the most comfortable of devices to be strapped in to, and any slaves assigned to me milked in here are sure to hate you for it...",
+					+ " Although they're sure to maximize milk output, and profits, these machines aren't exactly the most comfortable of devices to be strapped in to, and any slaves assigned to me milked in here are sure to hate you for it...",
 			1500,
 			500,
 			100,

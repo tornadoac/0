@@ -63,7 +63,7 @@ public enum Colour {
 	BASE_BLACK(false, BaseColour.BLACK, "black", Util.newArrayListOfValues("black")),
 	BASE_PITCH_BLACK(false, BaseColour.PITCH_BLACK, "black", Util.newArrayListOfValues("black")),
 
-	// Game colours:
+	// Game colors:
 	BACKGROUND(false, Util.newColour(0x222222), Util.newColour(0xcccccc), "grey"),
 	BACKGROUND_ALT(false, Util.newColour(0x292929), Util.newColour(0xbbbbbb), "grey"),
 

@@ -308,13 +308,13 @@ public class FluidGirlCum implements FluidInterface, XMLSaving {
 			case MINERAL_OIL:
 				if(owner.isPlayer()) {
 					return "<p>"
-								+ "You feel a prolongued heat flow up into your [pc.pussy], causing you to let out [pc.a_moan+].<br/>"
+								+ "You feel a prolonged heat flow up into your [pc.pussy], causing you to let out [pc.a_moan+].<br/>"
 								+ "Your [pc.girlcum] is now [style.boldGrow(mineral oil)]!"
 							+ "</p>";
 				} else {
 					return UtilText.parse(owner,
 							"<p>"
-								+ "A prolongued heat flows up into [npc.namePos] [npc.pussy], causing [npc.herHim] to let out [npc.a_moan+].<br/>"
+								+ "A prolonged heat flows up into [npc.namePos] [npc.pussy], causing [npc.herHim] to let out [npc.a_moan+].<br/>"
 								+ "[npc.NamePos] [npc.girlcum] is now [style.boldGrow(mineral oil)]!"
 							+ "</p>");
 				}

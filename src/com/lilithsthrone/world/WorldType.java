@@ -44,7 +44,7 @@ public enum WorldType {
 
 					new Value<>(new Color(0x98c488), PlaceType.WORLD_MAP_YOUKO_FOREST), // shinrin highland
 
-					new Value<>(new Color(0x62e6d3), PlaceType.WORLD_MAP_WILD_RIVER), // dangrous river
+					new Value<>(new Color(0x62e6d3), PlaceType.WORLD_MAP_WILD_RIVER), // dangerous river
 					new Value<>(new Color(0xa7fce8), PlaceType.WORLD_MAP_RIVER), // river
 
 					new Value<>(new Color(0xc4fcff), PlaceType.WORLD_MAP_SEA), // endless sea

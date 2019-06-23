@@ -508,7 +508,7 @@ public enum TFModifier {
 			Color.BASE_TAN,
 			Rarity.LEGENDARY),
 
-	TF_MOD_LEG_CONFIG_BIPEDAL("bidepal body",
+	TF_MOD_LEG_CONFIG_BIPEDAL("bipedal body",
 			"Applies an effect to give the user a bipedal body.",
 			"bipedal body",
 			"modifier_circle_tf_legConfig_bipedal",

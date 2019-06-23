@@ -1210,7 +1210,7 @@ public class OccupantManagementDialogue {
 
 					} else if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.kateIntroduced)) {
 						return new Response("Send to Kate",
-								UtilText.parse(characterSelected(), "Send [npc.name] to Kate's beauty salon, 'Succubi's secrets', to get [npc.her] appearance changed."),
+								UtilText.parse(characterSelected(), "Send [npc.name] to Kate's beauty salon, 'Succubi's Secrets', to get [npc.her] appearance changed."),
 								OccupantManagementDialogue.SLAVE_MANAGEMENT_COSMETICS_HAIR) {
 									@Override
 									public void effects() {

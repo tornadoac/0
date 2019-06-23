@@ -308,13 +308,13 @@ public class FluidMilk implements FluidInterface {
 			case MINERAL_OIL:
 				if(owner.isPlayer()) {
 					return "<p>"
-								+ "You feel a prolongued heat flow up into your [pc.breasts], causing you to let out [pc.a_moan+].<br/>"
+								+ "You feel a prolonged heat flow up into your [pc.breasts], causing you to let out [pc.a_moan+].<br/>"
 								+ "Your [pc.milk] is now [style.boldGrow(mineral oil)]!"
 							+ "</p>";
 				} else {
 					return UtilText.parse(owner,
 							"<p>"
-								+ "A prolongued heat flows up into [npc.namePos] [npc.breasts], causing [npc.herHim] to let out [npc.a_moan+].<br/>"
+								+ "A prolonged heat flows up into [npc.namePos] [npc.breasts], causing [npc.herHim] to let out [npc.a_moan+].<br/>"
 								+ "[npc.NamePos] [npc.milk] is now [style.boldGrow(mineral oil)]!"
 							+ "</p>");
 				}

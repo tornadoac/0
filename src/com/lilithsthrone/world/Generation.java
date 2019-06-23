@@ -421,7 +421,7 @@ public class Generation extends Task<Boolean> {
 		// x-2 ORIGIN x+2
 		// y-2
 
-		// randomise this order:
+		// randomize this order:
 		int[] direction = { 1, 2, 3, 4 };
 		for (int i = direction.length - 1; i > 0; i--) {
 			int index = rnd.nextInt(i + 1);
@@ -513,7 +513,7 @@ public class Generation extends Task<Boolean> {
 		int width = grid.length;
 		int height = grid[0].length;
 
-		// randomise this order:
+		// randomize this order:
 		int[] direction = { 1, 2, 3, 4 };
 		for (int i = direction.length - 1; i > 0; i--) {
 			int index = rnd.nextInt(i + 1);

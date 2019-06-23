@@ -6318,7 +6318,7 @@ When it should be an indication that I'm gaining testicles, and the three messag
 
 	NPCs to gain xp even on loss
 
-	Randomise succubi a bit more
+	Randomize succubi a bit more
 
 	"Arcane crystal dice" - consumable
 		Adds a random enchantment to a piece of clothing
@@ -7710,7 +7710,7 @@ Will there be more advanced "testing"?
 
 	sex orgasm is on option 2
 
-	Inventory css for light theme
+	Inventory CSS for light theme
 
 	3 HOURS (FINISHED BY 3)
 

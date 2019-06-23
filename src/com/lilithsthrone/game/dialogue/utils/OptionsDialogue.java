@@ -84,7 +84,7 @@ public class OptionsDialogue {
 					+ getJavaVersionInformation()
 					+ (Toolkit.getDefaultToolkit().getScreenSize().getHeight()<800
 							?"<p style='text-align:center; color:"+Color.GENERIC_ARCANE.toWebHexString()+";'>"
-								+ "If the game's resolution isn't fitting to your screen, press the keys: 'Windows' + 'Up Arrow' to maximise!"
+								+ "If the game's resolution isn't fitting to your screen, press the keys: 'Windows' + 'Up Arrow' to maximize!"
 							+ "</p>"
 							:"")
 					+ "<br/>"
