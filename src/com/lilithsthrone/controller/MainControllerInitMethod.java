@@ -2359,7 +2359,40 @@ public class MainControllerInitMethod {
 				}
 				
 				
-			
+				// Height:
+				id = "AGE_APPEARANCE_INCREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().setAgeAppearanceDifferenceToAppearAsAge(Math.max(18, Math.min(BodyChanging.getTarget().getAppearsAsAgeValue()+1, BodyChanging.getTarget().getAgeValue()+10)));
+						System.out.println(
+								BodyChanging.getTarget().getName()+" "+BodyChanging.getTarget().getAgeAppearanceDifference()+" "+BodyChanging.getTarget().getAppearsAsAgeValue()
+								+" ("+(BodyChanging.getTarget().getAgeValue() + BodyChanging.getTarget().getAgeAppearanceDifference())+")");
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "AGE_APPEARANCE_INCREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().setAgeAppearanceDifferenceToAppearAsAge(Math.max(18, Math.min(BodyChanging.getTarget().getAppearsAsAgeValue()+5, BodyChanging.getTarget().getAgeValue()+10)));
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "AGE_APPEARANCE_DECREASE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().setAgeAppearanceDifferenceToAppearAsAge(Math.max(18, Math.min(BodyChanging.getTarget().getAppearsAsAgeValue()-1, BodyChanging.getTarget().getAgeValue()+10)));
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				id = "AGE_APPEARANCE_DECREASE_LARGE";
+				if (((EventTarget) MainController.document.getElementById(id)) != null) {
+					((EventTarget) MainController.document.getElementById(id)).addEventListener("click", e -> {
+						BodyChanging.getTarget().setAgeAppearanceDifferenceToAppearAsAge(Math.max(18, Math.min(BodyChanging.getTarget().getAppearsAsAgeValue()-5, BodyChanging.getTarget().getAgeValue()+10)));
+						Main.game.setContent(new Response("", "", Main.game.getCurrentDialogueNode()));
+					}, false);
+				}
+				
+				
 				// Height:
 				id = "HEIGHT_INCREASE";
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5742,7 +5775,8 @@ public class MainControllerInitMethod {
 		// Save/load:
 		if (Main.game.getCurrentDialogueNode() == OptionsDialogue.SAVE_LOAD) {
 			for (File f : Main.getSavedGames()) {
-				String fileIdentifier = f.getName().substring(0, f.getName().lastIndexOf('.'));
+				String fileIdentifier = Util.getFileIdentifier(f);
+				String fileName = Util.getFileName(f);
 				
 				id = "overwrite_saved_" + fileIdentifier;
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5750,7 +5784,7 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || OptionsDialogue.overwriteConfirmationName.equals(f.getName())) {
 							OptionsDialogue.overwriteConfirmationName = "";
-							Main.saveGame(fileIdentifier, true);
+							Main.saveGame(fileName, true);
 						} else {
 							OptionsDialogue.overwriteConfirmationName = f.getName();
 							OptionsDialogue.loadConfirmationName = "";
@@ -5781,7 +5815,8 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || OptionsDialogue.loadConfirmationName.equals(f.getName())) {
 							OptionsDialogue.loadConfirmationName = "";
-							Main.loadGame(fileIdentifier);
+							Main.loadGame(fileName);
+//							Main.loadGame(f);
 						} else {
 							OptionsDialogue.overwriteConfirmationName = "";
 							OptionsDialogue.loadConfirmationName = f.getName();
@@ -5802,7 +5837,7 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || OptionsDialogue.deleteConfirmationName.equals(f.getName())) {
 							OptionsDialogue.deleteConfirmationName = "";
-							Main.deleteGame(fileIdentifier);
+							Main.deleteGame(fileName);
 						} else {
 							OptionsDialogue.overwriteConfirmationName = "";
 							OptionsDialogue.loadConfirmationName = "";
@@ -5846,7 +5881,8 @@ public class MainControllerInitMethod {
 		// Import:
 		if (Main.game.getCurrentDialogueNode() == OptionsDialogue.IMPORT_EXPORT) {
 			for (File f : Main.getCharactersForImport()) {
-				String fileIdentifier = f.getName().substring(0, f.getName().lastIndexOf('.'));
+				String fileIdentifier = Util.getFileIdentifier(f);
+				String fileName = Util.getFileName(f);
 				
 				id = "delete_saved_character_" + fileIdentifier;
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5854,7 +5890,7 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || OptionsDialogue.deleteConfirmationName.equals(f.getName())) {
 							OptionsDialogue.deleteConfirmationName = "";
-							Main.deleteExportedCharacter(fileIdentifier);
+							Main.deleteExportedCharacter(fileName);
 						} else {
 							OptionsDialogue.overwriteConfirmationName = "";
 							OptionsDialogue.loadConfirmationName = "";
@@ -5881,7 +5917,7 @@ public class MainControllerInitMethod {
 		
 		if (Main.game.getCurrentDialogueNode() == CharacterCreation.IMPORT_CHOOSE) {
 			for (File f : Main.getCharactersForImport()) {
-				String fileIdentifier = f.getName().substring(0, f.getName().lastIndexOf('.'));
+				String fileIdentifier = Util.getFileIdentifier(f);
 				
 				if (((EventTarget) MainController.document.getElementById("character_import_" + fileIdentifier )) != null) {
 					((EventTarget) MainController.document.getElementById("character_import_" + fileIdentifier )).addEventListener("click", e -> {
@@ -5895,13 +5931,14 @@ public class MainControllerInitMethod {
 		// Slave import:
 		if (Main.game.getCurrentDialogueNode() == SlaverAlleyDialogue.AUCTION_IMPORT) {
 			for (File f : Main.getSlavesForImport()) {
-				String fileIdentifier = f.getName().substring(0, f.getName().lastIndexOf('.'));
+				String fileIdentifier = Util.getFileIdentifier(f);
+				String fileName = Util.getFileName(f);
 				
 				if (((EventTarget) MainController.document.getElementById("import_slave_" + fileIdentifier )) != null) {
 					((EventTarget) MainController.document.getElementById("import_slave_" + fileIdentifier )).addEventListener("click", e -> {
 						
 						try {
-							Game.importCharacterAsSlave(fileIdentifier);
+							Game.importCharacterAsSlave(fileName);
 							MainController.updateUI();
 							Main.game.flashMessage(Colour.GENERIC_GOOD, "Imported Character!");
 						
@@ -5947,7 +5984,8 @@ public class MainControllerInitMethod {
 		// Save/load enchantment:
 		if (Main.game.getCurrentDialogueNode() == EnchantmentDialogue.ENCHANTMENT_SAVE_LOAD) {
 			for (File f : EnchantmentDialogue.getSavedEnchants()) {
-				String fileIdentifier = f.getName().substring(0, f.getName().lastIndexOf('.'));
+				String fileIdentifier = Util.getFileIdentifier(f);
+				String fileName = Util.getFileName(f);
 				
 				id = "overwrite_saved_" + fileIdentifier;
 				if (((EventTarget) MainController.document.getElementById(id)) != null) {
@@ -5955,7 +5993,7 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || EnchantmentDialogue.overwriteConfirmationName.equals(f.getName())) {
 							EnchantmentDialogue.overwriteConfirmationName = "";
-							EnchantmentDialogue.saveEnchant(fileIdentifier, true);
+							EnchantmentDialogue.saveEnchant(fileName, true);
 							Main.game.setContent(new Response("Save/Load", "Open the save/load game window.", EnchantmentDialogue.ENCHANTMENT_SAVE_LOAD));
 							
 						} else {
@@ -5978,7 +6016,7 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || EnchantmentDialogue.loadConfirmationName.equals(f.getName())) {
 							EnchantmentDialogue.loadConfirmationName = "";
-							LoadedEnchantment lEnch = EnchantmentDialogue.loadEnchant(fileIdentifier);
+							LoadedEnchantment lEnch = EnchantmentDialogue.loadEnchant(fileName);
 							
 							EnchantmentDialogue.resetNonTattooEnchantmentVariables();
 							EnchantmentDialogue.initModifiers(lEnch.getSuitableItem());
@@ -6009,7 +6047,7 @@ public class MainControllerInitMethod {
 						
 						if(!Main.getProperties().hasValue(PropertyValue.overwriteWarning) || EnchantmentDialogue.deleteConfirmationName.equals(f.getName())) {
 							EnchantmentDialogue.deleteConfirmationName = "";
-							EnchantmentDialogue.deleteEnchant(fileIdentifier);
+							EnchantmentDialogue.deleteEnchant(fileName);
 							EnchantmentDialogue.initSaveLoadMenu();
 							Main.game.setContent(new Response("Save/Load", ".", EnchantmentDialogue.ENCHANTMENT_SAVE_LOAD));
 							
