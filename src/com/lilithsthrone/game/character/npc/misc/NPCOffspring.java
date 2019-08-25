@@ -102,6 +102,10 @@ public class NPCOffspring extends NPC {
 		// ADDING FETISHES:
 		
 		CharacterUtils.addFetishes(this);
+
+		// BODY RANDOMISATION:
+		
+		CharacterUtils.randomiseBody(this, true);
 		
 		// BODY RANDOMISATION:
 
