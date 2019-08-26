@@ -290,6 +290,9 @@ public class AbstractPlaceType {
 		if(upgrades.contains(PlaceUpgrade.LILAYA_GUEST_ROOM)) {
 			return PlaceUpgrade.getGuestRoomUpgrades();
 			
+		} else if(upgrades.contains(PlaceUpgrade.LILAYA_GUEST_ROOM_SUITE)) {
+			return PlaceUpgrade.getGuestRoomUpgradesSuite();
+			
 		} else if(upgrades.contains(PlaceUpgrade.LILAYA_SLAVE_ROOM)) {
 			return PlaceUpgrade.getSlaveQuartersUpgradesSingle();
 			
@@ -312,6 +315,9 @@ public class AbstractPlaceType {
 	public String getLilayaRoomSVGString(Set<PlaceUpgrade> upgrades) {
 		if(upgrades.contains(PlaceUpgrade.LILAYA_GUEST_ROOM)) {
 			return getSVGOverride("dominion/lilayasHome/roomGuest", Colour.BASE_GREEN_LIGHT);
+			
+		} else if(upgrades.contains(PlaceUpgrade.LILAYA_GUEST_ROOM_SUITE)) {
+				return getSVGOverride("dominion/lilayasHome/roomGuestSuite", Colour.BASE_GREEN);
 			
 		} else if(upgrades.contains(PlaceUpgrade.LILAYA_SLAVE_ROOM)) {
 			return getSVGOverride("dominion/lilayasHome/roomSlave", Colour.BASE_CRIMSON);

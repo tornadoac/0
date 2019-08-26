@@ -171,6 +171,62 @@ public enum PlaceUpgrade {
 		}
 	},
 	
+	LILAYA_GUEST_ROOM_SUITE(true,//TODOGamma
+			Colour.GENERIC_ARCANE,
+			"Guest Suite",
+			"Rose will prepare this room for a group of your guests, making it suitable for housing friends and family."
+					+ " While not the most economical option for you and a little cramped for the occupants, they still appreciate having a place to live.",
+			"This room has been converted into a suitable place for housing your guests.",
+			"You've paid to have this room converted into a guest suite."
+					+ " In each corner sits a single-size bed made up with a a plain white duvet."
+					+ " Beside each is a simple bedside cabinet, complete with arcane-powered lamp."
+					+ " Note: You can move people in here from a single occupant guest room but can't invite them without a single occupant guest room.",
+			10000,
+			0,
+			500,
+			4,
+			0,
+			0,
+			null) {
+		
+		@Override
+		public boolean isSlaverUpgrade() {
+			return false;
+		}
+		
+		@Override
+		protected boolean isExtraConditionsMet(Cell cell) {
+			return (Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION)
+					&& Main.game.getCharactersTreatingCellAsHome(cell).isEmpty()
+					&& !cell.getPlace().getPlaceUpgrades().contains(LILAYA_ARTHUR_ROOM))
+						|| cell.getPlace().getPlaceUpgrades().contains(LILAYA_GUEST_ROOM);
+		}
+		
+		@Override
+		protected String getExtraConditionalAvailabilityDescription(Cell cell) {
+			if(!Main.game.getPlayer().isQuestCompleted(QuestLine.SIDE_ACCOMMODATION)) {
+				return "To install a guest bedroom, you'd need to first find someone to invite to live with you, and then get Lilaya's permission to make the upgrade!";
+			} else {
+				return super.getExtraConditionalAvailabilityDescription(cell);
+			}
+		}
+		
+		@Override
+		public void applyInstallationEffects(Cell c) {
+			GenericPlace place = c.getPlace();
+			if(place.getPlaceUpgrades().contains(LILAYA_GUEST_ROOM)) {
+				place.removePlaceUpgrade(c, LILAYA_GUEST_ROOM);
+				
+			} else {
+				for(PlaceUpgrade upgrade : PlaceUpgrade.values()) {
+					if(upgrade != LILAYA_GUEST_ROOM_SUITE) {
+						place.removePlaceUpgrade(c, upgrade);
+					}
+				}
+			}
+		}
+	},
+	
 	LILAYA_SLAVE_ROOM(true,
 			Colour.GENERIC_ARCANE,
 			"Slave's Room",
@@ -808,6 +864,7 @@ public enum PlaceUpgrade {
 	
 	private static ArrayList<PlaceUpgrade> coreRoomUpgrades;
 	private static ArrayList<PlaceUpgrade> guestRoomUpgrades;
+	private static ArrayList<PlaceUpgrade> guestRoomUpgradesSuite;
 	private static ArrayList<PlaceUpgrade> slaveQuartersUpgradesSingle;
 	private static ArrayList<PlaceUpgrade> slaveQuartersUpgradesDouble;
 	private static ArrayList<PlaceUpgrade> slaveQuartersUpgradesQuadruple;
@@ -832,6 +889,15 @@ public enum PlaceUpgrade {
 		return guestRoomUpgrades;
 	}
 
+	public static ArrayList<PlaceUpgrade> getGuestRoomUpgradesSuite() {
+		if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursRoomInstalled) || Main.game.getPlayer().isQuestProgressLessThan(QuestLine.MAIN, Quest.MAIN_1_J_ARTHURS_ROOM)) {
+			ArrayList<PlaceUpgrade> listArthurRemoved = new ArrayList<>(guestRoomUpgradesSuite);
+			listArthurRemoved.remove(PlaceUpgrade.LILAYA_ARTHUR_ROOM);
+			return listArthurRemoved;
+		}
+		return guestRoomUpgradesSuite;
+	}
+
 	public static ArrayList<PlaceUpgrade> getSlaveQuartersUpgradesSingle() {
 		if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursRoomInstalled) || Main.game.getPlayer().isQuestProgressLessThan(QuestLine.MAIN, Quest.MAIN_1_J_ARTHURS_ROOM)) {
 			ArrayList<PlaceUpgrade> listArthurRemoved = new ArrayList<>(slaveQuartersUpgradesSingle);
@@ -852,7 +918,7 @@ public enum PlaceUpgrade {
 
 	public static ArrayList<PlaceUpgrade> getSlaveQuartersUpgradesQuadruple() {
 		if(Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.arthursRoomInstalled) || Main.game.getPlayer().isQuestProgressLessThan(QuestLine.MAIN, Quest.MAIN_1_J_ARTHURS_ROOM)) {
-			ArrayList<PlaceUpgrade> listArthurRemoved = new ArrayList<>(slaveQuartersUpgradesDouble);
+			ArrayList<PlaceUpgrade> listArthurRemoved = new ArrayList<>(slaveQuartersUpgradesQuadruple);
 			listArthurRemoved.remove(PlaceUpgrade.LILAYA_ARTHUR_ROOM);
 			return listArthurRemoved;
 		}
@@ -876,6 +942,7 @@ public enum PlaceUpgrade {
 	static {
 		coreRoomUpgrades = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_GUEST_ROOM,
+				PlaceUpgrade.LILAYA_GUEST_ROOM_SUITE,
 				
 				PlaceUpgrade.LILAYA_SLAVE_ROOM,
 				PlaceUpgrade.LILAYA_SLAVE_ROOM_DOUBLE,
@@ -886,6 +953,10 @@ public enum PlaceUpgrade {
 				PlaceUpgrade.LILAYA_ARTHUR_ROOM);
 
 		guestRoomUpgrades = Util.newArrayListOfValues(
+				PlaceUpgrade.LILAYA_GUEST_ROOM_SUITE,
+				PlaceUpgrade.LILAYA_EMPTY_ROOM);
+		
+		guestRoomUpgradesSuite = Util.newArrayListOfValues(
 				PlaceUpgrade.LILAYA_EMPTY_ROOM);
 				
 				

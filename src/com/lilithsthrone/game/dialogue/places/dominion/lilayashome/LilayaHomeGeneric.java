@@ -793,7 +793,7 @@ public class LilayaHomeGeneric {
 			}
 		}
 		
-		if(place.getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_GUEST_ROOM)) {
+		if(place.getPlaceUpgrades().contains(PlaceUpgrade.LILAYA_GUEST_ROOM)) {//TODOGammaGuest
 			List<NPC> charactersHome = Main.game.getCharactersTreatingCellAsHome(Main.game.getPlayerCell());
 			for(String occupantId : Main.game.getPlayer().getFriendlyOccupants()) {
 				try {
