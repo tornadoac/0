@@ -21,7 +21,7 @@ import com.lilithsthrone.utils.Util;
  */
 public enum VaginaType implements BodyPartTypeInterface {
 
-	NONE(null, FluidType.GIRL_CUM_HUMAN, null),
+	NONE(null, FluidType.GIRL_CUM_HUMAN, Race.NONE),
 
 	HUMAN(BodyCoveringType.VAGINA, FluidType.GIRL_CUM_HUMAN, Race.HUMAN),
 
