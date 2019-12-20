@@ -12,6 +12,7 @@ import com.lilithsthrone.game.character.npc.dominion.Ashley;
 import com.lilithsthrone.game.character.npc.dominion.Brax;
 import com.lilithsthrone.game.character.npc.dominion.Bunny;
 import com.lilithsthrone.game.character.npc.dominion.CandiReceptionist;
+import com.lilithsthrone.game.character.npc.dominion.Daddy;
 import com.lilithsthrone.game.character.npc.dominion.Finch;
 import com.lilithsthrone.game.character.npc.dominion.HarpyBimbo;
 import com.lilithsthrone.game.character.npc.dominion.HarpyBimboCompanion;
@@ -30,6 +31,7 @@ import com.lilithsthrone.game.character.npc.dominion.Nyan;
 import com.lilithsthrone.game.character.npc.dominion.Pazu;
 import com.lilithsthrone.game.character.npc.dominion.Pix;
 import com.lilithsthrone.game.character.npc.dominion.Ralph;
+import com.lilithsthrone.game.character.npc.dominion.RentalMommy;
 import com.lilithsthrone.game.character.npc.dominion.Rose;
 import com.lilithsthrone.game.character.npc.dominion.Scarlett;
 import com.lilithsthrone.game.character.npc.dominion.SupplierLeader;
@@ -67,14 +69,15 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.69.9
- * @version 0.2.11
+ * @version 0.3.5
  * @author Innoxia
  */
 public enum ParserTarget {
 	
 	STYLE(Util.newArrayListOfValues(
 			"style",
-			"game"),
+			"game",
+			"util"),
 			"Returns the same as 'pc', but should be used for style methods such as style.bold or style.italics or conditional methods such as game.isArcaneStorm.") {
 				@Override
 				public GameCharacter getCharacter(String tag, List<GameCharacter> specialNPCList) {
@@ -84,6 +87,7 @@ public enum ParserTarget {
 
 	UNIT(Util.newArrayListOfValues(
 			"unit",
+			"units",
 			"game"),
 			"Returns the same as 'pc', but should be used for unit methods such as unit.size.") {
 		@Override
@@ -128,7 +132,7 @@ public enum ParserTarget {
 						return Combat.getActiveNPC();
 						
 					} else if (Main.game.isInSex()) {
-						return Sex.getActivePartner();
+						return Sex.getTargetedPartner(Main.game.getPlayer());
 						
 					} else if (Main.game.getCurrentDialogueNode()!=null) {
 						if(Main.game.getCurrentDialogueNode()==CharactersPresentDialogue.MENU
@@ -154,6 +158,32 @@ public enum ParserTarget {
 					} else {
 						throw new NullPointerException();
 					}
+				}
+			},
+	
+	COMPANION(Util.newArrayListOfValues(
+			"companion",
+			"companion1",
+			"companion2",
+			"companion3",
+			"companion4",
+			"companion5",
+			"companion6"),
+			"The companions of the player.<br/>"
+			+"<b>The tag 'companion' can be extended with a number, starting at 1, to signify which companion it is referring to!</b> e.g. 'companion1' is the first companion, 'companion2' is the second, etc.") {
+				@Override
+				public GameCharacter getCharacter(String tag, List<GameCharacter> specialNPCList) throws NullPointerException {
+					if(Main.game.getPlayer().getCompanions().size()>=1) {
+						if(tag.equalsIgnoreCase("companion")) {
+							return Main.game.getPlayer().getCompanions().get(0);
+						} else {
+							int index = Integer.parseInt(tag.substring(9));
+							if(Main.game.getPlayer().getCompanions().size()>=index) {
+								return Main.game.getPlayer().getCompanions().get(Math.max(0, index-1));
+							}
+						}
+					}
+					throw new NullPointerException();
 				}
 			},
 	
@@ -733,6 +763,31 @@ public enum ParserTarget {
 			return Main.game.getNpc(Kalahari.class);
 		}
 	},
+
+	RENTAL_MOMMY(Util.newArrayListOfValues("rentalMommy"), "") {
+		public String getDescription() {
+			return Main.game.getNpc(RentalMommy.class).getDescription();
+		}
+
+		@Override
+		public GameCharacter getCharacter(String tag, List<GameCharacter> specialNPCList) {
+			return Main.game.getNpc(RentalMommy.class);
+		}
+	},
+	
+	DADDY(Util.newArrayListOfValues("daddy", "desryth"), "") {
+		public String getDescription() {
+			return Main.game.getNpc(Daddy.class).getDescription();
+		}
+
+		@Override
+		public GameCharacter getCharacter(String tag, List<GameCharacter> specialNPCList) {
+			return Main.game.getNpc(Daddy.class);
+		}
+	},
+	
+	
+	// Submission:
 	
 	IMP_FORTRESS_ALPHA_LEADER(Util.newArrayListOfValues("impAlphaLeader"), "") {
 		public String getDescription() {

@@ -239,10 +239,10 @@ public class FingerNipple {
 					break;
 				case DOM_ROUGH:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-							"[npc.Name] digs [npc.her] [npc.fingers+] into [npc2.namePos] [npc2.breasts+], before moving [npc.her] rough touch up to [npc2.her] [npc2.nipples+]."
+							"[npc.Name] [npc.verb(dig)] [npc.her] [npc.fingers+] into [npc2.namePos] [npc2.breasts+], before moving [npc.her] rough touch up to [npc2.her] [npc2.nipples+]."
 								+ " Forcefully pinching and squeezing [npc2.namePos] [npc2.nipples+], [npc.name] [npc.verb(let)] out a triumphant growl as [npc.she] [npc.verb(manage)] to draw out",
 
-							"With [npc.a_moan+], [npc.name] roughly digs [npc.her] [npc.fingers] into [npc2.namePos] [npc2.breasts+], before quickly moving down to roughly flick [npc2.her] [npc2.nipples+]."
+							"With [npc.a_moan+], [npc.name] roughly [npc.verb(dig)] [npc.her] [npc.fingers] into [npc2.namePos] [npc2.breasts+], before quickly moving down to roughly flick [npc2.her] [npc2.nipples+]."
 									+ " Dominantly pinching and squeezing at [npc2.namePos] [npc2.nipples+], [npc.name] [npc.verb(let)] out [npc.a_moan+] as [npc.she] [npc.verb(manage)] to draw out"));
 					break;
 				case SUB_RESISTING:
@@ -889,7 +889,7 @@ public class FingerNipple {
 							"[npc.Name] [npc.verb(feel)] tears starting to well up in [npc.namePos] [npc.eyes], and, unable to keep it in any longer,"
 									+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc.her] [npc.fingers] out of [npc2.namePos] [npc2.nipple+].",
 
-							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+].",
+							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+].",
 
 							"Trying desperately to pull [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+],"
 									+ " [npc.name] [npc.sob] in distress as [npc2.namePos] [npc2.verb(hold)] [npc.her] [npc.hand] in position,"
@@ -900,7 +900,7 @@ public class FingerNipple {
 							"[npc.Name] [npc.verb(feel)] tears starting to well up in [npc.namePos] [npc.eyes], and, unable to keep it in any longer,"
 									+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc.her] [npc.fingers] out of [npc2.namePos] [npc2.nipple+].",
 
-							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+].",
+							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+].",
 
 							"Trying desperately to pull [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+],"
 									+ " [npc.name] [npc.sob] in distress as [npc2.namePos] [npc2.verb(hold)] [npc.her] [npc.hand] in position,"
@@ -911,7 +911,7 @@ public class FingerNipple {
 							"[npc.Name] [npc.verb(feel)] tears starting to well up in [npc.namePos] [npc.eyes], and, unable to keep it in any longer,"
 									+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc.her] [npc.fingers] out of [npc2.namePos] [npc2.nipple+].",
 
-							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+].",
+							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+].",
 
 							"Trying desperately to pull [npc.her] [npc.fingers+] out of [npc2.namePos] [npc2.nipple+],"
 									+ " [npc.name] [npc.sob] in distress as [npc2.namePos] [npc2.verb(hold)] [npc.her] [npc.hand] in position,"
@@ -1321,7 +1321,7 @@ public class FingerNipple {
 							"[npc.Name] [npc.verb(feel)] tears starting to well up in [npc.namePos] [npc.eyes], and, unable to keep it in any longer,"
 									+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc2.namePos] gently-pumping [npc2.fingers] out of [npc.her] [npc.nipple+].",
 
-							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.breast] away from [npc2.namePos] unwanted touch,"
+							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.breast] away from [npc2.namePos] unwanted touch,"
 									+ " struggling in desperation as [npc2.namePos] [npc2.fingers+] continue gently sliding in and out of [npc.her] [npc.nipple+].",
 
 							"Trying desperately to pull [npc.her] [npc.breast] away from [npc2.namePos] [npc2.hand],"
@@ -1333,7 +1333,7 @@ public class FingerNipple {
 									+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc2.namePos] greedily-thrusting [npc2.fingers] out of [npc.her] [npc.nipple+].",
 
 
-							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.breast] away from [npc2.namePos] unwanted touch,"
+							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.breast] away from [npc2.namePos] unwanted touch,"
 									+ " struggling in desperation as [npc2.namePos] [npc2.fingers+] continue eagerly sliding in and out of [npc.her] [npc.nipple+].",
 
 
@@ -1346,7 +1346,7 @@ public class FingerNipple {
 									+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc2.namePos] roughly-thrusting [npc2.fingers] out of [npc.her] [npc.nipple+].",
 
 
-							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.breast] away from [npc2.namePos] unwanted touch,"
+							"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.breast] away from [npc2.namePos] unwanted touch,"
 									+ " struggling in desperation as [npc2.namePos] [npc2.fingers+] continue roughly slamming in and out of [npc.her] [npc.nipple+].",
 
 

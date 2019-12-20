@@ -12,7 +12,15 @@ import org.w3c.dom.Element;
 import com.lilithsthrone.game.character.CharacterImportSetting;
 import com.lilithsthrone.game.character.CharacterUtils;
 import com.lilithsthrone.game.character.EquipClothingSetting;
-import com.lilithsthrone.game.character.attributes.Attribute;
+import com.lilithsthrone.game.character.body.types.AntennaType;
+import com.lilithsthrone.game.character.body.types.ArmType;
+import com.lilithsthrone.game.character.body.types.BreastType;
+import com.lilithsthrone.game.character.body.types.EarType;
+import com.lilithsthrone.game.character.body.types.EyeType;
+import com.lilithsthrone.game.character.body.types.FaceType;
+import com.lilithsthrone.game.character.body.types.HairType;
+import com.lilithsthrone.game.character.body.types.HornType;
+import com.lilithsthrone.game.character.body.types.SkinType;
 import com.lilithsthrone.game.character.body.valueEnums.LegConfiguration;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.npc.NPC;
@@ -20,14 +28,13 @@ import com.lilithsthrone.game.character.npc.NPCGenerationFlag;
 import com.lilithsthrone.game.character.npc.misc.GenericSexualPartner;
 import com.lilithsthrone.game.character.persona.Name;
 import com.lilithsthrone.game.character.persona.Occupation;
-import com.lilithsthrone.game.character.race.RaceStage;
+import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.RacialBody;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
 import com.lilithsthrone.game.dialogue.DialogueNode;
-import com.lilithsthrone.game.dialogue.npcDialogue.SlaveDialogue;
+import com.lilithsthrone.game.dialogue.companions.SlaveDialogue;
 import com.lilithsthrone.game.dialogue.npcDialogue.dominion.AlleywayAttackerDialogue;
-import com.lilithsthrone.game.dialogue.npcDialogue.dominion.AlleywayAttackerDialogueCompanions;
 import com.lilithsthrone.game.dialogue.npcDialogue.dominion.AlleywayProstituteDialogue;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
@@ -43,7 +50,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.66
- * @version 0.3.1
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public class DominionAlleywayAttacker extends NPC {
@@ -63,7 +70,8 @@ public class DominionAlleywayAttacker extends NPC {
 	public DominionAlleywayAttacker(Gender gender, boolean isImported, NPCGenerationFlag... generationFlags) {
 		super(isImported, null, null, "",
 				Util.random.nextInt(28)+18, Util.randomItemFrom(Month.values()), 1+Util.random.nextInt(25),
-				3, gender, Subspecies.DOG_MORPH, RaceStage.GREATER,
+				3,
+				null, null, null,
 				new CharacterInventory(10), WorldType.DOMINION, PlaceType.DOMINION_BACK_ALLEYS, false,
 				generationFlags);
 
@@ -110,40 +118,86 @@ public class DominionAlleywayAttacker extends NPC {
 						
 					// Canals spawn only:
 					case ALLIGATOR_MORPH:
-						addToSubspeciesMap((canalSpecies?2000:0), gender, s, availableRaces);
+						Subspecies.addToSubspeciesMap((canalSpecies?2000:0), gender, s, availableRaces);
 						break;
 					case SLIME:
-						addToSubspeciesMap((canalSpecies?3000:0), gender, s, availableRaces);
+						Subspecies.addToSubspeciesMap((canalSpecies?3000:0), gender, s, availableRaces);
 						break;
 					case RAT_MORPH:
-						addToSubspeciesMap((canalSpecies?2500:0), gender, s, availableRaces);
+						Subspecies.addToSubspeciesMap((canalSpecies?2500:0), gender, s, availableRaces);
 						break;
 						
 					// Special spawns:
 					case REINDEER_MORPH:
 						if(Main.game.getSeason()==Season.WINTER && Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.hasSnowedThisWinter)) {
-							addToSubspeciesMap((int) ((canalSpecies?50:1000)* Subspecies.getWorldSpecies().get(WorldType.DOMINION).get(s).getChanceMultiplier()), gender, s, availableRaces);
+							Subspecies.addToSubspeciesMap((int) ((canalSpecies?50:1000)* Subspecies.getWorldSpecies().get(WorldType.DOMINION).get(s).getChanceMultiplier()), gender, s, availableRaces);
 						}
 						break;
 						
 					// Regular spawns:
 					default:
 						if(Subspecies.getWorldSpecies().get(WorldType.DOMINION).containsKey(s)) {
-							addToSubspeciesMap((int) (canalSpecies?250:1000 * Subspecies.getWorldSpecies().get(WorldType.DOMINION).get(s).getChanceMultiplier()), gender, s, availableRaces);
+							Subspecies.addToSubspeciesMap((int) (canalSpecies?250:1000 * Subspecies.getWorldSpecies().get(WorldType.DOMINION).get(s).getChanceMultiplier()), gender, s, availableRaces);
 						}
 				}
 			}
 			
-			this.setBodyFromSubspeciesPreference(gender, availableRaces);
+			this.setBodyFromSubspeciesPreference(gender, availableRaces, true);
 			
 			if(Main.game.getCurrentWeather()!=Weather.MAGIC_STORM) {
 				if(Math.random()<0.05) { //5% chance for the NPC to be a half-demon
-					this.setBody(CharacterUtils.generateHalfDemonBody(this, gender, Subspecies.getFleshSubspecies(this), true));
+					this.setBody(CharacterUtils.generateHalfDemonBody(this, gender, Subspecies.getFleshSubspecies(this), true), true);
 				}
 			}
 			
 			if(Math.random()<0.05 && this.isLegConfigurationAvailable(LegConfiguration.TAUR)) { //5% chance for the NPC to be a taur
-				this.setLegConfiguration(LegConfiguration.TAUR);
+				int taurLevel = Main.getProperties().taurFurryLevel;
+				if(this.getRace()==Race.DEMON) {
+					taurLevel = 3; // Demons should always be untouched
+				}
+				switch(taurLevel) {
+					case 1:
+						this.setLegConfiguration(LegConfiguration.TAUR, true);
+						this.setAntennaType(AntennaType.NONE);
+						this.setArmType(ArmType.HUMAN);
+						this.setBreastType(BreastType.HUMAN);
+						this.setEarType(EarType.HUMAN);
+						this.setEyeType(EyeType.HUMAN);
+						this.setFaceType(FaceType.HUMAN);
+						this.setHairType(HairType.HUMAN);
+						this.setHornType(HornType.NONE);
+						this.setSkinType(SkinType.HUMAN);
+						break;
+					case 2:
+						this.setLegConfiguration(LegConfiguration.TAUR, true);
+						this.setAntennaType(Util.randomItemFrom(AntennaType.getAntennaTypes(this.getLegRace())));
+						this.setArmType(ArmType.HUMAN);
+						this.setBreastType(BreastType.HUMAN);
+						this.setEarType(Util.randomItemFrom(EarType.getEarTypes(this.getLegRace())));
+						this.setEyeType(Util.randomItemFrom(EyeType.getEyeTypes(this.getLegRace())));
+						this.setFaceType(FaceType.HUMAN);
+						this.setHairType(Util.randomItemFrom(HairType.getHairTypes(this.getLegRace())));
+						this.setHornType(Util.randomItemFrom(HornType.getHornTypes(this.getLegRace())));
+						this.setSkinType(SkinType.HUMAN);
+						break;
+					case 3:
+						this.setLegConfiguration(LegConfiguration.TAUR, true);
+						break;
+					case 4:
+						this.setLegConfiguration(LegConfiguration.TAUR, true);
+						this.setAntennaType(Util.randomItemFrom(AntennaType.getAntennaTypes(this.getLegRace())));
+						this.setArmType(Util.randomItemFrom(ArmType.getArmTypes(this.getLegRace())));
+						this.setBreastType(Util.randomItemFrom(BreastType.getBreastTypes(this.getLegRace())));
+						this.setEarType(Util.randomItemFrom(EarType.getEarTypes(this.getLegRace())));
+						this.setEyeType(Util.randomItemFrom(EyeType.getEyeTypes(this.getLegRace())));
+						this.setFaceType(Util.randomItemFrom(FaceType.getFaceTypes(this.getLegRace())));
+						this.setHairType(Util.randomItemFrom(HairType.getHairTypes(this.getLegRace())));
+						this.setHornType(Util.randomItemFrom(HornType.getHornTypes(this.getLegRace())));
+						this.setSkinType(Util.randomItemFrom(SkinType.getSkinTypes(this.getLegRace())));
+						break;
+					default:
+						break;
+				}
 			}
 			
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
@@ -182,9 +236,10 @@ public class DominionAlleywayAttacker extends NPC {
 			
 			// Set starting perks based on the character's race
 			initPerkTreeAndBackgroundPerks();
-			
-			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
-			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
+			this.setStartingCombatMoves();
+			loadImages();
+
+			initHealthAndManaToMax();
 		}
 
 		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE, true);
@@ -202,6 +257,10 @@ public class DominionAlleywayAttacker extends NPC {
 
 	@Override
 	public void equipClothing(List<EquipClothingSetting> settings) {
+		this.incrementMoney((int) (this.getInventory().getNonEquippedValue() * 0.5f));
+		this.clearNonEquippedInventory(false);
+		CharacterUtils.generateItemsInInventory(this);
+		
 		if(this.getHistory()==Occupation.NPC_PROSTITUTE) {
 			CharacterUtils.equipClothingFromOutfitType(this, OutfitType.PROSTITUTE, settings);
 		} else {
@@ -219,6 +278,7 @@ public class DominionAlleywayAttacker extends NPC {
 		if(this.getHistory()==Occupation.NPC_PROSTITUTE && this.getLocationPlace().getPlaceType().equals(PlaceType.ANGELS_KISS_BEDROOM)) {
 			// Remove client:
 			List<NPC> charactersPresent = Main.game.getCharactersPresent(this.getWorldLocation(), this.getLocation());
+			charactersPresent.removeAll(Main.game.getPlayer().getCompanions());
 			if(charactersPresent.size()>1) {
 				for(NPC npc : charactersPresent) {
 					if(npc instanceof GenericSexualPartner) {
@@ -297,11 +357,11 @@ public class DominionAlleywayAttacker extends NPC {
 				return AlleywayProstituteDialogue.ALLEY_PROSTITUTE;
 				
 			} else {
-				if(Main.game.getPlayer().getCompanions().isEmpty()) {
+//				if(Main.game.getPlayer().getCompanions().isEmpty()) {
+//					return AlleywayAttackerDialogue.ALLEY_ATTACK;
+//				} else {
 					return AlleywayAttackerDialogue.ALLEY_ATTACK;
-				} else {
-					return AlleywayAttackerDialogueCompanions.ALLEY_ATTACK;
-				}
+//				}
 			}
 			
 		} else {
@@ -327,19 +387,19 @@ public class DominionAlleywayAttacker extends NPC {
 				return new Response ("", "", AlleywayProstituteDialogue.AFTER_COMBAT_DEFEAT);
 			}
 		} else {
-			if(Main.game.getPlayer().getCompanions().isEmpty()) {
+//			if(Main.game.getPlayer().getCompanions().isEmpty()) {
+//				if (victory) {
+//					return new Response("", "", AlleywayAttackerDialogue.AFTER_COMBAT_VICTORY);
+//				} else {
+//					return new Response ("", "", AlleywayAttackerDialogue.AFTER_COMBAT_DEFEAT);
+//				}
+//			} else {
 				if (victory) {
 					return new Response("", "", AlleywayAttackerDialogue.AFTER_COMBAT_VICTORY);
 				} else {
 					return new Response ("", "", AlleywayAttackerDialogue.AFTER_COMBAT_DEFEAT);
 				}
-			} else {
-				if (victory) {
-					return new Response("", "", AlleywayAttackerDialogueCompanions.AFTER_COMBAT_VICTORY);
-				} else {
-					return new Response ("", "", AlleywayAttackerDialogueCompanions.AFTER_COMBAT_DEFEAT);
-				}
-			}
+//			}
 		}
 	}
 	

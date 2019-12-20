@@ -140,6 +140,10 @@ public abstract class SexAction implements SexActionInterface {
 
 	@Override
 	public ArousalIncrease getArousalGainTarget() {
+		if(this.isSadisticAction() && !Sex.getCharacterTargetedForSexAction(this).getFetishDesire(Fetish.FETISH_MASOCHIST).isPositive()) {
+			return ArousalIncrease.ZERO_NONE;
+		}
+		
 		if(!Sex.isMasturbation()) {
 			if(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))==SexPace.SUB_RESISTING
 					&& this.getActionType()!=SexActionType.PREPARE_FOR_PARTNER_ORGASM
@@ -150,8 +154,9 @@ public abstract class SexAction implements SexActionInterface {
 				} else {
 					// If it's an erogenous zone, they gain arousal. If not, arousal gain is 0.
 					for(SexAreaInterface sArea : this.getSexAreaInteractions().values()) {
-						if((sArea.isOrifice() && ((SexAreaOrifice)sArea).getBaseArousalWhenPenetrated()>1)
-								|| (sArea.isPenetration() && ((SexAreaPenetration)sArea).getBaseArousalWhenPenetrating()>1)) {
+						if(sArea!=null
+								&& ((sArea.isOrifice() && ((SexAreaOrifice)sArea).getBaseArousalWhenPenetrated()>1)
+										|| (sArea.isPenetration() && ((SexAreaPenetration)sArea).getBaseArousalWhenPenetrating()>1))) {
 							return ArousalIncrease.TWO_LOW;
 						}
 					}
@@ -330,6 +335,9 @@ public abstract class SexAction implements SexActionInterface {
 						characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_DOMINANT);
 						characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_SUBMISSIVE);
 						characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_SADIST);
+						if(this.getParticipantType()==SexParticipantType.SELF) {
+							characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_MASOCHIST);
+						}
 						characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_MASOCHIST);
 						break;
 					case SUB_EAGER:

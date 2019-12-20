@@ -32,10 +32,13 @@
 		
 		<!-- The description that's displayed when hovering over the attack action in combat. Follow the same guidelines as equipText (a couple of entries further down this page).
 		As this tooltip is only ever seen from the player's perspective, you can always write in the first-person narrative. (Still use npc2 for the target, though.)-->
-		<attackTooltipDescription>Strike out with your Demon's Dagger at [npc2.name].</attackTooltipDescription>
+		<attackTooltipDescription><![CDATA[Strike out with your Demon's Dagger at [npc2.name].]]></attackTooltipDescription>
 		
 		<!-- The rarity of this weapon. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/Rarity.java -->
 		<rarity>EPIC</rarity> 
+		
+		<!-- What set this weapon is a part of. Values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/master/src/com/lilithsthrone/game/inventory/clothing/ClothingSet.java -->
+		<weaponSet/> 
 		
 		<!-- The description that's used when equipping this weapon. The description should be generic, able to be used by both the player and NPCs. Just make sure to use the tag "[npc.verb()]" whenever using a verb, which will then, for example, parse like this:
 		[npc.verb(run)] if npc is player = "run"
@@ -54,6 +57,9 @@
 		
 		<!-- The file name of this weapon's image when equipped. Can be (and usually is) the same as the imageName (which in this example would be "dagger_sheathed.svg"). -->
 		<imageEquippedName>dagger.svg</imageEquippedName>
+		
+		<!-- How much natural physical resistance this weapon provides when equipped. Should only really be above 0 for shields or other such protective weapons. -->
+		<physicalResistance>0</physicalResistance> 
 		
 		<!-- The base damage that this weapon deals. -->
 		<damage>12</damage> 

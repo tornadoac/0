@@ -2,7 +2,7 @@ package com.lilithsthrone.game.dialogue;
 
 /**
  * @since 0.1.89
- * @version 0.3.1
+ * @version 0.3.3.10
  * @author Innoxia
  */
 public enum DialogueFlagValue {
@@ -23,6 +23,12 @@ public enum DialogueFlagValue {
 	foundHappiness,
 	visitedSubmission,
 	mommyFound,
+	
+	daddyFound,
+	rudeToDaddy,
+	flirtingWithDaddy,
+	talkedWithDaddy,
+	daddySendingReward,
 	
 	// Gym:
 	gymIntroduced,
@@ -63,6 +69,8 @@ public enum DialogueFlagValue {
 	
 	
 	// Shopping arcade:
+	ralphAskedAboutHundredKisses,
+	
 	nyanTalkedTo,
 	nyanComplimented,
 	nyanFlirtedWith,
@@ -98,21 +106,20 @@ public enum DialogueFlagValue {
 	readBook3,
 	readBook4,
 	
-	arthursRoomInstalled,
 	arthursPackageObtained,
 	
 	givenLilayaPresent1,
 	givenLilayaPresent2,
 	givenLilayaPresent3,
 	
-	// Brax:
+	// Enforcer HQ:
 	braxEncountered,
 	accessToEnforcerHQ,
 	braxTransformedPlayer,
-	braxBeaten,
 	seenBraxAfterQuest,
 	feminisedBrax,
 	bimbofiedBrax,
+	candiHarpyTransformation,
 	
 	// Harpy Nests:
 	hasHarpyNestAccess,
@@ -160,7 +167,8 @@ public enum DialogueFlagValue {
 	slimeQueenForced,
 	
 	// Gambling Den:
-	axelToldAboutVengar,
+	axelMentionedVengar,
+	axelExplainedVengar,
 	roxyAddicted,
 	playedPregnancyRouletteAsMother,
 	playedPregnancyRouletteAsBreeder,
@@ -174,6 +182,13 @@ public enum DialogueFlagValue {
 	krugerIntroduced,
 	
 	// Submission:
+	claireAskedTeleportation,
+	claireWarning,
+	clairePadsInvestigated,
+	claireEnclosureEscaped,
+	claireObtainedLightningGlobe,
+	claireAskedWarehouseEscape,
+	
 	impCitadelEncountered,
 	impCitadelArcanistEncountered,
 	impCitadelArcanistAcceptedTF,
@@ -213,6 +228,15 @@ public enum DialogueFlagValue {
 	lyssiethQuestionAsked5,
 
 	meraxisRepeatDemonTF,
+	
+	// Rat warrens:
+	ratWarrensEntry,
+	ratWarrensEntryWhore,
+	ratWarrensHostile,
+
+	ratWarrensClearedLeft,
+	ratWarrensClearedCentre,
+	ratWarrensClearedRight,
 	
 	;
 }

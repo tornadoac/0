@@ -7,7 +7,7 @@ import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.game.sex.SexParticipantType;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotTag;
 import com.lilithsthrone.game.sex.sexActions.SexAction;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.utils.Util;
@@ -48,7 +48,7 @@ public class FingerPenis {
 
 		@Override
 		public String getDescription() {
-			if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.SIXTY_NINE_TOP) {
+			if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction()).hasTag(SexSlotTag.SIXTY_NINE)) {
 				return UtilText.returnStringAtRandom(
 						"[npc.Name] [npc.verb(prop)] [npc.herself] up on one [npc.arm], before using [npc.her] free [npc.hand] to stroke and squeeze [npc2.namePos] [npc2.balls+].",
 
@@ -497,7 +497,7 @@ public class FingerPenis {
 					"[npc.Name] [npc.verb(feel)] tears starting to well up in [npc.namePos] [npc.eyes], and, unable to keep it in any longer,"
 							+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc.her] [npc.hand] away from [npc2.namePos] [npc2.cock+].",
 
-					"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.hand] away from [npc2.namePos] [npc2.cock+].",
+					"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.hand] away from [npc2.namePos] [npc2.cock+].",
 
 					"[npc.Name] [npc.sobs] in distress as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.hand] away from [npc2.namePos] [npc2.cock+]."));
 			
@@ -911,7 +911,7 @@ public class FingerPenis {
 					"[npc.Name] [npc.verb(feel)] tears starting to well up in [npc.namePos] [npc.eyes], and, unable to keep it in any longer,"
 							+ " [npc.a_sob+] bursts out from [npc.her] mouth as [npc.she] weakly [npc.verb(try)] to pull [npc.her] [npc.hips] and [npc.cock] away from [npc2.namePos] [npc2.hand].",
 
-					"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to [npc.verb(pull)] [npc.her] [npc.cock+] away from [npc2.namePos] [npc2.hand].",
+					"[npc.A_sob+] bursts out from [npc.namePos] mouth as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.cock+] away from [npc2.namePos] [npc2.hand].",
 
 					"[npc.Name] [npc.sobs] in distress as [npc.she] frantically [npc.verb(try)] to pull [npc.her] [npc.cock+] away from [npc2.namePos] [npc2.hand]."));
 			

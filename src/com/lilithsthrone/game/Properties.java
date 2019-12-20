@@ -36,7 +36,7 @@ import java.util.*;
 
 /**
  * @since 0.1.0
- * @version 0.3.2
+ * @version 0.3.4
  * @author Innoxia
  */
 public class Properties {
@@ -55,6 +55,8 @@ public class Properties {
 	public int money = 0;
 	public int arcaneEssences = 0;
 	public int humanEncountersLevel = 1;
+	public int taurFurryLevel = 1;
+	
 	
 	public int multiBreasts = 1;
 	public static String[] multiBreastsLabels = new String[] {"Off", "Furry-only", "On"};
@@ -87,15 +89,21 @@ public class Properties {
 
 	public int pregnancyBreastGrowthVariance = 2;
 	public int pregnancyBreastGrowth = 1;
+	public int pregnancyUdderGrowth = 1;
+	
 	public int pregnancyBreastGrowthLimit = CupSize.E.getMeasurement();
+	public int pregnancyUdderGrowthLimit = CupSize.E.getMeasurement();
+	
 	public int pregnancyLactationIncreaseVariance = 100;
 	public int pregnancyLactationIncrease = 250;
+	public int pregnancyUdderLactationIncrease = 250;
+	
 	public int pregnancyLactationLimit = 1000;
+	public int pregnancyUdderLactationLimit = 1000;
 	
 	public int breastSizePreference = 0;
+	public int udderSizePreference = 0;
 	public int penisSizePreference = 0;
-//	public String[] breastSizePreferenceLabels = new String[] {"Minimum", "Tiny", "Small", "Reduced", "Default", "Big", "Huge", "Massive", "Maximum"};
-//	public int[] breastSizePreferenceMultiplierLabels = new int[] {-8, -6, -4, -2, 0, 2, 4, 8, 16};
 	
 	public Set<PropertyValue> values;
 
@@ -173,10 +181,7 @@ public class Properties {
 			genderPronounMale.put(gp, gp.getMasculine());
 		}
 		
-		genderPreferencesMap = new EnumMap<>(Gender.class);
-		for(Gender g : Gender.values()) {
-			genderPreferencesMap.put(g, g.getGenderPreferenceDefault().getValue());
-		}
+		resetGenderPreferences();
 
 		orientationPreferencesMap = new EnumMap<>(SexualOrientation.class);
 		for(SexualOrientation o : SexualOrientation.values()) {
@@ -253,6 +258,7 @@ public class Properties {
 			
 			createXMLElementWithValue(doc, settings, "androgynousIdentification", String.valueOf(androgynousIdentification));
 			createXMLElementWithValue(doc, settings, "humanEncountersLevel", String.valueOf(humanEncountersLevel));
+			createXMLElementWithValue(doc, settings, "taurFurryLevel", String.valueOf(taurFurryLevel));
 			createXMLElementWithValue(doc, settings, "multiBreasts", String.valueOf(multiBreasts));
 			createXMLElementWithValue(doc, settings, "udders", String.valueOf(udders));
 			createXMLElementWithValue(doc, settings, "autoSaveFrequency", String.valueOf(autoSaveFrequency));
@@ -261,12 +267,17 @@ public class Properties {
 
 			createXMLElementWithValue(doc, settings, "pregnancyBreastGrowthVariance", String.valueOf(pregnancyBreastGrowthVariance));
 			createXMLElementWithValue(doc, settings, "pregnancyBreastGrowth", String.valueOf(pregnancyBreastGrowth));
+			createXMLElementWithValue(doc, settings, "pregnancyUdderGrowth", String.valueOf(pregnancyUdderGrowth));
 			createXMLElementWithValue(doc, settings, "pregnancyBreastGrowthLimit", String.valueOf(pregnancyBreastGrowthLimit));
+			createXMLElementWithValue(doc, settings, "pregnancyUdderGrowthLimit", String.valueOf(pregnancyUdderGrowthLimit));
 			createXMLElementWithValue(doc, settings, "pregnancyLactationIncreaseVariance", String.valueOf(pregnancyLactationIncreaseVariance));
 			createXMLElementWithValue(doc, settings, "pregnancyLactationIncrease", String.valueOf(pregnancyLactationIncrease));
+			createXMLElementWithValue(doc, settings, "pregnancyUdderLactationIncrease", String.valueOf(pregnancyUdderLactationIncrease));
 			createXMLElementWithValue(doc, settings, "pregnancyLactationLimit", String.valueOf(pregnancyLactationLimit));
+			createXMLElementWithValue(doc, settings, "pregnancyUdderLactationLimit", String.valueOf(pregnancyUdderLactationLimit));
 
 			createXMLElementWithValue(doc, settings, "breastSizePreference", String.valueOf(breastSizePreference));
+			createXMLElementWithValue(doc, settings, "udderSizePreference", String.valueOf(udderSizePreference));
 			createXMLElementWithValue(doc, settings, "penisSizePreference", String.valueOf(penisSizePreference));
 			
 			createXMLElementWithValue(doc, settings, "forcedFetishPercentage", String.valueOf(forcedFetishPercentage));
@@ -603,6 +614,9 @@ public class Properties {
 					if(Main.isVersionOlderThan(versionNumber, "0.3.1.7")) {
 						values.add(PropertyValue.footContent);
 					}
+					if(Main.isVersionOlderThan(versionNumber, "0.3.3.9")) {
+						values.add(PropertyValue.enchantmentLimits);
+					}
 					for(int i=0; i < element.getElementsByTagName("propertyValue").getLength(); i++){
 						Element e = (Element) element.getElementsByTagName("propertyValue").item(i);
 						
@@ -684,6 +698,12 @@ public class Properties {
 					humanEncountersLevel = 1;
 				}
 				
+				if(element.getElementsByTagName("taurFurryLevel").item(0)!=null) {
+					taurFurryLevel = Integer.valueOf(((Element)element.getElementsByTagName("taurFurryLevel").item(0)).getAttribute("value"));
+				} else {
+					taurFurryLevel = 1;
+				}
+				
 				if(element.getElementsByTagName("multiBreasts").item(0)!=null) {
 					multiBreasts = Integer.valueOf(((Element)element.getElementsByTagName("multiBreasts").item(0)).getAttribute("value"));
 				} else {
@@ -726,13 +746,24 @@ public class Properties {
 				
 				try {
 					pregnancyBreastGrowthVariance = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyBreastGrowthVariance").item(0)).getAttribute("value"));
+					
 					pregnancyBreastGrowth = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyBreastGrowth").item(0)).getAttribute("value"));
+					pregnancyUdderGrowth = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyUdderGrowth").item(0)).getAttribute("value"));
+					
 					pregnancyBreastGrowthLimit = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyBreastGrowthLimit").item(0)).getAttribute("value"));
+					pregnancyUdderGrowthLimit = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyUdderGrowthLimit").item(0)).getAttribute("value"));
+					
 					pregnancyLactationIncreaseVariance = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyLactationIncreaseVariance").item(0)).getAttribute("value"));
+					
 					pregnancyLactationIncrease = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyLactationIncrease").item(0)).getAttribute("value"));
+					pregnancyUdderLactationIncrease = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyUdderLactationIncrease").item(0)).getAttribute("value"));
+					
 					pregnancyLactationLimit = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyLactationLimit").item(0)).getAttribute("value"));
+					pregnancyUdderLactationLimit = Integer.valueOf(((Element)element.getElementsByTagName("pregnancyUdderLactationLimit").item(0)).getAttribute("value"));
 
 					breastSizePreference = Integer.valueOf(((Element)element.getElementsByTagName("breastSizePreference").item(0)).getAttribute("value"));
+					udderSizePreference = Integer.valueOf(((Element)element.getElementsByTagName("udderSizePreference").item(0)).getAttribute("value"));
+					
 					penisSizePreference = Integer.valueOf(((Element)element.getElementsByTagName("penisSizePreference").item(0)).getAttribute("value"));
 					birthAge = Integer.valueOf(((Element)element.getElementsByTagName("birthAge").item(0)).getAttribute("value"));
 				}catch(Exception ex) {
@@ -913,7 +944,7 @@ public class Properties {
 						Element e = ((Element)element.getElementsByTagName("weaponType").item(i));
 						
 						if(!e.getAttribute("id").isEmpty()) {
-							weaponsDiscovered.add(WeaponType.idToWeaponMap.get(e.getAttribute("id")));
+							weaponsDiscovered.add(WeaponType.getWeaponTypeFromId(e.getAttribute("id")));
 						}
 					}
 				}
@@ -1079,6 +1110,13 @@ public class Properties {
 
 	public Map<Subspecies, SubspeciesPreference> getSubspeciesMasculinePreferencesMap() {
 		return subspeciesMasculinePreferencesMap;
+	}
+
+	public void resetGenderPreferences() {
+		genderPreferencesMap = new EnumMap<>(Gender.class);
+		for(Gender g : Gender.values()) {
+			genderPreferencesMap.put(g, g.getGenderPreferenceDefault().getValue());
+		}
 	}
 	
 	public void resetAgePreferences() {

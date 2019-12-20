@@ -12,4 +12,3 @@ Copyright 2016 Innoxia (innoxia7@gmail.com) all rights reserved.
 Additionally this a modded build. It includes
 -Age content (Contributors Gamma, Atrum, Pedy & Anons)
 -Extended Demon Names (Author Naas)
--Cabin Rooms: 4 Slave rooms! (Author Naas)

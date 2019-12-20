@@ -53,7 +53,7 @@ import javafx.stage.Stage;
 
 /**
  * @since 0.1.0
- * @version 0.3.3
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public class Main extends Application {
@@ -66,12 +66,12 @@ public class Main extends Application {
 	public static Scene mainScene;
 
 	public static Stage primaryStage;
-
-	public static final String AUTHOR = "Innoxia & 8ch community";
-	public static final String GAME_NAME = "Modded Lilith's Throne";
-	public static final String VERSION_NUMBER = "0.3.3.8";
-	public static final String VERSION_DESCRIPTION = "Alpha: Lolipop Showtime";
 	
+	public static final String AUTHOR = "Innoxia & community";
+	public static final String GAME_NAME = "Modded Lilith's Throne";
+	public static final String VERSION_NUMBER = "0.3.5.4";
+	public static final String VERSION_DESCRIPTION = "Alpha: Lolipop Showtime 3.33";
+
 	/**
 	 * To turn it on, just add -Ddebug=true to java's VM options. (You should be able to do this in Eclipse through Run::Run Configurations...::Arguments tab::VM Arguments).
 	 * Help page: https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.pde.doc.user%2Fguide%2Ftools%2Flaunchers%2Farguments.htm
@@ -88,221 +88,154 @@ public class Main extends Application {
 		"<p>"
 			+ "Hello again!"
 		+ "</p>"
-			
+		
 		+ "<p>"
-			+ "This is the first public update which integrates Irbynx's combat PR, and as such, you will notice several changes in combat, as well as with NPCs' stats and perk trees."
-			+ " (More information in the patch notes below.)"
+			+ "Sorry about how long this version has taken to get out."
+			+ " I've hit a bit of a rough patch with Axel's quest, and as such it isn't quite ready just yet, but it will be in the next version."
 		+ "</p>"
 			
-		+ "<p>"
-			+ "I know combat isn't the main focus of the game, but it was getting to the point where it was impossible to balance, and I'd therefore never be able to offer players a challenge with bosses without making these changes."
-			+ " Clothing enchantments and permanent potion attributes were nerfed for the same reason - with practically unlimited upgrades on clothing/potions, it was impossible to even consider balancing any fights."
-		+ "</p>"
-			
-		+ "<p>"
-			+ "While this update will now allow me to balance combat numbers and boss fights, I haven't had time to get started on that yet (all of my time was spent implementing this new system), so the damage numbers are likely to be quite high and unbalanced."
-			+ " I'll get that addressed for the next update, and will also improve the difficulty settings soon."
-		+ "</p>"
-			
-		+ "<p>"
-			+ "As lot of combat-related stuff was changed, there might be some issues/bugs."
-			+ " If there are any really serious issues, I'll try to get a hotfix out as soon as I can."
-		+ "</p>"
-			
-		+ "<p>"
-			+ "<b>Please bear in mind:</b> This isn't the final version of all the combat changes."
-			+ " There will be further tweaks and adjustments to several areas, and there still needs to be a balancing of the damage numbers."
-		+ "</p>"
 		+ "<br/>"
 			
 		+ "<p>"
-			+ "Thank you all for playing Lilith's Throne, and a very big thank you to all of you who support development by reporting bugs, making PRs, or offering financial backing!"
+			+ "Thank you all for playing Lilith's Throne, and a very big thank you to all of you who support development by reporting bugs, making PRs, or backing me on SubscribeStar!"
 			+ " If you wanted to ask me any specific questions about the game, you can either find me on my blog, or on the Lilith's Throne Discord. You can find a link to the discord on my blog. ^^"
 		+ "</p>"
 			
 		+ "<br/>"
 
 		+ "<list>"
-			+ "<h6>v0.3.3.5</h6>"
-			+"<li>Combat update (PR#916 by Irbynx):</li>"
-			+"<ul>Completely overhauled combat loop.</ul>"
-			+"<ul>The old turn based system has been modified into an action-point based turn system.</ul>"
-			+"<ul>Added blocking/shielding system, along with a few basic attack moves.</ul>"
-			+"<ul>You are now able to see intents of enemies and allies in combat.</ul>"
-			+"<ul>Abilities available to any character in combat are limited to maximum of 8 - respective menu added to phone to assign abilities, and to companion/slave management to manage theirs.</ul>"
-			+"<ul>Combat AI is a little smarter now, although improvements can be made.</ul>"
-			+"<ul>HP formula changed to avoid physique playing a major role in it.</ul>"
-			+"<ul>Mana formula changed to overally bring the amount of mana to 100-120 average values.</ul>"
-			+"<ul>An overhaul to unarmed damage calculation.</ul>"
-			+"<ul>'Defence modifier' has been added as an attribute, and applies a boost or drain to damage shielding for the character at the start of each combat turn.</ul>"
-			+"<ul>'Dodge chance' and 'Miss chance' have been removed from the game. Spells and other effects that modified 'Dodge chance' or 'Miss chance' have been converted into a positive or negative 'Defence modifier' value, respectively.</ul>"
-			+"<ul>The extra effect of the spell 'Rain Cloud', 'Cloud burst', is now triggered by being hit by a critical attack, instead of being triggered by missing an attack.</ul>"
-			+"<ul>Special tease attacks now do limited damage vs enemies who dislike the associated fetish. (i.e. Doing a 'virility tease' on someone who dislikes the 'pregnancy' fetish will only do 1 damage.)</ul>"
-			+"<ul>You can now set an allied and enemy target, so you don't have to keep on switching target to cast friendly spells/abilities.</ul>"
-			+"<ul>Beneficial spells & abilities will now automatically be applied to your allied target, whereas detrimental spells, abilities, and attacks will be applied to your enemy target.</ul>"
-			+"<ul>The main three stat bars (physique/arcane/corruption) are now hidden during combat, so that it's easier to see multiple combatant's stats.</ul>"
-
-			+"<li>Bugs:</ul>"
-			+"<ul>Typo/parsing fixes.</ul>"
-			+"<ul>Fixed issue with incorrect names being parsed in speech.</ul>"
-			+"<ul>Fixed an issue with names sometimes being parsed as though they were within speech when they weren't.</ul>"
-		+ "</list>"
-
-		+ "<br/>"
-
-		+ "<list>"
-			+ "<h6>v0.3.3.6</h6>"
+			+ "<h6>v0.3.5.4</h6>"
 			+"<li>Engine:</li>"
-			+"<ul>Moved Perk Enums into classes.</ul>"
-			
-			+"<li>Gameplay:</li>"
-			+"<ul><b>All permanent attribute boosts for all characters will be reset upon loading into the game.</b></ul>"
-			+"<ul><b>All characters' perk trees will be reset upon loading into the game.</b></ul>"
-			+"<ul>You can no longer gain permanent increases to your attributes through potions. The only way to increase attributes now is through clothing, status effects, perks, or unique events.</ul>"
-			+"<ul>Removed base attribute increases for races, and instead put attribute bonuses in subspecies' unique status effects.</ul>"
-			+"<ul>The perk trees for all non-elementals (including that of the player) have been modified. Added several new traits and perks, and the 'root' lust perk is now unlocked by default.</ul>"
-			+"<ul>You can no longer go 'back up' the perk tree to unlock perks. All unlock progress must now always be down or on the same level.</ul>"
-			+"<ul>All NPCs no longer have attributes assigned to them upon creation, and instead select perks based on their subspecies's preferences.</ul>"
-			+"<ul>Characters who are enslaved no longer have their job-related trait converted into the slave trait. Characters who spawn into the game as slaves will have the slave trait, however.</ul>"
-			+"<ul>Altered aura calculation to rely more on the value of your arcane attribute.</ul>"
-			+"<ul>Resistance attributes no longer provide a percentage damage reduction, and instead provide shielding equal to their value in each turn in combat.</ul>"
-			+"<ul>Clothing now provides 10% of the physical resistance it used to. (For any modders, please continue to use integer values of 1 and over - the reduction to 10% is done in the code.)</ul>"
-			
-			+"<li>Other:</li>"
-			+"<ul>You can now see NPCs' perk trees at the bottom of their character description pages.</ul>"
-			+"<ul>Amber now has two demonstones equipped as weapons.</ul>"
-			+"<ul>Added several unique occupational perks for both unique and non-unique NPCs.</ul>"
-			+"<ul>Brax/Bree/Brandi no longer wears shoes.</ul>"
-			+"<ul>Adjusted the levels of several unique NPCs.</ul>"
-			+"<ul>Reduced clothing attribute modifiers from -5/-3/-1/1/3/5 to -3/-2/-1/1/2/3.</ul>"
-			
-			+"<li>More combat changes:</li>"
-			+"<ul>Added status effect application indication in combat moves tooltips.</ul>"
-			+"<ul>Changed spell's critical hit requirement to being the only action used that turn.</ul>"
-			+"<ul>Changed the colour of the 'lust' attribute from scarlet to light pink, and 'physical damage' from red to grey-brown.</ul>"
-			+"<ul>Removed 'critical chance' and 'bonus lust shielding' attributes. Altered status effects, subspecies bonues, and clothing enchantments which used these attributes. Enchanted clothing/weapons which had critical chance modifiers have been converted to critical damage.</ul>"
-			+"<ul>Renamed 'critical hit damage' to 'critical power'.</ul>"
-			+"<ul>Added shielding for energy damage as a separate shielding type from physical.</ul>"
-			+"<ul>Block now blocks all energy damage, not just physical.</ul>"
-			+"<ul>Racial resistances have been removed. Instead of increasing your stats, race books now give you a unique perk which boosts damage vs that race. (You can get the lilin and elder lilin unique perks by returning to Lyssieth and asking about 'Recap' and 'Family', respectively.)</ul>"
-			+"<ul>(If you have defeated the imps in the Imp Citadel, you should have your imp racial damage replaced by a special perk, 'imp slayer', when you load in.)</ul>"
-			
-			+"<li>Bugs:</li>"
-			+"<ul>Tease damage done to a target who is immune to the 'instant-loss at 100 lust' effect will now correctly start to damage their health.</ul>"
-			+"<ul>Restored Rose's virginity for if it was accidentally taken in a version where her sex actions weren't working properly.</ul>"
-			+"<ul>Fixed issue with player's prediction moves in combat not being cleared each turn.</ul>"
-			+"<ul>Fixed move cooldowns not being reset when you used the 'Reset' action in combat.</ul>"
-			+"<ul>Fixed combat prediction text not correctly identifying when the move would be a critical.</ul>"
-			+"<ul>Fixed issue with characters getting a huge amount of perk points.</ul>"
-			+"<ul>Fixed issue in characters' information screens, where relationships sometimes included an 'Unknown'.</ul>"
-			+"<ul>Fixed some parsing errors.</ul>"
-		+ "</list>"
+			+"<ul>Improved handling of turn updates, which has reduced the amount of lag encountered each turn, especially when the time would pass into a new hour.</ul>"
+			+"<ul>Improved speed of body generation for randomly-generated NPCs.</ul>"
+			+"<ul>Moved more text content into external txt files.</ul>"
 
-		+ "<br/>"
-
-		+ "<list>"
-			+ "<h6>v0.3.3.8</h6>"
 			+"<li>Gameplay:</li>"
-			+"<ul>All characters (including yours) have had their perk trees reset/regenerated, due to new perks being added and the perk tree layout slightly changed.</ul>"
-			+"<ul>Added 'enchantment stability' attribute, which determines how many points of modified attributes you're able to handle from your clothes or tattoos without incurring a penalty.</ul>"
-			+"<ul>'Enchantment stability' starts at 10, and is increased by 1 per level, and can also be increased via new perks.</ul>"
-			+"<ul>Rose briefly warns you about this enchantment stability in the final scene of the prologue.</ul>"
-			+"<ul>Clothing, weapon, and tattoo enchantment limits have been increased to 100.</ul>"
-			+"<ul>Added 'convincing requests' perk: Requests during sex are no longer denied by sadists or rough dominants.</ul>"
-			+"<ul>Added 'object of desire' perk: All partners in sex require +1 orgasm before being satisfied.</ul>"
-			+"<ul>Added 'arcane smith' perk: Halves arcane essence cost of enchanting weapons.</ul>"
-			+"<ul>You can now enchant 'Angel's Nectar' into 'Angel's Purity', which allows you to permanently remove corruption.</ul>"
-			
-			+"<li>Contributors:</li>"
-			+"<ul>Fixed appearance stating that slimes could fly. (PR#1165 by Stadler76)</ul>"
-			+"<ul>Fixed issue where unicorn 'horns per row' were only being set if the character already had horns. (PR#1160 by Stadler76)</ul>"
-			+"<ul>Fixed bug when randomly-spawned incubi in the dark alleyways would throw a background error when using some attacks. (PR#1172 by TheKingInYellow)</ul>"
-			+"<ul>Fixed bug where if there were multiple horn types in the enchantment UI, clicking on each type would give a randomised horn type, instead of the selected one. (PR#1175 by Stadler76)</ul>"
-			
-			+"<li>Norin's clothing contributions:</li>"
-			+"<ul>Added: 6 new hair accessory items: bobby pins; celtic barrette; dragonfly bobby pin; hair pins; scrunchie; hair sticks. (All in hair slot, sold by Nyan.)</ul>"
-			+"<ul>Added: 4 new rose-themed piercing items: rose earrings; rose lip piercing; rose navel piercing; rose nose piercing. (In related piercing slots, sold by Kate.)</ul>"
-			+"<ul>Added: 4 new sunflower-themed piercing items: sunflower earrings; sunflower lip piercing; sunflower navel piercing; sunflower nose piercing. (In related piercing slots, sold by Kate.)</ul>"
-			+"<ul>Added: 8 new other piercing items: heart-shaped barbell; bat earrings; flower lip piercing; chained nipple rings; nipple rings; pentagram piercing; 'SEX' barbell; vertical hood piercing. (In related piercing slots, sold by Kate.)</ul>"
-			
-			+"<li>DSG's clothing contributions:</li>"
-			+"<ul>Added: Men's leather jacket. (Over-torso slot, masculine, sold by Nyan.)</ul>"
-			+"<ul>Added: Fox-patterned scarf. (Neck slot, no femininity requirements, sold by Nyan.)</ul>"
-			
-			+"<li>Combat:</li>"
-			+"<ul>The spell 'Soothing Waters' now has an AP cost of 3.</ul>"
-			+"<ul>Removed aura burn from performing melee attacks while under the effect of cloak of flames.</ul>"
-			+"<ul>The special ability for the spell school of fire is no longer +2 fire damage on melee attacks. Instead, it unlocks mana burn, which allows you to cast fire spells at a cost of energy once your aura is depleted, at a cost of 1/4 the regular spell cost.</ul>"
-			+"<ul>Removed damage multiplier based on level difference.</ul>"
-			+"<ul>Removed a few final instances of the old resistance calculation being used.</ul>"
-			+"<ul>Did some balancing of status effect and perk attribute bonuses (mainly reducig some resistance values here and there).</ul>"
-			+"<ul>Block/Shielding values in combat can now go negative (and are thus displayed as greyed-out shield values in combat), so negative resistances actually mean something now.</ul>"
-			+"<ul>All lust-damaging attacks now correctly apply 2xlust damage to energy and 1x lust damage to aura when the target's lust is at 100.</ul>"
-			
-			+"<li>Slavery:</li>"
-			+"<ul>Added a four slave capacity upgrade to the rooms in Lilaya's home.</ul>"
-			+"<ul>The double and quadruple capacity room upgrades now have a minor obedience drain associated with them (to represent slaves conspiring with one another against you).</ul>"
-			+"<ul>The 'Double size bed' upgrade is now described as each slave getting their own double-size bed, instead of them sharing one in double capacity rooms.</ul>"
-			
+			+"<ul>Day/night time is now based on real-world sunrise/sunset times for the coordinates 51.4934 N, 0.0000 E, so days are shorter in winter, and longer in summer.</ul>"
+			+"<ul>Added a minor darkening effect to the map when in civil & nautical twilight, and a major darkening effect when in astronomical twilight or night time.</ul>"
+			+"<ul>Added sunrise/sunset info to the clock tooltip.</ul>"
+			+"<ul>Sleeping in your room or a friend's apartment is now to the next sunrise or sunset, instead of to 07:00 or 21:00.</ul>"
+			+"<ul>All shops in the Shopping Arcade are now only open between 06:00 and 22:00.</ul>"
+			+"<ul>Candi's desk is only open between 09:00 and 17:00.</ul>"
+			+"<ul>Zaranix's home is locked up between 22:00 and 06:00.</ul>"
+			+"<ul>The harpy matriarchs go to sleep between 22:00 and 06:00.</ul>"
+			+"<ul>Lilaya and Rose go to bed at 22:00 and return to the lab at 06:00. The 'lab assistant' and 'test subject' slave jobs are no longer available during these times.</ul>"
+			+"<ul>Breastfeeding/Nipple-kissing is now an ongoing action, with the target's milk (if they are lactating) being drunk every turn. Also improved descriptions of these actions to factor in nipple-shape.</ul>"
+			+"<ul>You can now take a bath in your room's ensuite, which cleans your companions and applies a regenerative-boosting status effect. (Descriptions are still a 'TODO')</ul>"
+			+"<ul>Roxy now smokes and has this reflected in her dialogue. She also no longer wears lipstick (which I thought might be weird on a greater rat-morph face).</ul>"
+			+"<ul>Added some unique sex actions in Roxy's facesitting scene: her smoking; her teasing you; a customer briefly interrupting her. Her sex scene now also correctly starts with you eating her out, and her dress pulled up.</ul>"
+
+			+"<li>Items:</li>"
+			+"<ul>Added cigarettes as individual items and as packs of 20. Smoking cigarettes provides a status effect which applies +10 aura and -5 health.</ul>"
+			+"<ul>Added  'rat skull' tattoo.</ul>"
+			+"<ul>Slightly improved the short sleeve shirt icon and added dye colours for the buttons & label.</ul>"
+			+"<ul>Added 'Kerambit' weapon (one handed, sold by Vicky).</ul>"
+			+"<ul>Added 'Gemstone ring' (finger slot, sold by Nyan).</ul>"
+			+"<ul>Added 'Demonstone necklace' (neck slot, sold by Nyan).</ul>"
+			+"<ul>Moved internal finger and neck clothing into the res folder.</ul>"
+			+"<ul>Added secondary colours to heart and ankh necklaces, and you can now equip these necklaces (as well as sun and snowflake necklaces) into the wrist slot.</ul>"
+			+"<ul>Improved bell collar and added secondary and tertiary dye colours for metal parts.</ul>"
+
 			+"<li>Other:</li>"
-			+"<ul>Randomly generated NPCs have a 50% chance to spawn with a minor background perk unlocked (to boost their physique, corruption, or arcane). Your slaves/occupants might gain one of these perks when you load in (reloading won't change results).</ul>"
-			+"<ul>Added 'autosave frequency' setting to the content options screen.</ul>"
-			+"<ul>Added an outfit file for harpy nest attackers, as well as for clubbers in 'The Watering Hole', so their outfits will no longer be completely random.</ul>"
-			+"<ul>Added 'unique sex partners', 'cum in womb', 'cum in ass', 'cum in stomach', and 'value as slave' tattoo counter types.</ul>"
-			+"<ul>Added notifications to event log for: area transitions; items/clothing/weapons dropped, used, and bought/sold; clothing/weapons dyed/reforged; weapons equipped/unequipped; clothing equipped/unequipped; money/essences gained/lost; experience gained; level ups.</ul>"
-			+"<ul>Added a 'RIGID_MATERIAL' item tag, so that modders can define clothing as being unsuitable to be groped through. This has been applied to chastity cages and chastity belts, which both now block groping sex actions.</ul>"
-			+"<ul>The Western KKP can now be recoloured.</ul>"
-			+"<ul>Added 'desaturated brown' as a clothing/weapon colour.</ul>"
-			+"<ul>Added 'Dye all (stack)' and 'Dye all' actions to the clothing & weapon dye menu.</ul>"
-			+"<ul>Jinxed clothing status effect now gives +10 corruption, instead of -5 aura.</ul>"
-			+"<ul>Increased levels of: Rental mommy by 5; Meraxis by 5; Candi by 4; Brax by 4; Amber by 3;</ul>"
-			
+			+"<ul>You can now equip unique clothing & weapons onto NPCs. If these NPCs are removed from the game at any point, the unique clothing/weapons which they have equipped are returned to your inventory.</ul>"
+			+"<ul>Reduced the arcane lightning globe's base damage from 25 to 15, and reduced its value from 500,000 to 250,000.</ul>"
+			+"<ul>If you have an alligator-morph vagina, you now get the egg-laying birthing variation.</ul>"
+			+"<ul>Changed the 'rose' gift item into an item of clothing, which can now be worn in the 'hair' slot. Any roses already in your game will be automatically converted into their clothing counterpart when you load into this version.</ul>"
+			+"<ul>Added 'pitch black' for eye colours.</ul>"
+			+"<ul>Added 'bun' and 'chignon' hair styles, and reduced the chance of NPCs spawning with 'unusual' hair styles (from 20% to 10%).</ul>"
+			+"<ul>Added a debug consumable item which turns the drinker into a youko, and adds a tail to drinkers who are already a youko.</ul>"
+			+"<ul>Added 'footjobs' to the sex stats screen (only displayed if you have foot content turned on). Anal, nipple-penetration, and urethral sex stats are now hidden if you have the associated content disabled.</ul>"
+			+"<ul>Added personality setting tab to debug menu.</ul>"
+			+"<ul>Clothing & weapons enchanted to remove corruption now cost enchantment stability, equal to the value of corruption removed.</ul>"
+			+"<ul>NPCs who have a positive desire towards the 'cum stud' or 'impregnation' fetishes, and are either selfish or in the rough pace, will now refuse to wear condoms in sex. </ul>"
+			+"<ul>Added a 'fast travel' tab which is available everywhere within the shopping arcade.</ul>"
+			+"<ul>You can now suggest a job (or change of job) to any of the friendly occupants either living with you or in their own apartment.</ul>"
+			+"<ul>Added an indication that the main quest currently ends at the 'Finding the youko' quest in the quest log.</ul>"
+			+"<ul>Added more slave greeting and sleeping dialogue variations for when they are assigned to your room. Also added slave-related quick/thorough wash descriptions.</ul>"
+			+"<ul>Added office tile to gambling den map.</ul>"
+			+"<ul>Reduced 'vaccuum' spell's 'secondary voids' effects from -20 to -5 energy shielding, and -25 to -15 critical damage.</ul>"
+
+			+"<li>Forced-transformation content:</li>"
+			+"<ul>NPCs now have a gender, subspecies, and race-stage preference, instead of a fully pre-generated body preference. This should help to cut down on save file size.</ul>"
+			+"<ul>NPCs will no longer try to transform you if you are a demon, nor try to transform you into a demon or imp (although they will still force non-racial transformations onto you). Youko tail addition/removal transformations have also been disabled.</ul>"
+			+"<ul>Fixed issues with forced TF potions not applying genital changes correctly, and the NPC getting stuck on trying to change your genitals even when you had the genitals they wanted.</ul>"
+			+"<ul>Fixed issue with NPCs trying to transform away any strap-on that you were wearing.</ul>"
+			+"<ul>Improved NPCs transformation selection for the potions they force on you.</ul>"
+			+"<ul>Added more dialogue for each part that an NPC transforms.</ul>"
+			+"<ul>Forced transformation content availability is no longer linked to the non-con content toggle.</ul>"
+			+"<ul>NPCs who want to transform you into a slime will now be able to do so without getting stuck.</ul>"
+			+"<ul>Demons in the dark alleyway tiles have had forced transformation behaviour added to them. (They usually end up preferring demons, however, in which case they will only attempt to transform your gender.)</ul>"
+			+"<ul>Added penis girth, ball size, body size, muscle, vagina capacity, ass capacity, and ass wetness to forced transformation variations.</ul>"
+			+"<ul>Increased non-racial TF amounts in a single forced-TF (such as ass size or height being increased/reduced by larger amounts).</ul>"
+			+"<ul>NPCs will now transform both you and your companion.</ul>"
+			+"<ul>NPCs will now apply fetish changes as well as body transformations in the same scene.</ul>"
+			+"<ul>NPCs will no longer TF if mouth blocked.</ul>"
+
+			+"<li>Random encounters:</li>"
+			+"<ul>Changed and expanded dialogue for post-defeat transformations and sex for: Dominion alleyway; Harpy nest; Submission tunnels; Demon alleyway; Cavern attacker/slime/bat.</ul>"
+			+"<ul>Added quick TF options (in the combat's post-victory actions) to all these scenes.</ul>"
+			+"<ul>NPCs will now choose whether to have sex with you, your companion, or both of you after defeating you.</ul>"
+			+"<ul>NPCs who dislike raping will no longer rape.</ul>"
+
 			+"<li>Bugs:</li>"
-			+"<ul>Fixed typos/parsing errors.</ul>"
-			+"<ul>Imported characters (either as a new player character or as slaves) now have both their unique quest items, and their concealed race status removed.</ul>"
-			+"<ul>Fixed bug where sex would freeze/crash if you unrestricted your partner's control.</ul>"
-			+"<ul>To fix an issue where NPCs would choose boring sex actions, NPCs' foreplay and main sex preferences are now recalculated when you unrestrict their control, as well as when you permit them to take positioning actions.</ul>"
-			+"<ul>Fixed issues in debug transformation menu, where some body colours were displayed as slime colours, and other transformation options were limited as though it was the regular transformation menu.</ul>"
-			+"<ul>Fixed lust gains for NPCs who were receiving anal penetration being affected by their preference for performing anal.</ul>"
-			+"<ul>Possibly fixed the cause of not being able to use positioning actions when playing as a taur. (I was unable to replicate this bug, but fixed a potential cause for it.)</ul>"
-			+"<ul>Fixed 'lustful suggestion' and 'calming suggestion' sex actions applying their effects to the wrong target.</ul>"
-			+"<ul>Fixed issue where you could get stuck at 99 arousal in sex, and never be able to reach orgasm.</ul>"
-			+"<ul>Tooltips for actions in sex should no longer display 'available' when that action is disabled.</ul>"
-			+"<ul>Penis size preferences should now correctly be taken into account in all instances of penis generation.</ul>"
-			+"<ul>Fixed weapon and clothing names resetting when equipped.</ul>"
-			+"<ul>Added indication to imperial fluid measurements for when a value is close to, but not exactly, 0.</ul>"
-			+"<ul>Fixed issue with unique NPCs dropping their clothes after sex if you cummed on them.</ul>"
-			+"<ul>Fixed similar bug where NPCs would not replace their clothing properly after sex if you cummed on them.</ul>"
-			+"<ul>Fixed issue where muggers could spawn in as ambiphilic, even if you had ambiphilic set to 0% chance in the options. (Prostitutes still spawn in as ambiphilic until I can add orientation-based dialogue variations.)</ul>"
-			+"<ul>Characters' clits now get lubricated by girlcum at the same time as their vagina do.</ul>"
-			+"<ul>Fixed missing ongoing text for tribbing tooltip.</ul>"
-			+"<ul>The requirement of having the now-removed 'Brawler' trait in Fyrsia's imp fortress encounter has been replaced with the requirement of having the 'martial artist' trait.</ul>"
-			+"<ul>Characters who spawn in the nightclub will no longer have unsuitable jobs assigned to them (such as 'slime queen', 'arcane elemental', or 'elder lilin').</ul>"
-			+"<ul>Fixed issues with receiving handjobs not being available while being penetrated anally.</ul>"
-			+"<ul>Characters can no longer start tribbing while fucking someone's ass.</ul>"
-			+"<ul>Fixed some minor logical errors in dialogue when inviting your offspring to come and live with you.</ul>"
-			+"<ul>NPCs will no longer remove their partner's 'sex toy' clothing during sex, unless that sex toy is blocking an area that they are focusing on. (e.g. They will no longer remove strapless dildos unless they want access to your vagina.)</ul>"
-			+"<ul>Tattoos with custom names will no longer have the enchantment-related name endings appended to them.</ul>"
-			+"<ul>Fixed clothing cleaning cum text referring to the clothing being inserted into the associated orifice, even if the clothing was not an insertable item.</ul>"
-			+"<ul>Lilaya now smacks the vixen's virility pill out of your hand if you try to give her one.</ul>"
-			+"<ul>NPCs will now only remove shoes if they have a positive desire towards the associated foot fetish (either giving or receiving), and if they are not sadists or masochists (respectively, as they don't care about pain from shoes if they are).</ul>"
-			+"<ul>Fixed background error being thrown in slave/occupant rooms when trying to cycle through sex targets when there was only one character present.</ul>"
-			+"<ul>Fixed issue with requests in sex not working.</ul>"
-			+"<ul>Fixed broken formatting when viewing slave/companion perk tree.</ul>"
-			+"<ul>Resetting NPCs' perk trees no longer makes them automatically assign perk points.</ul>"
-			+"<ul>Fixed Ice Shard not applying a critical hit when the target was affected by Freezing Fog.</ul>"
-			+"<ul>Fixed bug in combat where selecting moves would tick down and apply effects of combat status effects on NPCs, causing them to take damage during the move selection phase.</ul>"
-			+"<ul>Removed ability to dye patterns onto trainer socks until I can get multiple pattern areas can work.</ul>"
-			+"<ul>Fixed formatting of spells casted during combat, and added indication of when fire spells will cause mana burn.</ul>"
-			+"<ul>Angels no longer suffer from menopause.</ul>"
-			+"<ul>Fixed bugs that could cause reforged/dyed weapons and clothing to not stack properly with one another.</ul>"
-			+"<ul>Fixed issue where you could gain some unrelated perks by reading demonic books in Lilaya's library and elsewhere.</ul>"
-			+"<ul>Fixed random NPCs not having correct perk trees generated, or not using all of their perk points.</ul>"
-			+"<ul>Fixed some unique NPCs having non-trait perks equipped in their trait bar.</ul>"
-			+"<ul>Slaves set to idle will now correctly have sex with other idle slaves (if permissions are set correctly), provided that they can reach each other (house permissions, or in same room). Slaves assigned to the stocks are also now working as suitable sex targets when home.</ul>"
-			+"<ul>Fixed issue with idling slaves not applying correct sex effects when having sex with one another (which was causing issues such as tattoo counters and sex counts not being incremented).</ul>"
-			+"<ul>Fixed major bug where characters loaded in from old versions would disappear, throwing numerous errors in the background.</ul>"
+			+"<ul>Typo and parsing fixes.</ul>"
+			+"<ul>Fixed issue with the Office's 'Occupancy ledger' sometimes causing a background error to be thrown, which was sometimes breaking the game.</ul>"
+			+"<ul>Fixed similar issue where accessing inventories through the slave list would sometimes result in not being able to close the inventory, leading to numerous background errors being thrown.</ul>"
+			+"<ul>Fixed another issue with the 'Occupancy Ledger', where inspecting a friendly occupant would cause the game to throw several background errors.</ul>"
+			+"<ul>Fixed bug where slaves assigned to sex-related jobs would have their virginity loss descriptions reset.</ul>"
+			+"<ul>Jules no longer wears socks on his hoofs.</ul>"
+			+"<ul>Fixed bug where previously-creampied orifices would not be recognised as being lubricated by cum at the start of sex.</ul>"
+			+"<ul>Fixed bug where room upgrades were not affecting obedience & affection gains for slaves working there.</ul>"
+			+"<ul>Any weapons that are unequipped during sex are now correctly re-equipped when sex ends.</ul>"
+			+"<ul>Fixed bug where backing out of the inventory screen during sex would sometimes return you to the scene you were in before sex, while not correctly ending sex, causing the game to break.</ul>"
+			+"<ul>Fixed yet more bugs in stuttering characters' speech effects.</ul>"
+			+"<ul>Fixed minor issue where checking imp gang inventories defaulted the response tab to the empty 'selected item' one, rather than the 'overview' one.</ul>"
+			+"<ul>Fixed bug where breast/nipple interactions would be disabled when receiving a blowjob in the sixty-nine position.</ul>"
+			+"<ul>Fixed bug where clothing tooltips would display the rarity of unidentified items, letting you know if they were jinxed or not without first identifying them.</ul>"
+			+"<ul>Fixed 'Mystery Kink' not being recognised as a fetish-giving item, and 'Glowing Mushrooms' not being recognised as transformative, which was allowing some unique NPCs to consume them during sex.</ul>"
+			+"<ul>Fixed issue where offspring could sometimes spawn with 'heterochromatic' eyes that both had the same colour.</ul>"
+			+"<ul>Fixed bug causing incorrect descriptions when removing horns.</ul>"
+			+"<ul>Fixed incorrect action labels in debug's race reset screen.</ul>"
+			+"<ul>Fixed bug where buying items from Vicky would clear the entire stack of that item from her inventory the next time you opened her trade menu.</ul>"
+			+"<ul>Fixed Takahashi not having 3 youko tails as intended.</ul>"
+			+"<ul>Fixed Fury offspring (half-demon harpies) spawning in Dominion (they now only spawn in the harpy nests). Also fixed offspring of non-Submission half-demon subspecies spawning in Submission's tunnels.</ul>"
+			+"<ul>Fixed equipped piercings displaying a 'No tattoo' tooltip when hovering over them in tattoo view mode.</ul>"
+			+"<ul>Fixed tertiary dye colours not displaying for several items of clothing.</ul>"
+			+"<ul>If, in a previous version, Brax has somehow bugged out after completing the side quest to obtain him, he will correctly have his ownership transferred to you when you load into this version.</ul>"
+			+"<ul>Fixed item and clothing encyclopedia entries not being added if you used an item from an NPC's inventory, or equipped clothing onto an NPC.</ul>"
+			+"<ul>Fixed incorrectly describing Kate's breasts as E-cup.</ul>"
+			+"<ul>Fixed footjob climax tattoo counter not working.</ul>"
+			+"<ul>Fixed bug where footjob sex stats were not being saved/loaded correctly.</ul>"
+			+"<ul>Fixed sex bug where characters couldn't start oral actions while they were receiving a footjob.</ul>"
+			+"<ul>Fixed bug where performing/receiving foot-related actions would result in a huge lust drain per turn if neither participant had a positive desire towards foot fetishes. This will not affect NPCs' decision to use foot actions (which they prefer to avoid unless they have an associated fetish).</ul>"
+			+"<ul>Fixed bug where the 'Localised Storm' upgrade for the Arcane Cloud spell would affect enemies of the target, instead of all their allies.</ul>"
+			+"<ul>Fixed bug where clothing was able to be equipped in sex into slots which were not supposed to be available.</ul>"
+			+"<ul>You can no longer equip clothing during sex into inventory slots that are involved in an ongoing action.</ul>"
+			+"<ul>Fixed Rose's handholding sex scene missing the mouth-finger interactions which were present in older versions.</ul>"
+			+"<ul>Fixed 'Suck clit' sex action having arousal increment values reversed for the performer/target.</ul>"
+			+"<ul>Fixed enslavement collars not spawning with the enslavement enchantment.</ul>"
+			+"<ul>Fixed dates before 0CE being displayed as a negative value, and are now correctly displayed as 'xxxx BCE'.</ul>"
+			+"<ul>Fixed bug in the flow of dialogue when talking to Candi for the first time about Brax.</ul>"
+			+"<ul>Fixed clothing enchantments which reduce corruption being regarded as 'bad' enchantments.</ul>"
+			+"<ul>Fixed broken condom equip behaviour for cultists, dark alleyway demon attackers, Kate, and Ralph.</ul>"
+			+"<ul>Fixed bug where slaves who were given the permission to use you would only do so when they were supposed to be at work, instead of when they had free time (set to 'idle').</ul>"
+			+"<ul>Actions using a parnter's clit are no longer displayed as greyed-out actions, until you know that the partner has a vagina.</ul>"
+			+"<ul>Fixed another cause of the bug where slaves jumping you when sleeping would not work correctly.</ul>"
+			+"<ul>Fixed some issues with the lactation fetish special tease attack, and made it available to characters who have crotch boobs which are lactating.</ul>"
+			+"<ul>When starting sex, the active response tab should no longer start on one that has no actions available in it.</ul>"
+			+"<ul>Fixed some incorrect descriptions of the 'choke' action in multiple-character sex scenes.</ul>"
+			+"<ul>Fixed bug where character home icons would not be shown on any tiles that bordered the map's lower or left edges.</ul>"
+			+"<ul>Fixed some references to Jhortrax fathering imps instead of half-demons.</ul>"
+			+"<ul>Girlcum fluid modifiers are now described in a character's appearance page.</ul>"
+			+"<ul>Characters performing oral on a vagina will now correctly ingest girlcum (once the vagina is lubricated by girlcum).</ul>"
+			+"<ul>Fixed bug where incorrect dialogue would be displayed when slaves jumped you for sex after sleeping.</ul>"
+			+"<ul>Fixed some issues with half-demon subspecies detection, which should have resolved the unusual self-transformation behaviour encountered after turning yourself into a half-demon through the debug menu.</ul>"
+			+"<ul>Fixed alligator hair-scales and slime hair being called by the wrong name.</ul>"
+			+"<ul>Fixed branching quests not correctly saving/loading the quest route you selected (was just affecting the slime queen quest, but wasn't having any impact on gameplay).</ul>"
+			+"<ul>Blaze and Crystal (the Slime Queen's guards) are now correctly identified in the code as being siblings (but only if you have incest content turned on).</ul>"
+			+"<ul>Fixed bug where post-sex dialogue after beating and then submitting to the imps in the Dark Siren's fortress would be the 'defeated' variant instead of the correct 'victory' variant.</ul>"
 		+ "</list>"
+		
 	;
 	
 	public static String disclaimer = "<h6 style='text-align: center; color:"+Colour.GENERIC_ARCANE.toWebHexString()+";'>You must read and agree to the following in order to play this game!</h6>"
@@ -344,6 +277,15 @@ public class Main extends Application {
 		credits.add(new CreditsSlot("Paradoxiso", "", 0, 0, 0, 0, Subspecies.DEMON));
 		credits.add(new CreditsSlot("luka_fateburn", "", 0, 0, 0, 0, Subspecies.DEMON));
 		credits.add(new CreditsSlot("CinnamonSuccubus", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("Luka_Fateburn", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("Phlarx", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("Moro", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("Neo", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("Abaddon_TMZ", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("ForgottenOne", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("Velvet", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("GentleTark", "", 0, 0, 0, 0, Subspecies.DEMON));
+		credits.add(new CreditsSlot("QW", "", 0, 0, 0, 0, Subspecies.DEMON));
 		
 		
 		
@@ -386,7 +328,7 @@ public class Main extends Application {
 		credits.add(new CreditsSlot("BloodsailXXII", "", 0, 0, 0, 19));
 		credits.add(new CreditsSlot("Burt", "", 0, 0, 6, 0));
 		credits.add(new CreditsSlot("Atroykus", "", 0, 0, 0, 6));
-		credits.add(new CreditsSlot("Calrak", "", 0, 0, 0, 18));
+		credits.add(new CreditsSlot("Calrak", "", 0, 0, 0, 18, Subspecies.DEMON));
 		credits.add(new CreditsSlot("CancerMage", "", 0, 0, 12, 0));
 		credits.add(new CreditsSlot("Captain_Sigmus", "", 0, 0, 7, 0));
 		credits.add(new CreditsSlot("Casper &quot;Cdaser&quot; D.", "", 0, 0, 10, 0));
@@ -490,7 +432,7 @@ public class Main extends Application {
 		credits.add(new CreditsSlot("Littlemankitten", "", 0, 0, 0, 12));
 		credits.add(new CreditsSlot("LadyofFoxes", "", 0, 0, 2, 0));
 		credits.add(new CreditsSlot("Mr L", "", 0, 0, 4, 1));
-		credits.add(new CreditsSlot("loveless", "", 0, 0, 0, 19));
+		credits.add(new CreditsSlot("loveless", "", 0, 0, 0, 19, Subspecies.DEMON));
 		credits.add(new CreditsSlot("Vaddex", "", 0, 0, 0, 5));
 		credits.add(new CreditsSlot("Kitsune Lyn", "", 0, 0, 0, 10));
 		credits.add(new CreditsSlot("Manwhore", "", 0, 0, 0, 3));
@@ -543,7 +485,7 @@ public class Main extends Application {
 		credits.add(new CreditsSlot("redwulfen", "", 0, 0, 0, 18));
 		credits.add(new CreditsSlot("Roger Reyne", "", 0, 0, 0, 3));
 		credits.add(new CreditsSlot("RogueRandom", "", 0, 0, 16, 0));
-		credits.add(new CreditsSlot("Horagen81", "", 0, 0, 0, 13));
+		credits.add(new CreditsSlot("Horagen81", "", 0, 0, 0, 13, Subspecies.DEMON));
 		credits.add(new CreditsSlot("RyubosJ", "", 0, 0, 6, 0));
 		credits.add(new CreditsSlot("Saladine the Legendary", "", 0, 0, 0, 15));
 		credits.add(new CreditsSlot("Sand9k", "", 0, 0, 0, 11));
@@ -677,7 +619,11 @@ public class Main extends Application {
 	protected static void CheckForDataDirectory() {
 		File dir = new File("data/");
 		if(!dir.exists()) {
-			Alert a = new Alert(AlertType.ERROR, "Unable to find the 'data' folder. Saving and error logging is disabled.\nMake sure that you've extracted the game from the zip file, and that the file has write permissions.\nContinue?",
+			Alert a = new Alert(AlertType.ERROR,
+					"Unable to find the 'data' folder. Saving and error logging is disabled."
+							+ "\nMake sure that you've extracted the game from the zip file, and that the file has write permissions."
+							+ "\n(Please read section 'MISSING FOLDERS' in the README.txt file.)"
+							+ "\nContinue?",
 					ButtonType.YES, ButtonType.NO);
 			a.showAndWait().ifPresent(response -> {
 			     if (response == ButtonType.NO) {
@@ -690,10 +636,14 @@ public class Main extends Application {
 	protected static void CheckForResFolder() {
 		File dir = new File("res/");
 		if(!dir.exists()) {
-			Alert a = new Alert(AlertType.WARNING, "Could not find the 'res' folder. This might cause errors and present sections of missing text.\nContinue?", ButtonType.YES, ButtonType.NO);
+			Alert a = new Alert(AlertType.WARNING,
+					"Could not find the 'res' folder. This WILL cause errors and present sections of missing text."
+							+ "\nMake sure that you've extracted the game from the zip file, and that the file has write permissions."
+							+ "\n(Please read section 'MISSING FOLDERS' in the README.txt file.)"
+							+ "\nContinue?",
+					ButtonType.YES, ButtonType.NO);
 			a.showAndWait().ifPresent(response -> {
-				if(response == ButtonType.NO)
-				{
+				if(response == ButtonType.NO) {
 					System.exit(1);
 				}
 			});
@@ -914,7 +864,7 @@ public class Main extends Application {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Name too long!");
 			return;
 		}
-		if (!name.matches("[a-zA-Z0-9]+[a-zA-Z0-9' _]*")) {
+		if (name.contains("\"")) {//!name.matches("[a-zA-Z0-9]+[a-zA-Z0-9' _]*")) {
 			Main.game.flashMessage(Colour.GENERIC_BAD, "Incompatible characters!");
 			return;
 		}
@@ -952,6 +902,10 @@ public class Main extends Application {
 		if (isLoadGameAvailable(name)) {
 			Game.importGame(name);
 		}
+	}
+
+	public static void loadGame(File f) {
+		Game.importGame(f);
 	}
 	
 	public static void deleteGame(String name) {
@@ -1071,11 +1025,14 @@ public class Main extends Application {
 			try {
 				Main.game.setPlayer(CharacterUtils.startLoadingCharacterFromXML());
 				Main.game.setPlayer(CharacterUtils.loadCharacterFromXML(file, Main.game.getPlayer(),
+						CharacterImportSetting.NEW_GAME_IMPORT,
 						CharacterImportSetting.NO_PREGNANCY,
 						CharacterImportSetting.NO_COMPANIONS,
 						CharacterImportSetting.NO_ELEMENTAL,
 						CharacterImportSetting.CLEAR_SLAVERY,
 						CharacterImportSetting.CLEAR_KEY_ITEMS,
+						CharacterImportSetting.CLEAR_COMBAT_HISTORY,
+						CharacterImportSetting.CLEAR_SEX_HISTORY,
 						CharacterImportSetting.REMOVE_RACE_CONCEALED));
 				
 				Main.game.getPlayer().getSlavesOwned().clear();

@@ -73,6 +73,11 @@ public class EnchantingUtils {
 		craftedClothing.setName(EnchantmentDialogue.getOutputName());
 		
 		craftedClothing.setEnchantmentKnown(null, true);
+
+//		System.out.println("Has clothing: "+Main.game.getPlayer().hasClothing(craftedClothing));
+//		for(char c : EnchantmentDialogue.getOutputName().toCharArray()) {
+//			System.out.print("["+c+","+(int)c+"]");
+//		}
 		
 		return craftedClothing;
 	}
@@ -108,7 +113,7 @@ public class EnchantingUtils {
 		if(ingredient.getEnchantmentItemType(effects) instanceof AbstractClothingType
 				|| ingredient.getEnchantmentItemType(effects) instanceof AbstractTattooType
 				|| ingredient.getEnchantmentItemType(effects) instanceof AbstractWeaponType) {
-			return Util.capitaliseSentence(ingredient.getName());
+			return ingredient.getName();
 		}
 		
 		if(((AbstractItem)ingredient).getItemType().getId().equals(ItemType.ORIENTATION_HYPNO_WATCH.getId())) {
@@ -144,7 +149,11 @@ public class EnchantingUtils {
 				potionSuffix = ie.getPrimaryModifier().getDescriptor();
 				
 				if(ie.getSecondaryModifier() != TFModifier.NONE) {
-					potionPreSuffix = ie.getSecondaryModifier().getDescriptor();
+					if(ie.getSecondaryModifier()==TFModifier.ARCANE_BOOST && ie.getPotency().isNegative()) {
+						potionPreSuffix = "drained";
+					} else {
+						potionPreSuffix = ie.getSecondaryModifier().getDescriptor();
+					}
 				}
 				
 				if(potionSuffix!="") {
@@ -175,6 +184,13 @@ public class EnchantingUtils {
 				|| freeSecondaryModifiers.contains(effect.getSecondaryModifier());
 	}
 	
+	private static boolean isEffectFreeForRemovingPositiveAttribute(ItemEffect effect) {
+		if(effect.getPrimaryModifier()==TFModifier.CLOTHING_ATTRIBUTE || effect.getPrimaryModifier()==TFModifier.CLOTHING_MAJOR_ATTRIBUTE) {
+			return !effect.getPotency().isNegative();
+		}
+		return false;
+	}
+	
 	private static int applyDiscountsForPerksAndFetishes(AbstractCoreItem ingredient, int cost) {
 		if(Main.game.getPlayer().hasFetish(Fetish.FETISH_TRANSFORMATION_GIVING) && ingredient instanceof AbstractItem) {
 			cost/=2;
@@ -188,10 +204,14 @@ public class EnchantingUtils {
 		return cost;
 	}
 	
-	public static int getModifierEffectCost(AbstractCoreItem ingredient, ItemEffect effect) {
+	public static int getModifierEffectCost(boolean addingEffect, AbstractCoreItem ingredient, ItemEffect effect) {
 		if(!(ingredient instanceof Tattoo)
 				&& Main.game.getPlayer().isSpellSchoolSpecialAbilityUnlocked(SpellSchool.WATER)
 				&& isEffectFreeForWaterSchool(effect)) {
+			return 0;
+		}
+		
+		if(!addingEffect && isEffectFreeForRemovingPositiveAttribute(effect)) {
 			return 0;
 		}
 		
@@ -205,9 +225,13 @@ public class EnchantingUtils {
 		}
 		for(ItemEffect ie : ingredient.getEffects()) {
 			if(effects.contains(ie)) {
-				effectCount.merge(ie, -1, Integer::sum);
+				if(effectCount.get(ie)>0 || !isEffectFreeForRemovingPositiveAttribute(ie)) {
+					effectCount.merge(ie, -1, Integer::sum);
+				}
 			} else {
-				effectCount.merge(ie, 1, Integer::sum);
+				if(!isEffectFreeForRemovingPositiveAttribute(ie)) {
+					effectCount.merge(ie, 1, Integer::sum);
+				}
 			}
 		}
 		
@@ -219,7 +243,7 @@ public class EnchantingUtils {
 		for(Entry<ItemEffect, Integer> entry : effectCount.entrySet()) {
 			int costIncrement = entry.getKey().getCost() * Math.abs(entry.getValue());
 			
-			if(entry.getKey().getPrimaryModifier()==TFModifier.CLOTHING_SEALING) {
+			if(entry.getKey().getSecondaryModifier()==TFModifier.CLOTHING_SEALING) {
 				switch(entry.getKey().getPotency()) {
 					case MAJOR_BOOST:
 						costIncrement*=4;

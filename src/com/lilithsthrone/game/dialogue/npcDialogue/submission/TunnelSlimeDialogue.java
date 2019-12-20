@@ -19,8 +19,8 @@ import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexControl;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
-import com.lilithsthrone.game.sex.managers.universal.SMMissionary;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.managers.universal.SMLyingDown;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotLyingDown;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
@@ -28,7 +28,7 @@ import com.lilithsthrone.utils.Util.Value;
 
 /**
  * @since 0.2.5
- * @version 0.3.1
+ * @version 0.3.4
  * @author Innoxia
  */
 public class TunnelSlimeDialogue {
@@ -439,7 +439,7 @@ public class TunnelSlimeDialogue {
 			
 			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "RESIST_TRANSFORMED"));
 			
-			if(getSlime().isAttractedTo(Main.game.getPlayer()) && getSlime().isWillingToRape(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
+			if(getSlime().isAttractedTo(Main.game.getPlayer()) && getSlime().isWillingToRape() && Main.game.isNonConEnabled()) {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "RESIST_TRANSFORMED_RAPE"));
 			} else {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "RESIST_TRANSFORMED_NO_RAPE"));
@@ -450,14 +450,14 @@ public class TunnelSlimeDialogue {
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.getActiveNPC().isWillingToRape(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
+			if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.getActiveNPC().isWillingToRape() && Main.game.isNonConEnabled()) {
 				if (index == 1) {
 					return new ResponseSex("Sex",
 							"[npc.Name] forces [npc.herself] on you...",
 							false, false,
-							new SMMissionary(
-									Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_ON_BACK))),
+							new SMLyingDown(
+									Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotLyingDown.MISSIONARY)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotLyingDown.LYING_DOWN))),
 							null,
 							null, AFTER_SLIME_SEX_AS_SUB, "<p>"
 								+ "You surrender yourself to [npc.name], lying back and offering no resistance as [npc.she] tongue-fucks your throat."
@@ -469,9 +469,9 @@ public class TunnelSlimeDialogue {
 					return new ResponseSex("Eager Sex",
 							"[npc.Name] forces [npc.herself] on you...",
 							false, false,
-							new SMMissionary(
-									Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_ON_BACK))) {
+							new SMLyingDown(
+									Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotLyingDown.MISSIONARY)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotLyingDown.LYING_DOWN))) {
 								@Override
 								public SexPace getStartingSexPaceModifier(GameCharacter character) {
 									if(character.isPlayer()) {
@@ -491,9 +491,9 @@ public class TunnelSlimeDialogue {
 					return new ResponseSex("Resist Sex",
 							"[npc.Name] forces [npc.herself] on you...",
 							false, false,
-							new SMMissionary(
-									Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotBipeds.MISSIONARY_KNEELING_BETWEEN_LEGS)),
-									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_ON_BACK))) {
+							new SMLyingDown(
+									Util.newHashMapOfValues(new Value<>(Main.game.getActiveNPC(), SexSlotLyingDown.MISSIONARY)),
+									Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotLyingDown.LYING_DOWN))) {
 								@Override
 								public SexPace getStartingSexPaceModifier(GameCharacter character) {
 									if(character.isPlayer()) {
@@ -775,7 +775,7 @@ public class TunnelSlimeDialogue {
 				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "AFTER_COMBAT_DEFEAT_TRANSFORMER"));
 				
 			} else {
-				if(getSlime().isAttractedTo(Main.game.getPlayer()) && getSlime().isWillingToRape(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
+				if(getSlime().isAttractedTo(Main.game.getPlayer()) && getSlime().isWillingToRape() && Main.game.isNonConEnabled()) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "AFTER_COMBAT_DEFEAT_RAPE"));
 				} else {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/tunnelSlime", "AFTER_COMBAT_DEFEAT_NO_RAPE"));
@@ -817,7 +817,7 @@ public class TunnelSlimeDialogue {
 					return null;
 				}
 				
-			} else if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.getActiveNPC().isWillingToRape(Main.game.getPlayer()) && Main.game.isNonConEnabled()) {
+			} else if(Main.game.getActiveNPC().isAttractedTo(Main.game.getPlayer()) && Main.game.getActiveNPC().isWillingToRape() && Main.game.isNonConEnabled()) {
 				if (index == 1) {
 					return new ResponseSex("Sex",
 							"[npc.Name] forces [npc.herself] on you...",
