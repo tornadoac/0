@@ -24,7 +24,7 @@ public class PenisThighs {
 			SexActionType.START_ONGOING,
 			ArousalIncrease.FOUR_HIGH,
 			ArousalIncrease.THREE_NORMAL,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.THIGHS)),
 			SexParticipantType.NORMAL) {
 
@@ -203,7 +203,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
 			ArousalIncrease.THREE_NORMAL,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.THIGHS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
@@ -243,7 +243,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
 			ArousalIncrease.THREE_NORMAL,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.THIGHS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
@@ -325,7 +325,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
 			ArousalIncrease.THREE_NORMAL,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.THIGHS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
@@ -366,7 +366,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.FOUR_HIGH,
 			ArousalIncrease.THREE_NORMAL,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.PENIS, SexAreaOrifice.THIGHS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {
@@ -539,7 +539,7 @@ public class PenisThighs {
 			SexActionType.START_ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FOUR_HIGH,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.THIGHS, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL) {
 		
@@ -601,7 +601,7 @@ public class PenisThighs {
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(let)] out a soft [npc2.moan], gently bucking [npc2.her] [npc2.hips] forwards as [npc2.she] [npc2.verb(start)] to fuck [npc.her] thighs.",
 
-							" With a soft [npc2.moan], [npc2.name] gently [npc.verb(thrust)] [npc2.her] [npc2.hips] forwards and [npc2.verb(sink)] [npc2.her] [npc2.cock+] in between [npc.namePos] [npc.legs+]."));
+							" With a soft [npc2.moan], [npc2.name] gently [npc2.verb(thrust)] [npc2.her] [npc2.hips] forwards and [npc2.verb(sink)] [npc2.her] [npc2.cock+] in between [npc.namePos] [npc.legs+]."));
 					break;
 				case DOM_NORMAL:
 				case SUB_EAGER:
@@ -627,7 +627,7 @@ public class PenisThighs {
 				case SUB_RESISTING:
 					UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 							" [npc2.Name] [npc2.verb(let)] out [npc2.a_sob+] as [npc.name] [npc.verb(force)] [npc2.her] [npc2.cock] in between [npc.her] [npc.legs+],"
-									+ " and, struggling against [npc.herHim], [npc2.she] desperately tries to pull away.",
+									+ " and, struggling against [npc.herHim], [npc2.she] desperately [npc2.verb(try)] to pull away.",
 
 							" With [npc2.a_sob+], [npc2.name] struggles against [npc.name] as [npc.she] [npc.verb(force)] [npc2.her] [npc2.cock] deep between [npc.her] thighs."));
 					break;
@@ -695,7 +695,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FOUR_HIGH,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.THIGHS, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_GENTLE) {
@@ -733,7 +733,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FOUR_HIGH,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.THIGHS, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.DOM_NORMAL) {
@@ -809,7 +809,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FOUR_HIGH,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.THIGHS, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_NORMAL) {
@@ -847,7 +847,7 @@ public class PenisThighs {
 			SexActionType.ONGOING,
 			ArousalIncrease.THREE_NORMAL,
 			ArousalIncrease.FOUR_HIGH,
-			CorruptionLevel.TWO_HORNY,
+			CorruptionLevel.ONE_VANILLA,
 			Util.newHashMapOfValues(new Value<>(SexAreaOrifice.THIGHS, SexAreaPenetration.PENIS)),
 			SexParticipantType.NORMAL,
 			SexPace.SUB_EAGER) {

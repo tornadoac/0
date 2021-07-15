@@ -13,7 +13,7 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.managers.dominion.zaranix.SMZaranixCockSucking;
 import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotSitting;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -262,7 +262,7 @@ public class ZaranixHomeFirstFloorRepeat {
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.ZARANIX_FF_STAIRS) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.ZARANIX_FF_STAIRS)) {
 				if(index==1) {
 					return new Response("Downstairs", "Head downstairs to the ground floor of Zaranix's house.", PlaceType.ZARANIX_GF_STAIRS.getDialogue(false)) {
 						@Override
@@ -298,7 +298,7 @@ public class ZaranixHomeFirstFloorRepeat {
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.ZARANIX_FF_STAIRS) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.ZARANIX_FF_STAIRS)) {
 				if(index==1) {
 					return new Response("Downstairs", "Head downstairs to the ground floor of Zaranix's house.", PlaceType.ZARANIX_GF_STAIRS.getDialogue(false)) {
 						@Override
@@ -441,8 +441,8 @@ public class ZaranixHomeFirstFloorRepeat {
 				return new ResponseSex("Offer blowjob", "Ask Zaranix if he'd like a blowjob as way of thanks for letting you have Arthur.",
 						true, true,
 						new SMZaranixCockSucking(
-								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Zaranix.class), SexSlotBipeds.CHAIR_ORAL_SITTING)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.CHAIR_KNEELING))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Zaranix.class), SexSlotSitting.SITTING)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotSitting.PERFORMING_ORAL))),
 						null,
 						null, AFTER_SEX_ZARANIX_BLOWJOB, UtilText.parseFromXMLFile("places/dominion/zaranixHome/firstFloorRepeat", "ZARANIX_ROOM_BLOWJOB"));
 				

@@ -1,24 +1,30 @@
 package com.lilithsthrone.game.sex.managers.dominion;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
+import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
+import com.lilithsthrone.game.sex.SexControl;
 import com.lilithsthrone.game.sex.managers.SexManagerDefault;
-import com.lilithsthrone.game.sex.positions.SexSlot;
-import com.lilithsthrone.game.sex.positions.SexPositionBipeds;
+import com.lilithsthrone.game.sex.positions.AbstractSexPosition;
+import com.lilithsthrone.game.sex.positions.SexPosition;
+import com.lilithsthrone.game.sex.positions.slots.SexSlot;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotStocks;
+import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.95
- * @version 0.3.1
+ * @version 0.3.4
  * @author Innoxia
  */
 public class SMStocks extends SexManagerDefault {
 
 	public SMStocks(boolean vaginalAllowed, boolean analAllowed, boolean oralAllowed, Map<GameCharacter, SexSlot> dominants, Map<GameCharacter, SexSlot> submissives) {
-		super(SexPositionBipeds.STOCKS_SEX,
+		super(SexPosition.STOCKS,
 				dominants,
 				submissives);
 		
@@ -56,7 +62,24 @@ public class SMStocks extends SexManagerDefault {
 	}
 	
 	@Override
-	public boolean isPlayerAbleToSwapPositions() {
+	public List<AbstractSexPosition> getAllowedSexPositions() {
+		return Util.newArrayListOfValues(
+				SexPosition.STOCKS);
+	}
+	
+	@Override
+	public boolean isSwapPositionAllowed(GameCharacter character, GameCharacter target) {
 		return false;
+	}
+	
+	@Override
+	public SexControl getSexControl(GameCharacter character) {
+		if(Sex.getSexPositionSlot(character)==SexSlotStocks.LOCKED_IN_STOCKS
+				|| Sex.getSexPositionSlot(character)==SexSlotStocks.LOCKED_IN_STOCKS_TWO
+				|| Sex.getSexPositionSlot(character)==SexSlotStocks.LOCKED_IN_STOCKS_THREE
+				|| Sex.getSexPositionSlot(character)==SexSlotStocks.LOCKED_IN_STOCKS_FOUR) {
+			return SexControl.NONE;
+		}
+		return super.getSexControl(character);
 	}
 }

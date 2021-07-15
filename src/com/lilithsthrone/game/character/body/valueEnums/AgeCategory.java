@@ -120,4 +120,30 @@ public enum AgeCategory {
 		int upperBound = category.getMaximumValue();
 		return lowerBound + Util.random.nextInt(upperBound-lowerBound);
 	}
+	
+	public static int getAgeFromCategory(AgeCategory category) {
+		if(category==null) {
+			category = AgeCategory.TWENTIES_MIDDLE;
+		}
+		
+		int lowerBound = category.getMinimumValue();
+		int upperBound = category.getMaximumValue();
+		return lowerBound + Util.random.nextInt(upperBound-lowerBound);
+	}
+	
+	/*public static int getMinimumAgeFromPreferences(Gender gender) { //doesn't work
+		AgeCategory category;
+		try {
+			category = Util.getFirstObjectFromWeightedMap(Main.getProperties().agePreferencesMap.get(gender.getType()));
+		} catch(Exception ex) {
+			category = AgeCategory.TWENTIES_MIDDLE;
+		}
+		if(category==null) {
+			category = AgeCategory.TWENTIES_MIDDLE;
+		}
+
+		int lowerBound = category.getMinimumValue();
+		return lowerBound;
+	}*/
+
 }

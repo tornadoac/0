@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.lilithsthrone.game.Season;
-import com.lilithsthrone.game.Weather;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.dominion.Cultist;
@@ -15,10 +13,11 @@ import com.lilithsthrone.game.character.npc.dominion.ReindeerOverseer;
 import com.lilithsthrone.game.character.npc.dominion.RentalMommy;
 import com.lilithsthrone.game.character.npc.submission.Claire;
 import com.lilithsthrone.game.character.quests.QuestLine;
+import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
 import com.lilithsthrone.game.dialogue.DialogueNode;
-import com.lilithsthrone.game.dialogue.npcDialogue.OccupantDialogue;
+import com.lilithsthrone.game.dialogue.companions.OccupantDialogue;
 import com.lilithsthrone.game.dialogue.npcDialogue.dominion.CultistDialogue;
 import com.lilithsthrone.game.dialogue.npcDialogue.dominion.ReindeerOverseerDialogue;
 import com.lilithsthrone.game.dialogue.npcDialogue.dominion.RentalMommyDialogue;
@@ -26,22 +25,25 @@ import com.lilithsthrone.game.dialogue.places.submission.SubmissionGenericPlaces
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.responses.ResponseEffectsOnly;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
-import com.lilithsthrone.game.inventory.item.AbstractItemType;
+import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.rendering.RenderingEngine;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
+import com.lilithsthrone.world.Season;
+import com.lilithsthrone.world.Weather;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.0
- * @version 0.3
+ * @version 0.3.1
  * @author Innoxia
  */
 public class CityPlaces {
 
+	public static final int TRAVEL_TIME_STREET = 2*60;
+	
 	private static String getExtraStreetFeatures() {
 		StringBuilder mommySB = new StringBuilder();
 		StringBuilder occupantSB = new StringBuilder();
@@ -119,20 +121,27 @@ public class CityPlaces {
 			if(npc instanceof RentalMommy) {
 				if(Main.game.getCurrentWeather()==Weather.MAGIC_STORM) {
 					mommyResponses.add(new Response("Mommy", "'Mommy' is not sitting on her usual bench, and you suppose that she's waiting out the current storm inside her house.", null));
+				} else {
+					mommyResponses.add(new Response("Mommy", "You see 'Mommy' sitting on the wooden bench outside her house. Walk up to her and say hello.", RentalMommyDialogue.ENCOUNTER) {
+						@Override
+						public void effects() {
+							Main.game.setActiveNPC(npc);	
+						}
+					});
 				}
-				mommyResponses.add(new Response("Mommy", "You see 'Mommy' sitting on the wooden bench outside her house. Walk up to her and say hello.", RentalMommyDialogue.ENCOUNTER) {
-					@Override
-					public void effects() {
-						Main.game.setActiveNPC(npc);	
-					}
-				});
 			}
 			
 			if(Main.game.getPlayer().getFriendlyOccupants().contains(npc.getId())) {
-				occupantResponses.add(new Response(UtilText.parse(npc, "[npc.Name]"), UtilText.parse(npc, "Head over to [npc.namePos] apartment building and pay [npc.herHim] a visit."), OccupantDialogue.OCCUPANT_APARTMENT) {
+				occupantResponses.add(new Response(
+						UtilText.parse(npc, "[npc.Name]"),
+						UtilText.parse(npc,
+								Main.game.getPlayer().getCompanions().contains(npc)
+									?"Head back over to [npc.namePos] apartment."
+									:"Head over to [npc.namePos] apartment building and pay [npc.herHim] a visit."),
+						OccupantDialogue.OCCUPANT_APARTMENT) {
 					@Override
 					public void effects() {
-						Main.game.setActiveNPC(npc);
+						OccupantDialogue.initDialogue(npc, true, false);
 					}
 				});
 			}
@@ -174,7 +183,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return TRAVEL_TIME_STREET;
 		}
 
 		@Override
@@ -244,10 +253,17 @@ public class CityPlaces {
 							+ " <p>"
 								+ "Due to the ongoing storm, the entire city seems to be almost totally deserted."
 								+ " Doors are locked, windows are shuttered, and, for the most part, not a soul can be seen."
-								+ " The only people able to withstand the storm's thunderous power are demons, and every now and then you see one strutting down the street."
-								+ " They sometimes cast a curious glance your way, but most are content to simply ignore you."
-							+ "</p>"
-							+ " <p>"
+								+ " The only people able to withstand the storm's thunderous power are demons, and every now and then you see one strutting down the street.");
+					
+					if(Main.game.getPlayer().getRace()==Race.DEMON) {
+						UtilText.nodeContentSB.append(" They sometimes cast a nod, a smile, or even a seductive glance your way, but most are on business of their own and content to simply ignore you.");
+					} else {
+						UtilText.nodeContentSB.append(" They sometimes cast a curious glance your way, but most are content to simply ignore you.");
+					}
+					
+					UtilText.nodeContentSB.append(
+							"</p>"
+							+ "<p>"
 								+ "The size and emptiness of the city streets fills you with a sense of foreboding, and you frantically look around for signs of danger as you hurry on your way."
 								+ " Remembering what happened the first night you arrived in this world, you know full well that any non-demons caught out in the storm will be filled with an uncontrollable lust."
 								+ " If they catch you, they'll be sure to force you into a fight."
@@ -306,12 +322,19 @@ public class CityPlaces {
 								+ " The tree's branches sway wildly in the storm's wind as it howls down the empty streets."
 								+ " The glass frontages of the surrounding buildings reflect each and every lightning strike, filling the streets with bright purple and pink flashes."
 							+ "</p>"
-							+ " <p>"
+							+ "<p>"
 								+ "Due to the ongoing storm, the entire city seems to be almost totally deserted."
 								+ " Doors are locked, windows are shuttered, and, for the most part, not a soul can be seen."
-								+ " The only people able to withstand the storm's thunderous power are demons, and every now and then you see one strutting down the street."
-								+ " They sometimes cast a curious glance your way, but most are content to simply ignore you."
-							+ "</p>"
+								+ " The only people able to withstand the storm's thunderous power are demons, and every now and then you see one strutting down the street.");
+				
+				if(Main.game.getPlayer().getRace()==Race.DEMON) {
+					UtilText.nodeContentSB.append(" They sometimes cast a nod, a smile, or even a seductive glance your way, but most are on business of their own and content to simply ignore you.");
+				} else {
+					UtilText.nodeContentSB.append(" They sometimes cast a curious glance your way, but most are content to simply ignore you.");
+				}
+				
+				UtilText.nodeContentSB.append(
+							"</p>"
 							+ " <p>"
 								+ "The size and emptiness of the city streets fills you with a sense of foreboding, and you frantically look around for signs of danger as you hurry on your way."
 								+ " Remembering what happened the first night you arrived in this world, you know full well that any non-demons caught out in the storm will be filled with an uncontrollable lust."
@@ -365,9 +388,9 @@ public class CityPlaces {
 			return ("<p><i>A particularly large and imposing incubus cuts his way through the crowd, holding the leashes of three greater cat-girl slaves."
 					+ " Each one is completely naked, and as they pass, you can clearly see their cunts drooling with excitement.</i></p>");
 		} else if (extraText <= 6) {
-			return ("<p><i>To one side, you see a pair of dog-boy enforcers questioning a shady-looking cat-boy."
+			return ("<p><i>To one side, you see a pair of dog-boy Enforcers questioning a shady-looking cat-boy."
 					+ " As you pass, the cat-boy tries to make a break for it, but is quickly tackled to the floor."
-					+ " The enforcers place a pair of restraints around his wrists before dragging him down a nearby alleyway.</i></p>");
+					+ " The Enforcers place a pair of restraints around his wrists before dragging him down a nearby alleyway.</i></p>");
 		} else if (extraText <= 9) {
 			return ("<p><i>A huge billboard covers the entire face of one of the buildings across the street."
 					+ " On it, there's an advertisement for the tournament, 'Risk it all', promising great rewards for anyone strong enough to beat the challenge."
@@ -397,7 +420,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 3*60;
 		}
 
 		@Override
@@ -438,7 +461,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 3*60;
 		}
 
 		@Override
@@ -479,7 +502,7 @@ public class CityPlaces {
 		
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 3*60;
 		}
 		
 		@Override
@@ -516,7 +539,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 90;
 		}
 
 		@Override
@@ -597,7 +620,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 10*60;
+			return 3*60;
 		}
 
 		@Override
@@ -611,9 +634,9 @@ public class CityPlaces {
 					+ "<p>"
 						+ "Numerous grandiose statues and extravagantly-detailed water fountains, all carved from polished white marble, reside within this large area."
 						+ " Each one of these sculptures appears to represent a demon or Lilin, and although they're each a marvellous work of art, the one in the very middle of the square is quite simply breathtaking."
-						+ " On top of a plinth of at least thirty metres in height, stands a gigantic marble statue of Lilith herself;"
+						+ " On top of a plinth of at least [unit.lSizes(3000)] in height, stands a gigantic marble statue of Lilith herself;"
 							+ " with wings fully unfurled, and with her hands resting on her wide hips, she smirks down with a visage of manic delight at the crowds below."
-						+ " Completely naked, every inch of the effigy's subject is on display for all to see, and you find yourself looking straight up at Lilith's tight pussy as you marvel at the workmanship that went into this astounding piece of art."
+						+ " Completely naked, every [unit.size] of the effigy's subject is on display for all to see, and you find yourself looking straight up at Lilith's tight pussy as you marvel at the workmanship that went into this astounding piece of art."
 					+ "</p>");
 			
 			if(Main.game.getCurrentWeather()==Weather.MAGIC_STORM) {
@@ -695,7 +718,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return TRAVEL_TIME_STREET;
 		}
 
 		@Override
@@ -724,7 +747,7 @@ public class CityPlaces {
 		
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 3*60;
 		}
 
 		@Override
@@ -750,7 +773,7 @@ public class CityPlaces {
 				return new Response("Rose Garden", "There's a beautiful rose garden just off to your right. Walk over to it and take a closer look.", PARK_ROSE_GARDEN) {
 					@Override
 					public void effects() {
-						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(AbstractItemType.generateItem(ItemType.GIFT_ROSE), false));
+						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addClothing(AbstractClothingType.generateClothing("innoxia_hair_rose", false), false));
 					}
 				};
 			} else {
@@ -768,7 +791,7 @@ public class CityPlaces {
 		
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 30;
 		}
 
 		@Override
@@ -805,7 +828,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return TRAVEL_TIME_STREET;
 		}
 
 		@Override
@@ -837,7 +860,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 3*60;
 		}
 
 		@Override
@@ -883,7 +906,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return TRAVEL_TIME_STREET;
 		}
 
 		@Override
@@ -920,7 +943,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return TRAVEL_TIME_STREET;
 		}
 
 		@Override
@@ -935,11 +958,13 @@ public class CityPlaces {
 					@Override
 					public void effects() {
 						if(!Main.game.getPlayer().hasQuest(QuestLine.SIDE_SLIME_QUEEN)) {
-							Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/dominionPlaces", "ENTER_SUBMISSION_FIRST_TIME"));
-							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.SIDE_SLIME_QUEEN));
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.visitedSubmission, false);
+							Main.mainController.moveGameWorld(WorldType.SUBMISSION, PlaceType.SUBMISSION_ENTRANCE, false);
+							
+						} else {
+							Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_ENTRANCE, false);
 						}
-						Main.game.getPlayer().setLocation(WorldType.SUBMISSION, PlaceType.SUBMISSION_ENTRANCE, false);
+						
 						Main.game.getNpc(Claire.class).setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), true);
 					}
 				};
@@ -954,7 +979,7 @@ public class CityPlaces {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return 3*60;
 		}
 		
 		@Override
@@ -964,24 +989,28 @@ public class CityPlaces {
 		
 		@Override
 		public String getContent() {
-			return UtilText.parseFromXMLFile("places/dominion/dominionPlaces", "ENTER_SUBMISSION");
+			StringBuilder sb = new StringBuilder();
+			sb.append(UtilText.parseFromXMLFile("places/dominion/dominionPlaces", "ENTER_SUBMISSION"));
+			if(!Main.game.getPlayer().hasQuest(QuestLine.SIDE_SLIME_QUEEN)) {
+				Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/dominionPlaces", "ENTER_SUBMISSION_FIRST_TIME"));
+			} else {
+				Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/dominion/dominionPlaces", "ENTER_SUBMISSION_REPEAT"));
+			}
+			return sb.toString();
 		}
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(!Main.game.getDialogueFlags().hasFlag(DialogueFlagValue.visitedSubmission)) {
 				if (index == 1) {
-					return new Response("Continue", "Continue on your way through the Enforcer Post.", CITY_EXIT_SEWERS_ENTERING_SUBMISSION){
+					return new Response("Confirm", "Confirm to the cat-girl that this is indeed your first time visiting Submission.", CITY_EXIT_SEWERS_ENTERING_SUBMISSION_FIRST_TIME) {
 						@Override
 						public void effects() {
-							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.visitedSubmission, true);
-						}
-						@Override
-						public DialogueNode getNextDialogue(){
-							return Main.game.getDefaultDialogueNoEncounter();
+							Main.game.getNpc(Claire.class).setPlayerKnowsName(true);
+							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().startQuest(QuestLine.SIDE_SLIME_QUEEN));
 						}
 					};
-	
+					
 				} else {
 					return null;
 				}
@@ -991,24 +1020,52 @@ public class CityPlaces {
 		}
 	};
 	
+	public static final DialogueNode CITY_EXIT_SEWERS_ENTERING_SUBMISSION_FIRST_TIME = new DialogueNode("", "", true, true) {
+
+		@Override
+		public int getSecondsPassed() {
+			return 3*60;
+		}
+		
+		@Override
+		public String getContent() {
+			return UtilText.parseFromXMLFile("places/dominion/dominionPlaces", "ENTER_SUBMISSION_FIRST_TIME_CONFIRMATION");
+		}
+
+		@Override
+		public Response getResponse(int responseTab, int index) {
+			if (index == 1) {
+				return new Response("Continue", "Continue on your way through the Enforcer Post.", Main.game.getDefaultDialogueNoEncounter()){
+					@Override
+					public void effects() {
+						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.visitedSubmission, true);
+					}
+				};
+
+			} else {
+				return null;
+			}
+		}
+	};
+	
 	public static final DialogueNode CITY_EXIT = new DialogueNode("Dominion Exit", "", false) {
 
 		@Override
 		public int getSecondsPassed() {
-			return 5*60;
+			return TRAVEL_TIME_STREET;
 		}
 
 		@Override
 		public String getContent() {
 			if(Main.game.getPlayer().isDiscoveredWorldMap()) {
 				return "<p>"
-						+ "A pair of elite demon enforcers are keeping a close watch on everyone who enters or leaves the city."
+						+ "A pair of elite demon Enforcers are keeping a close watch on everyone who enters or leaves the city."
 						+ " Now that you have a map, as well as business out there in the world beyond Dominion, there's nothing stopping you from leaving right now."
 					+ "</p>";
 				
 			} else {
 				return "<p>"
-							+ "A pair of elite demon enforcers are keeping a close watch on everyone who enters or leaves the city."
+							+ "A pair of elite demon Enforcers are keeping a close watch on everyone who enters or leaves the city."
 							+ " Although there's nothing stopping you from heading out into the world beyond, you have no reason to leave Dominion at the moment, and, without a map, you imagine that it would be quite easy to get lost."
 						+ "</p>"
 						+ "<p>"
@@ -1021,31 +1078,18 @@ public class CityPlaces {
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
 				if(Main.game.getPlayer().isDiscoveredWorldMap()) {
-					return new Response("World travel", "Take a look at your world map and decide where you want to travel to.", WORLD_MAP);
+					return new ResponseEffectsOnly("World travel", "Exit Dominion and head out into the wide world...") {
+						@Override
+						public void effects() {
+							Main.game.getPlayer().setLocation(WorldType.WORLD_MAP, Main.game.getPlayer().getGlobalLocation(), false);
+							Main.game.setContent(new Response("", "", Main.game.getDefaultDialogueNoEncounter()));
+						}
+					};
 					
 				} else {
 					return new Response("World travel", "You don't know what the rest of the world looks like, and, for now, your business is within the city.", null);
 				}
 
-			} else {
-				return null;
-			}
-		}
-	};
-	
-	public static final DialogueNode WORLD_MAP = new DialogueNode("World Map", "", true) {
-
-		@Override
-		public String getContent() {
-			return RenderingEngine.ENGINE.getFullWorldMap();
-		}
-
-		@Override
-		public Response getResponse(int responseTab, int index) {
-			// Rock island line
-			if (index == 0) {
-				return new Response("Back", "Decide against travelling anywhere right now, and head back into Dominion..", CITY_EXIT);
-			
 			} else {
 				return null;
 			}

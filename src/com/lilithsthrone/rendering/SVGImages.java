@@ -15,7 +15,7 @@ import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.0
- * @version 0.2.11
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public enum SVGImages {
@@ -33,6 +33,8 @@ public enum SVGImages {
 			diskSave, diskSaveDisabled, diskSaveConfirm, diskOverwrite, diskLoad, diskLoadConfirm, diskLoadDisabled, diskDelete, diskDeleteConfirm,
 			
 			itemsOnFloorIcon,
+			
+			cornerGlowNight, cornerGlowTwilight,
 			
 			drinkSmall, drink,
 			
@@ -57,6 +59,7 @@ public enum SVGImages {
 			responseCombat, responseSex, responseLocked, responseUnlocked, responseUnlockedDisabled, responseOption, responseOptionDisabled, responseCorruptionBypass,
 			responseSubResist, responseSubNormal, responseSubEager,
 			responseDomGentle, responseDomNormal, responseDomRough,
+			responseSexSwitch, responseSexAdditional,
 			
 			NPCWarningMale, NPCWarningFemale, NPCWarningDemon,
 
@@ -91,12 +94,14 @@ public enum SVGImages {
 			coverableAreaThighs,
 			coverableAreaUrethraPenis,
 			
-			penetrationTypeFinger, penetrationTypePenis, penetrationTypeTail, penetrationTypeTongue, penetrationTypeFoot,
+			penetrationTypeFinger, penetrationTypePenis, penetrationTypeTail, penetrationTypeTongue, penetrationTypeFoot, penetrationTypeClit,
 			combinationStretching, combinationTooLoose, combinationWet, combinationDry,
-			stretching, holeTooBig;
+			stretching, holeTooBig,
+			activeSexBackground;
 
 	private Map<Integer, String> youkoTailsMap = new HashMap<>();
 	private Map<Integer, String> youkoTailsDesaturatedMap = new HashMap<>();
+	private Map<Integer, String> youkoTailsDemonMap = new HashMap<>();
 	
 
 	private Map<Colour, String> refinedBackgroundMap = new EnumMap<>(Colour.class);
@@ -158,6 +163,15 @@ public enum SVGImages {
 			itemsOnFloorIcon = Util.inputStreamToString(is);
 			itemsOnFloorIcon = setColour(itemsOnFloorIcon, Colour.BASE_BLACK);
 
+			
+			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/cornerGlow.svg");
+			cornerGlowNight = Util.inputStreamToString(is);
+			cornerGlowNight = setColour(cornerGlowNight, Colour.BASE_PITCH_BLACK);
+
+			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/cornerGlowLight.svg");
+			cornerGlowTwilight = Util.inputStreamToString(is);
+			cornerGlowTwilight = setColour(cornerGlowTwilight, Colour.BASE_PITCH_BLACK);
+			
 			
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/drink_small.svg");
 			drinkSmall = Util.inputStreamToString(is);
@@ -388,7 +402,11 @@ public enum SVGImages {
 			responseDomNormal = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseDomRough.svg");
 			responseDomRough = Util.inputStreamToString(is);
-			
+
+			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseSexSwitch.svg");
+			responseSexSwitch = Util.inputStreamToString(is);
+			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseSexAdditional.svg");
+			responseSexAdditional = Util.inputStreamToString(is);
 			
 			
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/UIElements/responseNPC.svg");
@@ -578,7 +596,15 @@ public enum SVGImages {
 						svg);
 				
 				youkoTailsMap.put(i, svg);
-				
+
+				is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceFoxTail"+i+".svg");
+				svg = Util.inputStreamToString(is);
+				svg = SvgUtil.colourReplacement("foxTail"+i,
+						Colour.RACE_HALF_DEMON,
+						Colour.RACE_HALF_DEMON,
+						Colour.RACE_HALF_DEMON,
+						svg);
+				youkoTailsDemonMap.put(i, svg);
 
 				is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/race/raceFoxTail"+i+".svg");
 				svg = Util.inputStreamToString(is);
@@ -669,6 +695,9 @@ public enum SVGImages {
 			penetrationTypeTongue = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/penetrationTypeFoot.svg");
 			penetrationTypeFoot = Util.inputStreamToString(is);
+			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/penetrationTypeClit.svg");
+			penetrationTypeClit = Util.inputStreamToString(is);
+			
 			
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/combinationStretching.svg");
 			combinationStretching = Util.inputStreamToString(is);
@@ -684,6 +713,10 @@ public enum SVGImages {
 			stretching = Util.inputStreamToString(is);
 			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/holeTooBig.svg");
 			holeTooBig = Util.inputStreamToString(is);
+
+			is = this.getClass().getResourceAsStream("/com/lilithsthrone/res/statusEffects/sexEffects/active_background.svg");
+			activeSexBackground = Util.inputStreamToString(is);
+			
 			
 			String tempString = "";
 			for(AbstractItemEffectType effect : ItemEffectType.getAllEffectTypes()) {
@@ -847,6 +880,14 @@ public enum SVGImages {
 		return itemsOnFloorIcon;
 	}
 
+	public String getCornerGlowNight() {
+		return cornerGlowNight;
+	}
+
+	public String getCornerGlowTwilight() {
+		return cornerGlowTwilight;
+	}
+	
 	public String getPlayerMapIconMasculine() {
 		return playerMapIconMasculine;
 	}
@@ -1003,6 +1044,14 @@ public enum SVGImages {
 		return responseDomRough;
 	}
 
+	public String getResponseSexSwitch() {
+		return responseSexSwitch;
+	}
+
+	public String getResponseSexAdditional() {
+		return responseSexAdditional;
+	}
+	
 	public String getNPCWarningMale() {
 		return NPCWarningMale;
 	}
@@ -1091,6 +1140,10 @@ public enum SVGImages {
 		return penetrationTypeFoot;
 	}
 	
+	public String getPenetrationTypeClit() {
+		return penetrationTypeClit;
+	}
+	
 	public String getCombinationStretching() {
 		return combinationStretching;
 	}
@@ -1113,6 +1166,10 @@ public enum SVGImages {
 	
 	public String getHoleTooBig() {
 		return holeTooBig;
+	}
+
+	public String getActiveSexBackground() {
+		return activeSexBackground;
 	}
 
 	public Map<Colour, String> getRefinedBackgroundMap() {
@@ -1413,6 +1470,10 @@ public enum SVGImages {
 
 	public String getFoxTailDesaturated(int i) {
 		return youkoTailsDesaturatedMap.get(i);
+	}
+
+	public String getFoxTailDemon(int i) {
+		return youkoTailsDemonMap.get(i);
 	}
 	
 }

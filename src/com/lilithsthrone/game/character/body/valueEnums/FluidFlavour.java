@@ -1,5 +1,7 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.lilithsthrone.utils.BaseColour;
@@ -24,7 +26,7 @@ public enum FluidFlavour {
 			Util.newArrayListOfValues(
 					"sweet")),
 
-	SLIME("slime", BaseColour.GREEN_LIGHT,
+	BUBBLEGUM("bubblegum", BaseColour.PINK_LIGHT,
 			Util.newArrayListOfValues(
 					"sweet")),
 	
@@ -39,7 +41,7 @@ public enum FluidFlavour {
 					"sweet",
 					"vanilla-flavoured")),
 	
-	STRAWBERRY("strawberries", BaseColour.ROSE,
+	STRAWBERRY("strawberries", BaseColour.RED,
 			Util.newArrayListOfValues(
 					"sweet",
 					"strawberry-flavoured")),
@@ -63,7 +65,13 @@ public enum FluidFlavour {
 	
 	MINT("mint", BaseColour.GREEN_LIME,
 			Util.newArrayListOfValues(
-					"minty"));
+					"minty")),
+	
+	CHERRY("cherry", BaseColour.CRIMSON,
+			Util.newArrayListOfValues(
+					"sweet",
+					"cherry-flavoured"))
+	;
 	
 	private String name;
 	private BaseColour colour;
@@ -93,5 +101,13 @@ public enum FluidFlavour {
 	
 	public String getRandomFlavourDescriptor() {
 		return flavourDescriptors.get(Util.random.nextInt(flavourDescriptors.size()));
+	}
+	
+	public static List<FluidFlavour> getUnnaturalFlavourings() {
+		List<FluidFlavour> list = new ArrayList<>(Arrays.asList(FluidFlavour.values()));
+		list.remove(CUM);
+		list.remove(MILK);
+		list.remove(GIRL_CUM);
+		return list;
 	}
 }

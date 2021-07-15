@@ -25,7 +25,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.84
- * @version 0.2.11
+ * @version 0.3.4
  * @author Innoxia
  */
 public class WeaponType {
@@ -43,6 +43,7 @@ public class WeaponType {
 			"meleeCrystal1",
 			"meleeCrystal1",
 			Rarity.RARE,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL,
@@ -65,7 +66,7 @@ public class WeaponType {
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(focus)] on the energy in the crystal."
-					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform magical attacks.");
+					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform arcane-imbued attacks.");
 		}
 
 		@Override
@@ -94,12 +95,12 @@ public class WeaponType {
 					return Util.newArrayListOfValues(Spell.ICE_SHARD);
 				case LUST:
 					return Util.newArrayListOfValues(Spell.ARCANE_AROUSAL);
-				case MISC:
-					break;
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
 					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+				default:
+					break;
 			}
 			return null;
 		}
@@ -118,6 +119,7 @@ public class WeaponType {
 			"meleeCrystal2",
 			"meleeCrystal2",
 			Rarity.EPIC,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL,
@@ -141,7 +143,7 @@ public class WeaponType {
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(focus)] on the energy in the crystal."
-					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform magical attacks.");
+					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform arcane-imbued attacks.");
 		}
 
 		@Override
@@ -170,12 +172,12 @@ public class WeaponType {
 					return Util.newArrayListOfValues(Spell.ICE_SHARD);
 				case LUST:
 					return Util.newArrayListOfValues(Spell.ARCANE_AROUSAL);
-				case MISC:
-					break;
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
 					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+				default:
+					break;
 			}
 			return null;
 		}
@@ -194,6 +196,7 @@ public class WeaponType {
 			"meleeCrystal3",
 			"meleeCrystal3",
 			Rarity.LEGENDARY,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL,
@@ -218,7 +221,7 @@ public class WeaponType {
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(focus)] on the energy in the crystal."
-					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform magical attacks.");
+					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform arcane-imbued attacks.");
 		}
 
 		@Override
@@ -247,12 +250,12 @@ public class WeaponType {
 					return Util.newArrayListOfValues(Spell.ICE_SHARD);
 				case LUST:
 					return Util.newArrayListOfValues(Spell.ARCANE_AROUSAL);
-				case MISC:
-					break;
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
 					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+				default:
+					break;
 			}
 			return null;
 		}
@@ -271,6 +274,7 @@ public class WeaponType {
 			"zweihander",
 			"zweihander",
 			Rarity.EPIC,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL,
@@ -287,10 +291,10 @@ public class WeaponType {
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_MELEE_WEAPON, TFPotency.MAJOR_BOOST, 0),
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_MELEE_WEAPON, TFPotency.MAJOR_BOOST, 0)),
 			null,
-			ColourListPresets.JUST_BLACK.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
+			ColourListPresets.JUST_BLACK,
+			ColourListPresets.ALL,
+			ColourListPresets.JUST_STEEL,
+			ColourListPresets.ALL_METAL,
 			Util.newArrayListOfValues(
 					ItemTag.SOLD_BY_VICKY,
 					ItemTag.WEAPON_BLADE)) {
@@ -340,169 +344,6 @@ public class WeaponType {
 					"Strike at [npc.name] with your zweihander!");
 		}
 	};
-	
-	public static AbstractWeaponType MELEE_KNIGHTLY_SWORD = new AbstractWeaponType(2500,
-			true,
-			false,
-			"a",
-			false,
-			"Knightly Sword",
-			"Knightly Swords",
-			"Slash",
-			"This straight-edged sword has a single-handed cruciform hilt."
-					+ " The 75cm-long blade is made out of ethereal arcane energy, which, instead of cutting someone, drains their energy as it passes through them.",
-			"knightlySword",
-			"knightlySword",
-			Rarity.EPIC,
-			null,
-			Util.newArrayListOfValues(
-					DamageType.PHYSICAL,
-					DamageType.FIRE,
-					DamageType.ICE,
-					DamageType.POISON),
-			18,
-			0,
-			DamageVariance.LOW,
-			5,
-			Util.newArrayListOfValues(
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_WEAPON, TFPotency.MAJOR_BOOST, 0),
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.CRITICAL_CHANCE, TFPotency.MAJOR_BOOST, 0)),
-			null,
-			ColourListPresets.JUST_BLACK.getPresetColourList(),
-			ColourListPresets.ALL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
-			Util.newArrayListOfValues(
-					ItemTag.SOLD_BY_VICKY,
-					ItemTag.WEAPON_BLADE)) {
-
-		@Override
-		public String equipText(GameCharacter character) {
-			return UtilText.parse(character, "[npc.Name] [npc.verb(ready)] [npc.her] "+this.getName()+".");
-		}
-
-		@Override
-		public String unequipText(GameCharacter character) {
-			return UtilText.parse(character, "[npc.Name] [npc.verb(put)] [npc.her] "+this.getName()+" away.");
-		}
-
-		@Override
-		public String getAttackDescription(GameCharacter character, GameCharacter target, boolean isHit) {
-			return getDescriptions(character, target, isHit,
-					UtilText.returnStringAtRandom(
-							"You slash your "+this.getName()+" at [npc.name], grinning as the ethereal arcane blade travels through [npc.her] body!",
-							"Slashing out at [npc.name] with your "+this.getName()+", you grin as you see the ethereal blade travel straight through [npc.her] body!",
-							"You slash at [npc.name] with your "+this.getName()+", causing [npc.herHim] to stagger back as the ethereal blade passes right through [npc.her] chest!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] slashes [npc.her] "+this.getName()+" at you, grinning as the ethereal arcane blade travels through your body!",
-							"Slashing out at you with [npc.her] "+this.getName()+", [npc.name] grins as [npc.she] sees the ethereal blade travel straight through your body!",
-							"[npc.Name] slashes at you with [npc.her] "+this.getName()+", causing you to stagger back as the ethereal blade passes right through your chest!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] slashes [npc.her] "+this.getName()+" at [npc2.name], grinning as the ethereal arcane blade travels through [npc2.her] body!",
-							"Slashing out at [npc2.name] with [npc.her] "+this.getName()+", [npc.name] grins as [npc.she] sees the ethereal blade travel straight through [npc2.her] body!",
-							"[npc.Name] slashes at [npc2.name] with [npc.her] "+this.getName()+", causing [npc2.herHim] to stagger back as the ethereal blade passes right through [npc2.her] chest!"),
-					UtilText.returnStringAtRandom(
-							"You slash your "+this.getName()+" at [npc.name], but the blade sails harmlessly through mid-air as you miss your target!",
-							"Slashing out at [npc.name] with your "+this.getName()+", you sigh in frustration as you end up missing your target!",
-							"You slash at [npc.name] with your "+this.getName()+", but fail to land a hit!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] slashes [npc.her] "+this.getName()+" at you, but the blade sails harmlessly through mid-air as [npc.she] misses you!",
-							"Slashing out at you with [npc.her] "+this.getName()+", [npc.name] sighs in frustration as [npc.she] ends up missing you!",
-							"[npc.Name] slashes at you with [npc.her] "+this.getName()+", but fails to land a hit!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] slashes [npc.her] "+this.getName()+" at [npc2.name], but the blade sails harmlessly through mid-air as [npc.she] misses [npc2.herHim]!",
-							"Slashing out at [npc2.name] with [npc.her] "+this.getName()+", [npc.name] sighs in frustration as [npc.she] ends up missing [npc2.herHim]!",
-							"[npc.Name] slashes at [npc2.name] with [npc.her] "+this.getName()+", but fails to land a hit!"));
-		}
-
-		@Override
-		public String getAttackDescription(GameCharacter user, GameCharacter target) {
-			return UtilText.parse(target,
-					"Strike at [npc.name] with your "+this.getName()+"!");
-		}
-	};
-	
-	public static AbstractWeaponType OFFHAND_BUCKLER = new AbstractWeaponType(1000,
-			true,
-			false,
-			"a",
-			false,
-			"Buckler",
-			"Bucklers",
-			"Bash",
-			"A small metal shield, measuring 45cm in diameter, and gripped in one hand by means of a handle positioned behind the boss."
-					+ " Shields such as this one are typically enchanted to help the wielder resist a certain type of arcane damage.",
-			"buckler",
-			"buckler",
-			Rarity.EPIC,
-			null,
-			Util.newArrayListOfValues(
-					DamageType.FIRE,
-					DamageType.ICE,
-					DamageType.POISON),
-			6,
-			0,
-			DamageVariance.HIGH,
-			5,
-			Util.newArrayListOfValues(
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_WEAPON, TFPotency.MAJOR_BOOST, 0),
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_WEAPON, TFPotency.MAJOR_BOOST, 0),
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0),
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0),
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.RESISTANCE_PHYSICAL, TFPotency.MAJOR_BOOST, 0)),
-			null,
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
-			ColourListPresets.JUST_STEEL.getPresetColourList(),
-			ColourListPresets.ALL_METAL.getPresetColourList(),
-			Util.newArrayListOfValues(ItemTag.SOLD_BY_VICKY)) {
-
-		@Override
-		public String equipText(GameCharacter character) {
-			return UtilText.parse(character, "[npc.Name] [npc.verb(ready)] [npc.her] "+this.getName()+".");
-		}
-
-		@Override
-		public String unequipText(GameCharacter character) {
-			return UtilText.parse(character, "[npc.Name] [npc.verb(put)] [npc.her] "+this.getName()+" away.");
-		}
-
-		@Override
-		public String getAttackDescription(GameCharacter character, GameCharacter target, boolean isHit) {
-			return getDescriptions(character, target, isHit,
-					UtilText.returnStringAtRandom(
-							"You bash your "+this.getName()+" at [npc.name], grinning as you end up whacking [npc.herHim] right on the [npc.arm]!",
-							"Striking out at [npc.name] with your "+this.getName()+", you grin as you bash [npc.herHim] right in the chest!",
-							"You strike at [npc.name] with your "+this.getName()+", causing [npc.herHim] to stagger back as you bash [npc.her] torso!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] bashes [npc.her] "+this.getName()+" at you, grinning as [npc.she] whacks you right on the [pc.arm]!",
-							"Striking out at you with [npc.her] "+this.getName()+", [npc.name] grins as [npc.she] bashes you right in the chest!",
-							"[npc.Name] strikes at you with [npc.her] "+this.getName()+", causing you to stagger back [npc.she] bashes your torso!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] bashes [npc.her] "+this.getName()+" at [npc2.name], grinning as [npc.she] whacks [npc2.herHim] right on the [npc2.arm]!",
-							"Striking out at [npc2.name] with [npc.her] "+this.getName()+", [npc.name] grins as [npc.she] bashes [npc2.herHim] right in the chest!",
-							"[npc.Name] strikes at [npc2.name] with [npc.her] "+this.getName()+", causing [npc2.herHim] to stagger back [npc.she] bashes [npc2.her] torso!"),
-					UtilText.returnStringAtRandom(
-							"You bash your "+this.getName()+" at [npc.name], but your strike sails harmlessly through mid-air as you miss your target!",
-							"Striking out at [npc.name] with your "+this.getName()+", you sigh in frustration as you end up missing your target!",
-							"You slash at [npc.name] with your "+this.getName()+", but fail to land a hit!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] bashes [npc.her] "+this.getName()+" at you, but [npc.her] strike sails harmlessly through mid-air as [npc.she] misses you!",
-							"Striking out at you with [npc.her] "+this.getName()+", [npc.name] sighs in frustration as [npc.she] ends up missing you!",
-							"[npc.Name] strikes at you with [npc.her] "+this.getName()+", but fails to land a hit!"),
-					UtilText.returnStringAtRandom(
-							"[npc.Name] bashes [npc.her] "+this.getName()+" at [npc2.name], but [npc.her] strike sails harmlessly through mid-air as [npc.she] misses [npc2.herHim]!",
-							"Striking out at [npc2.name] with [npc.her] "+this.getName()+", [npc.name] sighs in frustration as [npc.she] ends up missing [npc2.herHim]!",
-							"[npc.Name] strikes at [npc2.name] with [npc.her] "+this.getName()+", but fails to land a hit!"));
-		}
-
-		@Override
-		public String getAttackDescription(GameCharacter user, GameCharacter target) {
-			return UtilText.parse(target,
-					"Strike at [npc.name] with your "+this.getName()+"!");
-		}
-
-	};
 
 	// OFFHAND
 	public static AbstractWeaponType OFFHAND_CHAOS_RARE = new AbstractWeaponType(1000,
@@ -513,11 +354,12 @@ public class WeaponType {
 			"chaos feather",
 			"chaos feathers",
 			"Feather Bolt",
-			"A magical feather, the power of which can be harnessed as a weapon."
+			"An arcane feather, the power of which can be harnessed as a weapon."
 					+ " Feathers like this are rumoured to have been plucked from a Lilin's wings.",
 			"rangedFeather1",
 			"rangedFeather1",
 			Rarity.RARE,
+			0,
 			null,
 			Util.newArrayListOfValues(DamageType.PHYSICAL, DamageType.FIRE, DamageType.ICE, DamageType.POISON),
 			8,
@@ -536,7 +378,7 @@ public class WeaponType {
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(focus)] on the energy in the feather."
-					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform magical attacks at range.");
+					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform arcane-imbued attacks at range.");
 		}
 
 		@Override
@@ -565,12 +407,12 @@ public class WeaponType {
 					return Util.newArrayListOfValues(Spell.ICE_SHARD);
 				case LUST:
 					return Util.newArrayListOfValues(Spell.ARCANE_AROUSAL);
-				case MISC:
-					break;
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
 					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+				default:
+					break;
 			}
 			return null;
 		}
@@ -584,11 +426,12 @@ public class WeaponType {
 			"chaos feather",
 			"chaos feathers",
 			"Feather Bolt",
-			"A well-preserved magical feather, the power of which can be harnessed as a weapon."
+			"A well-preserved arcane feather, the power of which can be harnessed as a weapon."
 					+ " Feathers like this are rumoured to have been plucked from a Lilin's wings.",
 			"rangedFeather2",
 			"rangedFeather2",
 			Rarity.EPIC,
+			0,
 			null,
 			Util.newArrayListOfValues(DamageType.PHYSICAL, DamageType.FIRE, DamageType.ICE, DamageType.POISON),
 			14,
@@ -608,7 +451,7 @@ public class WeaponType {
 		@Override
 		public String equipText(GameCharacter character) {
 			return UtilText.parse(character, "[npc.Name] [npc.verb(focus)] on the energy in the feather."
-					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform magical attacks at range.");
+					+ " As [npc.she] [npc.does] so, it dissolves and flows into [npc.her] body, granting [npc.herHim] the ability to perform arcane-imbued attacks at range.");
 		}
 
 		@Override
@@ -637,65 +480,14 @@ public class WeaponType {
 					return Util.newArrayListOfValues(Spell.ICE_SHARD);
 				case LUST:
 					return Util.newArrayListOfValues(Spell.ARCANE_AROUSAL);
-				case MISC:
-					break;
 				case PHYSICAL:
 					return Util.newArrayListOfValues(Spell.SLAM);
 				case POISON:
 					return Util.newArrayListOfValues(Spell.POISON_VAPOURS);
+				default:
+					break;
 			}
 			return null;
-		}
-	};
-	
-	// I made this in one of my lunch breaks x_x
-	public static AbstractWeaponType MAIN_WESTERN_KKP = new AbstractWeaponType(25000,
-			false,
-			false,
-			"a",
-			false,
-			"Western KKP",
-			"Western KKPs",
-			"Fire KKP",
-			"A blowback-operated semi-automatic pistol, featuring an exposed hammer, a traditional double-action trigger mechanism, a single-column magazine, and a fixed barrel that also acts as the guide rod for the recoil spring.",
-			"western_kkp",
-			"western_kkp",
-			Rarity.LEGENDARY,
-			null,
-			Util.newArrayListOfValues(DamageType.PHYSICAL),
-			100000,
-			0,
-			DamageVariance.LOW,
-			0,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			Util.newArrayListOfValues(
-					ItemTag.REMOVE_FROM_DEBUG_SPAWNER
-					)) {
-
-		@Override
-		public String equipText(GameCharacter character) {
-			return UtilText.parse(character, "[npc.Name] [npc.verb(ready)] [npc.her] pistol.");
-		}
-
-		@Override
-		public String unequipText(GameCharacter character) {
-			return UtilText.parse(character, "[npc.Name] [npc.verb(holster)] [npc.her] pistol.");
-		}
-
-		@Override
-		public String getAttackDescription(GameCharacter character, GameCharacter target, boolean isHit) {
-			return UtilText.parse(character, target, "[npc.Name] just [npc.verb(shoot)] [npc2.name]... Thankfully, there seems to be some kind of arcane force preventing [npc.her] gun from actually killing [npc2.herHim]...");
-		}
-
-		@Override
-		public String getAttackDescription(GameCharacter user, GameCharacter target) {
-			return UtilText.parse(target,
-					"The name's [pc.surname]... [pc.name] [pc.surname].");
 		}
 	};
 	
@@ -712,6 +504,7 @@ public class WeaponType {
 			"arcaneMusket",
 			"arcaneMusket",
 			Rarity.LEGENDARY,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL),
@@ -793,6 +586,7 @@ public class WeaponType {
 			"primary_witch_broom",
 			"primary_witch_broom",
 			Rarity.EPIC,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL,
@@ -879,6 +673,7 @@ public class WeaponType {
 			"feather_duster",
 			"feather_duster",
 			Rarity.EPIC,
+			0,
 			null,
 			Util.newArrayListOfValues(DamageType.PHYSICAL),
 			2,
@@ -897,7 +692,7 @@ public class WeaponType {
 		@Override
 
 		public String getDescription() {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP)) {
 				return "A short-handled feather duster, ideal for keeping a house clean, but not much use in combat..."
 						+ " [Ashley.speech(A feather duster: the epitome of romance, at least for those who don't know anything about their lover, other than that they're the person who keeps the house clean.)]";
 //						+ " Surely, that's all that's going on with their lives, right?)]";
@@ -971,6 +766,7 @@ public class WeaponType {
 			"bowandarrow",
 			"bowandarrow",
 			Rarity.EPIC,
+			0,
 			null,
 			Util.newArrayListOfValues(
 					DamageType.PHYSICAL,
@@ -983,7 +779,7 @@ public class WeaponType {
 			5,
 			Util.newArrayListOfValues(
 					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.DAMAGE_WEAPON, TFPotency.MAJOR_BOOST, 0),
-					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.CRITICAL_CHANCE, TFPotency.MAJOR_BOOST, 0)),
+					new ItemEffect(ItemEffectType.WEAPON, TFModifier.CLOTHING_ATTRIBUTE, TFModifier.CRITICAL_DAMAGE, TFPotency.MAJOR_BOOST, 0)),
 			null,
 			null,
 			null,
@@ -1029,7 +825,7 @@ public class WeaponType {
 	};
 	
 	public static List<AbstractWeaponType> rareWeapons = new ArrayList<>();
-	private static List<AbstractWeaponType> allweapons = new ArrayList<>();
+	private static List<AbstractWeaponType> allWeapons = new ArrayList<>();
 	public static List<AbstractWeaponType> moddedWeapons = new ArrayList<>();
 	
 	public static Map<AbstractWeaponType, String> weaponToIdMap = new HashMap<>();
@@ -1037,6 +833,15 @@ public class WeaponType {
 	
 	public static AbstractWeaponType getWeaponTypeFromId(String id) {
 //		System.out.print("ID: "+id);
+		if(id.equals("OFFHAND_BUCKLER")) {
+			id = "innoxia_buckler_buckler";
+		}
+		if(id.equals("MAIN_WESTERN_KKP")) {	
+			id = "innoxia_western_kkp_western_kkp";
+		}
+		if(id.equals("MELEE_KNIGHTLY_SWORD")) {	
+			id = "innoxia_european_swords_arming_sword";
+		}
 		id = Util.getClosestStringMatch(id, idToWeaponMap.keySet());
 //		System.out.println("  set to: "+id);
 		return idToWeaponMap.get(id);
@@ -1047,8 +852,7 @@ public class WeaponType {
 	}
 
 	static {
-		
-		// Load in modded clothing:
+		// Load in modded weapons:
 		moddedWeapons = new ArrayList<>();
 		File dir = new File("res/mods");
 		
@@ -1066,10 +870,9 @@ public class WeaponType {
 								if (innerDirectoryListing != null) {
 									for (File innerChild : innerDirectoryListing) {
 										try {
-											AbstractWeaponType ct = new AbstractWeaponType(innerChild) {};
-											moddedWeapons.add(ct);
 											String id = modAuthorDirectory.getName()+"_"+innerChild.getParentFile().getName()+"_"+innerChild.getName().split("\\.")[0];
-//													System.out.println(id);
+											AbstractWeaponType ct = new AbstractWeaponType(innerChild, modAuthorDirectory.getName()) {};
+											moddedWeapons.add(ct);
 											weaponToIdMap.put(ct, id);
 											idToWeaponMap.put(id, ct);
 										} catch(Exception ex) {
@@ -1084,7 +887,7 @@ public class WeaponType {
 			}
 		}
 		
-		allweapons.addAll(moddedWeapons);
+		allWeapons.addAll(moddedWeapons);
 		
 		
 		// Add in external res clothing:
@@ -1102,10 +905,9 @@ public class WeaponType {
 								if (innerDirectoryListing != null) {
 									for (File innerChild : innerDirectoryListing) {
 										try {
-											AbstractWeaponType ct = new AbstractWeaponType(innerChild) {};
-											allweapons.add(ct);
 											String id = authorDirectory.getName()+"_"+innerChild.getParentFile().getName()+"_"+innerChild.getName().split("\\.")[0];
-		//											System.out.println(id);
+											AbstractWeaponType ct = new AbstractWeaponType(innerChild, authorDirectory.getName()) {};
+											allWeapons.add(ct);
 											weaponToIdMap.put(ct, id);
 											idToWeaponMap.put(id, ct);
 										} catch(Exception ex) {
@@ -1135,7 +937,7 @@ public class WeaponType {
 					weaponToIdMap.put(weapon, f.getName());
 					idToWeaponMap.put(f.getName(), weapon);
 					
-					allweapons.add(weapon);
+					allWeapons.add(weapon);
 				
 					if (weapon.getRarity() == Rarity.RARE) {
 						rareWeapons.add(weapon);
@@ -1148,7 +950,7 @@ public class WeaponType {
 		}
 	}
 
-	public static List<AbstractWeaponType> getAllweapons() {
-		return allweapons;
+	public static List<AbstractWeaponType> getAllWeapons() {
+		return allWeapons;
 	}
 }

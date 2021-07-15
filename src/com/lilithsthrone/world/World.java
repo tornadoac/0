@@ -12,7 +12,9 @@ import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Vector2i;
 import com.lilithsthrone.utils.XMLSaving;
+import com.lilithsthrone.world.places.AbstractPlaceType;
 import com.lilithsthrone.world.places.PlaceType;
+import com.lilithsthrone.world.places.PlaceUpgrade;
 
 /**
  * @since 0.1.0
@@ -21,7 +23,8 @@ import com.lilithsthrone.world.places.PlaceType;
  */
 public class World implements XMLSaving {
 
-	public final int WORLD_WIDTH, WORLD_HEIGHT;
+	public final int WORLD_WIDTH;
+	public final int WORLD_HEIGHT;
 	public static final int CELL_SIZE = 64;
 	
 	private Cell[][] grid;
@@ -48,7 +51,7 @@ public class World implements XMLSaving {
 		element.appendChild(innerElement);
 		for(int i=0; i<grid.length; i++) {
 			for(int j=0; j<grid[0].length; j++) {
-				if(grid[i][j].getPlace().getPlaceType()!=PlaceType.GENERIC_IMPASSABLE) {
+				if(!grid[i][j].getPlace().getPlaceType().equals(PlaceType.GENERIC_IMPASSABLE)) {
 					grid[i][j].saveAsXML(innerElement, doc);
 				}
 			}
@@ -80,7 +83,7 @@ public class World implements XMLSaving {
 		for(int i = 0; i < cells.getLength(); i++){
 			Element e = (Element) cells.item(i);
 			
-			Cell c = Cell.loadFromXML(e, doc);
+			Cell c = Cell.loadFromXML(e, doc, type);
 			newGrid[c.getLocation().getX()][c.getLocation().getY()] = c;
 		}
 		
@@ -104,10 +107,10 @@ public class World implements XMLSaving {
 	}
 	
 	/**
-	 * @param place The PlaceType to find a Cell of.
+	 * @param place The AbstractPlaceType to find a Cell of.
 	 * @return A Cell of the PlaceType defined by the argument 'place'. If there are multiple Cells with the same PlaceType, the first one that is found is returned.
 	 */
-	public Cell getCell(PlaceType place) {
+	public Cell getCell(AbstractPlaceType place) {
 		for(int i=0; i<grid.length; i++) {
 			for(int j=0; j<grid[0].length; j++) {
 				if(grid[i][j].getPlace().getPlaceType().equals(place)) {
@@ -117,8 +120,44 @@ public class World implements XMLSaving {
 		}
 		return null;
 	}
+
+	/**
+	 * @param place The AbstractPlaceType to find all Cells of.
+	 * @return A List of Cells of the PlaceType defined by the argument 'place'.
+	 */
+	public List<Cell> getCells(AbstractPlaceType place) {
+		List<Cell> cellsFound = new ArrayList<>();
+		
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				if(grid[i][j].getPlace().getPlaceType().equals(place)) {
+					cellsFound.add(grid[i][j]);
+				}
+			}
+		}
+		
+		return cellsFound;
+	}
+
+	/**
+	 * @param place The PlaceUpgrade to find all Cells of.
+	 * @return A List of Cells which have the specified upgrade.
+	 */
+	public List<Cell> getCells(PlaceUpgrade placeUpgrade) {
+		List<Cell> cellsFound = new ArrayList<>();
+		
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				if(grid[i][j].getPlace().getPlaceUpgrades().contains(placeUpgrade)) {
+					cellsFound.add(grid[i][j]);
+				}
+			}
+		}
+		
+		return cellsFound;
+	}
 	
-	public Cell getClosestCell(Vector2i location, PlaceType place) {
+	public Cell getClosestCell(Vector2i location, AbstractPlaceType place) {
 		float distance = 10000f;
 		Cell closestCell = null;
 		for(int i=0; i<grid.length; i++) {
@@ -139,7 +178,7 @@ public class World implements XMLSaving {
 	 * @param place The PlaceType to find a Cell of.
 	 * @return A random, unoccupied Cell of the PlaceType defined by the argument 'place'. If there are no unoccupied Cells with this PlaceType, a random occupied one is returned instead.
 	 */
-	public Cell getRandomUnoccupiedCell(PlaceType place) {
+	public Cell getRandomUnoccupiedCell(AbstractPlaceType place) {
 		List<Cell> cells = new ArrayList<>();
 		for(int i=0; i<grid.length; i++) {
 			for(int j=0; j<grid[0].length; j++) {
@@ -149,7 +188,9 @@ public class World implements XMLSaving {
 			}
 		}
 		if(cells.isEmpty()) {
-			System.err.println("World.getRandomUnoccupiedCell() - No unoccupied cells found, occupied one returned instead.");
+//			if(Main.DEBUG) {
+//				System.err.println("World.getRandomUnoccupiedCell() - No unoccupied cells found, occupied one returned instead.");
+//			}
 			return getRandomCell(place);
 		}
 		return cells.get(Util.random.nextInt(cells.size()));
@@ -159,7 +200,7 @@ public class World implements XMLSaving {
 	 * @param place The PlaceType to find a Cell of.
 	 * @return A Cell of the PlaceType defined by the argument 'place'. If there are multiple Cells with the same PlaceType, a random one is returned.
 	 */
-	public Cell getRandomCell(PlaceType place) {
+	public Cell getRandomCell(AbstractPlaceType place) {
 		List<Cell> corridorCells = new ArrayList<>();
 		for(int i=0; i<grid.length; i++) {
 			for(int j=0; j<grid[0].length; j++) {
@@ -175,7 +216,7 @@ public class World implements XMLSaving {
 		return corridorCells.get(Util.random.nextInt(corridorCells.size()));
 	}
 	
-	public Cell getNearestCell(PlaceType place, Vector2i startLocation) {
+	public Cell getNearestCell(AbstractPlaceType place, Vector2i startLocation) {
 		Cell nearestCell = null;
 		float closestDistance = 10000f;
 		

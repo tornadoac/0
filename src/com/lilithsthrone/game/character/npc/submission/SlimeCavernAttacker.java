@@ -1,30 +1,28 @@
 package com.lilithsthrone.game.character.npc.submission;
 
 import java.time.Month;
+import java.util.List;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.lilithsthrone.game.character.CharacterImportSetting;
 import com.lilithsthrone.game.character.CharacterUtils;
-import com.lilithsthrone.game.character.attributes.Attribute;
+import com.lilithsthrone.game.character.EquipClothingSetting;
 import com.lilithsthrone.game.character.body.valueEnums.BodyMaterial;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.Name;
-import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.RacialBody;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.dialogue.DialogueNode;
-import com.lilithsthrone.game.dialogue.npcDialogue.SlaveDialogue;
-import com.lilithsthrone.game.dialogue.npcDialogue.submission.BatCavernAttackerDialogue;
-import com.lilithsthrone.game.dialogue.npcDialogue.submission.BatCavernBatAttackerDialogue;
-import com.lilithsthrone.game.dialogue.npcDialogue.submission.BatCavernSlimeAttackerDialogue;
-import com.lilithsthrone.game.dialogue.npcDialogue.submission.TunnelAttackDialogue;
+import com.lilithsthrone.game.dialogue.companions.SlaveDialogue;
+import com.lilithsthrone.game.dialogue.npcDialogue.submission.BatCavernDialogue;
 import com.lilithsthrone.game.dialogue.responses.Response;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.CharacterInventory;
+import com.lilithsthrone.game.inventory.clothing.OutfitType;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
@@ -34,7 +32,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.2.3
- * @version 0.3.1
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public class SlimeCavernAttacker extends NPC {
@@ -65,7 +63,7 @@ public class SlimeCavernAttacker extends NPC {
 			
 			// RACE & NAME:
 			
-			this.setBody(gender, Subspecies.SLIME, RaceStage.GREATER);
+			this.setBody(gender, Subspecies.SLIME, RaceStage.GREATER, false);
 			
 			setSexualOrientation(RacialBody.valueOfRace(this.getRace()).getSexualOrientation(gender));
 	
@@ -92,19 +90,20 @@ public class SlimeCavernAttacker extends NPC {
 			inventory.setMoney(50 + Util.random.nextInt(getLevel()*10) + 1);
 			CharacterUtils.generateItemsInInventory(this);
 	
-			equipClothing(true, true, true, true);
+			equipClothing(EquipClothingSetting.getAllClothingSettings());
 			CharacterUtils.applyMakeup(this, true);
 			
 			// Set starting attributes based on the character's race
-			initAttributes();
+			initPerkTreeAndBackgroundPerks();
+			this.setStartingCombatMoves();
+			loadImages();
 			
 			this.useItem(AbstractItemType.generateItem(ItemType.MUSHROOM), this, false);
-			
-			setMana(getAttributeValue(Attribute.MANA_MAXIMUM));
-			setHealth(getAttributeValue(Attribute.HEALTH_MAXIMUM));
+
+			initHealthAndManaToMax();
 		}
 
-		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE);
+		this.setEnslavementDialogue(SlaveDialogue.DEFAULT_ENSLAVEMENT_DIALOGUE, true);
 	}
 	
 	@Override
@@ -118,8 +117,12 @@ public class SlimeCavernAttacker extends NPC {
 	}
 
 	@Override
-	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
-		super.equipClothing(replaceUnsuitableClothing, addWeapons, addScarsAndTattoos, addAccessories); //TODO - add unique outfit type
+	public void equipClothing(List<EquipClothingSetting> settings) {
+		this.incrementMoney((int) (this.getInventory().getNonEquippedValue() * 0.5f));
+		this.clearNonEquippedInventory(false);
+		CharacterUtils.generateItemsInInventory(this);
+
+		CharacterUtils.equipClothingFromOutfitType(this, OutfitType.CASUAL, settings); //TODO
 	}
 	
 	@Override
@@ -169,41 +172,17 @@ public class SlimeCavernAttacker extends NPC {
 	
 	@Override
 	public DialogueNode getEncounterDialogue() {
-		if(this.getBodyMaterial()==BodyMaterial.SLIME) {
-			return BatCavernSlimeAttackerDialogue.SLIME_ATTACK;
-			
-		} if(this.getRace()==Race.BAT_MORPH) {
-			return BatCavernBatAttackerDialogue.BAT_MORPH_ATTACK;
-			
-		} else {
-			return BatCavernAttackerDialogue.ATTACK;
-		}
+		return BatCavernDialogue.CAVERN_ATTACK;
 	}
 
 	// Combat:
 
 	@Override
 	public Response endCombat(boolean applyEffects, boolean victory) {
-		if(this.getBodyMaterial()==BodyMaterial.SLIME) {
-			if (victory) {
-				return new Response("", "", BatCavernSlimeAttackerDialogue.AFTER_COMBAT_VICTORY);
-			} else {
-				return new Response ("", "", BatCavernSlimeAttackerDialogue.AFTER_COMBAT_DEFEAT);
-			}
-			
-		} if(this.getRace()==Race.BAT_MORPH) {
-			if (victory) {
-				return new Response("", "", BatCavernBatAttackerDialogue.AFTER_COMBAT_VICTORY);
-			} else {
-				return new Response ("", "", BatCavernBatAttackerDialogue.AFTER_COMBAT_DEFEAT);
-			}
-			
+		if (victory) {
+			return new Response("", "", BatCavernDialogue.AFTER_COMBAT_VICTORY);
 		} else {
-			if (victory) {
-				return new Response("", "", TunnelAttackDialogue.AFTER_COMBAT_VICTORY);
-			} else {
-				return new Response ("", "", TunnelAttackDialogue.AFTER_COMBAT_DEFEAT);
-			}
+			return new Response ("", "", BatCavernDialogue.AFTER_COMBAT_DEFEAT);
 		}
 	}
 }

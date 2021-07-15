@@ -1,11 +1,14 @@
 package com.lilithsthrone.game.character.quests;
 
-import com.lilithsthrone.game.character.npc.dominion.Lilaya;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import com.lilithsthrone.main.Main;
+import com.lilithsthrone.utils.Units;
 
 /**
  * @since 0.1.0
- * @version 0.3
+ * @version 0.3.4
  * @author Innoxia
  */
 public enum Quest {
@@ -26,8 +29,9 @@ public enum Quest {
 
 		@Override
 		public String getCompletedDescription() {
-			return "Your evening at the museum turned out to be far more eventful than you'd have liked." + " A mysterious demon named Lilith tricked you into being pulled through a magical portal and into a parallel universe."
-					+ " After waking up in the middle of an unfamiliar street, you were saved from a dire situation by the half-demon '" + Main.game.getNpc(Lilaya.class).getName() + "'."
+			return "Your evening at the museum turned out to be far more eventful than you'd have liked."
+					+ " A mysterious demon named Lilith tricked you into being pulled through a magical portal and into a parallel universe."
+					+ " After waking up in the middle of an unfamiliar street, you were saved from a dire situation by the half-demon 'Lilaya'."
 					+ " She seems to be this universe's version of your aunt Lily, and, in return for agreeing to help her with her experiments, she's allowed you to stay at her home.";
 		}
 	},
@@ -45,7 +49,7 @@ public enum Quest {
 
 		@Override
 		public String getCompletedDescription() {
-			return Main.game.getNpc(Lilaya.class).getName() + " ran some more tests on you, but she's unable to progress with her research without the help of her old colleague, Arthur.";
+			return "Lilaya ran some more tests on you, but she's unable to progress with her research without the help of her old colleague, Arthur.";
 		}
 	},
 
@@ -296,7 +300,8 @@ public enum Quest {
 
 		@Override
 		public String getDescription() {
-			return "[siren.Name] told you that you're going to need the help of the youko if you're to defeat the elder lilin pegataur, Lunette."
+			return "[style.italicsMinorBad(This is where the main quest currently ends, but more main quest content will be coming in v0.3.7!)]<br/>"//TODO
+					+ "[siren.Name] told you that you're going to need the help of the youko if you're to defeat the elder lilin pegataur, Lunette."
 					+ " She said that you should find and enlist the help of her old friend, [youkoGuide.name], who worked in her lab back when she was living in her citadel."
 					+ " [youkoGuide.Name] will have returned to the town of Elis, which is the settlement nearest to the Shinrin Forest, the youko's homeland.";
 		}
@@ -352,7 +357,7 @@ public enum Quest {
 
 		@Override
 		public String getDescription() {
-			return "There are a lot of magical items in this new world. You wonder if you can find them all...";
+			return "There are a lot of curious items in this new world. You wonder if you can find them all...";
 		}
 
 		@Override
@@ -549,7 +554,7 @@ public enum Quest {
 		}
 	},
 	
-	RELATIONSHIP_NYAN_STOCK_ISSUES_AGREED_TO_HELP(QuestType.RELATIONSHIP, 10, 0) {
+	RELATIONSHIP_NYAN_STOCK_ISSUES_AGREED_TO_HELP(QuestType.RELATIONSHIP, 10, 50) {
 		@Override
 		public String getName() {
 			return "Confront the suppliers";
@@ -666,7 +671,7 @@ public enum Quest {
 
 		@Override
 		public String getDescription() {
-			return "When you first arrived in Submission, an enforcer informed you of an ongoing situation in the tunnels."
+			return "When you first arrived in Submission, an Enforcer informed you of an ongoing situation in the tunnels."
 					+ " Apparently, there are an increasing number of Slimes who are attacking innocent travellers and transforming them into more Slimes."
 					+ " If you're able to offer any information on where these aggressive Slimes are coming from, you could earn a one-thousand flame reward.";
 		}
@@ -742,7 +747,7 @@ public enum Quest {
 
 		@Override
 		public String getCompletedDescription() {
-			return "You decided to help the Slime Queen with her plans, and agreed to trick the enforcers into believing that she's no longer a threat!";
+			return "You decided to help the Slime Queen with her plans, and agreed to trick the Enforcers into believing that she's no longer a threat!";
 		}
 	},
 	
@@ -760,7 +765,7 @@ public enum Quest {
 		@Override
 		public String getCompletedDescription() {
 			return "You told Claire that the Slime Queen is no longer a threat, and received the twenty-thousand flame reward."
-				+ " With your Queen now safe from enforcer investigation, it's only a matter of time before all of Submission is a Slime paradise!";
+				+ " With your Queen now safe from Enforcer investigation, it's only a matter of time before all of Submission is a Slime paradise!";
 		}
 	},
 	
@@ -829,6 +834,376 @@ public enum Quest {
 		@Override
 		public String getCompletedDescription() {
 			return "You told Claire that the Slime Queen is no longer a threat, and received the twenty-thousand flame reward.";
+		}
+	},
+	
+	
+	// Teleporting:
+	
+	TELEPORTING_START(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Escape from the warehouse";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Having accidentally teleported into the 'SWORD' Enforcer division's storage warehouse, both you and Claire now need to avoid detection and make good your escape.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You and Claire managed to escape from SWORD's warehouse.";
+		}
+	},
+
+	TELEPORTING_CAUGHT(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Endure the stocks";
+		}
+
+		@Override
+		public String getDescription() {
+			if(Main.game.isNonConEnabled()) {
+				return "Having been defeated by the Enforcers inside SWORD's warehouse, you've been sentenced to be locked into the public use stocks at slaver alley. Endure this ordeal until Claire comes to rescue you...";
+			} else {
+				return "Having been defeated by the Enforcers inside SWORD's warehouse, you've been locked into the cells at Enforcer Headquarters. You'll have to wait until Claire comes to rescue you...";
+			}
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			if(Main.game.isNonConEnabled()) {
+				return "Having been defeated by the Enforcers inside SWORD's warehouse, you had to endure being locked into the public use stocks at slaver alley for several hours before Claire turned up to release you.";
+			} else {
+				return "Having been defeated by the Enforcers inside SWORD's warehouse, you had to endure being locked into the cells at Enforcer Headquarters for a couple of hours before Claire turned up to release you.";
+			}
+		}
+	},
+	
+	
+	// Daddy:
+	
+	DADDY_START(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Meeting [daddy.name]";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Rose has asked you to pay [daddy.name] a visit in order to convince [daddy.herHim] to leave Lilaya in peace."
+					+ " ([daddy.He] is only available at [daddy.his] apartment in Demon Home between "+Units.time(LocalTime.of(18, 00))+" and "+Units.time(LocalTime.of(21, 00))+".)";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "At Rose's behest, you met with [daddy.name] at [daddy.her] apartment in Demon Home.";
+		}
+	},
+	
+	DADDY_MEETING(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Dinner with [daddy.name]";
+		}
+
+		@Override
+		public String getDescription() {
+			return "[daddy.Name] is insisting upon explaining [daddy.her] motives over dinner. You're going to have to either accept [daddy.her] offer, or bluntly refuse [daddy.herHim] and insist that [daddy.she] leave Lilaya alone.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You gave [daddy.name] your answer in response to [daddy.her] request to take you out for dinner.";
+		}
+	},
+	
+	DADDY_REFUSED(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "[daddy.Name] denied";
+		}
+
+		@Override
+		public String getDescription() {
+			return "You told [daddy.name] that you aren't at all interested in going out for a meal with [daddy.herHim], and that [daddy.sheIs] never to bother Lilaya again.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You told [daddy.name] that you aren't at all interested in going out for a meal with [daddy.herHim], and that [daddy.sheIs] never to bother Lilaya again.";
+		}
+	},
+	
+	DADDY_REFUSED_2(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "[daddy.Name] denied";
+		}
+
+		@Override
+		public String getDescription() {
+			return "You told [daddy.name] that you aren't interested in convincing Lilaya to meet with [daddy.herHim], and that [daddy.she] should never bother your [lilaya.relation(pc)] again.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You told [daddy.name] that you aren't interested in convincing Lilaya to meet with [daddy.herHim], and that [daddy.she] should never bother your [lilaya.relation(pc)] again.";
+		}
+	},
+	
+	DADDY_ACCEPTED(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Convincing Lilaya";
+		}
+
+		@Override
+		public String getDescription() {
+			return "You agreed to convince Lilaya to meet with [daddy.name] for dinner, and to then help persuade her to ask Lyssieth to meet with [daddy.herHim].";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You convinced Lilaya to meet with [daddy.name] for dinner, on the condition that you go with her. ";
+		}
+	},
+	
+	DADDY_LILAYA_MEETING(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Lilaya's date with [daddy.name]";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Lilaya has agreed to go out for dinner with [daddy.name], so now you just need to accompany her and make sure the evening goes smoothly.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You went with Lilaya to meet [daddy.name] for dinner, and while she had bad news for [daddy.herHim] regarding Lyssieth's romantic preferences, she did seem to like [daddy.herHim] well enough...";
+		}
+	},
+	
+	
+	// Buying Brax:
+	
+	BUYING_BRAX_START(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Perfume collection";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Candi said that she'd consider selling [brax.name] to you, but before she gives you a definite answer, she wants you to go and fetch her order of perfume from the shop 'Succubi's Secrets' in the shopping arcade.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You both paid for and collected Candi's order of perfume from Succubi's Secrets.";
+		}
+	},
+	
+	BUYING_BRAX_DELIVER_PERFUME(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Perfume delivery";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Now that you've collected the bottles of perfume, you need to deliver them to Candi back at the Enforcer headquarters.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You delivered Candi's bottles of perfume to her.";
+		}
+	},
+	
+	BUYING_BRAX_LOLLIPOPS(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Lollipop contraband";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Candi said she'd be willing to sell Brax to you, but she needs to think of how much [brax.sheIs] worth."
+					+ " She said that she'll have a price for you after you've fetched a box of contraband lollipops from the Harpy Nests' Enforcer checkpoint.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You retrieved the lollipops from the Harpy Nests' Enforcer checkpoint.";
+		}
+	},
+	
+	BUYING_BRAX_DELIVER_LOLLIPOPS(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Lollipops for Candi";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Now that the box of contraband lollipops are in your possession, you need to return them to Candi back at the Enforcer headquarters.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You delivered the box of contraband lollipops to Candi, who seemed to pay no attention to the warnings stamped all over it.";
+		}
+	},
+	
+	BUYING_BRAX_LIPSTICK(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "A wolf's weight in lipstick";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Candi said that Brax is far too precious to be sold for mere flames, but she'd be willing to give [brax.herHim] to you in exchange for something just as valuable; a box of limited-edition lipsticks, branded as 'A Hundred Kisses'."
+					+ " Apparently, Candi has discovered the whereabouts of one of the only boxes left for sale, which is at a store in the shopping arcade called 'Ralph's Snacks'.";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You retrieved the box of 'A Hundred Kisses' from Ralph.";
+		}
+	},
+	
+	BUYING_BRAX_DELIVER_LIPSTICK(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "At the wolf's door";
+		}
+
+		@Override
+		public String getDescription() {
+			return "Now that you've secured the box of 'A Hundred Kisses', all that's left to do is deliver it to Candi in exchange for ownership of [brax.name].";
+		}
+
+		@Override
+		public String getCompletedDescription() {
+			return "You handed over the box of 'A Hundred Kisses' to Candi, and finally gained your prize; ownership of [brax.name].";
+		}
+	},
+
+	
+	// Vengar:
+	
+	VENGAR_START(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Rat Warrens";
+		}
+		@Override
+		public String getDescription() {
+			return "You agreed to help Axel deal with Vengar, who's apparently the leader of Submission's largest and most dangerous gang. You could head directly to his hideout, the 'Rat Warrens', or first go and ask Claire for help.";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "By using the password Axel gave to you, you were able to gain entry to Vengar's hideout; the Rat Warrens.";
+		}
+	},
+	
+	VENGAR_ONE(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Meeting Vengar";
+		}
+		@Override
+		public String getDescription() {
+			return "In order to find Vengar, you need to locate the main hall and be there between the hours of "+Units.time(LocalDateTime.of(1, 1, 1, 6, 0))+" and "+Units.time(LocalDateTime.of(1, 1, 1, 22, 0))+".";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "You found Vengar sitting on a throne in the main hall, and after approaching him, you were given the choice to either join his gang, or be set upon by his rat-girl bodyguards.";
+		}
+	},
+	
+	VENGAR_TWO_FIGHT(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Conflict";
+		}
+		@Override
+		public String getDescription() {
+			return "Having chosen to refuse Vengar's offer of joining his gang, you now need to fight your way past his bodyguards and then defeat him in combat in order to assert dominance over his gang.";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "You managed to defeat both Vengar and his bodyguards, allowing you to assert your dominance over his gang.";
+		}
+	},
+	
+	VENGAR_TWO_JOIN(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Joining the Gang";
+		}
+		@Override
+		public String getDescription() {
+			return "Having accepted Vengar's offer to join his gang, you now need to suck his cock to show your submission...";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "You decided to join Vengar's gang, and after sucking his cock to show your submission, you were told to deal with Axel's treachery...";
+		}
+	},
+	
+	VENGAR_TWO_ENFORCERS(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Raid";
+		}
+		@Override
+		public String getDescription() {
+			return "Having confirmed that Vengar is in the Rat Warrens, you've activated the resonance stone, signalling to the waiting SWORD Enforcers to start their raid.";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "The SWORD Enforcers successfully raided the Rat Warrens, and were able to apprehend Vengar.";
+		}
+	},
+	
+	VENGAR_THREE_END(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Return to Axel";
+		}
+		@Override
+		public String getDescription() {
+			return "Now that you've dealt with Vengar, you need to return to Axel and let him know what happened.";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "You returned to Axel and told him what the situation will be from now on.";
+		}
+	},
+
+	VENGAR_OPTIONAL_CLAIRE(QuestType.SIDE, 1, 5) {
+		@Override
+		public String getName() {
+			return "Claire's Help";
+		}
+		@Override
+		public String getDescription() {
+			return "Deciding that it would be best to let Claire know of the situation, you asked her if there was anything the Enforcers could do to help."
+					+ " Apparently, a SWORD team is already prepared to raid the Rat Warrens, but they need to know Vengar is inside before launching their assault."
+					+ " Claire gave you a resonance stone to activate if you want them to back you up once inside.";
+		}
+		@Override
+		public String getCompletedDescription() {
+			return "Deciding that it would be best to let Claire know of the situation, you asked her if there was anything the Enforcers could do to help."
+					+ " Apparently, a SWORD team is already prepared to raid the Rat Warrens, but they need to know Vengar is inside before launching their assault."
+					+ " Claire gave you a resonance stone to activate if you want them to back you up once inside.";
 		}
 	},
 	

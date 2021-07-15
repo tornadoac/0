@@ -8,7 +8,7 @@ import org.w3c.dom.Element;
 
 import com.lilithsthrone.game.Game;
 import com.lilithsthrone.game.character.CharacterImportSetting;
-import com.lilithsthrone.game.character.attributes.Attribute;
+import com.lilithsthrone.game.character.EquipClothingSetting;
 import com.lilithsthrone.game.character.body.Covering;
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
 import com.lilithsthrone.game.character.body.valueEnums.BodyHair;
@@ -16,6 +16,9 @@ import com.lilithsthrone.game.character.body.valueEnums.BodySize;
 import com.lilithsthrone.game.character.body.valueEnums.HairStyle;
 import com.lilithsthrone.game.character.body.valueEnums.Muscle;
 import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
+import com.lilithsthrone.game.character.effects.Perk;
+import com.lilithsthrone.game.character.effects.PerkCategory;
+import com.lilithsthrone.game.character.effects.PerkManager;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.fetishes.FetishDesire;
 import com.lilithsthrone.game.character.gender.Gender;
@@ -23,7 +26,6 @@ import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.NameTriplet;
 import com.lilithsthrone.game.character.persona.Occupation;
 import com.lilithsthrone.game.character.persona.PersonalityTrait;
-import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
@@ -47,7 +49,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.1.99
- * @version 0.3
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public class SupplierLeader extends NPC {
@@ -60,10 +62,8 @@ public class SupplierLeader extends NPC {
 		super(isImported, new NameTriplet("Wolfgang", "Wolfgang", "Winifred"), "Meyer",
 				"Wolfgang is the senior of the two dobermanns who decided to drive out all the clothing suppliers from the Shopping Arcade.",
 				30, Month.DECEMBER, 4,
-				8,
-				Gender.M_P_MALE,
-				Subspecies.DOG_MORPH,
-				RaceStage.GREATER,
+				12,
+				null, null, null,
 				new CharacterInventory(10),
 				WorldType.SUPPLIER_DEN,
 				PlaceType.SUPPLIER_DEPOT_OFFICE,
@@ -79,6 +79,26 @@ public class SupplierLeader extends NPC {
 			resetBodyAfterVersion_2_10_5();
 		}
 		this.setDescription("Wolfgang is the senior of the two dobermanns who decided to drive out all the clothing suppliers from the Shopping Arcade.");
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.3.6")) {
+			this.setLevel(12);
+			this.resetPerksMap(true);
+		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.5.1")) {
+			this.setPersonalityTraits(
+					PersonalityTrait.BRAVE,
+					PersonalityTrait.SELFISH);
+		}
+	}
+
+	@Override
+	public void setupPerks(boolean autoSelectPerks) {
+		this.addSpecialPerk(Perk.SPECIAL_MARTIAL_BACKGROUND);
+		PerkManager.initialisePerks(this,
+				Util.newArrayListOfValues(),
+				Util.newHashMapOfValues(
+						new Value<>(PerkCategory.PHYSICAL, 3),
+						new Value<>(PerkCategory.LUST, 0),
+						new Value<>(PerkCategory.ARCANE, 0)));
 	}
 
 	@Override
@@ -87,16 +107,9 @@ public class SupplierLeader extends NPC {
 		// Persona:
 
 		if(setPersona) {
-			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 35);
-			this.setAttribute(Attribute.MAJOR_ARCANE, 0);
-			this.setAttribute(Attribute.MAJOR_CORRUPTION, 70);
-	
-			this.setPersonality(Util.newHashMapOfValues(
-					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
-					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
-					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
-					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.LOW),
-					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
+			this.setPersonalityTraits(
+					PersonalityTrait.BRAVE,
+					PersonalityTrait.SELFISH);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
@@ -112,7 +125,7 @@ public class SupplierLeader extends NPC {
 		
 		
 		// Body:
-		this.setBody(Gender.M_P_MALE, Subspecies.DOG_MORPH_DOBERMANN, RaceStage.GREATER);
+		this.setBody(Gender.M_P_MALE, Subspecies.DOG_MORPH_DOBERMANN, RaceStage.GREATER, false);
 
 		// Core:
 		this.setHeight(190);
@@ -155,7 +168,7 @@ public class SupplierLeader extends NPC {
 		
 		// Penis:
 		this.setPenisVirgin(false);
-		this.setPenisSize(7);
+		this.setPenisSize(18);
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		this.setPenisCumStorage(65);
 		this.fillCumToMaxStorage();
@@ -169,14 +182,14 @@ public class SupplierLeader extends NPC {
 	}
 	
 	@Override
-	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
+	public void equipClothing(List<EquipClothingSetting> settings) {
 
-		this.unequipAllClothingIntoVoid(true);
+		this.unequipAllClothingIntoVoid(true, true);
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.EYES_AVIATORS, Colour.CLOTHING_GOLD, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_WORK_BOOTS, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_socks", Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_work_boots", Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_JEANS, Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SHORT_SLEEVE_SHIRT, Colour.CLOTHING_BLACK, false), true, this);
 

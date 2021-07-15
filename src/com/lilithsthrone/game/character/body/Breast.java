@@ -14,11 +14,12 @@ import com.lilithsthrone.game.character.body.valueEnums.NippleShape;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Units;
 import com.lilithsthrone.utils.Util;
 
 /**
  * @since 0.1.0
- * @version 0.3.1
+ * @version 0.3.2
  * @author Innoxia
  */
 public class Breast implements BodyPartInterface {
@@ -48,13 +49,13 @@ public class Breast implements BodyPartInterface {
 		this.size = size;
 		this.milkStorage = milkStorage;
 		milkStored = milkStorage;
-		milkRegeneration = FluidRegeneration.ONE_AVERAGE.getValue();
+		milkRegeneration = FluidRegeneration.ONE_AVERAGE.getMedianRegenerationValuePerDay();
 		this.rows = rows;
 		this.nippleCountPerBreast = nippleCountPerBreast;
 		
 		nipples = new Nipples(type.getNippleType(), nippleSize, nippleShape, areolaeSize, Lactation.getLactationFromInt(milkStorage).getAssociatedWetness().getValue(), capacity, elasticity, plasticity, virgin, false);
 		
-		milk = new FluidMilk(type.getFluidType());
+		milk = new FluidMilk(type.getFluidType(), false);
 	}
 	
 	@Override
@@ -139,7 +140,7 @@ public class Breast implements BodyPartInterface {
 	}
 
 	public boolean hasBreasts() {
-		return size>=CupSize.AA.getMeasurement();
+		return size>=CupSize.getMinimumCupSizeForBreasts().getMeasurement();
 	}
 
 	public String setType(GameCharacter owner, AbstractBreastType type) {
@@ -314,9 +315,10 @@ public class Breast implements BodyPartInterface {
 			return UtilText.parse(owner,
 					"<p style='text-align:center;'><i style='color:"+Colour.BASE_YELLOW_LIGHT.toWebHexString()+";'>"
 							+ UtilText.returnStringAtRandom(
-									lactationChange+"ml of [npc.namePos] [npc.milk] squirts out of [npc.her] [npc.nipples+].",
-									lactationChange+"ml of [npc.milk+] leaks out of [npc.namePos] [npc.nipples+].",
-									lactationChange+"ml of [npc.milk+] drips out of [npc.namePos] [npc.nipples+].")
+									Units.fluid(lactationChange, Units.UnitType.LONG)+" of [npc.namePos] [npc.milk] squirts out of [npc.her] [npc.nipples+].",
+									Units.fluid(lactationChange, Units.UnitType.LONG)+" of [npc.milk+] squirts out of [npc.namePos] [npc.nipples+].",
+									Units.fluid(lactationChange, Units.UnitType.LONG)+" of [npc.namePos] [npc.milk] leaks out of [npc.her] [npc.nipples+].",
+									Units.fluid(lactationChange, Units.UnitType.LONG)+" of [npc.milk+] leaks out of [npc.namePos] [npc.nipples+].")
 					+ "</i>"
 					+ (this.milkStored==0
 						?"<br/><i>[npc.Name] now [npc.has] no more [npc.milk] stored in [npc.her] breasts!</i>"
@@ -336,11 +338,11 @@ public class Breast implements BodyPartInterface {
 	}
 
 	/**
-	 * Sets the milkRegeneration. Value is bound to >=0 && <=FluidRegeneration.FOUR_MAXIMUM.getMaximumValue()
+	 * Sets the milkRegeneration. Value is bound to >=0 && <=FluidRegeneration.FOUR_VERY_RAPID.getMaximumRegenerationValuePerDay()
 	 */
 	public String setLactationRegeneration(GameCharacter owner, int milkRegeneration) {
 		int oldRegeneration = this.milkRegeneration;
-		this.milkRegeneration = Math.max(0, Math.min(milkRegeneration, FluidRegeneration.FOUR_MAXIMUM.getValue()));
+		this.milkRegeneration = Math.max(0, Math.min(milkRegeneration, FluidRegeneration.FOUR_VERY_RAPID.getMaximumRegenerationValuePerDay()));
 		int regenerationChange = this.milkRegeneration - oldRegeneration;
 
 		if(owner==null) {

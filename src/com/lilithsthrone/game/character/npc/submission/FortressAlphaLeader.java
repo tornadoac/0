@@ -1,18 +1,15 @@
 package com.lilithsthrone.game.character.npc.submission;
 
 import java.time.Month;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.lilithsthrone.game.Game;
 import com.lilithsthrone.game.character.CharacterImportSetting;
+import com.lilithsthrone.game.character.EquipClothingSetting;
 import com.lilithsthrone.game.character.GameCharacter;
-import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.character.body.Covering;
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
 import com.lilithsthrone.game.character.body.types.HornType;
@@ -40,6 +37,9 @@ import com.lilithsthrone.game.character.body.valueEnums.PenisGirth;
 import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
 import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
+import com.lilithsthrone.game.character.effects.Perk;
+import com.lilithsthrone.game.character.effects.PerkCategory;
+import com.lilithsthrone.game.character.effects.PerkManager;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.fetishes.FetishDesire;
 import com.lilithsthrone.game.character.gender.Gender;
@@ -51,11 +51,10 @@ import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.NameTriplet;
 import com.lilithsthrone.game.character.persona.Occupation;
 import com.lilithsthrone.game.character.persona.PersonalityTrait;
-import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
-import com.lilithsthrone.game.combat.Attack;
+import com.lilithsthrone.game.combat.CombatBehaviour;
 import com.lilithsthrone.game.combat.DamageType;
 import com.lilithsthrone.game.dialogue.DialogueNode;
 import com.lilithsthrone.game.dialogue.places.submission.impFortress.ImpFortressDialogue;
@@ -77,7 +76,7 @@ import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.game.sex.SexParticipantType;
 import com.lilithsthrone.game.sex.SexType;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotStanding;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.game.sex.sexActions.submission.FortressAlphaLeaderSA;
 import com.lilithsthrone.main.Main;
@@ -89,7 +88,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.2.11
- * @version 0.2.11
+ * @version 0.3.4
  * @author Innoxia
  */
 public class FortressAlphaLeader extends NPC {
@@ -115,7 +114,7 @@ public class FortressAlphaLeader extends NPC {
 		loadNPCVariablesFromXML(this, null, parentElement, doc, settings);
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.11.8")) {
 			setStartingBody(true);
-			equipClothing(true, true, true, true);
+			equipClothing(EquipClothingSetting.getAllClothingSettings());
 		}
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.12")) {
 			AbstractClothing jacket = this.getClothingInSlot(InventorySlot.TORSO_OVER);
@@ -126,6 +125,28 @@ public class FortressAlphaLeader extends NPC {
 				}
 			}
 		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.3.6")) {
+			this.resetPerksMap(true);
+		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.4.5")) {
+			this.setCombatBehaviour(CombatBehaviour.ATTACK);
+		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.5.1")) {
+			this.setPersonalityTraits(
+					PersonalityTrait.SELFISH,
+					PersonalityTrait.BRAVE);
+		}
+	}
+
+	@Override
+	public void setupPerks(boolean autoSelectPerks) {
+		this.addSpecialPerk(Perk.SPECIAL_MARTIAL_BACKGROUND);
+		PerkManager.initialisePerks(this,
+				Util.newArrayListOfValues(Perk.UNARMED_DAMAGE),
+				Util.newHashMapOfValues(
+						new Value<>(PerkCategory.PHYSICAL, 5),
+						new Value<>(PerkCategory.LUST, 1),
+						new Value<>(PerkCategory.ARCANE, 0)));
 	}
 	
 	@Override
@@ -134,16 +155,11 @@ public class FortressAlphaLeader extends NPC {
 		// Persona:
 		
 		if(setPersona) {
-			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 40);
-			this.setAttribute(Attribute.MAJOR_ARCANE, 20);
-			this.setAttribute(Attribute.MAJOR_CORRUPTION, 100);
-			
-			this.setPersonality(Util.newHashMapOfValues(
-					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.LOW),
-					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
-					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.HIGH),
-					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
-					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
+			this.setCombatBehaviour(CombatBehaviour.ATTACK);
+
+			this.setPersonalityTraits(
+					PersonalityTrait.SELFISH,
+					PersonalityTrait.BRAVE);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
@@ -226,7 +242,7 @@ public class FortressAlphaLeader extends NPC {
 		// Penis:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.THREE_THICK);
-		this.setPenisSize(10);
+		this.setPenisSize(25);
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		this.setPenisCumStorage(250);
 		this.fillCumToMaxStorage();
@@ -246,21 +262,21 @@ public class FortressAlphaLeader extends NPC {
 	}
 	
 	@Override
-	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
+	public void equipClothing(List<EquipClothingSetting> settings) {
 		
-		this.unequipAllClothingIntoVoid(true);
+		this.unequipAllClothingIntoVoid(true, true);
 		
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_SARASHI, Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_socks", Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_leg_distressed_jeans"), Colour.CLOTHING_BLACK, Colour.CLOTHING_GREY, Colour.CLOTHING_BRASS, false), true, this);
 		AbstractClothing jacket = AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_WOMENS_LEATHER_JACKET, Colour.CLOTHING_BLACK, false);
 		this.equipClothingFromNowhere(jacket, true, this);
-		this.isAbleToBeDisplaced(jacket, DisplacementType.UNZIPS, true, true, this);
+		this.isAbleToBeDisplaced(this.getClothingInSlot(ClothingType.TORSO_OVER_WOMENS_LEATHER_JACKET.getEquipSlots().get(0)), DisplacementType.UNZIPS, true, true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.getClothingTypeFromId("innoxia_foot_goth_boots_fem"), false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.HAND_FINGERLESS_GLOVES, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_hand_fishnet_gloves", Colour.CLOTHING_BLACK, false), true, this);
 		
-		if(addAccessories) {
+		if(settings.contains(EquipClothingSetting.ADD_ACCESSORIES)) {
 			this.setPiercedEar(true);
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_BASIC_RING, Colour.CLOTHING_SILVER, false), true, this);
 			this.setPiercedLip(true);
@@ -279,12 +295,12 @@ public class FortressAlphaLeader extends NPC {
 			this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_VAGINA_BARBELL_RING, Colour.CLOTHING_SILVER, false), true, this);
 		}
 		
-		if(addWeapons) {
+		if(settings.contains(EquipClothingSetting.ADD_WEAPONS)) {
 			this.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_knuckleDusters_knuckle_dusters"), DamageType.PHYSICAL));
 			this.equipOffhandWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_knuckleDusters_knuckle_dusters"), DamageType.POISON));
 		}
 		
-		if(addScarsAndTattoos) {
+		if(settings.contains(EquipClothingSetting.ADD_TATTOOS)) {
 			this.clearTattoosAndScars();
 			
 			Tattoo tat = new Tattoo(
@@ -395,7 +411,7 @@ public class FortressAlphaLeader extends NPC {
 
 	@Override
 	public SexType getForeplayPreference(GameCharacter target) {
-		if(Sex.getSexPositionSlot(this)==SexSlotBipeds.KNEELING_RECEIVING_ORAL && this.hasPenis()) {
+		if(Sex.getSexPositionSlot(this)==SexSlotStanding.STANDING_DOMINANT && this.hasPenis()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.MOUTH);
 		}
 		
@@ -404,7 +420,7 @@ public class FortressAlphaLeader extends NPC {
 
 	@Override
 	public SexType getMainSexPreference(GameCharacter target) {
-		if(Sex.getSexPositionSlot(this)==SexSlotBipeds.KNEELING_RECEIVING_ORAL && this.hasPenis()) {
+		if(Sex.getSexPositionSlot(this)==SexSlotStanding.STANDING_DOMINANT && this.hasPenis()) {
 			return new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, SexAreaOrifice.MOUTH);
 		}
 
@@ -423,27 +439,9 @@ public class FortressAlphaLeader extends NPC {
 		return 0;
 	}
 
-	public Attack attackType() {
-		Map<Attack, Integer> attackWeightingMap = new HashMap<>();
-
-		attackWeightingMap.put(Attack.MAIN, 100);
-		attackWeightingMap.put(Attack.OFFHAND, 25);
-		
-		int total = 0;
-		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
-			total+=entry.getValue();
-		}
-		
-		int index = Util.random.nextInt(total);
-		total = 0;
-		for(Entry<Attack, Integer> entry : attackWeightingMap.entrySet()) {
-			total+=entry.getValue();
-			if(index<total) {
-				return entry.getKey();
-			}
-		}
-		
-		return Attack.MAIN;
+	@Override
+	public CombatBehaviour getCombatBehaviour() {
+		return CombatBehaviour.ATTACK;
 	}
 	
 	@Override
@@ -452,7 +450,7 @@ public class FortressAlphaLeader extends NPC {
 			return new Response("", "", ImpFortressDialogue.KEEP_AFTER_COMBAT_VICTORY) {
 				@Override
 				public void effects() {
-					if(!Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY)) {
+					if(!Main.game.getPlayer().hasItemType(ItemType.IMP_FORTRESS_ARCANE_KEY) && !Main.game.getPlayer().hasClothingType(ClothingType.getClothingTypeFromId("innoxia_neck_key_chain"), true)) {
 						Main.game.getTextEndStringBuilder().append(
 								UtilText.parseFromXMLFile("places/submission/fortress"+ImpFortressDialogue.getDialogueEncounterId(), "KEEP_AFTER_COMBAT_VICTORY_KEY", ImpFortressDialogue.getAllCharacters()));
 						Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(AbstractItemType.generateItem(ItemType.IMP_FORTRESS_ARCANE_KEY), false));

@@ -15,8 +15,8 @@ import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaOrifice;
 import com.lilithsthrone.game.sex.SexAreaPenetration;
 import com.lilithsthrone.game.sex.SexParticipantType;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotMasturbation;
 import com.lilithsthrone.game.sex.sexActions.SexAction;
-import com.lilithsthrone.game.sex.sexActions.SexActionLimitation;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
 import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.GenericOrgasms;
 import com.lilithsthrone.main.Main;
@@ -37,9 +37,10 @@ public class MasturbationPanties {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaOrifice.VAGINA)),
 			SexParticipantType.SELF) {
+
 		@Override
-		public SexActionLimitation getLimitation() {
-			return SexActionLimitation.PLAYER_ONLY;
+		public boolean isBaseRequirementsMet() {
+			return Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotMasturbation.KNEELING_PANTIES;
 		}
 		
 		@Override
@@ -64,7 +65,7 @@ public class MasturbationPanties {
 		@Override
 		public String applyEffectsString() {
 			if(!LilayasRoom.lilayasPanties.isDirty() && Sex.hasLubricationTypeFromAnyone(Main.game.getPlayer(), SexAreaOrifice.VAGINA)) {
-				LilayasRoom.lilayasPanties.setDirty(true);
+				LilayasRoom.lilayasPanties.setDirty(null, true);
 				return "<p style='text-align:center'>"
 							+ "[style.italicsDirty(Lilaya's panties are quickly dirtied as you rub them against your wet pussy.)]"
 						+ "</p>";
@@ -92,9 +93,10 @@ public class MasturbationPanties {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, SexAreaPenetration.PENIS)),
 			SexParticipantType.SELF) {
+
 		@Override
-		public SexActionLimitation getLimitation() {
-			return SexActionLimitation.PLAYER_ONLY;
+		public boolean isBaseRequirementsMet() {
+			return Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotMasturbation.KNEELING_PANTIES;
 		}
 		
 		@Override
@@ -119,7 +121,7 @@ public class MasturbationPanties {
 		@Override
 		public String applyEffectsString() {
 			if(!LilayasRoom.lilayasPanties.isDirty() && Sex.hasLubricationTypeFromAnyone(Main.game.getPlayer(), SexAreaPenetration.PENIS)) {
-				LilayasRoom.lilayasPanties.setDirty(true);
+				LilayasRoom.lilayasPanties.setDirty(null, true);
 				return "<p style='text-align:center'>"
 							+ "[style.italicsDirty(Lilaya's panties are quickly dirtied as you rub them over your cock.)]"
 						+ "</p>";
@@ -146,14 +148,11 @@ public class MasturbationPanties {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, null)),
 			SexParticipantType.SELF) {
-		@Override
-		public SexActionLimitation getLimitation() {
-			return SexActionLimitation.PLAYER_ONLY;
-		}
 
 		@Override
 		public boolean isBaseRequirementsMet() {
-			return !Main.game.getPlayer().hasPenis()
+			return Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotMasturbation.KNEELING_PANTIES
+					&& !Main.game.getPlayer().hasPenis()
 					&& !Main.game.getPlayer().hasVagina();
 		}
 		
@@ -193,9 +192,10 @@ public class MasturbationPanties {
 			CorruptionLevel.ZERO_PURE,
 			Util.newHashMapOfValues(new Value<>(SexAreaPenetration.FINGER, null)),
 			SexParticipantType.SELF) {
+
 		@Override
-		public SexActionLimitation getLimitation() {
-			return SexActionLimitation.PLAYER_ONLY;
+		public boolean isBaseRequirementsMet() {
+			return Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotMasturbation.KNEELING_PANTIES;
 		}
 
 		@Override
@@ -236,27 +236,33 @@ public class MasturbationPanties {
 			CorruptionLevel.ZERO_PURE,
 			null,
 			SexParticipantType.SELF) {
-		@Override
-		public SexActionLimitation getLimitation() {
-			return SexActionLimitation.PLAYER_ONLY;
-		}
+
 		@Override
 		public String getActionTitle() {
-			return "Cum in panties";
+			if(Main.game.getPlayer().hasPenisIgnoreDildo()) {
+				return "Cum in panties";
+			}
+			return "Panties focus";
 		}
 
 		@Override
 		public String getActionDescription() {
-			return "You've reached your climax, and can't hold back your orgasm any longer. Cum straight into Lilaya's panties.";
+			if(Main.game.getPlayer().hasPenisIgnoreDildo()) {
+				return "You've reached your climax, and can't hold back your orgasm any longer. Cum straight into Lilaya's panties.";
+			}
+			return "You've reached your climax, and can't hold back your orgasm any longer. Focus on Lilaya's panties and sniff them as you climax.";
 		}
 
 		@Override
 		public boolean isBaseRequirementsMet() {
-			return (Main.game.getPlayer().hasPenisIgnoreDildo()
+			return Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotMasturbation.KNEELING_PANTIES
+					&& ((Main.game.getPlayer().hasPenisIgnoreDildo()
 						&& Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.PENIS)
+						&& SexAreaPenetration.PENIS.isFree(Main.game.getPlayer())
 						&& !Main.game.getPlayer().isWearingCondom())
 					|| (Main.game.getPlayer().hasVagina()
-						&& Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.VAGINA));
+						&& SexAreaOrifice.VAGINA.isFree(Main.game.getPlayer())
+						&& Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.VAGINA)));
 		}
 
 		@Override
@@ -269,7 +275,7 @@ public class MasturbationPanties {
 			if (!Main.game.getPlayer().isCoverableAreaExposed(CoverableArea.PENIS)
 					&& !Main.game.getPlayer().isWearingCondom()
 					&& Main.game.getPlayer().getPenisOrgasmCumQuantity() != CumProduction.ZERO_NONE) {
-				Main.game.getPlayer().getLowestZLayerCoverableArea(CoverableArea.PENIS).setDirty(true);
+				Main.game.getPlayer().getLowestZLayerCoverableArea(CoverableArea.PENIS).setDirty(Main.game.getPlayer(), true);
 			}
 		}
 	};

@@ -9,8 +9,8 @@ import org.w3c.dom.Element;
 
 import com.lilithsthrone.game.Game;
 import com.lilithsthrone.game.character.CharacterImportSetting;
+import com.lilithsthrone.game.character.EquipClothingSetting;
 import com.lilithsthrone.game.character.GameCharacter;
-import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.character.body.Covering;
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
 import com.lilithsthrone.game.character.body.types.HornType;
@@ -40,6 +40,9 @@ import com.lilithsthrone.game.character.body.valueEnums.TesticleSize;
 import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
 import com.lilithsthrone.game.character.body.valueEnums.WingSize;
+import com.lilithsthrone.game.character.effects.Perk;
+import com.lilithsthrone.game.character.effects.PerkCategory;
+import com.lilithsthrone.game.character.effects.PerkManager;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.gender.Gender;
 import com.lilithsthrone.game.character.markings.Tattoo;
@@ -50,7 +53,6 @@ import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.NameTriplet;
 import com.lilithsthrone.game.character.persona.Occupation;
 import com.lilithsthrone.game.character.persona.PersonalityTrait;
-import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
@@ -99,7 +101,7 @@ public class Kate extends NPC {
 				new CharacterInventory(10), WorldType.SHOPPING_ARCADE, PlaceType.SHOPPING_ARCADE_KATES_SHOP, true);
 		
 		if(!isImported) {
-			dailyReset();
+			dailyUpdate();
 		}
 	}
 	
@@ -114,6 +116,25 @@ public class Kate extends NPC {
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.11")) {
 			this.setAgeAppearanceDifferenceToAppearAsAge(28);
 		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.3.6")) {
+			this.resetPerksMap(true);
+		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.5.1")) {
+			this.setPersonalityTraits(
+					PersonalityTrait.SELFISH,
+					PersonalityTrait.LEWD);
+		}
+	}
+
+	@Override
+	public void setupPerks(boolean autoSelectPerks) {
+		this.addSpecialPerk(Perk.SPECIAL_ARCANE_TATTOOIST);
+		PerkManager.initialisePerks(this,
+				Util.newArrayListOfValues(),
+				Util.newHashMapOfValues(
+						new Value<>(PerkCategory.PHYSICAL, 0),
+						new Value<>(PerkCategory.LUST, 5),
+						new Value<>(PerkCategory.ARCANE, 0)));
 	}
 
 	@Override
@@ -122,16 +143,9 @@ public class Kate extends NPC {
 		// Persona:
 
 		if(setPersona) {
-			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 30);
-			this.setAttribute(Attribute.MAJOR_ARCANE, 50);
-			this.setAttribute(Attribute.MAJOR_CORRUPTION, 90);
-	
-			this.setPersonality(Util.newHashMapOfValues(
-					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.AVERAGE),
-					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.LOW),
-					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
-					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.AVERAGE),
-					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.HIGH)));
+			this.setPersonalityTraits(
+					PersonalityTrait.SELFISH,
+					PersonalityTrait.LEWD);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
@@ -257,7 +271,7 @@ public class Kate extends NPC {
 		// (For when she grows one)
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.THREE_THICK);
-		this.setPenisSize(6);
+		this.setPenisSize(15);
 //		this.setInternalTesticles(true); Use player preferences
 		this.setTesticleSize(TesticleSize.THREE_LARGE);
 		this.setPenisCumStorage(150);
@@ -278,9 +292,9 @@ public class Kate extends NPC {
 	}
 	
 	@Override
-	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
+	public void equipClothing(List<EquipClothingSetting> settings) {
 
-		this.unequipAllClothingIntoVoid(true);
+		this.unequipAllClothingIntoVoid(true, true);
 
 		this.setMoney(10);
 
@@ -288,8 +302,8 @@ public class Kate extends NPC {
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_MICRO_SKIRT_BELTED, Colour.CLOTHING_BLACK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_CAMITOP_STRAPS, Colour.CLOTHING_PINK, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OVER_WOMENS_LEATHER_JACKET, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_FISHNET_STOCKINGS, Colour.CLOTHING_BLACK, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_fishnets", Colour.CLOTHING_BLACK, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_heels", Colour.CLOTHING_BLACK, false), true, this);
 
 		this.setPiercedEar(true);
 		this.setPiercedNavel(true);
@@ -304,13 +318,13 @@ public class Kate extends NPC {
 	}
 	
 	@Override
-	public void dailyReset() {
-		clearNonEquippedInventory();
+	public void dailyUpdate() {
+		clearNonEquippedInventory(false);
 		
 		List<AbstractClothing> clothingToSell = new ArrayList<>();
 		
 		for(AbstractClothingType clothing : ClothingType.getAllClothing()) {
-			if(clothing.getItemTags().contains(ItemTag.SOLD_BY_KATE)) {
+			if(clothing.getDefaultItemTags().contains(ItemTag.SOLD_BY_KATE)) {
 				clothingToSell.add(AbstractClothingType.generateClothing(clothing, false));
 			}
 		}
@@ -322,25 +336,39 @@ public class Kate extends NPC {
 		}
 	}
 	
+	@Override
+	public void turnUpdate() {
+		if(!Main.game.getCharactersPresent().contains(this)) {
+			if(Main.game.isExtendedWorkTime()) {
+				this.returnToHome();
+			} else {
+				this.setLocation(WorldType.EMPTY, PlaceType.GENERIC_HOLDING_CELL, false);
+			}
+		}
+	}
+	
 	/**
 	 * Adds four uncommon clothing items to the list, and two rare items.
 	 */
-	private static void addEnchantedClothing(List<AbstractClothing> clothingList) {
+	private void addEnchantedClothing(List<AbstractClothing> clothingList) {
 		List<AbstractClothingType> typesToAdd = new ArrayList<>();
+		List<AbstractClothing> generatedClothing = new ArrayList<>();
+		
 		for(int i=0;i<6;i++) {
 			typesToAdd.add(Util.randomItemFrom(clothingList).getClothingType());
 		}
 		
 		for(int i=0; i<typesToAdd.size(); i++) {
 			if(i>=typesToAdd.size()-2) {
-				clothingList.add(AbstractClothingType.generateRareClothing(typesToAdd.get(i)));
+				generatedClothing.add(AbstractClothingType.generateRareClothing(typesToAdd.get(i)));
 			} else {
-				clothingList.add(AbstractClothingType.generateClothingWithEnchantment(typesToAdd.get(i)));
+				generatedClothing.add(AbstractClothingType.generateClothingWithEnchantment(typesToAdd.get(i)));
 			}
 		}
 
-		for(AbstractClothing c : clothingList) {
-			c.setEnchantmentKnown(true);
+		for(AbstractClothing c : generatedClothing) {
+			c.setEnchantmentKnown(this, true);
+			clothingList.add(c);
 		}
 	}
 	
@@ -386,7 +414,7 @@ public class Kate extends NPC {
 					+ "Quickly sorting your own clothes back into position, you watch as Kate does the same."
 					+ " Standing up, she wipes herself clean with a tissue she's produced from somewhere, before flattening down her mini skirt and turning to smile at you."
 					+ " She seems to have got her lust fully under control by now, and as she speaks, she sounds almost embarrassed of what just happened, "
-					+ UtilText.parseSpeech("Ehhh, thanks for helping me out there... You know, it's pretty hard for us demons sometimes... Anyway! What are you even doing in here?"
+					+ UtilText.parseSpeech("Mmm, thanks for helping me out there... You know, it's pretty hard for us demons sometimes... Anyway! What are you even doing in here?"
 							+ " Weren't you deterred by the boarded-up windows and stuff?",
 						Main.game.getNpc(Kate.class))
 					+ "</p>"
@@ -441,7 +469,7 @@ public class Kate extends NPC {
 					+ "Quickly sorting your own clothes back into position, you watch as Kate does the same."
 					+ " Standing up, she wipes herself clean with a tissue she's produced from somewhere, before flattening down her mini skirt and turning to smile at you."
 					+ " She seems to have got her lust fully under control by now, and as she speaks, she sounds almost embarrassed of what just happened, "
-					+ UtilText.parseSpeech("Ehhh, thanks for helping me out there... You know, it's pretty hard for us demons sometimes... Anyway! You need any more of my services?",
+					+ UtilText.parseSpeech("Mmm, thanks for helping me out there... You know, it's pretty hard for us demons sometimes... Anyway! You need any more of my services?",
 						Main.game.getNpc(Kate.class))
 					+ "</p>"
 					+ "<p>"
@@ -502,16 +530,17 @@ public class Kate extends NPC {
 						+ "</p>";
 			} else {
 				AbstractClothing clothing = target.getClothingInSlot(InventorySlot.PENIS);
-				if(clothing!=null && clothing.getClothingType().isCondom()) {
+				if(clothing!=null && clothing.getClothingType().isCondom(clothing.getClothingType().getEquipSlots().get(0))) {
 					target.unequipClothingIntoVoid(clothing, true, equipper);
+					inventory.resetEquipDescription();
 				}
 				return "<p>"
 							+ "As you pull out a condom, a worried frown flashes across Kate's face, "
-							+ UtilText.parseSpeech("Oh! Erm, let me put that on for you!", Main.game.getNpc(Kate.class))
+							+ "[kate.speech(Oh! Erm, let me put that on for you!)]"
 							+"<br/>"
 							+ "Before you can react, Kate snatches the condom out of your hands, and with a devious smile, uses her sharp little canines to bite a big hole straight through the centre."
 							+ " She laughs at your shocked reaction, "
-							+ UtilText.parseSpeech("It's no fun if I don't get any cum!", Main.game.getNpc(Kate.class))
+							+ "[kate.speech(It's no fun if I don't get any cum!)]"
 						+ "</p>";
 			}
 		}

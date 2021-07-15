@@ -42,6 +42,8 @@ import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.Race;
 import com.lilithsthrone.game.character.race.RaceStage;
 import com.lilithsthrone.game.character.race.Subspecies;
+import com.lilithsthrone.game.dialogue.responses.Response;
+import com.lilithsthrone.game.dialogue.utils.OffspringMapDialogue;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
@@ -50,6 +52,7 @@ import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Units;
 import com.lilithsthrone.utils.Util;
 
 /**
@@ -79,6 +82,18 @@ public class ItemEffectType {
 		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 			return "<p>"
 					+ "You use the dye brush."
+					+ "</p>";
+		}
+	};
+	
+	public static AbstractItemEffectType REFORGE_HAMMER = new AbstractItemEffectType(Util.newArrayListOfValues(
+				"Changes a weapon's damage type."),
+			Colour.GENERIC_ARCANE) {
+		
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			return "<p>"
+					+ "You use the reforge hammer."
 					+ "</p>";
 		}
 	};
@@ -220,7 +235,8 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType VIXENS_VIRILITY = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"Temporarily boosts fertility."),
+			"Temporary fertility boost",
+			"Temporary virility boost"),
 			Colour.GENERIC_SEX) {
 		
 		@Override
@@ -307,14 +323,14 @@ public class ItemEffectType {
 			target.incrementBreastStoredMilk(-milkPumped);
 			if(target.isPlayer()) {
 				return "<p>"
-							+ "It only takes a moment before the beaker is filled with "+milkPumped+"ml of your [pc.milk]."
+							+ "It only takes a moment before the beaker is filled with "+ Units.fluid(milkPumped, Units.UnitType.LONG)+" of your [pc.milk]."
 						+ "</p>"
 						+ user.addItem(AbstractItemType.generateFilledBreastPump(ItemType.MOO_MILKER_EMPTY.getColourPrimary(), target, target.getMilk(), milkPumped), false, true);
 			
 			} else {
 				return UtilText.parse(target,
 						"<p>"
-							+ "It only takes a moment before the beaker is filled with "+milkPumped+"ml of [npc.her] [npc.milk]."
+							+ "It only takes a moment before the beaker is filled with "+Units.fluid(milkPumped, Units.UnitType.LONG)+" of [npc.her] [npc.milk]."
 						+ "</p>"
 						+ user.addItem(AbstractItemType.generateFilledBreastPump(ItemType.MOO_MILKER_EMPTY.getColourPrimary(), target, target.getMilk(), milkPumped), false, true));
 			}
@@ -328,7 +344,7 @@ public class ItemEffectType {
 		
 		@Override
 		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-			target.performImpregnationCheck();
+			target.performImpregnationCheck(false);
 			if(target.isPregnant()) {
 				List <GameCharacter> fathers = new ArrayList<>();
 				for(PregnancyPossibility pp : target.getPotentialPartnersAsMother()) {
@@ -342,15 +358,17 @@ public class ItemEffectType {
 				
 				target.getPotentialPartnersAsMother().removeIf((pp) -> !pp.getFatherId().equals(target.getPregnantLitter().getFatherId()));
 				
+				GameCharacter father = target.getPregnantLitter().getFather();
+				
 				return "<p>"
 						+ "The digital readout lights up with two parallel red lines, with flashing pink text next to that displaying: '[style.italicsArcane(Pregnant!)]'"
 					+ "</p>"
 					+ "<p>"
 						+ "Underneath the flashing pregnancy confirmation, there's some extra information, which reads:<br/>"
 						+ "<i>"
-						+ "Father: "+(target.getPregnantLitter().getFather()!=null
-										?target.getPregnantLitter().getFather().getNameIgnoresPlayerKnowledge()+" ("+Util.capitaliseSentence(target.getPregnantLitter().getFatherRace().getName(target))+")"
-										:"Unknown!")+"<br/>"
+						+ "Father: "+(father!=null
+										?father.getNameIgnoresPlayerKnowledge()+" ("+Util.capitaliseSentence(target.getPregnantLitter().getFatherRace().getName(father))+")"
+										:"Unknown!"+" ("+Util.capitaliseSentence(target.getPregnantLitter().getFatherRace().getName(target))+")")+"<br/>"
 						+ "Litter size: " +target.getPregnantLitter().getTotalLitterCount()+"<br/>"
 						+ "[style.colourFeminine(Daughters)]: " +(target.getPregnantLitter().getDaughtersFromFather()+target.getPregnantLitter().getDaughtersFromMother())+"<br/>"
 						+ "[style.colourMasculine(Sons)]: " +(target.getPregnantLitter().getSonsFromFather()+target.getPregnantLitter().getSonsFromMother())+"<br/>"
@@ -453,12 +471,38 @@ public class ItemEffectType {
 		}
 	};
 	
+	public static AbstractItemEffectType CIGARETTE_PACK = new AbstractItemEffectType(Util.newArrayListOfValues(
+			"Provides 20 Starr Cigarettes."),
+			Colour.BASE_PURPLE) {
+		
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			return target.addItem(AbstractItemType.generateItem(ItemType.CIGARETTE), 20, false, target.isPlayer());
+		}
+	};
+	
+	public static AbstractItemEffectType CIGARETTE = new AbstractItemEffectType(Util.newArrayListOfValues(
+			"[style.boldGood(+10)] [style.boldAura("+Attribute.MANA_MAXIMUM.getName()+")]",
+			"[style.boldBad(-5)] [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]"),
+			Colour.BASE_PURPLE) {
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			target.removeStatusEffect(StatusEffect.RECENTLY_SMOKED);
+			target.addStatusEffect(StatusEffect.SMOKING, 60*5);
+			return UtilText.parse(target,
+					"<p>"
+						+ "[npc.Name] immediately [npc.verb(feel)] the positive effects of the aura-boosting supplements added to the Starr Cigarette."
+						+ " As the smoke fills [npc.her] lungs, however, [npc.she] also [npc.verb(feel)] slightly less healthy..."
+					+ "</p>");
+		}
+	};
+	
 	// Ingredients and potions:
 	
 	// Strength:
 	
 	public static AbstractItemEffectType STR_EQUINE_CIDER = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'",
 			"[style.boldMinorBad(Adds)] 15% to [style.boldAlcohol(intoxication level)]"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
@@ -478,7 +522,7 @@ public class ItemEffectType {
 	};
 
 	public static AbstractItemEffectType STR_BUBBLE_MILK = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
 		
@@ -507,7 +551,7 @@ public class ItemEffectType {
 	};
 
 	public static AbstractItemEffectType STR_WOLF_WHISKEY = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'",
 			"[style.boldMinorBad(Adds)] 40% to [style.boldAlcohol(intoxication level)]"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
@@ -527,7 +571,7 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType STR_SWAMP_WATER = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'",
 			"[style.boldMinorBad(Adds)] 75% to [style.boldAlcohol(intoxication level)]"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
@@ -545,7 +589,7 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType STR_BLACK_RATS_RUM = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'",
 			"[style.boldMinorBad(Adds)] 50% to [style.boldAlcohol(intoxication level)]"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
@@ -586,7 +630,7 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType INT_GRAPE_JUICE = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(Restores)] 5% [style.boldAura(aura)]",
-			"[style.boldGood(+10)] [style.boldPhysique(critical hit damage)] to 'potion effects'",
+			"[style.boldGood(+10)] [style.boldPhysique(critical power)] to 'potion effects'",
 			"[style.boldMinorBad(Adds)] 10% to [style.boldAlcohol(intoxication level)]"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
 		
@@ -625,7 +669,7 @@ public class ItemEffectType {
 	// Fitness:
 	
 	public static AbstractItemEffectType FIT_CANINE_CRUSH = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'",
 			"[style.boldMinorBad(Adds)] 5% to [style.boldAlcohol(intoxication level)]"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
@@ -645,7 +689,7 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType FIT_SQUIRREL_JAVA = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
 		
@@ -681,7 +725,7 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType FIT_EGG_NOG = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(+1)] [style.boldPhysique(physique)] to 'potion effects'"),
 			Colour.ATTRIBUTE_PHYSIQUE) {
 		
@@ -774,9 +818,9 @@ public class ItemEffectType {
 	// Corruption:
 	
 	public static AbstractItemEffectType COR_LILITHS_GIFT = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(Restores)] 5% [style.boldAura(aura)]",
-			"[style.boldGood(+1)] [style.boldCorruption(corruption)] to 'potion effects'"),
+			"[style.boldGood(+25)] [style.boldCorruption(corruption)] to 'potion effects'"),
 			Colour.ATTRIBUTE_CORRUPTION) {
 		
 		@Override
@@ -785,17 +829,15 @@ public class ItemEffectType {
 			target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)/20);
 
 			return "<p style='text-align:center;'>"
-					+(target.isPlayer()
-						?"A sickly wave of corruptive arcane energy washes over you..."
-						:UtilText.parse(target, "A sickly wave of corruptive arcane energy washes over [npc.name]..."))
+						+UtilText.parse(target, "A sickly wave of corruptive arcane energy washes over [npc.name]...")
 					+ "</p>"
-					+ target.addPotionEffect(Attribute.MAJOR_CORRUPTION, 1);
+					+ target.addPotionEffect(Attribute.MAJOR_CORRUPTION, 25);
 		}
 	};
 
 	public static AbstractItemEffectType COR_IMPISH_BREW = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(Restores)] 10% [style.boldAura(aura)]",
-			"[style.boldGood(+5)] [style.boldCorruption(corruption)] to 'potion effects'"),
+			"[style.boldGood(+50)] [style.boldCorruption(corruption)] to 'potion effects'"),
 			Colour.ATTRIBUTE_CORRUPTION) {
 		
 		@Override
@@ -803,11 +845,9 @@ public class ItemEffectType {
 			target.incrementMana(target.getAttributeValue(Attribute.MANA_MAXIMUM)/10);
 
 			return "<p style='text-align:center;'>"
-					+(target.isPlayer()
-						?"A sickly wave of corruptive arcane energy washes over you..."
-						:UtilText.parse(target, "A sickly wave of corruptive arcane energy washes over [npc.name]..."))
+						+UtilText.parse(target, "A sickly wave of corruptive arcane energy washes over [npc.name]...")
 					+ "</p>"
-					+ target.addPotionEffect(Attribute.MAJOR_CORRUPTION, 5);
+					+ target.addPotionEffect(Attribute.MAJOR_CORRUPTION, 50);
 		}
 	};
 	
@@ -970,7 +1010,7 @@ public class ItemEffectType {
 	};
 	
 	public static AbstractItemEffectType EGGPLANT = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 5% [style.boldHealth(energy)]",
+			"[style.boldGood(Restores)] 5% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]",
 			"[style.boldGood(Restores)] 5% [style.boldAura(aura)]"),
 			Colour.ATTRIBUTE_CORRUPTION) {
 		
@@ -988,6 +1028,8 @@ public class ItemEffectType {
 			}
 		}
 	};
+	
+	
 	
 	public static AbstractItemEffectType EGGPLANT_POTION = new AbstractItemEffectType(null,
 			Colour.BASE_PURPLE) {
@@ -1009,7 +1051,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.HUMAN, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.HUMAN, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -1018,8 +1060,82 @@ public class ItemEffectType {
 		}
 	};
 	
+	public static AbstractItemEffectType ADDICTION_REMOVAL_REFINEMENT = new AbstractItemEffectType(null,
+			Colour.BASE_BLUE_LIGHT) {
+
+		@Override
+		public List<TFModifier> getPrimaryModifiers() {
+			return Util.newArrayListOfValues(TFModifier.CORRUPTION);
+		}
+
+		@Override
+		public List<TFModifier> getSecondaryModifiers(TFModifier primaryModifier) {
+			return Util.newArrayListOfValues(TFModifier.ARCANE_BOOST);
+		}
+		
+		@Override
+		public List<TFPotency> getPotencyModifiers(TFModifier primaryModifier, TFModifier secondaryModifier) {
+			return Util.newArrayListOfValues(
+					TFPotency.MINOR_BOOST,
+					TFPotency.BOOST,
+					TFPotency.MAJOR_BOOST);
+		}
+		
+		@Override
+		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
+			switch(potency) {
+				case MINOR_BOOST:
+					return Util.newArrayListOfValues("[style.boldMinorGood(-5)] [style.boldCorruption(Corruption)]");
+				case BOOST:
+					return Util.newArrayListOfValues("[style.boldGood(-10)] [style.boldCorruption(Corruption)]");
+				case MAJOR_BOOST:
+					return Util.newArrayListOfValues("[style.boldExcellent(-15)] [style.boldCorruption(Corruption)]");
+				case MINOR_DRAIN:
+				case DRAIN:
+				case MAJOR_DRAIN:
+					break;
+			}
+			return Util.newArrayListOfValues("");
+		}
+		
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			switch(potency) {
+				case MINOR_BOOST:
+					return "<p style='text-align:center;'>"
+								+ "For a moment, it looks as though nothing is going to happen,"
+									+ " but as [npc.name] [npc.verb(swallow)] down the last couple of drops remaining in [npc.her] mouth, a sudden, cascading wave of purify energy rushes through [npc.herHim]."
+								+ " Accompanied by a faint, light-blue flash which seems to radiate from every visible part of [npc.her] body, this energy rises up into [npc.her] head,"
+									+ " where it quickly gets to work purifying [npc.her] thoughts and calming [npc.her] libido..."
+							+"</p>"
+							+ target.incrementAttribute(Attribute.MAJOR_CORRUPTION, -5);
+				case BOOST:
+					return "<p style='text-align:center;'>"
+							+ "For a moment, it looks as though nothing is going to happen,"
+								+ " but as [npc.name] [npc.verb(swallow)] down the last couple of drops remaining in [npc.her] mouth, a sudden, cascading wave of purify energy rushes through [npc.herHim]."
+							+ " Accompanied by a bright, light-blue flash which seems to radiate from every visible part of [npc.her] body, this energy rises up into [npc.her] head,"
+								+ " where it quickly gets to work purifying [npc.her] thoughts and calming [npc.her] libido..."
+						+"</p>"
+						+ target.incrementAttribute(Attribute.MAJOR_CORRUPTION, -10);
+				case MAJOR_BOOST:
+					return "<p style='text-align:center;'>"
+							+ "For a moment, it looks as though nothing is going to happen,"
+								+ " but as [npc.name] [npc.verb(swallow)] down the last couple of drops remaining in [npc.her] mouth, a sudden, cascading wave of purify energy rushes through [npc.herHim]."
+							+ " Accompanied by a blinding, light-blue flash which seems to radiate from every visible part of [npc.her] body, this energy rises up into [npc.her] head,"
+								+ " where it quickly gets to work purifying [npc.her] thoughts and calming [npc.her] libido..."
+						+"</p>"
+						+ target.incrementAttribute(Attribute.MAJOR_CORRUPTION, -15);
+				case MINOR_DRAIN:
+				case DRAIN:
+				case MAJOR_DRAIN:
+					break;
+			}
+			return "";
+		}
+	};
+	
 	public static AbstractItemEffectType GIFT_CHOCOLATES = new AbstractItemEffectType(Util.newArrayListOfValues(
-			"[style.boldGood(Restores)] 30% [style.boldHealth(energy)]"),
+			"[style.boldGood(Restores)] 30% [style.boldHealth("+Attribute.HEALTH_MAXIMUM.getName()+")]"),
 			Colour.ATTRIBUTE_HEALTH) {
 		
 		@Override
@@ -1067,7 +1183,7 @@ public class ItemEffectType {
 			Map<AbstractClothingType, Integer> clothingMap = new HashMap<>();
 			// Common clothing (55%):
 			clothingMap.put(ClothingType.HEAD_ANTLER_HEADBAND, 11);
-			clothingMap.put(ClothingType.NECK_SNOWFLAKE_NECKLACE, 11);
+			clothingMap.put(ClothingType.getClothingTypeFromId("innoxia_elemental_snowflake_necklace"), 11);
 			clothingMap.put(ClothingType.PIERCING_EAR_SNOW_FLAKES, 11);
 			clothingMap.put(ClothingType.PIERCING_NOSE_SNOWFLAKE_STUD, 11);
 			clothingMap.put(ClothingType.TORSO_OVER_CHRISTMAS_SWEATER, 11);
@@ -1487,8 +1603,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_CAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldCat(cat-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldCat(cat-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldCat(cat-morphs)]"),
 			Colour.RACE_CAT_MORPH) {
 		
 		@Override
@@ -1501,8 +1617,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_COW_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldCow(cow-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldCow(cow-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldCow(cow-morphs)]"),
 			Colour.RACE_COW_MORPH) {
 		
 		@Override
@@ -1515,8 +1631,8 @@ public class ItemEffectType {
 
  	public static AbstractItemEffectType BOTTLED_ESSENCE_SQUIRREL_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldSquirrel(squirrel-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldSquirrel(squirrel-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldSquirrel(squirrel-morphs)]"),
 			Colour.RACE_SQUIRREL_MORPH) {
 		
 		@Override
@@ -1529,8 +1645,8 @@ public class ItemEffectType {
 
  	public static AbstractItemEffectType BOTTLED_ESSENCE_RAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldRat(rat-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldRat(rat-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldRat(rat-morphs)]"),
 			Colour.RACE_RAT_MORPH) {
 		
 		@Override
@@ -1543,8 +1659,8 @@ public class ItemEffectType {
 
  	public static AbstractItemEffectType BOTTLED_ESSENCE_RABBIT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldRabbit(rabbit-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldRabbit(rabbit-morphs)]"),
+			"[style.boldGood(+5)] [style.boldLust("+Util.capitaliseSentence(Attribute.DAMAGE_LUST.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldRabbit(rabbit-morphs)]"),
 			Colour.RACE_RABBIT_MORPH) {
 		
 		@Override
@@ -1557,8 +1673,8 @@ public class ItemEffectType {
 
  	public static AbstractItemEffectType BOTTLED_ESSENCE_BAT_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldBat(bat-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldBat(bat-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldBat(bat-morphs)]"),
 			Colour.RACE_BAT_MORPH) {
 		
 		@Override
@@ -1571,8 +1687,8 @@ public class ItemEffectType {
 	
  	public static AbstractItemEffectType BOTTLED_ESSENCE_ALLIGATOR_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldAlligator(alligator-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldAlligator(alligator-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldAlligator(alligator-morphs)]"),
 			Colour.RACE_ALLIGATOR_MORPH) {
 		
 		@Override
@@ -1585,8 +1701,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_DEMON = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldDemon(demons)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldDemon(demons)]"),
+			"[style.boldGood(+2)] [style.boldArcane("+Util.capitaliseSentence(Attribute.MAJOR_ARCANE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldDemon(demons)]"),
 			Colour.RACE_DEMON) {
 		
 		@Override
@@ -1599,8 +1715,8 @@ public class ItemEffectType {
 
 	public static AbstractItemEffectType BOTTLED_ESSENCE_IMP = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldImp(imps)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldImp(imps)]"),
+			"[style.boldGood(+5)] [style.boldLust("+Util.capitaliseSentence(Attribute.DAMAGE_LUST.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldImp(imps)]"),
 			Colour.RACE_IMP) {
 		
 		@Override
@@ -1613,8 +1729,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_DOG_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldDog(dog-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldDog(dog-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldDog(dog-morphs)]"),
 			Colour.RACE_DOG_MORPH) {
 		
 		@Override
@@ -1627,8 +1743,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_HARPY = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldHarpy(harpies)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldHarpy(harpies)]"),
+			"[style.boldGood(+5)] [style.boldLust("+Util.capitaliseSentence(Attribute.DAMAGE_LUST.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldHarpy(harpies)]"),
 			Colour.RACE_HARPY) {
 		
 		@Override
@@ -1641,8 +1757,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_HORSE_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldHorse(horse-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldHorse(horse-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldHorse(horse-morphs)]"),
 			Colour.RACE_HORSE_MORPH) {
 		
 		@Override
@@ -1655,8 +1771,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_REINDEER_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldReindeer(reindeer-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldReindeer(reindeer-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldReindeer(reindeer-morphs)]"),
 			Colour.RACE_REINDEER_MORPH) {
 		
 		@Override
@@ -1669,8 +1785,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_HUMAN = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldHuman(humans)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldHuman(humans)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldHuman(humans)]"),
 			Colour.RACE_HUMAN) {
 		
 		@Override
@@ -1683,8 +1799,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_WOLF_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldWolf(wolf-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldWolf(wolf-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldWolf(wolf-morphs)]"),
 			Colour.RACE_WOLF_MORPH) {
 		
 		@Override
@@ -1697,8 +1813,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_FOX_MORPH = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldFox(fox-morphs)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldFox(fox-morphs)]"),
+			"[style.boldGood(+2)] [style.boldPhysique("+Util.capitaliseSentence(Attribute.MAJOR_PHYSIQUE.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldFox(fox-morphs)]"),
 			Colour.RACE_FOX_MORPH) {
 		
 		@Override
@@ -1711,8 +1827,8 @@ public class ItemEffectType {
 	
 	public static AbstractItemEffectType BOTTLED_ESSENCE_SLIME = new AbstractItemEffectType(Util.newArrayListOfValues(
 			"[style.boldGood(+1)] [style.boldArcane(Arcane)] essence",
-			"[style.boldGood(+25%)] [style.bold(damage vs)] [style.boldSlime(slimes)]",
-			"[style.boldGood(+25%)] [style.bold(resistance vs)] [style.boldSlime(slimes)]"),
+			"[style.boldGood(+5)] [style.boldLust("+Util.capitaliseSentence(Attribute.DAMAGE_LUST.getName())+")]",
+			"[style.boldGood(+25)] [style.bold(damage vs)] [style.boldSlime(slimes)]"),
 			Colour.RACE_WOLF_MORPH) {
 		
 		@Override
@@ -2392,20 +2508,54 @@ public class ItemEffectType {
 		@Override
 		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 			if(target.isPlayer()) {
-				return "<p style='text-align:center'>[style.italicsDisbaled(This item does not work on you...)]</p>";
+				return "<p style='text-align:center'>[style.italicsDisabled(This item does not work on you...)]</p>";
 			}
 			if(target.isUnique() && (!target.isSlave() || target.getOwner().isPlayer())) {
-				return "<p style='text-align:center'>[style.italicsDisbaled(This item does not work on non-slave unique characters...)]</p>";
+				return "<p style='text-align:center'>[style.italicsDisabled(This item does not work on non-slave unique characters...)]</p>";
 			}
 			
-			Subspecies sub = target.getSubspecies();
+			Subspecies sub = Subspecies.getFleshSubspecies(target);
 			if(sub.getRace()!=Race.DEMON) {
-				target.setBody(CharacterUtils.generateHalfDemonBody(target, sub));
+				target.setBody(CharacterUtils.generateHalfDemonBody(target, target.getGender(), sub, true), false);
 				return UtilText.parse(target, "<p style='text-align:center; color:"+Colour.RACE_DEMON.toWebHexString()+";'><i>[npc.Name] is now [npc.a_race]!</i></p>");
 			} else {
-				target.setBody(target.getGender(), Subspecies.DEMON, RaceStage.GREATER);
+				target.setBody(target.getGender(), Subspecies.DEMON, RaceStage.GREATER, false);
 				target.setSubspeciesOverride(Subspecies.DEMON);
 				return UtilText.parse(target, "<p style='text-align:center; color:"+Colour.RACE_DEMON.toWebHexString()+";'><i>[npc.Name] is now [npc.a_race]!</i></p>");
+			}
+		}
+	};
+	
+	public static AbstractItemEffectType DEBUG_YOUKO_POTION_EFFECT = new AbstractItemEffectType(null,
+			Colour.RACE_FOX_MORPH) {
+		
+		@Override
+		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
+			List<String> effectsDescription = new ArrayList<>();
+			
+			effectsDescription.add("[style.boldBad(Does not affect player or unique characters)]");
+			
+			effectsDescription.add("[style.boldTfGeneric(Transforms)] non-youko into [style.boldDemon(youko)]");
+
+			effectsDescription.add("[style.boldTfGeneric(Grants)] youko an extra tail");
+			
+			return effectsDescription;
+		}
+		
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			if(target.isPlayer()) {
+				return "<p style='text-align:center'>[style.italicsDisabled(This item does not work on you...)]</p>";
+			}
+			if(target.isUnique() && (!target.isSlave() || target.getOwner().isPlayer())) {
+				return "<p style='text-align:center'>[style.italicsDisabled(This item does not work on non-slave unique characters...)]</p>";
+			}
+			
+			if(target.getSubspecies()!=Subspecies.FOX_ASCENDANT && target.getSubspecies()!=Subspecies.FOX_ASCENDANT_FENNEC) {
+				CharacterUtils.reassignBody(target, target.getBody(), target.getGender(), Subspecies.FOX_ASCENDANT, RaceStage.PARTIAL_FULL, true);
+				return UtilText.parse(target, "<p style='text-align:center; color:"+Colour.RACE_FOX_MORPH.toWebHexString()+";'><i>[npc.Name] is now [npc.a_race]!</i></p>");
+			} else {
+				return UtilText.parse(target, target.incrementTailCount(1, true));
 			}
 		}
 	};
@@ -2430,7 +2580,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.HUMAN, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.HUMAN, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2459,7 +2609,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.CAT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.CAT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2488,7 +2638,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.COW_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.COW_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2517,7 +2667,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.SQUIRREL_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.SQUIRREL_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2546,7 +2696,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.RAT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.RAT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2575,7 +2725,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.RABBIT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.RABBIT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2604,7 +2754,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.BAT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.BAT_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2633,7 +2783,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.DOG_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.DOG_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2662,7 +2812,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.FOX_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.FOX_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2691,7 +2841,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.ALLIGATOR_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.ALLIGATOR_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2720,7 +2870,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.HORSE_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.HORSE_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2749,7 +2899,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.REINDEER_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.REINDEER_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2778,7 +2928,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.WOLF_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.WOLF_MORPH, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2807,7 +2957,7 @@ public class ItemEffectType {
 		
 		@Override
 		public List<String> getEffectsDescription(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target) {
-			return Util.newArrayListOfValues(getRacialEffect(Race.HARPY, primaryModifier, secondaryModifier, potency, user, target).getDescriptionPlusChangeDescription());
+			return Util.newArrayListOfValues(getRacialEffect(Race.HARPY, primaryModifier, secondaryModifier, potency, user, target).getDescription());
 		}
 		
 		@Override
@@ -2852,13 +3002,7 @@ public class ItemEffectType {
 
 		@Override
 		public List<TFModifier> getPrimaryModifiers() {
-			if(Main.game.getPlayer().isHasSlaverLicense()) {
-				return TFModifier.getClothingPrimaryList();
-			} else {
-				ArrayList<TFModifier> noEnslavement = new ArrayList<>(TFModifier.getClothingPrimaryList());
-				noEnslavement.remove(TFModifier.CLOTHING_ENSLAVEMENT);
-				return noEnslavement;
-			}
+			return TFModifier.getClothingPrimaryList();
 		}
 
 		@Override
@@ -2875,9 +3019,14 @@ public class ItemEffectType {
 			} else if(primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART) {
 				return TFModifier.getTFBodyPartFetishList();
 				
-			} else if(primaryModifier == TFModifier.CLOTHING_ENSLAVEMENT
-					|| primaryModifier == TFModifier.CLOTHING_SEALING
-					|| primaryModifier == TFModifier.CLOTHING_CONDOM) {
+			} else if(primaryModifier == TFModifier.CLOTHING_SPECIAL) {
+				if(Main.game.getPlayer().isHasSlaverLicense()) {
+					return Util.newArrayListOfValues(TFModifier.CLOTHING_SEALING, TFModifier.CLOTHING_ENSLAVEMENT);
+				} else {
+					return Util.newArrayListOfValues(TFModifier.CLOTHING_SEALING);
+				}
+				
+			} else if(primaryModifier == TFModifier.CLOTHING_CONDOM) {
 				return Util.newArrayListOfValues(TFModifier.ARCANE_BOOST);
 				
 			} else {
@@ -2895,7 +3044,7 @@ public class ItemEffectType {
 					|| !getClothingTFSecondaryModifiers(primaryModifier).isEmpty()) {
 				return TFPotency.getAllPotencies();
 				
-			} else if(primaryModifier == TFModifier.CLOTHING_SEALING) {
+			} else if(secondaryModifier == TFModifier.CLOTHING_SEALING) {
 				return Util.newArrayListOfValues(TFPotency.MINOR_BOOST, TFPotency.MINOR_DRAIN, TFPotency.DRAIN, TFPotency.MAJOR_DRAIN);
 				
 			} else {
@@ -2915,7 +3064,7 @@ public class ItemEffectType {
 								:"[style.boldGood(+"+potency.getClothingBonusValue()+")] ")
 						+ "<b style='color:"+secondaryModifier.getAssociatedAttribute().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(secondaryModifier.getAssociatedAttribute().getName())+"</b>");
 				
-			} else if(primaryModifier == TFModifier.CLOTHING_SEALING) {
+			} else if(secondaryModifier == TFModifier.CLOTHING_SEALING) {
 				if(potency==TFPotency.MINOR_DRAIN) {
 					effectsList.add("[style.boldCrimson(Seals onto wearer)] <b>(Removal cost: [style.boldArcane(25)])</b>");
 					
@@ -2929,7 +3078,7 @@ public class ItemEffectType {
 					effectsList.add("[style.boldCrimson(Seals onto wearer)] <b>(Removal cost: [style.boldArcane(5)])</b>");
 				}
 				
-			} else if(primaryModifier == TFModifier.CLOTHING_ENSLAVEMENT) {
+			} else if(secondaryModifier == TFModifier.CLOTHING_ENSLAVEMENT) {
 					effectsList.add("[style.boldCrimson(Enslaves the wearer)]");
 				
 			} else if(primaryModifier == TFModifier.TF_MOD_FETISH_BEHAVIOUR
@@ -2985,8 +3134,8 @@ public class ItemEffectType {
 		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
 			if(primaryModifier == TFModifier.CLOTHING_ATTRIBUTE
 					|| primaryModifier == TFModifier.CLOTHING_MAJOR_ATTRIBUTE
-					|| primaryModifier == TFModifier.CLOTHING_ENSLAVEMENT
-					|| primaryModifier == TFModifier.CLOTHING_SEALING
+					|| secondaryModifier == TFModifier.CLOTHING_ENSLAVEMENT
+					|| secondaryModifier == TFModifier.CLOTHING_SEALING
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BEHAVIOUR
 					|| primaryModifier == TFModifier.TF_MOD_FETISH_BODY_PART
 					|| primaryModifier == TFModifier.CLOTHING_CONDOM) {
@@ -3136,6 +3285,21 @@ public class ItemEffectType {
 		}
 	};
 	
+	public static AbstractItemEffectType OFFSPRING_MAP = new AbstractItemEffectType(Util.newArrayListOfValues(
+			"Facilitates the discovery of offspring."),
+			Colour.RARITY_LEGENDARY) {
+		@Override
+		public boolean isBreakOutOfInventory() {
+			return true;
+		}
+		@Override
+		public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
+			Main.game.setContent(new Response("", "", OffspringMapDialogue.OFFSPRING_CHOICE));
+			return "";
+		}
+	};
+	
+	
 	public static Map<AbstractItemEffectType, String> itemEffectTypeToIdMap = new HashMap<>();
 	public static Map<String, AbstractItemEffectType> idToItemEffectTypeMap = new HashMap<>();
 	public static List<AbstractItemEffectType> allEffectTypes = new ArrayList<>();
@@ -3156,6 +3320,7 @@ public class ItemEffectType {
 		return itemEffectTypeToIdMap.get(itemEffectType);
 	}
 	
+	// set in ItemType
 	public static AbstractItemEffectType getBookEffectFromSubspecies(Subspecies subspecies) {
 		String id = Util.getClosestStringMatch("BOOK_READ_"+subspecies.toString(), idToItemEffectTypeMap.keySet());
 		return idToItemEffectTypeMap.get(id);

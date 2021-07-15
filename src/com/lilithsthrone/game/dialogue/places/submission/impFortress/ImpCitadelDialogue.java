@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.lilithsthrone.game.PropertyValue;
 import com.lilithsthrone.game.character.CharacterUtils;
+import com.lilithsthrone.game.character.EquipClothingSetting;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.attributes.Attribute;
 import com.lilithsthrone.game.character.body.CoverableArea;
@@ -41,6 +42,8 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothingType;
 import com.lilithsthrone.game.inventory.clothing.ClothingType;
+import com.lilithsthrone.game.inventory.enchanting.EnchantingUtils;
+import com.lilithsthrone.game.inventory.enchanting.ItemEffect;
 import com.lilithsthrone.game.inventory.item.AbstractItem;
 import com.lilithsthrone.game.inventory.item.AbstractItemType;
 import com.lilithsthrone.game.inventory.item.ItemType;
@@ -49,10 +52,11 @@ import com.lilithsthrone.game.inventory.weapon.WeaponType;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexPace;
 import com.lilithsthrone.game.sex.managers.SexManagerInterface;
-import com.lilithsthrone.game.sex.managers.universal.SMDoggy;
-import com.lilithsthrone.game.sex.managers.universal.SMKneeling;
-import com.lilithsthrone.game.sex.positions.SexSlot;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.managers.universal.SMAllFours;
+import com.lilithsthrone.game.sex.managers.universal.SMStanding;
+import com.lilithsthrone.game.sex.positions.slots.SexSlot;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotAllFours;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotStanding;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
@@ -130,7 +134,7 @@ public class ImpCitadelDialogue {
 		// Sort out boss:
 		getBoss().setLocation(WorldType.LYSSIETH_PALACE, PlaceType.LYSSIETH_PALACE_OFFICE);
 		Main.game.getNpc(Lyssieth.class).addSlave((NPC) getBoss());
-		((NPC) getBoss()).equipClothing(true, true, true, true); // In case the player used steal on her.
+		((NPC) getBoss()).equipClothing(EquipClothingSetting.getAllClothingSettings()); // In case the player used steal on her.
 		
 		// Increment quest:
 		if(Main.game.getPlayer().getQuest(QuestLine.MAIN) == Quest.MAIN_2_B_SIRENS_CALL) {
@@ -146,7 +150,7 @@ public class ImpCitadelDialogue {
 		
 		// Move NPCs out of hiding:
 		for(GameCharacter character : Main.game.getCharactersPresent(WorldType.EMPTY, PlaceType.GENERIC_HOLDING_CELL)) {
-			if(character.getHomeLocationPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_DEMON) {
+			if(character.getHomeLocationPlace().getPlaceType().equals(PlaceType.SUBMISSION_IMP_TUNNELS_DEMON)) {
 				character.returnToHome();
 			}
 		}
@@ -212,7 +216,7 @@ public class ImpCitadelDialogue {
 			
 			for(GameCharacter impCharacter : impGroup) {
 				impCharacter.setLocation(Main.game.getPlayer().getWorldLocation(), Main.game.getPlayer().getLocation(), true);
-				((NPC)impCharacter).equipClothing(true, true, true, true);
+				((NPC)impCharacter).equipClothing(EquipClothingSetting.getAllClothingSettings());
 			}
 
 		} catch (Exception e) {
@@ -265,7 +269,7 @@ public class ImpCitadelDialogue {
 		for(int i=0; i< cells.length;i++) {
 			for(int j=0; j< cells[i].length;j++) {
 				Cell cell = cells[j][i];
-				if(cell.getPlace().getPlaceType()==PlaceType.SUBMISSION_IMP_TUNNELS_DEMON) {
+				if(cell.getPlace().getPlaceType().equals(PlaceType.SUBMISSION_IMP_TUNNELS_DEMON)) {
 					for(GameCharacter character : Main.game.getCharactersPresent(cell)) {
 						if(!Main.game.getPlayer().getCompanions().contains(character)) {
 							character.setHomeLocation(WorldType.SUBMISSION, character.getLocation());
@@ -318,7 +322,7 @@ public class ImpCitadelDialogue {
 			allCharacters.add(getMainCompanion());
 		}
 		
-		if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.FORTRESS_DEMON_KEEP) {
+		if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.FORTRESS_DEMON_KEEP)) {
 			allCharacters.add(getBoss());
 			allCharacters.add(Main.game.getNpc(FortressMalesLeader.class));
 			allCharacters.add(Main.game.getNpc(FortressAlphaLeader.class));
@@ -504,7 +508,7 @@ public class ImpCitadelDialogue {
 		@Override
 		public String getContent() {
 			return UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_COMBAT_VICTORY", getAllCharacters());
-			// IMP_FIGHT_AFTER_COMBAT_VICTORY_ATTRIBUTE_BOOST is appended to this (in ImpAttacker class's endCOmbat() method)
+			// IMP_FIGHT_AFTER_COMBAT_VICTORY_ATTRIBUTE_BOOST is appended to this (in ImpAttacker class's endCombat() method)
 		}
 
 		@Override
@@ -585,7 +589,8 @@ public class ImpCitadelDialogue {
 								Main.game.getPlayer().getParty(),
 								null,
 								null,
-								IMP_AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_COMBAT_VICTORY_SEX_SUBMIT", getAllCharacters()));
+								IMP_AFTER_SEX_VICTORY,
+								UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_COMBAT_VICTORY_SEX_SUBMIT", getAllCharacters()));
 					}
 					
 				} else if(responseTab == 1) {
@@ -682,7 +687,7 @@ public class ImpCitadelDialogue {
 								Util.newArrayListOfValues(Main.game.getPlayer()),
 								null,
 								Util.newArrayListOfValues(getMainCompanion()),
-								IMP_AFTER_SEX_DEFEAT, UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_COMBAT_VICTORY_SEX_SUBMIT", getAllCharacters()));
+								IMP_AFTER_SEX_VICTORY, UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_COMBAT_VICTORY_SEX_SUBMIT", getAllCharacters()));
 						
 					} else if (index == 6) {
 						GameCharacter companion = getMainCompanion();
@@ -818,13 +823,13 @@ public class ImpCitadelDialogue {
 		@Override
 		public String getContent() {
 			if(Main.game.isNonConEnabled()) {
-				if(Main.game.getPlayerCell().getPlace().getPlaceType()==PlaceType.FORTRESS_LAB) {
+				if(Main.game.getPlayerCell().getPlace().getPlaceType().equals(PlaceType.FORTRESS_LAB)) {
 					return UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_COMBAT_DEFEAT_IN_LAB", getAllCharacters());
 				}
 				return UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_COMBAT_DEFEAT", getAllCharacters());
 				
 			} else {
-				if(Main.game.getPlayerCell().getPlace().getPlaceType()==PlaceType.FORTRESS_LAB) {
+				if(Main.game.getPlayerCell().getPlace().getPlaceType().equals(PlaceType.FORTRESS_LAB)) {
 					return UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_COMBAT_DEFEAT_IN_LAB_NO_NON_CON", getAllCharacters());
 				}
 				return UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_COMBAT_DEFEAT_NO_NON_CON", getAllCharacters());
@@ -835,7 +840,7 @@ public class ImpCitadelDialogue {
 		public Response getResponse(int responseTab, int index) {
 			if(!Main.game.isNonConEnabled()) {
 				if(index==1) {
-					return new Response("Recover", "Take a moment to catch your breath, and then continue on your way.", Main.game.getDefaultDialogue()) {
+					return new Response("Recover", "Take a moment to catch your breath, and then continue on your way.", Main.game.getDefaultDialogueNoEncounter()) {
 						@Override
 						public void effects() {
 							banishImps();
@@ -846,7 +851,7 @@ public class ImpCitadelDialogue {
 				return null;
 			}
 			
-			if(Main.game.getPlayerCell().getPlace().getPlaceType()==PlaceType.FORTRESS_LAB
+			if(Main.game.getPlayerCell().getPlace().getPlaceType().equals(PlaceType.FORTRESS_LAB)
 					&& (Main.game.getPlayer().isFeminine() || (isCompanionDialogue() && getMainCompanion().isFeminine() && Main.getProperties().hasValue(PropertyValue.involuntaryNTR)))) {
 				
 				Map<GameCharacter, SexSlot> subSlots;
@@ -854,24 +859,24 @@ public class ImpCitadelDialogue {
 				
 				if(!Main.game.getPlayer().isFeminine()) {
 					spectators.add(Main.game.getPlayer());
-					subSlots = Util.newHashMapOfValues(new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL));
+					subSlots = Util.newHashMapOfValues(new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL));
 					
 				} else if(isCompanionDialogue () && !getMainCompanion().isFeminine()) {
 					spectators.add(getMainCompanion());
-					subSlots = Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL));
+					subSlots = Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL));
 					
 				} else {
 					if(isCompanionDialogue()) {
 						subSlots = Util.newHashMapOfValues(
-								new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL),
-								new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL_TWO));
+								new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL),
+								new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL_TWO));
 					} else {
-						subSlots = Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL));
+						subSlots = Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL));
 					}
 				}
 
-				SexManagerInterface manager = new SMKneeling(
-						Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
+				SexManagerInterface manager = new SMStanding(
+						Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
 						subSlots) {
 					@Override
 					public boolean isPositionChangingAllowed(GameCharacter character) {
@@ -1068,16 +1073,13 @@ public class ImpCitadelDialogue {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				if(index==1) {
-					return new Response("Recover", "Take a moment to catch your breath, and then continue on your way.", Main.game.getDefaultDialogue()) {
-						@Override
-						public void effects() {
-							banishImps();
-							Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_SEX_DEFEAT_RECOVER", getAllCharacters()));
-						}
-					};
-				}
-				return null;
+				return new Response("Recover", "Take a moment to catch your breath, and then continue on your way.", Main.game.getDefaultDialogueNoEncounter()) {
+					@Override
+					public void effects() {
+						banishImps();
+						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "IMP_FIGHT_AFTER_SEX_DEFEAT_RECOVER", getAllCharacters()));
+					}
+				};
 				
 			} else {
 				return null;
@@ -1216,12 +1218,16 @@ public class ImpCitadelDialogue {
 
 							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().incrementMoney(1000));
 
-							Value<String, AbstractItem> potion = ((NPC)getArcanist()).getTransformativePotion(Main.game.getPlayer(), true);
-							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(potion.getValue(), false));
-
+							Value<AbstractItemType, Map<ItemEffect, String>> effects = ((NPC)getArcanist()).generateTransformativePotion(Main.game.getPlayer());
+							AbstractItem potion = EnchantingUtils.craftItem(AbstractItemType.generateItem(effects.getKey()), new ArrayList<>(effects.getValue().keySet()));
+							potion.setName("Foxy Fuck");
+							Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(potion, 1, false, true));
+							
 							if(isCompanionDialogue()) {
-								potion = ((NPC)getArcanist()).getTransformativePotion(getMainCompanion(), true);
-								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(potion.getValue(), false));
+								effects = ((NPC)getArcanist()).generateTransformativePotion(Main.game.getPlayer().getMainCompanion());
+								potion = EnchantingUtils.craftItem(AbstractItemType.generateItem(effects.getKey()), new ArrayList<>(effects.getValue().keySet()));
+								potion.setName("Foxy Fuck");
+								Main.game.getTextEndStringBuilder().append(Main.game.getPlayer().addItem(potion, 1, false, true));
 							}
 						}
 					};
@@ -1297,9 +1303,9 @@ public class ImpCitadelDialogue {
 								UtilText.parse(getArcanist(), "Agree to do as [npc.name] says, and get down on your knees to perform oral on her."),
 								true,
 								false,
-								new SMKneeling(
-										Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
-										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL))){
+								new SMStanding(
+										Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
+										Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL))){
 									@Override
 									public boolean isPositionChangingAllowed(GameCharacter character) {
 										return false;
@@ -1318,8 +1324,11 @@ public class ImpCitadelDialogue {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistEncountered, true);
-						Value<String, AbstractItem> potion = ((NPC)getArcanist()).getTransformativePotion(Main.game.getPlayer(), true);
-						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion.getValue(), Main.game.getPlayer(), false));
+
+						Value<AbstractItemType, Map<ItemEffect, String>> effects = ((NPC)getArcanist()).generateTransformativePotion(Main.game.getPlayer());
+						AbstractItem potion = EnchantingUtils.craftItem(AbstractItemType.generateItem(effects.getKey()), new ArrayList<>(effects.getValue().keySet()));
+						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion, Main.game.getPlayer(), false));
+						
 						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "LABORATORY_ARCANIST_SOLO_TF_OFFER_SEX", getAllCharacters()));
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistAcceptedTF, true);
 					}
@@ -1352,9 +1361,9 @@ public class ImpCitadelDialogue {
 								UtilText.parse(getArcanist(), getMainCompanion(), "Tell [npc2.name] to get down on [npc2.her] knees and perform oral on [npc.name] while you watch."),
 								true,
 								false,
-								new SMKneeling(
-										Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
-										Util.newHashMapOfValues(new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL))) {
+								new SMStanding(
+										Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
+										Util.newHashMapOfValues(new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL))) {
 									@Override
 									public boolean isPositionChangingAllowed(GameCharacter character) {
 										return false;
@@ -1373,6 +1382,20 @@ public class ImpCitadelDialogue {
 								"As [npc2.name] doesn't like being transformed, [npc2.she] will refuse to drink [npc.namePos] potion. As [npc2.she] is not your slave, you can't force [npc2.herHim] to do it, either..."),
 							null);
 				}
+				if(getMainCompanion().getRace()==Race.FOX_MORPH) {
+					return new Response(UtilText.parse(
+							getMainCompanion(), "Accept ([npc.name])"),
+							UtilText.parse(getArcanist(), getMainCompanion(),
+								"As [npc2.name] is already a fox-morph, [npc.name] is unwilling to use a potion on [npc2.herHim]..."),
+							null);
+				}
+				if(getMainCompanion().getRace()==Race.DEMON || (getMainCompanion() instanceof Elemental)) {
+					return new Response(UtilText.parse(
+							getMainCompanion(), "Accept ([npc.name])"),
+							UtilText.parse(getArcanist(), getMainCompanion(),
+								"As [npc2.name] is a demon, and therefore unable to be transformed, [npc.name] is unwilling to waste a potion on [npc2.herHim]..."),
+							null);
+				}
 				return new Response(
 						UtilText.parse(getMainCompanion(), "Accept ([npc.name])"),
 						UtilText.parse(getArcanist(), getMainCompanion(),
@@ -1382,8 +1405,11 @@ public class ImpCitadelDialogue {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistEncountered, true);
-						Value<String, AbstractItem> potion = ((NPC)getArcanist()).getTransformativePotion(getMainCompanion(), true);
-						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion.getValue(), getMainCompanion(), false));
+						
+						Value<AbstractItemType, Map<ItemEffect, String>> effects = ((NPC)getArcanist()).generateTransformativePotion(getMainCompanion());
+						AbstractItem potion = EnchantingUtils.craftItem(AbstractItemType.generateItem(effects.getKey()), new ArrayList<>(effects.getValue().keySet()));
+						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion, getMainCompanion(), false));
+						
 						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "LABORATORY_ARCANIST_COMPANION_TF_OFFER_SEX", getAllCharacters()));
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistAcceptedTF, true);
 					}
@@ -1422,11 +1448,11 @@ public class ImpCitadelDialogue {
 								UtilText.parse(getArcanist(), getMainCompanion(), "Tell [npc2.name] to get down on [npc2.her] knees and join you in performing oral on [npc.name]."),
 								true,
 								false,
-								new SMKneeling(
-										Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
+								new SMStanding(
+										Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
 										Util.newHashMapOfValues(
-												new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL),
-												new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL_TWO))) {
+												new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL),
+												new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL_TWO))) {
 									@Override
 									public boolean isPositionChangingAllowed(GameCharacter character) {
 										return false;
@@ -1443,6 +1469,13 @@ public class ImpCitadelDialogue {
 							getMainCompanion(), "Accept (both)"),
 							UtilText.parse(getArcanist(), getMainCompanion(),
 								"As [npc2.name] is already a fox-morph, [npc.name] is unwilling to use a potion on [npc2.herHim]..."),
+							null);
+				}
+				if(getMainCompanion().getRace()==Race.DEMON || (getMainCompanion() instanceof Elemental)) {
+					return new Response(UtilText.parse(
+							getMainCompanion(), "Accept (both)"),
+							UtilText.parse(getArcanist(), getMainCompanion(),
+								"As [npc2.name] is a demon, and therefore unable to be transformed, [npc.name] is unwilling to waste a potion on [npc2.herHim]..."),
 							null);
 				}
 				if(Main.game.getPlayer().getRace()==Race.FOX_MORPH) {
@@ -1467,12 +1500,18 @@ public class ImpCitadelDialogue {
 					@Override
 					public void effects() {
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistEncountered, true);
-						Value<String, AbstractItem> potion = ((NPC)getArcanist()).getTransformativePotion(Main.game.getPlayer(), true);
-						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion.getValue(), Main.game.getPlayer(), false));
+
+						Value<AbstractItemType, Map<ItemEffect, String>> effects = ((NPC)getArcanist()).generateTransformativePotion(Main.game.getPlayer());
+						AbstractItem potion = EnchantingUtils.craftItem(AbstractItemType.generateItem(effects.getKey()), new ArrayList<>(effects.getValue().keySet()));
+						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion, Main.game.getPlayer(), false));
+						
 						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "ARCANIST_BOTH_TF", getAllCharacters()));
-						potion = ((NPC)getArcanist()).getTransformativePotion(getMainCompanion(), true);
-						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion.getValue(), getMainCompanion(), false));
-						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "ARCANIST_BOTH_TF_OFFER_SEX", getAllCharacters()));
+
+						effects = ((NPC)getArcanist()).generateTransformativePotion(getMainCompanion());
+						potion = EnchantingUtils.craftItem(AbstractItemType.generateItem(effects.getKey()), new ArrayList<>(effects.getValue().keySet()));
+						Main.game.getTextEndStringBuilder().append(getArcanist().useItem(potion, getMainCompanion(), false));
+						
+						Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "LABORATORY_ARCANIST_BOTH_TF_OFFER_SEX", getAllCharacters()));
 						Main.game.getDialogueFlags().setFlag(DialogueFlagValue.impCitadelArcanistAcceptedTF, true);
 					}
 					@Override
@@ -1543,9 +1582,9 @@ public class ImpCitadelDialogue {
 						UtilText.parse(getArcanist(), "Agree to do as [npc.name] says, and get down on your knees to perform oral on [npc.herHim]."),
 						true,
 						false,
-						new SMKneeling(
-								Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL))){
+						new SMStanding(
+								Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL))){
 							@Override
 							public boolean isPositionChangingAllowed(GameCharacter character) {
 								return false;
@@ -1593,9 +1632,9 @@ public class ImpCitadelDialogue {
 						UtilText.parse(getArcanist(), getMainCompanion(), "Agree to do as [npc.name] says, and tell [npc2.name] to get down on [npc2.her] knees to perform oral on [npc.herHim] while you watch."),
 						true,
 						false,
-						new SMKneeling(
-								Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
-								Util.newHashMapOfValues(new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL))){
+						new SMStanding(
+								Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
+								Util.newHashMapOfValues(new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL))){
 							@Override
 							public boolean isPositionChangingAllowed(GameCharacter character) {
 								return false;
@@ -1643,11 +1682,11 @@ public class ImpCitadelDialogue {
 						UtilText.parse(getArcanist(), getMainCompanion(), "Agree to do as [npc.name] says, and tell [npc2.name] to join you in getting down on your knees to perform oral on [npc.herHim]."),
 						true,
 						false,
-						new SMKneeling(
-								Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
+						new SMStanding(
+								Util.newHashMapOfValues(new Value<>(getArcanist(), SexSlotStanding.STANDING_DOMINANT)),
 								Util.newHashMapOfValues(
-										new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL),
-										new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL_TWO))){
+										new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL),
+										new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL_TWO))){
 							@Override
 							public boolean isPositionChangingAllowed(GameCharacter character) {
 								return false;
@@ -1867,13 +1906,21 @@ public class ImpCitadelDialogue {
 		
 		@Override
 		public String getContent() {
-			return UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_DEMONS_DEFEATED", getAllCharacters());
+			UtilText.nodeContentSB.setLength(0);
+			
+			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_DEMONS_DEFEATED", getAllCharacters()));
+			
+			if(Main.game.getPlayer().hasItemType(ItemType.LYSSIETHS_RING)) {
+				UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_CHALLENGE_RING", getAllCharacters()));
+			}
+			
+			return UtilText.nodeContentSB.toString();
 		}
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new ResponseCombat("Duel", UtilText.parse(getBoss(), "Accept [npc.namePos] offer, and fight [npc.herHim] one-on-one!"), null, (NPC) getBoss(), Util.newArrayListOfValues(getBoss()), null);
+				return new ResponseCombat("Fight", UtilText.parse(getBoss(), "Now that [npc.her] demon companions have been defeated, it's time fight [npc.name]!"), (NPC) getBoss(), Util.newArrayListOfValues(getBoss()), null);
 
 			} else if(index==2 && Main.game.getPlayer().hasItemType(ItemType.LYSSIETHS_RING)) {
 				return new Response("Use ring",
@@ -1882,6 +1929,8 @@ public class ImpCitadelDialogue {
 						KEEP_CHALLENGE_RING_TRICK) {
 					@Override
 					public void effects() {
+						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_CHALLENGE_POST_FIGHT_RING_TRICK", getAllCharacters()));
+						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_CHALLENGE_RING_TRICK", getAllCharacters()));
 						Main.game.getTextEndStringBuilder().append(getBoss().incrementAffection(Main.game.getPlayer(), -50));
 						Main.game.getPlayer().removeItem(AbstractItemType.generateItem(ItemType.LYSSIETHS_RING));
 						clearFortress();
@@ -1909,7 +1958,26 @@ public class ImpCitadelDialogue {
 
 		@Override
 		public Response getResponse(int responseTab, int index) {
-			return KEEP_DEMONS_DEFEATED.getResponse(responseTab, index);
+			if (index == 1) {
+				return new ResponseCombat("Duel", UtilText.parse(getBoss(), "Accept [npc.namePos] offer, and fight [npc.herHim] one-on-one!"), null, (NPC) getBoss(), Util.newArrayListOfValues(getBoss()), null);
+
+			} else if(index==2 && Main.game.getPlayer().hasItemType(ItemType.LYSSIETHS_RING)) {
+				return new Response("Use ring",
+						UtilText.parse(getBoss(), "Show [npc.name] that you have [npc.her] mother's ring, and trick her into taking it from you and putting it on!<br/>"
+								+ "[style.italicsExcellent(You can tell that [npc.she] will instantly put it on, thus enslaving [npc.herHim] without having to fight!)]"),
+						KEEP_CHALLENGE_RING_TRICK) {
+					@Override
+					public void effects() {
+						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_CHALLENGE_DUEL_RING_TRICK", getAllCharacters()));
+						Main.game.getTextStartStringBuilder().append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_CHALLENGE_RING_TRICK", getAllCharacters()));
+						Main.game.getTextEndStringBuilder().append(getBoss().incrementAffection(Main.game.getPlayer(), -50));
+						Main.game.getPlayer().removeItem(AbstractItemType.generateItem(ItemType.LYSSIETHS_RING));
+						clearFortress();
+					}
+				};
+				
+			}
+			return null;
 		}
 	};
 
@@ -1922,9 +1990,7 @@ public class ImpCitadelDialogue {
 
 		@Override
 		public String getContent() {
-			UtilText.nodeContentSB.setLength(0);
-			UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("places/submission/impCitadel"+getDialogueEncounterId(), "KEEP_CHALLENGE_RING_TRICK", getAllCharacters()));
-			return UtilText.nodeContentSB.toString();
+			return "";
 		}
 
 		@Override
@@ -2102,31 +2168,31 @@ public class ImpCitadelDialogue {
 				Map<GameCharacter, SexSlot> domSlots = new HashMap<>();
 				
 				if(Main.game.getPlayer().hasVagina() && Main.game.getPlayer().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
-					domSlots.put(Main.game.getNpc(FortressMalesLeader.class), SexSlotBipeds.DOGGY_BEHIND);
+					domSlots.put(Main.game.getNpc(FortressMalesLeader.class), SexSlotAllFours.BEHIND);
 				} else if(isCompanionDialogue() && getMainCompanion().hasVagina() && getMainCompanion().isAbleToAccessCoverableArea(CoverableArea.VAGINA, true)) {
-					domSlots.put(Main.game.getNpc(FortressMalesLeader.class), SexSlotBipeds.DOGGY_BEHIND_SECOND);
+					domSlots.put(Main.game.getNpc(FortressMalesLeader.class), SexSlotAllFours.BEHIND_TWO);
 				} else {
-					domSlots.put(Main.game.getNpc(FortressMalesLeader.class), SexSlotBipeds.DOGGY_BEHIND);
+					domSlots.put(Main.game.getNpc(FortressMalesLeader.class), SexSlotAllFours.BEHIND);
 				}
 				if(isCompanionDialogue()) {
 					domSlots.put(Main.game.getNpc(FortressAlphaLeader.class),
-							domSlots.get(Main.game.getNpc(FortressMalesLeader.class))==SexSlotBipeds.DOGGY_BEHIND_SECOND
-								?SexSlotBipeds.DOGGY_BEHIND
-								:SexSlotBipeds.DOGGY_BEHIND_SECOND);
-					domSlots.put(Main.game.getNpc(FortressFemalesLeader.class), SexSlotBipeds.DOGGY_INFRONT);
+							domSlots.get(Main.game.getNpc(FortressMalesLeader.class))==SexSlotAllFours.BEHIND_TWO
+								?SexSlotAllFours.BEHIND
+								:SexSlotAllFours.BEHIND_TWO);
+					domSlots.put(Main.game.getNpc(FortressFemalesLeader.class), SexSlotAllFours.IN_FRONT);
 				} else {
-					domSlots.put(Main.game.getNpc(FortressAlphaLeader.class), SexSlotBipeds.DOGGY_INFRONT);
-					domSlots.put(Main.game.getNpc(FortressFemalesLeader.class), SexSlotBipeds.DOGGY_INFRONT_TWO);
+					domSlots.put(Main.game.getNpc(FortressAlphaLeader.class), SexSlotAllFours.IN_FRONT);
+					domSlots.put(Main.game.getNpc(FortressFemalesLeader.class), SexSlotAllFours.IN_FRONT_TWO);
 				}
 				
 				Map<GameCharacter, SexSlot> subSlots = new HashMap<>();
 
-				subSlots.put(Main.game.getPlayer(), SexSlotBipeds.DOGGY_ON_ALL_FOURS);
+				subSlots.put(Main.game.getPlayer(), SexSlotAllFours.ALL_FOURS);
 				if(isCompanionDialogue()) {
-					subSlots.put(getMainCompanion(), SexSlotBipeds.DOGGY_ON_ALL_FOURS_SECOND);
+					subSlots.put(getMainCompanion(), SexSlotAllFours.ALL_FOURS_TWO);
 				}
 				
-				SexManagerInterface manager = new SMDoggy(
+				SexManagerInterface manager = new SMAllFours(
 						domSlots,
 						subSlots) {
 					@Override
@@ -2468,14 +2534,14 @@ public class ImpCitadelDialogue {
 			Map<GameCharacter, SexSlot> subSlots;
 			if(isCompanionDialogue()) {
 				subSlots = Util.newHashMapOfValues(
-						new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL),
-						new Value<>(getMainCompanion(), SexSlotBipeds.KNEELING_PERFORMING_ORAL_TWO));
+						new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL),
+						new Value<>(getMainCompanion(), SexSlotStanding.PERFORMING_ORAL_TWO));
 			} else {
-				subSlots = Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.KNEELING_PERFORMING_ORAL));
+				subSlots = Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotStanding.PERFORMING_ORAL));
 			}
 			
-			SexManagerInterface manager = new SMKneeling(
-					Util.newHashMapOfValues(new Value<>(getOwner(), SexSlotBipeds.KNEELING_RECEIVING_ORAL)),
+			SexManagerInterface manager = new SMStanding(
+					Util.newHashMapOfValues(new Value<>(getOwner(), SexSlotStanding.STANDING_DOMINANT)),
 					subSlots) {
 				@Override
 				public boolean isPositionChangingAllowed(GameCharacter character) {

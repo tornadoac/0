@@ -19,7 +19,7 @@ import com.lilithsthrone.game.dialogue.responses.ResponseSex;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.enchanting.AbstractItemEffectType;
 import com.lilithsthrone.game.sex.managers.submission.SMLyssiethSex;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotDesk;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.Util.Value;
@@ -29,7 +29,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.3
- * @version 0.3
+ * @version 0.3.4
  * @author Innoxia
  */
 public class LyssiethReveal {
@@ -49,7 +49,7 @@ public class LyssiethReveal {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if(index==1) {
-				return new Response("Follow", "Let Elizabeth lead you towards Lysseth's throne room.", FORWARDS_1) {
+				return new Response("Follow", "Let Elizabeth lead you towards Lyssieth's throne room.", FORWARDS_1) {
 					@Override
 					public void effects() {
 						Main.game.getPlayer().setLocation(new Vector2i(Main.game.getPlayer().getLocation().getX(), Main.game.getPlayer().getLocation().getY()+1));
@@ -377,7 +377,7 @@ public class LyssiethReveal {
 						public void effects() {
 							Main.game.getTextEndStringBuilder().append(UtilText.parseFromXMLFile("misc/lyssiethReveal", "LAB_QUESTION_WORLD"));
 							Main.game.getDialogueFlags().setFlag(DialogueFlagValue.lyssiethQuestionAsked1, true);
-							Main.game.getTextEndStringBuilder().append(AbstractItemEffectType.getBookEffect(Subspecies.LILIN, false));
+							Main.game.getTextEndStringBuilder().append(AbstractItemEffectType.getBookEffect(Main.game.getPlayer(), Subspecies.LILIN, false));
 						}
 					};
 				}
@@ -625,8 +625,8 @@ public class LyssiethReveal {
 						true,
 						true,
 						new SMLyssiethSex(
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_DESK_DOM)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Lyssieth.class), SexSlotBipeds.MISSIONARY_DESK_SUB))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotDesk.BETWEEN_LEGS)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Lyssieth.class), SexSlotDesk.OVER_DESK_ON_BACK))),
 						null,
 						null,
 						POWER_VISION,
@@ -638,8 +638,8 @@ public class LyssiethReveal {
 						true,
 						true,
 						new SMLyssiethSex(
-								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Lyssieth.class), SexSlotBipeds.MISSIONARY_DESK_DOM)),
-								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotBipeds.MISSIONARY_DESK_SUB))),
+								Util.newHashMapOfValues(new Value<>(Main.game.getNpc(Lyssieth.class), SexSlotDesk.BETWEEN_LEGS)),
+								Util.newHashMapOfValues(new Value<>(Main.game.getPlayer(), SexSlotDesk.OVER_DESK_ON_BACK))),
 						null,
 						null,
 						POWER_VISION,

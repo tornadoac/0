@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lilithsthrone.controller.MainController;
-import com.lilithsthrone.game.Weather;
+import com.lilithsthrone.game.Game;
 import com.lilithsthrone.game.character.npc.dominion.Lilaya;
 import com.lilithsthrone.game.character.npc.dominion.Rose;
 import com.lilithsthrone.game.character.npc.misc.PrologueFemale;
@@ -34,6 +34,7 @@ import com.lilithsthrone.game.sex.managers.universal.SMGeneric;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
+import com.lilithsthrone.world.Weather;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
 
@@ -174,14 +175,14 @@ public class PrologueDialogue {
 	};
 	
 
-	public static final DialogueNode AFTER_SEX = new DialogueNode("In the Museum", "", true) {
+	public static final DialogueNode AFTER_SEX = new DialogueNode("In the Museum", "Now that you've had your fun, you really should go and find your aunt Lily...", true) {
 
 		@Override
 		public String getContent() {
 			UtilText.nodeContentSB.setLength(0);
 			
 			if(femalePrologueNPC()) {
-				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueFemale.class))>0) {
+				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueFemale.class))>=Main.game.getNpc(PrologueFemale.class).getOrgasmsBeforeSatisfied()) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_FEMALE_SATISFIED"));
 					
 				} else {
@@ -189,7 +190,7 @@ public class PrologueDialogue {
 				}
 				
 			} else {
-				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueMale.class))>0) {
+				if(Sex.getNumberOfOrgasms(Main.game.getNpc(PrologueMale.class))>=Main.game.getNpc(PrologueMale.class).getOrgasmsBeforeSatisfied()) {
 					UtilText.nodeContentSB.append(UtilText.parseFromXMLFile("misc/prologue", "AFTER_SEX_MALE_SATISFIED"));
 					
 				} else {
@@ -411,6 +412,10 @@ public class PrologueDialogue {
 						MainController.updateUI();
 						
 						Main.game.getPlayer().setLocation(WorldType.DOMINION, PlaceType.DOMINION_AUNTS_HOME);
+						
+						Main.game.getPlayer().setAgeAppearanceDifference(-Game.TIME_SKIP_YEARS);
+						
+						Main.game.applyStartingDateChange();
 					}
 				};
 			} else {
@@ -704,10 +709,9 @@ public class PrologueDialogue {
 					@Override
 					public void effects() {
 						// Equip clothing:
-						List<AbstractClothing> tempList = new ArrayList<>();
-						tempList.addAll(Main.game.getPlayerCell().getInventory().getAllClothingInInventory());
+						List<AbstractClothing> tempList = new ArrayList<>(Main.game.getPlayerCell().getInventory().getAllClothingInInventory().keySet());
 
-						for (AbstractClothing c : tempList) {
+						for(AbstractClothing c : tempList) {
 							if(!c.getClothingType().equals(ClothingType.SCIENTIST_EYES_SAFETY_GOGGLES)) {
 								Main.game.getPlayer().equipClothingFromGround(c, true, Main.game.getPlayer());
 							}
@@ -837,7 +841,7 @@ public class PrologueDialogue {
 					@Override
 					public void effects() {
 						Main.game.getNpc(Rose.class).setLocation(WorldType.LILAYAS_HOUSE_GROUND_FLOOR, PlaceType.LILAYA_HOME_LAB, false);
-						Main.saveGame("AutoSave_"+Main.game.getPlayer().getName(), true);
+						Main.saveGame("AutoSave_"+Main.game.getPlayer().getName(false), true);
 					}
 				};
 				

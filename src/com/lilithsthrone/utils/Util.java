@@ -6,10 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.TextStyle;
+import java.nio.file.Files;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -18,7 +16,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NoSuchElementException;
@@ -28,12 +25,13 @@ import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 
+import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.body.CoverableArea;
 import com.lilithsthrone.game.character.race.Subspecies;
-import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.InventorySlot;
 import com.lilithsthrone.game.inventory.clothing.AbstractClothing;
 import com.lilithsthrone.game.inventory.clothing.DisplacementType;
+import com.lilithsthrone.main.Main;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
@@ -126,15 +124,17 @@ public class Util {
 	
 	public static Color midpointColor(Color first, Color second) {
 		
-		double r = (first.getRed() + second.getRed())/2,
-				g = (first.getGreen() + second.getGreen())/2,
-					b = (first.getBlue() + second.getBlue())/2;
-		
-		return newColour(r*255, g*255, b*255);
+		double r = (first.getRed() + second.getRed())/2;
+		double g = (first.getGreen() + second.getGreen())/2;
+		double b = (first.getBlue() + second.getBlue())/2;
+//		System.out.println(r+","+g+","+b);
+		return Color.color(r, g, b);
 	}
 	
 	public static String toWebHexString(Color colour) {
-		return colour.toString().substring(2, 8);
+		String c = colour.toString().substring(2, 8);
+//		System.out.println(c);
+		return "#"+c;
 	}
 	
 	public static Color newColour(double r, double g, double b) {
@@ -176,7 +176,7 @@ public class Util {
 	public static class Value<T, S> {
 		private T key;
 		private S value;
-
+		
 		public Value(T key, S value) {
 			this.key = key;
 			this.value = value;
@@ -196,7 +196,9 @@ public class Util {
 		LinkedHashMap<T, S> map = new LinkedHashMap<>();
 
 		for (Value<T, S> v : values) {
-			map.put(v.getKey(), v.getValue());
+			if(v!=null) {
+				map.put(v.getKey(), v.getValue());
+			}
 		}
 		
 		return map;
@@ -236,17 +238,22 @@ public class Util {
 			}
 		}
 	}
-	
-	public static String getFileTime(File file) throws IOException {
-	    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy - hh:mm");
-	    return dateFormat.format(file.lastModified());
+
+	public static String getFileTime(File file) {
+		try {
+			Instant fileTime = Files.getLastModifiedTime(file.toPath()).toInstant();
+			return Units.dateTime(fileTime);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "Unknown";
 	}
 	
-	@SafeVarargs
 	/**
 	 * @param values The values to add to the new list.
 	 * @return A list of provided values, with nulls stripped.
 	 */
+	@SafeVarargs
 	public static <U> ArrayList<U> newArrayListOfValues(U... values) {
 		ArrayList<U> list = new ArrayList<>(Arrays.asList(values));
 		list.removeIf(e -> e==null);
@@ -262,8 +269,10 @@ public class Util {
 		ArrayList<U> mergedList = new ArrayList<>();
 		
 		for(List<U> list : lists) {
-			for(U value : list) {
-				mergedList.add(value);
+			if(list!=null) {
+				for(U value : list) {
+					mergedList.add(value);
+				}
 			}
 		}
 		
@@ -294,8 +303,13 @@ public class Util {
 		
 		return mergedMap;
 	}
-	
+
 	public static <T> T getRandomObjectFromWeightedMap(Map<T, Integer> map) {
+		return getRandomObjectFromWeightedMap(map, Util.random);
+	}
+	
+	
+	public static <T> T getRandomObjectFromWeightedMap(Map<T, Integer> map, Random rnd) {
 		int total = 0;
 		for(int i : map.values()) {
 			total+=i;
@@ -305,7 +319,7 @@ public class Util {
 			return null;
 		}
 		
-		int choice = Util.random.nextInt(total) + 1;
+		int choice = rnd.nextInt(total) + 1;
 		
 		total = 0;
 		for(Entry<T, Integer> entry : map.entrySet()) {
@@ -318,6 +332,29 @@ public class Util {
 		return null;
 	}
 	
+	/*public static <T> T getFirstObjectFromWeightedMap(Map<T, Integer> map) { //returning last entry added?
+		int total = 0;
+		for(int i : map.values()) {
+			total+=i;
+		}
+
+		if(total==0) {
+			return null;
+		}
+
+		int choice = 1;
+
+		total = 0;
+		for(Entry<T, Integer> entry : map.entrySet()) {
+			total+=entry.getValue();
+			if(choice<=total) {
+				return entry.getKey();
+			}
+		}
+
+		return null;
+	}*/
+
 	public static <T> T getRandomObjectFromWeightedFloatMap(Map<T, Float> map) {
 		int total = 0;
 		for(float f : map.values()) {
@@ -335,22 +372,6 @@ public class Util {
 		}
 
 		return null;
-	}
-
-	public static String getDayOfMonthSuffix(int n) {
-		if (n >= 11 && n <= 13) {
-	    	return "th";
-	    }
-	    switch (n % 10) {
-	    	case 1:  return "st";
-	    	case 2:  return "nd";
-	    	case 3:  return "rd";
-	    	default: return "th";
-	    }
-	}
-	
-	public static String getRoundedFloat(float input, int decimalPlaces) {
-		return String.format(Locale.ENGLISH,"%."+decimalPlaces+"f", input);
 	}
 	
 	private static String[] numbersLessThanTwenty = {
@@ -409,22 +430,6 @@ public class Util {
 			"eighty",
 			"ninety"
 	};
-
-	public static String intToDate(int integer) {
-		if(integer%10==1 && (integer%100<10 || integer%100>20)) {
-			return integer+"st";
-		} else if(integer%10==2 && (integer%100<10 || integer%100>20)) {
-			return integer+"nd";
-		} else if(integer%10==3 && (integer%100<10 || integer%100>20)) {
-			return integer+"rd";
-		} else {
-			return integer+"th";
-		}
-	}
-	
-	public static String getStringOfLocalDateTime(LocalDateTime date) {
-		return intToDate(date.getDayOfMonth())+" "+date.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH)+", "+date.getYear();
-	}
 	
 	/**
 	 * Only works for values -99,999 to 99,999.
@@ -439,7 +444,7 @@ public class Util {
 		}
 		integer = Math.abs(integer);
 		if (integer >= 100_000) {
-			return intToString + " a lot";
+			return String.valueOf(integer); // Too big
 		}
 		
 		
@@ -480,6 +485,20 @@ public class Util {
 		return intToString;
 	}
 
+	public static String intToDate(int integer) {
+		int remainderHundred = integer%100;
+		if(remainderHundred<=10 || remainderHundred>20) {
+			if(integer%10==1) {
+				return integer+"st";
+			} else if(integer%10==2) {
+				return integer+"nd";
+			} else if(integer%10==3) {
+				return integer+"rd";
+			}
+		}
+		return integer+"th";
+	}
+	
 	/**
 	 * @param integer Input number to convert.
 	 * @return 'once', 'twice', or 'integer times'
@@ -502,7 +521,7 @@ public class Util {
 		}
 		integer = Math.abs(integer);
 		if (integer >= 100_000) {
-			return intToString + " a lot";
+			return String.valueOf(integer); // Too big
 		}
 		
 		
@@ -571,13 +590,17 @@ public class Util {
         return numeralMap.get(l) + intToNumerals(integer-l);
 	}
 	
-	public static String intToTally(int integer) {
+	public static String intToTally(int integer, int max) {
 		StringBuilder numeralSB = new StringBuilder();
-		for(int i=0; i<integer/5; i++) {
+		int limit = Math.min(integer, max);
+		for(int i=0; i<limit/5; i++) {
 			numeralSB.append("<strike>IIII</strike> ");
 		}
-		for(int i=0; i<integer%5; i++) {
+		for(int i=0; i<limit%5; i++) {
 			numeralSB.append("I");
+		}
+		if(limit<integer) {
+			numeralSB.append("... (Total: "+integer+")");
 		}
 		
 		return numeralSB.toString();
@@ -586,33 +609,6 @@ public class Util {
 	public static String getKeyCodeCharacter(KeyCode code) {
 		String name = KEY_NAMES.get(code);
 		return name != null? name : code.getName();
-	}
-
-	public static int conversionCentimetresToInches(int cm) {
-		// System.out.println(cm + " -> "+(int)(cm/2.54f));
-		return Math.round(cm / 2.54f);
-	}
-
-	public static int conversionInchesToCentimetres(int inches) {
-		return Math.round(inches * 2.54f);
-	}
-
-	public static String centimetresToMetresAndCentimetres(int cm) {
-		return ((cm / 100) + ((cm % 100) != 0 ? ("." + cm % 100) + "m." : "m"));
-	}
-
-	public static String inchesToFeetAndInches(int inches) {
-		return inches==0
-					?"0"+UtilText.INCH_SYMBOL
-					:((((inches) / 12) == 0 ? "" : (inches) / 12) + (((inches) / 12) > 0 ? UtilText.FOOT_SYMBOL : "") + (((inches) % 12) == 0 ? "" : " ") + (((inches) % 12) != 0 ? ((inches) % 12) + UtilText.INCH_SYMBOL : ""));
-	}
-
-	public static int conversionKilogramsToPounds(int kg) {
-		return Math.round(kg * 2.20462268f);
-	}
-
-	public static String poundsToStoneAndPounds(int pounds) {
-		return ((((pounds) / 14) == 0 ? "" : (pounds) / 14) + (((pounds) / 12) > 0 ? "st." : "") + (((pounds) % 14) == 0 ? "" : " ") + (((pounds) % 14) != 0 ? ((pounds) % 14) + "lb" : ""));
 	}
 
 	public static String capitaliseSentence(String sentence) {
@@ -625,8 +621,6 @@ public class Util {
 	public static boolean isVowel(char c) {
 		return "AEIOUaeiou".indexOf(c) != -1;
 	}
-
-	private static String[] splitSentence;
 
 	/**
 	 * Turns a normal sentence into a stuttering sentence. Example:
@@ -641,42 +635,46 @@ public class Util {
 	 *            modified sentence
 	 */
 	public static String addStutter(String sentence, int frequency) {
-		splitSentence = sentence.split(" ");
-		utilitiesStringBuilder.setLength(0);
-
-		// 1 in "frequency" words are stutters, with a minimum of 1.
-		int wordsToStutter = splitSentence.length / frequency + 1;
-
-		int offset = 0;
-		for (int i = 0; i < wordsToStutter; i++) {
-			offset = random.nextInt(frequency);
-			offset = (i * frequency + offset) >= splitSentence.length ? splitSentence.length - 1 : (i * frequency + offset);
-
-			// In case of an accidental comma position?
-			if (splitSentence[offset].charAt(0) != ',')
-				splitSentence[offset] = splitSentence[offset].charAt(0) + "-" + splitSentence[offset];
-			else
-				splitSentence[offset] = "," + splitSentence[offset].charAt(1) + "-" + splitSentence[offset].substring(1, splitSentence[offset].length() + 1);
-
-			for (int j = 0; j < frequency && ((i * frequency + j) < splitSentence.length); j++)
-				utilitiesStringBuilder.append(splitSentence[i * frequency + j] + " ");
+		StringBuilder modifiedSentence = new StringBuilder();
+		int openingCurly = 0;
+		int closingCurly = 0;
+		int openingSquare = 0;
+		int closingSquare = 0;
+		float chance = 1f/frequency;
+		for(int i = sentence.length()-1; i>=0; i--) {
+			if(sentence.charAt(i)=='(') {
+				openingCurly++;
+			} else if(sentence.charAt(i)==')') {
+				closingCurly++;
+			} else if(sentence.charAt(i)=='[') {
+				openingSquare++;
+			} else if(sentence.charAt(i)==']') {
+				closingSquare++;
+			}
+			
+			if(sentence.charAt(i)==' '
+					&& Character.isLetter(sentence.charAt(i+1))
+//					&& sentence.charAt(i+1)!='#'
+//					&& sentence.charAt(i+1)!='('
+//					&& sentence.charAt(i+1)!='['
+					&& openingCurly==closingCurly
+					&& openingSquare==closingSquare) {
+				if(Math.random()<chance) {
+					modifiedSentence.append("-");
+					modifiedSentence.append(sentence.charAt(i+1));
+				}
+			}
+			modifiedSentence.append(sentence.charAt(i));
 		}
-
-		utilitiesStringBuilder.deleteCharAt(utilitiesStringBuilder.length() - 1);
-		return utilitiesStringBuilder.toString();
+		
+		modifiedSentence.reverse();
+		return modifiedSentence.toString();
 	}
 
 	private static Pattern endOfSentence = Pattern.compile("[,.!?]");
-	/**
-	 * Determine whether a given string contains sentence-ending punctuation.
-	 * @param text text to check whether
-	 * @return boolean whether the text contains a period, exclamation or question mark
-	 */
-	private static boolean isEndOfSentence(String text) {
-		if(text.isEmpty()) {
-			return false;
-		}
-		return endOfSentence.matcher(text.substring(text.length()-1)).matches();
+	
+	private static boolean isEndOfSentence(char c) {
+		return endOfSentence.matcher(String.valueOf(c)).matches();
 	}
 
 	/**
@@ -695,66 +693,46 @@ public class Util {
 	 *            modified sentence
 	 */
 	private static String insertIntoSentences(String sentence, int frequency, String[] inserts, boolean middle) {
-		splitSentence = sentence.split(" ");
-		utilitiesStringBuilder.setLength(0);
 
-		// 1 in "frequency" words have an insert, with a minimum of 1.
-		int wordsToInsert = splitSentence.length / frequency + 1,
-				offset = 0;
-		for (int i = 0; i < wordsToInsert; i++) {
-			offset = Math.min(i * frequency + random.nextInt(frequency), splitSentence.length - 1);
-			String insert = inserts[random.nextInt(inserts.length)];
-
-			// If wanted, ensure not inserting to the start or end of a sentence
-			if (offset >= splitSentence.length -1 || isEndOfSentence(splitSentence[offset])) {
-				if (middle) {
-					// Skip if at end of string or sentence
-					continue;
+		StringBuilder modifiedSentence = new StringBuilder();
+		int openingCurly = 0;
+		int closingCurly = 0;
+		int openingSquare = 0;
+		int closingSquare = 0;
+		float chance = 1f/frequency;
+		for(int i = sentence.length()-1; i>=0; i--) {
+			if(sentence.charAt(i)=='(') {
+				openingCurly++;
+			} else if(sentence.charAt(i)==')') {
+				closingCurly++;
+			} else if(sentence.charAt(i)=='[') {
+				openingSquare++;
+			} else if(sentence.charAt(i)==']') {
+				closingSquare++;
+			}
+			if(i!=sentence.length()-1
+					&& sentence.charAt(i+1)==' '
+					&& !isEndOfSentence(sentence.charAt(i))
+					&& (i==0 || !middle || !isEndOfSentence(sentence.charAt(i-1)))
+					&& openingCurly==closingCurly
+					&& openingSquare==closingSquare) {
+				if(Math.random()<chance) {
+					String word = Util.randomItemFrom(inserts);
+					char[] charArray = word.toCharArray();
+					for(int cIndex=charArray.length-1; cIndex>=0; cIndex--) {
+						modifiedSentence.append(charArray[cIndex]);
+					}
 				}
-
-//				// Add a full stop to the insert, creating its own sentence
-//				insert += ".";
 			}
-
-			int len = splitSentence[offset].length();
-			// Remove duplicate commas if selected position ends with one and insert has one
-			if (insert.trim().charAt(0) == ',' && splitSentence[offset].charAt(len -1) == ',') {
-				splitSentence[offset] = splitSentence[offset].substring(0, len-1);
-			}
-
-			// Append the insert to this word:
-			splitSentence[offset] = splitSentence[offset] + insert;
-
+			modifiedSentence.append(sentence.charAt(i));
 		}
-		for (String word : splitSentence)
-			utilitiesStringBuilder.append(word + " ");
-		utilitiesStringBuilder.deleteCharAt(utilitiesStringBuilder.length() - 1);
-
-		return utilitiesStringBuilder.toString();
+		
+		modifiedSentence.reverse();
+		return modifiedSentence.toString();
 	}
 
 	private static String insertIntoSentences(String sentence, int frequency, String[] inserts) {
 		return insertIntoSentences(sentence, frequency, inserts, true);
-	}
-	
-	private static String insertIntoSentencesAtPunctuation(String sentence, String[] inserts) {
-		splitSentence = sentence.split(" ");
-		utilitiesStringBuilder.setLength(0);
-		
-		utilitiesStringBuilder.append(inserts[random.nextInt(inserts.length)]+" ");
-		
-		char cOld = 'X';
-		for(char c : sentence.toCharArray()) {
-			utilitiesStringBuilder.append(c);
-			
-			if((cOld=='.'||cOld=='!'||cOld=='?'||cOld==',')
-					&& c==' ') {
-				utilitiesStringBuilder.append(inserts[random.nextInt(inserts.length)]+" ");
-			}
-			cOld = c;
-		}//^\.\. |! |\? 
-
-		return utilitiesStringBuilder.toString();
 	}
 
 	private static String[] bimboWords = new String[] { ", like,", ", like,", ", like,", ", um,", ", uh,", ", ah," };
@@ -780,9 +758,9 @@ public class Util {
 		sentence = insertIntoSentences(sentence, frequency, bimboWords);
 		utilitiesStringBuilder.setLength(0);
 		utilitiesStringBuilder.append(sentence);
-
-		// 1/3 chance of having a bimbo sentence ending:
-		if(!sentence.endsWith("~") && !sentence.endsWith("-")) {
+		
+		// 1/3 chance of having a bimbo sentence ending: TODO improve so it can be added anywhere
+		if(!sentence.endsWith("~") && !sentence.endsWith("-") && !sentence.endsWith("#ENDIF")) {
 			switch (random.nextInt(6)) {
 				case 0:
 					char end = utilitiesStringBuilder.charAt(utilitiesStringBuilder.length() - 1);
@@ -793,6 +771,33 @@ public class Util {
 				case 1:
 					utilitiesStringBuilder.deleteCharAt(utilitiesStringBuilder.length() - 1);
 					utilitiesStringBuilder.append(", y'know?");
+					break;
+				default:
+					break;
+			}
+		}
+
+		return utilitiesStringBuilder.toString();
+	}
+	
+	private static String[] broWords = new String[] { ", like,", ", like, dude,", ", like,", ", um,", ", uh,", ", ah," };
+	public static String addBro(String sentence, int frequency) {
+		sentence = insertIntoSentences(sentence, frequency, broWords);
+		utilitiesStringBuilder.setLength(0);
+		utilitiesStringBuilder.append(sentence);
+		
+		// 1/3 chance of having a bimbo sentence ending: TODO improve so it can be added anywhere
+		if(!sentence.endsWith("~") && !sentence.endsWith("-") && !sentence.endsWith("#ENDIF")) {
+			switch (random.nextInt(6)) {
+				case 0:
+					char end = utilitiesStringBuilder.charAt(utilitiesStringBuilder.length() - 1);
+					utilitiesStringBuilder.deleteCharAt(utilitiesStringBuilder.length() - 1);
+					utilitiesStringBuilder.append(" and stuff");
+					utilitiesStringBuilder.append(end);
+					break;
+				case 1:
+					utilitiesStringBuilder.deleteCharAt(utilitiesStringBuilder.length() - 1);
+					utilitiesStringBuilder.append(", y'know, dude?");
 					break;
 				default:
 					break;
@@ -819,8 +824,18 @@ public class Util {
 	public static String addMuffle(String sentence, int frequency) {
 		return insertIntoSentences(sentence, frequency, muffledSounds);
 	}
+	
+	public static String replaceWithMuffle(String sentence, int wordToMuffleRatio) {
+		int muffles = sentence.split(" ").length/wordToMuffleRatio;
+		StringBuilder muffleSB = new StringBuilder();
+		for(int i=0; i<muffles; i++) {
+			muffleSB.append(muffledSounds[random.nextInt(muffledSounds.length)]);
+		}
+		muffleSB.delete(0, 1); // Remove space at start
+		return muffleSB.toString();
+	}
 
-	private static String[] sexSounds = new String[] { " ~Aah!~", " ~Mmm!~" };
+	private static String[] sexSounds = new String[] { " ~Aah!~", " ~Mmm!~", "~Ooh!~" };
 	/**
 	 * Turns a normal sentence into a sexy sentence.<br/>
 	 * Example:<br/>
@@ -835,11 +850,7 @@ public class Util {
 	 *            modified sentence
 	 */
 	public static String addSexSounds(String sentence, int frequency) {
-		if(Math.random()<0.75f) { // 75% chance of the sex sounds to be more readable:
-			return insertIntoSentencesAtPunctuation(sentence, sexSounds);
-		} else {
-			return insertIntoSentences(sentence, frequency, sexSounds);
-		}
+		return insertIntoSentences(sentence, frequency, sexSounds);
 	}
 
 	private static String[] drunkSounds = new String[] { " ~Hic!~" };
@@ -847,24 +858,71 @@ public class Util {
 	 * Turns a normal sentence into a drunk one.<br/>
 	 * Example:<br/>
 	 * "How far is it to the town hall?"<br/>
-	 * "How ~Hic!~ far is it ~Hic!~ to the town ~Hic!~ hall?"<br/>
+	 * "How ~Hic!~ far ish it ~Hic!~ to the town ~Hic!~ hall?"<br/>
 	 *
-	 * @param sentence
-	 *            sentence to apply sexy modifications
-	 * @param frequency
-	 *            of drunk sounds (i.e. 4 would be 1 in 4 words are drunk)
-	 * @return
-	 *            modified sentence
+	 * @param sentence to apply drunk modifications to.
+	 * @param frequency of drunk sounds (i.e. 4 would be 1 in 4 words are drunk)
+	 * @return modified sentence
 	 */
 	public static String addDrunkSlur(String sentence, int frequency) {
-		return insertIntoSentences(sentence, frequency, drunkSounds, false)
-			.replaceAll("Hi ", "Heeey ")
-			.replaceAll("yes", "yesh")
-			.replaceAll("is", "ish")
-			.replaceAll("So", "Sho")
-			.replaceAll("so", "sho");
+		sentence = insertIntoSentences(sentence, frequency, drunkSounds, false);
+		
+		String [] split = sentence.split("\\[(.*?)\\]");
+		for(String s : split) {
+			String [] splitConditional = s.split("#IF\\((.*?)\\)|#ELSEIF\\((.*?)\\)"); // Do not replace text inside conditional parsing statements
+			for(String s2 : splitConditional) {
+				String sReplace = s2
+						.replaceAll("Hi ", "Heeey ")
+						.replaceAll("yes", "yesh")
+						.replaceAll("Is", "Ish")
+						.replaceAll("is", "ish")
+						.replaceAll("It's", "It'sh")
+						.replaceAll("it's", "it'sh")
+						.replaceAll("So", "Sho")
+						.replaceAll("so", "sho");
+					
+					sentence = sentence.replace(s2, sReplace);
+			}
+		}
+		
+		return sentence;
+		
+//		return insertIntoSentences(sentence, frequency, drunkSounds, false)
+//			.replaceAll("Hi ", "Heeey ")
+//			.replaceAll("yes", "yesh")
+//			.replaceAll("is", "ish")
+//			.replaceAll("So", "Sho")
+//			.replaceAll("so", "sho");
 	}
-
+	
+	/**
+	 * Applies a lisp to speech (a speech defect in which s is pronounced like th in thick and z is pronounced like th in this). Modified sibilants are italicised in order to assist with reading.<br/>
+	 * Example:<br/>
+	 * "Is there a zoo that's nearby?"<br/>
+	 * "I<i>th</i> there a <i>th</i>oo that'<i>th</i> nearby?"<br/>
+	 *
+	 * @param sentence The speech to which the lisp should be applied.
+	 * @return The modified sentence.
+	 */
+	public static String applyLisp(String sentence) {
+		String [] split = sentence.split("\\[(.*?)\\]");
+		for(String s : split) {
+			String [] splitConditional = s.split("#IF\\((.*?)\\)|#ELSEIF\\((.*?)\\)"); // Do not replace text inside conditional parsing statements
+			for(String s2 : splitConditional) {
+				String sReplace = s2
+						.replaceAll("s", "<i>th</i>")
+						.replaceAll("z", "<i>th</i>")
+						.replaceAll("S", "<i>Th</i>")
+						.replaceAll("Z", "<i>Th</i>");
+					
+					sentence = sentence.replace(s2, sReplace);
+			}
+		}
+		
+		return sentence;
+	}
+	
+	
 	/**
 	 * Builds a string representing the list of items in a collection.
 	 *
@@ -946,6 +1004,10 @@ public class Util {
 		return Util.toStringList(inventorySlots, InventorySlot::getName, "and");
 	}
 	
+	public static String inventorySlotsToParsedStringList(List<InventorySlot> inventorySlots, GameCharacter owner) {
+		return Util.toStringList(inventorySlots, ((slot) -> slot.getNameOfAssociatedPart(owner)), "and");
+	}
+	
 	public static String tattooInventorySlotsToStringList(List<InventorySlot> inventorySlots) {
 		return Util.toStringList(inventorySlots, InventorySlot::getTattooSlotName, "and");
 	}
@@ -955,9 +1017,17 @@ public class Util {
 	}
 
 	public static <Any> Any randomItemFrom(List<Any> list) {
+		if(list.isEmpty()) {
+			return null;
+		}
 		return list.get(Util.random.nextInt(list.size()));
 	}
 
+	public static <Any> Any randomItemFrom(Set<Any> set) {
+		List<Any> list = new ArrayList<>(set);
+		return randomItemFrom(list);
+	}
+	
 	public static <Any> Any randomItemFrom(Any[] array) {
 		return array[Util.random.nextInt(array.length)];
 	}
@@ -967,6 +1037,9 @@ public class Util {
 	}
 	
 	public static String getClosestStringMatch(String input, Collection<String> choices) {
+		if (choices.contains(input)) {
+			return input;
+		}
 		int distance = Integer.MAX_VALUE;
 		String closestString = input;
 		for(String choice : choices) {
@@ -1009,10 +1082,28 @@ public class Util {
 	
 	private static Map<String, List<String>> errorLogMap = new HashMap<>();
 	public static void logGetNpcByIdError(String method, String id) {
-		errorLogMap.putIfAbsent(method, new ArrayList<>());
-		if(!errorLogMap.get(method).contains(id)) {
-			System.err.println("Main.game.getNPCById("+id+") returning null in method: "+method);
-			errorLogMap.get(method).add(id);
+		if(Main.DEBUG) { // So this doesn't flood error.log
+			errorLogMap.putIfAbsent(method, new ArrayList<>());
+			if(!errorLogMap.get(method).contains(id)) {
+				System.err.println("Main.game.getNPCById("+id+") returning null in method: "+method);
+				errorLogMap.get(method).add(id);
+			}
 		}
+	}
+
+	public static String getFileName(File f) {
+		return f.getName().substring(0, f.getName().lastIndexOf('.'));
+	}
+	
+	public static String getFileIdentifier(File f) {
+		return f.getName().substring(0, f.getName().lastIndexOf('.')).replaceAll("'", "Q");
+	}
+	
+	public static String getFileName(String filePath) {
+		return filePath.substring(0, filePath.lastIndexOf('.'));
+	}
+	
+	public static String getFileIdentifier(String filePath) {
+		return filePath.substring(0, filePath.lastIndexOf('.')).replaceAll("'", "Q");
 	}
 }

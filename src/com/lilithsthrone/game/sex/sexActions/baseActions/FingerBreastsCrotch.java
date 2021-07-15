@@ -114,7 +114,7 @@ public class FingerBreastsCrotch {
 				switch(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))) {
 					case DOM_GENTLE:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-								" [npc2.Name] [npc2.verb(let)] out a soft [npc2.moan] at [npc.namePos] touch, before gently encouraging [npc.herHim] to [npc.verb(continue)] giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
+								" [npc2.Name] [npc2.verb(let)] out a soft [npc2.moan] at [npc.namePos] touch, before gently encouraging [npc.herHim] to continue giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
 
 								" With a soft [npc2.moan], [npc2.name] slowly [npc2.verb(push)] [npc2.her] stomach out, imploring [npc.name] to continue.",
 
@@ -122,7 +122,7 @@ public class FingerBreastsCrotch {
 						break;
 					case DOM_NORMAL:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before eagerly encouraging [npc.herHim] to [npc.verb(continue)] giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
+								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before eagerly encouraging [npc.herHim] to continue giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
 
 								" With [npc2.a_moan+], [npc2.name] eagerly [npc2.verb(push)] [npc2.her] stomach out, imploring [npc.name] to continue.",
 
@@ -130,16 +130,16 @@ public class FingerBreastsCrotch {
 						break;
 					case DOM_ROUGH:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before roughly growling for [npc.herHim] to [npc.verb(continue)] giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
+								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before roughly growling for [npc.herHim] to continue giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
 
 								" With [npc2.a_moan+], [npc2.name] [npc2.verb(push)] [npc2.her] stomach out, and in a firm tone,"
-										+ " [npc2.she] [npc2.verb(order)] [npc.name] to [npc.verb(continue)] giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
+										+ " [npc2.she] [npc2.verb(order)] [npc.name] to continue giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
 
 								" Letting out [npc2.a_moan+] at [npc.namePos] touch, [npc2.name] [npc2.verb(demand)] that [npc.she] [npc.verb(carry)] on playing with [npc2.her] [npc2.crotchBoobs+]."));
 						break;
 					case SUB_EAGER:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before eagerly encouraging [npc.herHim] to [npc.verb(continue)] giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
+								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before eagerly encouraging [npc.herHim] to continue giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
 
 								" With [npc2.a_moan+], [npc2.name] eagerly [npc2.verb(push)] [npc2.her] stomach out, imploring [npc.name] to continue.",
 
@@ -147,7 +147,7 @@ public class FingerBreastsCrotch {
 						break;
 					case SUB_NORMAL:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before encouraging [npc.herHim] to [npc.verb(continue)] giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
+								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] at [npc.namePos] touch, before encouraging [npc.herHim] to continue giving [npc2.her] [npc2.crotchBoobs+] [npc.her] full attention.",
 
 								" With [npc2.a_moan+], [npc2.name] [npc2.verb(push)] [npc2.her] stomach out, imploring [npc.name] to continue.",
 
@@ -275,7 +275,7 @@ public class FingerBreastsCrotch {
 								" [npc2.Name] [npc2.verb(let)] out [npc2.a_moan+] in response to [npc.namePos] touch,"
 										+ " before roughly growling for [npc.herHim] to continue giving [npc2.namePos] [npc2.crotchBoobs+] [npc.her] full attention.",
 
-								" With [npc2.a_moan+], [npc2.name] [npc2.verb(push)] [npc2.her] stomach out, and in a firm tone, [npc2.name] order [npc.herHim] to [npc.verb(continue)] before carrying on making lewd noises.",
+								" With [npc2.a_moan+], [npc2.name] [npc2.verb(push)] [npc2.her] stomach out, and in a firm tone, [npc2.name] order [npc.herHim] to continue before carrying on making lewd noises.",
 
 								" Letting out [npc2.a_moan+] at [npc.namePos] touch, [npc2.name] [npc2.verb(demand)] that [npc.she] [npc.verb(carry)] on playing with [npc2.her] [npc2.crotchBoobs+]."));
 						break;
@@ -350,7 +350,7 @@ public class FingerBreastsCrotch {
 			if(!Sex.getCharacterTargetedForSexAction(this).isCoverableAreaExposed(CoverableArea.NIPPLES_CROTCH)
 					&& Sex.getCharacterTargetedForSexAction(this).getBreastCrotchStoredMilk().getMinimumValue()>=Lactation.ONE_TRICKLE.getMinimumValue()
 					&& Sex.getCharacterTargetedForSexAction(this).getLowestZLayerCoverableArea(CoverableArea.NIPPLES_CROTCH)!=null) {
-				Sex.getCharacterTargetedForSexAction(this).getLowestZLayerCoverableArea(CoverableArea.NIPPLES_CROTCH).setDirty(true);
+				Sex.getCharacterTargetedForSexAction(this).getLowestZLayerCoverableArea(CoverableArea.NIPPLES_CROTCH).setDirty(Sex.getCharacterTargetedForSexAction(this), true);
 			}
 		}
 		
@@ -432,7 +432,7 @@ public class FingerBreastsCrotch {
 										+ " and holding them there for a moment as [npc.name] order [npc2.herHim] to grope and squeeze [npc.namePos] [npc.crotchBoobs].",
 
 								"Taking hold of [npc2.namePos] [npc2.hands], [npc.name] violently [npc.verb(pull)] them down to [npc.her] lower abdomen,"
-										+ " forcing [npc2.her] [npc2.fingers] to [npc.verb(press)] into the [npc.topClothing(NIPPLES_CROTCH)] that's covering [npc.her] [npc.crotchBoobs+]."));
+										+ " forcing [npc2.her] [npc2.fingers] to press into the [npc.topClothing(NIPPLES_CROTCH)] that's covering [npc.her] [npc.crotchBoobs+]."));
 						break;
 					case SUB_EAGER:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -469,7 +469,7 @@ public class FingerBreastsCrotch {
 								" With a soft [npc2.moan], [npc2.name] eagerly responds to [npc.namePos] move by gently sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" Softly [npc2.moaning], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] gently [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] gently [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case DOM_NORMAL:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -479,7 +479,7 @@ public class FingerBreastsCrotch {
 								" With [npc2.a_moan+], [npc2.name] eagerly responds to [npc.namePos] move by enthusiastically sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" [npc2.Moaning+], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case DOM_ROUGH:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -489,7 +489,7 @@ public class FingerBreastsCrotch {
 								" With [npc2.a_moan+], [npc2.name] eagerly responds to [npc.namePos] move by roughly sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" [npc2.Moaning+], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] roughly [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] roughly [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case SUB_EAGER:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -498,7 +498,7 @@ public class FingerBreastsCrotch {
 								" With [npc2.a_moan+], [npc2.name] eagerly responds to [npc.namePos] move by enthusiastically sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" [npc2.Moaning+], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case SUB_NORMAL:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -536,17 +536,17 @@ public class FingerBreastsCrotch {
 						UtilText.nodeContentSB.append(" A trickle of [npc.crotchMilk] runs out into [npc.namePos] [npc.lowClothing(NIPPLES_CROTCH)] as [npc2.name] squeezes down on [npc.her] [npc.crotchNipples+].");
 						break;
 					case FOUR_LARGE_AMOUNT:
-						UtilText.nodeContentSB.append(" [npc.namePos] [npc.crotchMilk] starts to flow out into [npc.her] [npc.lowClothing(NIPPLES_CROTCH)],"
+						UtilText.nodeContentSB.append(" [npc.NamePos] [npc.crotchMilk] starts to flow out into [npc.her] [npc.lowClothing(NIPPLES_CROTCH)],"
 								+ " and [npc.she] [npc.moanVerb] as [npc.she] [npc.verb(feel)] it running down over [npc.her] [npc.crotchBoobs+].");
 						break;
 					case FIVE_VERY_LARGE_DROOLING:
-						UtilText.nodeContentSB.append(" [npc.namePos] [npc.crotchMilk] starts drooling out in a little stream into [npc.her] [npc.lowClothing(NIPPLES_CROTCH)] as [npc2.name] squeezes down on [npc.her] [npc.crotchNipples+].");
+						UtilText.nodeContentSB.append(" [npc.NamePos] [npc.crotchMilk] starts drooling out in a little stream into [npc.her] [npc.lowClothing(NIPPLES_CROTCH)] as [npc2.name] squeezes down on [npc.her] [npc.crotchNipples+].");
 						break;
 					case SIX_EXTREME_AMOUNT_DRIPPING:
-						UtilText.nodeContentSB.append(" [npc.namePos] [npc.crotchMilk] starts pouring out in a constant stream, quickly soaking [npc.her] [npc.lowClothing(NIPPLES_CROTCH)].");
+						UtilText.nodeContentSB.append(" [npc.NamePos] [npc.crotchMilk] starts pouring out in a constant stream, quickly soaking [npc.her] [npc.lowClothing(NIPPLES_CROTCH)].");
 						break;
 					case SEVEN_MONSTROUS_AMOUNT_POURING:
-						UtilText.nodeContentSB.append(" [npc.namePos] [npc.crotchMilk] starts pouring out in a heavy flow, quickly soaking [npc.her] [npc.lowClothing(NIPPLES_CROTCH)].");
+						UtilText.nodeContentSB.append(" [npc.NamePos] [npc.crotchMilk] starts pouring out in a heavy flow, quickly soaking [npc.her] [npc.lowClothing(NIPPLES_CROTCH)].");
 						break;
 					default:
 						break;
@@ -573,7 +573,7 @@ public class FingerBreastsCrotch {
 								"Taking [npc2.namePos] [npc2.hands] in [npc.hers],"
 								+ " [npc.name] [npc.verb(guide)] them down to [npc.namePos] lower abdomen, letting out [npc.a_moan+] as [npc.name] eagerly [npc.verb(press)] them into [npc.namePos] [npc.crotchBoobs+].",
 
-								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], eagerly guiding them down to [npc.verb(press)] into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
+								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], eagerly guiding them down to press into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
 
 								"Taking hold of [npc2.namePos] [npc2.hands], [npc.name] eagerly [npc.verb(guide)] [npc2.her] [npc2.fingers] down to enthusiastically [npc.verb(press)] into [npc.namePos] [npc.crotchBoobs+]."));
 						break;
@@ -582,17 +582,17 @@ public class FingerBreastsCrotch {
 								"Taking [npc2.namePos] [npc2.hands] in [npc.hers],"
 								+ " [npc.name] yank them down to [npc.namePos] lower abdomen, letting out [npc.a_moan+] as [npc.name] roughly [npc.verb(press)] them into [npc.namePos] [npc.crotchBoobs+].",
 
-								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], roughly yanking them down to [npc.verb(press)] into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
+								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], roughly yanking them down to press into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
 
 								"Taking hold of [npc2.namePos] [npc2.hands],"
-								+ " [npc.name] violently [npc.verb(pull)] them down to [npc.namePos] lower abdomen, forcing [npc2.her] [npc2.fingers] to [npc.verb(press)] into the soft flesh of [npc.namePos] [npc.crotchBoobs+]."));
+								+ " [npc.name] violently [npc.verb(pull)] them down to [npc.namePos] lower abdomen, forcing [npc2.her] [npc2.fingers] to press into the soft flesh of [npc.namePos] [npc.crotchBoobs+]."));
 						break;
 					case SUB_EAGER:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
 								"Taking [npc2.namePos] [npc2.hands] in [npc.hers],"
 								+ " [npc.name] [npc.verb(guide)] them down to [npc.namePos] lower abdomen, letting out [npc.a_moan+] as [npc.name] eagerly [npc.verb(press)] them into [npc.namePos] [npc.crotchBoobs+].",
 
-								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], eagerly guiding them down to [npc.verb(press)] into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
+								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], eagerly guiding them down to press into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
 
 								"Taking hold of [npc2.namePos] [npc2.hands], [npc.name] eagerly [npc.verb(guide)] [npc2.her] [npc2.fingers] down to enthusiastically [npc.verb(press)] them into [npc.namePos] [npc.crotchBoobs+]."));
 						break;
@@ -601,9 +601,9 @@ public class FingerBreastsCrotch {
 								"Taking [npc2.namePos] [npc2.hands] in [npc.hers],"
 								+ " [npc.name] [npc.verb(guide)] them down to [npc.namePos] lower abdomen, letting out [npc.a_moan+] as [npc.name] [npc.verb(press)] them into [npc.namePos] [npc.crotchBoobs+].",
 
-								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], guiding them down to [npc.verb(press)] into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
+								"[npc.Name] [npc.verb(take)] hold of [npc2.namePos] [npc2.hands], guiding them down to press into the soft flesh of [npc.namePos] [npc.crotchBoobs].",
 
-								"Taking hold of [npc2.namePos] [npc2.hands], [npc.name] [npc.verb(guide)] [npc2.her] [npc2.fingers] down to [npc.verb(press)] them into [npc.namePos] [npc.crotchBoobs+]."));
+								"Taking hold of [npc2.namePos] [npc2.hands], [npc.name] [npc.verb(guide)] [npc2.her] [npc2.fingers] down to press them into [npc.namePos] [npc.crotchBoobs+]."));
 						break;
 					default:
 						break;
@@ -616,7 +616,7 @@ public class FingerBreastsCrotch {
 								" With a soft [npc2.moan], [npc2.name] eagerly responds to [npc.namePos] move by gently sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" Softly [npc2.moaning], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] gently [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] gently [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case DOM_NORMAL:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -625,7 +625,7 @@ public class FingerBreastsCrotch {
 								" With [npc2.a_moan+], [npc2.name] eagerly responds to [npc.namePos] move by enthusiastically sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" [npc2.Moaning+], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case DOM_ROUGH:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -635,7 +635,7 @@ public class FingerBreastsCrotch {
 								" With [npc2.a_moan+], [npc2.name] eagerly responds to [npc.namePos] move by roughly sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" [npc2.Moaning+], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] roughly [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] roughly [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case SUB_EAGER:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -644,7 +644,7 @@ public class FingerBreastsCrotch {
 								" With [npc2.a_moan+], [npc2.name] eagerly responds to [npc.namePos] move by enthusiastically sinking [npc2.her] [npc2.fingers] into the soft flesh of [npc.her] [npc.crotchBoobs].",
 
 								" [npc2.Moaning+], [npc2.name] [npc2.verb(start)] playing with [npc.namePos] [npc.crotchBoobs+],"
-										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
+										+ " drawing pleasurable [npc.moans] from between [npc.her] [npc.lips] as [npc2.she] eagerly [npc2.verb(press)] [npc2.her] [npc2.fingers] into [npc.her] [npc.crotchBoobs]."));
 						break;
 					case SUB_NORMAL:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
@@ -657,7 +657,7 @@ public class FingerBreastsCrotch {
 						break;
 					case SUB_RESISTING:
 						UtilText.nodeContentSB.append(UtilText.returnStringAtRandom(
-								" [npc2.Name] tries to [npc.verb(pull)] back, [npc2.sobbing] and struggling against [npc.namePos] touch as [npc.she] [npc.verb(force)] [npc2.her] [npc2.hands] into [npc.her] [npc.crotchBoobs+].",
+								" [npc2.Name] tries to pull back, [npc2.sobbing] and struggling against [npc.namePos] touch as [npc.she] [npc.verb(force)] [npc2.her] [npc2.hands] into [npc.her] [npc.crotchBoobs+].",
 
 								" With [npc2.a_sob+], [npc2.name] [npc2.verb(start)] writhing around in discomfort,"
 										+ " pleading for [npc.name] to leave [npc2.herHim] alone as [npc.she] [npc2.verb(continue)] forcing [npc2.her] [npc2.hands] into [npc.her] [npc.crotchBoobs+].",
@@ -708,7 +708,7 @@ public class FingerBreastsCrotch {
 			if(!Sex.getCharacterPerformingAction().isCoverableAreaExposed(CoverableArea.NIPPLES_CROTCH)
 					&& Sex.getCharacterPerformingAction().getBreastCrotchStoredMilk().getMinimumValue()>=Lactation.ONE_TRICKLE.getMinimumValue()
 					&& Sex.getCharacterPerformingAction().getLowestZLayerCoverableArea(CoverableArea.NIPPLES_CROTCH)!=null) {
-				Sex.getCharacterPerformingAction().getLowestZLayerCoverableArea(CoverableArea.NIPPLES_CROTCH).setDirty(true);
+				Sex.getCharacterPerformingAction().getLowestZLayerCoverableArea(CoverableArea.NIPPLES_CROTCH).setDirty(Sex.getCharacterPerformingAction(), true);
 			}
 		}
 		

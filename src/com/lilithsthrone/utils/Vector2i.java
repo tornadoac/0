@@ -2,7 +2,7 @@ package com.lilithsthrone.utils;
 
 /**
  * @since 0.1.0
- * @version 0.3
+ * @version 0.3.1
  * @author Innoxia
  */
 public class Vector2i {
@@ -13,6 +13,11 @@ public class Vector2i {
 		this.y = y;
 	}
 
+	public Vector2i(Vector2i vectorToCopy) {
+		this.x = vectorToCopy.getX();
+		this.y = vectorToCopy.getY();
+	}
+	
 	public int getX() {
 		return x;
 	}
@@ -31,6 +36,11 @@ public class Vector2i {
 	
 	public static float getDistance(Vector2i point1, Vector2i point2) {
 		return (float) Math.sqrt(Math.pow(point1.getX()-point2.getX(), 2) + Math.pow(point1.getY()-point2.getY(), 2));
+	}
+	
+	@Override
+	public String toString() {
+		return "["+x+", "+y+"]";
 	}
 	
 	@Override

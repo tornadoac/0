@@ -11,7 +11,9 @@ import java.util.Set;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.attributes.CorruptionLevel;
 import com.lilithsthrone.game.character.body.CoverableArea;
+import com.lilithsthrone.game.character.body.valueEnums.FluidFlavour;
 import com.lilithsthrone.game.character.fetishes.Fetish;
+import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.ArousalIncrease;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexAreaInterface;
@@ -138,6 +140,10 @@ public abstract class SexAction implements SexActionInterface {
 
 	@Override
 	public ArousalIncrease getArousalGainTarget() {
+		if(this.isSadisticAction() && !Sex.getCharacterTargetedForSexAction(this).getFetishDesire(Fetish.FETISH_MASOCHIST).isPositive()) {
+			return ArousalIncrease.ZERO_NONE;
+		}
+		
 		if(!Sex.isMasturbation()) {
 			if(Sex.getSexPace(Sex.getCharacterTargetedForSexAction(this))==SexPace.SUB_RESISTING
 					&& this.getActionType()!=SexActionType.PREPARE_FOR_PARTNER_ORGASM
@@ -148,8 +154,9 @@ public abstract class SexAction implements SexActionInterface {
 				} else {
 					// If it's an erogenous zone, they gain arousal. If not, arousal gain is 0.
 					for(SexAreaInterface sArea : this.getSexAreaInteractions().values()) {
-						if((sArea.isOrifice() && ((SexAreaOrifice)sArea).getBaseArousalWhenPenetrated()>1)
-								|| (sArea.isPenetration() && ((SexAreaPenetration)sArea).getBaseArousalWhenPenetrating()>1)) {
+						if(sArea!=null
+								&& ((sArea.isOrifice() && ((SexAreaOrifice)sArea).getBaseArousalWhenPenetrated()>1)
+										|| (sArea.isPenetration() && ((SexAreaPenetration)sArea).getBaseArousalWhenPenetrating()>1))) {
 							return ArousalIncrease.TWO_LOW;
 						}
 					}
@@ -171,6 +178,96 @@ public abstract class SexAction implements SexActionInterface {
 
 	@Override
 	public abstract String getDescription();
+
+	private static String formatFlavour(String input) {
+		return "<p style='margin:0; padding:0; text-align:center;'><i>"
+				+ input
+			+ "</i></p>";
+	}
+	
+	@Override
+	public String getFluidFlavourDescription(GameCharacter performing, GameCharacter receiving) {
+		if((this.getPerformingCharacterAreas().contains(SexAreaPenetration.TONGUE) || this.getPerformingCharacterAreas().contains(SexAreaOrifice.MOUTH)) && performing.isPlayer()) {
+			
+			if(this.getTargetedCharacterAreas().contains(SexAreaOrifice.VAGINA)) {
+				FluidFlavour flavour = receiving.getGirlcumFlavour();
+				if(flavour!=FluidFlavour.GIRL_CUM) {
+					return formatFlavour(UtilText.parse(receiving,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.pussy] tastes like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+				
+			} else if(this.getTargetedCharacterAreas().contains(SexAreaPenetration.PENIS)) {
+				FluidFlavour flavour = receiving.getCumFlavour();
+				if(flavour!=FluidFlavour.CUM) {
+					return formatFlavour(UtilText.parse(receiving,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.cock] tastes like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+				
+			} else if(this.getTargetedCharacterAreas().contains(SexAreaOrifice.NIPPLE)) {
+				FluidFlavour flavour = receiving.getMilkFlavour();
+				if(flavour!=FluidFlavour.MILK) {
+					return formatFlavour(UtilText.parse(receiving,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.nipples] taste like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+				
+			} else if(this.getTargetedCharacterAreas().contains(SexAreaOrifice.NIPPLE_CROTCH)) {
+				FluidFlavour flavour = receiving.getMilkCrotchFlavour();
+				if(flavour!=FluidFlavour.MILK) {
+					return formatFlavour(UtilText.parse(receiving,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.crotchNipples] taste like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+			}
+			
+		} else if((this.getTargetedCharacterAreas().contains(SexAreaPenetration.TONGUE) || this.getTargetedCharacterAreas().contains(SexAreaOrifice.MOUTH)) && receiving.isPlayer()) {
+			
+			if(this.getPerformingCharacterAreas().contains(SexAreaOrifice.VAGINA)) {
+				FluidFlavour flavour = performing.getGirlcumFlavour();
+				if(flavour!=FluidFlavour.GIRL_CUM) {
+					return formatFlavour(UtilText.parse(performing,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.pussy] tastes like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+				
+			} else if(this.getPerformingCharacterAreas().contains(SexAreaPenetration.PENIS)) {
+				FluidFlavour flavour = performing.getCumFlavour();
+				if(flavour!=FluidFlavour.CUM) {
+					return formatFlavour(UtilText.parse(performing,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.cock] tastes like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+				
+			} else if(this.getPerformingCharacterAreas().contains(SexAreaOrifice.NIPPLE)) {
+				FluidFlavour flavour = performing.getMilkFlavour();
+				if(flavour!=FluidFlavour.MILK) {
+					return formatFlavour(UtilText.parse(performing,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.nipples] taste like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+				
+			} else if(this.getPerformingCharacterAreas().contains(SexAreaOrifice.NIPPLE_CROTCH)) {
+				FluidFlavour flavour = performing.getMilkCrotchFlavour();
+				if(flavour!=FluidFlavour.MILK) {
+					return formatFlavour(UtilText.parse(performing,
+										UtilText.returnStringAtRandom(
+												"[npc.NamePos] [npc.crotchNipples] taste like <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span>!",
+												"The taste of <span style='color:"+flavour.getColour().toWebHexString()+";'> "+flavour.getName()+"</span> fills your mouth!")));
+				}
+			}
+		}
+		
+		return "";
+	}
 	
 	@Override
 	public List<Fetish> getFetishesForTargetedPartner(GameCharacter characterPerformingAction) {
@@ -238,6 +335,9 @@ public abstract class SexAction implements SexActionInterface {
 						characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_DOMINANT);
 						characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_SUBMISSIVE);
 						characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_SADIST);
+						if(this.getParticipantType()==SexParticipantType.SELF) {
+							characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_MASOCHIST);
+						}
 						characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_MASOCHIST);
 						break;
 					case SUB_EAGER:
@@ -257,7 +357,12 @@ public abstract class SexAction implements SexActionInterface {
 				}
 			}
 			
-			List<CoverableArea> cummedOnList = this.getAreasCummedOn(characterPerformingAction, characterTarget);
+			List<CoverableArea> cummedOnList = null;
+			try { // Wrap in try/catch block as some sex actions may make calls to ongoing actions that aren't ongoing yet
+				cummedOnList = this.getAreasCummedOn(characterPerformingAction, characterTarget);
+			} catch(Exception ex) {
+			}
+			
 			if(cummedOnList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_CUM_ADDICT);
@@ -317,7 +422,10 @@ public abstract class SexAction implements SexActionInterface {
 				}
 			}
 			
-			cummedOnList = this.getAreasCummedOn(characterTarget, characterPerformingAction);
+			try { // Wrap in try/catch block as some sex actions may make calls to ongoing actions that aren't ongoing yet
+				cummedOnList = this.getAreasCummedOn(characterTarget, characterPerformingAction);
+			} catch(Exception ex) {
+			}
 			if(cummedOnList != null) {
 				characterFetishes.get(characterPerformingAction).add(Fetish.FETISH_CUM_ADDICT);
 				characterFetishesForPartner.get(characterPerformingAction).add(Fetish.FETISH_CUM_STUD);

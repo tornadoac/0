@@ -18,6 +18,7 @@ import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.game.combat.Spell;
 import com.lilithsthrone.game.combat.SpellSchool;
 import com.lilithsthrone.game.dialogue.DialogueFlagValue;
+import com.lilithsthrone.game.dialogue.encounters.Encounter;
 import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.inventory.ItemTag;
 import com.lilithsthrone.game.inventory.Rarity;
@@ -30,6 +31,7 @@ import com.lilithsthrone.game.inventory.enchanting.TFModifier;
 import com.lilithsthrone.game.inventory.enchanting.TFPotency;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Units;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.world.places.PlaceType;
 
@@ -1191,7 +1193,11 @@ public class ItemType {
 					ItemTag.MISC_TF_ITEM,
 					ItemTag.SOLD_BY_RALPH)) {
 
-
+		@Override
+		public boolean isFetishGiving() {
+			return true;
+		}
+		
 		@Override
 		public AbstractItemEffectType getEnchantmentEffect() {
 			return ItemEffectType.FETISH_ENHANCEMENT;
@@ -1231,8 +1237,8 @@ public class ItemType {
 			null,
 			Rarity.LEGENDARY,
 			null,
-			null, null) {
-
+			null,
+			null) {
 
 		@Override
 		public boolean isFetishGiving() {
@@ -1248,7 +1254,7 @@ public class ItemType {
 		public boolean isAbleToBeUsedInCombat() {
 			return true;
 		}
-
+		
 		@Override
 		public String getUseName() {
 			return "drink";
@@ -1273,17 +1279,16 @@ public class ItemType {
 			"A delicate crystal bottle, filled with a cool, blue liquid."
 					+ " Engraved into one side are the words 'Angel's Nectar', although you're unsure if this fluid really does have anything to do with them...",
 			"addictionRemoval",
-			Colour.BASE_BLUE_LIGHT,
+			Colour.RACE_HUMAN,
 			null,
 			null,
 			Rarity.LEGENDARY,
-			null,
+			TFEssence.ARCANE,
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.ADDICTION_REMOVAL)),
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
 					ItemTag.BAT_CAVERNS_SPAWN,
-					ItemTag.MISC_TF_ITEM,
 					ItemTag.SOLD_BY_RALPH)) {
 
 
@@ -1303,6 +1308,16 @@ public class ItemType {
 		}
 
 		@Override
+		public AbstractItemEffectType getEnchantmentEffect() {
+			return ItemEffectType.ADDICTION_REMOVAL_REFINEMENT;
+		}
+
+		@Override
+		public AbstractItemType getEnchantmentItemType(List<ItemEffect> effects) {
+			return ADDICTION_REMOVAL_REFINED;
+		}
+
+		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
 					"You pull the crystal stopper out from the top of the bottle of 'Angel's Nectar', before bringing it to your lips and gulping down the tasteless liquid that's contained within.",
@@ -1310,6 +1325,73 @@ public class ItemType {
 					"[npc.Name] pulls out a bottle of 'Angel's Nectar', and, after quickly pulling out the crystal stopper, [npc.she] promptly downs the entire bottle.",
 					"[npc.Name] pulls out a bottle of 'Angel's Nectar', and, after quickly pulling out the crystal stopper,"
 							+ " [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the tasteless liquid that's contained within.");
+		}
+	};
+	
+	public static AbstractItemType ADDICTION_REMOVAL_REFINED = new AbstractItemType(1500,
+			"a delicate vial of",
+			false,
+			"Angel's Purity",
+			"Angel's Purities",
+			"A vial of cool, light-blue liquid, which gives off a faint, steady glow."
+					+ " Being a refined, and far more specialised form of 'Angel's Nectar', this liquid has lost its ability to remove addictions, and instead, is able to permanently lower the corruption of whoever drinks it...",
+			"addictionRemovalRefined",
+			Colour.RACE_HUMAN,
+			null,
+			null,
+			Rarity.LEGENDARY,
+			null,
+			null,
+			null) {
+
+		@Override
+		public boolean isAbleToBeUsedInSex() {
+			return true;
+		}
+
+		@Override
+		public boolean isAbleToBeUsedInCombat() {
+			return true;
+		}
+		
+		@Override
+		public String getUseName() {
+			return "drink";
+		}
+		
+		@Override
+		public int getValue(List<ItemEffect> effects) {
+			int value = 0;
+			if(effects!=null) {
+				for(ItemEffect ie : effects) {
+					switch(ie.getPotency()) {
+						case BOOST:
+							value += 1000;
+							break;
+						case MAJOR_BOOST:
+							value += 1500;
+							break;
+						case MINOR_BOOST:
+							value += 500;
+							break;
+						case MINOR_DRAIN:
+						case DRAIN:
+						case MAJOR_DRAIN:
+							break;
+					}
+				}
+			}
+			return value;
+		}
+		
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return getGenericUseDescription(user, target,
+					"You pull the stopper out from the top of the glass vial of 'Angel's Purity', before bringing it to your lips and gulping down the cool, refreshing liquid which is contained within.",
+					"You pull the stopper out from the top of the glass vial of 'Angel's Purity', before bringing it to [npc.namePos] lips and forcing [npc.herHim] to drink down the liquid within.",
+					"[npc.Name] pulls out a glass vial of 'Angel's Purity', and, after quickly pulling out the stopper, [npc.she] promptly downs the entire bottle.",
+					"[npc.Name] pulls out a glass vial of 'Angel's Purity', and, after quickly pulling out the stopper,"
+							+ " [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the cool, refreshing liquid which is contained within.");
 		}
 	};
 	
@@ -1330,7 +1412,11 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.BAT_CAVERNS_SPAWN)) {
 
-
+		@Override
+		public boolean isTransformative() {
+			return true;
+		}
+		
 		@Override
 		public boolean isAbleToBeUsedInSex() {
 			return true;
@@ -1404,6 +1490,52 @@ public class ItemType {
 					"[npc.Name] pulls out a bottle of 'Innoxia's Gift', and, after quickly pulling out the stopper, [npc.she] promptly downs the entire bottle.",
 					"[npc.Name] pulls out a bottle of 'Innoxia's Gift', and, after quickly pulling out the stopper, [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the contents."
 						+ " You suppress your gag reflex as your senses are suddenly overwhelmed by the sickeningly-sweet liquid.");
+		}
+	};
+	
+	public static AbstractItemType DEBUG_YOUKO_POTION = new AbstractItemType(100_000_000,
+			"a bottle of",
+			false,
+			"Inno-chan's Gift",
+			"Inno-chan's Gifts",
+			"This is no ordinary bottle of wine, as it turns anyone who drinks it into a youko! Additional consumption will increase the number of Youko tails the drinker has."
+					+ "<br/>[style.italicsMinorGood(While this is a debug-only item, it should be safe to use anywhere.)]",
+			"attributeFoxMorphDrink",
+			Colour.RACE_FOX_MORPH,
+			null,
+			null,
+			Rarity.LEGENDARY,
+			TFEssence.ARCANE,
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.DEBUG_YOUKO_POTION_EFFECT)),
+			Util.newArrayListOfValues()) {
+
+		@Override
+		public boolean isTransformative() {
+			return true;
+		}
+		
+		@Override
+		public boolean isAbleToBeUsedInSex() {
+			return true;
+		}
+
+		@Override
+		public boolean isAbleToBeUsedInCombat() {
+			return true;
+		}
+
+		@Override
+		public String getUseName() {
+			return "drink";
+		}
+
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return getGenericUseDescription(user, target,
+					"The moment you pull the stopper out from the top of the bottle of 'Inno-chan's Gift', you're filled with a desperate need to drink the sweet-smelling wine contained within, and after pulling out the cork, you do just that.",
+					"You pull the cork out from the top of the bottle of 'Inno-chan's Gift', before bringing it to [npc.namePos] lips and forcing [npc.herHim] to drink down the liquid within.",
+					"[npc.Name] pulls out a bottle of 'Inno-chan's Gift', and, after quickly pulling out the cork, [npc.she] promptly downs the entire bottle.",
+					"[npc.Name] pulls out a bottle of 'Inno-chan's Gift', and, after quickly pulling out the cork, [npc.she] brings it to your lips before tilting your head back and forcing you to quickly gulp down the contents.");
 		}
 	};
 	
@@ -3242,6 +3374,56 @@ public class ItemType {
 			return false;
 		}
 	};
+	
+	public static AbstractItemType REFORGE_HAMMER = new AbstractItemType(150,
+			"a",
+			false,
+			"reforging hammer",
+			"reforging hammers",
+			"A small hammer, with a solid metal head and wooden shaft."
+					+ " It has been imbued with a unique arcane enchantment, which has not only made it as light as a feather, but has also granted it the ability to instantly reforge any weapon.",
+			"reforge_hammer",
+			Colour.CLOTHING_WHITE,
+			null,
+			null,
+			Rarity.EPIC,
+			null,
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.REFORGE_HAMMER)),
+			Util.newArrayListOfValues(
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN)) {
+
+
+		@Override
+		public String getUseName() {
+			return "use";
+		}
+		
+		@Override
+		public boolean isAbleToBeUsedInSex() {
+			return false;
+		}
+
+		@Override
+		public boolean isAbleToBeUsedInCombat() {
+			return false;
+		}
+		
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return "<p>"
+						+ "As you take hold of the reforging hammer, you see the metal head start to emit a deep purple glow."
+						+ " The closer you move it to a weapon, the brighter this glow becomes, until suddenly, images of different damage types start flashing through your mind."
+						+ " As you touch the metal head  to the weapon of your choice, the reforge hammer instantly evaporates!"
+						+ " You see that the arcane enchantment has reforged the weapon into the damage type you wanted."
+					+ "</p>";
+		}
+
+		@Override
+		public boolean isAbleToBeUsedFromInventory() {
+			return false;
+		}
+	};
 
 	public static AbstractItemType CONDOM_USED = new AbstractItemType(1,
 			"a",
@@ -3306,7 +3488,7 @@ public class ItemType {
 			Colour.ANDROGYNOUS,
 			null,
 			null,
-			Rarity.LEGENDARY,
+			Rarity.QUEST,
 			TFEssence.ARCANE,
 			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.ORIENTATION_CHANGE)), null) {
 
@@ -3342,6 +3524,15 @@ public class ItemType {
 		}
 		
 		@Override
+		public String getUseTooltipDescription(GameCharacter user, GameCharacter target) {
+			if(user.equals(target)) {
+				return "Use the " + getName(false) + " to hypnotise yourself.";
+			} else {
+				return UtilText.parse(target, "Use the " + getName(false) + " to hypnotise [npc.name].");
+			}
+		}
+		
+		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
 					"Taking hold of the delicate chain, you start slowly swinging the Hypno-Watch back and forth, fixating your gaze on the swirling face as you allow the item's arcane power to seep into your mind...",
@@ -3356,7 +3547,6 @@ public class ItemType {
 		public boolean isConsumedOnUse() {
 			return false;
 		}
-
 	};
 	
 	public static AbstractItemType VIXENS_VIRILITY = new AbstractItemType(20,
@@ -3439,7 +3629,7 @@ public class ItemType {
 			false,
 			"Moo Milker",
 			"Moo Milkers",
-			"A manual cow-themed breast pump, capable of holding up to 1000ml of liquid in the attached plastic beaker.",
+			"A manual cow-themed breast pump, capable of holding up to "+Units.fluid(1000)+" of liquid in the attached plastic beaker.",
 			"breastPump",
 			Colour.BASE_PURPLE_LIGHT,
 			null,
@@ -3474,7 +3664,7 @@ public class ItemType {
 
 		@Override
 		public boolean isAbleToBeUsed(GameCharacter target) {
-			return target.isAbleToAccessCoverableArea(CoverableArea.NIPPLES, true) && target.getBreastRawMilkStorageValue()>0;
+			return target.isAbleToAccessCoverableArea(CoverableArea.NIPPLES, true) && target.getBreastRawMilkStorageValue()>=5;
 		}
 
 		@Override
@@ -3483,14 +3673,14 @@ public class ItemType {
 				if(!target.isAbleToAccessCoverableArea(CoverableArea.NIPPLES, true)) {
 					return "You need to be able to access your nipples in order to use this!";
 				} else {
-					return "You need to have at least 1ml of milk stored in your breasts in order to use this!";
+					return "You need to have at least "+Units.fluid(5)+" of milk stored in your breasts in order to use this!";
 				}
 				
 			} else {
 				if(!target.isAbleToAccessCoverableArea(CoverableArea.NIPPLES, true)) {
 					return UtilText.parse(target, "You need to be able to access [npc.namePos] nipples in order to use this!");
 				} else {
-					return UtilText.parse(target, "[npc.Name] needs to have at least 1ml of milk stored in [npc.her] breasts in order to use this!");
+					return UtilText.parse(target, "[npc.Name] needs to have at least "+Units.fluid(5)+" of milk stored in [npc.her] breasts in order to use this!");
 				}
 			}
 		}
@@ -3581,7 +3771,6 @@ public class ItemType {
 			Util.newArrayListOfValues(
 					ItemTag.DOMINION_ALLEYWAY_SPAWN,
 					ItemTag.SUBMISSION_TUNNEL_SPAWN,
-					ItemTag.MISC_TF_ITEM,
 					ItemTag.SOLD_BY_RALPH)) {
 
 
@@ -3597,6 +3786,78 @@ public class ItemType {
 					"Bringing the bottle up to [npc.namePos] [npc.lips], you push the teat-like opening into [npc.her] mouth, before forcing [npc.herHim] to suckle down the creamy liquid within.",
 					"[npc.Name] produces a bottle of 'Mother's Milk', and, taking the teat-like opening into [npc.her] mouth, [npc.she] greedily starts to suckle down the creamy liquid within.",
 					"[npc.Name] produces a bottle of 'Mother's Milk', and, pushing the teat-like opening into your mouth, [npc.she] forces you to suckle down the creamy liquid within.");
+		}
+	};
+	
+	public static AbstractItemType CIGARETTE_PACK = new AbstractItemType(350,
+			"a pack of",
+			true,
+			"Starr Cigarette",
+			"Starr Cigarettes",
+			"An unopened, purple-and-white cardboard pack which contains twenty 'Starr Cigarettes'."
+					+ " According to the information printed on the back of the box, these cigarettes are both 'enhanced with aura-fortifying supplements' and 'guaranteed to make you look cool'.",
+			"cigaretteBox",
+			Colour.CLOTHING_PURPLE_DARK,
+			Colour.CLOTHING_GOLD,
+			null,
+			Rarity.COMMON,
+			null,
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.CIGARETTE_PACK)),
+			Util.newArrayListOfValues(
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.SOLD_BY_RALPH)) {
+
+		@Override
+		public String getUseName() {
+			return "open";
+		}
+		
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return getGenericUseDescription(user, target,
+					"By opening the top of the pack, you gain access to the twenty cigarettes stored within.",
+					"By opening the top of the pack, you gain access to the twenty cigarettes stored within, and then proceed to give them to [npc.name].",
+					"By opening the top of the pack, [npc.name] gains access to the twenty cigarettes stored within.",
+					"By opening the top of the pack, [npc.name] gains access to the twenty cigarettes stored within, and then proceeds to give them to you.");
+		}
+	};
+	
+	public static AbstractItemType CIGARETTE = new AbstractItemType(20,
+			"a",
+			false,
+			"Starr Cigarette",
+			"Starr Cigarettes",
+			"A rolled up paper cylinder, fitted with a sponge-like filter, and packed with a combination of dried plant matter and aura-boosting supplements."
+					+ " It's been enchanted with a very weak fire spell, so that when placed in someone's mouth, it will self-ignite.",
+			"cigarette",
+			Colour.CLOTHING_ORANGE,
+			Colour.CLOTHING_BRASS,
+			Colour.CLOTHING_WHITE,
+			Rarity.COMMON,
+			null,
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.CIGARETTE)),
+			Util.newArrayListOfValues(
+					ItemTag.DOMINION_ALLEYWAY_SPAWN,
+					ItemTag.SUBMISSION_TUNNEL_SPAWN,
+					ItemTag.SOLD_BY_RALPH)) {
+
+		@Override
+		public String getUseName() {
+			return "smoke";
+		}
+		
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return getGenericUseDescription(user, target,
+					"You lift the cigarette to your [pc.lips] and put the end in your mouth, at which point the fire enchantment auto-ignites the opposite end."
+							+ " Breathing in, you inhale the smoke that's produced from the burning plant matter, before exhaling and creating a small white cloud in front of your face.",
+					"You lift the cigarette to [npc.namePos] [npc.lips] and put the end in [npc.her] mouth, at which point the fire enchantment auto-ignites the opposite end."
+							+ " Breathing in, [npc.she] inhales the smoke that's produced from the burning plant matter, before exhaling and creating a small white cloud in front of [npc.her] face.",
+					"[npc.NamePos] lifts the cigarette to [npc.her] [npc.lips] and puts the end in [npc.her] mouth, at which point the fire enchantment auto-ignites the opposite end."
+							+ " Breathing in, [npc.she] inhales the smoke that's produced from the burning plant matter, before exhaling and creating a small white cloud in front of [npc.her] face.",
+					"[npc.NamePos] lifts the cigarette to your [pc.lips] and puts the end in your mouth, at which point the fire enchantment auto-ignites the opposite end."
+							+ " Breathing in, you inhale the smoke that's produced from the burning plant matter, before exhaling and creating a small white cloud in front of your face.");
 		}
 	};
 	
@@ -3640,51 +3901,6 @@ public class ItemType {
 		}
 	};
 	
-	public static AbstractItemType GIFT_ROSE = new AbstractItemType(
-			100,
-			null,
-			false,
-			"Rose",
-			"Roses",
-			"A bouquet filled with roses of many colours, it smells pleasant even from a distance."
-				+ " [Ashley.speech(Just in case you're clueless to the point that you don't even know the favourite colour of your intended recipient, every natural colour is included here.)]",
-			//				+ " If their favourite happens to be blue, tough luck; maybe you should try getting acquainted with another species of flower instead of going with what's safe.)] ",
-			"giftRose",
-			Colour.BASE_CRIMSON,
-			Colour.BASE_GREEN_DARK,
-			null,
-			Rarity.UNCOMMON,
-			null,
-			null,
-			Util.newArrayListOfValues(ItemTag.GIFT)) {
-
-
-		@Override
-		public String getDescription() {
-			return "A single, red rose."
-					+ " You imagine that if it were any other colour, it would smell just as sweet.";
-		}
-		
-		@Override
-		public String getUseName() {
-			return "smell";
-		}
-		
-		@Override
-		public String getUseDescription(GameCharacter user, GameCharacter target) {
-			return getGenericUseDescription(user, target,
-					"You take a smell of the delicate perfume given off by the red Rose.",
-					"You take a smell of the delicate perfume given off by the red Rose.",
-					"You take a smell of the delicate perfume given off by the red Rose.",
-					"You take a smell of the delicate perfume given off by the red Rose.");
-		}
-		
-		@Override
-		public boolean isConsumedOnUse() {
-			return false;
-		}
-	};
-	
 	public static AbstractItemType GIFT_ROSE_BOUQUET = new AbstractItemType(
 			500,
 			null,
@@ -3706,7 +3922,7 @@ public class ItemType {
 
 		@Override
 		public String getDescription() {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP)) {
 				return "A bouquet filled with roses of many colours, it smells pleasant even from a distance."
 						+ " [Ashley.speech(Just in case you're clueless to the point that you don't even know the favourite colour of your intended recipient, every natural colour is included here.)]";
 			} else {
@@ -3722,10 +3938,10 @@ public class ItemType {
 		@Override
 		public String getUseDescription(GameCharacter user, GameCharacter target) {
 			return getGenericUseDescription(user, target,
-					"You take a smell of the delicate perfume given off by the Rose bouquet.",
-					"You take a smell of the delicate perfume given off by the Rose bouquet.",
-					"You take a smell of the delicate perfume given off by the Rose bouquet.",
-					"You take a smell of the delicate perfume given off by the Rose bouquet.");
+					"You take a smell of the delicate perfume given off by the rose bouquet.",
+					"You get [npc.name] to take a smell of the delicate perfume given off by the rose bouquet.",
+					"[npc.Name] takes a smell of the delicate perfume given off by the rose bouquet.",
+					"[npc.Name] gets you to take a smell of the delicate perfume given off by the rose bouquet.");
 		}
 		
 		@Override
@@ -3753,7 +3969,7 @@ public class ItemType {
 
 		@Override
 		public String getDescription() {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP)) {
 				return "A box filled with various chocolates. [Ashley.speech(Generic, but tasty. Yeah, go ahead and pretend that you're buying this for someone other than yourself.)]";
 			} else {
 				return "A box filled with various chocolates.";
@@ -3795,7 +4011,7 @@ public class ItemType {
 
 		@Override
 		public String getDescription() {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP)) {
 				return "A small bottle of perfume."
 						+ " [Ashley.speech(A generic scent that most people enjoy. Makes you more attractive to everyone, since nobody likes a stinker!)]";
 			} else {
@@ -3838,7 +4054,7 @@ public class ItemType {
 
 		@Override
 		public String getDescription() {
-			if(Main.game.getPlayer().getLocationPlace().getPlaceType()==PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP) {
+			if(Main.game.getPlayer().getLocationPlace().getPlaceType().equals(PlaceType.SHOPPING_ARCADE_ASHLEYS_SHOP)) {
 				return "A cute brown teddy bear, with the words 'Hug me!' sewed onto a little heart that it's holding."
 						+ " [Ashley.speech(Warning, this is an inanimate object; it does not actually yearn for your affection and cannot protect you from monsters hiding under the bed!)]";
 			} else {
@@ -4115,7 +4331,174 @@ public class ItemType {
 			return false;
 		}
 	};
+
 	
+	public static AbstractItemType OFFSPRING_MAP = new AbstractItemType(50_000,
+			"an",
+			false,
+			"arcane offspring map",
+			"arcane offspring maps",
+			"An arcane-enchanted map, obtained from Dominion's city hall, which is able to track the rough location of any of your offspring.",
+			"offspring_map",
+			Colour.BASE_BROWN,
+			null,
+			null,
+			Rarity.QUEST,
+			TFEssence.ARCANE,
+			Util.newArrayListOfValues(new ItemEffect(ItemEffectType.OFFSPRING_MAP)), null) {
+		@Override
+		public String getUseName() {
+			return "consult";
+		}
+		@Override
+		public boolean isAbleToBeUsedInSex() {
+			return false;
+		}
+		@Override
+		public boolean isAbleToBeUsedInCombat() {
+			return false;
+		}
+		@Override
+		public boolean isAbleToBeUsed(GameCharacter target) {
+			return target.isPlayer()
+					&& (target.getLocationPlace().getPlaceType().getEncounterType()==Encounter.DOMINION_ALLEY
+							|| target.getLocationPlace().getPlaceType().getEncounterType()==Encounter.DOMINION_CANAL
+							|| target.getLocationPlace().getPlaceType().getEncounterType()==Encounter.HARPY_NEST_WALKWAYS
+							|| target.getLocationPlace().getPlaceType().getEncounterType()==Encounter.SUBMISSION_TUNNELS)
+					&& Main.game.getCharactersTreatingCellAsHome(Main.game.getPlayerCell()).size()<=1;
+		}
+		@Override
+		public String getUnableToBeUsedDescription(GameCharacter target) {
+			return "You need to be in one of Dominion's alleyway or canal tiles, a Harpy Nest walkway tile, or a Submission tunnel tile, and with no more than one character already present in that tile, in order to be able to use the map!";
+		}
+		@Override
+		public String getUseTooltipDescription(GameCharacter user, GameCharacter target) {
+			return "Consult the map to see if any of your offspring are in this area.";
+		}
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return "You consult the map...";
+		}
+		@Override
+		public boolean isConsumedOnUse() {
+			return false;
+		}
+	};
+	
+	public static AbstractItemType CANDI_PERFUMES = new AbstractItemType(500,
+			"",
+			true,
+			"Candi's Perfume",
+			"Candi's Perfumes",
+			"A couple of bottles of perfume which you collected from Kate at Succubi's Secrets. You need to deliver these to Candi back at the Enforcer Headquarters.",
+			"candiPerfumes",
+			Colour.BASE_ROSE,
+			Colour.BASE_PURPLE_LIGHT,
+			null,
+			Rarity.QUEST,
+			null,
+			null,
+			null) {
+		@Override
+		public String getUseName() {
+			return "inspect";
+		}
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return "There's nothing really out of the ordinary about these bottles of perfume. It would be best to deliver them to Candi as soon as possible.";
+		}
+		@Override
+		public boolean isConsumedOnUse() {
+			return false;
+		}
+	};
+
+	public static AbstractItemType CANDI_CONTRABAND = new AbstractItemType(1000,
+			"",
+			false,
+			"Box of Contraband Lollipops",
+			"Boxes of Contraband Lollipops",
+			"A box full of contraband lollipops, seized by the Enforcers up in the Harpy Nests, and very much desired by Candi.",
+			"contrabandBox",
+			Colour.BASE_PINK_DEEP,
+			null,
+			null,
+			Rarity.QUEST,
+			null,
+			null,
+			null) {
+		@Override
+		public String getUseName() {
+			return "inspect";
+		}
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return "This box has been marked with several large red crosses, making it clear that the contents are in some way dangerous."
+					+ " The Enforcer who handed this box over to you said that the lollipops contained within are some form of permanent aphrodisiac, and that the box should be immediately locked away in safe storage.";
+		}
+		@Override
+		public boolean isConsumedOnUse() {
+			return false;
+		}
+	};
+
+	public static AbstractItemType CANDI_HUNDRED_KISSES = new AbstractItemType(50000,
+			"",
+			false,
+			"'A Hundred Kisses'",
+			"'A Hundred Kisses'",
+			"A limited-edition box containing a hundred differently-coloured lipsticks, produced by one of the most exclusive and upmarket cosmetics companies in all of Dominion.",
+			"candiHundredKisses",
+			Colour.BASE_PINK_DEEP,
+			null,
+			null,
+			Rarity.QUEST,
+			null,
+			null,
+			null) {
+		@Override
+		public String getUseName() {
+			return "inspect";
+		}
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return "It's obvious from even a casual glance at this stylish box that it contains nothing other than the best lipsticks money can buy.";
+		}
+		@Override
+		public boolean isConsumedOnUse() {
+			return false;
+		}
+	};
+
+	public static AbstractItemType RESONANCE_STONE = new AbstractItemType(0,
+			"",
+			false,
+			"Claire's Resonance Stone",
+			"Claire's Resonance Stones",
+			"A small, polished sphere, which has a single groove running around its entire circumference."
+					+ " Normally prohibited to citizens, Claire has given you this one so that you can send a signal to the SWORD Enforcers stationed near the Rat Warrens.",
+			"resonanceStone",
+			Colour.CLOTHING_PURPLE_VERY_DARK,
+			null,
+			null,
+			Rarity.QUEST,
+			null,
+			null,
+			null) {
+		@Override
+		public String getUseName() {
+			return "inspect";
+		}
+		@Override
+		public String getUseDescription(GameCharacter user, GameCharacter target) {
+			return "The resonance stone is made out of some kind of highly-polished stone, and by twisting its two halves in opposite directions, can be activated to send a signal to any other stones which are linked to it."
+					+ " Claire has told you that this one will trigger SWORD Enforcers to begin their raid on the Rat Warrens, and should only be used once you've confirmed that Vengar is present.";
+		}
+		@Override
+		public boolean isConsumedOnUse() {
+			return false;
+		}
+	};
 	
 	// Standard non-racial transformatives:
 	
@@ -4524,8 +4907,7 @@ public class ItemType {
 				subspecies = Subspecies.ELEMENTAL_FIRE;
 			}
 			effectsString.add("Adds "+subspecies.getName(null)+" encyclopedia entry.");
-			effectsString.add("[style.boldExcellent(+5)] <b style='color:"+s.getSpellSchool().getColour()+";'>"+subspecies.getDamageMultiplier().getName()+"</b>");
-			effectsString.add("[style.boldExcellent(+5)] <b style='color:"+s.getSpellSchool().getColour()+";'>"+subspecies.getResistanceMultiplier().getName()+"</b>");
+//			effectsString.add("[style.boldExcellent(+5 "+Attribute.DAMAGE_ELEMENTAL.getName()+")]");
 			
 			
 			AbstractItemEffectType effectType = new AbstractItemEffectType(effectsString, s.getSpellSchool().getColour()) {
@@ -4538,19 +4920,19 @@ public class ItemType {
 					String raceKnowledgeGained = "";
 					if(target.isPlayer()) {
 						if(s == Spell.ELEMENTAL_EARTH) {
-							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_EARTH, true);
+							raceKnowledgeGained = getBookEffect(target, Subspecies.ELEMENTAL_EARTH, true);
 							
 						} else if(s == Spell.ELEMENTAL_WATER) {
-							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_WATER, true);
+							raceKnowledgeGained = getBookEffect(target, Subspecies.ELEMENTAL_WATER, true);
 							
 						} else if(s == Spell.ELEMENTAL_AIR) {
-							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_AIR, true);
+							raceKnowledgeGained = getBookEffect(target, Subspecies.ELEMENTAL_AIR, true);
 							
 						} else if(s == Spell.ELEMENTAL_FIRE) {
-							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_FIRE, true);
+							raceKnowledgeGained = getBookEffect(target, Subspecies.ELEMENTAL_FIRE, true);
 							
 						} else if(s == Spell.ELEMENTAL_ARCANE) {
-							raceKnowledgeGained = getBookEffect(Subspecies.ELEMENTAL_ARCANE, true);
+							raceKnowledgeGained = getBookEffect(target, Subspecies.ELEMENTAL_ARCANE, true);
 							
 						}
 					}
@@ -4558,7 +4940,7 @@ public class ItemType {
 					if(hasSpell) {
 						if(target.isPlayer()) {
 							return "<p style='text-align:center'>"
-										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription(target)+"</i>"
 									+"</p>"
 									+ "<p>"
 										+"Reading through the spell book again, you quickly discover that you've already learned all there is to know about the spell '"+s.getName()+"'."
@@ -4568,7 +4950,7 @@ public class ItemType {
 									+raceKnowledgeGained;
 						} else {
 							return "<p style='text-align:center'>"
-										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription(target)+"</i>"
 									+"</p>"
 									+ "<p>"
 										+ UtilText.parse(target,
@@ -4581,7 +4963,7 @@ public class ItemType {
 					} else {
 						if(target.isPlayer()) {
 							return "<p style='text-align:center'>"
-										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+										+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription(target)+"</i>"
 									+"</p>"
 									+ "<p>"
 										+ "As you read through the spell book, you discover that most of the pages are dedicated to helping the reader build up their arcane aura to the point where they'd be able to learn this spell."
@@ -4598,7 +4980,7 @@ public class ItemType {
 							
 						} else {
 							return "<p style='text-align:center'>"
-									+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription()+"</i>"
+									+"<i><b style='color:"+s.getSpellSchool().getColour().toWebHexString()+";'>"+s.getName()+":</b> "+s.getDescription(target)+"</i>"
 								+"</p>"
 								+ "<p>"
 									+ UtilText.parse(target,
@@ -4667,6 +5049,8 @@ public class ItemType {
 				case WITCH_CHARM:
 				case WITCH_SEAL:
 				case DARK_SIREN_SIRENS_CALL:
+				case LIGHTNING_SPHERE_DISCHARGE:
+				case LIGHTNING_SPHERE_OVERCHARGE:
 					break;
 			}
 			
@@ -4919,12 +5303,11 @@ public class ItemType {
 	private static AbstractItemEffectType generateBookEffect(Subspecies subspecies) {
 		return new AbstractItemEffectType(Util.newArrayListOfValues(
 				"Adds "+subspecies.getName(null)+" encyclopedia entry.",
-				"[style.boldExcellent(+5)] <b style='color:"+subspecies.getColour(null).toWebHexString()+";'>"+subspecies.getDamageMultiplier().getName()+"</b>",
-				"[style.boldExcellent(+5)] <b style='color:"+subspecies.getColour(null).toWebHexString()+";'>"+subspecies.getResistanceMultiplier().getName()+"</b>"),
+				"[style.boldExcellent(+10)] <b style='color:"+subspecies.getColour(null).toWebHexString()+";'>"+subspecies.getDamageMultiplier().getName()+"</b>"),
 				subspecies.getColour(null)) {
 			@Override
 			public String applyEffect(TFModifier primaryModifier, TFModifier secondaryModifier, TFPotency potency, int limit, GameCharacter user, GameCharacter target, ItemEffectTimer timer) {
-				return getBookEffect(subspecies, true);
+				return getBookEffect(target, subspecies, true);
 			}
 		};
 	}

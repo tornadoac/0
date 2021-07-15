@@ -1,28 +1,28 @@
 package com.lilithsthrone.game.sex;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.lilithsthrone.game.character.GameCharacter;
 
 /**
  * @since 0.1.69.1
- * @version 0.3.1
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public class SexFlags {
 
 	public static boolean selfActionsBlockedPlayer;
 	public static boolean selfActionsBlockedPartner;
-	public static boolean characterRequestedPullOut;
-	public static boolean characterRequestedCreampie;
 	
 	// Generic:
 	public static boolean mutualOrgasmsAllowed;
 	public static List<GameCharacter> playerPreparedForCharactersOrgasm;
-	public static boolean playerGrewDemonicCock;
-	public static boolean playerDeniedPartner;
-
+	/** Typically use the key as a flag, and the value for any integer you want associated with the flag. */
+	public static Map<String, Integer> genericFlags;
+	
 	// Brax: TODO Temporary awaiting Brax rewrite
 	public static boolean braxCumOnChest;
 	
@@ -30,29 +30,29 @@ public class SexFlags {
 	public static boolean customerAtCounter;
 	public static boolean alertedCustomer;
 	public static boolean askedForBigDiscount;
+	public static int ralphDiscount;
 	
 	//Pix
 	public static boolean pixDemandedPromise;
 	public static boolean pixPlayerPromised;
 	
-	public static int ralphDiscount;
-
+	// Claire:
+	public static boolean claireSexInterrupted;
+	public static int claireSexInterruptedTurn;
+	
+	
 	public SexFlags() {
 		reset();
 	}
 	
 	public static void reset() {
+		genericFlags = new HashMap<>();
+		
 		selfActionsBlockedPlayer = false;
 		selfActionsBlockedPartner = false;
 		
-		characterRequestedPullOut = false;
-		characterRequestedCreampie = false;
-		
 		mutualOrgasmsAllowed = true;
 		playerPreparedForCharactersOrgasm = new ArrayList<>();
-		
-		playerGrewDemonicCock = false;
-		playerDeniedPartner = false;
 		
 		// Brax:
 		braxCumOnChest = false;
@@ -66,6 +66,10 @@ public class SexFlags {
 		// Pix:
 		pixDemandedPromise=false;
 		pixPlayerPromised = false;
+		
+		// Claire:
+		claireSexInterrupted = false;
+		claireSexInterruptedTurn = -1;
 	}
 	
 }

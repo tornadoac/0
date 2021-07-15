@@ -9,7 +9,7 @@ import com.lilithsthrone.game.character.npc.submission.SubmissionCitadelArcanist
 import com.lilithsthrone.game.sex.ArousalIncrease;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexParticipantType;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotGeneric;
 import com.lilithsthrone.game.sex.sexActions.SexAction;
 import com.lilithsthrone.game.sex.sexActions.SexActionPriority;
 import com.lilithsthrone.game.sex.sexActions.SexActionType;
@@ -24,7 +24,7 @@ import com.lilithsthrone.utils.Util;
 public class CitadelYoukoSA {
 	
 	public static final SexAction ORGASM_DENIED = new SexAction(
-			SexActionType.ORGASM_NO_AROUSAL_RESET,
+			SexActionType.ORGASM_DENIAL,
 			ArousalIncrease.NEGATIVE_MAJOR,
 			ArousalIncrease.ZERO_NONE,
 			CorruptionLevel.ZERO_PURE,
@@ -44,7 +44,7 @@ public class CitadelYoukoSA {
 		@Override
 		public boolean isBaseRequirementsMet() {
 			return !Sex.getCharacterPerformingAction().equals(Main.game.getNpc(SubmissionCitadelArcanist.class))
-					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())!=SexSlotBipeds.MISC_WATCHING;
+					&& Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())!=SexSlotGeneric.MISC_WATCHING;
 		}
 
 		@Override

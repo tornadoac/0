@@ -2,7 +2,7 @@ package com.lilithsthrone.world.places;
 
 /**
  * @since 0.2.12
- * @version 0.3.1
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public enum PopulationType {
@@ -10,20 +10,29 @@ public enum PopulationType {
 	PEOPLE("people", true),
 	
 	HARPIES("harpies", true),
+
+	HARPIES_SILLY("birbs", true),
 	
 	CROWD("crowd", false),
 	
 	CROWDS("crowds", true),
 	
-	ENFORCERS("enforcers", true),
+	ENFORCERS("Enforcers", true),
 	
 	SHOPPERS("shoppers", true),
+	
+	DINERS("diners", true),
 
 	VIPS("VIPs", true),
 	
 	GUARDS("guards", true),
 
-	MAIDS("maids", true);
+	MAIDS("maids", true),
+
+	OFFICE_WORKERS("office-workers", true),
+
+	GANG_MEMBERS("gang members", true),
+	;
 
 	private String name;
 	private boolean plural;

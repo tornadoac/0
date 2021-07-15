@@ -1,13 +1,14 @@
 package com.lilithsthrone.game.character.npc.submission;
 
 import java.time.Month;
+import java.util.List;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.lilithsthrone.game.Game;
 import com.lilithsthrone.game.character.CharacterImportSetting;
-import com.lilithsthrone.game.character.attributes.Attribute;
+import com.lilithsthrone.game.character.EquipClothingSetting;
 import com.lilithsthrone.game.character.body.Covering;
 import com.lilithsthrone.game.character.body.types.BodyCoveringType;
 import com.lilithsthrone.game.character.body.valueEnums.AreolaeSize;
@@ -36,6 +37,8 @@ import com.lilithsthrone.game.character.body.valueEnums.OrificePlasticity;
 import com.lilithsthrone.game.character.body.valueEnums.PenisGirth;
 import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
+import com.lilithsthrone.game.character.effects.PerkCategory;
+import com.lilithsthrone.game.character.effects.PerkManager;
 import com.lilithsthrone.game.character.fetishes.Fetish;
 import com.lilithsthrone.game.character.fetishes.FetishDesire;
 import com.lilithsthrone.game.character.gender.Gender;
@@ -43,7 +46,6 @@ import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.persona.NameTriplet;
 import com.lilithsthrone.game.character.persona.Occupation;
 import com.lilithsthrone.game.character.persona.PersonalityTrait;
-import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.quests.Quest;
 import com.lilithsthrone.game.character.quests.QuestLine;
@@ -63,7 +65,7 @@ import com.lilithsthrone.world.places.PlaceType;
 
 /**
  * @since 0.2.6
- * @version 0.3
+ * @version 0.3.5.5
  * @author Innoxia
  */
 public class SlimeQueen extends NPC {
@@ -90,9 +92,35 @@ public class SlimeQueen extends NPC {
 			resetBodyAfterVersion_2_10_5();
 		}
 		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.12") && Subspecies.getFleshSubspecies(this)!=Subspecies.HUMAN) {
-			this.setBody(Gender.F_V_B_FEMALE, Subspecies.SLIME, RaceStage.HUMAN);
+			this.setBody(Gender.F_V_B_FEMALE, Subspecies.SLIME, RaceStage.HUMAN, false);
+		}
+
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.2")) {
+			this.setBreastLactationRegeneration(FluidRegeneration.THREE_RAPID.getMedianRegenerationValuePerDay());
+			this.setBreastMilkStorage(Lactation.THREE_DECENT_AMOUNT.getMedianValue());
+			this.setBreastStoredMilk(Lactation.THREE_DECENT_AMOUNT.getMedianValue());
 		}
 		this.setSurname("Mercier");
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.3.6")) {
+			this.resetPerksMap(true);
+		}
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.5.1")) {
+			this.setPersonalityTraits(
+					PersonalityTrait.COWARDLY,
+					PersonalityTrait.INNOCENT,
+					PersonalityTrait.CONFIDENT);
+		}
+		setStartingCombatMoves();
+	}
+
+	@Override
+	public void setupPerks(boolean autoSelectPerks) {
+		PerkManager.initialisePerks(this,
+				Util.newArrayListOfValues(),
+				Util.newHashMapOfValues(
+						new Value<>(PerkCategory.PHYSICAL, 0),
+						new Value<>(PerkCategory.LUST, 1),
+						new Value<>(PerkCategory.ARCANE, 0)));
 	}
 	
 	@Override
@@ -101,16 +129,10 @@ public class SlimeQueen extends NPC {
 		// Persona:
 
 		if(setPersona) {
-			this.setAttribute(Attribute.MAJOR_PHYSIQUE, 60);
-			this.setAttribute(Attribute.MAJOR_ARCANE, 20);
-			this.setAttribute(Attribute.MAJOR_CORRUPTION, 40);
-	
-			this.setPersonality(Util.newHashMapOfValues(
-					new Value<>(PersonalityTrait.AGREEABLENESS, PersonalityWeight.HIGH),
-					new Value<>(PersonalityTrait.CONSCIENTIOUSNESS, PersonalityWeight.HIGH),
-					new Value<>(PersonalityTrait.EXTROVERSION, PersonalityWeight.AVERAGE),
-					new Value<>(PersonalityTrait.NEUROTICISM, PersonalityWeight.HIGH),
-					new Value<>(PersonalityTrait.ADVENTUROUSNESS, PersonalityWeight.AVERAGE)));
+			this.setPersonalityTraits(
+					PersonalityTrait.COWARDLY,
+					PersonalityTrait.INNOCENT,
+					PersonalityTrait.CONFIDENT);
 			
 			this.setSexualOrientation(SexualOrientation.AMBIPHILIC);
 			
@@ -187,10 +209,10 @@ public class SlimeQueen extends NPC {
 		this.setNippleElasticity(OrificeElasticity.SEVEN_ELASTIC.getValue());
 		this.setNipplePlasticity(OrificePlasticity.FIVE_YIELDING.getValue());
 		
-		this.setBreastLactationRegeneration(FluidRegeneration.ONE_AVERAGE.getValue());
+		this.setBreastLactationRegeneration(FluidRegeneration.THREE_RAPID.getMedianRegenerationValuePerDay());
 		this.setMilkFlavour(FluidFlavour.STRAWBERRY);
-		this.setBreastMilkStorage(Lactation.FIVE_VERY_LARGE_DROOLING.getMedianValue());
-		this.setBreastStoredMilk(Lactation.FIVE_VERY_LARGE_DROOLING.getMedianValue());
+		this.setBreastMilkStorage(Lactation.THREE_DECENT_AMOUNT.getMedianValue());
+		this.setBreastStoredMilk(Lactation.THREE_DECENT_AMOUNT.getMedianValue());
 		
 		// Ass:
 		this.setAssVirgin(false);
@@ -207,7 +229,7 @@ public class SlimeQueen extends NPC {
 		// For if she grows one:
 		this.setPenisVirgin(false);
 		this.setPenisGirth(PenisGirth.FOUR_FAT.getValue());
-		this.setPenisSize(16); // Huge due to her size
+		this.setPenisSize(40); // Huge due to her size
 		this.setPenisCumStorage(CumProduction.FOUR_LARGE.getMedianValue());
 		this.fillCumToMaxStorage();
 		this.setCumFlavour(FluidFlavour.STRAWBERRY);
@@ -228,9 +250,9 @@ public class SlimeQueen extends NPC {
 	}
 	
 	@Override
-	public void equipClothing(boolean replaceUnsuitableClothing, boolean addWeapons, boolean addScarsAndTattoos, boolean addAccessories) {
+	public void equipClothing(List<EquipClothingSetting> settings) {
 
-		this.unequipAllClothingIntoVoid(true);
+		this.unequipAllClothingIntoVoid(true, true);
 		
 		inventory.setMoney(10 + Util.random.nextInt(getLevel()*10) + 1);
 
@@ -239,8 +261,8 @@ public class SlimeQueen extends NPC {
 		}
 		
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_BANGLE, Colour.CLOTHING_GOLD, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_GOLD, false), true, this);
-		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_HEART_NECKLACE, Colour.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_finger_ring", Colour.CLOTHING_GOLD, false), true, this);
+		this.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_neck_heart_necklace", Colour.CLOTHING_GOLD, Colour.CLOTHING_GOLD, Colour.CLOTHING_GOLD, false), true, this);
 
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_EAR_HOOPS, Colour.CLOTHING_GOLD, false), true, this);
 		this.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.PIERCING_NAVEL_GEM, Colour.CLOTHING_GOLD, false), true, this);

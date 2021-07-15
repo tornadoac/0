@@ -9,13 +9,13 @@ import com.lilithsthrone.game.dialogue.utils.UtilText;
 import com.lilithsthrone.game.sex.ArousalIncrease;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.game.sex.SexParticipantType;
-import com.lilithsthrone.game.sex.positions.SexSlotBipeds;
+import com.lilithsthrone.game.sex.positions.slots.SexSlotGeneric;
+import com.lilithsthrone.game.sex.sexActions.baseActionsMisc.PositioningMenu;
 import com.lilithsthrone.main.Main;
-import com.lilithsthrone.utils.Colour;
 
 /**
  * @since 0.1.0
- * @version 0.2.8
+ * @version 0.3.2
  * @author Innoxia
  */
 public class SexActionUtility {
@@ -50,7 +50,7 @@ public class SexActionUtility {
 				return "You remain still, not making a move...";
 			}
 			
-			if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotBipeds.MISC_WATCHING) {
+			if(Sex.getSexPositionSlot(Sex.getCharacterPerformingAction())==SexSlotGeneric.MISC_WATCHING) {
 				List<GameCharacter> characters = new ArrayList<>(Sex.getAllParticipants());
 				characters.remove(Sex.getCharacterPerformingAction());
 				if(characters.size()>=2) {
@@ -269,7 +269,7 @@ public class SexActionUtility {
 
 		@Override
 		public String getDescription() {
-			return "<i style='color:" + Colour.DISPLACED.toWebHexString() + ";'>Clothing removal</i> - "+Sex.getUnequipClothingText();
+			return Sex.getUnequipClothingText();
 		}
 	};
 	
@@ -297,6 +297,39 @@ public class SexActionUtility {
 		@Override
 		public String getDescription() {
 			return Sex.getDyeClothingText();
+		}
+	};
+	
+	public static final SexAction POSITION_SELECTION = new SexAction(
+			SexActionType.POSITIONING_MENU,
+			ArousalIncrease.ZERO_NONE,
+			ArousalIncrease.ZERO_NONE,
+			CorruptionLevel.ZERO_PURE,
+			null,
+			SexParticipantType.SELF) {
+		@Override
+		public SexActionLimitation getLimitation() {
+			return SexActionLimitation.PLAYER_ONLY;
+		}
+		@Override
+		public String getActionTitle() {
+			return "New Position";
+		}
+
+		@Override
+		public String getActionDescription() {
+			return "";
+		}
+
+		@Override
+		public String getDescription() {
+			return "";
+		}
+		
+		@Override
+		public void applyEffects() {
+			PositioningMenu.setNewSexManager();
+			Sex.setSexStarted(true);
 		}
 	};
 }

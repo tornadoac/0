@@ -20,7 +20,6 @@ import org.w3c.dom.NodeList;
 import com.lilithsthrone.game.character.gender.PronounType;
 import com.lilithsthrone.game.character.npc.NPC;
 import com.lilithsthrone.game.character.npc.misc.GenericFemaleNPC;
-import com.lilithsthrone.game.character.npc.misc.GenericMaleNPC;
 import com.lilithsthrone.game.character.persona.Relationship;
 import com.lilithsthrone.game.character.race.Subspecies;
 import com.lilithsthrone.main.Main;
@@ -30,7 +29,7 @@ import com.lilithsthrone.utils.XMLSaving;
 
 /**
  * @since 0.1.62
- * @version 0.3.1
+ * @version 0.3.5.5
  * @author Innoxia, orvail
  */
 public class Litter implements XMLSaving {
@@ -58,9 +57,14 @@ public class Litter implements XMLSaving {
 		this.birthDate = LocalDateTime.of(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth(), 12, 0);
 		
 		motherId = mother.getId();
-		fatherId = father.getId();
 		motherRace = mother.getSubspecies();
-		fatherRace = father.getSubspecies();
+		if(father!=null) {
+			fatherId = father.getId();
+			fatherRace = father.getSubspecies();
+		} else {
+			fatherId = "";
+			fatherRace = null;
+		}
 
 		sonsMother = 0;
 		daughtersMother = 0;
@@ -257,7 +261,9 @@ public class Litter implements XMLSaving {
 		try {
 			return Main.game.getNPCById(motherId);
 		} catch (Exception e) {
-			Util.logGetNpcByIdError("Litter.getMother()", motherId);
+			if(!motherId.equals("NOT_SET")) {
+				Util.logGetNpcByIdError("Litter.getMother()", motherId);
+			}
 			return Main.game.getNpc(GenericFemaleNPC.class);
 		}
 	}
@@ -270,11 +276,18 @@ public class Litter implements XMLSaving {
 		try {
 			return Main.game.getNPCById(fatherId);
 		} catch (Exception e) {
-			Util.logGetNpcByIdError("Litter.getFather()", fatherId);
-			return Main.game.getNpc(GenericMaleNPC.class);
+			return null;
 		}
 	}
 
+	public String getFatherName() {
+		if(getFather()==null) {
+			return "someone";
+		}
+		return getFather().getName();
+	}
+	
+	
 	public boolean isFatherId(String fatherId) {
 		return this.fatherId.equals(fatherId);
 	}
@@ -322,8 +335,12 @@ public class Litter implements XMLSaving {
 	public Subspecies getFatherRace() {
 		return fatherRace;
 	}
+
+	public void setFatherRace(Subspecies fatherSubspecies) {
+		fatherRace = fatherSubspecies;
+	}
 	
-	private void generateBirthedDescription() {
+	public void generateBirthedDescription() {
 		Map<String, Integer> sons = new HashMap<>();
 		Map<String, Integer> daughters = new HashMap<>();
 		
@@ -361,7 +378,9 @@ public class Litter implements XMLSaving {
 						+"</b>");
 		}
 
-		birthedDescription = Util.stringsToStringList(entries, false);
+		if(!entries.isEmpty()) {
+			birthedDescription = Util.stringsToStringList(entries, false);
+		}
 	}
 	
 	//TODO Add this to the generateBirthedDescription() method above.
@@ -403,7 +422,7 @@ public class Litter implements XMLSaving {
 				if(getFather().isPlayer()) {
 					descriptionSB.append("your ");
 				} else {
-					descriptionSB.append(getFather().getName() + "'s ");
+					descriptionSB.append(getFather().getName(true) + "'s ");
 				}
 				descriptionSB.append(GameCharacter.getRelationshipStr(relFather, childrenPronoun));
 				if(!relMother.isEmpty() || !relPlayer.isEmpty()) {
@@ -415,7 +434,7 @@ public class Litter implements XMLSaving {
 				if(getMother().isPlayer()) {
 					descriptionSB.append("your ");
 				} else {
-					descriptionSB.append(getMother().getName() + "'s ");
+					descriptionSB.append(getMother().getName(true) + "'s ");
 				}
 				descriptionSB.append(GameCharacter.getRelationshipStr(relMother, childrenPronoun));
 				if(!relPlayer.isEmpty())
@@ -432,7 +451,7 @@ public class Litter implements XMLSaving {
 	}
 
 	public String getBirthedDescription() {
-		if(birthedDescription.isEmpty()) {
+		if(birthedDescription==null || birthedDescription.isEmpty()) {
 			generateBirthedDescription();
 		}
 		return birthedDescription;

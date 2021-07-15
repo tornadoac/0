@@ -667,7 +667,7 @@ public class Name {
 			}
 			if(mother.getSubspecies()==Subspecies.LILIN
 					|| mother.getSubspecies()== Subspecies.ELDER_LILIN) {
-				surname = mother.getName();
+				surname = mother.getName(false);
 				List<GameCharacter> offspring = mother.getAllCharactersOfRelationType(Relationship.Parent);
 				if(offspring.contains(gc)) {
 					offspring.sort((c1, c2) -> c1.getAgeValue()-c2.getAgeValue());
@@ -697,46 +697,46 @@ public class Name {
 			return mother.getSurname();
 		}
 		
-		if(gc.getSubspecies()==Subspecies.FOX_ASCENDANT
-				|| gc.getSubspecies()==Subspecies.FOX_ASCENDANT_FENNEC) {
+		if(gc.getBody()!=null
+				&& (gc.getSubspecies()==Subspecies.FOX_ASCENDANT
+					|| gc.getSubspecies()==Subspecies.FOX_ASCENDANT_FENNEC)) {
 			return youkoSurnames[Util.random.nextInt(youkoSurnames.length)];
 		}
-		
-		switch(gc.getRace()) {
-			case NONE:
-			case ANGEL:
-			case CAT_MORPH:
-			case COW_MORPH:
-			case DOG_MORPH:
-			case FOX_MORPH:
-			case ALLIGATOR_MORPH:
-			case HARPY:
-			case HUMAN:
-			case WOLF_MORPH:
-			case SQUIRREL_MORPH:
-			case SLIME:
-			case BAT_MORPH:
-			case RAT_MORPH:
-			case RABBIT_MORPH:
-				break;
-			
-			case DEMON:
-			case ELEMENTAL:
-				return getDemonSurname(gc);
-			case REINDEER_MORPH:
-				break;
-			case HORSE_MORPH:
-				break;
+		if(gc.getBody()!=null) {
+			switch(gc.getRace()) {
+				case NONE:
+				case ANGEL:
+				case CAT_MORPH:
+				case COW_MORPH:
+				case DOG_MORPH:
+				case FOX_MORPH:
+				case ALLIGATOR_MORPH:
+				case HARPY:
+				case HUMAN:
+				case WOLF_MORPH:
+				case SQUIRREL_MORPH:
+				case SLIME:
+				case BAT_MORPH:
+				case RAT_MORPH:
+				case RABBIT_MORPH:
+					break;
+				
+				case DEMON:
+				case ELEMENTAL:
+					return getDemonSurname(gc);
+				case REINDEER_MORPH:
+					break;
+				case HORSE_MORPH:
+					break;
+			}
 		}
-		
 		return surnames[Util.random.nextInt(surnames.length)];
 	}
 	
 	public static NameTriplet getRandomTriplet(Race r) {
 		NameTriplet name = Util.randomItemFrom(human);
 		// occasionally throw some "prostitute" names in there - about 10% of the time
-		if(Math.random()<0.1)
-		{
+		if(Math.random()<0.1) {
 			name = Util.randomItemFrom(prostitute); 
 		}
 		
@@ -772,17 +772,23 @@ public class Name {
 		return name;
 	}
 	
-	private static NameTriplet getDemonName() {
-		String[] prefixFem = new String[] {"Aella", "Bella", "Cae", "Deva", "Ella", "Fae", "Hela", "Isa", "Katha", "Loe", "Nysa", "Oella", "Rae", "Sytha", "Vixxa", "Wynna"};
-		String[] prefixMas = new String[] {"Ada", "Boro", "Foro", "Helio", "Kiri", "Zara"};
-		
-		String[] postfixFem = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix"};
-		String[] postfixMas = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix"};
-		
-		String femName = prefixFem[Util.random.nextInt(prefixFem.length)] + postfixFem[Util.random.nextInt(postfixFem.length)];
-		char startingChar = femName.charAt(0);
-
-		String masName = prefixMas[Util.random.nextInt(prefixMas.length)] + postfixMas[Util.random.nextInt(postfixMas.length)];
+////Expanded Demon Name List, simple tweak by SVNaas
+////Install to game.character.persona/Name.java Line 702
+ 
+    private static NameTriplet getDemonName() {
+        String[] prefixFem = new String[] {"A", "Ael", "Ag", "Ah", "Al", "Ar", "As", "Au", "Ba", "Bel", "C", "Cae", "De", "E", "Ei", "El", "F", "G", "Ge", "Gre", "He", "I", "K", "L", "Li", "Lu", "Ly", "N", "Ny", "Oel", "Rae", "Sy", "Vix", "Wyn"};
+        String[] prefixMas = new String[] {"Ab", "Aba", "Ag", "Ah", "Al", "Ar", "As", "Ash", "Au", "Az", "Ba", "Bel", "B", "Bee", "Bo", "Cas", "De", "E", "Ei", "El", "Fo", "G", "Ge", "Gre", "He", "Ki", "Li", "Lu", "Mi", "N", "Ny", "Va", "Za", "Z", "Za"};
+       
+        String[] infixFem = new String[] {"ae", "al", "as", "ci", "ch", "el", "ha", "hae", "he", "io", "il", "la", "lae", "li", "lyn", "oe", "m", "mo", "mode", "n", "na", "nae", "pho", "ra", "rem", "ri", "ryn", "sa", "sae", "she", "te", "ti", "tha", "va", "vae", "xa"};
+        String[] infixMas = new String[] {"ae", "al", "as", "ci", "ch", "el", "ha", "hae", "he", "io", "il", "la", "lae", "li", "lyn", "oe", "mo", "mode", "n", "na", "nae", "pho", "ra", "rae", "rem", "ri", "ryn", "sa", "sae", "te", "ti", "tha", "va", "vae", "xa", "lze"};
+       
+        String[] postfixFem = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix", "la", "lyth", "yth", "yx", "iya", "is", "ya", "na", "yna", "mis", "eth", "ry", "cys", "ys", "yn", "rys", "nys", "us", "dai", "n", "y"};
+        String[] postfixMas = new String[] {"jyx", "ryth", "ney", "nix", "sys", "trix", "ial", "iel", "yx", "mas", "xas", "man", "ias", "tor", "mis", "ius", "cer", "ces", "met", "ry", "rys", "nys", "us", "dai", "fer"};
+       
+        String femName = prefixFem[Util.random.nextInt(prefixFem.length)] + infixFem[Util.random.nextInt(infixFem.length)] + postfixFem[Util.random.nextInt(postfixFem.length)];
+        char startingChar = femName.charAt(0);
+ 
+        String masName = prefixMas[Util.random.nextInt(prefixMas.length)] + infixMas[Util.random.nextInt(infixMas.length)] + postfixMas[Util.random.nextInt(postfixMas.length)];
 		
 		List<String> masculineNames = new ArrayList<>();
 		for(String s : prefixMas) {
@@ -799,8 +805,7 @@ public class Name {
 	
 	public static NameTriplet getRandomProstituteTriplet() {
 		// occasionally throw some "regular" names in there - 25% of the time
-		if(Math.random()<0.25)
-		{
+		if(Math.random()<0.25) {
 			return Util.randomItemFrom(human);
 		}
 		else

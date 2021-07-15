@@ -4,8 +4,8 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.util.AbstractMap.SimpleEntry;
 
+import com.lilithsthrone.game.Game;
 import com.lilithsthrone.game.PropertyValue;
-import com.lilithsthrone.game.Weather;
 import com.lilithsthrone.game.character.CharacterUtils;
 import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.character.body.Covering;
@@ -59,6 +59,7 @@ import com.lilithsthrone.game.sex.SexType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Colour;
 import com.lilithsthrone.utils.Util;
+import com.lilithsthrone.world.Weather;
 import com.lilithsthrone.world.WorldType;
 import com.lilithsthrone.world.places.PlaceType;
 
@@ -149,6 +150,8 @@ public class CharacterCreation {
 						Main.getProperties().setValue(PropertyValue.newClothingDiscovered, false);
 						Main.getProperties().setValue(PropertyValue.newItemDiscovered, false);
 						Main.game.getPlayer().calculateStatusEffects(0);
+						Main.game.getPlayer().setHealthPercentage(1);
+						Main.game.getPlayer().setManaPercentage(1);
 						getDressed();
 						resetBodyAppearance();
 						
@@ -226,7 +229,7 @@ public class CharacterCreation {
 			default:
 				break;
 		}
-		Main.game.getPlayer().setBody(Gender.F_V_B_FEMALE, RacialBody.HUMAN, RaceStage.HUMAN);
+		Main.game.getPlayer().setBody(Gender.F_V_B_FEMALE, RacialBody.HUMAN, RaceStage.HUMAN, false);
 		Main.game.getPlayer().setFemininity(fem.getMedianFemininity());
 		
 		getDressed();
@@ -249,7 +252,7 @@ public class CharacterCreation {
 			default:
 				break;
 		}
-		Main.game.getPlayer().setBody(Gender.M_P_MALE, RacialBody.HUMAN, RaceStage.HUMAN);
+		Main.game.getPlayer().setBody(Gender.M_P_MALE, RacialBody.HUMAN, RaceStage.HUMAN, false);
 		Main.game.getPlayer().setFemininity(fem.getMedianFemininity());
 		
 		getDressed();
@@ -346,12 +349,12 @@ public class CharacterCreation {
 			case MASCULINE_STRONG:
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BRIEFS, Colour.CLOTHING_WHITE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_OXFORD_SHIRT, Colour.CLOTHING_WHITE, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_TIE, Colour.CLOTHING_RED, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_neck_tie", Colour.CLOTHING_RED, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_torsoOver_suit_jacket", Colour.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TROUSERS, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_GOLD, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_socks", Colour.CLOTHING_BLACK, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_mens_smart_shoes", Colour.CLOTHING_BLACK, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_finger_ring", Colour.CLOTHING_GOLD, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_MENS_WATCH, Colour.CLOTHING_GOLD, false), true, character);
 				
 				if(spawnClothingOnFloor) {
@@ -363,9 +366,9 @@ public class CharacterCreation {
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_BOXERS, Colour.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SHORT_SLEEVE_SHIRT, Colour.CLOTHING_WHITE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_TROUSERS, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_MENS_SMART_SHOES, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_SILVER, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_socks", Colour.CLOTHING_BLACK, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_mens_smart_shoes", Colour.CLOTHING_BLACK, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_finger_ring", Colour.CLOTHING_SILVER, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_MENS_WATCH, Colour.CLOTHING_SILVER, false), true, character);
 
 				if(spawnClothingOnFloor) {
@@ -381,9 +384,9 @@ public class CharacterCreation {
 					Main.game.getPlayerCell().getInventory().addClothing(AbstractClothingType.generateClothing(ClothingType.CHEST_CROPTOP_BRA, Colour.CLOTHING_WHITE, false));
 				}
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SHORT_SLEEVE_SHIRT, Colour.CLOTHING_WHITE, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_JEANS, Colour.CLOTHING_BLUE, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_SOCKS, Colour.CLOTHING_WHITE, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_LOW_TOP_SKATER_SHOES, Colour.CLOTHING_RED, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.LEG_JEANS, Colour.CLOTHING_BLUE_GREY, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_socks", Colour.CLOTHING_WHITE, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_low_top_skater_shoes", Colour.CLOTHING_RED, false), true, character);
 				
 				if(spawnClothingOnFloor) {
 					spawnClothingInArea();
@@ -394,11 +397,11 @@ public class CharacterCreation {
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_PANTIES, Colour.CLOTHING_WHITE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_PLUNGE_BRA, Colour.CLOTHING_WHITE, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SKATER_DRESS, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TRAINER_SOCKS, Colour.CLOTHING_WHITE, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_trainer_socks", Colour.CLOTHING_WHITE, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_heels", Colour.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Colour.BASE_PINK_LIGHT, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_SILVER, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_HEART_NECKLACE, Colour.CLOTHING_SILVER, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_finger_ring", Colour.CLOTHING_SILVER, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_neck_heart_necklace", Colour.CLOTHING_SILVER, false), true, character);
 
 				if(spawnClothingOnFloor) {
 					spawnClothingInArea();
@@ -409,11 +412,11 @@ public class CharacterCreation {
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.GROIN_THONG, Colour.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.CHEST_PLUNGE_BRA, Colour.CLOTHING_BLACK, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.TORSO_SLIP_DRESS, Colour.CLOTHING_RED, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.SOCK_TIGHTS, Colour.CLOTHING_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FOOT_STILETTO_HEELS, Colour.CLOTHING_RED, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_sock_pantyhose", Colour.CLOTHING_BLACK, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_foot_stiletto_heels", Colour.CLOTHING_RED, false), true, character);
 				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.WRIST_WOMENS_WATCH, Colour.BASE_BLACK, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.FINGER_RING, Colour.CLOTHING_GOLD, false), true, character);
-				character.equipClothingFromNowhere(AbstractClothingType.generateClothing(ClothingType.NECK_HEART_NECKLACE, Colour.CLOTHING_GOLD, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_finger_ring", Colour.CLOTHING_GOLD, false), true, character);
+				character.equipClothingFromNowhere(AbstractClothingType.generateClothing("innoxia_neck_heart_necklace", Colour.CLOTHING_GOLD, false), true, character);
 
 				if(spawnClothingOnFloor) {
 					spawnClothingInArea();
@@ -424,8 +427,8 @@ public class CharacterCreation {
 		}
 		
 		if(character.isPlayer()
-				&& ((character.getName().equals("James") || character.getName().equals("Jane") || character.getName().equals("Tracy")) && character.getSurname().equals("Bond"))) {
-			character.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.MAIN_WESTERN_KKP));
+				&& ((character.getName(false).equals("James") || character.getName(false).equals("Jane") || character.getName(false).equals("Tracy")) && character.getSurname().equals("Bond"))) {
+			character.equipMainWeaponFromNowhere(AbstractWeaponType.generateWeapon(WeaponType.getWeaponTypeFromId("innoxia_western_kkp_western_kkp")));
 		}
 	}
 	
@@ -450,31 +453,31 @@ public class CharacterCreation {
 		switch(Main.game.getPlayer().getFemininity()) {
 			case MASCULINE:
 			case MASCULINE_STRONG:
-				generateClothingOnFloor(ClothingType.FOOT_TRAINERS, Colour.CLOTHING_BLUE);
-				generateClothingOnFloor(ClothingType.FOOT_WORK_BOOTS, Colour.CLOTHING_TAN);
-				generateClothingOnFloor(ClothingType.FOOT_LOW_TOP_SKATER_SHOES, Colour.CLOTHING_RED);
-				generateClothingOnFloor(ClothingType.SOCK_SOCKS, Colour.CLOTHING_WHITE);
+				generateClothingOnFloor(ClothingType.getClothingTypeFromId("innoxia_foot_trainers"), Colour.CLOTHING_WHITE, Colour.CLOTHING_BLUE_GREY, Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_foot_work_boots", Colour.CLOTHING_TAN);
+				generateClothingOnFloor("innoxia_foot_low_top_skater_shoes", Colour.CLOTHING_RED);
+				generateClothingOnFloor("innoxia_sock_socks", Colour.CLOTHING_WHITE);
 				generateClothingOnFloor(ClothingType.LEG_CARGO_TROUSERS, Colour.CLOTHING_BLACK);
-				generateClothingOnFloor(ClothingType.LEG_JEANS, Colour.CLOTHING_BLUE);
+				generateClothingOnFloor(ClothingType.LEG_JEANS, Colour.CLOTHING_BLUE_GREY);
 				generateClothingOnFloor(ClothingType.GROIN_BOXERS, Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.EYES_AVIATORS, Colour.CLOTHING_BLACK_STEEL);
 				generateClothingOnFloor(ClothingType.EYES_GLASSES, Colour.CLOTHING_BLACK_STEEL);
-				generateClothingOnFloor(ClothingType.HAND_GLOVES, Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_hand_gloves", Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.HEAD_CAP, Colour.CLOTHING_BLUE);
-				generateClothingOnFloor(ClothingType.NECK_SCARF, Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_neck_scarf", Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.TORSO_OVER_HOODIE, Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.TORSO_RIBBED_SWEATER, Colour.CLOTHING_GREY);
 				generateClothingOnFloor(ClothingType.TORSO_SHORT_SLEEVE_SHIRT, Colour.CLOTHING_WHITE);
-				generateClothingOnFloor(ClothingType.TORSO_TSHIRT, Colour.CLOTHING_BLUE_LIGHT);
+				generateClothingOnFloor("innoxia_torso_tshirt", Colour.CLOTHING_BLUE_LIGHT);
 				generateClothingOnFloor(ClothingType.GROIN_BRIEFS, Colour.CLOTHING_WHITE);
 				generateClothingOnFloor(ClothingType.TORSO_OXFORD_SHIRT, Colour.CLOTHING_WHITE);
-				generateClothingOnFloor(ClothingType.NECK_TIE, Colour.CLOTHING_RED);
+				generateClothingOnFloor("innoxia_neck_tie", Colour.CLOTHING_RED);
 				generateClothingOnFloor("innoxia_torsoOver_suit_jacket", Colour.CLOTHING_BLACK);
 				break;
 				
 			case ANDROGYNOUS:
-				generateClothingOnFloor(ClothingType.FOOT_TRAINERS, Colour.CLOTHING_PURPLE);
-				generateClothingOnFloor(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK);
+				generateClothingOnFloor(ClothingType.getClothingTypeFromId("innoxia_foot_trainers"), Colour.CLOTHING_WHITE, Colour.CLOTHING_PURPLE_DARK, Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_foot_heels", Colour.CLOTHING_BLACK);
 				
 				generateClothingOnFloor(ClothingType.GROIN_THONG, Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.GROIN_LACY_PANTIES, Colour.CLOTHING_RED);
@@ -482,28 +485,28 @@ public class CharacterCreation {
 
 				generateClothingOnFloor(ClothingType.CHEST_LACY_PLUNGE_BRA, Colour.CLOTHING_RED);
 
-				generateClothingOnFloor(ClothingType.SOCK_KNEEHIGH_SOCKS, Colour.CLOTHING_WHITE);
+				generateClothingOnFloor("innoxia_sock_kneehigh_socks", Colour.CLOTHING_WHITE);
 
 				generateClothingOnFloor(ClothingType.LEG_CARGO_TROUSERS, Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.LEG_TROUSERS, Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.LEG_SKIRT, Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.LEG_YOGA_PANTS, Colour.CLOTHING_PINK_LIGHT);
 
-				generateClothingOnFloor(ClothingType.NECK_SCARF, Colour.CLOTHING_RED);
+				generateClothingOnFloor("innoxia_neck_scarf", Colour.CLOTHING_RED);
 				
 				generateClothingOnFloor(ClothingType.HEAD_CAP, Colour.CLOTHING_BLUE);
 				
 				generateClothingOnFloor(ClothingType.STOMACH_UNDERBUST_CORSET, Colour.CLOTHING_BLACK);
 
-				generateClothingOnFloor(ClothingType.TORSO_TSHIRT, Colour.CLOTHING_BLUE_LIGHT);
+				generateClothingOnFloor("innoxia_torso_tshirt", Colour.CLOTHING_BLUE_LIGHT);
 				generateClothingOnFloor(ClothingType.TORSO_BLOUSE, Colour.CLOTHING_BLUE_LIGHT);
 				generateClothingOnFloor(ClothingType.TORSO_CAMITOP_STRAPS, Colour.CLOTHING_GREEN);
 				
 				generateClothingOnFloor(ClothingType.TORSO_OVER_HOODIE, Colour.CLOTHING_PINK_LIGHT);
 				generateClothingOnFloor(ClothingType.TORSO_OVER_OPEN_CARDIGAN, Colour.CLOTHING_BLACK);
 
-				generateClothingOnFloor(ClothingType.FINGER_RING, Colour.CLOTHING_SILVER);
-				generateClothingOnFloor(ClothingType.NECK_HEART_NECKLACE, Colour.CLOTHING_SILVER);
+				generateClothingOnFloor("innoxia_finger_ring", Colour.CLOTHING_SILVER);
+				generateClothingOnFloor("innoxia_neck_heart_necklace", Colour.CLOTHING_SILVER);
 				generateClothingOnFloor(ClothingType.WRIST_BANGLE, Colour.CLOTHING_SILVER);
 				generateClothingOnFloor("innoxia_ankle_anklet", Colour.CLOTHING_SILVER);
 				
@@ -520,18 +523,18 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.CHEST_LACY_PLUNGE_BRA, Colour.CLOTHING_RED);
 				generateClothingOnFloor(ClothingType.CHEST_FULLCUP_BRA, Colour.CLOTHING_BLACK);
 
-				generateClothingOnFloor(ClothingType.SOCK_TIGHTS, Colour.CLOTHING_BLACK);
-				generateClothingOnFloor(ClothingType.SOCK_KNEEHIGH_SOCKS, Colour.CLOTHING_WHITE);
-				generateClothingOnFloor(ClothingType.SOCK_THIGHHIGH_SOCKS, Colour.CLOTHING_WHITE);
+				generateClothingOnFloor("innoxia_sock_pantyhose", Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_sock_kneehigh_socks", Colour.CLOTHING_WHITE);
+				generateClothingOnFloor("innoxia_sock_thighhigh_socks", Colour.CLOTHING_WHITE);
 
 				generateClothingOnFloor(ClothingType.EYES_AVIATORS, Colour.CLOTHING_ROSE_GOLD);
 				generateClothingOnFloor(ClothingType.EYES_GLASSES, Colour.CLOTHING_BLACK_STEEL);
 
-				generateClothingOnFloor(ClothingType.FOOT_ANKLE_BOOTS, Colour.CLOTHING_BLACK);
-				generateClothingOnFloor(ClothingType.FOOT_LOW_TOP_SKATER_SHOES, Colour.CLOTHING_PINK_LIGHT);
-				generateClothingOnFloor(ClothingType.FOOT_THIGH_HIGH_BOOTS, Colour.CLOTHING_TAN);
-				generateClothingOnFloor(ClothingType.FOOT_STILETTO_HEELS, Colour.CLOTHING_RED);
-				generateClothingOnFloor(ClothingType.FOOT_HEELS, Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_foot_ankle_boots", Colour.CLOTHING_BLACK);
+				generateClothingOnFloor("innoxia_foot_low_top_skater_shoes", Colour.CLOTHING_PINK_LIGHT);
+				generateClothingOnFloor("innoxia_foot_thigh_high_boots", Colour.CLOTHING_TAN);
+				generateClothingOnFloor("innoxia_foot_stiletto_heels", Colour.CLOTHING_RED);
+				generateClothingOnFloor("innoxia_foot_heels", Colour.CLOTHING_BLACK);
 
 				generateClothingOnFloor("innoxia_hand_elbow_length_gloves", Colour.CLOTHING_BLACK);
 				generateClothingOnFloor(ClothingType.HEAD_HEADBAND, Colour.CLOTHING_BLACK);
@@ -542,7 +545,7 @@ public class CharacterCreation {
 				generateClothingOnFloor(ClothingType.LEG_SKIRT, Colour.CLOTHING_PINK);
 				generateClothingOnFloor(ClothingType.LEG_YOGA_PANTS, Colour.CLOTHING_PINK_LIGHT);
 
-				generateClothingOnFloor(ClothingType.NECK_SCARF, Colour.CLOTHING_RED);
+				generateClothingOnFloor("innoxia_neck_scarf", Colour.CLOTHING_RED);
 				
 				generateClothingOnFloor(ClothingType.STOMACH_UNDERBUST_CORSET, Colour.CLOTHING_BLACK);
 
@@ -658,13 +661,13 @@ public class CharacterCreation {
 					+ "<div class='container-full-width' style='text-align:center;'>"
 						+ "<div style='position:relative; display:inline-block; padding-bottom:0; margin 0 auto; vertical-align:middle; width:100%; text-align:center;'>"
 							+ "<p style='display:inline-block; padding:0; margin:0; height:32px; line-height:32px; width:100px;'>First name: </p>"
-							+ "<form style='display:inline-block; padding:0; margin:0; text-align:center;'><input type='text' id='nameInput' value='"+ UtilText.parseForHTMLDisplay(Main.game.getPlayer().getName())+ "'></form>"
+							+ "<form style='display:inline-block; padding:0; margin:0; text-align:center;'><input type='text' id='nameInput' value='"+ UtilText.parseForHTMLDisplay(Main.game.getPlayer().getName(false))+ "'></form>"
 							+ "<br/>"
 							+ "<p style='display:inline-block; padding:0; margin:0; height:32px; line-height:32px; width:100px;'>Surname: </p>"
 							+ "<form style='display:inline-block; padding:0; margin:0; text-align:center;'><input type='text' id='surnameInput' value='"+ UtilText.parseForHTMLDisplay(Main.game.getPlayer().getSurname())+ "'></form>"
 						+ "</div>"
 						+ "<br/>"
-						+ "<i>Your name must be between 2 and 16 characters long. You cannot use the square bracket characters or full stops. (Surname may be left blank.)</i>"
+						+ "<i>Your name must be between 2 and 32 characters long. You cannot use the square bracket characters or full stops. (Surname may be left blank.)</i>"
 						+ (unsuitableName ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Colour.GENERIC_BAD.toWebHexString()+ ";'>Invalid name.</b></p>" : "")
 						+ (unsuitableSurname ? "<p style='text-align:center;padding-top:0;'><b style=' color:"+ Colour.GENERIC_BAD.toWebHexString()+ ";'>Invalid Surname.</b></p>" : "")
 					+ "</div>"
@@ -694,20 +697,20 @@ public class CharacterCreation {
 						Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldName').innerHTML=document.getElementById('nameInput').value;");
 						if(Main.mainController.getWebEngine().getDocument()!=null) {
 							if (Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().length() < 2
-									|| Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().length() > 16
-									|| !Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().matches("[^\\[\\]\\.]+"))
+									|| Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().length() > 32
+									|| !Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldName").getTextContent().matches("[^\\[\\]\\.]+")) {
 								unsuitableName = true;
-							else {
+							} else {
 								unsuitableName = false;
 							}
 						}
 						Main.mainController.getWebEngine().executeScript("document.getElementById('hiddenFieldSurname').innerHTML=document.getElementById('surnameInput').value;");
 						if(Main.mainController.getWebEngine().getDocument()!=null) {
 							if (Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().length()>=1
-									&& (Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().length() > 16
-											|| !Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().matches("[^\\[\\]\\.]+")))
+									&& (Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().length() > 32
+											|| !Main.mainController.getWebEngine().getDocument().getElementById("hiddenFieldSurname").getTextContent().matches("[^\\[\\]\\.]+"))) {
 								unsuitableSurname = true;
-							else {
+							} else {
 								unsuitableSurname = false;
 							}
 						}
@@ -828,7 +831,9 @@ public class CharacterCreation {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new Response("Continue", "Your clothes are a little messy after rushing here. Tidy yourself up before proceeding to the main stage.", InventoryDialogue.INVENTORY_MENU) {
+				return new Response("Continue",
+						"Your clothes are a little messy after rushing here. Tidy yourself up before proceeding to the main stage.",
+						InventoryDialogue.INVENTORY_MENU) {
 					@Override
 					public int getSecondsPassed() {
 						return TIME_TO_CLOTHING;
@@ -1012,7 +1017,7 @@ public class CharacterCreation {
 					
 					+ CharacterModificationUtils.getNipplePuffynessDiv()
 					
-					+ CharacterModificationUtils.getLactationDiv();
+					+ CharacterModificationUtils.getSelfTransformLactationDiv();
 		}
 		
 		@Override
@@ -1084,7 +1089,7 @@ public class CharacterCreation {
 							
 							+ CharacterModificationUtils.getTesticleSizeDiv()
 							
-							+ CharacterModificationUtils.getCumProductionDiv();
+							+ CharacterModificationUtils.getSelfTransformCumProductionDiv();
 				
 			} else {
 				return "<div class='container-full-width' style='text-align:center;'>"
@@ -1162,7 +1167,7 @@ public class CharacterCreation {
 		@Override
 		public String getHeaderContent() {
 			return "<div class='container-full-width' style='text-align:center;'>"
-						+ "<i>Later on in the game, you can get enchanted and glowing tattoos. For now, however, your tattoo choices are limited to non-magical options.</i>"
+						+ "<i>Later on in the game, you can get enchanted and glowing tattoos. For now, however, your tattoo choices are limited to more mundane options.</i>"
 					+ "</div>"
 					+CharacterModificationUtils.getKatesDivTattoos();
 		}
@@ -1348,7 +1353,16 @@ public class CharacterCreation {
 	};
 	
 	public static String getCheckingClothingDescription() {
-		return "<div class='container-full-width' style='background:transparent;'>"
+		StringBuilder sb = new StringBuilder();
+
+		File dir = new File("res/");
+		if(!dir.exists()) {
+			sb.append("<p style='text-align:center;'>"
+						+ "[style.italicsBad(The game cannot read the 'res' folder, and as such, vital items of clothing will be missing! Please refer to the 'MISSING FOLDERS' section of the README.txt before continuing!)]"
+					+ "</p>");
+		}
+		
+		sb.append("<div class='container-full-width' style='background:transparent;'>"
 					+ "<p>"
 						+ "There doesn't seem to be any sign of activity on the main stage, so, afforded a few more minutes, you decide to smarten up your clothes a little."
 						+ " After all, this is a big evening for Lily, and you want her to see that you've put some effort into your appearance."
@@ -1363,7 +1377,9 @@ public class CharacterCreation {
 						+ "<i>Choose what you decided to wear to the museum.</i><br/>"
 						+ "<i>You'll need to be wearing some kind of footwear, as well as clothing that conceals your genitals and chest, before being able to proceed.</i>"
 					+ "</div>"
-				+ "</div>";
+				+ "</div>");
+		
+		return sb.toString();
 	}
 	
 	public static void moveNPCIntoPlayerTile() {
@@ -1406,7 +1422,7 @@ public class CharacterCreation {
 						+ "</p>"
 						+ "<p>"
 							+ "Turning around, you see a tall, handsome-looking man, who must be only a couple of years older than you, giving you the most charming smile you've ever seen."
-							+ " Before you know what you're doing, your eyes are travelling up and down every inch of his manly, muscular body, and you only just manage to stop yourself from letting out a desperate little whine."
+							+ " Before you know what you're doing, your eyes are travelling up and down every [unit.size] of his manly, muscular body, and you only just manage to stop yourself from letting out a desperate little whine."
 						+ "</p>"
 						+ "<p>"
 							+ "[pc.thought(Focus, [pc.name], focus!)] you think, trying to act as casual as possible as you smile back at the stranger before you."
@@ -1443,7 +1459,7 @@ public class CharacterCreation {
 						+ "</p>"
 						+ "<p>"
 							+ "Turning around, you see a beautiful woman, who looks to be about the same age as you, giving you the most stunning smile you've ever seen."
-							+ " Before you know what you're doing, your eyes are travelling up and down every inch of her curvy, womanly body, and you only just manage to stop yourself from letting out a hungry groan."
+							+ " Before you know what you're doing, your eyes are travelling up and down every [unit.size] of her curvy, womanly body, and you only just manage to stop yourself from letting out a hungry groan."
 						+ "</p>"
 						+ "<p>"
 							+ "[pc.thought(Focus [pc.name], focus!)] you think, trying to act as casual as possible as you smile back at the stranger before you."
@@ -1530,10 +1546,11 @@ public class CharacterCreation {
 								+ "<h6 style='color:"+history.getAssociatedPerk().getColour().toWebHexString()+";'>"+Util.capitaliseSentence(history.getName())+"</h6>"
 							+ "</div>"
 							+"<div class='container-full-width' style='margin:0 8px; width: calc(10% - 16px);'>"
-								+ "<div id='OCCUPATION_" + history + "' class='fetish-icon full" + (Main.game.getPlayer().getHistory()==history
-									? " owned' style='border:2px solid " + Colour.GENERIC_GOOD.toWebHexString() + ";'>"
-									: " unlocked' style='border:2px solid " + Colour.TEXT_GREY.toWebHexString() + ";" + "'>")
-									+ "<div class='fetish-icon-content'>"+history.getAssociatedPerk().getSVGString()+"</div>"
+								+ "<div id='OCCUPATION_" + history + "' class='fetish-icon full"
+									+ (Main.game.getPlayer().getHistory()==history
+										? " owned' style='border:2px solid " + Colour.GENERIC_GOOD.toWebHexString() + ";'>"
+										: " unlocked' style='border:2px solid " + Colour.TEXT_GREY.toWebHexString() + ";" + "'>")
+									+ "<div class='fetish-icon-content'>"+history.getAssociatedPerk().getSVGString(Main.game.getPlayer())+"</div>"
 								+ "</div>"
 							+ "</div>"
 							+"<div class='container-full-width' style='margin:0 8px; width: calc(90% - 16px);'>"
@@ -1767,13 +1784,18 @@ public class CharacterCreation {
 		Main.game.getPlayerCell().resetInventory();
 	}
 
-	private static void applySkipPrologueStart() {
+	private static void applySkipPrologueStart(boolean imported) {
 		Main.game.getPlayer().addCharacterEncountered(Main.game.getNpc(Lilaya.class));
 		Main.game.getPlayer().addCharacterEncountered(Main.game.getNpc(Rose.class));
 		
 		Main.getProperties().addRaceDiscovered(Main.game.getNpc(Lilaya.class).getSubspecies());
 		Main.getProperties().addRaceDiscovered(Main.game.getNpc(Rose.class).getSubspecies());
-
+		
+		Main.game.applyStartingDateChange();
+		if(!imported) {
+			Main.game.getPlayer().setAgeAppearanceDifference(-Game.TIME_SKIP_YEARS);
+		}
+		
 		moveNPCOutOfPlayerTile();
 	}
 	
@@ -1829,7 +1851,7 @@ public class CharacterCreation {
 						Main.game.getWorlds().get(WorldType.LILAYAS_HOUSE_FIRST_FLOOR).getCell(PlaceType.LILAYA_HOME_ROOM_PLAYER).getInventory().addItem(spellBook);
 						
 						applyGameStart();
-						applySkipPrologueStart();
+						applySkipPrologueStart(false);
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER);
 						Main.game.setContent(new Response("", "", Main.game.getDefaultDialogueNoEncounter()));
 					}
@@ -1914,7 +1936,8 @@ public class CharacterCreation {
 		}
 	};
 	private static String getImportRow(int i, String name) {
-		String baseName = name.substring(0, name.lastIndexOf('.'));
+		String baseName = Util.getFileName(name);
+		String identifier = Util.getFileIdentifier(name);
 		
 		return "<tr>"
 				+ "<td>"
@@ -1924,7 +1947,7 @@ public class CharacterCreation {
 					+ baseName
 				+ "</td>"
 				+ "<td>"
-					+ "<div class='saveLoadButton' id='character_import_" + baseName + "' style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Load</div>"
+					+ "<div class='saveLoadButton' id='character_import_" + identifier + "' style='color:"+Colour.GENERIC_GOOD.toWebHexString()+";'>Load</div>"
 				+ "</td>"
 				+ "</tr>";
 	}
@@ -1955,7 +1978,7 @@ public class CharacterCreation {
 		@Override
 		public Response getResponse(int responseTab, int index) {
 			if (index == 1) {
-				return new Response("Start", "Use this character and start the game at the very beginning.", PrologueDialogue.INTRO_2){
+				return new Response("Start", "Use this character and start the game at the very beginning.", INTRO_2_FROM_IMPORT){
 					@Override
 					public void effects() {
 						Main.game.getPlayer().resetAllQuests();
@@ -1982,7 +2005,7 @@ public class CharacterCreation {
 						Main.game.getWorlds().get(WorldType.LILAYAS_HOUSE_FIRST_FLOOR).getCell(PlaceType.LILAYA_HOME_ROOM_PLAYER).getInventory().addItem(spellBook);
 						
 						applyGameStart();
-						applySkipPrologueStart();
+						applySkipPrologueStart(true);
 						Main.game.getPlayer().setLocation(WorldType.LILAYAS_HOUSE_FIRST_FLOOR, PlaceType.LILAYA_HOME_ROOM_PLAYER);
 						Main.game.setContent(new Response("", "", Main.game.getDefaultDialogueNoEncounter()));
 					}
@@ -2002,6 +2025,24 @@ public class CharacterCreation {
 			} else {
 				return null;
 			}
+		}
+	};
+	
+	public static final DialogueNode INTRO_2_FROM_IMPORT = new DialogueNode("In the Museum", "", true) {
+
+		@Override
+		public int getSecondsPassed() {
+			return 60*10;
+		}
+		
+		@Override
+		public String getContent() {
+			return UtilText.parseFromXMLFile("misc/prologue", "INTRO_2");
+		}
+		
+		@Override
+		public Response getResponse(int responseTab, int index) {
+			return PrologueDialogue.INTRO_2.getResponse(responseTab, index);
 		}
 	};
 	

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -53,6 +54,7 @@ import com.lilithsthrone.game.character.body.valueEnums.CoveringPattern;
 import com.lilithsthrone.game.character.body.valueEnums.EyeShape;
 import com.lilithsthrone.game.character.body.valueEnums.Femininity;
 import com.lilithsthrone.game.character.body.valueEnums.FluidModifier;
+import com.lilithsthrone.game.character.body.valueEnums.FluidRegeneration;
 import com.lilithsthrone.game.character.body.valueEnums.FluidTypeBase;
 import com.lilithsthrone.game.character.body.valueEnums.GenitalArrangement;
 import com.lilithsthrone.game.character.body.valueEnums.HairStyle;
@@ -84,12 +86,13 @@ import com.lilithsthrone.game.sex.SexType;
 import com.lilithsthrone.main.Main;
 import com.lilithsthrone.utils.Builder;
 import com.lilithsthrone.utils.Colour;
+import com.lilithsthrone.utils.Units;
 import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.XMLSaving;
 
 /**
  * @since 0.1.0
- * @version 0.3.1
+ * @version 0.3.3.10
  * @author Innoxia
  */
 public class Body implements XMLSaving {
@@ -119,12 +122,11 @@ public class Body implements XMLSaving {
 	
 	private GenitalArrangement genitalArrangement;
 
-	private Map<Race, Integer> raceWeightMap = new HashMap<>();
+	private Map<Race, Integer> raceWeightMap = new ConcurrentHashMap<>();
 	private Subspecies subspecies;
 	private RaceStage raceStage;
 	private boolean piercedStomach = false;
 	private Subspecies subspeciesOverride = null;
-	private Subspecies halfDemonSubspecies = null;
 	private int height;
 	private int femininity;
 	private int bodySize;
@@ -159,8 +161,8 @@ public class Body implements XMLSaving {
 		private Antenna antenna = new Antenna(AntennaType.NONE);
 		private BreastCrotch breastCrotch = new BreastCrotch(BreastType.NONE, BreastShape.ROUND, 0, 0, 1, 1, NippleShape.NORMAL, 1, 1, 0, 0, 0, true);
 		private Horn horn = new Horn(HornType.NONE, 0);
-		private Penis penis = new Penis(PenisType.NONE, 0, 0, 0, 0, 0);
-		private Penis secondPenis = new Penis(PenisType.NONE, 0, 0, 0, 0, 0);
+		private Penis penis = new Penis(PenisType.NONE, 0, false, 0, 0, 0, 0);
+		private Penis secondPenis = new Penis(PenisType.NONE, 0, false, 0, 0, 0, 0);
 		private Tail tail = new Tail(TailType.NONE);
 		private Tentacle tentacle = new Tentacle(TentacleType.NONE);
 		private Vagina vagina = new Vagina(VaginaType.NONE, 0, 0, 0, 0, 3, 3, true);
@@ -416,16 +418,22 @@ public class Body implements XMLSaving {
 			}
 			
 			CoveringPattern pattern = availablePatterns.get(Util.random.nextInt(availablePatterns.size()));
-			
+			if(pattern==CoveringPattern.EYE_IRISES) {
+				pattern = CoveringPattern.EYE_IRISES_HETEROCHROMATIC;
+			}
 			if(pattern == CoveringPattern.EYE_IRISES_HETEROCHROMATIC) {
 				if(Math.random()>0.02f) { // As it's already selected heterochromatic eyes (0.5 chance), this 0.02 chance corresponds to an overall heterochromatic chance of 0.01, or 1%
 					pattern = CoveringPattern.EYE_IRISES;
 				} else {
 					if(primary==secondary) {
-						List<Colour> secondaryIrisColours = new ArrayList<>();
-						secondaryIrisColours.addAll(colourApplicationList);
+						List<Colour> secondaryIrisColours = new ArrayList<>(colourApplicationList);
 						secondaryIrisColours.remove(primary);
-						secondary = colourApplicationList.get(Util.random.nextInt(colourApplicationList.size()));
+						if(secondaryIrisColours.isEmpty()) {
+							pattern = CoveringPattern.EYE_IRISES;
+							secondary = primary;
+						} else {
+							secondary = Util.randomItemFrom(secondaryIrisColours);
+						}
 					}
 				}
 			}
@@ -480,13 +488,13 @@ public class Body implements XMLSaving {
 				CharacterUtils.addAttribute(doc, element, "type", bct.toString());
 				CharacterUtils.addAttribute(doc, element, "pattern", this.coverings.get(bct).getPattern().toString());
 				CharacterUtils.addAttribute(doc, element, "modifier", this.coverings.get(bct).getModifier().toString());
-				CharacterUtils.addAttribute(doc, element, "colourPrimary", this.coverings.get(bct).getPrimaryColour().toString());
+				CharacterUtils.addAttribute(doc, element, "c1", this.coverings.get(bct).getPrimaryColour().toString());
 				if(this.coverings.get(bct).isPrimaryGlowing()) {
-					CharacterUtils.addAttribute(doc, element, "glowPrimary", String.valueOf(this.coverings.get(bct).isPrimaryGlowing()));
+					CharacterUtils.addAttribute(doc, element, "g1", String.valueOf(this.coverings.get(bct).isPrimaryGlowing()));
 				}
-				CharacterUtils.addAttribute(doc, element, "colourSecondary", this.coverings.get(bct).getSecondaryColour().toString());
+				CharacterUtils.addAttribute(doc, element, "c2", this.coverings.get(bct).getSecondaryColour().toString());
 				if(this.coverings.get(bct).isSecondaryGlowing()) {
-					CharacterUtils.addAttribute(doc, element, "glowSecondary", String.valueOf(this.coverings.get(bct).isSecondaryGlowing()));
+					CharacterUtils.addAttribute(doc, element, "g2", String.valueOf(this.coverings.get(bct).isSecondaryGlowing()));
 				}
 				if(this.getBodyCoveringTypesDiscovered().contains(bct)) {
 					CharacterUtils.addAttribute(doc, element, "discovered", String.valueOf(this.getBodyCoveringTypesDiscovered().contains(bct)));
@@ -527,8 +535,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyAnus, "assHair", this.ass.anus.assHair.toString());
 			Element anusModifiers = doc.createElement("anusModifiers");
 			bodyAnus.appendChild(anusModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, anusModifiers, om.toString(), String.valueOf(this.ass.anus.orificeAnus.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.ass.anus.orificeAnus.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, anusModifiers, om.toString(), "true");
 			}
 		
 		// Breasts:
@@ -557,8 +565,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyNipple, "areolaeShape", this.breast.nipples.areolaeShape.toString());
 			Element nippleModifiers = doc.createElement("nippleModifiers");
 			bodyNipple.appendChild(nippleModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, nippleModifiers, om.toString(), String.valueOf(this.breast.nipples.orificeNipples.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.breast.nipples.orificeNipples.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, nippleModifiers, om.toString(), "true");
 			}
 			
 		this.breast.milk.saveAsXML(parentElement, doc);
@@ -589,8 +597,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyCrotchNipple, "areolaeShape", this.breastCrotch.nipples.areolaeShape.toString());
 			Element crotchNippleModifiers = doc.createElement("nippleModifiers");
 			bodyCrotchNipple.appendChild(crotchNippleModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, crotchNippleModifiers, om.toString(), String.valueOf(this.breastCrotch.nipples.orificeNipples.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.breastCrotch.nipples.orificeNipples.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, crotchNippleModifiers, om.toString(), "true");
 			}
 			
 		this.breastCrotch.milk.saveAsXML(parentElement, doc);
@@ -599,7 +607,7 @@ public class Body implements XMLSaving {
 		// Ear:
 		Element bodyEar = doc.createElement("ear");
 		parentElement.appendChild(bodyEar);
-			CharacterUtils.addAttribute(doc, bodyEar, "type", this.ear.type.toString());
+			CharacterUtils.addAttribute(doc, bodyEar, "type", EarType.getIdFromEarType(this.ear.type));
 			CharacterUtils.addAttribute(doc, bodyEar, "pierced", String.valueOf(this.ear.pierced));
 
 		// Eye:
@@ -629,8 +637,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyMouth, "lipSize", String.valueOf(this.face.mouth.lipSize));
 			Element mouthModifiers = doc.createElement("mouthModifiers");
 			bodyMouth.appendChild(mouthModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, mouthModifiers, om.toString(), String.valueOf(this.face.mouth.orificeMouth.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.face.mouth.orificeMouth.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, mouthModifiers, om.toString(), "true");
 			}
 			
 		Element bodyTongue = doc.createElement("tongue");
@@ -639,8 +647,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyTongue, "tongueLength", String.valueOf(this.face.tongue.tongueLength));
 			Element tongueModifiers = doc.createElement("tongueModifiers");
 			bodyTongue.appendChild(tongueModifiers);
-			for(TongueModifier tm : TongueModifier.values()) {
-				CharacterUtils.addAttribute(doc, tongueModifiers, tm.toString(), String.valueOf(this.face.tongue.hasTongueModifier(tm)));
+			for(TongueModifier tm : this.face.tongue.tongueModifiers) {
+				CharacterUtils.addAttribute(doc, tongueModifiers, tm.toString(), "true");
 			}
 			
 		
@@ -676,8 +684,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyPenis, "virgin", String.valueOf(this.penis.virgin));
 			Element penisModifiers = doc.createElement("penisModifiers");
 			bodyPenis.appendChild(penisModifiers);
-			for(PenetrationModifier pm : PenetrationModifier.values()) {
-				CharacterUtils.addAttribute(doc, penisModifiers, pm.toString(), String.valueOf(this.penis.hasPenisModifier(pm)));
+			for(PenetrationModifier pm : this.penis.getPenisModifiers()) {
+				CharacterUtils.addAttribute(doc, penisModifiers, pm.toString(), "true");
 			}
 			CharacterUtils.addAttribute(doc, bodyPenis, "elasticity", String.valueOf(this.penis.orificeUrethra.elasticity));
 			CharacterUtils.addAttribute(doc, bodyPenis, "plasticity", String.valueOf(this.penis.orificeUrethra.plasticity));
@@ -686,8 +694,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyPenis, "urethraVirgin", String.valueOf(this.penis.orificeUrethra.virgin));
 			Element urethraModifiers = doc.createElement("urethraModifiers");
 			bodyPenis.appendChild(urethraModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, urethraModifiers, om.toString(), String.valueOf(this.penis.orificeUrethra.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.penis.orificeUrethra.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, urethraModifiers, om.toString(), "true");
 			}
 			
 		Element bodyTesticle = doc.createElement("testicles");
@@ -729,8 +737,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyVagina, "clitGirth", String.valueOf(this.vagina.clitoris.girth));
 			Element clitModifiers = doc.createElement("clitModifiers");
 			bodyVagina.appendChild(clitModifiers);
-			for(PenetrationModifier pm : PenetrationModifier.values()) {
-				CharacterUtils.addAttribute(doc, clitModifiers, pm.toString(), String.valueOf(this.vagina.clitoris.hasClitorisModifier(pm)));
+			for(PenetrationModifier pm : this.vagina.clitoris.getClitorisModifiers()) {
+				CharacterUtils.addAttribute(doc, clitModifiers, pm.toString(), "true");
 			}
 			CharacterUtils.addAttribute(doc, bodyVagina, "pierced", String.valueOf(this.vagina.pierced));
 			
@@ -743,8 +751,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyVagina, "squirter", String.valueOf(this.vagina.orificeVagina.squirter));
 			Element vaginaModifiers = doc.createElement("vaginaModifiers");
 			bodyVagina.appendChild(vaginaModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, vaginaModifiers, om.toString(), String.valueOf(this.vagina.orificeVagina.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.vagina.orificeVagina.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, vaginaModifiers, om.toString(), "true");
 			}
 
 			CharacterUtils.addAttribute(doc, bodyVagina, "urethraElasticity", String.valueOf(this.vagina.orificeUrethra.elasticity));
@@ -754,8 +762,8 @@ public class Body implements XMLSaving {
 			CharacterUtils.addAttribute(doc, bodyVagina, "urethraVirgin", String.valueOf(this.vagina.orificeUrethra.virgin));
 			urethraModifiers = doc.createElement("urethraModifiers");
 			bodyVagina.appendChild(urethraModifiers);
-			for(OrificeModifier om : OrificeModifier.values()) {
-				CharacterUtils.addAttribute(doc, urethraModifiers, om.toString(), String.valueOf(this.vagina.orificeUrethra.hasOrificeModifier(om)));
+			for(OrificeModifier om : this.vagina.orificeUrethra.getOrificeModifiers()) {
+				CharacterUtils.addAttribute(doc, urethraModifiers, om.toString(), "true");
 			}
 			
 		this.vagina.girlcum.saveAsXML(parentElement, doc);
@@ -814,15 +822,6 @@ public class Body implements XMLSaving {
 			}
 		} catch(Exception ex) {	
 		}
-
-		Subspecies importedHalfDemonSubspecies = null;
-		try {
-			if(element.getAttribute("halfDemonSubspecies") != null && !element.getAttribute("halfDemonSubspecies").isEmpty()) {
-				importedHalfDemonSubspecies = Subspecies.valueOf(element.getAttribute("halfDemonSubspecies"));
-			}
-		} catch(Exception ex) {	
-		}
-		
 		
 		
 		
@@ -898,7 +897,9 @@ public class Body implements XMLSaving {
 			Element anusModifiersElement = (Element)anus.getElementsByTagName("anusModifiers").item(0);
 			Collection<OrificeModifier> anusModifiers = importedAss.anus.orificeAnus.orificeModifiers;
 			anusModifiers.clear();
-			handleLoadingOfModifiers(OrificeModifier.values(), log, anusModifiersElement, anusModifiers);
+			if(anusModifiersElement!=null) {
+				handleLoadingOfModifiers(OrificeModifier.values(), log, anusModifiersElement, anusModifiers);
+			}
 		}
 		
 
@@ -940,6 +941,9 @@ public class Body implements XMLSaving {
 		try {
 			importedBreast.milkStored = Float.valueOf(breasts.getAttribute("storedMilk"));
 			importedBreast.milkRegeneration = Integer.valueOf(breasts.getAttribute("milkRegeneration"));
+			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.1.9")) { // Change from percentage-based to set value:
+				importedBreast.milkRegeneration = FluidRegeneration.ONE_AVERAGE.getMedianRegenerationValuePerDay();
+			}
 		} catch(Exception ex) {
 		}
 		
@@ -969,14 +973,15 @@ public class Body implements XMLSaving {
 				+"<br/>Modifiers:");
 		
 		Element nippleModifiersElement = (Element)nipples.getElementsByTagName("nippleModifiers").item(0);
-		
 		Collection<OrificeModifier> nippleOrificeModifiers = importedBreast.nipples.orificeNipples.orificeModifiers;
 		nippleOrificeModifiers.clear();
-		handleLoadingOfModifiers(OrificeModifier.values(), log, nippleModifiersElement, nippleOrificeModifiers);
+		if(nippleModifiersElement!=null) {
+			handleLoadingOfModifiers(OrificeModifier.values(), log, nippleModifiersElement, nippleOrificeModifiers);
+		}
 		
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Milk:");
 		
-		importedBreast.milk = FluidMilk.loadFromXML(parentElement, doc, importedBreast.getType().getFluidType());
+		importedBreast.milk = FluidMilk.loadFromXML(parentElement, doc, importedBreast.getType().getFluidType(), false);
 		if(Main.isVersionOlderThan(Main.VERSION_NUMBER, "0.2.5.1")) {
 			importedBreast.milk.type = importedBreast.getType().getFluidType();
 		}
@@ -985,7 +990,7 @@ public class Body implements XMLSaving {
 		
 		Element ear = (Element)parentElement.getElementsByTagName("ear").item(0);
 
-		Ear importedEar = new Ear(EarType.getTypeFromString(ear.getAttribute("type")));
+		Ear importedEar = new Ear(EarType.getEarTypeFromId(ear.getAttribute("type")));
 		
 		importedEar.pierced = (Boolean.valueOf(ear.getAttribute("pierced")));
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Body: Ear:"
@@ -1072,10 +1077,11 @@ public class Body implements XMLSaving {
 				+ "<br/>Modifiers: ");
 			
 		Element mouthModifiersElement = (Element)mouth.getElementsByTagName("mouthModifiers").item(0);
-		
 		Collection<OrificeModifier> mouthOrificeModifiers = importedFace.mouth.orificeMouth.orificeModifiers;
 		mouthOrificeModifiers.clear();
-		handleLoadingOfModifiers(OrificeModifier.values(), log, mouthModifiersElement, mouthOrificeModifiers);
+		if(mouthModifiersElement!=null) {
+			handleLoadingOfModifiers(OrificeModifier.values(), log, mouthModifiersElement, mouthOrificeModifiers);
+		}
 
 		Element tongue = (Element)parentElement.getElementsByTagName("tongue").item(0);
 			importedFace.tongue.pierced = (Boolean.valueOf(tongue.getAttribute("piercedTongue")));
@@ -1088,10 +1094,11 @@ public class Body implements XMLSaving {
 					+ "<br/>Modifiers: ");
 			
 			Element tongueModifiersElement = (Element)tongue.getElementsByTagName("tongueModifiers").item(0);
-			
 			Collection<TongueModifier> tongueModifiers = importedFace.tongue.tongueModifiers;
 			tongueModifiers.clear();
-			handleLoadingOfModifiers(TongueModifier.values(), log, tongueModifiersElement, tongueModifiers);
+			if(tongueModifiersElement!=null) {
+				handleLoadingOfModifiers(TongueModifier.values(), log, tongueModifiersElement, tongueModifiers);
+			}
 			
 			
 		// **************** Hair **************** //
@@ -1200,7 +1207,7 @@ public class Body implements XMLSaving {
 		
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Body: Leg: "
 				+ "<br/>type: "+importedLeg.getType());
-		
+
 		
 		// **************** Penis **************** //
 		
@@ -1224,6 +1231,7 @@ public class Body implements XMLSaving {
 		
 		Penis importedPenis = new Penis(PenisType.getTypeFromString(penis.getAttribute("type")),
 				Integer.valueOf(penis.getAttribute("size")),
+				false,
 				girth,
 				Integer.valueOf(testicles.getAttribute("testicleSize")),
 				cumStorage,
@@ -1244,11 +1252,7 @@ public class Body implements XMLSaving {
 		Collection<PenetrationModifier> penisModifiers = importedPenis.penisModifiers;
 		penisModifiers.clear();
 		Element penisModifiersElement = (Element)penis.getElementsByTagName("penisModifiers").item(0);
-		if (penisModifiersElement == null) {
-			for (PenetrationModifier pm : PenetrationModifier.values()) {
-				CharacterUtils.appendToImportLog(log, "<br/>"+pm.toString()+":false");
-			}
-		} else {
+		if (penisModifiersElement != null) {
 			handleLoadingOfModifiers(PenetrationModifier.values(), log, penisModifiersElement, penisModifiers);
 		}
 		
@@ -1271,17 +1275,21 @@ public class Body implements XMLSaving {
 				+ "<br/>Urethra Modifiers:");
 		
 		Element urethraModifiersElement = (Element)penis.getElementsByTagName("urethraModifiers").item(0);
-		
 		Collection<OrificeModifier> urethraOrificeModifiers = importedPenis.orificeUrethra.orificeModifiers;
 		urethraOrificeModifiers.clear();
-		handleLoadingOfModifiers(OrificeModifier.values(), log, urethraModifiersElement, urethraOrificeModifiers);
+		if (urethraModifiersElement != null) {
+			handleLoadingOfModifiers(OrificeModifier.values(), log, urethraModifiersElement, urethraOrificeModifiers);
+		}
 		
 		importedPenis.testicle.internal = (Boolean.valueOf(testicles.getAttribute("internal")));
 		
 		try {
 			importedPenis.testicle.cumStored = Float.valueOf(testicles.getAttribute("storedCum"));
 			importedPenis.testicle.cumRegeneration = Integer.valueOf(testicles.getAttribute("cumRegeneration"));
-			importedPenis.testicle.cumExpulsion = Integer.valueOf(testicles.getAttribute("cumExpulsion"));
+			importedPenis.testicle.setCumExpulsion(null, Integer.valueOf(testicles.getAttribute("cumExpulsion")));
+			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.1.9")) { // Change from percentage-based to set value:
+				importedPenis.testicle.cumRegeneration = FluidRegeneration.CUM_REGEN_DEFAULT;
+			}
 		} catch(Exception ex) {
 		}
 		
@@ -1289,15 +1297,12 @@ public class Body implements XMLSaving {
 				+ "<br/>cumProduction: "+importedPenis.testicle.getCumStorage()
 				+ "<br/>numberOfTesticles: "+importedPenis.testicle.getTesticleCount()
 				+ "<br/>testicleSize: "+importedPenis.testicle.getTesticleSize()
-				+ "<br/>internal: "+importedPenis.testicle.isInternal());
+				+ "<br/>internal: "+importedPenis.testicle.internal);
 		
 		
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Cum:");
 		
 		importedPenis.testicle.cum = FluidCum.loadFromXML(parentElement, doc, importedPenis.getType().getTesticleType().getFluidType());
-		if(Main.isVersionOlderThan(Main.VERSION_NUMBER, "0.2.5.1")) {
-			importedPenis.testicle.cum.type = importedPenis.getType().getTesticleType().getFluidType();
-		}
 
 		
 		// **************** Skin **************** //
@@ -1373,11 +1378,7 @@ public class Body implements XMLSaving {
 			Collection<PenetrationModifier> clitModifiers = importedVagina.clitoris.clitModifiers;
 			clitModifiers.clear();
 			Element clitModifiersElement = (Element)vagina.getElementsByTagName("clitModifiers").item(0);
-			if (clitModifiersElement == null) {
-				for (PenetrationModifier pm : PenetrationModifier.values()) {
-					CharacterUtils.appendToImportLog(log, "<br/>"+pm.toString()+":false");
-				}
-			} else {
+			if (clitModifiersElement != null) {
 				handleLoadingOfModifiers(PenetrationModifier.values(), log, clitModifiersElement, clitModifiers);
 			}
 			
@@ -1404,7 +1405,6 @@ public class Body implements XMLSaving {
 				+ "<br/>virgin: "+importedVagina.orificeVagina.isVirgin());
 		
 		Element vaginaModifiers = (Element)vagina.getElementsByTagName("vaginaModifiers").item(0);
-		
 		Collection<OrificeModifier> vaginaOrificeModifiers = importedVagina.orificeVagina.orificeModifiers;
 		vaginaOrificeModifiers.clear();
 		if(vaginaModifiers!=null) {
@@ -1423,19 +1423,17 @@ public class Body implements XMLSaving {
 			}
 			
 			urethraModifiersElement = (Element)vagina.getElementsByTagName("urethraModifiers").item(0);
-			
 			Collection<OrificeModifier> vaginaUrethraOrificeModifiers = importedVagina.orificeUrethra.orificeModifiers;
 			vaginaUrethraOrificeModifiers.clear();
-			handleLoadingOfModifiers(OrificeModifier.values(), log, urethraModifiersElement, vaginaUrethraOrificeModifiers);
+			if (urethraModifiersElement != null) {
+				handleLoadingOfModifiers(OrificeModifier.values(), log, urethraModifiersElement, vaginaUrethraOrificeModifiers);
+			}
 		} catch(Exception ex) {
 		}
 		
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Girlcum:");
 		
 		importedVagina.girlcum = FluidGirlCum.loadFromXML(parentElement, doc, importedVagina.getType().getFluidType());
-		if(Main.isVersionOlderThan(Main.VERSION_NUMBER, "0.2.5.1")) {
-			importedVagina.girlcum.type = importedVagina.getType().getFluidType();
-		}
 		
 		// **************** Wing **************** //
 		
@@ -1448,6 +1446,39 @@ public class Body implements XMLSaving {
 		CharacterUtils.appendToImportLog(log, "<br/><br/>Body: Wing: "
 				+ "<br/>type: "+importedWing.getType()+"<br/>"
 				+ "<br/>size: "+importedWing.getSizeValue()+"<br/>");
+
+
+		// ************** Version Overrides **************//
+
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.2.5.1")) {
+			importedVagina.girlcum.type = importedVagina.getType().getFluidType();
+			importedPenis.testicle.cum.type = importedPenis.getType().getTesticleType().getFluidType();
+			importedBreast.milk.type = importedBreast.getType().getFluidType();
+		}
+
+
+		if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.0.8")) {
+			// Convert all sizes from inch to cm
+			importedHair.length *= 2.54;
+			importedHorn.length *= 2.54;
+			importedFace.tongue.tongueLength *= 2.54;
+			importedPenis.size *= 2.54;
+			importedVagina.clitoris.clitSize *= 2.54;
+
+			// Convert all capacities from inch to cm
+			importedFace.mouth.orificeMouth.capacity *= 2.54;
+			importedFace.mouth.orificeMouth.stretchedCapacity *= 2.54;
+			importedPenis.orificeUrethra.capacity *= 2.54;
+			importedPenis.orificeUrethra.stretchedCapacity *= 2.54;
+			importedVagina.orificeVagina.capacity *= 2.54;
+			importedVagina.orificeVagina.stretchedCapacity *= 2.54;
+			importedVagina.orificeUrethra.capacity *= 2.54;
+			importedVagina.orificeUrethra.stretchedCapacity *= 2.54;
+			importedAss.anus.orificeAnus.capacity *= 2.54;
+			importedAss.anus.orificeAnus.stretchedCapacity *= 2.54;
+			importedBreast.nipples.orificeNipples.capacity *= 2.54;
+			importedBreast.nipples.orificeNipples.stretchedCapacity *= 2.54;
+		}
 		
 		
 		Body body = new Body.BodyBuilder(
@@ -1473,21 +1504,21 @@ public class Body implements XMLSaving {
 						.tail(importedTail)
 						.wing(importedWing)
 						.build();
-		
+
 
 		// **************** Crotch Breasts **************** //
-		
+
 		breasts = (Element)parentElement.getElementsByTagName("breastsCrotch").item(0);
 		nipples = (Element)parentElement.getElementsByTagName("nipplesCrotch").item(0);
 		BreastCrotch importedCrotchBreast = null;
-		
+
 		if(breasts!=null) {
 			breastShape = BreastShape.ROUND;
 			try {
 				breastShape = BreastShape.valueOf(breasts.getAttribute("shape"));
 			} catch(Exception e) {
 			}
-			
+
 			milkStorage = 0;
 			try {
 				if(!breasts.getAttribute("lactation").isEmpty()) {
@@ -1497,11 +1528,14 @@ public class Body implements XMLSaving {
 				}
 			} catch(Exception ex) {
 			}
-			
+
 			AbstractBreastType crotchBoobType = BreastType.getBreastTypeFromId(breasts.getAttribute("type"));
-			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.0.6")
-					&& importedLeg.getLegConfiguration().isBipedalPositionedCrotchBoobs()) { // Reset crotch-boob type as I accidentally applied crotch-boobs to demons
-				crotchBoobType = RacialBody.valueOfRace(body.getRace()).getBreastCrotchType();
+			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.0.6") && importedLeg.getLegConfiguration().isBipedalPositionedCrotchBoobs()) { // Reset crotch-boob type as I accidentally applied crotch-boobs to demons
+				if(body.isFeminine()) {
+					crotchBoobType = RacialBody.valueOfRace(body.getRace()).getBreastCrotchType();
+				} else {
+					crotchBoobType = BreastType.NONE;
+				}
 			}
 			importedCrotchBreast = new BreastCrotch(crotchBoobType,
 					breastShape,
@@ -1516,10 +1550,13 @@ public class Body implements XMLSaving {
 					Integer.valueOf(nipples.getAttribute("elasticity")),
 					Integer.valueOf(nipples.getAttribute("plasticity")),
 					Boolean.valueOf(nipples.getAttribute("virgin")));
-	
+
 			try {
 				importedCrotchBreast.milkStored = Float.valueOf(breasts.getAttribute("storedMilk"));
 				importedCrotchBreast.milkRegeneration = Integer.valueOf(breasts.getAttribute("milkRegeneration"));
+				if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.2")) { // Change from percentage-based to set value:
+					importedCrotchBreast.milkRegeneration = FluidRegeneration.ONE_AVERAGE.getMedianRegenerationValuePerDay();
+				}
 			} catch(Exception ex) {
 			}
 
@@ -1527,14 +1564,14 @@ public class Body implements XMLSaving {
 			importedCrotchBreast.nipples.orificeNipples.stretchedCapacity = (Float.valueOf(nipples.getAttribute("stretchedCapacity")));
 			importedCrotchBreast.nipples.pierced = (Boolean.valueOf(nipples.getAttribute("pierced")));
 			importedCrotchBreast.nipples.areolaeShape = (AreolaeShape.valueOf(nipples.getAttribute("areolaeShape")));
-			
+
 			CharacterUtils.appendToImportLog(log, "<br/><br/>Body: Crotch Breasts:"
 					+ "<br/>type: "+importedCrotchBreast.getType()
 					+ "<br/>size: "+importedCrotchBreast.getSize()
 					+ "<br/>rows: "+importedCrotchBreast.getRows()
 					+ "<br/>lactation: "+importedCrotchBreast.getRawMilkStorageValue()
 					+ "<br/>nippleCountPer: "+importedCrotchBreast.getNippleCountPerBreast()
-					
+
 					+ "<br/><br/>Nipples:"
 					+ "<br/>elasticity: "+importedCrotchBreast.nipples.orificeNipples.getElasticity()
 					+ "<br/>plasticity: "+importedCrotchBreast.nipples.orificeNipples.getPlasticity()
@@ -1547,28 +1584,33 @@ public class Body implements XMLSaving {
 					+ "<br/>areolaeSize: "+importedCrotchBreast.nipples.getAreolaeSize()
 					+ "<br/>areolaeShape: "+importedCrotchBreast.nipples.getAreolaeShape()
 					+"<br/>Modifiers:");
-			
+
 			nippleModifiersElement = (Element)nipples.getElementsByTagName("nippleModifiers").item(0);
-			
 			nippleOrificeModifiers = importedCrotchBreast.nipples.orificeNipples.orificeModifiers;
 			nippleOrificeModifiers.clear();
-			handleLoadingOfModifiers(OrificeModifier.values(), log, nippleModifiersElement, nippleOrificeModifiers);
-			
+			if (nippleModifiersElement != null) {
+				handleLoadingOfModifiers(OrificeModifier.values(), log, nippleModifiersElement, nippleOrificeModifiers);
+			}
+
 			CharacterUtils.appendToImportLog(log, "<br/><br/>Milk:");
-			
-			importedCrotchBreast.milk = FluidMilk.loadFromXML(parentElement, doc, importedCrotchBreast.getType().getFluidType());
+
+			importedCrotchBreast.milk = FluidMilk.loadFromXML(parentElement, doc, importedCrotchBreast.getType().getFluidType(), true);
 			if(Main.isVersionOlderThan(Main.VERSION_NUMBER, "0.2.5.1")) {
 				importedCrotchBreast.milk.type = importedCrotchBreast.getType().getFluidType();
 			}
 		}
-		
-		
+
+
 		if(importedCrotchBreast!=null) {
+			if(Main.isVersionOlderThan(Game.loadingVersion, "0.3.0.8")) {
+				importedCrotchBreast.nipples.orificeNipples.capacity *= 2.54;
+				importedCrotchBreast.nipples.orificeNipples.stretchedCapacity *= 2.54;
+			}
+
 			body.setBreastCrotch(importedCrotchBreast);
 		}
 		
 		body.setSubspeciesOverride(importedSubspeciesOverride);
-		body.setHalfDemonSubspecies(importedHalfDemonSubspecies);
 		
 		body.setPiercedStomach(Boolean.valueOf(element.getAttribute("piercedStomach")));
 		CharacterUtils.appendToImportLog(log, "<br/>Body: Set piercedStomach: "+Boolean.valueOf(element.getAttribute("piercedStomach")));
@@ -1600,8 +1642,15 @@ public class Body implements XMLSaving {
 				type = "HORN";
 			}
 			try {
+				
 				String colourPrimary = e.getAttribute("colourPrimary");
+				if(colourPrimary.isEmpty()) {
+					colourPrimary = e.getAttribute("c1");
+				}
 				String colourSecondary = e.getAttribute("colourSecondary");
+				if(colourSecondary.isEmpty()) {
+					colourSecondary = e.getAttribute("c2");
+				}
 				
 				if(type.startsWith("HAIR_")) {
 					if(colourPrimary.equals("COVERING_TAN")) {
@@ -1616,9 +1665,9 @@ public class Body implements XMLSaving {
 					body.setBodyCoveringForXMLImport(BodyCoveringType.getTypeFromString(type),
 							CoveringPattern.valueOf(e.getAttribute("pattern")),
 							Colour.valueOf(colourPrimary),
-							!e.getAttribute("glowPrimary").isEmpty()?Boolean.valueOf(e.getAttribute("glowPrimary")):false,
+							!e.getAttribute("g1").isEmpty()?Boolean.valueOf(e.getAttribute("g1")):false,
 							Colour.valueOf(colourSecondary),
-							!e.getAttribute("glowSecondary").isEmpty()?Boolean.valueOf(e.getAttribute("glowSecondary")):false);
+							!e.getAttribute("g2").isEmpty()?Boolean.valueOf(e.getAttribute("g2")):false);
 					
 				} else { //TODO
 					BodyCoveringType coveringType = BodyCoveringType.getTypeFromString(type);
@@ -1628,9 +1677,9 @@ public class Body implements XMLSaving {
 							CoveringPattern.valueOf(e.getAttribute("pattern")),
 							coveringType.getNaturalModifiers().contains(modifier) || coveringType.getExtraModifiers().contains(modifier) ? modifier : coveringType.getNaturalModifiers().get(0),
 							Colour.valueOf(colourPrimary),
-							!e.getAttribute("glowPrimary").isEmpty()?Boolean.valueOf(e.getAttribute("glowPrimary")):false,
+							!e.getAttribute("g1").isEmpty()?Boolean.valueOf(e.getAttribute("g1")):false,
 							Colour.valueOf(colourSecondary),
-							!e.getAttribute("glowSecondary").isEmpty()?Boolean.valueOf(e.getAttribute("glowSecondary")):false);
+							!e.getAttribute("g2").isEmpty()?Boolean.valueOf(e.getAttribute("g2")):false);
 				}
 				
 				if(!e.getAttribute("discovered").isEmpty() && Boolean.valueOf(e.getAttribute("discovered"))) {
@@ -1657,21 +1706,23 @@ public class Body implements XMLSaving {
 	static <T extends Enum<T>> void handleLoadingOfModifiers(T[] enumValues, StringBuilder log, Element modifiersElement, Collection<T> modifiers) {
 		for(T enumValue : enumValues) {
 			String attributeValue = modifiersElement.getAttribute(enumValue.toString());
-			if(Boolean.valueOf(attributeValue)) {
-				if (!modifiers.contains(enumValue)) {
-					modifiers.add(enumValue);
-				}
-				if(log!=null) {
-					CharacterUtils.appendToImportLog(log, "<br/>"+enumValue.toString()+":true");
-				}
-			} else if (!attributeValue.isEmpty()) {
-				modifiers.remove(enumValue);
-				if(log!=null) {
-					CharacterUtils.appendToImportLog(log, "<br/>"+enumValue.toString()+":false");
-				}
-			} else {
-				if(log!=null) {
-					CharacterUtils.appendToImportLog(log, "<br/>"+enumValue.toString()+":not present, defaulted to "+modifiers.contains(enumValue));
+			if(!attributeValue.isEmpty()) {
+				if(Boolean.valueOf(attributeValue)) {
+					if (!modifiers.contains(enumValue)) {
+						modifiers.add(enumValue);
+					}
+					if(log!=null) {
+						CharacterUtils.appendToImportLog(log, "<br/>"+enumValue.toString()+":true");
+					}
+				} else if (!attributeValue.isEmpty()) {
+					modifiers.remove(enumValue);
+					if(log!=null) {
+						CharacterUtils.appendToImportLog(log, "<br/>"+enumValue.toString()+":false");
+					}
+				} else {
+					if(log!=null) {
+						CharacterUtils.appendToImportLog(log, "<br/>"+enumValue.toString()+":not present, defaulted to "+modifiers.contains(enumValue));
+					}
 				}
 			}
 		}
@@ -1698,8 +1749,7 @@ public class Body implements XMLSaving {
 								?"<span style='color:"+owner.getFemininity().getColour().toWebHexString()+";'>[pc.a_femininity]</span> [pc.gender(true)] [style.colourHuman(human)]. "
 								:"[pc.a_fullRace(true)] [pc.gender(true)]. ")
 						+ owner.getAppearsAsGenderDescription(true)
-						+" Standing at full height, you measure [pc.heightFeetInches] ([pc.heightCm]cm).");
-			
+						+" Standing at full height, you measure [pc.heightValue].");
 		} else {
 			if(owner.isAreaKnownByCharacter(CoverableArea.PENIS, Main.game.getPlayer()) && owner.isAreaKnownByCharacter(CoverableArea.VAGINA, Main.game.getPlayer())) {
 				sb.append("<p>"
@@ -1708,19 +1758,26 @@ public class Body implements XMLSaving {
 								?"<span style='color:"+owner.getFemininity().getColour().toWebHexString()+";'>[npc.a_femininity]</span> [npc.gender(true)] [style.colourHuman(human)]. "
 								:"[npc.a_fullRace(true)] [npc.gender(true)]. ")
 						+ owner.getAppearsAsGenderDescription(true)
-						+ " Standing at full height, [npc.she] measures [npc.heightFeetInches] ([npc.heightCm]cm).");
+						+ " Standing at full height, [npc.she] measures [npc.heightValue]");
 			} else {
 				if(Main.game.getPlayer().hasTrait(Perk.OBSERVANT, true)) {
 					sb.append("<p>"
 							+ "Thanks to your observant perk, you can detect that [npc.name] is <span style='color:"+getGender().getColour().toWebHexString()+";'>[npc.a_gender]</span> [npc.raceStage] [npc.race]. "
 							+ owner.getAppearsAsGenderDescription(true)
-							+ " Standing at full height, [npc.she] measures [npc.heightFeetInches] ([npc.heightCm]cm).");
+							+ " Standing at full height, [npc.she] measures [npc.heightValue]");
 				} else {
 					sb.append("<p>"
 								+ "[npc.Name] is a [npc.a_fullRace(true)]. "
 								+ owner.getAppearsAsGenderDescription(true)
-								+ " Standing at full height, [npc.she] measures [npc.heightFeetInches] ([npc.heightCm]cm).");
+								+ " Standing at full height, [npc.she] measures [npc.heightValue]");
 				}
+			}
+			if(owner.isSizeDifferenceTallerThan(Main.game.getPlayer())) {
+				sb.append(", making [npc.herHim] <span style='color:"+Colour.BODY_SIZE_FOUR.toWebHexString()+";'>significantly taller</span> than you.");
+			} else if(owner.isSizeDifferenceShorterThan(Main.game.getPlayer())) {
+				sb.append(", making [npc.herHim] <span style='color:"+Colour.BODY_SIZE_ZERO.toWebHexString()+";'>significantly shorter</span> than you.");
+			} else {
+				sb.append(".");
 			}
 		}
 		
@@ -1728,7 +1785,7 @@ public class Body implements XMLSaving {
 			case ARACHNID:
 			case CEPHALOPOD:
 				sb.append(" [style.colourBestial([npc.Her] entire lower body, from the waist down, has transformed into that of a huge [npc.legRace]."
-						+ " [npc.Her] legs and genitals are almost completely theriomorphic, and are extremely similar to that of [npc.a_assRace]'s.)]");
+						+ " [npc.Her] legs and genitals are almost completely feral in nature, and are extremely similar to that of [npc.a_assRace]'s.)]");
 				break;
 			case BIPEDAL:
 				break;
@@ -1738,11 +1795,11 @@ public class Body implements XMLSaving {
 				break;
 			case TAIL_LONG:
 				sb.append(" [style.colourBestial([npc.Her] entire lower body, from the waist down, has transformed into the long tail of [npc.a_legRace]."
-						+ " [npc.Her] ass and genitals are completely theriomorphic, and, in a manner identical to that of [npc.a_assRace], have shifted to be located within a front-facing cloaca.)]");
+						+ " [npc.Her] ass and genitals are completely feral in nature, and, in a manner identical to that of [npc.a_assRace], have shifted to be located within a front-facing cloaca.)]");
 				break;
 			case TAUR:
 				sb.append(" [style.colourBestial([npc.Her] entire lower body, from the waist down, has transformed into that of [npc.a_legRace]."
-						+ " [npc.Her] legs, tail, ass, and genitals are completely theriomorphic, and are identical to those of [npc.a_assRace]'s.)]");
+						+ " [npc.Her] legs, tail, ass, and genitals are completely feral in nature, and are identical to those of [npc.a_assRace]'s.)]");
 				break;
 		}
 		
@@ -1801,17 +1858,10 @@ public class Body implements XMLSaving {
 			case FLESH:
 				break;
 			case SLIME:
-				if (owner.isPlayer()) {
-					sb.append("<p>"
-								+ "Your entire body, save for a small, glowing sphere in the place where your heart should be, is made out of [pc.skinFullDescription(true)]!"
-								+ " You don't need to have any parts of your body pierced in order to equip jewellery, as you can freely morph your body at will!"
-							+ "</p>");
-				} else {
-					sb.append("<p>"
-								+ "[npc.NamePos] entire body, save for a small, glowing sphere in the place where [npc.her] heart should be, is made out of [npc.skinFullDescription(true)]!"
-								+ " [npc.She] doesn't need to have any parts of [npc.her] body pierced in order to equip jewellery, as [npc.she] can freely morph [npc.her] body at will!"
-							+ "</p>");
-				}
+				sb.append("<p>"
+							+ "[npc.NamePos] entire body, save for a small, glowing sphere in the place where [npc.her] heart should be, is made out of [npc.skinFullDescription(true)]!"
+							+ " [npc.She] [npc.do]n't need to have any parts of [npc.her] body pierced in order to equip jewellery, as [npc.she] can freely morph [npc.her] body at will!"
+						+ "</p>");
 				break;
 			case AIR:
 			case ARCANE:
@@ -1820,17 +1870,10 @@ public class Body implements XMLSaving {
 			case ICE:
 			case WATER:
 			case FIRE:
-				if (owner.isPlayer()) {
-					sb.append("<p>"
-								+ "Your entire body, save for a small obsidian sphere in the place where your heart should be, is made out of"
-									+ " <b style='color:"+this.getBodyMaterial().getColour().toWebHexString()+";'>"+this.getBodyMaterial().getName()+"</b>!"
-							+ "</p>");
-				} else {
-					sb.append("<p>"
-								+ "[npc.NamePos] entire body, save for a small obsidian sphere in the place where [npc.her] heart should be, is made out of"
-									+ " <b style='color:"+this.getBodyMaterial().getColour().toWebHexString()+";'>"+this.getBodyMaterial().getName()+"</b>!"
-							+ "</p>");
-				}
+				sb.append("<p>"
+							+ "[npc.NamePos] entire body, save for a small obsidian sphere in the place where [npc.her] heart should be, is made out of"
+								+ " <b style='color:"+this.getBodyMaterial().getColour().toWebHexString()+";'>"+this.getBodyMaterial().getName()+"</b>!"
+						+ "</p>");
 				break;
 		}
 		
@@ -1928,6 +1971,15 @@ public class Body implements XMLSaving {
 				break;
 		}
 		
+		Covering faceCovering = owner.getCovering(face.getBodyCoveringType(owner));
+		if(faceCovering.getPattern()==CoveringPattern.FRECKLED_FACE) {
+			sb.append(" While mostly "
+						+Covering.getFormattedColour(faceCovering.getPrimaryColour(), "", faceCovering.isPrimaryGlowing(), false)
+						+" in colour, [npc.she] [npc.has] a scattering of "
+						+Covering.getFormattedColour(faceCovering.getSecondaryColour(), "", faceCovering.isSecondaryGlowing(), false)
+						+" freckles on [npc.her] cheeks.");
+		}
+		
 		// Lynx side fluff
 		if(hair.getType() == HairType.CAT_MORPH_SIDEFLUFF) {
 			sb.append(" On the sides of [npc.her] face [npc.sheHasFull] some soft, fuzzy fur.");
@@ -1947,58 +1999,58 @@ public class Body implements XMLSaving {
 			
 			switch (hair.getType()) {
 				case HUMAN:
-					sb.append(" hair");
+					sb.append("");
 					break;
 				case DEMON_COMMON:
-					sb.append(", silken hair");
+					sb.append(", silken");
 					break;
 				case ANGEL:
-					sb.append(", silken hair");
+					sb.append(", silken");
 					break;
 				case DOG_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case FOX_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case LYCAN:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case CAT_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case CAT_MORPH_SIDEFLUFF:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case COW_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case ALLIGATOR_MORPH:
-					sb.append(", coarse hair");
+					sb.append(", coarse");
 					break;
 				case SQUIRREL_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case RAT_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case RABBIT_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case BAT_MORPH:
-					sb.append(", fur-like hair");
+					sb.append(", fur-like");
 					break;
 				case HORSE_MORPH:
-					sb.append(", horse-like hair");
+					sb.append(", horse-like");
 					break;
 				case REINDEER_MORPH:
-					sb.append(", reindeer-like hair");
+					sb.append(", reindeer-like");
 					break;
 				case HARPY:
-					sb.append(" feathers in place of hair");
+					sb.append(", beautiful");
 					break;
-			
 			}
+			sb.append(" [npc.hair]");
 			switch (hair.getStyle()) {
 				case BRAIDED:
 					sb.append(", which "+(hair.getType().isDefaultPlural()?"have":"has")+" been woven into a long braid.");
@@ -2072,6 +2124,12 @@ public class Body implements XMLSaving {
 				case CROWN_BRAID:
 					sb.append(", which "+(hair.getType().isDefaultPlural()?"have":"has")+" been woven into a "+UtilText.returnStringAtRandom("crown of braids.","braided crown."));
 					break;
+				case BUN:
+					sb.append(", which "+(hair.getType().isDefaultPlural()?"have":"has")+" been styled into a bun.");
+					break;
+				case CHIGNON:
+					sb.append(", which "+(hair.getType().isDefaultPlural()?"have":"has")+" been tied up into a chignon.");
+					break;
 			}
 		}
 		
@@ -2087,20 +2145,12 @@ public class Body implements XMLSaving {
 			case NONE:
 				sb.append("");
 				break;
-//				if (owner.isPlayer())
-//					sb.append(" [pc.A_antennae+] protrude from your upper forehead.");
-//				else
-//					sb.append(" [npc.A_antennae+] protrude from [npc.her] upper forehead.");
 		}
 		
 		// Nose:
 		
 		if(face.isPiercedNose()) {
-			if (owner.isPlayer()) {
-				sb.append(" Your [pc.nose] has been pierced.");
-			} else {
-				sb.append(" [npc.Her] [npc.nose] has been pierced.");
-			}
+			sb.append(" [npc.Her] [npc.nose] [npc.has] been pierced.");
 		}
 		
 		// Eyes:
@@ -2183,106 +2233,14 @@ public class Body implements XMLSaving {
 		
 		// Eye makeup:
 		if(owner.getEyeLiner().getPrimaryColour()!=Colour.COVERING_NONE) {
-			if(owner.isPlayer()) {
-				sb.append(" Around your [pc.eyes], you've got a layer of "+owner.getEyeLiner().getColourDescriptor(owner, true, false)+" eye liner.");
-			} else {
-				sb.append(" Around [npc.her] [npc.eyes], [npc.sheIs] got a layer of "+owner.getEyeLiner().getColourDescriptor(owner, true, false)+" eye liner.");
-			}
+			sb.append(" Around [npc.her] [npc.eyes], [npc.sheHas] got a layer of "+owner.getEyeLiner().getColourDescriptor(owner, true, false)+" eye liner.");
 		}
 		if(owner.getEyeShadow().getPrimaryColour()!=Colour.COVERING_NONE) {
-			if(owner.isPlayer()) {
-				sb.append(" You're wearing a tasteful amount of "+owner.getEyeShadow().getFullDescription(owner, true)+".");
-			} else {
-				sb.append(" [npc.sheIs] wearing a tasteful amount of "+owner.getEyeShadow().getFullDescription(owner, true)+".");
-			}
+			sb.append(" [npc.sheIs] wearing a tasteful amount of "+owner.getEyeShadow().getFullDescription(owner, true)+".");
 		}
 		
 		// Ear:
-		switch (ear.getType()) {
-			case ANGEL:
-				sb.append(" [npc.She] [npc.has] a pair of perfectly-formed angelic ears, which are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)]" + (ear.isPierced() ? ", and which have been pierced" : "") + ".");
-				break;
-			case HUMAN:
-				sb.append(" [npc.She] [npc.has] a pair of normal, human ears, which are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)]" + (ear.isPierced() ? ", and which have been pierced" : "") + ".");
-				break;
-			case DEMON_COMMON:
-				if(!owner.isShortStature()) {
-					sb.append(" [npc.She] [npc.has] a pair of pointed, demonic ears, which are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)]" + (ear.isPierced() ? ", and which have been pierced" : "") + ".");
-				} else {
-					sb.append(" [npc.She] [npc.has] a pair of pointed, impish ears, which are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)]" + (ear.isPierced() ? ", and which have been pierced" : "") + ".");
-				}
-				break;
-			case DOG_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of floppy, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case DOG_MORPH_POINTED:
-				sb.append(" [npc.She] [npc.has] a pair of pointed, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case DOG_MORPH_FOLDED:
-				sb.append(" [npc.She] [npc.has] a pair of folded, "+(ear.isPierced() ? "pierced, " : "")+"dog-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case FOX_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case FOX_MORPH_BIG:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, fox-like ears,"
-						+ " which are nearly as large as the rest of [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;	
-			case LYCAN:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, wolf-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case CAT_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case CAT_MORPH_TUFTED:
-				sb.append(" [npc.She] [npc.has] a pair of tufted "+(ear.isPierced() ? "pierced, " : "")+"upright, cat-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case COW_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of oval-shaped, cow-like ears, which are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)]" + (ear.isPierced() ? ", and which have been pierced" : "") + ".");
-				break;
-			case ALLIGATOR_MORPH:
-				sb.append(" [npc.Her] ears are an internal part of [npc.her] head, and are covered by a fan of <span style='color:[npc.earColourHex];'>[npc.earColour] scales</span>."
-							+ (ear.isPierced()?" They have been cleverly pierced so as to allow [npc.herHim] to wear ear-specific jewellery.":""));
-				break;
-			case SQUIRREL_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, squirrel-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case RAT_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"rounded, rat-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case RABBIT_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, rabbit-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case RABBIT_MORPH_FLOPPY:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"floppy, rabbit-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case BAT_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"triangular, bat-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case HORSE_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of "+(ear.isPierced() ? "pierced, " : "")+"upright, horse-like ears,"
-						+ " which are positioned high up on [npc.her] head and are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)].");
-				break;
-			case REINDEER_MORPH:
-				sb.append(" [npc.She] [npc.has] a pair of oval-shaped, reindeer-like ears, which are [npc.materialCompositionDescriptor] [npc.earFullDescription(true)]" + (ear.isPierced() ? ", and which have been pierced" : "") + ".");
-				break;
-			case HARPY:
-				sb.append(" [npc.Her] ears are an internal part of [npc.her] head, and are covered by a fan of [npc.earFullDescription(true)]."
-							+ (ear.isPierced()?" They have been cleverly pierced so as to allow [npc.herHim] to wear ear-specific jewellery.":""));
-				break;
-		}
+		sb.append(" "+ear.getType().getBodyDescription(owner));
 		
 		sb.append("</p>"
 				+ "<p>");
@@ -2380,38 +2338,20 @@ public class Body implements XMLSaving {
 		
 		
 		// Tongue & blowjob:
-		if (owner.isPlayer()) {
-			sb.append(" Your mouth holds [pc.a_tongueLength], [pc.tongueColour(true)] [pc.tongue]"+ (face.getTongue().isPierced() ? ", which has been pierced." : "."));
-		} else {
-			sb.append(" [npc.Her] mouth holds [npc.a_tongueLength], [npc.tongueColour(true)] [npc.tongue]"+ (face.getTongue().isPierced() ? ", which has been pierced." : "."));
-		}
+		sb.append(" [npc.Her] mouth holds [npc.a_tongueLength], [npc.tongueColour(true)] [npc.tongue]"+ (face.getTongue().isPierced() ? ", which has been pierced." : "."));
 		
 		for(TongueModifier tm : TongueModifier.values()) {
 			if(owner.hasTongueModifier(tm)) {
-				if(owner.isPlayer()) {
-					switch(tm) {
-						case RIBBED:
-							sb.append(" It's lined with hard, fleshy ribs, which are sure to grant extra pleasure to any orifice that they penetrate.");
-							break;
-						case TENTACLED:
-							sb.append(" A series of little tentacles coat its surface, which wriggle and squirm with a mind of their own.");
-							break;
-						case BIFURCATED:
-							sb.append(" Near the tip, it's split in two, leaving your tongue bifurcated, like a snake.");
-							break;
-					}
-				} else {
-					switch(tm) {
-						case RIBBED:
-							sb.append(" It's lined with hard, fleshy ribs, which are sure to grant extra pleasure to any orifice that they penetrate.");
-							break;
-						case TENTACLED:
-							sb.append(" A series of little tentacles coat its surface, which wriggle and squirm with a mind of their own.");
-							break;
-						case BIFURCATED:
-							sb.append(" Near the tip, it's split in two, leaving [npc.her] tongue bifurcated, like a snake.");
-							break;
-					}
+				switch(tm) {
+					case RIBBED:
+						sb.append(" It's lined with hard, fleshy ribs, which are sure to grant extra pleasure to any orifice that they penetrate.");
+						break;
+					case TENTACLED:
+						sb.append(" A series of little tentacles coat its surface, which wriggle and squirm with a mind of their own.");
+						break;
+					case BIFURCATED:
+						sb.append(" Near the tip, it's split in two, leaving [npc.her] tongue bifurcated, like a snake.");
+						break;
 				}
 			}
 		}
@@ -2548,11 +2488,7 @@ public class Body implements XMLSaving {
 				break;
 		}
 		
-		if (owner.isPlayer()) {
-			sb.append(", and is [npc.materialCompositionDescriptor] [pc.skinFullDescription(true)].");
-		} else {
-			sb.append(", and is [npc.materialCompositionDescriptor] [npc.skinFullDescription(true)].");
-		}
+		sb.append(", and is [npc.materialCompositionDescriptor] [npc.skinFullDescription(true)].");
 		
 		sb.append(" [npc.SheHasFull] <span style='color:"+ BodySize.valueOf(getBodySize()).getColour().toWebHexString() + ";'>" + BodySize.valueOf(getBodySize()).getName(true) + "</span>, "
 						+ "<span style='color:"+ Muscle.valueOf(getMuscle()).getColour().toWebHexString() + ";'>" +Muscle.valueOf(getMuscle()).getName(false) + "</span>"
@@ -2645,7 +2581,7 @@ public class Body implements XMLSaving {
 					if(this.leg.getLegConfiguration()!=LegConfiguration.BIPEDAL
 							|| (this.getRaceStage()==RaceStage.GREATER && RacialBody.valueOfRace(this.getRace()).getBreastCrotchType()!=BreastType.NONE && Main.getProperties().udders==2)) {
 						sb.append("<p>"
-									+ "[style.colourDisabled([npc.She] does not have any crotch-boobs or udders.)]"
+									+ "[style.colourDisabled([npc.She] [npc.do] not have any crotch-boobs or udders.)]"
 								+ "</p>");
 					}
 				}
@@ -2671,21 +2607,11 @@ public class Body implements XMLSaving {
 		// Arms:
 		sb.append(arm.getType().getBodyDescription(owner));
 		
-		if(owner.isPlayer()) {
-			if(owner.getHandNailPolish().getPrimaryColour() != Colour.COVERING_NONE) {
-				if(owner.getArmType().equals(ArmType.HARPY)) {
-					sb.append(" The little claw on your thumb has been painted in "+owner.getCovering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS).getFullDescription(owner, true)+".");
-				} else {
-					sb.append(" Your fingernails have been painted in "+owner.getCovering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS).getFullDescription(owner, true)+".");
-				}
-			}
-		} else {
-			if(owner.getHandNailPolish().getPrimaryColour() != Colour.COVERING_NONE) {
-				if(owner.getArmType().equals(ArmType.HARPY)) {
-					sb.append(" The little claw on [npc.her] thumb has been painted in "+owner.getCovering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS).getFullDescription(owner, true)+".");
-				} else {
-					sb.append(" [npc.Her] fingernails have been painted in "+owner.getCovering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS).getFullDescription(owner, true)+".");
-				}
+		if(owner.getHandNailPolish().getPrimaryColour() != Colour.COVERING_NONE) {
+			if(owner.getArmType().equals(ArmType.HARPY)) {
+				sb.append(" The little claw on [npc.her] thumb has been painted in "+owner.getCovering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS).getFullDescription(owner, true)+".");
+			} else {
+				sb.append(" [npc.Her] fingernails have been painted in "+owner.getCovering(BodyCoveringType.MAKEUP_NAIL_POLISH_HANDS).getFullDescription(owner, true)+".");
 			}
 		}
 		
@@ -2801,11 +2727,7 @@ public class Body implements XMLSaving {
 		
 		sb.append("<br/>");
 		
-		if (owner.isPlayer()) {
-			sb.append(" Your limbs are "+(Util.randomItemFrom(owner.getBodyShape().getLimbDescriptors()))+", and ");
-		} else {
-			sb.append(" [npc.Her] limbs are "+(Util.randomItemFrom(owner.getBodyShape().getLimbDescriptors()))+", and ");
-		}
+		sb.append(" [npc.Her] limbs are "+(Util.randomItemFrom(owner.getBodyShape().getLimbDescriptors()))+", and ");
 		
 		if (femininity <= Femininity.MASCULINE_STRONG.getMaximumFemininity()) {
 			sb.append(
@@ -2858,8 +2780,10 @@ public class Body implements XMLSaving {
 					sb.append("[npc.sheHasFull] a pair of [npc.wingSize] wings, which are covered in [npc.wingFullDescription(true)].");
 					break;
 			}
-			if(wing.getType().allowsFlight()) {
-				if(wing.getSizeValue()>=owner.getLegConfiguration().getMinimumWingSizeForFlight().getValue()) {
+			if (wing.getType().allowsFlight()) {
+				if(this.getBodyMaterial() == BodyMaterial.SLIME) {
+					sb.append(" [style.colourSlime(As they're made out of slime, flight is rendered impossible...)]");
+				} else if(wing.getSizeValue()>=owner.getLegConfiguration().getMinimumWingSizeForFlight().getValue()) {
 					sb.append(" [style.colourBlue(They are large and powerful enough to allow [npc.herHim] to fly!)]");
 				} else {
 					sb.append(" They aren't large enough to allow [npc.herHim] to fly.");
@@ -3005,6 +2929,13 @@ public class Body implements XMLSaving {
 							sb.append("a long, [npc.tailColour(true)] rat-like tail, over which [npc.sheHasFull] has complete control, and [npc.she] can easily use it to grip and hold objects.");
 						}
 						break;
+					case BAT_MORPH:
+						if (tail.isBestial(owner)) {
+							sb.append("[style.colourBestial(a feral)], [npc.tailColour(true)] bat tail.");
+						} else {
+							sb.append("a long, [npc.tailColour(true)] bat-like tail.");
+						}
+						break;
 					case RABBIT_MORPH:
 						if (tail.isBestial(owner)) {
 							sb.append("[style.colourBestial(a feral)], [npc.tailColour(true)] rabbit tail, which is really no more than a large ball of downy fluff.");
@@ -3146,6 +3077,13 @@ public class Body implements XMLSaving {
 							sb.append("long, [npc.tailColour(true)] rat-like tails, over which [npc.she] has complete control, and [npc.she] can easily use them to grip and hold objects.");
 						}
 						break;
+					case BAT_MORPH:
+						if (tail.isBestial(owner)) {
+							sb.append("[style.colourBestial(feral)], [npc.tailColour(true)] bat tails.");
+						} else {
+							sb.append("long, [npc.tailColour(true)] bat-like tails.");
+						}
+						break;
 					case RABBIT_MORPH:
 						if (tail.isBestial(owner)) {
 							sb.append("[style.colourBestial(feral)], [npc.tailColour(true)] rabbit-like tails, which really are no more than large balls of downy fluff.");
@@ -3234,7 +3172,7 @@ public class Body implements XMLSaving {
 	}
 
 	private void addRaceWeight(Map<Race, Integer> raceWeightMap, Race race, int weight) {
-		if(race!=null) {
+		if(race!=null && race!=Race.NONE) {
 			raceWeightMap.putIfAbsent(race, 0);
 			raceWeightMap.put(race, raceWeightMap.get(race)+weight);
 		}
@@ -3244,7 +3182,7 @@ public class Body implements XMLSaving {
 	/** To be called after every transformation. Returns the body's race. */
 	public void calculateRace(GameCharacter target) {
 		
-		// Every time race is calculates, it's because parts have changed, so reset the body parts list:
+		// Every time race is calculated, it's because parts have changed, so reset the body parts list:
 		handleAllBodyPartsList();
 		
 		if(target!=null) {
@@ -3267,16 +3205,7 @@ public class Body implements XMLSaving {
 				break;
 			case FLESH:
 				race = getRaceFromPartWeighting();
-				
-				if(raceWeightMap.size()==1) {
-					if(raceWeightMap.containsKey(Race.HUMAN)) {
-						this.raceStage = RaceStage.HUMAN;
-					} else {
-						this.raceStage = RaceStage.GREATER;
-					}
-				} else {
-					this.raceStage = RaceStage.LESSER;
-				}
+				this.raceStage = getRaceStageFromPartWeighting();
 				break;
 			case ICE:
 			case WATER:
@@ -3298,11 +3227,6 @@ public class Body implements XMLSaving {
 		
 		switch(subspecies) {
 			case HALF_DEMON:
-				if(this.getHalfDemonSubspecies()==null) {
-					this.setHalfDemonSubspecies(Subspecies.getSubspeciesFromBody(target, this, arm.getType().getRace(), true));
-				}
-				this.setSubspeciesOverride(subspecies);
-				break;
 			case IMP:
 			case IMP_ALPHA:
 			case DEMON:
@@ -3343,19 +3267,31 @@ public class Body implements XMLSaving {
 		boolean demonPartFound = false;
 		
 		for(Entry<Race, Integer> e : raceWeightMap.entrySet()) {
-			if(e.getKey()!=null && e.getKey()!=Race.HUMAN && e.getValue()>max) {
+			if(e.getKey()!=null && e.getKey()==Race.DEMON) {
+				demonPartFound = true;
+				
+			} else if(e.getKey()!=null && e.getKey()!=Race.HUMAN && e.getValue()>max) {
 				race = e.getKey();
 				max = e.getValue();
 			}
-			if(e.getKey()!=null && e.getKey()==Race.DEMON) {
-				demonPartFound = true;
-			}
 		}
-		if(!ignoreOverride && (demonPartFound)) { // Just one demon part is enough to make any character a demon:
+		if(!ignoreOverride && demonPartFound) { // Just one demon part is enough to make any character a demon:
 			return Race.DEMON;
 		}
 		
 		return race;
+	}
+	
+	public RaceStage getRaceStageFromPartWeighting() {
+		if(raceWeightMap.size()==1) {
+			if(raceWeightMap.containsKey(Race.HUMAN)) {
+				return RaceStage.HUMAN;
+			} else {
+				return RaceStage.GREATER;
+			}
+		} else {
+			return RaceStage.LESSER;
+		}
 	}
 
 	public Map<Race, Integer> getRaceWeightMap() {
@@ -3386,11 +3322,7 @@ public class Body implements XMLSaving {
 	}
 
 	public Subspecies getHalfDemonSubspecies() {
-		return halfDemonSubspecies;
-	}
-
-	public void setHalfDemonSubspecies(Subspecies halfDemonSubspecies) {
-		this.halfDemonSubspecies = halfDemonSubspecies;
+		return Subspecies.getSubspeciesFromBody(null, this, getRaceFromPartWeighting(true), true);
 	}
 
 	public Antenna getAntenna() {
@@ -3548,8 +3480,6 @@ public class Body implements XMLSaving {
 	public String getAssDescription(GameCharacter owner, boolean locationSpecific) {
 		descriptionSB = new StringBuilder();
 		
-		boolean isPlayer = owner.isPlayer();
-		
 		switch(owner.getGenitalArrangement()) {
 			case CLOACA:
 				if(locationSpecific) {
@@ -3581,29 +3511,22 @@ public class Body implements XMLSaving {
 		descriptionSB.append(" <span style='color:" + Colour.GENERIC_SEX.toWebHexString() + ";'>It is "+Capacity.getCapacityFromValue(ass.getAnus().getOrificeAnus().getStretchedCapacity()).getDescriptor()+", and can comfortably take "
 				+ Capacity.getCapacityFromValue(ass.getAnus().getOrificeAnus().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with enough lube.</span>");
 		
-		if (isPlayer) {
-			if (ass.getAnus().getOrificeAnus().isVirgin()){
-				descriptionSB.append(" <span style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>You have retained your anal virginity.</span>");
-			}else{
-				boolean virginityLossFound = false;
-				for(SexAreaPenetration pt : SexAreaPenetration.values()) {
-					if(pt.isTakesVirginity()) {
-						if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, pt))!=null) {
-							descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, pt)) + "</span>");
-							virginityLossFound = true;
-							break;
-						}
+		if (ass.getAnus().getOrificeAnus().isVirgin()){
+			descriptionSB.append(" <span style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>[npc.Name] [npc.has] retained [npc.her] anal virginity.</span>");
+			
+		}else{
+			boolean virginityLossFound = false;
+			for(SexAreaPenetration pt : SexAreaPenetration.values()) {
+				if(pt.isTakesVirginity()) {
+					if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, pt))!=null) {
+						descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.ANUS, pt)) + "</span>");
+						virginityLossFound = true;
+						break;
 					}
 				}
-				if(!virginityLossFound) {
-					descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>You have lost your anal virginity.</span>");
-				}
 			}
-		} else {
-			if (ass.getAnus().getOrificeAnus().isVirgin()){
-				descriptionSB.append(" <span style='color:" + Colour.GENERIC_GOOD.toWebHexString() + ";'>[npc.She] has retained [npc.her] anal virginity.</span>");
-			} else {
-				descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.She] has lost [npc.her] anal virginity.</span>");
+			if(!virginityLossFound) {
+				descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.Name] [npc.has] lost [npc.her] anal virginity.</span>");
 			}
 		}
 		
@@ -3664,96 +3587,49 @@ public class Body implements XMLSaving {
 		descriptionSB.append(" and after being used, it "+ass.getAnus().getOrificeAnus().getPlasticity().getDescription()+".");
 		
 		if(Main.game.isAssHairEnabled()) {
-			if(owner.isPlayer()) {
-				switch(ass.getAnus().getAssHair()) {
-					case ZERO_NONE:
-						descriptionSB.append(" There is no trace of any "+owner.getAssHairType().getName(owner)+" around your asshole.");
-						break;
-					case ONE_STUBBLE:
-						descriptionSB.append(" You have a few strands of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-					case TWO_MANICURED:
-						descriptionSB.append(" You have a very small amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-					case THREE_TRIMMED:
-						descriptionSB.append(" You have a small amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-					case FOUR_NATURAL:
-						descriptionSB.append(" You have a natural amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-					case FIVE_UNKEMPT:
-						descriptionSB.append(" You have an unkempt mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-					case SIX_BUSHY:
-						descriptionSB.append(" You have a thick, bushy mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-					case SEVEN_WILD:
-						descriptionSB.append(" You have a wild, bushy mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around your asshole.");
-						break;
-				}
-				
-			} else {
-				switch(ass.getAnus().getAssHair()) {
-					case ZERO_NONE:
-						descriptionSB.append(" There is no trace of any "+owner.getAssHairType().getName(owner)+" around [npc.her] asshole.");
-						break;
-					case ONE_STUBBLE:
-						descriptionSB.append(" [npc.She] has a few strands of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-					case TWO_MANICURED:
-						descriptionSB.append(" [npc.She] has a very small amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-					case THREE_TRIMMED:
-						descriptionSB.append(" [npc.She] has a small amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-					case FOUR_NATURAL:
-						descriptionSB.append(" [npc.She] has a natural amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-					case FIVE_UNKEMPT:
-						descriptionSB.append(" [npc.She] has an unkempt mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-					case SIX_BUSHY:
-						descriptionSB.append(" [npc.She] has a thick, bushy mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-					case SEVEN_WILD:
-						descriptionSB.append(" [npc.She] has a wild, bushy mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
-						break;
-				}
+			switch(ass.getAnus().getAssHair()) {
+				case ZERO_NONE:
+					descriptionSB.append(" There is no trace of any "+owner.getAssHairType().getName(owner)+" around [npc.her] asshole.");
+					break;
+				case ONE_STUBBLE:
+					descriptionSB.append(" [npc.She] [npc.has] a few strands of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
+				case TWO_MANICURED:
+					descriptionSB.append(" [npc.She] [npc.has] a very small amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
+				case THREE_TRIMMED:
+					descriptionSB.append(" [npc.She] [npc.has] a small amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
+				case FOUR_NATURAL:
+					descriptionSB.append(" [npc.She] [npc.has] a natural amount of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
+				case FIVE_UNKEMPT:
+					descriptionSB.append(" [npc.She] [npc.has] an unkempt mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
+				case SIX_BUSHY:
+					descriptionSB.append(" [npc.She] [npc.has] a thick, bushy mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
+				case SEVEN_WILD:
+					descriptionSB.append(" [npc.She] [npc.has] a wild, bushy mass of "+owner.getAssHairType().getFullDescription(owner, true)+" around [npc.her] asshole.");
+					break;
 			}
 		}
 		
 		for(OrificeModifier om : OrificeModifier.values()) {
 			if(owner.hasAssOrificeModifier(om)) {
-				if(owner.isPlayer()) {
-					switch(om) {
-						case MUSCLE_CONTROL:
-							descriptionSB.append(" You have a series of internal muscles lining the inside of your [pc.asshole], allowing you to expertly squeeze and grip down on any intruding object.");
-							break;
-						case PUFFY:
-							descriptionSB.append(" The rim of your [pc.asshole] has swollen up into a puffy, doughnut-like ring.");
-							break;
-						case RIBBED:
-							descriptionSB.append(" The inside of your [pc.asshole] is lined with sensitive, fleshy ribs, which grant you extra pleasure when stimulated.");
-							break;
-						case TENTACLED:
-							descriptionSB.append(" Your [pc.asshole] is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-							break;
-					}
-				} else {
-					switch(om) {
-						case MUSCLE_CONTROL:
-							descriptionSB.append(" [npc.She] has a series of internal muscles lining the inside of [npc.her] [npc.asshole], allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
-							break;
-						case PUFFY:
-							descriptionSB.append(" The rim of [npc.her] [npc.asshole] has swollen up into a puffy, doughnut-like ring.");
-							break;
-						case RIBBED:
-							descriptionSB.append(" The inside of [npc.her] [npc.asshole] is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
-							break;
-						case TENTACLED:
-							descriptionSB.append(" [npc.Her] [npc.asshole] is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-							break;
-					}
+				switch(om) {
+					case MUSCLE_CONTROL:
+						descriptionSB.append(" [npc.She] [npc.has] a series of internal muscles lining the inside of [npc.her] [npc.asshole], allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
+						break;
+					case PUFFY:
+						descriptionSB.append(" The rim of [npc.her] [npc.asshole] has swollen up into a puffy, doughnut-like ring.");
+						break;
+					case RIBBED:
+						descriptionSB.append(" The inside of [npc.her] [npc.asshole] is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
+						break;
+					case TENTACLED:
+						descriptionSB.append(" [npc.Her] [npc.asshole] is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
+						break;
 				}
 			}
 		}
@@ -3813,7 +3689,7 @@ public class Body implements XMLSaving {
 				descriptionSB.append(" They have been pierced.");
 			}
 			
-			if(owner.getNippleCapacity() != Capacity.ZERO_IMPENETRABLE) {
+			if(owner.getNippleCapacity() != Capacity.ZERO_IMPENETRABLE && Main.game.isNipplePenEnabled()) {
 				if (viewedBreast.isFuckable()) {
 					descriptionSB.append("<br/>[npc.Her] [npc.breasts] have internal, [npc.nippleSecondaryColour(true)] channels, allowing [npc.her] [npc.breastCapacity] [npc.nipples] to be comfortably penetrated by "
 							+ Capacity.getCapacityFromValue(viewedBreast.getNipples().getOrificeNipples().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " objects with sufficient lubrication.");
@@ -3872,96 +3748,108 @@ public class Body implements XMLSaving {
 				}
 				
 				if (!viewedBreast.getNipples().getOrificeNipples().isVirgin()) {
+					boolean virginityLossFound = false;
 					for(SexAreaPenetration pt : SexAreaPenetration.values()) {
-						if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, pt))!=null) {
-							descriptionSB.append(" [style.colourArcane("+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, pt)) + ")]");
-							break;
+						if(pt.isTakesVirginity()) {
+							if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, pt))!=null) {
+								descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE, pt)) + "</span>");
+								virginityLossFound = true;
+								break;
+							}
 						}
 					}
+					if(!virginityLossFound) {
+						descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.Name] [npc.has] lost [npc.her] nipple virginity.</span>");
+					}
+					
 				} else {
 					descriptionSB.append(" [style.colourGood([npc.Name] [npc.has] retained [npc.her] nipple virginity.)]");
 				}
 				
-				if (viewedBreast.getRawMilkStorageValue() > 0) {
-					descriptionSB.append("<br/>[npc.SheIsFull] currently producing "+ viewedBreast.getRawMilkStorageValue() + "ml of [npc.milkPrimaryColour(true)] [npc.milk]"
-							+ " ("+ viewedBreast.getRawStoredMilkValue() + "ml currently stored) at [npc.a_milkRegen] rate.");
-					
-					switch(viewedBreast.getMilk().getFlavour()) {
-						case CHOCOLATE:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of chocolate.");
-							break;
-						case CUM:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes exactly like cum.");
-							break;
-						case GIRL_CUM:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of girl-cum.");
-							break;
-						case HONEY:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of honey.");
-							break;
-						case MILK:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes like regular milk.");
-							break;
-						case MINT:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of mint.");
-							break;
-						case PINEAPPLE:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of pineapple.");
-							break;
-						case SLIME:
-							descriptionSB.append(" [npc.Her] [npc.milk] is mostly tasteless, but very sweet.");
-							break;
-						case STRAWBERRY:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of strawberries.");
-							break;
-						case BEER:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes like beer.");
-							break;
-						case VANILLA:
-							descriptionSB.append(" [npc.Her] [npc.milk] tastes of vanilla.");
-							break;
-					}
-					
-					for(FluidModifier fm : FluidModifier.values()) {
-						if(owner.hasMilkModifier(fm)) {
-							switch(fm) {
-								case ADDICTIVE:
-									descriptionSB.append(" It is highly addictive, and anyone who drinks too much will quickly become dependent on it.");
-									break;
-								case BUBBLING:
-									descriptionSB.append(" It fizzes and bubbles like a carbonated drink.");
-									break;
-								case HALLUCINOGENIC:
-									descriptionSB.append(" Anyone who ingests it suffers psychoactive effects, which can manifest in lactation-related hallucinations or sensitivity to hypnotic suggestion.");
-									break;
-								case MUSKY:
-									descriptionSB.append(" It has a strong, musky smell.");
-									break;
-								case SLIMY:
-									descriptionSB.append(" It has a slimy, oily texture.");
-									break;
-								case STICKY:
-									descriptionSB.append(" It's quite sticky, and is difficult to fully wash off without soap.");
-									break;
-								case VISCOUS:
-									descriptionSB.append(" It's quite viscous, and slowly drips in large globules, much like thick treacle.");
-									break;
-								case ALCOHOLIC:
-									descriptionSB.append(" It has a high alcohol content, and will get those who consume it very drunk.");
-									break;
-								case MINERAL_OIL:
-									descriptionSB.append(" It is rich in minerals good for your skin but not for latex.");
-							}
-						}
-					}
-					
-				} else {
-					descriptionSB.append("<br/>[npc.SheIsFull] not producing any milk.");
-				}
 			} else {
 				if(owner.hasNippleOrificeModifier(OrificeModifier.PUFFY)) {
 					descriptionSB.append(" [npc.Her] [npc.nipples] have swollen up to be exceptionally plump and puffy.");
+				}	
+			}
+			
+			if (viewedBreast.getRawMilkStorageValue() > 0) {
+				descriptionSB.append("<br/>[npc.SheIsFull] currently producing "+ Units.fluid(viewedBreast.getRawMilkStorageValue(), Units.UnitType.LONG) + " of [npc.milkPrimaryColour(true)] [npc.milk]"
+						+ " ("+ Units.fluid(viewedBreast.getRawStoredMilkValue()) + " currently stored) at [npc.a_milkRegen] rate.");
+				
+				switch(viewedBreast.getMilk().getFlavour()) {
+					case CHOCOLATE:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of chocolate.");
+						break;
+					case CUM:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes exactly like cum.");
+						break;
+					case GIRL_CUM:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of girl-cum.");
+						break;
+					case HONEY:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of honey.");
+						break;
+					case MILK:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes like regular milk.");
+						break;
+					case MINT:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of mint.");
+						break;
+					case PINEAPPLE:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of pineapple.");
+						break;
+					case BUBBLEGUM:
+						descriptionSB.append(" [npc.Her] [npc.milk] has the fruity taste of bubblegum.");
+						break;
+					case STRAWBERRY:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of strawberries.");
+						break;
+					case BEER:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes like beer.");
+						break;
+					case VANILLA:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of vanilla.");
+						break;
+					case CHERRY:
+						descriptionSB.append(" [npc.Her] [npc.milk] tastes of cherries.");
+						break;
 				}
+				
+				for(FluidModifier fm : FluidModifier.values()) {
+					if(owner.hasMilkModifier(fm)) {
+						switch(fm) {
+							case ADDICTIVE:
+								descriptionSB.append(" It is highly addictive, and anyone who drinks too much will quickly become dependent on it.");
+								break;
+							case BUBBLING:
+								descriptionSB.append(" It fizzes and bubbles like a carbonated drink.");
+								break;
+							case HALLUCINOGENIC:
+								descriptionSB.append(" Anyone who ingests it suffers psychoactive effects, which can manifest in lactation-related hallucinations or sensitivity to hypnotic suggestion.");
+								break;
+							case MUSKY:
+								descriptionSB.append(" It has a strong, musky smell.");
+								break;
+							case SLIMY:
+								descriptionSB.append(" It has a slimy, oily texture.");
+								break;
+							case STICKY:
+								descriptionSB.append(" It's quite sticky, and is difficult to fully wash off without soap.");
+								break;
+							case VISCOUS:
+								descriptionSB.append(" It's quite viscous, and slowly drips in large globules, much like thick treacle.");
+								break;
+							case ALCOHOLIC:
+								descriptionSB.append(" It has a high alcohol content, and will get those who consume it very drunk.");
+								break;
+							case MINERAL_OIL:
+								descriptionSB.append(" It is rich in minerals good for your skin but not for latex.");
+						}
+					}
+				}
+				
+			} else {
+				descriptionSB.append("<br/>[npc.SheIsFull] not producing any milk.");
 			}
 		}
 
@@ -4056,7 +3944,7 @@ public class Body implements XMLSaving {
 				descriptionSB.append(" They have been pierced.");
 			}
 			
-			if(owner.getNippleCrotchCapacity() != Capacity.ZERO_IMPENETRABLE) {
+			if(owner.getNippleCrotchCapacity() != Capacity.ZERO_IMPENETRABLE && Main.game.isNipplePenEnabled()) {
 				if (viewedBreastCrotch.isFuckable()) {
 					descriptionSB.append("<br/>[npc.Her] [npc.crotchBoobs] have internal, [npc.crotchNippleSecondaryColour(true)] channels, allowing [npc.her] [npc.crotchBoobsCapacity] [npc.crotchNipples] to be comfortably penetrated by "
 							+ Capacity.getCapacityFromValue(viewedBreastCrotch.getNipples().getOrificeNipples().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " objects with sufficient lubrication.");
@@ -4115,96 +4003,109 @@ public class Body implements XMLSaving {
 				}
 				
 				if (!viewedBreastCrotch.getNipples().getOrificeNipples().isVirgin()) {
+					boolean virginityLossFound = false;
 					for(SexAreaPenetration pt : SexAreaPenetration.values()) {
-						if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE_CROTCH, pt))!=null) {
-							descriptionSB.append(" [style.colourArcane("+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE_CROTCH, pt)) + ")]");
-							break;
+						if(pt.isTakesVirginity()) {
+							if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE_CROTCH, pt))!=null) {
+								descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.NIPPLE_CROTCH, pt)) + "</span>");
+								virginityLossFound = true;
+								break;
+							}
 						}
 					}
+					if(!virginityLossFound) {
+						descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.Name] [npc.has] lost [npc.her] [npc.crotchNipple] virginity.</span>");
+					}
+					
 				} else {
 					descriptionSB.append(" [style.colourGood([npc.Name] [npc.has] retained [npc.her] [npc.crotchNipple] virginity.)]");
 				}
 				
-				if (viewedBreastCrotch.getRawMilkStorageValue() > 0) {
-					descriptionSB.append("<br/>[npc.SheIsFull] currently producing "+ viewedBreastCrotch.getRawMilkStorageValue() + "ml of [npc.crotchMilkPrimaryColour(true)] [npc.crotchMilk]"
-							+ " ("+ viewedBreastCrotch.getRawStoredMilkValue() + "ml currently stored) at [npc.a_crotchMilkRegen] rate.");
-					
-					switch(viewedBreastCrotch.getMilk().getFlavour()) {
-						case CHOCOLATE:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of chocolate.");
-							break;
-						case CUM:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes exactly like cum.");
-							break;
-						case GIRL_CUM:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of girl-cum.");
-							break;
-						case HONEY:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of honey.");
-							break;
-						case MILK:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes like regular milk.");
-							break;
-						case MINT:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of mint.");
-							break;
-						case PINEAPPLE:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of pineapple.");
-							break;
-						case SLIME:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] is mostly tasteless, but very sweet.");
-							break;
-						case STRAWBERRY:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of strawberries.");
-							break;
-						case BEER:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes like beer.");
-							break;
-						case VANILLA:
-							descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of vanilla.");
-							break;
-					}
-					
-					for(FluidModifier fm : FluidModifier.values()) {
-						if(owner.hasMilkCrotchModifier(fm)) {
-							switch(fm) {
-								case ADDICTIVE:
-									descriptionSB.append(" It is highly addictive, and anyone who drinks too much will quickly become dependent on it.");
-									break;
-								case BUBBLING:
-									descriptionSB.append(" It fizzes and bubbles like a carbonated drink.");
-									break;
-								case HALLUCINOGENIC:
-									descriptionSB.append(" Anyone who ingests it suffers psychoactive effects, which can manifest in lactation-related hallucinations or sensitivity to hypnotic suggestion.");
-									break;
-								case MUSKY:
-									descriptionSB.append(" It has a strong, musky smell.");
-									break;
-								case SLIMY:
-									descriptionSB.append(" It has a slimy, oily texture.");
-									break;
-								case STICKY:
-									descriptionSB.append(" It's quite sticky, and is difficult to fully wash off without soap.");
-									break;
-								case VISCOUS:
-									descriptionSB.append(" It's quite viscous, and slowly drips in large globules, much like thick treacle.");
-									break;
-								case ALCOHOLIC:
-									descriptionSB.append(" It has a high alcohol content, and will get those who consume it very drunk.");
-									break;
-								case MINERAL_OIL:
-									descriptionSB.append(" It is rich in minerals good for your skin but not for latex.");
-							}
-						}
-					}
-					
-				} else {
-					descriptionSB.append("<br/>[npc.SheIsFull] not producing any milk.");
-				}
 			} else {
 				if(owner.hasNippleCrotchOrificeModifier(OrificeModifier.PUFFY)) {
 					descriptionSB.append(" [npc.Her] [npc.crotchNipples] have swollen up to be exceptionally plump and puffy.");
+				}	
+			}
+			
+			if (viewedBreastCrotch.getRawMilkStorageValue() > 0) {
+				descriptionSB.append("<br/>[npc.SheIsFull] currently producing "
+						+ Units.fluid(viewedBreastCrotch.getRawMilkStorageValue(), Units.UnitType.LONG) + " of [npc.crotchMilkPrimaryColour(true)] [npc.crotchMilk] ("
+						+ Units.fluid(viewedBreastCrotch.getRawStoredMilkValue(), Units.UnitType.LONG) + " currently stored) at [npc.a_crotchMilkRegen] rate.");
+				
+				switch(viewedBreastCrotch.getMilk().getFlavour()) {
+					case CHOCOLATE:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of chocolate.");
+						break;
+					case CUM:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes exactly like cum.");
+						break;
+					case GIRL_CUM:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of girl-cum.");
+						break;
+					case HONEY:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of honey.");
+						break;
+					case MILK:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes like regular milk.");
+						break;
+					case MINT:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of mint.");
+						break;
+					case PINEAPPLE:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of pineapple.");
+						break;
+					case BUBBLEGUM:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] has the fruity taste of bubblegum.");
+						break;
+					case STRAWBERRY:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of strawberries.");
+						break;
+					case BEER:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes like beer.");
+						break;
+					case VANILLA:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of vanilla.");
+						break;
+					case CHERRY:
+						descriptionSB.append(" [npc.Her] [npc.crotchMilk] tastes of cherries.");
+						break;
 				}
+				
+				for(FluidModifier fm : FluidModifier.values()) {
+					if(owner.hasMilkCrotchModifier(fm)) {
+						switch(fm) {
+							case ADDICTIVE:
+								descriptionSB.append(" It is highly addictive, and anyone who drinks too much will quickly become dependent on it.");
+								break;
+							case BUBBLING:
+								descriptionSB.append(" It fizzes and bubbles like a carbonated drink.");
+								break;
+							case HALLUCINOGENIC:
+								descriptionSB.append(" Anyone who ingests it suffers psychoactive effects, which can manifest in lactation-related hallucinations or sensitivity to hypnotic suggestion.");
+								break;
+							case MUSKY:
+								descriptionSB.append(" It has a strong, musky smell.");
+								break;
+							case SLIMY:
+								descriptionSB.append(" It has a slimy, oily texture.");
+								break;
+							case STICKY:
+								descriptionSB.append(" It's quite sticky, and is difficult to fully wash off without soap.");
+								break;
+							case VISCOUS:
+								descriptionSB.append(" It's quite viscous, and slowly drips in large globules, much like thick treacle.");
+								break;
+							case ALCOHOLIC:
+								descriptionSB.append(" It has a high alcohol content, and will get those who consume it very drunk.");
+								break;
+							case MINERAL_OIL:
+								descriptionSB.append(" It is rich in minerals good for your skin but not for latex.");
+						}
+					}
+				}
+				
+			} else {
+				descriptionSB.append("<br/>[npc.SheIsFull] not producing any milk.");
 			}
 //		}
 
@@ -4218,16 +4119,15 @@ public class Body implements XMLSaving {
 		
 		Penis viewedPenis = owner.getCurrentPenis();
 		
-		boolean hallucinating = false;
 		if(Main.game.getPlayer().hasIngestedPsychoactiveFluidType(FluidTypeBase.CUM)) {
 			viewedPenis = new Penis(penis.getType(),
 					(int) (penis.getRawSizeValue() * 2.25f),
+					false,
 					PenisGirth.FOUR_FAT.getValue(),
 					penis.getTesticle().getTesticleSize().getValue()*2,
 					(int) ((penis.getTesticle().getRawCumStorageValue()+100) * 3.25f),
 					penis.getTesticle().getTesticleCount());
 			descriptionSB.append("<i style='color:"+Colour.PSYCHOACTIVE.toWebHexString()+";'>The psychoactive cum you recently ingested is causing your view of "+(owner.isPlayer()?"your":"[npc.namePos]")+" cock to be distorted!</i> ");
-			hallucinating = true;
 		}
 
 		switch(owner.getGenitalArrangement()) {
@@ -4242,23 +4142,15 @@ public class Body implements XMLSaving {
 		}
 		
 		if(viewedPenis.getType()!=PenisType.DILDO) {
-			if (isPlayer) {
-				descriptionSB.append("You have ");
-			} else {
-				descriptionSB.append("[npc.She] has ");
-			}
+			descriptionSB.append("[npc.She] [npc.has] ");
+			
 		} else {
-			if (isPlayer) {
-				descriptionSB.append("You are currently wearing ");
-			} else {
-				descriptionSB.append("[npc.She] is currently wearing ");
-			}
+			descriptionSB.append("[npc.She] [npc.is] currently wearing ");
 		}
 
 		descriptionSB.append(UtilText.generateSingularDeterminer(viewedPenis.getSize().getDescriptor())+" "+viewedPenis.getSize().getDescriptor()
-				+", "+(viewedPenis.getGirth()==PenisGirth.TWO_AVERAGE?"":viewedPenis.getGirth().getName()+", ")+(viewedPenis.getRawSizeValue()>=1?viewedPenis.getRawSizeValue()+"-inch":"sub-1-inch"));
-		
-		descriptionSB.append(" ([npc.penisCm]cm)"); //fuck imperials
+				+", "+(viewedPenis.getGirth()==PenisGirth.TWO_AVERAGE?"":viewedPenis.getGirth().getName()
+				+", ")+Units.size(viewedPenis.getRawSizeValue(), Units.UnitType.LONG_SINGULAR));
 		
 		switch (viewedPenis.getType()) {
 			case HUMAN:
@@ -4321,18 +4213,10 @@ public class Body implements XMLSaving {
 		}
 		
 		if(viewedPenis.getType()==PenisType.DILDO) {
-			if (isPlayer) {
-				descriptionSB.append(", which is made out of [pc.cockFullDescription(true)].");
-			} else {
-				descriptionSB.append(", which is made out of [npc.cockFullDescription(true)].");
-			}
+			descriptionSB.append(", which is made out of [npc.cockFullDescription(true)].");
 			
 		} else {
-			if (isPlayer) {
-				descriptionSB.append(", which is [npc.materialCompositionDescriptor] [pc.cockFullDescription(true)].");
-			} else {
-				descriptionSB.append(", which is [npc.materialCompositionDescriptor] [npc.cockFullDescription(true)].");
-			}
+			descriptionSB.append(", which is [npc.materialCompositionDescriptor] [npc.cockFullDescription(true)].");
 			
 			if(penis.isBestial(owner)) {
 				descriptionSB.append(" [style.colourBestial(As [npc.her] genitals are located on the animal portion of [npc.her] body, [npc.her] [npc.penis] is identical in functionality to that of a feral [npc.penisRace]'s.)]");
@@ -4376,46 +4260,32 @@ public class Body implements XMLSaving {
 			}
 		}
 
-		if(viewedPenis.getType()!=PenisType.DILDO) {
-			if(owner.isPlayer()) {
-				if (!viewedPenis.isVirgin()) {
-						for(SexAreaOrifice ot : SexAreaOrifice.values()) {
-							if(ot.isInternalOrifice()) {
-								if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL,SexAreaPenetration.PENIS, ot)) != null) {
-									descriptionSB.append(" [style.colourArcane("+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, ot)) + ")]");
-									break;
-								}
-							}
-						}
-				} else {
-					descriptionSB.append(" [style.colourGood(You have retained your penile virginity.)]");
-				}
-				
-			} else if(!hallucinating) {
-				if (!viewedPenis.isVirgin()) {
-					for(SexAreaOrifice ot : SexAreaOrifice.values()) {
-						if(ot.isInternalOrifice()) {
-							if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, ot))!=null) {
-								descriptionSB.append(" [style.colourArcane([npc.Name] has lost [npc.her] penile virginity.)]");
-								break;
-							}
+		if(owner.getCurrentPenis().getType()!=PenisType.DILDO) {
+			if (!owner.getCurrentPenis().isVirgin()) {
+				boolean virginityLossFound = false;
+				for(SexAreaOrifice ot : SexAreaOrifice.values()) {
+					if(ot.isInternalOrifice()) {
+						if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, ot))!=null) {
+							descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaPenetration.PENIS, ot)) + "</span>");
+							virginityLossFound = true;
+							break;
 						}
 					}
-				} else {
-					descriptionSB.append(" [style.colourGood([npc.Name] has retained [npc.her] penile virginity.)]");
 				}
+				if(!virginityLossFound) {
+					descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.Name] [npc.has] lost [npc.her] penile virginity.</span>");
+				}
+				
+			} else {
+				descriptionSB.append(" [style.colourGood([npc.Name] [npc.has] retained [npc.her] penile virginity.)]");
 			}
 		}
 		
 		// Capacity:
 		if (Capacity.getCapacityFromValue(viewedPenis.getOrificeUrethra().getStretchedCapacity()) != Capacity.ZERO_IMPENETRABLE) {
-			if (isPlayer) {
-				descriptionSB.append("<br/>Your cock's urethra has been loosened enough that it presents a ready orifice for penetration,"
-						+ " [style.colourSex(and can be comfortably penetrated by "+ Capacity.getCapacityFromValue(viewedPenis.getOrificeUrethra().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with sufficient lubrication.)]");
-			} else {
-				descriptionSB.append("<br/>[npc.Her] cock's urethra has been loosened enough that it presents a ready orifice for penetration,"
-						+ " [style.colourSex(and can be comfortably penetrated by "+ Capacity.getCapacityFromValue(viewedPenis.getOrificeUrethra().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with sufficient lubrication.)]");
-			}
+			descriptionSB.append("<br/>[npc.Her] cock's urethra has been loosened enough that it presents a ready orifice for penetration,"
+					+ " [style.colourSex(and can be comfortably penetrated by "
+						+ Capacity.getCapacityFromValue(viewedPenis.getOrificeUrethra().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with sufficient lubrication.)]");
 
 			switch (viewedPenis.getOrificeUrethra().getElasticity()) {
 				case ZERO_UNYIELDING:
@@ -4447,36 +4317,19 @@ public class Body implements XMLSaving {
 			
 			for(OrificeModifier om : OrificeModifier.values()) {
 				if(owner.hasUrethraOrificeModifier(om)) {
-					if(owner.isPlayer()) {
-						switch(om) {
-							case PUFFY:
-								descriptionSB.append(" Your urethra has transformed into having a swollen, puffy rim.");
-								break;
-							case MUSCLE_CONTROL:
-								descriptionSB.append(" A series of muscles lining the inside of your urethra, allowing you to expertly squeeze and grip down on any intruding object.");
-								break;
-							case RIBBED:
-								descriptionSB.append(" The inside of your urethra is lined with sensitive, fleshy ribs, which grant you extra pleasure when stimulated.");
-								break;
-							case TENTACLED:
-								descriptionSB.append(" Your urethra is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-								break;
-						}
-					} else {
-						switch(om) {
-							case PUFFY:
-								descriptionSB.append(" [npc.Her] urethra has transformed into having a swollen, puffy rim.");
-								break;
-							case MUSCLE_CONTROL:
-								descriptionSB.append(" [npc.She] has a series of muscles lining the inside of [npc.her] urethra, allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
-								break;
-							case RIBBED:
-								descriptionSB.append(" The inside of [npc.her] urethra is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
-								break;
-							case TENTACLED:
-								descriptionSB.append(" [npc.Her] urethra is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-								break;
-						}
+					switch(om) {
+						case PUFFY:
+							descriptionSB.append(" [npc.Her] urethra has transformed into having a swollen, puffy rim.");
+							break;
+						case MUSCLE_CONTROL:
+							descriptionSB.append(" [npc.She] [npc.has] a series of muscles lining the inside of [npc.her] urethra, allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
+							break;
+						case RIBBED:
+							descriptionSB.append(" The inside of [npc.her] urethra is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
+							break;
+						case TENTACLED:
+							descriptionSB.append(" [npc.Her] urethra is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
+							break;
 					}
 				}
 			}
@@ -4501,119 +4354,55 @@ public class Body implements XMLSaving {
 				if(owner.getPubicHairType().getType()==BodyCoveringType.BODY_HAIR_SCALES_ALLIGATOR) {
 					switch(owner.getPubicHair()) {
 						case ZERO_NONE:
-							if (isPlayer) {
-								descriptionSB.append(" There's no trace of any rough "+owner.getPubicHairType().getName(owner)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" There's no trace of any rough  "+owner.getPubicHairType().getName(owner)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" There's no trace of any rough  "+owner.getPubicHairType().getName(owner)+" around the base of [npc.her] cock.");
 							break;
 						case ONE_STUBBLE:
-							if (isPlayer) {
-								descriptionSB.append(" You have a small amount of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a small amount of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a small amount of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case TWO_MANICURED:
-							if (isPlayer) {
-								descriptionSB.append(" You have a rough patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a rough patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a rough patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case THREE_TRIMMED:
-							if (isPlayer) {
-								descriptionSB.append(" You have a rough patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a rough patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a rough patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case FOUR_NATURAL:
-							if (isPlayer) {
-								descriptionSB.append(" You have a natural amount of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a natural amount of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a natural amount of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case FIVE_UNKEMPT:
-							if (isPlayer) {
-								descriptionSB.append(" You have an unkempt mass of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has an unkempt mass of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] an unkempt mass of rough "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case SIX_BUSHY:
-							if (isPlayer) {
-								descriptionSB.append(" You have a thick, rough mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a thick, rough mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a thick, rough mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case SEVEN_WILD:
-							if (isPlayer) {
-								descriptionSB.append(" You have a wild, rough mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a wild, rough mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a wild, rough mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 					}
 				} else {
 					switch(owner.getPubicHair()) {
 						case ZERO_NONE:
-							if (isPlayer) {
-								descriptionSB.append(" There is no trace of any "+owner.getPubicHairType().getName(owner)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" There is no trace of any "+owner.getPubicHairType().getName(owner)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" There is no trace of any "+owner.getPubicHairType().getName(owner)+" around the base of [npc.her] cock.");
 							break;
 						case ONE_STUBBLE:
-							if (isPlayer) {
-								descriptionSB.append(" You have a stubbly patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a stubbly patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a stubbly patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case TWO_MANICURED:
-							if (isPlayer) {
-								descriptionSB.append(" You have a neat, manicured patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a neat, manicured patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a neat, manicured patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case THREE_TRIMMED:
-							if (isPlayer) {
-								descriptionSB.append(" You have a trimmed patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a trimmed patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a trimmed patch of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case FOUR_NATURAL:
-							if (isPlayer) {
-								descriptionSB.append(" You have a natural bush of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a natural bush of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a natural bush of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case FIVE_UNKEMPT:
-							if (isPlayer) {
-								descriptionSB.append(" You have an unkempt bush of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has an unkempt bush of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] an unkempt bush of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case SIX_BUSHY:
-							if (isPlayer) {
-								descriptionSB.append(" You have a thick, bushy mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a thick, bushy mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a thick, bushy mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 						case SEVEN_WILD:
-							if (isPlayer) {
-								descriptionSB.append(" You have a wild, bushy mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of your cock.");
-							} else {
-								descriptionSB.append(" [npc.She] has a wild, bushy mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
-							}
+							descriptionSB.append(" [npc.She] [npc.has] a wild, bushy mass of "+owner.getPubicHairType().getFullDescription(owner, true)+" around the base of [npc.her] cock.");
 							break;
 					}
 				}
@@ -4626,70 +4415,38 @@ public class Body implements XMLSaving {
 
 		if(viewedPenis.getType()!=PenisType.DILDO) {
 			if(owner.isInternalTesticles()) {
-				if (isPlayer) {
-					descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] have shifted to sit inside your body, leaving your [pc.cock] as the only visible part of your male reproductive organs.");
-				} else {
-					descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] have shifted to sit inside [npc.her] body, leaving [npc.her] [npc.cock] as the only visible part of [npc.her] male reproductive organs.");
-				}
+				descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] have shifted to sit inside [npc.her] body, leaving [npc.her] [npc.cock] as the only visible part of [npc.her] male reproductive organs.");
 				
 			} else {
 				switch (viewedPenis.getTesticle().getTesticleSize()) {
 					case ZERO_VESTIGIAL:
-						if (isPlayer) {
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and are so small that they're only just visible as tiny little mounds nestling beneath your [pc.cock].");
-						} else {
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and are so small that they're only just visible as tiny little mounds nestling beneath [npc.her] [npc.cock].");
-						}
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)],"
+								+ " and are so small that they're only just visible as tiny little mounds nestling beneath [npc.her] [npc.cock].");
 						break;
 					case ONE_TINY:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and are small enough to comfortably nestle underneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and are small enough to comfortably nestle underneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and are small enough to comfortably nestle underneath [npc.her] [npc.cock].");
 						break;
 					case TWO_AVERAGE:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and dangle down beneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and dangle down beneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and dangle down beneath [npc.her] [npc.cock].");
 						break;
 					case THREE_LARGE:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and hang down beneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
 						break;
 					case FOUR_HUGE:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and hang down beneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
 						break;
 					case FIVE_MASSIVE:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and hang down beneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
 						break;
 					case SIX_GIGANTIC:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and hang down beneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
 						break;
 					case SEVEN_ABSURD:
-						if (isPlayer)
-							descriptionSB.append(" Your [pc.ballsCount] [pc.balls+] are [npc.materialCompositionDescriptor] [pc.ballFullDescription(true)], and hang down beneath your [pc.cock].");
-						else
-							descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
+						descriptionSB.append(" [npc.Her] [npc.ballsCount] [npc.balls+] are [npc.materialCompositionDescriptor] [npc.ballFullDescription(true)], and hang down beneath [npc.her] [npc.cock].");
 						break;
 				}
 			}
 			
-			String cumName = "[npc.cum+]";
-			if(owner.isPlayer()) {
-				cumName = "[pc.cum+]";
-			}
 			switch (viewedPenis.getTesticle().getCumStorage()) {
 				case ZERO_NONE:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() > TesticleSize.TWO_AVERAGE.getValue()) {
@@ -4697,7 +4454,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" don't produce any "+cumName+" at all.");
+					descriptionSB.append(" don't produce any [npc.cum+] at all.");
 					break;
 				case ONE_TRICKLE:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() > TesticleSize.TWO_AVERAGE.getValue()) {
@@ -4705,7 +4462,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" only produce a tiny trickle of "+cumName+".");
+					descriptionSB.append(" only produce a tiny trickle of [npc.cum+].");
 					break;
 				case TWO_SMALL_AMOUNT:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() > TesticleSize.THREE_LARGE.getValue()) {
@@ -4713,7 +4470,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" only produce a small amount of "+cumName+".");
+					descriptionSB.append(" only produce a small amount of [npc.cum+].");
 					break;
 				case THREE_AVERAGE:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() > TesticleSize.FOUR_HUGE.getValue()) {
@@ -4721,7 +4478,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" produce an average amount of "+cumName+".");
+					descriptionSB.append(" produce an average amount of [npc.cum+].");
 					break;
 				case FOUR_LARGE:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() < TesticleSize.TWO_AVERAGE.getValue()) {
@@ -4729,7 +4486,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" produce a large amount of "+cumName+".");
+					descriptionSB.append(" produce a large amount of [npc.cum+].");
 					break;
 				case FIVE_HUGE:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() < TesticleSize.TWO_AVERAGE.getValue()) {
@@ -4737,7 +4494,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" produce a huge amount of "+cumName+".");
+					descriptionSB.append(" produce a huge amount of [npc.cum+].");
 					break;
 				case SIX_EXTREME:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() < TesticleSize.TWO_AVERAGE.getValue()) {
@@ -4745,7 +4502,7 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" produce an extreme amount of "+cumName+".");
+					descriptionSB.append(" produce an extreme amount of [npc.cum+].");
 					break;
 				case SEVEN_MONSTROUS:
 					if (viewedPenis.getTesticle().getTesticleSize().getValue() < TesticleSize.TWO_AVERAGE.getValue()) {
@@ -4753,15 +4510,11 @@ public class Body implements XMLSaving {
 					} else {
 						descriptionSB.append(" They");
 					}
-					descriptionSB.append(" produce a monstrous amount of "+cumName+".");
+					descriptionSB.append(" produce a monstrous amount of [npc.cum+].");
 					break;
 			}
 			
-			if(owner.isPlayer()) {
-				descriptionSB.append(" Your [pc.cum]");
-			} else {
-				descriptionSB.append(" [npc.Her] [npc.cum]");
-			}
+			descriptionSB.append(" [npc.Her] [npc.cum]");
 			
 			switch(viewedPenis.getTesticle().getCum().getFlavour()) {
 				case CHOCOLATE:
@@ -4785,17 +4538,20 @@ public class Body implements XMLSaving {
 				case PINEAPPLE:
 					descriptionSB.append(" tastes of pineapple.");
 					break;
-				case SLIME:
-					descriptionSB.append(" is mostly tasteless, but very sweet.");
+				case BUBBLEGUM:
+					descriptionSB.append(" has the fruity taste of bubblegum.");
 					break;
 				case STRAWBERRY:
 					descriptionSB.append(" tastes of strawberries.");
 					break;
 				case BEER:
-					descriptionSB.append(", which tastes like beer.");
+					descriptionSB.append(" tastes like beer.");
 					break;
 				case VANILLA:
-					descriptionSB.append(", which tastes of vanilla.");
+					descriptionSB.append(" tastes of vanilla.");
+					break;
+				case CHERRY:
+					descriptionSB.append(" tastes of cherries.");
 					break;
 			}
 			
@@ -4870,18 +4626,10 @@ public class Body implements XMLSaving {
 			break;
 		}
 		
-		if (isPlayer) {
-			if (owner.hasPenis()) {
-				descriptionSB.append("Beneath your [pc.penis], you have");
-			} else {
-				descriptionSB.append("Between your legs, you have");
-			}
+		if (owner.hasPenis()) {
+			descriptionSB.append("Beneath [npc.her] [npc.penis], [npc.she] [npc.has]");
 		} else {
-			if (owner.hasPenis()) {
-				descriptionSB.append("Beneath [npc.her] [npc.penis], [npc.she] has");
-			} else {
-				descriptionSB.append("Between [npc.her] legs, [npc.she] has");
-			}
+			descriptionSB.append("Between [npc.her] [npc.legs], [npc.she] [npc.has]");
 		}
 		
 		switch (viewedVagina.getType()) {
@@ -4942,26 +4690,8 @@ public class Body implements XMLSaving {
 			descriptionSB.append(" [style.colourBestial(As it is located on the lower, animalistic part of [npc.her] body, [npc.her] [npc.pussy] is no different to that of a feral [npc.vaginaRace]'s.)]");
 		}
 		
-		if (isPlayer) {
-			if(owner.getVaginaRawClitorisSizeValue()==0) {
-				descriptionSB.append(" You have [pc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures less than one inch in length");
-			} else {
-				descriptionSB.append(" You have [pc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures [pc.clitSizeInches] inch"+(owner.getVaginaRawClitorisSizeValue()==1?"":"es")+" long");
-			}
-			
-		} else {
-			if(owner.getVaginaRawClitorisSizeValue()==0) {
-				descriptionSB.append(" [npc.She] has [npc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures less than one inch in length");
-			} else {
-				descriptionSB.append(" [npc.She] has [npc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
-						+" clit, which measures [npc.clitSizeInches] inch"+(owner.getVaginaRawClitorisSizeValue()==1?"":"es")+" long");
-			}
-		}
-		
-		descriptionSB.append(" ([npc.clitSizeCm]cm)."); //fuck imperials
+		descriptionSB.append(" [npc.She] [npc.has] [npc.a_clitSize]"+(owner.getClitorisGirth()==PenisGirth.TWO_AVERAGE?"":", [pc.clitGirth]")
+				+" clit, which measures [npc.clitSizeValue] in length.");
 		
 		for(PenetrationModifier pm : PenetrationModifier.values()) {
 			if(owner.hasClitorisModifier(pm)) {
@@ -5017,93 +4747,56 @@ public class Body implements XMLSaving {
 				descriptionSB.append(" [style.colourSex(Your pussy is " + Capacity.getCapacityFromValue(viewedVagina.getOrificeVagina().getStretchedCapacity()).getDescriptor() + ", and can comfortably take "
 						+ Capacity.getCapacityFromValue(viewedVagina.getOrificeVagina().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with sufficient lubrication.)]");
 				
-				boolean virginityLossFound = false;
-				for(SexAreaPenetration pt : SexAreaPenetration.values()) {
-					if(pt.isTakesVirginity()) {
-						if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, pt))!=null) {
-							descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, pt)) + "</span>");
-							virginityLossFound = true;
-							break;
-						}
-					}
-				}
-				if(!virginityLossFound) {
-					descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>You have lost your virginity.</span>");
-				}
-				
 			} else if(!hallucinating) {
 				descriptionSB.append(" [style.colourSex([npc.Her] pussy is " + Capacity.getCapacityFromValue(viewedVagina.getOrificeVagina().getStretchedCapacity()).getDescriptor() + ", and can comfortably take "
-						+ Capacity.getCapacityFromValue(viewedVagina.getOrificeVagina().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with sufficient lubrication.)]"
-						+ " <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.She] has lost [npc.her] virginity.</span>");
+						+ Capacity.getCapacityFromValue(viewedVagina.getOrificeVagina().getStretchedCapacity()).getMaximumSizeComfortableWithLube().getDescriptor() + " cocks with sufficient lubrication.)]");
+			}
+
+			boolean virginityLossFound = false;
+			for(SexAreaPenetration pt : SexAreaPenetration.values()) {
+				if(pt.isTakesVirginity()) {
+					if(owner.getVirginityLoss(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, pt))!=null) {
+						descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>"+ owner.getVirginityLossDescription(new SexType(SexParticipantType.NORMAL, SexAreaOrifice.VAGINA, pt)) + "</span>");
+						virginityLossFound = true;
+						break;
+					}
+				}
+			}
+			if(!virginityLossFound) {
+				descriptionSB.append(" <span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>[npc.Name] [npc.has] lost [npc.her] virginity.</span>");
 			}
 		}
 		
 		// Wetness:
 		switch (viewedVagina.getOrificeVagina().getWetness(owner)) {
 			case ZERO_DRY:
-				if (isPlayer) {
-					descriptionSB.append(" It's [style.colourWetness(completely dry and never gets wet)], no matter how aroused you are.");
-				} else {
-					descriptionSB.append(" It's [style.colourWetness(completely dry and never gets wet)], no matter how aroused [npc.she] gets.");
-				}
+				descriptionSB.append(" It's [style.colourWetness(completely dry and never gets wet)], no matter how aroused [npc.she] [npc.is].");
 				break;
 			case ONE_SLIGHTLY_MOIST:
-				if (isPlayer) {
-					descriptionSB.append(" It's [style.colourWetness(slightly moist)], and you need a huge amount of stimulation before you get wet.");
-				} else {
-					descriptionSB.append(" It's [style.colourWetness(slightly moist)], and [npc.she] needs a huge amount of stimulation before [npc.she] gets wet.");
-				}
+				descriptionSB.append(" It's [style.colourWetness(slightly moist)], and [npc.she] [npc.verb(need)] a huge amount of stimulation before [npc.she] [npc.verb(get)] wet.");
 				break;
 			case TWO_MOIST:
-				if (isPlayer) {
-					descriptionSB.append(" It's [style.colourWetness(moist)], but you still need a lot of stimulation before you get wet.");
-				} else {
-					descriptionSB.append(" It's [style.colourWetness(moist)], but [npc.she] still needs a lot of stimulation before [npc.she] gets wet.");
-				}
+				descriptionSB.append(" It's [style.colourWetness(moist)], but [npc.she] still [npc.verb(need)] a lot of stimulation before [npc.she] [npc.verb(get)] wet.");
 				break;
 			case THREE_WET:
-				if (isPlayer) {
-					descriptionSB.append(" It's of an [style.colourWetness(average wetness)], and you only need a small amount of foreplay before you're wet enough for a pleasurable penetration.");
-				} else {
-					descriptionSB.append(" It's of an [style.colourWetness(average wetness)], and [npc.she] only needs a small amount of foreplay before [npc.sheIs] wet enough for a pleasurable penetration.");
-				}
+				descriptionSB.append(" It's of an [style.colourWetness(average wetness)], and [npc.she] only [npc.verb(need)] a small amount of foreplay before [npc.sheIs] wet enough for a pleasurable penetration.");
 				break;
 			case FOUR_SLIMY:
-				if (isPlayer) {
-					descriptionSB.append(" It's always [style.colourWetness(slimy and wet)], and you're ready for penetration at a moment's notice.");
-				} else {
-					descriptionSB.append(" It's always [style.colourWetness(slimy and wet)], and [npc.sheIs] ready for penetration at a moment's notice.");
-				}
+				descriptionSB.append(" It's always [style.colourWetness(slimy and wet)], and [npc.sheIs] ready for penetration at a moment's notice.");
 				break;
 			case FIVE_SLOPPY:
-				if (isPlayer) {
-					descriptionSB.append(" Its surface is always coated in [style.colourWetness(slimy moisture)], and within, your pussy is permanently [style.colourWetness(sloppy)] and practically begging to be fucked.");
-				} else {
-					descriptionSB.append(" Its surface is always coated in [style.colourWetness(slimy moisture)], and within, [npc.her] pussy is permanently [style.colourWetness(sloppy)] and practically begging to be fucked.");
-				}
+				descriptionSB.append(" Its surface is always coated in [style.colourWetness(slimy moisture)], and within, [npc.her] pussy is permanently [style.colourWetness(sloppy)] and practically begging to be fucked.");
 				break;
 			case SIX_SOPPING_WET:
-				if (isPlayer) {
-					descriptionSB.append(" Your pussy is never anything less than [style.colourWetness(sopping wet)], and a trickle of your natural lubricant constantly dribbles from your slit.");
-				} else {
-					descriptionSB.append(" [npc.Her] pussy is never anything less than [style.colourWetness(sopping wet)], and a trickle of [npc.her] natural lubricant constantly dribbles from [npc.her] slit.");
-				}
+				descriptionSB.append(" [npc.Her] pussy is never anything less than [style.colourWetness(sopping wet)], and a trickle of [npc.her] natural lubricant constantly dribbles from [npc.her] slit.");
 				break;
 			case SEVEN_DROOLING:
-				if (isPlayer) {
-					descriptionSB.append(" Your pussy is [style.colourWetness(so wet that it audibly squelches with every step you take)], and a constant stream of juices flow from your inviting cunt.");
-				} else {
-					descriptionSB.append(" [npc.Her] pussy is [style.colourWetness(so wet that it audibly squelches with every step [npc.she] takes)], and a constant stream of juices flow from [npc.her] inviting cunt.");
-				}
+				descriptionSB.append(" [npc.Her] pussy is [style.colourWetness(so wet that it audibly squelches with every step [npc.she] takes)], and a constant stream of juices flow from [npc.her] inviting cunt.");
 				break;
 		}
 		
 		if(viewedVagina.getOrificeVagina().isSquirter()) {
-			if (isPlayer) {
-				descriptionSB.append(" You are a [style.colourArcane(squirter)], and [style.colourWetness(produce a considerable amount of female ejaculate)] each time you orgasm.");
-			} else {
-				descriptionSB.append(" [npc.She] is a [style.colourArcane(squirter)], and [style.colourWetness(produces a considerable amount of female ejaculate)] each time [npc.she] orgasms.");
-			}
+			descriptionSB.append(" [npc.She] [npc.is] a [style.colourArcane(squirter)], and [style.colourWetness([npc.verb(procude)] a considerable amount of female ejaculate)] each time [npc.she] orgasms.");
 		}
 		
 		// Elasticity & plasticity:
@@ -5137,36 +4830,93 @@ public class Body implements XMLSaving {
 		
 		for(OrificeModifier om : OrificeModifier.values()) {
 			if(owner.hasVaginaOrificeModifier(om)) {
-				if(owner.isPlayer()) {
-					switch(om) {
-						case MUSCLE_CONTROL:
-							descriptionSB.append(" You have a series of internal muscles lining the inside of your [pc.vagina], allowing you to expertly squeeze and grip down on any intruding object.");
-							break;
-						case PUFFY:
-							descriptionSB.append(" Your labia have swollen up into big, extra-puffy pussy lips.");
-							break;
-						case RIBBED:
-							descriptionSB.append(" The inside of your [pc.vagina] is lined with sensitive, fleshy ribs, which grant you extra pleasure when stimulated.");
-							break;
-						case TENTACLED:
-							descriptionSB.append(" Your [pc.vagina] is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-							break;
-					}
-				} else {
-					switch(om) {
-						case MUSCLE_CONTROL:
-							descriptionSB.append(" [npc.She] has a series of internal muscles lining the inside of [npc.her] [npc.vagina], allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
-							break;
-						case PUFFY:
-							descriptionSB.append(" [npc.Her] labia have swollen up into big, extra-puffy pussy lips.");
-							break;
-						case RIBBED:
-							descriptionSB.append(" The inside of [npc.her] [npc.vagina] is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
-							break;
-						case TENTACLED:
-							descriptionSB.append(" [npc.Her] [npc.vagina] is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-							break;
-					}
+				switch(om) {
+					case MUSCLE_CONTROL:
+						descriptionSB.append(" [npc.She] [npc.has] a series of internal muscles lining the inside of [npc.her] [npc.vagina], allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
+						break;
+					case PUFFY:
+						descriptionSB.append(" [npc.Her] labia have swollen up into big, extra-puffy pussy lips.");
+						break;
+					case RIBBED:
+						descriptionSB.append(" The inside of [npc.her] [npc.vagina] is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
+						break;
+					case TENTACLED:
+						descriptionSB.append(" [npc.Her] [npc.vagina] is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
+						break;
+				}
+			}
+		}
+		
+		descriptionSB.append(" [npc.Her] [npc.girlcum]");
+		
+		switch(viewedVagina.getGirlcum().getFlavour()) {
+			case CHOCOLATE:
+				descriptionSB.append(" tastes of chocolate.");
+				break;
+			case CUM:
+				descriptionSB.append(" tastes of salty cum.");
+				break;
+			case GIRL_CUM:
+				descriptionSB.append(", much to nobody's surprise, tastes like ordinary girlcum.");
+				break;
+			case HONEY:
+				descriptionSB.append(" tastes of honey.");
+				break;
+			case MILK:
+				descriptionSB.append(" tastes like milk.");
+				break;
+			case MINT:
+				descriptionSB.append(" tastes of mint.");
+				break;
+			case PINEAPPLE:
+				descriptionSB.append(" tastes of pineapple.");
+				break;
+			case BUBBLEGUM:
+				descriptionSB.append(" has the fruity taste of bubblegum.");
+				break;
+			case STRAWBERRY:
+				descriptionSB.append(" tastes of strawberries.");
+				break;
+			case BEER:
+				descriptionSB.append(" tastes like beer.");
+				break;
+			case VANILLA:
+				descriptionSB.append(" tastes of vanilla.");
+				break;
+			case CHERRY:
+				descriptionSB.append(" tastes of cherries.");
+				break;
+		}
+		
+		for(FluidModifier fm : FluidModifier.values()) {
+			if(viewedVagina.getGirlcum().getFluidModifiers().contains(fm)) {
+				switch(fm) {
+					case ADDICTIVE:
+						descriptionSB.append(" It is highly addictive, and anyone who drinks too much will quickly become dependent on it.");
+						break;
+					case BUBBLING:
+						descriptionSB.append(" It fizzes and bubbles like a carbonated drink.");
+						break;
+					case HALLUCINOGENIC:
+						descriptionSB.append(" Anyone who ingests it suffers psychoactive effects, which can manifest in lactation-related hallucinations or sensitivity to hypnotic suggestion.");
+						break;
+					case MUSKY:
+						descriptionSB.append(" It has a strong, musky smell.");
+						break;
+					case SLIMY:
+						descriptionSB.append(" It has a slimy, oily texture.");
+						break;
+					case STICKY:
+						descriptionSB.append(" It's quite sticky, and is difficult to fully wash off without soap.");
+						break;
+					case VISCOUS:
+						descriptionSB.append(" It's quite viscous, and slowly drips in large globules, much like thick treacle.");
+						break;
+					case ALCOHOLIC:
+						descriptionSB.append(" It has a high alcohol content, and will get those who consume it very drunk.");
+						break;
+					case MINERAL_OIL:
+						descriptionSB.append(" It is rich in minerals good for your skin but not for latex.");
 				}
 			}
 		}
@@ -5216,36 +4966,19 @@ public class Body implements XMLSaving {
 			
 			for(OrificeModifier om : OrificeModifier.values()) {
 				if(owner.hasVaginaUrethraOrificeModifier(om)) {
-					if(owner.isPlayer()) {
-						switch(om) {
-							case PUFFY:
-								descriptionSB.append(" Your urethra has transformed into having a swollen, puffy rim.");
-								break;
-							case MUSCLE_CONTROL:
-								descriptionSB.append(" A series of muscles lining the inside of your urethra, allowing you to expertly squeeze and grip down on any intruding object.");
-								break;
-							case RIBBED:
-								descriptionSB.append(" The inside of your urethra is lined with sensitive, fleshy ribs, which grant you extra pleasure when stimulated.");
-								break;
-							case TENTACLED:
-								descriptionSB.append(" Your urethra is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-								break;
-						}
-					} else {
-						switch(om) {
-							case PUFFY:
-								descriptionSB.append(" [npc.Her] urethra has transformed into having a swollen, puffy rim.");
-								break;
-							case MUSCLE_CONTROL:
-								descriptionSB.append(" [npc.She] has a series of muscles lining the inside of [npc.her] urethra, allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
-								break;
-							case RIBBED:
-								descriptionSB.append(" The inside of [npc.her] urethra is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
-								break;
-							case TENTACLED:
-								descriptionSB.append(" [npc.Her] urethra is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
-								break;
-						}
+					switch(om) {
+						case PUFFY:
+							descriptionSB.append(" [npc.Her] urethra has transformed into having a swollen, puffy rim.");
+							break;
+						case MUSCLE_CONTROL:
+							descriptionSB.append(" [npc.She] [npc.has] a series of muscles lining the inside of [npc.her] urethra, allowing [npc.herHim] to expertly squeeze and grip down on any intruding object.");
+							break;
+						case RIBBED:
+							descriptionSB.append(" The inside of [npc.her] urethra is lined with sensitive, fleshy ribs, which grant [npc.herHim] extra pleasure when stimulated.");
+							break;
+						case TENTACLED:
+							descriptionSB.append(" [npc.Her] urethra is filled with tiny little tentacles, which wriggle and squirm with a mind of their own.");
+							break;
 					}
 				}
 			}
@@ -5324,15 +5057,8 @@ public class Body implements XMLSaving {
 	}
 
 	public String getMoundDescription(GameCharacter owner) {
-		descriptionSB = new StringBuilder();
-
-		if (owner.isPlayer()) {
-			descriptionSB.append("Between your legs, you have a genderless mound. Despite your lack of genitalia, it's still an incredibly sensitive area, and you can bring yourself to a quasi-orgasm by stroking it.");
-		} else {
-			descriptionSB.append("Between [npc.her] legs, [npc.she] has a genderless mound. Despite [npc.her] lack of genitalia, it's still an incredibly sensitive area, and [npc.she] can be brought to a quasi-orgasm by stimulating it.");
-		}
-
-		return UtilText.parse(owner, descriptionSB.toString());
+		return UtilText.parse(owner,
+				"Between [npc.her] [npc.legs], [npc.she] [npc.has] a genderless mound. Despite [npc.her] lack of genitalia, it's still an incredibly sensitive area, and [npc.she] can be brought to a quasi-orgasm by stimulating it.");
 	}
 	
 	public String getSexDetails(GameCharacter owner) {
@@ -5418,7 +5144,7 @@ public class Body implements XMLSaving {
 			} else if(father.isPlayer()) {
 				descriptionSB.append("<p><span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>From one of your sexual encounters, you've ended up impregnating [npc.name].</span>");
 			} else {
-				descriptionSB.append("<p><span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>From one of [npc.her] sexual encounters, [npc.name] has ended up getting impregnated by "+father.getName()+".</span>");
+				descriptionSB.append("<p><span style='color:" + Colour.GENERIC_ARCANE.toWebHexString() + ";'>From one of [npc.her] sexual encounters, [npc.name] has ended up getting impregnated by "+father.getName(true)+".</span>");
 			}
 			
 			if(owner.hasStatusEffect(StatusEffect.PREGNANT_1)) {
@@ -5437,18 +5163,17 @@ public class Body implements XMLSaving {
 						+ "[npc.Name] has given birth "+Util.intToString(owner.getLittersBirthed().size())+" "+(owner.getLittersBirthed().size()==1?"time":"times")+".</span>");
 			
 			for(Litter litter : owner.getLittersBirthed()) {
-				
 				if(litter.getFather() == null) {
-					descriptionSB.append("<br/>On "+Util.getStringOfLocalDateTime(litter.getConceptionDate())
-							+", [npc.she] was impregnated, and then on "+Util.getStringOfLocalDateTime(litter.getBirthDate())+", [npc.she] gave birth to ");
+					descriptionSB.append("<br/>On "+Units.date(litter.getConceptionDate(), Units.DateType.LONG)
+							+", [npc.she] was impregnated, and then on "+Units.date(litter.getBirthDate(), Units.DateType.LONG)+", [npc.she] gave birth to ");
 					
 				} else if(litter.getFather().isPlayer()) {
-					descriptionSB.append("<br/>On "+Util.getStringOfLocalDateTime(litter.getConceptionDate())
-							+", you impregnated [npc.herHim], and then on "+Util.getStringOfLocalDateTime(litter.getBirthDate())+", [npc.she] gave birth to ");
+					descriptionSB.append("<br/>On "+Units.date(litter.getConceptionDate(), Units.DateType.LONG)
+							+", you impregnated [npc.herHim], and then on "+Units.date(litter.getBirthDate(), Units.DateType.LONG)+", [npc.she] gave birth to ");
 					
 				} else {
-					descriptionSB.append("<br/>On "+Util.getStringOfLocalDateTime(litter.getConceptionDate())+", "+litter.getFather().getName()
-							+" impregnated [npc.herHim], and then on "+Util.getStringOfLocalDateTime(litter.getBirthDate())+", [npc.she] gave birth to ");
+					descriptionSB.append("<br/>On "+Units.date(litter.getConceptionDate(), Units.DateType.LONG)+", "+litter.getFather().getName(true)
+							+" impregnated [npc.herHim], and then on "+Units.date(litter.getBirthDate(), Units.DateType.LONG)+", [npc.she] gave birth to ");
 				}
 				
 				descriptionSB.append(litter.getBirthedDescription());
@@ -5488,8 +5213,8 @@ public class Body implements XMLSaving {
 				
 				for(Litter litter : Main.game.getPlayer().getLittersBirthed()) {
 					if(litter.getFather()!=null && litter.getFather().equals(owner)){
-						descriptionSB.append("<br/>On "+Util.getStringOfLocalDateTime(litter.getConceptionDate())
-								+", [npc.she] impregnated you, and then on "+Util.getStringOfLocalDateTime(litter.getBirthDate())+", you gave birth to "+litter.getBirthedDescription()+".");
+						descriptionSB.append("<br/>On "+Units.date(litter.getConceptionDate(), Units.DateType.LONG)
+								+", [npc.she] impregnated you, and then on "+Units.date(litter.getBirthDate(), Units.DateType.LONG)+", you gave birth to "+litter.getBirthedDescription()+".");
 					}
 				}
 				
@@ -5988,7 +5713,7 @@ public class Body implements XMLSaving {
 	}
 	
 	public void updateVaginaColouring() {
-		if(vagina.getType().getRace()!=null) {
+		if(vagina.getType()!=VaginaType.NONE) {
 			switch(vagina.getType().getRace()) {
 				case ANGEL:
 					coverings.put(BodyCoveringType.VAGINA, new Covering(BodyCoveringType.VAGINA, CoveringPattern.ORIFICE_VAGINA, coverings.get(BodyCoveringType.ANGEL).getPrimaryColour(), false, Colour.ORIFICE_INTERIOR, false));
@@ -6016,7 +5741,7 @@ public class Body implements XMLSaving {
 	}
 	
 	public void updatePenisColouring() {
-		if(penis.getType().getRace()!=null) {
+		if(penis.getType()!=PenisType.NONE) {
 			switch(penis.getType().getRace()) {
 				case ANGEL:
 					coverings.put(BodyCoveringType.PENIS, new Covering(BodyCoveringType.PENIS, CoveringPattern.NONE, coverings.get(BodyCoveringType.ANGEL).getPrimaryColour(), false, Colour.ORIFICE_INTERIOR, false));

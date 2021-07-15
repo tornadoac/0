@@ -2,7 +2,7 @@ package com.lilithsthrone.game.dialogue;
 
 /**
  * @since 0.1.89
- * @version 0.3.1
+ * @version 0.3.3.10
  * @author Innoxia
  */
 public enum DialogueFlagValue {
@@ -24,6 +24,12 @@ public enum DialogueFlagValue {
 	visitedSubmission,
 	mommyFound,
 	
+	daddyFound,
+	rudeToDaddy,
+	flirtingWithDaddy,
+	talkedWithDaddy,
+	daddySendingReward,
+	
 	// Gym:
 	gymIntroduced,
 	gymHadTour,
@@ -40,6 +46,7 @@ public enum DialogueFlagValue {
 	nyanIntroduced,
 	kateIntroduced,
 	vickyIntroduced,
+	vanessaIntroduced,
 
 	roxyIntroduced,
 	axelIntroduced,
@@ -49,9 +56,21 @@ public enum DialogueFlagValue {
 	
 	// Red-light district:
 	prostitutionLicenseObtained,
+
+	
+	// City hall:
+	vanessaHelped,
+	vanessaDailyHelped,
+	vanessaDailyMassage,
+	vanessaMassaged,
+	vanessaFucked,
+	vanessaAskedAboutCatalogue,
+	vanessaAskedAboutSolitary,
 	
 	
 	// Shopping arcade:
+	ralphAskedAboutHundredKisses,
+	
 	nyanTalkedTo,
 	nyanComplimented,
 	nyanFlirtedWith,
@@ -87,21 +106,20 @@ public enum DialogueFlagValue {
 	readBook3,
 	readBook4,
 	
-	arthursRoomInstalled,
 	arthursPackageObtained,
 	
 	givenLilayaPresent1,
 	givenLilayaPresent2,
 	givenLilayaPresent3,
 	
-	// Brax:
+	// Enforcer HQ:
 	braxEncountered,
 	accessToEnforcerHQ,
 	braxTransformedPlayer,
-	braxBeaten,
 	seenBraxAfterQuest,
 	feminisedBrax,
 	bimbofiedBrax,
+	candiHarpyTransformation,
 	
 	// Harpy Nests:
 	hasHarpyNestAccess,
@@ -143,12 +161,14 @@ public enum DialogueFlagValue {
 	slimeGuardsDefeated,
 	slimeRoyalGuardIntroduced,
 	slimeRoyalGuardDefeated,
+	slimeRoyalGuardDefeatReacted,
 	slimeQueenHelped,
 	slimeQueenConvinced,
 	slimeQueenForced,
 	
 	// Gambling Den:
-	axelToldAboutVengar,
+	axelMentionedVengar,
+	axelExplainedVengar,
 	roxyAddicted,
 	playedPregnancyRouletteAsMother,
 	playedPregnancyRouletteAsBreeder,
@@ -162,6 +182,13 @@ public enum DialogueFlagValue {
 	krugerIntroduced,
 	
 	// Submission:
+	claireAskedTeleportation,
+	claireWarning,
+	clairePadsInvestigated,
+	claireEnclosureEscaped,
+	claireObtainedLightningGlobe,
+	claireAskedWarehouseEscape,
+	
 	impCitadelEncountered,
 	impCitadelArcanistEncountered,
 	impCitadelArcanistAcceptedTF,
@@ -201,6 +228,15 @@ public enum DialogueFlagValue {
 	lyssiethQuestionAsked5,
 
 	meraxisRepeatDemonTF,
+	
+	// Rat warrens:
+	ratWarrensEntry,
+	ratWarrensEntryWhore,
+	ratWarrensHostile,
+
+	ratWarrensClearedLeft,
+	ratWarrensClearedCentre,
+	ratWarrensClearedRight,
 	
 	;
 }

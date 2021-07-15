@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 
 /**
  * @since 0.1.0
- * @version 0.3
+ * @version 0.3.5.1
  * @author Innoxia
  */
 public enum Colour {
@@ -23,12 +23,12 @@ public enum Colour {
 	BASE_ROSE(false, BaseColour.ROSE, "rose", Util.newArrayListOfValues("rose")),
 	BASE_LILAC(false, BaseColour.LILAC, "lilac", Util.newArrayListOfValues("lilac")),
 	BASE_LILAC_LIGHT(false, BaseColour.LILAC_LIGHT, "light lilac", Util.newArrayListOfValues("lightLilac", "lilacLight")),
-	BASE_PURPLE_DARK(false, BaseColour.PURPLE_DARK, "dark purple", Util.newArrayListOfValues("darkPurple", "purpleDark")),
+	BASE_PURPLE_DARK(false, BaseColour.PURPLE_DARK, "violet", Util.newArrayListOfValues("darkPurple", "purpleDark", "violet")),
 	BASE_PURPLE(false, BaseColour.PURPLE, "purple", Util.newArrayListOfValues("purple")),
 	BASE_PURPLE_LIGHT(false, BaseColour.PURPLE_LIGHT, "light purple", Util.newArrayListOfValues("lightPurple", "purpleLight")),
 	
 	BASE_PINK_DEEP(false, BaseColour.PINK_DEEP, "deep pink", Util.newArrayListOfValues("deepPink", "darkPink", "pinkDeep", "pinkDark")),
-	BASE_VIOLET(false, BaseColour.VIOLET, "violet", Util.newArrayListOfValues("violet")),
+	BASE_PINK_SALMON(false, BaseColour.PINK_SALMON, "salmon-pink", Util.newArrayListOfValues("pinkSalmon", "salmonPink")),
 	BASE_PINK(false, BaseColour.PINK, "pink", Util.newArrayListOfValues("pink")),
 	BASE_PINK_LIGHT(false, BaseColour.PINK_LIGHT, "light pink", Util.newArrayListOfValues("lightPink", "pinkLight")),
 		
@@ -69,13 +69,21 @@ public enum Colour {
 	BACKGROUND(false, Util.newColour(0x222222), Util.newColour(0xcccccc), "grey"),
 	BACKGROUND_ALT(false, Util.newColour(0x292929), Util.newColour(0xbbbbbb), "grey"),
 	
-	MAP_BACKGROUND_UNEXPLORED(false, Util.newColour(0x111), Util.newColour(0x111), "black"),
+	BACKGROUND_DAY(false, Util.newColour(0x222222), Util.newColour(0xcccccc), "grey"),
+	BACKGROUND_TWILIGHT(false, Util.newColour(0x191919), Util.newColour(0xbbbbbb), "black"),
+	BACKGROUND_NIGHT(false, Util.newColour(0x121212), Util.newColour(0xaaaaaa), "pitch black"),
+	
+	MAP_BACKGROUND_UNEXPLORED(false, Util.newColour(0x121212), Util.newColour(0x121212), "black"),
 	MAP_BACKGROUND_PINK(false, Util.newColour(0xb2a4bb), Util.newColour(0xb2a4bb), "pink"),
 	MAP_BACKGROUND(false, Util.newColour(0xbbbbbb), Util.newColour(0xbbbbbb), "grey"),
 	MAP_BACKGROUND_DARK(false, Util.newColour(0x888888), Util.newColour(0x8f8f8f), "dark grey"),
+	MAP_BACKGROUND_DANGEROUS(false, Util.newColour(0x303030), Util.newColour(0xaaaaaa), "dark grey"),
 	MAP_BACKGROUND_BLUE(false, BaseColour.BLUE_LIGHT, "light blue", Util.newArrayListOfValues("lightBlue")),
 	
-	GENERIC_SEX(false, BaseColour.PINK_LIGHT, "pink", Util.newArrayListOfValues("sex")),
+	GENERIC_SEX(false, BaseColour.PINK_LIGHT, "light pink", Util.newArrayListOfValues("sex")),
+	GENERIC_SEX_AS_DOM(false,Util.newColour(0xFF75BA), Util.newColour(0xD82C8B), "pink", Util.newArrayListOfValues("sexDom", "domSex")),
+	DOMINANT(false, BaseColour.CRIMSON, "crimson", Util.newArrayListOfValues("dom", "dominant")),
+	SUBMISSIVE(false, BaseColour.PINK_LIGHT, "light pink", Util.newArrayListOfValues("sub", "submissive")),
 	GENERIC_COMBAT(false, BaseColour.CRIMSON, "crimson"),
 	GENERIC_ARCANE(false, BaseColour.PINK, "pink", Util.newArrayListOfValues("arcane")),
 	GENERIC_TERRIBLE(false, BaseColour.CRIMSON, "crimson", Util.newArrayListOfValues("terrible")),
@@ -86,7 +94,10 @@ public enum Colour {
 	GENERIC_EXCELLENT(false, BaseColour.GOLD, "gold", Util.newArrayListOfValues("excellent")),
 	GENERIC_ATTRIBUTE(false, BaseColour.MAGENTA, "magenta"),
 	GENERIC_EXPERIENCE(false, BaseColour.BLUE_LIGHT, "light blue", Util.newArrayListOfValues("experience", "xp")),
+	GENERIC_ACTION_POINTS(false, BaseColour.AQUA, "aqua", Util.newArrayListOfValues("actionPoint", "actionPoints", "ap")),
+	GENERIC_ENCHANTMENT(false, BaseColour.PINK, "pink", Util.newArrayListOfValues("enchantment", "enchanting")),
 	COOLDOWN(false, BaseColour.CRIMSON, "crimson", Util.newArrayListOfValues("cooldown")),
+	CRIT(false, BaseColour.GOLD, "gold", Util.newArrayListOfValues("crit")),
 
 	SCAR(false, BaseColour.TAN, "tan"),
 	TATTOO(false, BaseColour.GREY, "grey"),
@@ -104,13 +115,14 @@ public enum Colour {
 	RACE_BESTIAL(false, BaseColour.TAN, "tan", Util.newArrayListOfValues("bestial", "animal", "feral")),
 	RACE_UNKNOWN(false, BaseColour.BLACK, "black", Util.newArrayListOfValues("unknown")),
 	RACE_HUMAN(false, BaseColour.BLUE_STEEL, "pale blue", Util.newArrayListOfValues("human")),
+	RACE_HALF_DEMON(false, BaseColour.LILAC, "lilac", Util.newArrayListOfValues("halfDemon")),
 	RACE_DEMON(false, BaseColour.PURPLE_LIGHT, "light purple", Util.newArrayListOfValues("demon")),
 	RACE_LILIN(false, BaseColour.PURPLE, "purple", Util.newArrayListOfValues("lilin")),
 	RACE_IMP(false, BaseColour.PURPLE, "purple", Util.newArrayListOfValues("imp")),
 	RACE_ANGEL(false, BaseColour.BLUE_LIGHT, "light blue", Util.newArrayListOfValues("angel")),
 	RACE_DOG_MORPH(false, BaseColour.BROWN, "brown", Util.newArrayListOfValues("dogMorph", "dog")),
-	RACE_CAT_MORPH(false, BaseColour.VIOLET, "violet", Util.newArrayListOfValues("catMorph", "cat")),
-	RACE_CAT_MORPH_CARACAL(false, BaseColour.VIOLET, "violet", Util.newArrayListOfValues("ocelotMorph", "ocelot")),
+	RACE_CAT_MORPH(false, BaseColour.PINK_SALMON, "salmon-pink", Util.newArrayListOfValues("catMorph", "cat")),
+	RACE_CAT_MORPH_CARACAL(false, BaseColour.PINK_SALMON, "salmon-pink", Util.newArrayListOfValues("ocelotMorph", "ocelot")),
 	RACE_CAT_MORPH_LION(false, BaseColour.YELLOW, "yellow", Util.newArrayListOfValues("lionMorph", "lion")),
 	RACE_CAT_MORPH_LEOPARD(false, BaseColour.GINGER, "ginger", Util.newArrayListOfValues("leopardMorph", "leopard")),
 	RACE_CAT_MORPH_TIGER(false, BaseColour.GINGER, "ginger", Util.newArrayListOfValues("tigerMorph", "tiger")),
@@ -135,9 +147,9 @@ public enum Colour {
 	RACE_BAT_MORPH(false, BaseColour.BLACK, "black", Util.newArrayListOfValues("batMorph", "bat")),
 	RACE_ALLIGATOR_MORPH(false, BaseColour.GREEN_DARK, "dark green", Util.newArrayListOfValues("alligatorMorph", "alligator", "gatorMorph", "gator")),
 	
-	QUEST_MAIN(false, BaseColour.PINK, "pink"),
-	QUEST_SIDE(false, BaseColour.BLUE, "blue"),
-	QUEST_RELATIONSHIP(false, BaseColour.PINK_LIGHT, "pink"),
+	QUEST_MAIN(false, BaseColour.PINK, "pink", Util.newArrayListOfValues("questMain", "mainQuest")),
+	QUEST_SIDE(false, BaseColour.BLUE, "blue", Util.newArrayListOfValues("questSide", "sideQuest")),
+	QUEST_RELATIONSHIP(false, BaseColour.PINK_LIGHT, "pink", Util.newArrayListOfValues("questRelationship", "relationshipQuest")),
 
 	MAP_MARKER(false, Util.newColour(0x6163DB), Util.newColour(0x6163DB), "blue"),
 
@@ -293,9 +305,9 @@ public enum Colour {
 	FEMININE_PLUS_NPC(false, BaseColour.PINK, "pink"),
 
 	// Combat colours:
-	DAMAGE_TYPE_PHYSICAL(false, Util.newColour(0xFF428E), Util.newColour(0xFF428E), "red", Util.newArrayListOfValues("dmgPhysical", "resPhysical", "physical")),
+	DAMAGE_TYPE_PHYSICAL(false, Util.newColour(0xA79E90), Util.newColour(0x5C4D42), "grey-brown", Util.newArrayListOfValues("dmgPhysical", "resPhysical", "physical")),
 	DAMAGE_TYPE_MANA(false, BaseColour.PURPLE_LIGHT, "purple", Util.newArrayListOfValues("dmgMana", "resMana")),
-	DAMAGE_TYPE_LUST(false, BaseColour.MAGENTA, "magenta", Util.newArrayListOfValues("dmgLust", "resLust")),
+	DAMAGE_TYPE_LUST(false, BaseColour.PINK_LIGHT, "light pink", Util.newArrayListOfValues("dmgLust", "resLust")),
 	DAMAGE_TYPE_SPELL(false, Util.newColour(0xFF6BDA), Util.newColour(0xFF6BDA), "pink", Util.newArrayListOfValues("dmgSpell", "resSpell", "spell")),
 	DAMAGE_TYPE_FIRE(false, Util.newColour(0xff9955), Util.newColour(0xff9955), "orange", Util.newArrayListOfValues("dmgFire", "resFire", "fire")),
 	DAMAGE_TYPE_COLD(false, Util.newColour(0x85C6FF), Util.newColour(0x85C6FF), "blue", Util.newArrayListOfValues("dmgCold", "resCold", "cold", "ice")),
@@ -312,16 +324,25 @@ public enum Colour {
 	RARITY_UNKNOWN(false, BaseColour.BLACK, "grey"),
 	RARITY_JINXED(false, BaseColour.RED, "red", Util.newArrayListOfValues("jinx", "jinxed")),
 	RARITY_COMMON(false, Util.newColour(0xf2f2f2), Util.newColour(0xf2f2f2), "white", Util.newArrayListOfValues("common")),
-	RARITY_UNCOMMON(false, Util.newColour(0x1de547), Util.newColour(0x108228), "green", Util.newArrayListOfValues("uncommon")),
+	RARITY_UNCOMMON(false, Util.newColour(0x57f17c), Util.newColour(0x108228), "green", Util.newArrayListOfValues("uncommon")),
 	RARITY_RARE(false, Util.newColour(0x47C2FF), Util.newColour(0x47C2FF), "blue", Util.newArrayListOfValues("rare")),
 	RARITY_EPIC(false, Util.newColour(0xFF4DFC), Util.newColour(0xFF4DFC), "purple", Util.newArrayListOfValues("epic")),
 	RARITY_LEGENDARY(false, Util.newColour(0xffcc00), Util.newColour(0xffcc00), "gold", Util.newArrayListOfValues("legendary")),
 	RARITY_QUEST(false, BaseColour.TEAL, "teal", Util.newArrayListOfValues("teal")),
 
+	RARITY_UNKNOWN_BACKGROUND(false, Util.newColour(0x252527), Util.newColour(0xAFAFB6), "grey"),
+	RARITY_JINXED_BACKGROUND(false, Util.newColour(0x694b4e), Util.newColour(0xE3B5B5), "red"),
+	RARITY_COMMON_BACKGROUND(false, Util.newColour(0x404040), Util.newColour(0xBDBDC1), "white"),
+	RARITY_UNCOMMON_BACKGROUND(false, Util.newColour(0x3D5C47), Util.newColour(0x3D5C47), "green"),
+	RARITY_RARE_BACKGROUND(false, Util.newColour(0x4b4b6c), Util.newColour(0xB4D0EE), "blue"),
+	RARITY_EPIC_BACKGROUND(false, Util.newColour(0x523455), Util.newColour(0xDDC1E2), "purple"),
+	RARITY_LEGENDARY_BACKGROUND(false, Util.newColour(0x4b4b33), Util.newColour(0xF1DEA7), "gold"),
+	RARITY_QUEST_BACKGROUND(false, Util.newColour(0x344C4B), Util.newColour(0xBEE4E4), "teal"),
+
 	// Inventory colours:
-	CURRENCY_GOLD(true, BaseColour.GOLD, "gold"),
-	CURRENCY_SILVER(true, BaseColour.SILVER, "gold"),
-	CURRENCY_COPPER(true, BaseColour.COPPER, "gold"),
+	CURRENCY_GOLD(true, BaseColour.GOLD, "gold", Util.newArrayListOfValues("currency", "currencyGold")),
+	CURRENCY_SILVER(true, BaseColour.SILVER, "silver", Util.newArrayListOfValues("currencySilver")),
+	CURRENCY_COPPER(true, BaseColour.COPPER, "copper", Util.newArrayListOfValues("currencyCopper")),
 
 	MILK(false, BaseColour.YELLOW_LIGHT,  "light yellow", Util.newArrayListOfValues("milk", "lactation")),
 	CUM(false, BaseColour.BLUE_LIGHT,  "light blue", Util.newArrayListOfValues("cum", "cummed", "dirty")),
@@ -332,7 +353,7 @@ public enum Colour {
 	PENIS(false, BaseColour.PURPLE,  "purple", Util.newArrayListOfValues("penis", "cock")),
 	NIPPLES(false, BaseColour.PINK_LIGHT,  "light pink", Util.newArrayListOfValues("nipples", "nipple")),
 	NIPPLES_CROTCH(false, BaseColour.PURPLE_LIGHT,  "light purple", Util.newArrayListOfValues("nipplesCrotch", "crotchNipples")),
-	URETHRA_PENIS(false, BaseColour.VIOLET,  "violet", Util.newArrayListOfValues("penisUrethra", "urethraPenis", "urethra")),
+	URETHRA_PENIS(false, BaseColour.PINK_SALMON,  "salmon-pink", Util.newArrayListOfValues("penisUrethra", "urethraPenis", "urethra")),
 	UREHTRA_VAGINA(false, BaseColour.LILAC,  "lilac", Util.newArrayListOfValues("vaginaUrethra", "urethraVagina")),
 	
 	SEALED(false, BaseColour.PINK_DEEP, "pink"),
@@ -346,21 +367,26 @@ public enum Colour {
 
 	// Standard colours used for clothing:
 	CLOTHING_WHITE(false, Util.newColour(0xdddddd), Util.newColour(0xdddddd), "white"),
+	CLOTHING_GREY_LIGHT(false, Util.newColour(0xaaaaaa), Util.newColour(0xaaaaaa), "light grey"),
 	CLOTHING_GREY(false, Util.newColour(0x777777), Util.newColour(0x777777), "grey"),
+	CLOTHING_GREY_DARK(false, Util.newColour(0x555555), Util.newColour(0x555555), "dark grey"),
 	CLOTHING_BLACK(false, Util.newColour(0x333333), Util.newColour(0x333333), "black"),
+	CLOTHING_BLACK_JET(false, Util.newColour(0x1a1a1a), Util.newColour(0x1a1a1a), "pitch black"),
 	
 	
 	CLOTHING_RED_VERY_DARK(false, Util.newColour(0x660016), Util.newColour(0x660016), "midnight red"),
 	CLOTHING_RED_DARK(false, Util.newColour(0x900020), Util.newColour(0x900020), "burgundy"),
 	CLOTHING_RED_BRIGHT(false, Util.newColour(0xFA2424), Util.newColour(0xFA2424), "bright red"),
 	CLOTHING_RED(false, Util.newColour(0xD84646), Util.newColour(0xD84646), "red"),
+	CLOTHING_DESATURATED_BROWN(false, Util.newColour(0x6c5d53), Util.newColour(0x6c5d53), "desaturated brown"),
 	CLOTHING_BROWN(false, Util.newColour(0xC87137), Util.newColour(0xC87137), "brown"),
 	CLOTHING_BROWN_DARK(false, Util.newColour(0x63391C), Util.newColour(0x63391C), "dark brown"),
 	CLOTHING_BROWN_VERY_DARK(false, Util.newColour(0x3C2211), Util.newColour(0x3C2211), "midnight brown"),
 	CLOTHING_ORANGE(false, Util.newColour(0xE79F6F), Util.newColour(0xE79F6F), "orange"),
 	CLOTHING_ORANGE_BRIGHT(false, Util.newColour(0xFF7900), Util.newColour(0xFF7900), "bright orange"),
 	CLOTHING_ORANGE_DARK(false, Util.newColour(0xE56D00), Util.newColour(0xE56D00), "dark orange"),
-	CLOTHING_TAN(false, BaseColour.TAN, "tan"),
+	CLOTHING_TAN(false, Util.newColour(0xEDC491), Util.newColour(0xEDC491), "tan"),
+	CLOTHING_KHAKI(false, Util.newColour(0xaa9e76), Util.newColour(0xaa9e76), "khaki"),
 	CLOTHING_OLIVE(false, Util.newColour(0x5f4a2a), Util.newColour(0x5f4a2a), "olive"),//0x887509 0x5f4a2a
 	CLOTHING_YELLOW(false, Util.newColour(0xE2C360), Util.newColour(0xE2C360), "yellow"),
 	CLOTHING_YELLOW_DARK(false, Util.newColour(0x7F691A), Util.newColour(0x7F691A), "mustard yellow"),
@@ -368,17 +394,19 @@ public enum Colour {
 	CLOTHING_GREEN(false, Util.newColour(0x74AA74), Util.newColour(0x74AA74), "green"),
 	CLOTHING_GREEN_DRAB(false, Util.newColour(0x4C5D4C), Util.newColour(0x4C5D4C), "drab green"),
 	CLOTHING_GREEN_DARK(false, Util.newColour(0x3B6F3D), Util.newColour(0x3B6F3D), "dark green"),
-	CLOTHING_GREEN_VERY_DARK(false, Util.newColour(0x112211), Util.newColour(0x112211), "midnight green"),
+	CLOTHING_GREEN_VERY_DARK(false, Util.newColour(0x1C311C), Util.newColour(0x1C311C), "midnight green"),
 	CLOTHING_TURQUOISE(false, Util.newColour(0x6EC4B3), Util.newColour(0x6EC4B3), "turquoise"),
 	CLOTHING_BLUE_LIGHT(false, Util.newColour(0x72CFE3), Util.newColour(0x72CFE3), "light blue"),
 	CLOTHING_BLUE(false, Util.newColour(0x3971C6), Util.newColour(0x3971C6), "blue"),
+	CLOTHING_BLUE_GREY(false, Util.newColour(0x5D8AA8), Util.newColour(0x5D8AA8), "blue-grey"),
+	CLOTHING_BLUE_NAVY(false, Util.newColour(0x1f2c3f), Util.newColour(0x1f2c3f), "navy blue"),
 	CLOTHING_BLUE_DARK(false, Util.newColour(0x003C89), Util.newColour(0x003C89), "dark blue"),
 	CLOTHING_BLUE_VERY_DARK(false, Util.newColour(0x002C66), Util.newColour(0x002C66), "midnight blue"),
 	CLOTHING_PURPLE_VERY_DARK(false, Util.newColour(0x322145), Util.newColour(0x322145), "midnight purple"),
 	CLOTHING_PURPLE_DARK(false, Util.newColour(0x674A95), Util.newColour(0x674A95), "dark purple"),
 	CLOTHING_PURPLE(false, Util.newColour(0xA382D3), Util.newColour(0xA382D3), "purple"),
 	CLOTHING_PURPLE_LIGHT(false, Util.newColour(0xC58ED7), Util.newColour(0xC58ED7), "violet"),
-	CLOTHING_PERIWINKLE(false, BaseColour.PERIWINKLE, "periwinkle"),
+	CLOTHING_PERIWINKLE(false, Util.newColour(0xCCCCFF), Util.newColour(0xCCCCFF), "periwinkle"),
 	CLOTHING_PINK_LIGHT(false, Util.newColour(0xF4B3F4), Util.newColour(0xF4B3F4), "light pink"),
 	CLOTHING_PINK(false, Util.newColour(0xD75086), Util.newColour(0xD75086), "pink"),
 	CLOTHING_PINK_DARK(false, Util.newColour(0xFF1493), Util.newColour(0xFF1493), "deep pink"),
@@ -386,6 +414,7 @@ public enum Colour {
 	
 	
 	CLOTHING_BLACK_STEEL(true, Util.newColour(0x333333), Util.newColour(0x333333), "black steel"),
+	CLOTHING_GUNMETAL(true, Util.newColour(0x555555), Util.newColour(0x555555), "gunmetal gray"),
 	CLOTHING_STEEL(true, Util.newColour(0x969696), Util.newColour(0x969696), "steel"),
 	CLOTHING_BRASS(true, Util.newColour(0xab8317), Util.newColour(0xab8317), "brass"),
 	CLOTHING_COPPER(true, Util.newColour(0xD46F2B), Util.newColour(0xD46F2B), "copper", Util.newArrayListOfValues("copper")),
@@ -428,6 +457,9 @@ public enum Colour {
 	SKIN_PURPLE_DARK(false, BaseColour.PURPLE_DARK, "dark purple"),
 	SKIN_IVORY(false, BaseColour.WHITE, "ivory"),
 	SKIN_GREY(false, BaseColour.GREY, "grey"),
+	SKIN_JET_BLACK(false, BaseColour.BLACK, "pitch black") {
+		public boolean isJetBlack() { return true; }
+	},
 
 	// Slime types:
 
@@ -454,8 +486,11 @@ public enum Colour {
 	SLIME_CLEAR(false, BaseColour.WHITE, "clear"),
 	SLIME_GREY(false, BaseColour.GREY, "translucent grey"),
 	SLIME_BLACK(false, BaseColour.BLACK, "translucent black"),
+	SLIME_JET_BLACK(false, BaseColour.BLACK, "translucent pitch black") {
+		public boolean isJetBlack() { return true; }
+	},
 	SLIME_WHITE(false, BaseColour.WHITE, "translucent white"),
-	SLIME_RAINBOW(false, BaseColour.PINK,
+	SLIME_RAINBOW(false, BaseColour.BLUE_LIGHT,
 			"translucent "
 			+ "<span style='color:#E64C4C;'>r</span>"
 			+ "<span style='color:#E6854C;'>a</span>"
@@ -464,8 +499,40 @@ public enum Colour {
 			+ "<span style='color:#4CB2E6;'>b</span>"
 			+ "<span style='color:#AD4CE6;'>o</span>"
 			+ "<span style='color:#E64CA8;'>w</span>") {
-		public boolean isRainbow() {
-			return true;
+		@Override
+		public List<String> getRainbowColours() {
+			return Util.newArrayListOfValues(
+					"#E64C4C",
+					"#E6854C",
+					"#E6C74C",
+					"#6EE64C",
+					"#4CB2E6",
+					"#AD4CE6",
+					"#E64CA8");
+		}
+	},
+	SLIME_RAINBOW_PASTEL(false, BaseColour.PINK_LIGHT,
+			"<span style='color:#4bb1d0;'>p</span>"
+			+ "<span style='color:#7bd8b0;'>a</span>"
+			+ "<span style='color:#83a5ef;'>s</span>"
+			+ "<span style='color:#ecb6f9;'>t</span>"
+			+ "<span style='color:#4bb1d0;'>e</span>"
+			+ "<span style='color:#7bd8b0;'>l</span>"
+			+ " "
+			+ "<span style='color:#83a5ef;'>r</span>"
+			+ "<span style='color:#ecb6f9;'>a</span>"
+			+ "<span style='color:#4bb1d0;'>i</span>"
+			+ "<span style='color:#7bd8b0;'>n</span>"
+			+ "<span style='color:#83a5ef;'>b</span>"
+			+ "<span style='color:#ecb6f9;'>o</span>"
+			+ "<span style='color:#4bb1d0;'>w</span>") {
+		@Override
+		public List<String> getRainbowColours() {
+			return Util.newArrayListOfValues(
+					"#4bb1d0",
+					"#7bd8b0",
+					"#83a5ef",
+					"#ecb6f9");
 		}
 	},
 
@@ -497,6 +564,9 @@ public enum Colour {
 	HORN_GREY(false, BaseColour.GREY, "grey"),
 	HORN_DARK_GREY(false, BaseColour.GREY_DARK, "dark-grey"),
 	HORN_BLACK(false, BaseColour.BLACK, "black"),
+	HORN_JET_BLACK(false, BaseColour.BLACK, "pitch black") {
+		public boolean isJetBlack() { return true; }
+	},
 	
 	HORN_RED(false, BaseColour.RED, "red"),
 	HORN_SCARLET(false, BaseColour.CRIMSON, "scarlet"),
@@ -518,6 +588,9 @@ public enum Colour {
 	ANTLER_GREY(false, BaseColour.GREY, "grey"),
 	ANTLER_DARK_GREY(false, BaseColour.GREY_DARK, "dark-grey"),
 	ANTLER_BLACK(false, BaseColour.BLACK, "black"),
+	ANTLER_JET_BLACK(false, BaseColour.BLACK, "pitch black") {
+		public boolean isJetBlack() { return true; }
+	},
 	
 	ANTLER_RED(false, BaseColour.RED, "red"),
 	ANTLER_SCARLET(false, BaseColour.CRIMSON, "scarlet"),
@@ -545,6 +618,9 @@ public enum Colour {
 	COVERING_BROWN(false, BaseColour.BROWN, "brown"),
 	COVERING_BROWN_DARK(false, BaseColour.BROWN_DARK, "dark brown"),
 	COVERING_BLACK(false, BaseColour.BLACK, "black"),
+	COVERING_JET_BLACK(false, BaseColour.BLACK, "pitch black") {
+		public boolean isJetBlack() { return true; }
+	},
 	COVERING_GREY(false, BaseColour.GREY, "grey"),
 	COVERING_DIRTY_BLONDE(false, BaseColour.TAN, "dirty-blonde"),
 	COVERING_BLONDE(false, BaseColour.YELLOW, "blonde"),
@@ -574,7 +650,7 @@ public enum Colour {
 	
 	// Specials:
 	COVERING_CLEAR(false, BaseColour.WHITE, "clear"), // For nail-polish
-	COVERING_RAINBOW(false, BaseColour.BLUE,
+	COVERING_RAINBOW(false, BaseColour.BLUE_LIGHT,
 			"<span style='color:#E64C4C;'>r</span>"
 			+ "<span style='color:#E6854C;'>a</span>"
 			+ "<span style='color:#E6C74C;'>i</span>"
@@ -582,8 +658,40 @@ public enum Colour {
 			+ "<span style='color:#4CB2E6;'>b</span>"
 			+ "<span style='color:#AD4CE6;'>o</span>"
 			+ "<span style='color:#E64CA8;'>w</span>") {
-		public boolean isRainbow() {
-			return true;
+		@Override
+		public List<String> getRainbowColours() {
+			return Util.newArrayListOfValues(
+					"#E64C4C",
+					"#E6854C",
+					"#E6C74C",
+					"#6EE64C",
+					"#4CB2E6",
+					"#AD4CE6",
+					"#E64CA8");
+		}
+	},
+	COVERING_RAINBOW_PASTEL(false, BaseColour.PINK_LIGHT,
+			"<span style='color:#4bb1d0;'>p</span>"
+			+ "<span style='color:#7bd8b0;'>a</span>"
+			+ "<span style='color:#83a5ef;'>s</span>"
+			+ "<span style='color:#ecb6f9;'>t</span>"
+			+ "<span style='color:#4bb1d0;'>e</span>"
+			+ "<span style='color:#7bd8b0;'>l</span>"
+			+ " "
+			+ "<span style='color:#83a5ef;'>r</span>"
+			+ "<span style='color:#ecb6f9;'>a</span>"
+			+ "<span style='color:#4bb1d0;'>i</span>"
+			+ "<span style='color:#7bd8b0;'>n</span>"
+			+ "<span style='color:#83a5ef;'>b</span>"
+			+ "<span style='color:#ecb6f9;'>o</span>"
+			+ "<span style='color:#4bb1d0;'>w</span>") {
+		@Override
+		public List<String> getRainbowColours() {
+			return Util.newArrayListOfValues(
+					"#4bb1d0",
+					"#7bd8b0",
+					"#83a5ef",
+					"#ecb6f9");
 		}
 	},
 	COVERING_NONE(false, BaseColour.GREY, "none"),
@@ -601,7 +709,8 @@ public enum Colour {
 	EYE_PERIWINKLE(false, BaseColour.PERIWINKLE, "periwinkle"),
 	EYE_LILAC(false, BaseColour.LILAC, "lilac"),
 	EYE_PURPLE(false, BaseColour.PURPLE, "purple"),
-	EYE_VIOLET(false, BaseColour.VIOLET, "violet"),
+	EYE_VIOLET(false, BaseColour.PURPLE_DARK, "violet"),
+	EYE_PINK_SALMON(false, BaseColour.PINK_SALMON, "salmon-pink"),
 	EYE_CRIMSON(false, BaseColour.CRIMSON, "crimson"),
 	EYE_GOLD(false, BaseColour.GOLD, "golden"),
 	EYE_SILVER(false, BaseColour.SILVER, "silver"),
@@ -611,10 +720,14 @@ public enum Colour {
 	EYE_RED(false, BaseColour.RED, "red"),
 	EYE_PINK(false, BaseColour.PINK, "pink"),
 	EYE_ORANGE(false, BaseColour.ORANGE, "orange"),
-	EYE_BLACK(false, BaseColour.BLACK, "black");
-	
+	EYE_BLACK(false, BaseColour.BLACK, "black"),
+	EYE_PITCH_BLACK(false, BaseColour.BLACK, "pitch black") {
+		public boolean isJetBlack() { return true; }
+	};
 	
 
+	public static final Colour[] ACTION_POINT_COLOURS = new Colour[] {Colour.GENERIC_EXCELLENT, Colour.GENERIC_GOOD, Colour.GENERIC_MINOR_GOOD, Colour.GENERIC_MINOR_BAD, Colour.GENERIC_BAD, Colour.GENERIC_TERRIBLE};
+	
 	// Skin/fur/body part groups:
 	
 	public static List<Colour> humanSkinColours = Util.newArrayListOfValues(
@@ -643,6 +756,7 @@ public enum Colour {
 			Colour.SKIN_EBONY,
 			Colour.SKIN_IVORY,
 			Colour.SKIN_GREY,
+			Colour.SKIN_JET_BLACK,
 			Colour.SKIN_RED,
 			Colour.SKIN_RED_DARK,
 			Colour.SKIN_BROWN,
@@ -672,6 +786,7 @@ public enum Colour {
 			Colour.SKIN_EBONY,
 			Colour.SKIN_IVORY,
 			Colour.SKIN_GREY,
+			Colour.SKIN_JET_BLACK,
 			Colour.SKIN_RED,
 			Colour.SKIN_RED_DARK,
 			Colour.SKIN_BROWN,
@@ -688,7 +803,8 @@ public enum Colour {
 			Colour.SKIN_PURPLE_DARK,
 			Colour.SKIN_PINK_LIGHT,
 			Colour.SKIN_PINK,
-			Colour.COVERING_RAINBOW);
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 
 
 	public static List<Colour> naturalSlimeColours = Util.newArrayListOfValues(
@@ -696,6 +812,7 @@ public enum Colour {
 			Colour.SLIME_WHITE,
 			Colour.SLIME_GREY,
 			Colour.SLIME_BLACK,
+			Colour.SLIME_JET_BLACK,
 			Colour.SLIME_RED,
 			Colour.SLIME_RED_DARK,
 			Colour.SLIME_BROWN_DARK,
@@ -718,13 +835,15 @@ public enum Colour {
 			);
 	
 	public static List<Colour> dyeSlimeColours = Util.newArrayListOfValues(
-			Colour.SLIME_RAINBOW
+			Colour.SLIME_RAINBOW,
+			Colour.SLIME_RAINBOW_PASTEL
 	);
 	
 	public static List<Colour> naturalFeatherColours = Util.newArrayListOfValues(
 			Colour.COVERING_WHITE,
 			Colour.COVERING_GREY,
 			Colour.COVERING_BLACK,
+			Colour.COVERING_JET_BLACK,
 			Colour.COVERING_RED_LIGHT,
 			Colour.COVERING_RED,
 			Colour.COVERING_RED_DARK,
@@ -759,7 +878,8 @@ public enum Colour {
 			Colour.COVERING_COPPER,
 			Colour.COVERING_STEEL,
 			Colour.COVERING_ROSE_GOLD,
-			Colour.COVERING_RAINBOW
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL
 			);
 			
 	public static List<Colour> naturalFurColours = Util.newArrayListOfValues(
@@ -771,7 +891,8 @@ public enum Colour {
 			Colour.COVERING_TAN,
 			Colour.COVERING_BROWN_DARK,
 			Colour.COVERING_GREY,
-			Colour.COVERING_BLACK);
+			Colour.COVERING_BLACK,
+			Colour.COVERING_JET_BLACK);
 
 	public static List<Colour> allCoveringColours = Util.newArrayListOfValues(
 			Colour.COVERING_PLATINUM,
@@ -784,6 +905,7 @@ public enum Colour {
 			Colour.COVERING_WHITE,
 			Colour.COVERING_GREY,
 			Colour.COVERING_BLACK,
+			Colour.COVERING_JET_BLACK,
 			Colour.COVERING_RED_LIGHT,
 			Colour.COVERING_RED,
 			Colour.COVERING_RED_DARK,
@@ -809,7 +931,8 @@ public enum Colour {
 			Colour.COVERING_PURPLE_DARK,
 			Colour.COVERING_PINK,
 			Colour.COVERING_PINK_LIGHT,
-			Colour.COVERING_RAINBOW
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL
 			);
 	
 	public static List<Colour> allMakeupColours = Util.mergeLists(Util.newArrayListOfValues(Colour.COVERING_CLEAR), allCoveringColours);
@@ -819,13 +942,15 @@ public enum Colour {
 			Colour.COVERING_BROWN,
 			Colour.COVERING_TAN,
 			Colour.COVERING_BROWN_DARK,
-			Colour.COVERING_BLACK);
+			Colour.COVERING_BLACK,
+			Colour.COVERING_JET_BLACK);
 
 	public static List<Colour> hornColours = Util.newArrayListOfValues(
 			Colour.HORN_WHITE,
 			Colour.HORN_GREY,
 			Colour.HORN_DARK_GREY,
-			Colour.HORN_BLACK);
+			Colour.HORN_BLACK,
+			Colour.HORN_JET_BLACK);
 	
 	public static List<Colour> dyeHornColours = Util.newArrayListOfValues(
 			Colour.HORN_RED,
@@ -838,7 +963,8 @@ public enum Colour {
 			Colour.HORN_BLUE,
 			Colour.HORN_LILAC,
 			Colour.HORN_PURPLE,
-			Colour.COVERING_RAINBOW);
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 
 	
 	// Antlers:
@@ -849,7 +975,8 @@ public enum Colour {
 			Colour.ANTLER_DARK_BROWN,
 			Colour.ANTLER_GREY,
 			Colour.ANTLER_DARK_GREY,
-			Colour.ANTLER_BLACK);
+			Colour.ANTLER_BLACK,
+			Colour.ANTLER_JET_BLACK);
 	
 
 	public static List<Colour> dyeAntlerColours = Util.newArrayListOfValues(
@@ -861,7 +988,8 @@ public enum Colour {
 			Colour.ANTLER_BLUE,
 			Colour.ANTLER_LILAC,
 			Colour.ANTLER_PURPLE,
-			Colour.COVERING_RAINBOW);
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 	
 	// Hair:
 	
@@ -874,7 +1002,8 @@ public enum Colour {
 			Colour.COVERING_BROWN_DARK,
 			Colour.COVERING_AUBURN,
 			Colour.COVERING_GREY,
-			Colour.COVERING_BLACK);
+			Colour.COVERING_BLACK,
+			Colour.COVERING_JET_BLACK);
 	
 	// Eyes:
 	
@@ -895,12 +1024,15 @@ public enum Colour {
 			Colour.EYE_CRIMSON,
 			Colour.EYE_ORANGE,
 			Colour.EYE_PINK,
-			Colour.EYE_VIOLET,
+			Colour.EYE_PINK_SALMON,
 			Colour.EYE_PERIWINKLE,
 			Colour.EYE_LILAC,
 			Colour.EYE_PURPLE,
+			Colour.EYE_VIOLET,
 			Colour.EYE_BLACK,
-			Colour.COVERING_RAINBOW);
+			Colour.EYE_PITCH_BLACK,
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 
 	public static List<Colour> naturalDemonIrisColours = Util.newArrayListOfValues(
 			Colour.EYE_BROWN,
@@ -915,16 +1047,19 @@ public enum Colour {
 			Colour.EYE_ORANGE,
 			Colour.EYE_YELLOW,
 			Colour.EYE_PINK,
-			Colour.EYE_VIOLET,
+			Colour.EYE_PINK_SALMON,
 			Colour.EYE_PERIWINKLE,
 			Colour.EYE_LILAC,
 			Colour.EYE_PURPLE,
-			Colour.EYE_BLACK);
+			Colour.EYE_VIOLET,
+			Colour.EYE_BLACK,
+			Colour.EYE_PITCH_BLACK);
 	
 	public static List<Colour> dyeDemonIrisColours = Util.newArrayListOfValues(
 			Colour.EYE_SILVER,
 			Colour.EYE_GOLD,
-			Colour.COVERING_RAINBOW);
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 	
 	
 	public static List<Colour> naturalPredatorIrisColours = Util.newArrayListOfValues(
@@ -943,11 +1078,14 @@ public enum Colour {
 			Colour.EYE_CRIMSON,
 			Colour.EYE_ORANGE,
 			Colour.EYE_PINK,
-			Colour.EYE_VIOLET,
+			Colour.EYE_PINK_SALMON,
 			Colour.EYE_LILAC,
 			Colour.EYE_PURPLE,
+			Colour.EYE_VIOLET,
 			Colour.EYE_BLACK,
-			Colour.COVERING_RAINBOW);
+			Colour.EYE_PITCH_BLACK,
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 	
 	
 	public static List<Colour> naturalPupilColours = Util.newArrayListOfValues(
@@ -968,11 +1106,14 @@ public enum Colour {
 			Colour.EYE_ORANGE,
 			Colour.EYE_AMBER,
 			Colour.EYE_PINK,
-			Colour.EYE_VIOLET,
+			Colour.EYE_PINK_SALMON,
 			Colour.EYE_PERIWINKLE,
 			Colour.EYE_LILAC,
 			Colour.EYE_PURPLE,
-			Colour.COVERING_RAINBOW);
+			Colour.EYE_VIOLET,
+			Colour.EYE_PITCH_BLACK,
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 	
 	public static List<Colour> naturalScleraColours = Util.newArrayListOfValues(
 			Colour.EYE_WHITE);
@@ -992,11 +1133,14 @@ public enum Colour {
 			Colour.EYE_ORANGE,
 			Colour.EYE_AMBER,
 			Colour.EYE_PINK,
-			Colour.EYE_VIOLET,
+			Colour.EYE_PINK_SALMON,
 			Colour.EYE_PERIWINKLE,
 			Colour.EYE_LILAC,
 			Colour.EYE_PURPLE,
-			Colour.COVERING_RAINBOW);
+			Colour.EYE_VIOLET,
+			Colour.EYE_PITCH_BLACK,
+			Colour.COVERING_RAINBOW,
+			Colour.COVERING_RAINBOW_PASTEL);
 	
 	
 	
@@ -1062,10 +1206,14 @@ public enum Colour {
 		return metallic;
 	}
 
-	public boolean isRainbow() {
-		return false;
+	public List<String> getRainbowColours() {
+		return null;
 	}
 
+	public boolean isJetBlack() {
+		return false;
+	}
+	
 	public String getName() {
 		return name;
 	}
